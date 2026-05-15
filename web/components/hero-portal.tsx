@@ -16,6 +16,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { AnimatedButterfly } from './animated-butterfly'
+import { MiniIcon, type IconKind } from './mini-icon'
 
 /** Esquinero decorativo dorado para las 4 esquinas del frame. */
 function FrameCorner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
@@ -52,56 +53,6 @@ function FrameCorner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
   )
 }
 
-/** Mini ícono SVG para el bottom row. Usa currentColor. */
-function MiniIcon({ kind }: { kind: 'cards' | 'book' | 'compass' | 'crystals' | 'prism' }) {
-  if (kind === 'cards') {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <rect x={10} y={6} width={16} height={26} rx={2} transform="rotate(-8 18 19)" />
-        <rect x={14} y={8} width={16} height={26} rx={2} transform="rotate(6 22 21)" />
-        <path d="M22 16 L24 19 L27 20 L24 21 L22 24 L20 21 L17 20 L20 19 Z" fill="currentColor" />
-      </svg>
-    )
-  }
-  if (kind === 'book') {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <path d="M4 10 Q4 8 6 8 L18 8 Q20 8 20 10 L20 32 Q20 30 18 30 L6 30 Q4 30 4 32 Z" />
-        <path d="M36 10 Q36 8 34 8 L22 8 Q20 8 20 10 L20 32 Q20 30 22 30 L34 30 Q36 30 36 32 Z" />
-        <path d="M20 14 L20 28" />
-        <circle cx={20} cy={4} r={1.5} fill="currentColor" />
-      </svg>
-    )
-  }
-  if (kind === 'compass') {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <circle cx={20} cy={20} r={16} />
-        <circle cx={20} cy={20} r={12} strokeDasharray="2 3" />
-        <path d="M20 8 L22 20 L20 32 L18 20 Z" fill="currentColor" stroke="none" />
-        <path d="M8 20 L20 22 L32 20 L20 18 Z" fill="currentColor" stroke="none" opacity={0.5} />
-        <circle cx={20} cy={20} r={2} fill="currentColor" />
-      </svg>
-    )
-  }
-  if (kind === 'crystals') {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        <path d="M20 6 L26 16 L26 30 L20 36 L14 30 L14 16 Z" />
-        <path d="M20 6 L20 36 M14 16 L26 16 M14 30 L26 30" />
-        <path d="M8 20 L12 26 L12 34 L8 38 L4 34 L4 26 Z" transform="translate(2,0)" />
-        <path d="M32 20 L36 26 L36 34 L32 38 L28 34 L28 26 Z" transform="translate(-2,0)" />
-      </svg>
-    )
-  }
-  // prism
-  return (
-    <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path d="M20 4 L34 14 L34 30 L20 36 L6 30 L6 14 Z" />
-      <path d="M20 4 L20 36 M6 14 L34 14 M6 30 L34 30 M6 14 L34 30 M34 14 L6 30" />
-    </svg>
-  )
-}
 
 type NavLink = { href: string; label: string; active?: boolean }
 const NAV_LINKS: readonly NavLink[] = [
@@ -112,40 +63,22 @@ const NAV_LINKS: readonly NavLink[] = [
   { href: '#atelier', label: 'Atelier' },
 ]
 
-const SIDEBAR_CARDS = [
-  {
-    id: 'codice',
-    title: 'Códice\nSagrado',
-    accent: 'var(--color-gold)',
-    icon: 'book' as const,
-  },
-  {
-    id: 'archivo',
-    title: 'Archivo\nAstral',
-    accent: 'var(--color-lavender)',
-    icon: 'compass' as const,
-  },
-  {
-    id: 'circulo',
-    title: 'El\nCírculo',
-    accent: 'var(--color-coral)',
-    icon: 'crystals' as const,
-  },
-  {
-    id: 'atelier',
-    title: 'Atelier\nCreativo',
-    accent: 'var(--color-crystal-cyan)',
-    icon: 'prism' as const,
-  },
-] as const
+type SidebarCard = { id: string; title: string; accent: string; icon: IconKind }
+const SIDEBAR_CARDS: readonly SidebarCard[] = [
+  { id: 'codice',   title: 'Códice\nSagrado',  accent: 'var(--color-gold)',         icon: 'grimoire' },
+  { id: 'archivo',  title: 'Archivo\nAstral',  accent: 'var(--color-lavender)',     icon: 'mandala-astral' },
+  { id: 'circulo',  title: 'El\nCírculo',      accent: 'var(--color-coral)',        icon: 'bonfire' },
+  { id: 'atelier',  title: 'Atelier\nCreativo',accent: 'var(--color-crystal-cyan)', icon: 'rainbow-crystal' },
+]
 
-const BOTTOM_NAV = [
-  { id: 'oraculo',     label: 'Oráculo',              icon: 'cards' as const,    accent: 'var(--color-violet-flower)' },
-  { id: 'lecturas',    label: 'Lecturas',             icon: 'book' as const,     accent: 'var(--color-gold-bright)' },
-  { id: 'herramientas',label: 'Herramientas Astrales',icon: 'compass' as const,  accent: 'var(--color-lavender)' },
-  { id: 'comunidad',   label: 'Comunidad',            icon: 'crystals' as const, accent: 'var(--color-crystal-pink)' },
-  { id: 'atelier',     label: 'Atelier',              icon: 'prism' as const,    accent: 'var(--color-crystal-cyan)' },
-] as const
+type BottomItem = { id: string; label: string; icon: IconKind; accent: string }
+const BOTTOM_NAV: readonly BottomItem[] = [
+  { id: 'oraculo',      label: 'Oráculo',               icon: 'tarot-cards',     accent: 'var(--color-violet-flower)' },
+  { id: 'lecturas',     label: 'Lecturas',              icon: 'open-book',       accent: 'var(--color-gold-bright)' },
+  { id: 'herramientas', label: 'Herramientas Astrales', icon: 'astrolabe',       accent: 'var(--color-lavender)' },
+  { id: 'comunidad',    label: 'Comunidad',             icon: 'crystal-cluster', accent: 'var(--color-crystal-pink)' },
+  { id: 'atelier',      label: 'Atelier',               icon: 'prism',           accent: 'var(--color-crystal-cyan)' },
+]
 
 export function HeroPortal() {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -235,7 +168,10 @@ export function HeroPortal() {
       </div>
 
       {/* Header */}
-      <header
+      <motion.header
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute left-1/2 top-7 -translate-x-1/2 flex w-[calc(100%-72px)] max-w-[1280px] items-center justify-between gap-6 rounded-full border border-[var(--color-gold)]/40 px-6 py-3"
         style={{
           background: 'rgba(26,15,61,0.55)',
@@ -305,10 +241,13 @@ export function HeroPortal() {
         >
           Login
         </a>
-      </header>
+      </motion.header>
 
       {/* Hero text block — izquierda */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, x: -24 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="absolute left-[6%] top-1/2 -translate-y-1/2 flex max-w-[440px] flex-col gap-6"
         style={{ zIndex: 30 }}
       >
@@ -413,18 +352,29 @@ export function HeroPortal() {
         >
           Una experiencia inmersiva de bienestar emocional y sabiduría mística.
         </p>
-      </div>
+      </motion.div>
 
       {/* Sidebar derecha — 4 cards */}
-      <aside
+      <motion.aside
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden:  {},
+          visible: { transition: { staggerChildren: 0.12, delayChildren: 0.5 } },
+        }}
         className="absolute right-[3%] top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3"
         style={{ zIndex: 30 }}
       >
         {SIDEBAR_CARDS.map((card) => (
-          <a
+          <motion.a
             key={card.id}
             href={`#${card.id}`}
-            className="group flex w-[180px] items-center gap-3 rounded-lg border border-[var(--color-gold)]/30 px-4 py-3 transition-all hover:border-[var(--color-gold)]/70 hover:bg-[var(--color-purple-night)]/50"
+            variants={{
+              hidden:  { opacity: 0, x: 32 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+            }}
+            whileHover={{ scale: 1.035, x: -4 }}
+            className="group flex w-[180px] items-center gap-3 rounded-lg border border-[var(--color-gold)]/30 px-4 py-3 transition-colors hover:border-[var(--color-gold)]/70 hover:bg-[var(--color-purple-night)]/50"
             style={{
               background: 'rgba(26,15,61,0.55)',
               backdropFilter: 'blur(10px)',
@@ -467,35 +417,48 @@ export function HeroPortal() {
                 Explorar →
               </span>
             </div>
-          </a>
+          </motion.a>
         ))}
-      </aside>
+      </motion.aside>
 
       {/* Bottom row — 5 iconos circulares */}
-      <nav
+      <motion.nav
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden:  {},
+          visible: { transition: { staggerChildren: 0.08, delayChildren: 0.7 } },
+        }}
         aria-label="Acceso rápido"
         className="absolute left-1/2 bottom-10 -translate-x-1/2 flex items-end gap-5 md:gap-10"
         style={{ zIndex: 30 }}
       >
         {BOTTOM_NAV.map((item) => (
-          <a
+          <motion.a
             key={item.id}
             href={`#${item.id}`}
-            className="group flex flex-col items-center gap-2 transition-transform hover:scale-[1.06]"
+            variants={{
+              hidden:  { opacity: 0, y: 24, scale: 0.85 },
+              visible: { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+            }}
+            whileHover={{ scale: 1.08, y: -4 }}
+            whileTap={{ scale: 0.97 }}
+            className="group flex flex-col items-center gap-2"
           >
             <div
-              className="flex h-14 w-14 items-center justify-center rounded-full border transition-all md:h-16 md:w-16"
+              className="flex h-14 w-14 items-center justify-center rounded-full border md:h-16 md:w-16"
               style={{
-                background: `radial-gradient(circle, ${item.accent}33 0%, rgba(26,15,61,0.7) 80%)`,
-                borderColor: `${item.accent}88`,
+                background: `radial-gradient(circle, ${item.accent}40 0%, rgba(26,15,61,0.7) 80%)`,
+                borderColor: `${item.accent}AA`,
                 color: item.accent,
-                boxShadow: `0 0 24px ${item.accent}33, inset 0 1px 0 rgba(255,255,255,0.15)`,
+                boxShadow: `0 0 24px ${item.accent}55, inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.3)`,
+                animation: 'elara-icon-breath 4s ease-in-out infinite',
               }}
             >
               <MiniIcon kind={item.icon} />
             </div>
             <span
-              className="hidden md:block max-w-[100px] text-center"
+              className="hidden md:block max-w-[110px] text-center"
               style={{
                 fontFamily: 'var(--font-sans)',
                 color: 'var(--color-cream)',
@@ -508,9 +471,17 @@ export function HeroPortal() {
             >
               {item.label}
             </span>
-          </a>
+          </motion.a>
         ))}
-      </nav>
+
+        {/* Idle breathing animation para los iconos */}
+        <style jsx global>{`
+          @keyframes elara-icon-breath {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.04); }
+          }
+        `}</style>
+      </motion.nav>
     </section>
   )
 }
