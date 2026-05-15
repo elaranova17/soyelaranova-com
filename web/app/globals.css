@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/**
+ * Design tokens · Elara Nova
+ * Marca contemplativa-mística para mujeres latinas en reinvención.
+ */
+@theme {
+  /* Profundidad — fondos */
+  --color-void:           #0A0010;
+  --color-purple-night:   #1A0F3D;
+  --color-purple-deep:    #2D1B69;
+  --color-purple-mid:     #3D2580;
+  --color-purple-amethyst:#5A2E8C;
+
+  /* Luz — acentos */
+  --color-gold:           #D4AF37;
+  --color-gold-bright:    #F2D578;
+  --color-gold-soft:      #E5C770;
+  --color-gold-dark:      #8B6914;
+  --color-lavender:       #9B6BC4;
+  --color-pale-lav:       #E5DBF0;
+
+  /* Flora */
+  --color-coral:          #E85A6B;
+  --color-rose:           #C9657A;
+  --color-violet-flower:  #7B3FA0;
+
+  /* Cristales */
+  --color-crystal-pink:   #E8A0B8;
+  --color-crystal-cyan:   #6FD8E8;
+  --color-cream:          #FAF4E2;
+
+  /* Tipografía */
+  --font-display: var(--font-playfair);
+  --font-serif:   var(--font-cormorant);
+  --font-sans:    var(--font-lato);
+}
+
+html, body {
+  background: var(--color-void);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-purple-night);
+}
