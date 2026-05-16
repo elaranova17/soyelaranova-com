@@ -11,11 +11,11 @@ import { motion } from 'framer-motion'
 
 type NavLink = { href: string; label: string }
 const NAV: readonly NavLink[] = [
-  { href: '/',          label: 'Inicio' },
-  { href: '/portal',    label: 'Portal' },
-  { href: '/codice',    label: 'Códice' },
-  { href: '/comunidad', label: 'Comunidad' },
-  { href: '/atelier',   label: 'Atelier' },
+  { href: '/',         label: 'Inicio' },
+  { href: '/universo', label: 'Universo' },
+  { href: '/codice',   label: 'Códice' },
+  { href: '/circulo',  label: 'Círculo' },
+  { href: '/atelier',  label: 'Atelier' },
 ]
 
 export function SiteHeader({ active }: { active?: string }) {

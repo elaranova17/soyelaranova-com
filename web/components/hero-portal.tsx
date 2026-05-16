@@ -59,9 +59,9 @@ function FrameCorner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
 type NavLink = { href: string; label: string; active?: boolean }
 const NAV_LINKS: readonly NavLink[] = [
   { href: '/',          label: 'Inicio', active: true },
-  { href: '/portal',    label: 'Portal' },
+  { href: '/universo',  label: 'Universo' },
   { href: '/codice',    label: 'Códice' },
-  { href: '/comunidad', label: 'Comunidad' },
+  { href: '/circulo',   label: 'Círculo' },
   { href: '/atelier',   label: 'Atelier' },
 ]
 
