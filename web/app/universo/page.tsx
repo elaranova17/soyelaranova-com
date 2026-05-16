@@ -54,7 +54,7 @@ const SECTIONS: ReadonlyArray<Section> = [
   {
     num: '05',
     slug: 'atelier-creativo',
-    bg: '/hero/b2b-bg.jpg',
+    bg: '/hero/atelier-bg.jpg',
     title: 'Atelier Creativo',
     description: 'Servicios, portafolio y procesos creativos.',
     href: '/atelier',
