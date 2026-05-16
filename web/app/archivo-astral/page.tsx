@@ -1,18 +1,34 @@
 import type { Metadata } from 'next'
-import { ComingSoonSection } from '@/components/coming-soon-section'
+import { ImmersiveScene } from '@/components/immersive-scene'
 
 export const metadata: Metadata = {
   title: 'Archivo Astral · Elara Nova',
-  description: 'Tu mapa natal guardado, tus tránsitos del mes, tu historia astral.',
+  description:
+    'Tu mapa natal guardado, tus tránsitos del mes, tu historia astral.',
 }
 
 export default function ArchivoAstralPage() {
   return (
-    <ComingSoonSection
-      bg="/hero/manifiesto-bg.jpg"
-      eyebrow="Archivo Astral"
-      title="Tu historia escrita en el cielo."
-      description="Tu carta natal queda guardada en tu cuenta. Tránsitos del mes, retornos solares y mapas comparativos."
+    <ImmersiveScene
+      activeNav="/archivo-astral"
+      bg="/hero/archivo-astral-bg.jpg"
+      layerBg="/hero/astrologo-escritorio.jpg"
+      bgAlt="Observatorio mistico con telescopio, mapas astrales y mandala compass"
+      eyebrow="02 · Archivo Astral"
+      title={
+        <>
+          Tu historia escrita{' '}
+          <em style={{ color: 'var(--color-gold-bright)' }}>en el cielo</em>.
+        </>
+      }
+      description={
+        <>
+          Tu carta natal queda guardada en tu cuenta. Tránsitos del mes,
+          retornos solares y mapas comparativos.
+        </>
+      }
+      ctaPrimary={{ label: 'Calcular mi carta', href: '/lecturas' }}
+      ctaSecondary={{ label: 'Ver tránsitos', href: '/herramientas' }}
     />
   )
 }

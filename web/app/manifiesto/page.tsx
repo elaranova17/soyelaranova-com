@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ComingSoonSection } from '@/components/coming-soon-section'
+import { ImmersiveScene } from '@/components/immersive-scene'
 
 export const metadata: Metadata = {
   title: 'Manifiesto · Elara Nova',
@@ -8,11 +8,25 @@ export const metadata: Metadata = {
 
 export default function ManifiestoPage() {
   return (
-    <ComingSoonSection
+    <ImmersiveScene
+      activeNav="/universo"
       bg="/hero/manifiesto-bg.jpg"
+      bgAlt="Terraza con luna llena al amanecer, lago y montañas violetas en el horizonte"
       eyebrow="06 · Manifiesto"
-      title="Lo que crees, lo creas."
-      description="Un universo, múltiples experiencias. Si llegaste hasta aquí, ya empezaste el camino de regreso a vos."
+      title={
+        <>
+          Lo que crees,{' '}
+          <em style={{ color: 'var(--color-gold-bright)' }}>lo creas</em>.
+        </>
+      }
+      description={
+        <>
+          Un universo, múltiples experiencias. Si llegaste hasta aquí, ya
+          empezaste el camino de regreso a vos.
+        </>
+      }
+      ctaPrimary={{ label: 'Comenzar el viaje', href: '/oraculo' }}
+      ctaSecondary={{ label: 'Volver al universo', href: '/universo' }}
     />
   )
 }

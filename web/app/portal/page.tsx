@@ -1,18 +1,33 @@
 import type { Metadata } from 'next'
-import { ComingSoonSection } from '@/components/coming-soon-section'
+import { ImmersiveScene } from '@/components/immersive-scene'
 
 export const metadata: Metadata = {
-  title: 'Portal · Elara Nova',
-  description: 'La puerta de entrada a tu viaje ancestral.',
+  title: 'Portal Lunar · Elara Nova',
+  description:
+    'La puerta abierta hacia adentro. Calendario lunar, carta astral y oráculo íntimo.',
 }
 
 export default function PortalPage() {
   return (
-    <ComingSoonSection
-      bg="/hero/hero-bg.jpg"
-      eyebrow="Elara Nova · Portal"
-      title="La puerta abierta hacia adentro."
-      description="Aquí confluyen tu calendario lunar, tu carta astral y tu oráculo íntimo. Pronto verás el portal completo."
+    <ImmersiveScene
+      activeNav="/universo"
+      bg="/hero/portal-lunar-bg.jpg"
+      bgAlt="Portal espiral con mariposas doradas en escena mistica"
+      eyebrow="01 · Portal Lunar"
+      title={
+        <>
+          La puerta abierta{' '}
+          <em style={{ color: 'var(--color-gold-bright)' }}>hacia adentro</em>.
+        </>
+      }
+      description={
+        <>
+          Aquí confluyen tu calendario lunar, tu carta astral y tu oráculo
+          íntimo. El primer paso del viaje de regreso a vos.
+        </>
+      }
+      ctaPrimary={{ label: 'Entrar al portal', href: '/oraculo' }}
+      ctaSecondary={{ label: 'Ver mi calendario', href: '/calendario' }}
     />
   )
 }
