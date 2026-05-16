@@ -56,28 +56,28 @@ function FrameCorner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
 
 type NavLink = { href: string; label: string; active?: boolean }
 const NAV_LINKS: readonly NavLink[] = [
-  { href: '#inicio', label: 'Inicio', active: true },
-  { href: '#portal', label: 'Portal' },
-  { href: '#codice', label: 'Códice' },
-  { href: '#comunidad', label: 'Comunidad' },
-  { href: '#atelier', label: 'Atelier' },
+  { href: '/',          label: 'Inicio', active: true },
+  { href: '/portal',    label: 'Portal' },
+  { href: '/codice',    label: 'Códice' },
+  { href: '/comunidad', label: 'Comunidad' },
+  { href: '/atelier',   label: 'Atelier' },
 ]
 
-type SidebarCard = { id: string; title: string; accent: string; icon: IconKind }
+type SidebarCard = { href: string; title: string; accent: string; icon: IconKind }
 const SIDEBAR_CARDS: readonly SidebarCard[] = [
-  { id: 'codice',   title: 'Códice\nSagrado',  accent: 'var(--color-gold)',         icon: 'grimoire' },
-  { id: 'archivo',  title: 'Archivo\nAstral',  accent: 'var(--color-lavender)',     icon: 'mandala-astral' },
-  { id: 'circulo',  title: 'El\nCírculo',      accent: 'var(--color-coral)',        icon: 'bonfire' },
-  { id: 'atelier',  title: 'Atelier\nCreativo',accent: 'var(--color-crystal-cyan)', icon: 'rainbow-crystal' },
+  { href: '/codice',         title: 'Códice\nSagrado',   accent: 'var(--color-gold)',         icon: 'grimoire' },
+  { href: '/archivo-astral', title: 'Archivo\nAstral',   accent: 'var(--color-lavender)',     icon: 'mandala-astral' },
+  { href: '/circulo',        title: 'El\nCírculo',       accent: 'var(--color-coral)',        icon: 'bonfire' },
+  { href: '/atelier',        title: 'Atelier\nCreativo', accent: 'var(--color-crystal-cyan)', icon: 'rainbow-crystal' },
 ]
 
-type BottomItem = { id: string; label: string; icon: IconKind; accent: string }
+type BottomItem = { href: string; label: string; icon: IconKind; accent: string }
 const BOTTOM_NAV: readonly BottomItem[] = [
-  { id: 'oraculo',      label: 'Oráculo',               icon: 'tarot-cards',     accent: 'var(--color-violet-flower)' },
-  { id: 'lecturas',     label: 'Lecturas',              icon: 'open-book',       accent: 'var(--color-gold-bright)' },
-  { id: 'herramientas', label: 'Herramientas Astrales', icon: 'astrolabe',       accent: 'var(--color-lavender)' },
-  { id: 'comunidad',    label: 'Comunidad',             icon: 'crystal-cluster', accent: 'var(--color-crystal-pink)' },
-  { id: 'atelier',      label: 'Atelier',               icon: 'prism',           accent: 'var(--color-crystal-cyan)' },
+  { href: '/oraculo',      label: 'Oráculo',               icon: 'tarot-cards',     accent: 'var(--color-violet-flower)' },
+  { href: '/lecturas',     label: 'Lecturas',              icon: 'open-book',       accent: 'var(--color-gold-bright)' },
+  { href: '/herramientas', label: 'Herramientas Astrales', icon: 'astrolabe',       accent: 'var(--color-lavender)' },
+  { href: '/comunidad',    label: 'Comunidad',             icon: 'crystal-cluster', accent: 'var(--color-crystal-pink)' },
+  { href: '/atelier',      label: 'Atelier',               icon: 'prism',           accent: 'var(--color-crystal-cyan)' },
 ]
 
 export function HeroPortal() {
@@ -310,7 +310,7 @@ export function HeroPortal() {
         {/* 2 CTAs */}
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="#iniciar"
+            href="/portal"
             className="rounded-full px-7 py-3 font-bold uppercase transition-transform hover:scale-[1.03]"
             style={{
               background: 'linear-gradient(180deg, var(--color-gold-bright), var(--color-gold) 55%, var(--color-gold-dark))',
@@ -325,7 +325,7 @@ export function HeroPortal() {
             Iniciar viaje
           </a>
           <a
-            href="#codice"
+            href="/codice"
             className="rounded-full border border-[var(--color-gold)]/60 px-6 py-3 transition-all hover:bg-[var(--color-gold)]/15"
             style={{
               fontFamily: 'var(--font-sans)',
@@ -367,8 +367,8 @@ export function HeroPortal() {
       >
         {SIDEBAR_CARDS.map((card) => (
           <motion.a
-            key={card.id}
-            href={`#${card.id}`}
+            key={card.href}
+            href={card.href}
             variants={{
               hidden:  { opacity: 0, x: 32 },
               visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
@@ -435,8 +435,8 @@ export function HeroPortal() {
       >
         {BOTTOM_NAV.map((item) => (
           <motion.a
-            key={item.id}
-            href={`#${item.id}`}
+            key={item.href}
+            href={item.href}
             variants={{
               hidden:  { opacity: 0, y: 24, scale: 0.85 },
               visible: { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
