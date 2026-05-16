@@ -9,10 +9,13 @@ const nextConfig: NextConfig = {
    */
   async rewrites() {
     return [
+      // Páginas rediseñadas en Next.js NO tienen rewrite (se sirven desde app/<route>/page.tsx)
+      // /linktree → app/linktree/page.tsx (rediseñado)
+
+      // Páginas legacy aún servidas como HTML estático hasta tener su diseño nuevo
       { source: '/cv',                destination: '/cv.html' },
       { source: '/portfolio',         destination: '/portfolio.html' },
       { source: '/portfolio-print',   destination: '/portfolio-print.html' },
-      { source: '/linktree',          destination: '/linktree.html' },
       { source: '/propuesta',         destination: '/propuesta-template.html' },
     ]
   },
