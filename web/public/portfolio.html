@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Evelyn Patiño Laverde · Portfolio · Servicios Freelance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Portfolio de Evelyn Patiño Laverde — Ingeniera de software · Especialista Angular · Servicios freelance desde Suiza para clientes en España y LATAM." />
+<meta name="theme-color" content="#2D1B69" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type"        content="website" />
+<meta property="og:title"       content="Portfolio · Evelyn Patiño Laverde — Servicios Freelance" />
+<meta property="og:description" content="Pienso como diseñadora, construyo como ingeniera. Sitios web, apps a medida, IA aplicada y análisis técnico desde Suiza para España y LATAM." />
+<meta property="og:url"         content="https://elaranova17.github.io/soyelaranova-com/docs/portfolio/portfolio.html" />
+<meta property="og:image"       content="https://elaranova17.github.io/soyelaranova-com/docs/_assets/photos/og-portfolio.jpg" />
+<meta property="og:image:width"  content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt"    content="Evelyn Patiño Laverde · Servicios Freelance" />
+<meta property="og:locale"      content="es_ES" />
+<meta property="og:site_name"   content="Evelyn Patiño Laverde" />
+
+<!-- Twitter card -->
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content="Portfolio · Evelyn Patiño Laverde — Servicios Freelance" />
+<meta name="twitter:description" content="Pienso como diseñadora, construyo como ingeniera. Sitios web, apps a medida, IA aplicada y análisis técnico." />
+<meta name="twitter:image"       content="https://elaranova17.github.io/soyelaranova-com/docs/_assets/photos/og-portfolio.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   ELARA · DESIGN SYSTEM v3 · Portfolio
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --purple-deep: #2D1B69;
+  --purple-mid:  #3D2580;
+  --purple:      #4A2D9C;
+  --lavender:    #9B6BC4;
+  --pale-lav:    #E5DBF0;
+  --mist:        #F5F0F9;
+  --mist-warm:   #FAF6F0;
+  --gold:        #D4AF37;
+  --gold-soft:   #E5C770;
+  --gold-dark:   #B8941F;
+  --cream:       #F5F0E1;
+  --cream-warm:  #FAF4E2;
+  --ink:         #1A0F3D;
+  --grey:        #6B6680;
+
+  --display: 'Playfair Display', 'Times New Roman', serif;
+  --serif:   'Cormorant Garamond', 'Georgia', serif;
+  --sans:    'Lato', system-ui, -apple-system, sans-serif;
+
+  --max-w: 76rem;
+  --shadow-soft:   0 4px 20px -8px rgba(45, 27, 105, 0.18);
+  --shadow-medium: 0 12px 40px -16px rgba(45, 27, 105, 0.32);
+  --shadow-deep:   0 24px 60px -20px rgba(45, 27, 105, 0.42);
+  --shadow-gold:   0 8px 32px -12px rgba(212, 175, 55, 0.45);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--cream-warm);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--gold); color: var(--purple-deep); }
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  color: var(--purple-deep);
+  letter-spacing: -0.018em;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--gold-dark); }
+
+img { max-width: 100%; display: block; }
+
+.container        { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+.container-narrow { max-width: 52rem;        margin: 0 auto; padding: 0 2.5rem; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+.gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C770 50%, #B8941F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* LANGUAGE SWITCHER */
+.lang-bar {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background: rgba(45, 27, 105, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  box-shadow: var(--shadow-medium);
+}
+
+.lang-btn {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  color: rgba(245, 240, 225, 0.6);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.lang-btn:hover { color: var(--gold-soft); }
+.lang-btn[data-active="true"] { background: var(--gold); color: var(--purple-deep); }
+
+/* ═══════════════════════════════════════════════════════ HERO ═══════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(155, 107, 196, 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, #2D1B69 0%, #3D2580 50%, #4A2D9C 100%);
+  color: var(--cream);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'><g stroke='%23D4AF37' stroke-width='0.45' fill='none' opacity='0.32'><path d='M -50 220 Q 350 290 700 220 T 1450 220'/><path d='M -50 240 Q 350 310 700 240 T 1450 240'/><path d='M -50 260 Q 350 330 700 260 T 1450 260'/><path d='M -50 280 Q 350 350 700 280 T 1450 280'/><path d='M -50 300 Q 350 370 700 300 T 1450 300'/><path d='M -50 320 Q 350 390 700 320 T 1450 320'/><polyline points='1080,140 1280,50 1390,180'/><polyline points='1280,50 1260,160'/><circle cx='180' cy='100' r='1.5' fill='%23D4AF37'/><circle cx='1100' cy='480' r='1' fill='%23D4AF37'/><circle cx='720' cy='180' r='1.6' fill='%23D4AF37'/><circle cx='340' cy='620' r='1' fill='%23D4AF37'/><circle cx='950' cy='720' r='1.2' fill='%23D4AF37'/></g></svg>");
+  background-size: cover;
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.hero__watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 28rem;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.04);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__eyebrow { color: var(--gold); margin-bottom: 1.75rem; }
+.hero__eyebrow::before { background: var(--gold); }
+
+.hero__name {
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.1em;
+}
+.hero__name::after {
+  content: '*';
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.45em;
+  vertical-align: top;
+  margin-left: 0.1em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero__last {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: transparent;
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C770 50%, #B8941F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
+.hero__diamond { display: inline-flex; align-items: center; gap: 0.85rem; margin: 2rem 0; }
+.hero__diamond::before, .hero__diamond::after { content: ''; width: 60px; height: 1px; background: var(--gold); }
+.hero__diamond span { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+
+.hero__role {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.hero__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--lavender);
+  margin-bottom: 3rem;
+}
+
+.hero__quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--gold);
+  margin: 2rem auto 2.5rem;
+  max-width: 38rem;
+  line-height: 1.4;
+}
+.hero__quote::before { content: '\201C'; margin-right: 0.2rem; }
+.hero__quote::after  { content: '\201D'; margin-left: 0.2rem; }
+
+.hero__locations {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 2rem;
+  align-items: center;
+}
+.hero__locations .sep { color: rgba(212, 175, 55, 0.4); }
+
+.hero__url {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(245, 240, 225, 0.55);
+}
+
+/* ═══════════════════════════════════════════════════════ SECTIONS ═══════════════════════════════════════════════════════ */
+section { padding: 7rem 0; position: relative; }
+
+.section--alt   { background: linear-gradient(180deg, var(--mist-warm) 0%, var(--cream-warm) 100%); }
+.section--cream { background: var(--cream-warm); }
+.section--dark  { background: var(--purple-deep); color: var(--cream); overflow: hidden; }
+.section--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(155, 107, 196, 0.18), transparent 38%),
+    radial-gradient(circle at 88% 82%, rgba(212, 175, 55, 0.12), transparent 48%);
+  pointer-events: none;
+}
+.section--dark > .container { position: relative; z-index: 1; }
+.section--dark h1, .section--dark h2, .section--dark h3 { color: var(--cream); }
+.section--dark .eyebrow { color: var(--gold); }
+.section--dark .eyebrow::before { background: var(--gold); }
+
+.section__watermark {
+  position: absolute;
+  font-family: var(--display);
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(8rem, 20vw, 18rem);
+  color: rgba(45, 27, 105, 0.04);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+  top: 2rem;
+  right: -1rem;
+  z-index: 0;
+}
+.section--dark .section__watermark { color: rgba(212, 175, 55, 0.05); }
+
+.section__head { margin-bottom: 4rem; position: relative; z-index: 1; }
+
+.section__title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  margin: 0.5rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.section__title em { font-family: var(--display); font-style: italic; font-weight: 400; }
+
+.section__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--gold-dark);
+  max-width: 36rem;
+  line-height: 1.4;
+}
+.section--dark .section__sub { color: var(--gold); }
+
+.gold-rule-fancy { display: flex; align-items: center; gap: 0.85rem; margin-top: 1.5rem; }
+.gold-rule-fancy::before { content: ''; width: 60px; height: 1px; background: var(--gold); }
+.gold-rule-fancy::after  { content: '◆'; color: var(--gold); font-size: 0.7rem; }
+
+/* ═══════════════════════════════════════════════════════ ABOUT ═══════════════════════════════════════════════════════ */
+.about__grid { display: grid; grid-template-columns: 0.85fr 1fr; gap: 5rem; align-items: start; }
+
+.about__photo-wrap { position: relative; perspective: 1000px; }
+
+.about__photo {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--purple-deep);
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--shadow-deep);
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+.about__photo:hover { transform: rotate(-1deg) translateY(-4px); }
+.about__photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.04) saturate(0.95); }
+
+.about__photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3D2580 0%, #2D1B69 100%);
+  color: var(--gold);
+  font-family: var(--display);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  z-index: 0;
+}
+
+.about__photo-frame {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about__photo-tag {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(45, 27, 105, 0.92);
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  font-weight: 700;
+}
+
+.about__signature {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--gold-dark);
+  text-align: center;
+  border-top: 1px solid var(--pale-lav);
+  border-bottom: 1px solid var(--pale-lav);
+  letter-spacing: 0.05em;
+}
+
+.about__lead {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-style: italic;
+  color: var(--purple-deep);
+  line-height: 1.35;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+
+.about__body p:first-of-type::first-letter {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 4rem;
+  color: var(--gold-dark);
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.6rem;
+  padding-top: 0.4rem;
+}
+
+.about__body p { font-size: 1.05rem; margin-bottom: 1.4rem; color: var(--ink); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════════════════ SERVICES ═══════════════════════════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.svc-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2.25rem 2rem;
+  border: 1px solid var(--pale-lav);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-soft) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-deep); }
+.svc-card:hover::before { transform: scaleX(1); }
+
+.svc-num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-dark);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.svc-title {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--purple-deep);
+  margin: 0.65rem 0 0.85rem;
+  line-height: 1.15;
+}
+
+.svc-desc { font-size: 0.95rem; color: var(--ink); line-height: 1.55; }
+
+.svc-stack {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.svc-stack span {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  background: var(--mist);
+  color: var(--purple-deep);
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════ PROCESS ═══════════════════════════════════════════════════════ */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.step {
+  padding: 2.25rem 1.75rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  transition: border-color 0.3s ease;
+}
+.step:hover { border-top-color: var(--gold); }
+
+.step__num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.step__title {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin: 0.85rem 0 0.5rem;
+}
+.step__desc { font-size: 0.95rem; color: var(--pale-lav); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════ STACK ═══════════════════════════════════════════════════════ */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 3rem 2.5rem;
+  margin-top: 3rem;
+  counter-reset: stackcol;
+}
+
+.stack-col h4 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--purple-deep);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.stack-col h4::before {
+  content: counter(stackcol, decimal-leading-zero);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  counter-increment: stackcol;
+}
+
+.skill { margin-bottom: 1.2rem; }
+.skill__head { display: flex; justify-content: space-between; font-size: 0.92rem; margin-bottom: 0.45rem; align-items: baseline; }
+.skill__name { font-family: var(--sans); font-weight: 700; color: var(--purple-deep); }
+.skill__years { font-family: var(--display); font-style: italic; font-size: 0.8rem; color: var(--gold-dark); letter-spacing: 0.05em; font-weight: 400; }
+
+.skill__bar { height: 5px; background: var(--pale-lav); border-radius: 999px; overflow: hidden; position: relative; box-shadow: inset 0 1px 2px rgba(45, 27, 105, 0.08); }
+.skill__fill { height: 100%; background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-soft) 100%); border-radius: 999px; position: relative; transition: width 1.5s cubic-bezier(.2,.8,.2,1); }
+.skill__fill::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; background: var(--gold-soft); border-radius: 50%; box-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
+
+/* ═══════════════════════════════════════════════════════ PHILOSOPHY ═══════════════════════════════════════════════════════ */
+.philosophy {
+  background: radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%), var(--mist);
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.philosophy::before, .philosophy::after {
+  content: '"';
+  position: absolute;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 24rem;
+  color: rgba(212, 175, 55, 0.06);
+  font-weight: 800;
+  line-height: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+.philosophy::before { top: 1rem; left: 4rem; }
+.philosophy::after  { bottom: -8rem; right: 4rem; transform: scaleX(-1); }
+
+.philosophy__quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  color: var(--purple-deep);
+  line-height: 1.35;
+  max-width: 42rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.philosophy__attr {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-dark);
+  margin-top: 1.5rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════ CONTACT ═══════════════════════════════════════════════════════ */
+.contact {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(155, 107, 196, 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 50%, var(--purple) 100%);
+  color: var(--cream);
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12), transparent 65%); pointer-events: none; }
+
+.contact__inner { position: relative; z-index: 1; max-width: 38rem; margin: 0 auto; }
+
+.contact__eyebrow { color: var(--gold); margin-bottom: 1.5rem; }
+.contact__eyebrow::before { background: var(--gold); }
+
+.contact__title {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.contact__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--lavender);
+  margin-bottom: 3rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__methods { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.1rem 2rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+  border: 1.5px solid transparent;
+}
+.btn--gold { background: var(--gold); color: var(--purple-deep); box-shadow: var(--shadow-gold); }
+.btn--gold:hover { background: var(--gold-soft); transform: translateY(-3px); box-shadow: 0 12px 36px -10px rgba(212, 175, 55, 0.6); }
+.btn--ghost { background: transparent; color: var(--cream); border-color: var(--gold); }
+.btn--ghost:hover { background: rgba(212, 175, 55, 0.15); transform: translateY(-3px); color: var(--cream); }
+.btn--whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; box-shadow: 0 8px 24px -8px rgba(37, 211, 102, 0.5); }
+.btn--whatsapp:hover { transform: translateY(-3px); color: white; }
+
+.contact__details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, auto)); gap: 1rem 3rem; justify-content: center; font-size: 0.85rem; color: rgba(245, 240, 225, 0.75); font-family: var(--sans); }
+.contact__details > div { display: flex; flex-direction: column; gap: 0.25rem; align-items: center; }
+.contact__details dt { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.contact__details dd { color: rgba(245, 240, 225, 0.85); }
+
+/* ═══════════════════════════════════════════════════════ FOOTER ═══════════════════════════════════════════════════════ */
+.footer { background: #14093A; color: rgba(245, 240, 225, 0.5); padding: 3rem 2rem; text-align: center; font-size: 0.78rem; letter-spacing: 0.05em; }
+.footer__brand { letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); font-size: 0.7rem; margin-bottom: 0.5rem; font-weight: 700; }
+.footer__line { display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.footer__line .sep { color: var(--gold-dark); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero__watermark { font-size: 18rem; }
+  .lang-bar { top: auto; bottom: 1rem; right: 50%; transform: translateX(50%); }
+}
+
+@media (max-width: 768px) {
+  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about__photo-frame { right: -0.75rem; bottom: -0.75rem; }
+  section { padding: 5rem 0; }
+  .container { padding: 0 1.5rem; }
+}
+
+/* PRINT — optimizado para PDF compacto sin espacios blancos */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  html, body { background: white; overflow: visible; font-size: 10pt; }
+  .lang-bar { display: none !important; }
+
+  /* color preserving */
+  .hero, .section--dark, .contact, .philosophy {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* HERO compacto SIN page-break-after (evita el espacio blanco) */
+  .hero { min-height: auto; padding: 2rem 1rem !important; }
+  .hero__inner { padding: 1.5rem 0.5rem; }
+  .hero__watermark { display: none; }
+  .hero__name { font-size: 3rem !important; }
+  .hero__last { font-size: 1.6rem !important; }
+  .hero__quote { margin: 1rem auto 1.5rem; font-size: 1.1rem; }
+
+  /* SECCIONES compactas, sin page-break-inside forzado */
+  section { padding: 1.5rem 0 !important; }
+  .container { padding: 0 1.25rem; }
+  .section__head { margin-bottom: 1.5rem; }
+  .section__watermark { display: none; }
+
+  /* SOLO evita romper elementos pequeños */
+  .svc-card, .step, .skill, .metric, .lang { page-break-inside: avoid; break-inside: avoid; }
+
+  /* OCULTAR botones interactivos */
+  .btn, .contact__methods { display: none; }
+
+  /* ELIMINAR sombras para PDF cleaner */
+  * { box-shadow: none !important; }
+
+  /* GRID services más compacto */
+  .services-grid { grid-template-columns: 1fr 1fr !important; gap: 0.75rem !important; }
+  .svc-card { padding: 1.25rem 1rem !important; }
+  .svc-title { font-size: 1.05rem !important; margin: 0.4rem 0 0.5rem !important; }
+  .svc-desc { font-size: 0.85rem !important; line-height: 1.4; }
+
+  /* Process compacto */
+  .process-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+  .step { padding: 1rem !important; }
+  .step__num { font-size: 2rem !important; }
+
+  /* Stack compacto */
+  .stack-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 1.5rem !important; }
+  .stack-col h4 { font-size: 1.05rem !important; margin-bottom: 0.85rem; }
+
+  /* Philosophy compacta */
+  .philosophy { padding: 2.5rem 1.5rem !important; }
+  .philosophy::before, .philosophy::after { display: none; }
+  .philosophy__quote { font-size: 1.15rem !important; }
+
+  /* Contact compacto */
+  .contact { padding: 2.5rem 1.5rem !important; }
+  .contact__title { font-size: 2rem !important; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="lang-bar" aria-label="Idioma / Language">
+  <button class="lang-btn" data-lang-btn="es" data-active="true">ES</button>
+  <button class="lang-btn" data-lang-btn="en">EN</button>
+  <button class="lang-btn" data-lang-btn="fr">FR</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero__watermark">PF</span>
+  <div class="hero__inner">
+    <p class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">Portfolio · Servicios Freelance · 2026</p>
+
+    <h1 class="hero__name">Evelyn</h1>
+    <div class="hero__last">Patiño Laverde</div>
+
+    <div class="hero__diamond"><span></span></div>
+
+    <p class="hero__role" data-i18n="hero.role">Ingeniera de Software · Especialista Angular</p>
+    <p class="hero__sub" data-i18n="hero.sub">6 años en software financiero · Sophos · Bancolombia</p>
+
+    <p class="hero__quote" data-i18n="hero.quote">Pienso como diseñadora, construyo como ingeniera.</p>
+
+    <div class="hero__locations">
+      <span>Suiza</span><span class="sep">◆</span>
+      <span>España</span><span class="sep">◆</span>
+      <span>LATAM</span>
+    </div>
+    <p class="hero__url">linkedin.com/in/evelyn-patino-laverde · soyelaranova.com</p>
+  </div>
+</header>
+
+<!-- 01 ABOUT -->
+<section id="sobre-mi" class="section--cream">
+  <span class="section__watermark">01</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow" data-i18n="about.eyebrow">— 01 — Sobre mí</p>
+      <h2 class="section__title" data-i18n="about.title">Soy Evelyn. <em><span class="gradient-gold">Paisa</span></em>, ingeniera, vivo en Suiza.</h2>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__photo-wrap">
+        <div class="about__photo-frame"></div>
+        <div class="about__photo">
+          <div class="about__photo-fallback">Foto perfil lateral<br /><em>evelyn_pro_perfil.jpg</em></div>
+          <img src="../_assets/photos/evelyn_pro_perfil.jpg" alt="Evelyn — perfil lateral en estudio" onerror="this.style.display='none'" />
+          <span class="about__photo-tag">Lausana · Suiza</span>
+        </div>
+        <p class="about__signature">— Evelyn —</p>
+      </div>
+
+      <div class="about__body">
+        <p class="about__lead" data-i18n="about.lead">Soy de Medellín. Vivo en Suiza. Soy mamá. Vengo de seis años en banca — donde un detalle mal hecho cuesta dinero real.</p>
+
+        <p data-i18n="about.p1">Trabajé en <strong>Sophos Solutions</strong> y <strong>Bancolombia</strong> liderando análisis, desarrollo, pruebas y soporte de soluciones técnicas para banca core, integraciones y aplicaciones empresariales. Allí entrené el músculo de la disciplina, los plazos, y la calidad como compromiso.</p>
+
+        <p data-i18n="about.p2">Hoy llevo esa misma seriedad técnica a proyectos web freelance para clientes en España, LATAM y comunidades hispanas globalmente. Mi especialidad es <strong>Angular</strong>, mi obsesión es la calidad, y mi diferencial es trabajar contigo directamente — sin agencias intermediarias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SERVICES -->
+<section id="servicios" class="section--alt">
+  <span class="section__watermark">02</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow" data-i18n="svc.eyebrow">— 02 — Servicios</p>
+      <h2 class="section__title" data-i18n="svc.title">Lo que <em><span class="gradient-gold">construyo</span></em>.</h2>
+      <p class="section__sub" data-i18n="svc.sub">Seis frentes de trabajo, una sola filosofía: calidad y compromiso.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="services-grid">
+      <article class="svc-card">
+        <p class="svc-num">— 01 —</p>
+        <h3 class="svc-title" data-i18n="svc.1.title">Sitios web profesionales</h3>
+        <p class="svc-desc" data-i18n="svc.1.desc">Sitios que funcionan, cargan rápido y respetan tu marca. Angular para algo serio, WordPress para algo editable. Diseño + código + despliegue + capacitación incluidos.</p>
+        <p class="svc-for" data-i18n="svc.1.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · emprendedoras · pequeñas empresas · profesionales</p>
+        <div class="svc-stack"><span>Angular</span><span>WordPress</span><span>HTML/CSS</span><span>Tailwind</span></div>
+      </article>
+
+      <article class="svc-card">
+        <p class="svc-num">— 02 —</p>
+        <h3 class="svc-title" data-i18n="svc.2.title">Aplicaciones web a medida</h3>
+        <p class="svc-desc" data-i18n="svc.2.desc">Cuando tu negocio necesita más que un sitio: dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura, te explico las decisiones, construyo lo validado.</p>
+        <p class="svc-for" data-i18n="svc.2.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · startups · empresas con procesos · fintechs hispanas</p>
+        <div class="svc-stack"><span>Angular</span><span>Java</span><span>.NET</span><span>SQL</span><span>APIs</span></div>
+      </article>
+
+      <article class="svc-card">
+        <p class="svc-num">— 03 —</p>
+        <h3 class="svc-title" data-i18n="svc.3.title">IA aplicada a tu negocio</h3>
+        <p class="svc-desc" data-i18n="svc.3.desc">Workflows automatizados con Claude, GPT o Gemini. Asistentes virtuales, generación de contenido, análisis de datos. Diseño prompts efectivos y los integro a tu producto.</p>
+        <p class="svc-for" data-i18n="svc.3.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · marketing · creadores · pymes que aceleran</p>
+        <div class="svc-stack"><span>Claude</span><span>GPT</span><span>Gemini</span><span>Prompt Eng.</span></div>
+      </article>
+
+      <article class="svc-card">
+        <p class="svc-num">— 04 —</p>
+        <h3 class="svc-title" data-i18n="svc.4.title">Análisis y documentación técnica</h3>
+        <p class="svc-desc" data-i18n="svc.4.desc">Tienes una idea pero no claridad. Levanto requisitos, propongo arquitectura, entrego un documento que cualquier dev pueda ejecutar. Mi superpoder de banca.</p>
+        <p class="svc-for" data-i18n="svc.4.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · fundadores no-técnicos · proyectos rescate · sin PM</p>
+        <div class="svc-stack"><span>Análisis</span><span>Wireframes</span><span>Arquitectura</span><span>Scrum</span></div>
+      </article>
+    </div>
+
+    <p style="margin-top:3rem;padding:1.5rem 2rem;background:rgba(212,175,55,0.08);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1rem;line-height:1.55;" data-i18n="svc.addon">
+      <strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Soporte y mantenimiento</strong><br />
+      Acompañamiento técnico continuo a proyectos vivos. Refactor, optimización, evolución incremental. Disponible bajo retainer mensual.
+    </p>
+  </div>
+</section>
+
+<!-- 03 PROCESS -->
+<section id="proceso" class="section--dark">
+  <span class="section__watermark">03</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow" data-i18n="proc.eyebrow">— 03 — Proceso</p>
+      <h2 class="section__title" data-i18n="proc.title">Cómo <em><span class="gradient-gold">trabajo</span></em>.</h2>
+      <p class="section__sub" data-i18n="proc.sub">Cuatro fases. Plazos cumplidos. Sin sorpresas.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="process-grid">
+      <div class="step">
+        <div class="step__num">01</div>
+        <h3 class="step__title" data-i18n="proc.1.title">Descubrimiento</h3>
+        <p class="step__desc" data-i18n="proc.1.desc">Conversamos sobre tu proyecto, objetivos y restricciones. Levanto requisitos, alcance y plazos sin saltar detalles.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <h3 class="step__title" data-i18n="proc.2.title">Diseño & Validación</h3>
+        <p class="step__desc" data-i18n="proc.2.desc">Propongo arquitectura, stack y estructura visual. Iteramos hasta que coincida con tu visión antes de codear.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <h3 class="step__title" data-i18n="proc.3.title">Desarrollo</h3>
+        <p class="step__desc" data-i18n="proc.3.desc">Construyo el proyecto con entregas parciales semanales. Documentación clara y comunicación directa en español.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">04</div>
+        <h3 class="step__title" data-i18n="proc.4.title">Entrega & Soporte</h3>
+        <p class="step__desc" data-i18n="proc.4.desc">Despliegue, capacitación y acompañamiento técnico. Soporte post-entrega disponible bajo acuerdo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 STACK -->
+<section id="stack" class="section--cream">
+  <span class="section__watermark">04</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow" data-i18n="stack.eyebrow">— 04 — Stack técnico</p>
+      <h2 class="section__title" data-i18n="stack.title">Las <em><span class="gradient-gold">herramientas</span></em>.</h2>
+      <p class="section__sub" data-i18n="stack.sub">Tecnologías con experiencia laboral real, no aprendidas en cursos online.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-col">
+        <h4 data-i18n="stack.col.frontend">Frontend</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Angular</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 95%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">JavaScript</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">TypeScript</span><span class="skill__years">5+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">HTML / CSS / SCSS</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 92%"></div></div></div>
+      </div>
+
+      <div class="stack-col">
+        <h4 data-i18n="stack.col.backend">Backend &amp; datos</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Java</span><span class="skill__years">6 años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 85%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">.NET / C#</span><span class="skill__years">4+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 78%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">SQL · PostgreSQL</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
+      </div>
+
+      <div class="stack-col">
+        <h4 data-i18n="stack.col.platforms">Plataformas &amp; IA</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name" data-i18n="skill.ai">IA aplicada · Prompt Engineering</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">WordPress · Elementor</span><span class="skill__years">3+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 80%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Git · GitHub</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <p class="philosophy__quote" data-i18n="philosophy.quote">No hay agencia detrás. Soy yo, mi laptop, mucho café y la <span class="gradient-gold" style="font-weight:600;">disciplina</span> de no decepcionarte. Esa es la oferta entera.</p>
+  <p class="philosophy__attr" data-i18n="philosophy.attr">— Evelyn, en voz baja</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto" class="contact">
+  <span class="section__watermark">05</span>
+  <div class="contact__inner">
+    <p class="eyebrow contact__eyebrow" data-i18n="cta.eyebrow">— 05 — Contacto</p>
+    <h2 class="contact__title" data-i18n="cta.title">¿Hablamos?</h2>
+    <p class="contact__sub" data-i18n="cta.sub">Cuéntame de tu proyecto. Te respondo personalmente — sin formularios automáticos, sin agencias intermediarias.</p>
+
+    <div class="contact__methods">
+      <a class="btn btn--gold"     href="https://www.linkedin.com/in/evelyn-patino-laverde/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn--ghost"    href="mailto:evelynpatildr@gmail.com">Email ↗</a>
+      <a class="btn btn--whatsapp" href="https://wa.me/41783480550" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+
+    <dl class="contact__details">
+      <div><dt data-i18n="contact.email">Email</dt>          <dd>evelynpatildr@gmail.com</dd></div>
+      <div><dt data-i18n="contact.whatsapp">WhatsApp</dt>    <dd>+41 78 348 0550</dd></div>
+      <div><dt data-i18n="contact.linkedin">LinkedIn</dt>    <dd>evelyn-patino-laverde</dd></div>
+      <div><dt data-i18n="contact.location">Ubicación</dt>  <dd>Lausana · Suiza</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer__brand">Evelyn Patiño Laverde · Portfolio 2026</p>
+  <div class="footer__line">
+    <span data-i18n="footer.handcrafted">Construido a mano</span>
+    <span class="sep">◆</span>
+    <span data-i18n="footer.stack">HTML · CSS · café</span>
+    <span class="sep">◆</span>
+    <span>soyelaranova.com</span>
+  </div>
+</footer>
+
+<script>
+const i18n = {
+  es: {
+    "hero.eyebrow": "Portfolio · Servicios Freelance · 2026",
+    "hero.role": "Ingeniera de Software · Especialista Angular",
+    "hero.sub": "6 años en software financiero · Sophos · Bancolombia",
+    "hero.quote": "Pienso como diseñadora, construyo como ingeniera.",
+
+    "about.eyebrow": "— 01 — Sobre mí",
+    "about.title": 'Soy Evelyn. <em><span class="gradient-gold">Paisa</span></em>, ingeniera, vivo en Suiza.',
+    "about.lead": "Soy de Medellín. Vivo en Suiza. Soy mamá. Vengo de seis años en banca — donde un detalle mal hecho cuesta dinero real.",
+    "about.p1": "Trabajé en <strong>Sophos Solutions</strong> y <strong>Bancolombia</strong> liderando análisis, desarrollo, pruebas y soporte de soluciones técnicas para banca core, integraciones y aplicaciones empresariales. Allí entrené el músculo de la disciplina, los plazos, y la calidad como compromiso.",
+    "about.p2": "Hoy llevo esa misma seriedad técnica a proyectos web freelance para clientes en España, LATAM y comunidades hispanas globalmente. Mi especialidad es <strong>Angular</strong>, mi obsesión es la calidad, y mi diferencial es trabajar contigo directamente — sin agencias intermediarias.",
+
+    "svc.eyebrow": "— 02 — Servicios",
+    "svc.title": 'Lo que <em><span class="gradient-gold">construyo</span></em>.',
+    "svc.sub": "Cuatro frentes de trabajo, una sola filosofía: calidad y compromiso.",
+    "svc.1.title": "Sitios web profesionales",
+    "svc.1.desc": "Sitios que funcionan, cargan rápido y respetan tu marca. Angular para algo serio, WordPress para algo editable. Diseño + código + despliegue + capacitación incluidos.",
+    "svc.1.for": "Para · emprendedoras · pequeñas empresas · profesionales",
+    "svc.2.title": "Aplicaciones web a medida",
+    "svc.2.desc": "Cuando tu negocio necesita más que un sitio: dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura, te explico las decisiones, construyo lo validado.",
+    "svc.2.for": "Para · startups · empresas con procesos · fintechs hispanas",
+    "svc.3.title": "IA aplicada a tu negocio",
+    "svc.3.desc": "Workflows automatizados con Claude, GPT o Gemini. Asistentes virtuales, generación de contenido, análisis de datos. Diseño prompts efectivos y los integro a tu producto.",
+    "svc.3.for": "Para · marketing · creadores · pymes que aceleran",
+    "svc.4.title": "Análisis y documentación técnica",
+    "svc.4.desc": "Tienes una idea pero no claridad. Levanto requisitos, propongo arquitectura, entrego un documento que cualquier dev pueda ejecutar. Mi superpoder de banca.",
+    "svc.4.for": "Para · fundadores no-técnicos · proyectos rescate · sin PM",
+    "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Soporte y mantenimiento</strong><br />Acompañamiento técnico continuo a proyectos vivos. Refactor, optimización, evolución incremental. Disponible bajo retainer mensual.',
+
+    "proc.eyebrow": "— 03 — Proceso",
+    "proc.title": 'Cómo <em><span class="gradient-gold">trabajo</span></em>.',
+    "proc.sub": "Cuatro fases. Plazos cumplidos. Sin sorpresas.",
+    "proc.1.title": "Descubrimiento",
+    "proc.1.desc": "Conversamos sobre tu proyecto, objetivos y restricciones. Levanto requisitos, alcance y plazos sin saltar detalles.",
+    "proc.2.title": "Diseño & Validación",
+    "proc.2.desc": "Propongo arquitectura, stack y estructura visual. Iteramos hasta que coincida con tu visión antes de codear.",
+    "proc.3.title": "Desarrollo",
+    "proc.3.desc": "Construyo el proyecto con entregas parciales semanales. Documentación clara y comunicación directa en español.",
+    "proc.4.title": "Entrega & Soporte",
+    "proc.4.desc": "Despliegue, capacitación y acompañamiento técnico. Soporte post-entrega disponible bajo acuerdo.",
+
+    "stack.eyebrow": "— 04 — Stack técnico",
+    "stack.title": 'Las <em><span class="gradient-gold">herramientas</span></em>.',
+    "stack.sub": "Tecnologías con experiencia laboral real, no aprendidas en cursos online.",
+    "stack.col.frontend": "Frontend",
+    "stack.col.backend": "Backend & datos",
+    "stack.col.platforms": "Plataformas & IA",
+    "skill.ai": "IA aplicada · Prompt Engineering",
+
+    "philosophy.quote": 'No hay agencia detrás. Soy yo, mi laptop, mucho café y la <span class="gradient-gold" style="font-weight:600;">disciplina</span> de no decepcionarte. Esa es la oferta entera.',
+    "philosophy.attr": "— Evelyn, en voz baja",
+
+    "cta.eyebrow": "— 05 — Contacto",
+    "cta.title": "¿Hablamos?",
+    "cta.sub": "Cuéntame de tu proyecto. Te respondo personalmente — sin formularios automáticos, sin agencias intermediarias.",
+
+    "contact.email": "Email",
+    "contact.whatsapp": "WhatsApp",
+    "contact.linkedin": "LinkedIn",
+    "contact.location": "Ubicación",
+
+    "footer.handcrafted": "Construido a mano",
+    "footer.stack": "HTML · CSS · café"
+  },
+
+  en: {
+    "hero.eyebrow": "Portfolio · Freelance Services · 2026",
+    "hero.role": "Software Engineer · Angular Specialist",
+    "hero.sub": "6 years in financial software · Sophos · Bancolombia",
+    "hero.quote": "I think like a designer, build like an engineer.",
+
+    "about.eyebrow": "— 01 — About me",
+    "about.title": 'I\'m Evelyn. <em><span class="gradient-gold">Latina</span></em>, engineer, based in Switzerland.',
+    "about.lead": "I'm from Medellín. Based in Switzerland. I'm a mom. Six years in banking — the sector where one wrong detail costs real money.",
+    "about.p1": "I worked at <strong>Sophos Solutions</strong> and <strong>Bancolombia</strong> leading analysis, development, testing and support of technical solutions for core banking, integrations and enterprise apps. There I trained the muscle of discipline, deadlines, and quality as commitment.",
+    "about.p2": "Today I bring that same technical seriousness to freelance web projects for clients in Spain, LATAM and Hispanic communities globally. My specialty is <strong>Angular</strong>, my obsession is quality, and my differentiator is working with you directly — no agencies in between.",
+
+    "svc.eyebrow": "— 02 — Services",
+    "svc.title": 'What I <em><span class="gradient-gold">build</span></em>.',
+    "svc.sub": "Four fronts of work, one philosophy: quality and commitment.",
+    "svc.1.title": "Professional websites",
+    "svc.1.desc": "Sites that work, load fast and respect your brand. Angular for serious projects, WordPress for editable ones. Design + code + deployment + training included.",
+    "svc.1.for": "For · founders · small businesses · independent professionals",
+    "svc.2.title": "Custom web applications",
+    "svc.2.desc": "When your business needs more than a site: dashboards, internal panels, customer management, API integrations. I design the architecture, explain decisions, build what's validated.",
+    "svc.2.for": "For · startups · companies with processes · Hispanic fintechs",
+    "svc.3.title": "Applied AI for your business",
+    "svc.3.desc": "Automated workflows with Claude, GPT or Gemini. Virtual assistants, content generation, data analysis. I design effective prompts and integrate them into your product.",
+    "svc.3.for": "For · marketing · creators · SMBs who accelerate",
+    "svc.4.title": "Analysis & technical documentation",
+    "svc.4.desc": "You have an idea but no clarity. I gather requirements, propose architecture, deliver a document any dev can execute. My banking superpower.",
+    "svc.4.for": "For · non-technical founders · rescue projects · no-PM teams",
+    "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Support & maintenance</strong><br />Continuous technical accompaniment for live projects. Refactor, optimization, incremental evolution. Available on monthly retainer.',
+
+    "proc.eyebrow": "— 03 — Process",
+    "proc.title": 'How I <em><span class="gradient-gold">work</span></em>.',
+    "proc.sub": "Four phases. Deadlines met. No surprises.",
+    "proc.1.title": "Discovery",
+    "proc.1.desc": "We talk about your project, objectives and constraints. I gather requirements, scope and deadlines without skipping details.",
+    "proc.2.title": "Design & Validation",
+    "proc.2.desc": "I propose architecture, stack and visual structure. We iterate until it matches your vision before writing code.",
+    "proc.3.title": "Development",
+    "proc.3.desc": "I build the project with weekly partial deliveries. Clear documentation and direct communication.",
+    "proc.4.title": "Delivery & Support",
+    "proc.4.desc": "Deployment, training and technical accompaniment. Post-delivery support available by agreement.",
+
+    "stack.eyebrow": "— 04 — Tech stack",
+    "stack.title": 'The <em><span class="gradient-gold">tools</span></em>.',
+    "stack.sub": "Technologies with real on-the-job experience, not just tutorials.",
+    "stack.col.frontend": "Frontend",
+    "stack.col.backend": "Backend & data",
+    "stack.col.platforms": "Platforms & AI",
+    "skill.ai": "Applied AI · Prompt Engineering",
+
+    "philosophy.quote": 'No agency behind me. Just me, my laptop, lots of coffee and the <span class="gradient-gold" style="font-weight:600;">discipline</span> not to disappoint you. That\'s the whole offer.',
+    "philosophy.attr": "— Evelyn, quietly",
+
+    "cta.eyebrow": "— 05 — Contact",
+    "cta.title": "Shall we talk?",
+    "cta.sub": "Tell me about your project. I'll reply personally — no automated forms, no agencies in between.",
+
+    "contact.email": "Email",
+    "contact.whatsapp": "WhatsApp",
+    "contact.linkedin": "LinkedIn",
+    "contact.location": "Location",
+
+    "footer.handcrafted": "Handcrafted",
+    "footer.stack": "HTML · CSS · coffee"
+  },
+
+  fr: {
+    "hero.eyebrow": "Portfolio · Services Freelance · 2026",
+    "hero.role": "Ingénieure logiciel · Spécialiste Angular",
+    "hero.sub": "6 ans en logiciel financier · Sophos · Bancolombia",
+    "hero.quote": "Je pense en designer, je construis en ingénieure.",
+
+    "about.eyebrow": "— 01 — À propos",
+    "about.title": 'Je suis Evelyn. <em><span class="gradient-gold">Latino-américaine</span></em>, ingénieure, basée en Suisse.',
+    "about.lead": "Je viens de Medellín. J'habite en Suisse. Je suis maman. Six ans dans la banque — le secteur où un détail mal fait coûte de l'argent réel.",
+    "about.p1": "J'ai travaillé chez <strong>Sophos Solutions</strong> et <strong>Bancolombia</strong> en pilotant l'analyse, le développement, les tests et le support de solutions techniques pour le core banking, les intégrations et les applications d'entreprise. J'y ai forgé la discipline, les délais et la qualité comme engagement.",
+    "about.p2": "Aujourd'hui j'apporte ce sérieux technique à des projets web freelance pour des clients en Espagne, en Amérique latine et des communautés hispanophones globalement. Ma spécialité est <strong>Angular</strong>, mon obsession est la qualité, et mon différenciateur est de travailler avec vous directement — sans agences intermédiaires.",
+
+    "svc.eyebrow": "— 02 — Services",
+    "svc.title": 'Ce que je <em><span class="gradient-gold">construis</span></em>.',
+    "svc.sub": "Quatre fronts de travail, une seule philosophie : qualité et engagement.",
+    "svc.1.title": "Sites web professionnels",
+    "svc.1.desc": "Sites qui fonctionnent, chargent vite et respectent votre marque. Angular pour quelque chose de sérieux, WordPress pour quelque chose d'éditable. Design + code + déploiement + formation inclus.",
+    "svc.1.for": "Pour · entrepreneuses · petites entreprises · indépendants",
+    "svc.2.title": "Applications web sur mesure",
+    "svc.2.desc": "Quand votre entreprise a besoin de plus qu'un site : dashboards, panneaux internes, gestion de clients, intégrations API. Je conçois l'architecture, explique les décisions, construis le validé.",
+    "svc.2.for": "Pour · startups · entreprises avec processus · fintechs hispaniques",
+    "svc.3.title": "IA appliquée à votre business",
+    "svc.3.desc": "Workflows automatisés avec Claude, GPT ou Gemini. Assistants virtuels, génération de contenu, analyse de données. Je conçois des prompts efficaces et les intègre dans votre produit.",
+    "svc.3.for": "Pour · marketing · créateurs · PME qui accélèrent",
+    "svc.4.title": "Analyse et documentation technique",
+    "svc.4.desc": "Vous avez une idée mais pas de clarté. Je recueille les besoins, propose l'architecture, livre un document que n'importe quel dev peut exécuter. Mon super-pouvoir bancaire.",
+    "svc.4.for": "Pour · fondateurs non-techniques · projets sauvetage · sans PM",
+    "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Support et maintenance</strong><br />Accompagnement technique continu pour projets vivants. Refactor, optimisation, évolution incrémentale. Disponible en retainer mensuel.',
+
+    "proc.eyebrow": "— 03 — Processus",
+    "proc.title": 'Comment je <em><span class="gradient-gold">travaille</span></em>.',
+    "proc.sub": "Quatre phases. Délais respectés. Sans surprises.",
+    "proc.1.title": "Découverte",
+    "proc.1.desc": "Nous discutons de votre projet, objectifs et contraintes. Je recueille les besoins, le périmètre et les délais sans sauter de détails.",
+    "proc.2.title": "Conception & Validation",
+    "proc.2.desc": "Je propose l'architecture, la stack et la structure visuelle. Nous itérons jusqu'à ce que cela corresponde à votre vision avant de coder.",
+    "proc.3.title": "Développement",
+    "proc.3.desc": "Je construis le projet avec des livraisons partielles hebdomadaires. Documentation claire et communication directe.",
+    "proc.4.title": "Livraison & Support",
+    "proc.4.desc": "Déploiement, formation et accompagnement technique. Support post-livraison disponible selon accord.",
+
+    "stack.eyebrow": "— 04 — Stack technique",
+    "stack.title": 'Les <em><span class="gradient-gold">outils</span></em>.',
+    "stack.sub": "Technologies avec une expérience professionnelle réelle, pas apprises dans des tutoriels.",
+    "stack.col.frontend": "Frontend",
+    "stack.col.backend": "Backend & données",
+    "stack.col.platforms": "Plateformes & IA",
+    "skill.ai": "IA appliquée · Prompt Engineering",
+
+    "philosophy.quote": 'Aucune agence derrière moi. Juste moi, mon ordinateur, beaucoup de café et la <span class="gradient-gold" style="font-weight:600;">discipline</span> de ne pas vous décevoir. Voilà l\'offre complète.',
+    "philosophy.attr": "— Evelyn, à voix basse",
+
+    "cta.eyebrow": "— 05 — Contact",
+    "cta.title": "On se parle ?",
+    "cta.sub": "Parlez-moi de votre projet. Je vous répondrai personnellement — sans formulaire automatique, sans agence intermédiaire.",
+
+    "contact.email": "Email",
+    "contact.whatsapp": "WhatsApp",
+    "contact.linkedin": "LinkedIn",
+    "contact.location": "Lieu",
+
+    "footer.handcrafted": "Fait main",
+    "footer.stack": "HTML · CSS · café"
+  }
+};
+
+function setLanguage(lang) {
+  if (!i18n[lang]) return;
+  document.documentElement.setAttribute('lang', lang === 'es' ? 'es' : (lang === 'fr' ? 'fr' : 'en'));
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+  });
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.setAttribute('data-active', btn.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+  });
+  try { localStorage.setItem('portfolio-lang', lang); } catch(e){}
+}
+
+document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+  btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang-btn')));
+});
+
+(function init() {
+  let saved = null;
+  try { saved = localStorage.getItem('portfolio-lang'); } catch(e){}
+  const browser = (navigator.language || 'es').slice(0, 2).toLowerCase();
+  const initial = saved || (i18n[browser] ? browser : 'es');
+  setLanguage(initial);
+})();
+
+const reveal = document.querySelectorAll('section, .svc-card, .step, .skill, .about__photo-wrap, .about__body');
+reveal.forEach(el => el.classList.add('reveal'));
+const io = new IntersectionObserver(
+  (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')),
+  { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+);
+reveal.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

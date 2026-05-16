@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Propuesta · [Nombre del cliente] · Evelyn Patiño Laverde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#2D1B69" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   ELARA · DESIGN SYSTEM v3 · Propuesta B2B
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --purple-deep: #2D1B69; --purple-mid: #3D2580; --purple: #4A2D9C;
+  --lavender: #9B6BC4; --pale-lav: #E5DBF0; --mist: #F5F0F9; --mist-warm: #FAF6F0;
+  --gold: #D4AF37; --gold-soft: #E5C770; --gold-dark: #B8941F;
+  --cream: #F5F0E1; --cream-warm: #FAF4E2; --ink: #1A0F3D; --grey: #6B6680;
+
+  --display: 'Playfair Display', 'Times New Roman', serif;
+  --serif:   'Cormorant Garamond', 'Georgia', serif;
+  --sans:    'Lato', system-ui, -apple-system, sans-serif;
+
+  --max-w: 56rem;
+  --shadow-soft:   0 4px 20px -8px rgba(45, 27, 105, 0.18);
+  --shadow-medium: 0 12px 40px -16px rgba(45, 27, 105, 0.32);
+  --shadow-deep:   0 24px 60px -20px rgba(45, 27, 105, 0.42);
+  --shadow-gold:   0 8px 32px -12px rgba(212, 175, 55, 0.45);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--cream-warm);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--gold); color: var(--purple-deep); }
+
+h1, h2, h3, h4 { font-family: var(--display); color: var(--purple-deep); letter-spacing: -0.018em; line-height: 1.05; font-weight: 600; }
+
+p { margin-bottom: 1rem; }
+
+a { color: var(--purple-deep); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--gold-dark); }
+
+strong { color: var(--purple-deep); }
+em { font-family: var(--serif); font-style: italic; color: var(--gold-dark); }
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 2.5rem; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+.gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C770 50%, #B8941F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-rule-fancy { display: flex; align-items: center; gap: 0.85rem; margin-top: 1.5rem; }
+.gold-rule-fancy::before { content: ''; width: 60px; height: 1px; background: var(--gold); }
+.gold-rule-fancy::after  { content: '◆'; color: var(--gold); font-size: 0.7rem; }
+
+/* ═══════════════════════════════════════════════════════ COVER ═══════════════════════════════════════════════════════ */
+.cover {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(155, 107, 196, 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, #2D1B69 0%, #3D2580 50%, #4A2D9C 100%);
+  color: var(--cream);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.5rem 3rem;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><g stroke='%23D4AF37' stroke-width='0.45' fill='none' opacity='0.32'><path d='M -50 220 Q 300 290 600 220 T 1250 220'/><path d='M -50 240 Q 300 310 600 240 T 1250 240'/><path d='M -50 260 Q 300 330 600 260 T 1250 260'/><path d='M -50 280 Q 300 350 600 280 T 1250 280'/><polyline points='950,140 1140,60 1180,180'/><polyline points='1140,60 1120,160'/><circle cx='160' cy='100' r='1.4' fill='%23D4AF37'/><circle cx='1080' cy='480' r='1' fill='%23D4AF37'/><circle cx='720' cy='180' r='1.5' fill='%23D4AF37'/></g></svg>");
+  background-size: cover;
+  pointer-events: none;
+}
+
+.cover__watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--display);
+  font-size: 30rem;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.04);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cover__top, .cover__main, .cover__bottom { position: relative; z-index: 1; }
+
+.cover__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover__brand {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover__brand::after {
+  content: '*';
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.6em;
+  vertical-align: top;
+  margin-left: 0.1em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.cover__meta {
+  text-align: right;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.cover__main { max-width: 38rem; margin: auto 0; }
+
+.cover__label {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  font-weight: 700;
+}
+
+.cover__title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 0.95;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.cover__title em {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C770 50%, #B8941F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.cover__diamond { display: inline-flex; align-items: center; gap: 0.75rem; margin: 1.5rem 0; }
+.cover__diamond::before, .cover__diamond::after { content: ''; width: 50px; height: 1px; background: var(--gold); }
+.cover__diamond span { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+
+.cover__project {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--lavender);
+  margin-top: 1rem;
+}
+
+.cover__client-card {
+  margin-top: 3rem;
+  padding: 1.75rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  backdrop-filter: blur(6px);
+}
+
+.cover__client-label {
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cover__client-name {
+  font-family: var(--display);
+  font-size: 1.65rem;
+  color: var(--cream);
+  margin-top: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.cover__client-line {
+  font-size: 0.85rem;
+  color: rgba(245, 240, 225, 0.75);
+  margin-top: 0.35rem;
+}
+
+.cover__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: rgba(245, 240, 225, 0.6);
+  letter-spacing: 0.05em;
+}
+.cover__bottom strong { color: var(--gold); letter-spacing: 0.45em; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════════ PAGE / SECTION ═══════════════════════════════════════════════════════ */
+.page { padding: 6rem 0; background: var(--cream-warm); position: relative; }
+.page--mist { background: linear-gradient(180deg, var(--mist-warm) 0%, var(--cream-warm) 100%); }
+.page--dark { background: var(--purple-deep); color: var(--cream); position: relative; overflow: hidden; }
+.page--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(155, 107, 196, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.1), transparent 50%);
+  pointer-events: none;
+}
+.page--dark > .container { position: relative; z-index: 1; }
+.page--dark h1, .page--dark h2, .page--dark h3 { color: var(--cream); }
+.page--dark .eyebrow { color: var(--gold); }
+.page--dark .eyebrow::before { background: var(--gold); }
+
+.section__watermark {
+  position: absolute;
+  font-family: var(--display);
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(8rem, 18vw, 16rem);
+  color: rgba(45, 27, 105, 0.04);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+  top: 1rem;
+  right: -1rem;
+  z-index: 0;
+}
+.page--dark .section__watermark { color: rgba(212, 175, 55, 0.05); }
+
+.section__head { margin-bottom: 3rem; position: relative; z-index: 1; }
+
+.section__title {
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 600;
+  margin: 0.5rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.section__title em { font-family: var(--display); font-style: italic; font-weight: 400; }
+
+.section__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold-dark);
+  max-width: 36rem;
+  line-height: 1.4;
+}
+.page--dark .section__sub { color: var(--gold); }
+
+.lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--purple-deep);
+  margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--gold);
+}
+.page--dark .lead { color: var(--gold); border-left-color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════ TWO COLS ═══════════════════════════════════════════════════════ */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
+
+.col-card {
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  border-top: 3px solid var(--gold);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.col-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-medium); }
+
+.col-card.muted { border-top-color: var(--lavender); background: var(--mist); box-shadow: none; }
+
+.col-card h3 { font-family: var(--display); font-size: 1.5rem; margin-bottom: 1rem; }
+.col-card.muted h3 { color: var(--purple); }
+
+.col-card ul { list-style: none; padding: 0; }
+
+.col-card li {
+  position: relative;
+  padding: 0.55rem 0 0.55rem 1.6rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--pale-lav);
+  line-height: 1.5;
+}
+.col-card li:last-child { border-bottom: 0; }
+
+.col-card li::before { content: '✓'; position: absolute; left: 0; top: 0.55rem; color: var(--gold-dark); font-weight: 700; }
+.col-card.muted li::before { content: '✗'; color: var(--lavender); }
+
+/* ═══════════════════════════════════════════════════════ STACK ═══════════════════════════════════════════════════════ */
+.stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem; }
+
+.stack-item {
+  padding: 1.5rem 1.75rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+  transition: transform 0.3s ease;
+}
+.stack-item:hover { transform: translateX(4px); }
+
+.stack-item__label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.stack-item__value {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--purple-deep);
+  margin-top: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════ PHASES ═══════════════════════════════════════════════════════ */
+.phases { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
+
+.phase {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  transition: background 0.3s ease;
+}
+.phase:hover { background: rgba(255, 255, 255, 0.08); }
+
+.phase__num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 2.75rem;
+  color: var(--gold);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.phase__body h4 { font-family: var(--display); font-size: 1.4rem; color: var(--cream); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.phase__body p { font-size: 0.95rem; color: var(--pale-lav); margin: 0; line-height: 1.55; }
+
+.phase__dur {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.3rem 0.75rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+}
+
+/* ═══════════════════════════════════════════════════════ PRICING ═══════════════════════════════════════════════════════ */
+.pricing {
+  margin-top: 2.5rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+.pricing__row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 1.4rem 2rem;
+  align-items: center;
+  border-bottom: 1px solid var(--pale-lav);
+}
+.pricing__row:last-child { border-bottom: 0; }
+
+.pricing__row.head {
+  background: var(--purple-deep);
+  color: var(--cream);
+  border-bottom: 0;
+}
+.pricing__row.head .pricing__label,
+.pricing__row.head .pricing__value {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.pricing__row.total { background: linear-gradient(90deg, var(--mist-warm) 0%, var(--cream-warm) 100%); }
+.pricing__row.total .pricing__label,
+.pricing__row.total .pricing__value {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--purple-deep);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.pricing__row.total .pricing__value { color: var(--gold-dark); }
+
+.pricing__label { font-size: 0.95rem; color: var(--ink); }
+.pricing__value { text-align: right; font-weight: 700; color: var(--purple-deep); }
+
+.payment-plan {
+  margin-top: 1.75rem;
+  padding: 1.75rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--lavender);
+  border-radius: 0 8px 8px 0;
+}
+
+.payment-plan h4 {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--purple-deep);
+  margin-bottom: 0.85rem;
+}
+
+.payment-plan ol { margin: 0; padding-left: 1.5rem; font-size: 0.95rem; color: var(--ink); }
+.payment-plan li { margin: 0.35rem 0; }
+
+/* ═══════════════════════════════════════════════════════ TERMS ═══════════════════════════════════════════════════════ */
+.terms { margin-top: 2rem; }
+
+.term {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--pale-lav);
+}
+.term:last-child { border-bottom: 0; }
+
+.term__title { font-family: var(--display); font-size: 1.15rem; color: var(--purple-deep); }
+.term__body { font-size: 0.95rem; color: var(--ink); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════ ACCEPT ═══════════════════════════════════════════════════════ */
+.accept {
+  margin-top: 3rem;
+  padding: 4rem 2.5rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(155, 107, 196, 0.25) 0%, transparent 55%),
+    linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 100%);
+  color: var(--cream);
+  border-radius: 14px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.accept::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.accept__inner { position: relative; z-index: 1; }
+
+.accept__title {
+  font-family: var(--display);
+  font-size: 2.5rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+
+.accept__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; text-align: left; }
+
+.sig { padding-top: 2rem; border-top: 1px solid var(--gold); }
+.sig__name { font-family: var(--display); font-size: 1.2rem; color: var(--cream); font-weight: 600; }
+.sig__role { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--gold); margin: 0.25rem 0 0.85rem; }
+.sig__line { font-size: 0.85rem; color: rgba(245, 240, 225, 0.7); margin-top: 0.25rem; }
+
+.sig__signature {
+  margin-top: 1.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.sig__signature::after { content: ''; display: block; height: 1px; background: rgba(212, 175, 55, 0.4); margin-top: 0.6rem; }
+
+/* ═══════════════════════════════════════════════════════ FOOTER ═══════════════════════════════════════════════════════ */
+.footer { background: #14093A; color: rgba(245, 240, 225, 0.55); padding: 2.5rem 2rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+.footer__brand { letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); font-size: 0.7rem; margin-bottom: 0.5rem; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════════ RESPONSIVE ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .two-col, .stack-grid, .signatures, .term, .phase, .pricing__row { grid-template-columns: 1fr; gap: 1rem; }
+  .page, .cover { padding: 3rem 1.5rem; }
+  .pricing__row { padding: 1rem 1.5rem; }
+  .cover__watermark { font-size: 18rem; }
+}
+
+/* ═══════════════════════════════════════════════════════ PRINT ═══════════════════════════════════════════════════════ */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: white; }
+  .cover, .page--dark, .accept {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cover { min-height: auto; padding: 3rem 1.5rem; page-break-after: always; }
+  .page  { padding: 2rem 1.5rem; page-break-inside: avoid; }
+  .col-card, .stack-item, .pricing { box-shadow: none !important; transform: none !important; }
+  .footer { page-break-before: always; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <span class="cover__watermark">P</span>
+
+  <div class="cover__top">
+    <div class="cover__brand">Evelyn Patiño Laverde</div>
+    <div class="cover__meta">
+      Propuesta · [N°XXXX]<br />
+      [Día] · [Mes] · 2026
+    </div>
+  </div>
+
+  <div class="cover__main">
+    <p class="cover__label">Propuesta de Servicios</p>
+
+    <h1 class="cover__title">
+      Construyamos<br />
+      <em>algo que valga la pena.</em>
+    </h1>
+
+    <div class="cover__diamond"><span></span></div>
+
+    <p class="cover__project">[Nombre del proyecto · breve descripción de 1 línea]</p>
+
+    <div class="cover__client-card">
+      <p class="cover__client-label">Preparada para</p>
+      <p class="cover__client-name">[Nombre del cliente · Empresa]</p>
+      <p class="cover__client-line">[Cargo del contacto] · [email@cliente.com]</p>
+    </div>
+  </div>
+
+  <div class="cover__bottom">
+    <span>Ingeniera de Software · Especialista Angular</span>
+    <span><strong>Suiza · España · LATAM</strong></span>
+  </div>
+</section>
+
+<!-- 01 RESUMEN -->
+<section class="page">
+  <span class="section__watermark">01</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 01 — Resumen ejecutivo</p>
+      <h2 class="section__title">El <em><span class="gradient-gold">por qué</span></em>.</h2>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <p class="lead">Hola [Nombre],</p>
+
+    <p>Gracias por considerarme para <strong>[nombre del proyecto]</strong>. He preparado esta propuesta tras nuestra conversación inicial, con un alcance claro, plazos realistas y un precio que refleja el valor del trabajo.</p>
+
+    <p>El proyecto consiste en <strong>[descripción de 1-2 frases del proyecto: qué se va a construir, para quién, y qué problema resuelve]</strong>. Mi propuesta cubre desde el análisis y diseño hasta la entrega, capacitación y soporte inicial.</p>
+
+    <p>A continuación encontrarás el alcance detallado, el cronograma, la inversión y los términos. Si algo no encaja con tu visión, conversemos — esta propuesta es el punto de partida, no un contrato cerrado.</p>
+  </div>
+</section>
+
+<!-- 02 ALCANCE -->
+<section class="page page--mist">
+  <span class="section__watermark">02</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 02 — Alcance</p>
+      <h2 class="section__title">Lo que está dentro. <em><span class="gradient-gold">Y lo que no</span></em>.</h2>
+      <p class="section__sub">Sin sorpresas, sin letra pequeña.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Sí incluye</h3>
+        <ul>
+          <li>Análisis funcional y levantamiento de requisitos detallado</li>
+          <li>Diseño de arquitectura técnica y wireframes / mockups iniciales</li>
+          <li>Desarrollo del frontend en <strong>[Angular / React / WordPress]</strong></li>
+          <li>Integración con <strong>[API / backend / pasarela de pago / CMS]</strong></li>
+          <li>Pruebas unitarias y QA antes del despliegue</li>
+          <li>Despliegue en producción y configuración de dominio / hosting</li>
+          <li>Documentación técnica y manual de usuario</li>
+          <li>Soporte post-entrega de <strong>[X] semanas</strong></li>
+        </ul>
+      </div>
+
+      <div class="col-card muted">
+        <h3>No incluye</h3>
+        <ul>
+          <li>Mantenimiento extendido más allá del periodo acordado</li>
+          <li>Creación de contenido o textos de marketing</li>
+          <li>Producción de imágenes, fotografía profesional o vídeo</li>
+          <li>Estrategia de SEO avanzada o campañas pagadas</li>
+          <li>Cualquier feature no listado explícitamente arriba</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 STACK -->
+<section class="page">
+  <span class="section__watermark">03</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 03 — Stack técnico</p>
+      <h2 class="section__title">Las <em><span class="gradient-gold">herramientas</span></em> elegidas.</h2>
+      <p class="section__sub">Decisiones técnicas justificadas por las necesidades del proyecto.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-item">
+        <div class="stack-item__label">Frontend</div>
+        <div class="stack-item__value">[Angular 17 · TypeScript · TailwindCSS]</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-item__label">Backend</div>
+        <div class="stack-item__value">[Node.js · .NET · WordPress · N/A]</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-item__label">Base de datos</div>
+        <div class="stack-item__value">[PostgreSQL · MySQL · Firebase · N/A]</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-item__label">Hosting / CI</div>
+        <div class="stack-item__value">[Netlify · Vercel · AWS · hosting cliente]</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--grey); font-family: var(--serif); font-style: italic;">Cada elección de stack está justificada por las necesidades del proyecto, no por moda. Si prefieres otra combinación, lo conversamos.</p>
+  </div>
+</section>
+
+<!-- 04 CRONOGRAMA -->
+<section class="page page--dark">
+  <span class="section__watermark">04</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 04 — Cronograma</p>
+      <h2 class="section__title">Cuatro <em><span class="gradient-gold">fases</span></em>.</h2>
+      <p class="section__sub">Plazos cumplidos como estándar — no como excepción.</p>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="phase__num">01</div>
+        <div class="phase__body">
+          <h4>Descubrimiento</h4>
+          <p>Documento de requisitos, mockups iniciales, alineación de visión y alcance final.</p>
+        </div>
+        <div class="phase__dur">[1 semana]</div>
+      </div>
+
+      <div class="phase">
+        <div class="phase__num">02</div>
+        <div class="phase__body">
+          <h4>Diseño & validación</h4>
+          <p>Wireframes aprobados, arquitectura técnica documentada, plan de hitos.</p>
+        </div>
+        <div class="phase__dur">[1-2 semanas]</div>
+      </div>
+
+      <div class="phase">
+        <div class="phase__num">03</div>
+        <div class="phase__body">
+          <h4>Desarrollo</h4>
+          <p>Entregas parciales semanales con demos. Comunicación directa en español.</p>
+        </div>
+        <div class="phase__dur">[X semanas]</div>
+      </div>
+
+      <div class="phase">
+        <div class="phase__num">04</div>
+        <div class="phase__body">
+          <h4>Entrega & soporte</h4>
+          <p>Despliegue, capacitación, documentación y soporte inicial post-entrega.</p>
+        </div>
+        <div class="phase__dur">[2 semanas]</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 2.5rem; font-size: 1rem; color: var(--cream);">
+      <strong style="color: var(--gold);">Duración estimada total:</strong> [X semanas / X meses] &nbsp;·&nbsp;
+      <strong style="color: var(--gold);">Inicio propuesto:</strong> [Día de mes de 2026]
+    </p>
+  </div>
+</section>
+
+<!-- 05 INVERSIÓN -->
+<section class="page page--mist">
+  <span class="section__watermark">05</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 05 — Inversión</p>
+      <h2 class="section__title">Transparente. <em><span class="gradient-gold">Sin letra pequeña</span></em>.</h2>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="pricing">
+      <div class="pricing__row head">
+        <div class="pricing__label">Concepto</div>
+        <div class="pricing__value">Importe</div>
+      </div>
+      <div class="pricing__row">
+        <div class="pricing__label">Desarrollo del proyecto (alcance arriba)</div>
+        <div class="pricing__value">[CHF / EUR X.XXX]</div>
+      </div>
+      <div class="pricing__row">
+        <div class="pricing__label">Soporte post-entrega ([X] semanas)</div>
+        <div class="pricing__value">Incluido</div>
+      </div>
+      <div class="pricing__row total">
+        <div class="pricing__label">Total</div>
+        <div class="pricing__value">[CHF / EUR X.XXX]</div>
+      </div>
+    </div>
+
+    <div class="payment-plan">
+      <h4>Forma de pago</h4>
+      <ol>
+        <li><strong>30 %</strong> a la firma del acuerdo (anticipo)</li>
+        <li><strong>40 %</strong> al completar la fase de desarrollo</li>
+        <li><strong>30 %</strong> a la entrega final y validación del cliente</li>
+      </ol>
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--grey); font-family: var(--serif); font-style: italic;">
+      Tarifa horaria de referencia para cambios fuera de alcance:
+      <strong style="color: var(--purple-deep); font-style: normal;">[60 – 120 CHF/h]</strong>
+    </p>
+  </div>
+</section>
+
+<!-- 06 TÉRMINOS -->
+<section class="page">
+  <span class="section__watermark">06</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 06 — Términos</p>
+      <h2 class="section__title">Las <em><span class="gradient-gold">condiciones</span></em>.</h2>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <div class="terms">
+      <div class="term">
+        <div class="term__title">Validez</div>
+        <div class="term__body">Esta propuesta es válida por 15 días desde su emisión.</div>
+      </div>
+      <div class="term">
+        <div class="term__title">Cambios de alcance</div>
+        <div class="term__body">Cualquier feature no listado se cotiza por separado a la tarifa horaria indicada.</div>
+      </div>
+      <div class="term">
+        <div class="term__title">Propiedad intelectual</div>
+        <div class="term__body">Todo el código y los entregables pasan a ser propiedad del cliente al recibir el pago final.</div>
+      </div>
+      <div class="term">
+        <div class="term__title">Confidencialidad</div>
+        <div class="term__body">Toda la información compartida durante el proyecto se trata como confidencial.</div>
+      </div>
+      <div class="term">
+        <div class="term__title">Comunicación</div>
+        <div class="term__body">Reuniones de seguimiento semanales (videollamada) y canal asíncrono por correo o WhatsApp.</div>
+      </div>
+      <div class="term">
+        <div class="term__title">Cancelación</div>
+        <div class="term__body">El cliente puede cancelar en cualquier momento. Se cobra el trabajo realizado hasta la fecha.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ACEPTACIÓN -->
+<section class="page page--mist">
+  <span class="section__watermark">07</span>
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— 07 — Aceptación</p>
+      <h2 class="section__title">Si te <em><span class="gradient-gold">cuadra</span></em>.</h2>
+      <div class="gold-rule-fancy"></div>
+    </div>
+
+    <p>Si los términos te parecen bien, basta con responder a este correo confirmando tu aceptación. Te enviaré el contrato formal y la factura del anticipo, y agendamos la primera reunión de descubrimiento.</p>
+    <p>Si tienes preguntas o quieres ajustar algún punto, mejor todavía — escríbeme y conversamos.</p>
+
+    <div class="accept">
+      <div class="accept__inner">
+        <h2 class="accept__title">¿Hablamos?</h2>
+        <p class="accept__sub">Construyamos algo que valga la pena.</p>
+
+        <div class="signatures">
+          <div class="sig">
+            <div class="sig__name">Evelyn Patiño Laverde</div>
+            <div class="sig__role">Freelance Software Engineer</div>
+            <div class="sig__line">evelynpatildr@gmail.com</div>
+            <div class="sig__line">+41 78 348 0550 · WhatsApp</div>
+            <div class="sig__line">linkedin.com/in/evelyn-patino-laverde</div>
+            <div class="sig__signature">Firma · 1 · mayo · 2026</div>
+          </div>
+
+          <div class="sig">
+            <div class="sig__name">[Nombre del cliente]</div>
+            <div class="sig__role">[Cargo · Empresa]</div>
+            <div class="sig__line">[email@cliente.com]</div>
+            <div class="sig__line">&nbsp;</div>
+            <div class="sig__signature">Firma · [día · mes · 2026]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer__brand">Evelyn Patiño Laverde · Freelance</p>
+  <p>Lausana · Suiza · linkedin.com/in/evelyn-patino-laverde · Construido a mano con HTML, CSS y mucho café.</p>
+</footer>
+
+<script>
+  const reveal = document.querySelectorAll('.section__head, .col-card, .stack-item, .phase, .pricing, .payment-plan, .term, .accept');
+  reveal.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')),
+    { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+  );
+  reveal.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
