@@ -14,9 +14,11 @@
  */
 import { useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { AnimatedButterfly } from './animated-butterfly'
 import { MiniIcon, type IconKind } from './mini-icon'
+import { ElaraButton } from './elara-button'
 
 /** Esquinero decorativo dorado para las 4 esquinas del frame. */
 function FrameCorner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
@@ -208,9 +210,10 @@ export function HeroPortal() {
         {/* Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
+              prefetch
               style={{
                 fontFamily: 'var(--font-sans)',
                 color: link.active ? 'var(--color-gold-bright)' : 'var(--color-cream)',
@@ -219,18 +222,20 @@ export function HeroPortal() {
                 textTransform: 'uppercase',
                 opacity: link.active ? 1 : 0.85,
                 transition: 'opacity 0.2s',
+                textShadow: link.active ? '0 0 12px rgba(242,213,120,0.6)' : 'none',
               }}
               className="hover:opacity-100"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Login */}
-        <a
+        <Link
           href="/login"
-          className="rounded-full border border-[var(--color-gold)]/60 px-5 py-2 transition-all hover:bg-[var(--color-gold)]/15"
+          prefetch
+          className="flex items-center gap-2 rounded-full border border-[var(--color-gold)]/60 px-5 py-2 transition-all hover:bg-[var(--color-gold)]/15"
           style={{
             fontFamily: 'var(--font-sans)',
             color: 'var(--color-cream)',
@@ -239,8 +244,12 @@ export function HeroPortal() {
             textTransform: 'uppercase',
           }}
         >
-          Login
-        </a>
+          <svg width={12} height={12} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.4} aria-hidden>
+            <circle cx={6} cy={4} r={2} />
+            <path d="M2 11 Q2 7 6 7 Q10 7 10 11" />
+          </svg>
+          Entrar
+        </Link>
       </motion.header>
 
       {/* Hero text block — izquierda */}
@@ -307,36 +316,14 @@ export function HeroPortal() {
           Descubre la magia, la astrología y el autodescubrimiento en un universo diseñado para tu alma.
         </p>
 
-        {/* 2 CTAs */}
+        {/* 2 CTAs premium */}
         <div className="flex flex-wrap items-center gap-4">
-          <a
-            href="/portal"
-            className="rounded-full px-7 py-3 font-bold uppercase transition-transform hover:scale-[1.03]"
-            style={{
-              background: 'linear-gradient(180deg, var(--color-gold-bright), var(--color-gold) 55%, var(--color-gold-dark))',
-              color: 'var(--color-purple-night)',
-              border: '1px solid rgba(255,234,160,0.65)',
-              boxShadow: '0 4px 20px rgba(242,213,120,0.4), inset 0 1px 0 rgba(255,255,255,0.45)',
-              fontFamily: 'var(--font-sans)',
-              letterSpacing: '0.18em',
-              fontSize: 11,
-            }}
-          >
+          <ElaraButton href="/portal" variant="primary">
             Iniciar viaje
-          </a>
-          <a
-            href="/codice"
-            className="rounded-full border border-[var(--color-gold)]/60 px-6 py-3 transition-all hover:bg-[var(--color-gold)]/15"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              color: 'var(--color-cream)',
-              fontSize: 11,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-            }}
-          >
+          </ElaraButton>
+          <ElaraButton href="/codice" variant="secondary">
             Explorar el Códice
-          </a>
+          </ElaraButton>
         </div>
 
         <p
@@ -366,21 +353,24 @@ export function HeroPortal() {
         style={{ zIndex: 30 }}
       >
         {SIDEBAR_CARDS.map((card) => (
-          <motion.a
+          <motion.div
             key={card.href}
-            href={card.href}
             variants={{
               hidden:  { opacity: 0, x: 32 },
               visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
             }}
             whileHover={{ scale: 1.035, x: -4 }}
-            className="group flex w-[180px] items-center gap-3 rounded-lg border border-[var(--color-gold)]/30 px-4 py-3 transition-colors hover:border-[var(--color-gold)]/70 hover:bg-[var(--color-purple-night)]/50"
-            style={{
-              background: 'rgba(26,15,61,0.55)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-            }}
           >
+            <Link
+              href={card.href}
+              prefetch
+              className="group flex w-[180px] items-center gap-3 rounded-lg border border-[var(--color-gold)]/30 px-4 py-3 transition-colors hover:border-[var(--color-gold)]/70 hover:bg-[var(--color-purple-night)]/50"
+              style={{
+                background: 'rgba(26,15,61,0.55)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+              }}
+            >
             <div
               className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md"
               style={{
@@ -417,7 +407,8 @@ export function HeroPortal() {
                 Explorar →
               </span>
             </div>
-          </motion.a>
+            </Link>
+          </motion.div>
         ))}
       </motion.aside>
 
@@ -434,17 +425,20 @@ export function HeroPortal() {
         style={{ zIndex: 30 }}
       >
         {BOTTOM_NAV.map((item) => (
-          <motion.a
+          <motion.div
             key={item.href}
-            href={item.href}
             variants={{
               hidden:  { opacity: 0, y: 24, scale: 0.85 },
               visible: { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
             }}
             whileHover={{ scale: 1.08, y: -4 }}
             whileTap={{ scale: 0.97 }}
-            className="group flex flex-col items-center gap-2"
           >
+            <Link
+              href={item.href}
+              prefetch
+              className="group flex flex-col items-center gap-2"
+            >
             <div
               className="flex h-14 w-14 items-center justify-center rounded-full border md:h-16 md:w-16"
               style={{
@@ -471,7 +465,8 @@ export function HeroPortal() {
             >
               {item.label}
             </span>
-          </motion.a>
+            </Link>
+          </motion.div>
         ))}
 
         {/* Idle breathing animation para los iconos */}

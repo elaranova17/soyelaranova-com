@@ -11,8 +11,8 @@
  */
 import { useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { ElaraButton } from './elara-button'
 
 type Props = {
   bg: string
@@ -124,19 +124,11 @@ export function ComingSoonSection({ bg, eyebrow, title, description }: Props) {
           {description}
         </p>
 
-        <Link
-          href="/"
-          className="mt-4 rounded-full border border-[var(--color-gold)]/60 px-6 py-3 transition-all hover:bg-[var(--color-gold)]/15"
-          style={{
-            fontFamily: 'var(--font-sans)',
-            color: 'var(--color-cream)',
-            fontSize: 11,
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-          }}
-        >
-          ← Volver al Portal
-        </Link>
+        <div className="mt-4">
+          <ElaraButton href="/" variant="secondary">
+            Volver al Portal
+          </ElaraButton>
+        </div>
 
         <span
           style={{
