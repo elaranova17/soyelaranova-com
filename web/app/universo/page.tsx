@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { SiteHeader } from '@/components/site-header'
+import { SiteNav } from '@/components/site-nav'
 import { SectionCard3D, type Section3D } from '@/components/section-card-3d'
 
 export const metadata: Metadata = {
@@ -93,7 +93,7 @@ export default function UniversoPage() {
         }}
       />
 
-      <SiteHeader active="/universo" />
+      <SiteNav />
 
       <div className="relative z-10 flex w-full max-w-7xl flex-col items-center gap-14 px-6">
         {/* Hero del universo */}

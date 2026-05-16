@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { SiteHeader } from '@/components/site-header'
+import { SiteNav } from '@/components/site-nav'
 import { ElaraButton } from '@/components/elara-button'
 
 export const metadata: Metadata = {
@@ -168,7 +168,7 @@ export default function LinktreePage() {
         }}
       />
 
-      <SiteHeader />
+      <SiteNav />
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-9 px-6">
         {/* Avatar + nombre */}
