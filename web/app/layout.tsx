@@ -25,16 +25,16 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Elara Nova · Próximamente',
+  title: 'Elara Nova · Mira todo lo que siempre fuiste capaz de ser',
   description:
-    'Un oráculo, un calendario lunar, un círculo. Para mujeres latinas en reinvención.',
+    'Oráculo íntimo y rituales para mujeres latinas en reinvención. Sacá tu carta del día.',
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'https://soyelaranova.com',
   ),
   openGraph: {
-    title: 'Elara Nova · Próximamente',
+    title: 'Elara Nova',
     description:
-      'Un oráculo, un calendario lunar, un círculo. Para mujeres latinas en reinvención.',
+      'Oráculo íntimo y rituales para mujeres latinas en reinvención.',
     type: 'website',
     locale: 'es',
   },

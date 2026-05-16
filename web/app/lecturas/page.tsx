@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ComingSoonSection } from '@/components/coming-soon-section'
+import { ImmersiveScene } from '@/components/immersive-scene'
 
 export const metadata: Metadata = {
   title: 'Lecturas · Elara Nova',
@@ -8,11 +8,17 @@ export const metadata: Metadata = {
 
 export default function LecturasPage() {
   return (
-    <ComingSoonSection
-      bg="/hero/codice-bg.jpg"
+    <ImmersiveScene
+      activeNav="/lecturas"
+      bg="/hero/atelier-libro.jpg"
+      bgAlt="Libro abierto con esfera de cristal bajo arco con luna llena"
       eyebrow="Lecturas Personales"
-      title="Te tiro las cartas a mano."
+      titleKicker="Lecturas:"
+      title="Te tiro las cartas a mano"
       description="Una lectura íntima, sin algoritmos. Mando tu tirada en PDF + audio con la voz de Elara contando lo que vi."
+      ctaPrimary={{ label: 'Pedir mi lectura', href: '/codice' }}
+      ctaSecondary={{ label: 'Ver oráculo gratis', href: '/oraculo' }}
+      tagline="Cada tirada es única. Cada palabra, escrita para tu momento."
     />
   )
 }

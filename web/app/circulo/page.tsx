@@ -17,7 +17,7 @@ export default function CirculoPage() {
       titleKicker="El Círculo:"
       title="Manifestemos juntas"
       description="Un espacio íntimo en WhatsApp y Telegram. Rituales diarios, frecuencias y contenido inédito. +10K almas ascendiendo."
-      ctaPrimary={{ label: 'Entrar al círculo', href: '/comunidad' }}
+      ctaPrimary={{ label: 'Sumarme al WhatsApp', href: 'https://wa.me/41769107725' }}
       ctaSecondary={{ label: 'Conocer más', href: '/manifiesto' }}
       tagline="Un universo, múltiples experiencias. Una sola tribu."
     />

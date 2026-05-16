@@ -69,7 +69,7 @@ const DEFAULT_BOTTOM: readonly BottomItem[] = [
   { href: '/oraculo',      label: 'Oráculo',               icon: 'tarot-cards',     accent: 'var(--color-violet-flower)' },
   { href: '/lecturas',     label: 'Lecturas',              icon: 'open-book',       accent: 'var(--color-gold-bright)' },
   { href: '/herramientas', label: 'Herramientas Astrales', icon: 'astrolabe',       accent: 'var(--color-lavender)' },
-  { href: '/comunidad',    label: 'Comunidad',             icon: 'crystal-cluster', accent: 'var(--color-crystal-pink)' },
+  { href: '/circulo',      label: 'Comunidad',             icon: 'crystal-cluster', accent: 'var(--color-crystal-pink)' },
   { href: '/atelier',      label: 'Atelier',               icon: 'prism',           accent: 'var(--color-crystal-cyan)' },
 ]
 
