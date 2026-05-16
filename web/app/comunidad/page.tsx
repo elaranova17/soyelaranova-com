@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ComunidadPage() {
   return (
     <ComingSoonSection
-      bg="/hero/circle-bg.jpg"
+      bg="/hero/circulo-bg.jpg"
       eyebrow="El Círculo"
       title="Manifestamos juntas."
       description="Un espacio sagrado donde la tecnología y el alma convergen. Rituales diarios, frecuencias y contenido inédito."

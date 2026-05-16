@@ -10,24 +10,16 @@ export const metadata: Metadata = {
 export default function PortalPage() {
   return (
     <ImmersiveScene
-      activeNav="/universo"
+      activeNav="/"
       bg="/hero/portal-lunar-bg.jpg"
-      bgAlt="Portal espiral con mariposas doradas en escena mistica"
+      bgAlt="Portal espiral toroidal con mariposas doradas"
       eyebrow="01 · Portal Lunar"
-      title={
-        <>
-          La puerta abierta{' '}
-          <em style={{ color: 'var(--color-gold-bright)' }}>hacia adentro</em>.
-        </>
-      }
-      description={
-        <>
-          Aquí confluyen tu calendario lunar, tu carta astral y tu oráculo
-          íntimo. El primer paso del viaje de regreso a vos.
-        </>
-      }
-      ctaPrimary={{ label: 'Entrar al portal', href: '/oraculo' }}
-      ctaSecondary={{ label: 'Ver mi calendario', href: '/calendario' }}
+      titleKicker="Portal Lunar:"
+      title="Tu viaje ancestral"
+      description="Aquí confluyen tu calendario lunar, tu carta astral y tu oráculo íntimo. El primer paso del viaje de regreso a vos."
+      ctaPrimary={{ label: 'Iniciar viaje', href: '/oraculo' }}
+      ctaSecondary={{ label: 'Mi calendario', href: '/herramientas' }}
+      tagline="Una experiencia inmersiva de bienestar emocional y sabiduría mística."
     />
   )
 }
