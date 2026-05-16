@@ -76,7 +76,7 @@ export default function UniversoPage() {
       style={{ background: 'var(--color-void)' }}
     >
       <Image
-        src="/hero/portal-lago.jpg"
+        src="/hero/atelier-estudio.jpg"
         alt=""
         fill
         priority

@@ -12,7 +12,6 @@ export default function CodicePage() {
     <ImmersiveScene
       activeNav="/codice"
       bg="/hero/codice-bg.jpg"
-      layerBg="/hero/codice-grimorio.jpg"
       bgAlt="Apotecaria mística con cristales y libros antiguos"
       eyebrow="03 · Códice Sagrado"
       titleKicker="Códice:"
