@@ -13,22 +13,14 @@ export default function CodicePage() {
       activeNav="/codice"
       bg="/hero/codice-bg.jpg"
       layerBg="/hero/codice-grimorio.jpg"
-      bgAlt="Apotecaria mistica con cristales y libros antiguos"
+      bgAlt="Apotecaria mística con cristales y libros antiguos"
       eyebrow="03 · Códice Sagrado"
-      title={
-        <>
-          El libro que se{' '}
-          <em style={{ color: 'var(--color-gold-bright)' }}>escribe contigo</em>.
-        </>
-      }
-      description={
-        <>
-          Un grimorio digital de rituales, prácticas guiadas y lecturas
-          íntimas. 28 días de retorno a vos.
-        </>
-      }
+      titleKicker="Códice:"
+      title="El libro que se escribe contigo"
+      description="Un grimorio digital de rituales, prácticas guiadas y lecturas íntimas. 28 días de retorno a vos."
       ctaPrimary={{ label: 'Explorar el códice', href: '/oraculo' }}
-      ctaSecondary={{ label: 'Ver mi primer ebook', href: '/lecturas' }}
+      ctaSecondary={{ label: 'Mi primer ebook', href: '/lecturas' }}
+      tagline="Cartas, oráculos y ebooks que destilan sabiduría ancestral."
     />
   )
 }
