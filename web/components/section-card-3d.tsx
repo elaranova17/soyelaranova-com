@@ -100,7 +100,7 @@ export function SectionCard3D({ section, index }: { section: Section3D; index: n
               alt=""
               fill
               sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-              quality={88}
+              quality={95}
               priority={index < 3}
               style={{ objectFit: 'cover' }}
             />
