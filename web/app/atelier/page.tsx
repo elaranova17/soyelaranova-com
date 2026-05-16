@@ -12,7 +12,6 @@ export default function AtelierPage() {
     <ImmersiveScene
       activeNav="/atelier"
       bg="/hero/atelier-bg.jpg"
-      layerBg="/hero/atelier-libro.jpg"
       bgAlt="Atelier místico con máquina de escribir y libro de cartas astrales bajo la luna"
       eyebrow="05 · Atelier Creativo"
       titleKicker="Atelier:"

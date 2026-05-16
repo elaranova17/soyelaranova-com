@@ -298,7 +298,7 @@ export function PortalLunarHero({ revealDelay = 0 }: { revealDelay?: number }) {
         }}
       >
         <Image
-          src="/hero/portal-lunar-bg.jpg"
+          src="/hero/portal-lago.jpg"
           alt=""
           fill
           priority

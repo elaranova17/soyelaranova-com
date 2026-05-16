@@ -12,7 +12,6 @@ export default function ArchivoAstralPage() {
     <ImmersiveScene
       activeNav="/archivo-astral"
       bg="/hero/archivo-astral-bg.jpg"
-      layerBg="/hero/astrologo-escritorio.jpg"
       bgAlt="Observatorio místico con telescopio, mapas astrales y mandala compass"
       eyebrow="02 · Archivo Astral"
       titleKicker="Archivo Astral:"
