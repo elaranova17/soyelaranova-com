@@ -76,12 +76,12 @@ export default function UniversoPage() {
       style={{ background: 'var(--color-void)' }}
     >
       <Image
-        src="/hero/portal-lunar-bg.jpg"
+        src="/hero/portal-lago.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
-        quality={85}
+        quality={92}
         style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.32 }}
       />
       <div
