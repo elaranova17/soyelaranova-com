@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
       { source: '/propuesta',         destination: '/propuesta-template.html' },
     ]
   },
+
+  async redirects() {
+    return [
+      // /comunidad y /circulo son la misma cosa — consolidamos en /circulo
+      { source: '/comunidad', destination: '/circulo', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

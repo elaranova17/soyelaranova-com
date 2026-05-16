@@ -29,11 +29,16 @@
   --color-crystal-pink:   #E8A0B8;
   --color-crystal-cyan:   #6FD8E8;
   --color-cream:          #FAF4E2;
+  --color-white-rose:     #F5EEF8;
 
   /* Tipografía */
   --font-display: var(--font-playfair);
   --font-serif:   var(--font-cormorant);
   --font-sans:    var(--font-lato);
+
+  /* Sombras mágicas (CONTEXT §3) */
+  --shadow-glow-gold:   0 0 60px rgba(212, 175, 55, 0.5);
+  --shadow-glow-purple: 0 0 40px rgba(155, 107, 196, 0.4);
 }
 
 html, body {
