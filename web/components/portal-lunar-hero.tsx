@@ -38,7 +38,7 @@ import {
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ElaraButton } from './elara-button'
-import { SiteHeader } from './site-header'
+import { SiteNav } from './site-nav'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -381,8 +381,8 @@ export function PortalLunarHero({ revealDelay = 0 }: { revealDelay?: number }) {
         }}
       />
 
-      {/* Z5 — HEADER + CONTENIDO */}
-      <SiteHeader active="/" />
+      {/* Z5 — NAV + CONTENIDO */}
+      <SiteNav />
 
       <div
         ref={contentRef}
