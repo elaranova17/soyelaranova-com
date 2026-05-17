@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type TrustBadgeIcon = 'shield' | 'check' | 'heart' | 'star'
 
@@ -82,7 +83,7 @@ function SobreImageColumn() {
   return (
     <div className="relative h-80 overflow-hidden rounded-2xl md:h-[440px]">
       <Image
-        src="/hero/sobre-elara.jpg"
+        src={siteImages.sobre.elara}
         alt="Elara Nova — Un espacio creado por y para mujeres"
         fill
         className="object-cover object-center"

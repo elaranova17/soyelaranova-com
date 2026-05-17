@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import { siteImages } from '@/lib/site-images'
+
 const servicios = ['Diseño web y landing', 'Automatizaciones', 'Agentes IA', 'Branding e identidad', 'Estrategia digital']
 
 export function AtelierSection() {
@@ -18,9 +21,15 @@ export function AtelierSection() {
             Ver nuestro portafolio →
           </a>
         </div>
-        <div className="relative h-72 bg-[#1a0f2e] rounded-2xl overflow-hidden">
-          {/* Imagen: atelier/workspace creativo */}
-          <div className="absolute inset-0 flex items-center justify-center text-[#C9A84C]/30 text-sm">[ atelier-workspace.jpg ]</div>
+        <div className="relative h-72 rounded-2xl overflow-hidden md:h-[400px]">
+          <Image
+            src={siteImages.atelier.escribiendo}
+            alt="Atelier Elara Nova — Estudio creativo"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-[#0a0612]/20" />
         </div>
       </div>
     </section>
