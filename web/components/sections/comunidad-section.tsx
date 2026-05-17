@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import { siteImages } from '@/lib/site-images'
+
 export function ComunidadSection() {
   return (
     <section className="bg-[#0d0920] py-20 px-6 md:px-16">
@@ -18,9 +21,15 @@ export function ComunidadSection() {
             Quiero unirme →
           </a>
         </div>
-        <div className="relative h-72 bg-[#1a0f2e] rounded-2xl overflow-hidden">
-          {/* Imagen: comunidad de mujeres */}
-          <div className="absolute inset-0 flex items-center justify-center text-[#C9A84C]/30 text-sm">[ comunidad-mujeres.jpg ]</div>
+        <div className="relative h-72 rounded-2xl overflow-hidden md:h-[400px]">
+          <Image
+            src={siteImages.comunidad.mujeres}
+            alt="Comunidad Elara Nova — Mujeres que se apoyan"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-[#0d0920]/20" />
         </div>
       </div>
     </section>

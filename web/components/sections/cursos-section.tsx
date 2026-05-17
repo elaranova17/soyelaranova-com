@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type CourseBadgeVariant = 'gold' | 'purple'
 
@@ -10,7 +12,7 @@ type CourseCard = {
   weeks: number
   lessons: number
   price: number
-  imageFile: string
+  imageSrc: string
 }
 
 type BenefitIcon = 'pace' | 'quality' | 'community'
@@ -36,7 +38,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 8,
     lessons: 32,
     price: 97,
-    imageFile: 'curso-astrologia.jpg',
+    imageSrc: siteImages.cursos.astrologia,
   },
   {
     id: 'tarot',
@@ -46,7 +48,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 6,
     lessons: 24,
     price: 77,
-    imageFile: 'curso-tarot.jpg',
+    imageSrc: siteImages.cursos.tarot,
   },
   {
     id: 'ciclos',
@@ -56,7 +58,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 4,
     lessons: 16,
     price: 57,
-    imageFile: 'curso-ciclos.jpg',
+    imageSrc: siteImages.cursos.ciclos,
   },
   {
     id: 'sanar',
@@ -66,7 +68,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 7,
     lessons: 28,
     price: 87,
-    imageFile: 'curso-sanar.jpg',
+    imageSrc: siteImages.cursos.sanar,
   },
 ] as const
 
@@ -189,11 +191,15 @@ function CursosHeroHeader() {
         </div>
       </div>
 
-      <div className="relative h-72 overflow-hidden rounded-2xl bg-[#110d24]">
-        {/* TODO: <Image src="/hero/cursos-elara-escritorio.jpg" fill className="object-cover" alt="Elara Nova enseñando" /> */}
-        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/25">
-          [ cursos-elara-escritorio.jpg ]
-        </p>
+      <div className="relative h-72 overflow-hidden rounded-2xl">
+        <Image
+          src={siteImages.cursos.header}
+          alt="Elara Nova — Cursos y formaciones"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-[#06040d]/30" />
       </div>
     </div>
   )
@@ -218,16 +224,20 @@ function BenefitsStrip() {
 function FeaturedCourseCard({ course }: { course: CourseCard }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-[#2d1f4e] bg-[#110d24] hover:border-[#C9A84C]/40">
-      <div className="relative h-44 bg-[#1a0f2e]">
+      <div className="relative aspect-video overflow-hidden">
+        <Image
+          src={course.imageSrc}
+          alt={course.title}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        />
+        <div className="absolute inset-0 bg-[#06040d]/20" />
         <span
           className={`absolute top-3 left-3 rounded-full px-2 py-0.5 text-xs font-semibold ${BADGE_CLASSES[course.badgeVariant]}`}
         >
           {course.badge}
         </span>
-        {/* TODO: <Image src={`/hero/${course.imageFile}`} fill className="object-cover" alt={course.title} /> */}
-        <p className="absolute inset-0 flex items-center justify-center text-xs text-[#C9A84C]/25">
-          [ {course.imageFile} ]
-        </p>
       </div>
       <div className="p-5">
         <h3 className="mb-3 text-sm font-semibold text-[#e8e0f0]">{course.title}</h3>
