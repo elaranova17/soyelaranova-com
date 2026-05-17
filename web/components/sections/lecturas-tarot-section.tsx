@@ -1,31 +1,124 @@
+import Link from 'next/link'
+
+type LecturaStep = {
+  id: string
+  number: number
+  title: string
+  description: string
+}
+
+const LECTURA_STEPS: readonly LecturaStep[] = [
+  {
+    id: 'pregunta',
+    number: 1,
+    title: 'Haz tu pregunta',
+    description: 'Cuéntanos tu duda o situación.',
+  },
+  {
+    id: 'lectura',
+    number: 2,
+    title: 'Realizamos tu lectura',
+    description:
+      'Con intención y conexión, nuestro equipo trabaja para vos.',
+  },
+  {
+    id: 'respuesta',
+    number: 3,
+    title: 'Recibí tu lectura',
+    description: 'Te enviamos un PDF con tu mensaje.',
+  },
+] as const
+
+const PRICE_BULLETS: readonly string[] = [
+  '1 pregunta específica',
+  'Lectura profunda y clara',
+  'Respuesta en 24h hábiles',
+] as const
+
+function LecturaStepsList() {
+  return (
+    <ol className="mt-8 space-y-5">
+      {LECTURA_STEPS.map((step) => (
+        <li key={step.id} className="flex gap-4">
+          <span
+            className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center text-sm font-bold text-[#C9A84C]"
+            aria-hidden
+          >
+            {step.number}
+          </span>
+          <p className="text-sm leading-relaxed text-[#9080b0]">
+            <span className="font-semibold text-[#e8e0f0]">{step.title}</span>
+            {' — '}
+            {step.description}
+          </p>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+function PriceCard() {
+  return (
+    <div className="mt-8 rounded-2xl border border-[#2d1f4e] bg-[#1a0f2e] p-6">
+      <p className="text-3xl font-bold tracking-tight text-[#e8e0f0]">
+        $24{' '}
+        <span className="text-lg font-normal text-[#9080b0]">USD</span>
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-[#9080b0]">
+        · {PRICE_BULLETS.join(' · ')}
+      </p>
+    </div>
+  )
+}
+
+function ImagePlaceholder() {
+  return (
+    <div
+      className="flex h-full min-h-[400px] items-center justify-center rounded-2xl bg-[#1a0f2e] p-6"
+      aria-hidden
+    >
+      {/* TODO: reemplazar con Image cuando esté lista tarot-elara-cartas.jpg */}
+      <p className="text-center text-sm text-[#C9A84C]/30">
+        [ tarot-elara-cartas.jpg ]
+      </p>
+    </div>
+  )
+}
+
 export function LecturasTarotSection() {
   return (
-    <section className="bg-[#0a0612] py-20 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="text-[#C9A84C] text-xs tracking-widest uppercase mb-3">03 · Lecturas de Tarot</p>
-          <h2 className="text-[#e8e0f0] font-serif text-4xl font-bold mb-4">Haz tu pregunta. Recibe tu respuesta.</h2>
-          <p className="text-[#b8a8d0] mb-8">Lectura personalizada en máximo 24 horas hábiles.</p>
-          <div className="space-y-4 mb-8">
-            {['Haz tu pregunta', 'Realizamos tu lectura', 'Recibí tu lectura en PDF'].map((step, i) => (
-              <div key={step} className="flex items-start gap-4">
-                <span className="text-[#C9A84C] font-bold text-sm mt-0.5">{i + 1}</span>
-                <p className="text-[#b8a8d0] text-sm">{step}</p>
-              </div>
-            ))}
-          </div>
-          <div className="bg-[#1a0f2e] border border-[#2d1f4e] rounded-2xl p-6 mb-6">
-            <p className="text-[#C9A84C] font-bold text-2xl mb-1">$24 <span className="text-sm font-normal">USD</span></p>
-            <p className="text-[#b8a8d0] text-sm">· 1 pregunta específica · Lectura profunda · Respuesta en 24h</p>
-          </div>
-          <a href="#" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium">
+    <section
+      id="lecturas-tarot"
+      className="bg-[#0a0612] px-6 py-20 md:px-16"
+      aria-labelledby="lecturas-tarot-heading"
+    >
+      <div className="mx-auto grid max-w-7xl items-stretch gap-12 lg:grid-cols-2">
+        <div className="flex flex-col justify-center">
+          <p className="mb-3 text-xs tracking-widest text-[#C9A84C] uppercase">
+            03 · Tarot
+          </p>
+          <h2
+            id="lecturas-tarot-heading"
+            className="font-serif text-4xl font-bold text-[#e8e0f0]"
+          >
+            Haz tu pregunta. Recibe tu respuesta.
+          </h2>
+          <p className="mt-3 text-[#9080b0]">
+            Lectura personalizada en máximo 24 horas hábiles.
+          </p>
+
+          <LecturaStepsList />
+          <PriceCard />
+
+          <Link
+            href="/lecturas"
+            className="mt-8 inline-flex w-fit items-center rounded-full bg-[#7c3aed] px-8 py-3 text-xs font-semibold tracking-widest text-white uppercase"
+          >
             Hacer mi pregunta →
-          </a>
+          </Link>
         </div>
-        <div className="relative h-80 bg-[#1a0f2e] rounded-2xl overflow-hidden">
-          {/* Imagen: Elara con cartas de tarot */}
-          <div className="absolute inset-0 flex items-center justify-center text-[#C9A84C]/30 text-sm">[ tarot-elara-cartas.jpg ]</div>
-        </div>
+
+        <ImagePlaceholder />
       </div>
     </section>
   )
