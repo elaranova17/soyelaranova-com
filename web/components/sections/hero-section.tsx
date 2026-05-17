@@ -1,28 +1,101 @@
+import Link from 'next/link'
+
+type HeroPillar = {
+  id: string
+  label: string
+}
+
+const HERO_PILLARS: readonly HeroPillar[] = [
+  { id: 'conectate', label: 'Conéctate contigo' },
+  { id: 'decisiones', label: 'Toma decisiones' },
+  { id: 'alineate', label: 'Alinéate' },
+  { id: 'manifiesta', label: 'Manifiesta' },
+  { id: 'magia', label: 'Crea tu magia' },
+] as const
+
+function PillarIcon() {
+  return (
+    <svg
+      className="h-5 w-5 shrink-0 text-[#C9A84C]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="8" />
+      <polygon points="12 7 13.2 11.5 12 16 10.8 11.5" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function HeroImagePlaceholder() {
+  return (
+    <div className="relative h-[480px] overflow-hidden rounded-3xl md:h-[580px]">
+      <div className="relative h-full w-full bg-[#110d24]">
+        {/* TODO: <Image src="/hero/hero-elara-escritorio.jpg" alt="Elara Nova" fill className="object-cover" /> */}
+        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/25">
+          [ hero-elara-escritorio.jpg ]
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-[#0a0612] flex items-center px-6 md:px-16 py-20">
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen bg-[#06040d] px-6 py-24 md:px-16">
+      <div
+        className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-[#7c3aed]/15 blur-[120px]"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="text-[#C9A84C] text-sm tracking-widest uppercase mb-4">Bienvenida a</p>
-          <h1 className="text-[#e8e0f0] font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Tu universo para crear la vida que sueñas.
-          </h1>
-          <p className="text-[#b8a8d0] text-lg mb-8 max-w-md">
-            Herramientas, guía y magia práctica para mujeres que quieren transformarse, crear y vivir con propósito.
+          <p className="mb-4 text-sm tracking-[0.3em] text-[#C9A84C] uppercase">
+            ✦ Tu universo ✦
           </p>
-          <div className="flex gap-4 flex-wrap">
-            <a href="/herramientas" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium hover:bg-[#6d28d9] transition-colors">
+          <h1 className="mb-6 font-serif text-5xl leading-[1.05] font-bold text-[#f0eafa] md:text-7xl">
+            para crear la vida que sueñas.
+          </h1>
+          <p className="mb-8 max-w-md text-lg text-[#9080b0]">
+            Herramientas, guía y magia práctica para mujeres que quieren
+            transformarse, crear y vivir con propósito.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="#descubre-tu-camino"
+              className="inline-flex items-center rounded-full bg-[#7c3aed] px-8 py-3.5 text-sm font-semibold tracking-wide text-white uppercase"
+            >
               Descubre tu camino →
-            </a>
-            <a href="/herramientas" className="border border-[#C9A84C] text-[#C9A84C] px-8 py-3 rounded-full font-medium hover:bg-[#C9A84C]/10 transition-colors">
+            </Link>
+            <Link
+              href="#herramientas-astrales"
+              className="inline-flex items-center rounded-full border border-[#C9A84C]/60 px-8 py-3.5 text-sm tracking-wide text-[#C9A84C] uppercase"
+            >
               Explora herramientas
-            </a>
+            </Link>
           </div>
+
+          <ul className="mt-12 flex flex-wrap gap-8">
+            {HERO_PILLARS.map((pillar) => (
+              <li
+                key={pillar.id}
+                className="flex max-w-[5.5rem] flex-col items-center gap-2"
+              >
+                <PillarIcon />
+                <span className="text-center text-xs text-[#9080b0]">
+                  {pillar.label}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="relative h-96 md:h-full bg-[#1a0f2e] rounded-2xl overflow-hidden">
-          {/* Imagen: Elara escribiendo en escritorio con velas */}
-          <div className="absolute inset-0 flex items-center justify-center text-[#C9A84C]/30 text-sm">[ hero-elara-escritorio.jpg ]</div>
-        </div>
+
+        <HeroImagePlaceholder />
       </div>
     </section>
   )
