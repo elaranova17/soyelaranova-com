@@ -1,0 +1,84 @@
+# ELARA NOVA — PROJECT RULES
+
+## Stack exacto
+- Next.js App Router + React 19 + TypeScript strict
+- Tailwind v4 con @theme tokens definidos en globals.css
+- Framer Motion para transiciones de página y microinteracciones
+- GSAP para animaciones scroll-driven complejas
+- Lenis para smooth scroll
+- @react-three/fiber + drei + postprocessing para el Oráculo 3D
+- Supabase para auth y datos (lib en src/lib/supabase.ts)
+- Resend para emails transaccionales (lib en src/lib/resend.ts)
+- Vercel para deploy (CI desde branch main)
+
+## Tokens de diseño — SIEMPRE el token, nunca el hex
+```
+var(--color-purple-night)   → fondo base oscuro
+var(--color-purple-deep)    → capas secundarias
+var(--color-purple-mid)     → cards, modales
+var(--color-lavender)       → acentos, hover secundarios
+var(--color-gold)           → CTA principal, highlights
+var(--color-gold-bright)    → hover gold
+var(--color-gold-soft)      → gold transparente (glows)
+var(--color-cream)          → texto principal sobre fondos oscuros
+```
+
+## Tipografía
+```
+font-display  → Playfair Display  (títulos hero, impacto emocional)
+font-serif    → Cormorant Garamond (subtítulos, cuerpo editorial)
+font-sans     → Lato              (UI, labels, precios, navegación)
+```
+
+## Estructura de componentes
+```
+src/components/
+├── ui/        ← primitivos reutilizables (Button, Card, Badge, Input)
+├── layout/    ← Header, Footer, Section wrappers
+├── sections/  ← secciones completas de páginas (HomeHero, PricingSection)
+├── forms/     ← formularios con react-hook-form + zod
+└── 3d/        ← Three.js / R3F components (siempre dynamic import)
+```
+
+## Rutas existentes
+```
+/             home
+/oraculo      portal 3D + preview cartas
+/codice-tierno  suscripción 27 CHF
+/calendario   auth-gated
+/carta-astral  47 CHF, birth-data form
+/sobre-elara  bio + manifesto
+/evelyn       B2B portfolio
+/login /signup  AuthCard magic-link
+/api/health   liveness probe
+```
+
+## Motion — constantes de animación
+```typescript
+// Entrada estándar (usá esto, no inventes durations random):
+{ opacity: 0, y: 24 } → { opacity: 1, y: 0 }
+transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+
+// Stagger entre elementos de lista: 0.08s
+// Microinteracciones hover: duration 0.2s
+// Transiciones de página: duration 0.4s
+// Nunca superar 600ms en animaciones de UI
+```
+
+## Performance
+- `next/image` siempre con `sizes` prop explícito
+- `next/font/google` con `preload: true, subsets: ['latin']`
+- Three.js: `next/dynamic` con `ssr: false`
+- `useCallback` en handlers pasados como props
+- Nunca `transition-all` en Tailwind
+
+## Variables de entorno (definidas, requieren valores reales en Vercel)
+```
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY
+RESEND_API_KEY
+NEXT_PUBLIC_TURNSTILE_SITE_KEY
+TURNSTILE_SECRET_KEY
+NEXT_PUBLIC_SITE_URL
+```

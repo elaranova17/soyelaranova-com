@@ -29,12 +29,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 type NavLink = { href: string; label: string; num: string }
 const NAV: readonly NavLink[] = [
-  { href: '/',           label: 'Inicio',           num: '00' },
-  { href: '/universo',   label: 'Universo',         num: '01' },
-  { href: '/codice',     label: 'Códice',           num: '03' },
-  { href: '/circulo',    label: 'Círculo',          num: '04' },
-  { href: '/atelier',    label: 'Atelier',          num: '05' },
-  { href: '/manifiesto', label: 'Manifiesto',       num: '06' },
+  { href: '/',              label: 'Inicio',        num: '00' },
+  { href: '/herramientas',  label: 'Herramientas',  num: '01' },
+  { href: '/herramientas',  label: 'Astrología',    num: '02' },
+  { href: '/herramientas',  label: 'Tarot',         num: '03' },
+  { href: '/recursos',      label: 'Recursos',      num: '04' },
+  { href: '/comunidad',     label: 'Comunidad',     num: '05' },
+  { href: '/atelier',       label: 'Atelier',       num: '06' },
+  { href: '/recursos',      label: 'Cursos',        num: '07' },
 ]
 
 function Logo() {
