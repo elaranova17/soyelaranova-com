@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type HerramientaIcon =
   | 'star'
@@ -255,6 +257,17 @@ export function HerramientasAstralesSection() {
           Elige la herramienta que necesitás y recibí tu resultado en PDF en tu
           correo.
         </p>
+
+        <div className="relative mt-8 h-56 overflow-hidden rounded-2xl md:h-72">
+          <Image
+            src={siteImages.herramientas.principal}
+            alt="Herramientas astrales — Elara Nova"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+          />
+          <div className="absolute inset-0 bg-[#0d0920]/25" />
+        </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
           {HERRAMIENTAS.map((herramienta) => (

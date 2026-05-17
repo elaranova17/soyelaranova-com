@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type LecturaStep = {
   id: string
@@ -73,14 +75,15 @@ function PriceCard() {
 
 function ImagePlaceholder() {
   return (
-    <div
-      className="flex h-full min-h-[400px] items-center justify-center rounded-2xl bg-[#1a0f2e] p-6"
-      aria-hidden
-    >
-      {/* TODO: reemplazar con Image cuando esté lista tarot-elara-cartas.jpg */}
-      <p className="text-center text-sm text-[#C9A84C]/30">
-        [ tarot-elara-cartas.jpg ]
-      </p>
+    <div className="relative min-h-[400px] overflow-hidden rounded-2xl">
+      <Image
+        src={siteImages.tarot.seccion}
+        alt="Lecturas de tarot personalizadas — Elara Nova"
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+      <div className="absolute inset-0 bg-[#0a0612]/20" />
     </div>
   )
 }
