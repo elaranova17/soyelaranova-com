@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 type CourseBadgeVariant = 'gold' | 'purple'
@@ -189,11 +190,15 @@ function CursosHeroHeader() {
         </div>
       </div>
 
-      <div className="relative h-72 overflow-hidden rounded-2xl bg-[#110d24]">
-        {/* TODO: <Image src="/hero/cursos-elara-escritorio.jpg" fill className="object-cover" alt="Elara Nova enseñando" /> */}
-        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/25">
-          [ cursos-elara-escritorio.jpg ]
-        </p>
+      <div className="relative h-72 overflow-hidden rounded-2xl">
+        <Image
+          src="/hero/herramientas-elara-orbe.jpg"
+          alt="Elara Nova — Cursos y formaciones"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-[#06040d]/30" />
       </div>
     </div>
   )
@@ -218,16 +223,20 @@ function BenefitsStrip() {
 function FeaturedCourseCard({ course }: { course: CourseCard }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-[#2d1f4e] bg-[#110d24] hover:border-[#C9A84C]/40">
-      <div className="relative h-44 bg-[#1a0f2e]">
+      <div className="relative h-44 overflow-hidden">
+        <Image
+          src={`/hero/${course.imageFile}`}
+          alt={course.title}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        />
+        <div className="absolute inset-0 bg-[#06040d]/20" />
         <span
           className={`absolute top-3 left-3 rounded-full px-2 py-0.5 text-xs font-semibold ${BADGE_CLASSES[course.badgeVariant]}`}
         >
           {course.badge}
         </span>
-        {/* TODO: <Image src={`/hero/${course.imageFile}`} fill className="object-cover" alt={course.title} /> */}
-        <p className="absolute inset-0 flex items-center justify-center text-xs text-[#C9A84C]/25">
-          [ {course.imageFile} ]
-        </p>
       </div>
       <div className="p-5">
         <h3 className="mb-3 text-sm font-semibold text-[#e8e0f0]">{course.title}</h3>
