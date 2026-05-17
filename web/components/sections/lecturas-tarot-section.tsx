@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type LecturaStep = {
   id: string
@@ -76,7 +77,7 @@ function ImagePlaceholder() {
   return (
     <div className="relative min-h-[400px] overflow-hidden rounded-2xl">
       <Image
-        src="/hero/tarot-elara-cartas.jpg"
+        src={siteImages.tarot.seccion}
         alt="Lecturas de tarot personalizadas — Elara Nova"
         fill
         className="object-cover object-center"

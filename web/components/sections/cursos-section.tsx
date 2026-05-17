@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { siteImages } from '@/lib/site-images'
 
 type CourseBadgeVariant = 'gold' | 'purple'
 
@@ -11,7 +12,7 @@ type CourseCard = {
   weeks: number
   lessons: number
   price: number
-  imageFile: string
+  imageSrc: string
 }
 
 type BenefitIcon = 'pace' | 'quality' | 'community'
@@ -37,7 +38,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 8,
     lessons: 32,
     price: 97,
-    imageFile: 'curso-astrologia.jpg',
+    imageSrc: siteImages.cursos.astrologia,
   },
   {
     id: 'tarot',
@@ -47,7 +48,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 6,
     lessons: 24,
     price: 77,
-    imageFile: 'curso-tarot.jpg',
+    imageSrc: siteImages.cursos.tarot,
   },
   {
     id: 'ciclos',
@@ -57,7 +58,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 4,
     lessons: 16,
     price: 57,
-    imageFile: 'curso-ciclos.jpg',
+    imageSrc: siteImages.cursos.ciclos,
   },
   {
     id: 'sanar',
@@ -67,7 +68,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     weeks: 7,
     lessons: 28,
     price: 87,
-    imageFile: 'curso-sanar.jpg',
+    imageSrc: siteImages.cursos.sanar,
   },
 ] as const
 
@@ -192,7 +193,7 @@ function CursosHeroHeader() {
 
       <div className="relative h-72 overflow-hidden rounded-2xl">
         <Image
-          src="/hero/herramientas-elara-orbe.jpg"
+          src={siteImages.cursos.header}
           alt="Elara Nova — Cursos y formaciones"
           fill
           className="object-cover object-center"
@@ -223,9 +224,9 @@ function BenefitsStrip() {
 function FeaturedCourseCard({ course }: { course: CourseCard }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-[#2d1f4e] bg-[#110d24] hover:border-[#C9A84C]/40">
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative aspect-video overflow-hidden">
         <Image
-          src={`/hero/${course.imageFile}`}
+          src={course.imageSrc}
           alt={course.title}
           fill
           className="object-cover object-center"

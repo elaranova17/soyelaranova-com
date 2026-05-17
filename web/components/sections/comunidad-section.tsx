@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { siteImages } from '@/lib/site-images'
 
 export function ComunidadSection() {
   return (
@@ -22,7 +23,7 @@ export function ComunidadSection() {
         </div>
         <div className="relative h-72 rounded-2xl overflow-hidden md:h-[400px]">
           <Image
-            src="/hero/comunidad-elara-ventana.jpg"
+            src={siteImages.comunidad.mujeres}
             alt="Comunidad Elara Nova — Mujeres que se apoyan"
             fill
             className="object-cover object-center"
