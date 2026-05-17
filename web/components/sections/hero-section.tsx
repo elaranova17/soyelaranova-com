@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 type HeroPillar = {
@@ -34,12 +35,14 @@ function PillarIcon() {
 function HeroImagePlaceholder() {
   return (
     <div className="relative h-[480px] overflow-hidden rounded-3xl md:h-[580px]">
-      <div className="relative h-full w-full bg-[#110d24]">
-        {/* TODO: <Image src="/hero/hero-elara-escritorio.jpg" alt="Elara Nova" fill className="object-cover" /> */}
-        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/25">
-          [ hero-elara-escritorio.jpg ]
-        </p>
-      </div>
+      <Image
+        src="/hero/hero-elara-escritorio.jpg"
+        alt="Elara Nova — Tu universo para crear la vida que sueñas"
+        fill
+        className="object-cover object-center"
+        priority
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
     </div>
   )
 }
