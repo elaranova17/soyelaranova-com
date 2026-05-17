@@ -1,33 +1,319 @@
-const cursos = [
-  { badge: 'Más popular', title: 'Astrología para conectarte contigo', semanas: 8, lecciones: 32, precio: 97 },
-  { badge: 'Nuevo', title: 'Tarot intuitivo para principiantes', semanas: 6, lecciones: 24, precio: 77 },
-  { badge: 'Más elegido', title: 'Ciclos lunares y magia consciente', semanas: 4, lecciones: 16, precio: 57 },
-  { badge: 'Transformador', title: 'Sanar para volver a ti', semanas: 7, lecciones: 28, precio: 87 },
-]
+import Link from 'next/link'
+
+type CourseBadgeVariant = 'gold' | 'purple'
+
+type CourseCard = {
+  id: string
+  badge: string
+  badgeVariant: CourseBadgeVariant
+  title: string
+  weeks: number
+  lessons: number
+  price: number
+  imageFile: string
+}
+
+type BenefitIcon = 'pace' | 'quality' | 'community'
+
+type BenefitItem = {
+  id: string
+  icon: BenefitIcon
+  label: string
+  description: string
+}
+
+type MembershipBullet = {
+  id: string
+  label: string
+}
+
+const FEATURED_COURSES: readonly CourseCard[] = [
+  {
+    id: 'astrologia',
+    badge: 'MÁS POPULAR',
+    badgeVariant: 'gold',
+    title: 'Astrología para conectarte contigo',
+    weeks: 8,
+    lessons: 32,
+    price: 97,
+    imageFile: 'curso-astrologia.jpg',
+  },
+  {
+    id: 'tarot',
+    badge: 'NUEVO',
+    badgeVariant: 'purple',
+    title: 'Tarot intuitivo para principiantes',
+    weeks: 6,
+    lessons: 24,
+    price: 77,
+    imageFile: 'curso-tarot.jpg',
+  },
+  {
+    id: 'ciclos',
+    badge: 'MÁS ELEGIDO',
+    badgeVariant: 'gold',
+    title: 'Ciclos lunares y magia consciente',
+    weeks: 4,
+    lessons: 16,
+    price: 57,
+    imageFile: 'curso-ciclos.jpg',
+  },
+  {
+    id: 'sanar',
+    badge: 'TRANSFORMADOR',
+    badgeVariant: 'purple',
+    title: 'Sanar para volver a ti',
+    weeks: 7,
+    lessons: 28,
+    price: 87,
+    imageFile: 'curso-sanar.jpg',
+  },
+] as const
+
+const BENEFITS: readonly BenefitItem[] = [
+  {
+    id: 'ritmo',
+    icon: 'pace',
+    label: 'Aprende a tu ritmo',
+    description: 'Accedé cuando quieras y desde donde estés.',
+  },
+  {
+    id: 'calidad',
+    icon: 'quality',
+    label: 'Contenido de calidad',
+    description: 'Material exclusivo creado por expertas.',
+  },
+  {
+    id: 'guia',
+    icon: 'community',
+    label: 'Comunidad y guía',
+    description: 'Acompañamiento en cada paso de tu aprendizaje.',
+  },
+] as const
+
+const MEMBERSHIP_BULLETS: readonly MembershipBullet[] = [
+  { id: 'cursos', label: 'Acceso a todos los cursos' },
+  { id: 'talleres', label: 'Talleres en vivo cada mes' },
+  { id: 'comunidad', label: 'Comunidad privada' },
+  { id: 'recursos', label: 'Recursos descargables exclusivos' },
+] as const
+
+const BADGE_CLASSES: Record<CourseBadgeVariant, string> = {
+  gold: 'bg-[#C9A84C] text-black',
+  purple: 'bg-[#7c3aed] text-white',
+}
+
+function BenefitIconSvg({ kind }: { kind: BenefitIcon }) {
+  const props = {
+    className: 'mt-0.5 h-6 w-6 shrink-0 text-[#C9A84C]',
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.5,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  }
+
+  switch (kind) {
+    case 'pace':
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </svg>
+      )
+    case 'quality':
+      return (
+        <svg {...props}>
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          <path d="M8 7h8M8 11h6" />
+        </svg>
+      )
+    case 'community':
+      return (
+        <svg {...props}>
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      )
+  }
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      className="h-4 w-4 shrink-0 text-[#C9A84C]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  )
+}
+
+function CursosHeroHeader() {
+  return (
+    <div className="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <p className="text-sm tracking-[0.3em] text-[#C9A84C] uppercase">
+          ✦ Cursos y Talleres ✦
+        </p>
+        <h2 className="mt-3 font-serif text-4xl font-bold text-[#f0eafa]">
+          Aprende. Integra. Transforma.
+        </h2>
+        <p className="mt-3 max-w-lg text-[#9080b0]">
+          Formaciones online para expandir tu conocimiento y vivir tu
+          espiritualidad con profundidad y propósito.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <Link
+            href="/cursos"
+            className="inline-flex items-center rounded-full bg-[#7c3aed] px-8 py-3.5 text-sm font-semibold tracking-wide text-white uppercase"
+          >
+            Explorar cursos →
+          </Link>
+          <Link
+            href="/cursos#como-funciona"
+            className="inline-flex items-center rounded-full border border-[#C9A84C]/60 px-8 py-3.5 text-sm tracking-wide text-[#C9A84C] uppercase"
+          >
+            ¿Cómo funciona?
+          </Link>
+        </div>
+      </div>
+
+      <div className="relative h-72 overflow-hidden rounded-2xl bg-[#110d24]">
+        {/* TODO: <Image src="/hero/cursos-elara-escritorio.jpg" fill className="object-cover" alt="Elara Nova enseñando" /> */}
+        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/25">
+          [ cursos-elara-escritorio.jpg ]
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function BenefitsStrip() {
+  return (
+    <div className="mt-12 flex flex-col gap-8 border-y border-[#2d1f4e] py-8 md:flex-row md:gap-8">
+      {BENEFITS.map((benefit) => (
+        <div key={benefit.id} className="flex flex-1 items-start gap-3">
+          <BenefitIconSvg kind={benefit.icon} />
+          <div>
+            <p className="text-sm font-medium text-[#e8e0f0]">{benefit.label}</p>
+            <p className="mt-1 text-sm text-[#9080b0]">{benefit.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function FeaturedCourseCard({ course }: { course: CourseCard }) {
+  return (
+    <article className="overflow-hidden rounded-2xl border border-[#2d1f4e] bg-[#110d24] hover:border-[#C9A84C]/40">
+      <div className="relative h-44 bg-[#1a0f2e]">
+        <span
+          className={`absolute top-3 left-3 rounded-full px-2 py-0.5 text-xs font-semibold ${BADGE_CLASSES[course.badgeVariant]}`}
+        >
+          {course.badge}
+        </span>
+        {/* TODO: <Image src={`/hero/${course.imageFile}`} fill className="object-cover" alt={course.title} /> */}
+        <p className="absolute inset-0 flex items-center justify-center text-xs text-[#C9A84C]/25">
+          [ {course.imageFile} ]
+        </p>
+      </div>
+      <div className="p-5">
+        <h3 className="mb-3 text-sm font-semibold text-[#e8e0f0]">{course.title}</h3>
+        <p className="mb-3 text-xs text-[#9080b0]">
+          {course.weeks} sem · {course.lessons} lec
+        </p>
+        <p className="text-lg font-bold text-[#C9A84C]">${course.price} USD</p>
+      </div>
+    </article>
+  )
+}
+
+function MembershipBanner() {
+  return (
+    <div className="mt-12 rounded-2xl border border-[#2d1f4e] bg-[#13092a] p-8">
+      <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <p className="text-xs tracking-widest text-[#C9A84C] uppercase">
+            Membresía Elara Nova
+          </p>
+          <h3 className="mt-2 font-serif text-3xl text-[#f0eafa]">
+            Aprende sin límites
+          </h3>
+          <p className="mt-2 max-w-sm text-[#9080b0]">
+            Un espacio para crecer con formación, comunidad y recursos que
+            acompañan tu camino.
+          </p>
+          <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {MEMBERSHIP_BULLETS.map((bullet) => (
+              <li key={bullet.id} className="flex items-center gap-2">
+                <CheckIcon />
+                <span className="text-sm text-[#9080b0]">{bullet.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col items-start lg:items-end">
+          <p className="text-xs text-[#9080b0] uppercase">Desde</p>
+          <p className="text-4xl font-bold text-[#f0eafa]">$17</p>
+          <p className="text-sm text-[#9080b0]">USD / mes</p>
+          <Link
+            href="/comunidad"
+            className="mt-4 inline-flex items-center rounded-full bg-[#C9A84C] px-8 py-3 text-sm font-bold tracking-wide text-black uppercase"
+          >
+            Únete ahora ✦
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function CursosSection() {
   return (
-    <section className="bg-[#0d0920] py-20 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-[#C9A84C] text-xs tracking-widest uppercase mb-3">09 · Aprende con Elara</p>
-        <h2 className="text-[#e8e0f0] font-serif text-4xl font-bold mb-10">Aprende. Integra. Transforma.</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {cursos.map((c) => (
-            <div key={c.title} className="bg-[#1a0f2e] border border-[#2d1f4e] rounded-2xl overflow-hidden hover:border-[#C9A84C]/40 transition-colors">
-              <div className="h-40 bg-[#2d1f4e] relative flex items-center justify-center text-[#C9A84C]/30 text-xs">
-                [ curso-img ]
-                <span className="absolute top-3 left-3 bg-[#C9A84C] text-black text-xs px-2 py-0.5 rounded-full font-medium">{c.badge}</span>
-              </div>
-              <div className="p-5">
-                <h3 className="text-[#e8e0f0] font-semibold mb-3 text-sm">{c.title}</h3>
-                <div className="flex items-center justify-between text-xs text-[#b8a8d0] mb-4">
-                  <span>{c.semanas} semanas · {c.lecciones} lecciones</span>
-                </div>
-                <p className="text-[#C9A84C] font-bold">${c.precio} USD</p>
-              </div>
-            </div>
+    <section
+      id="cursos-talleres"
+      className="bg-[#0a0812] px-6 py-20 md:px-16"
+      aria-labelledby="cursos-heading"
+    >
+      <div className="mx-auto max-w-7xl">
+        <CursosHeroHeader />
+        <BenefitsStrip />
+
+        <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h3
+            id="cursos-heading"
+            className="text-sm tracking-widest text-[#e8e0f0] uppercase"
+          >
+            Cursos destacados
+          </h3>
+          <Link
+            href="/cursos"
+            className="text-sm text-[#C9A84C]"
+          >
+            Ver todos los cursos →
+          </Link>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {FEATURED_COURSES.map((course) => (
+            <FeaturedCourseCard key={course.id} course={course} />
           ))}
         </div>
+
+        <MembershipBanner />
       </div>
     </section>
   )
