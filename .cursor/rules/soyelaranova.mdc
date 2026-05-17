@@ -1,0 +1,55 @@
+---
+description: Fuente de verdad soyelaranova.com — stack lockeado, rutas v1, voces, fases
+alwaysApply: true
+---
+
+# soyelaranova.com · Elara Nova
+
+**Lee primero:** `CONTEXT_CURSOR.md` + `docs/ESTADO_PROYECTO.md` (estado técnico actual). Si el código contradice el brief, **gana el doc**.
+
+**Mayo 2026:** inmersión visual avanzada; **falta diseño producto** (carta, frase ancla, captura). Ver `docs/DISENO_MAESTRO.md`.
+
+**Skills diseño:** `.claude/skills/elara-designer` · `elara-copywriter` · `elara-ui-master` · `docs/brand.md`
+
+**Sprint activo:** A (home ritual) — no más páginas ImmersiveScene hasta completar A.
+
+## Proyecto
+
+Portal sagrado Elara Nova + portfolio B2B discreto (Evelyn). Frase ancla: *"Mira todo lo que siempre fuiste capaz de ser."*
+
+## Stack (no cambiar sin permiso)
+
+Next.js 15 App Router · React 19 · TS strict · Tailwind v4 · R3F + drei + postprocessing · GSAP · Lenis · Framer Motion · Tone.js · ElevenLabs · Resend · Hotmart externo · Vercel. Budget ≤ €10/mes.
+
+## Rutas v1
+
+| Ruta | Uso |
+|------|-----|
+| `/` | Hero R3F · CTA carta del día |
+| `/oraculo` | 5 cartas hardcoded (no Sanity aún) |
+| `/universo` | Tienda ebooks → Hotmart |
+| `/sobre-elara` | Manifiesto |
+| `/work` | B2B Evelyn · solo desde footer |
+
+**No construir en 2026:** `/luna`, login/miembros, carta natal, Sanity 40 cartas, SaaS $9/mes, app móvil.
+
+## Voces (nunca mezclar en la misma sección)
+
+- **Elara:** `/`, `/oraculo`, `/universo`, `/sobre-elara` — mística, hermana mayor paisa. **Oráculo, nunca "tarot".**
+- **Evelyn:** solo `/work` — ingeniera, directa.
+
+## Objetivo home
+
+En 3s sentir el universo → sacar carta → email + **fecha de nacimiento** (Resend) para volver mañana.
+
+## Reglas de código
+
+- Sin `any`. Sin shadcn/MUI/Chakra. Custom UI.
+- Design tokens en `web/app/globals.css` — no inventar colores.
+- Mobile-first · 60fps hero · Lighthouse >85 perf / >95 a11y.
+- Commits: `feat:`, `fix:`, `chore:`, `refactor:`.
+- **Una fase a la vez** (ver §10 del CONTEXT) — parar y confirmar con Evelyn entre fases.
+
+## Docs extra
+
+`05_DOCS_ESTRATEGIA/ELARA_WEB_FAIRY_WORLD_BRIEF.md`, `02_CONTENIDO_MAESTRO/LANDING_SOYELARANOVA_COM.md` (ruta relativa desde carpeta Fullest).
