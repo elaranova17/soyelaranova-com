@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 type TrustBadgeIcon = 'shield' | 'check' | 'heart' | 'star'
@@ -80,26 +81,28 @@ function TrustBadgeIconSvg({ kind }: { kind: TrustBadgeIcon }) {
 function SobreImageColumn() {
   return (
     <div className="relative h-80 overflow-hidden rounded-2xl md:h-[440px]">
-      {/* TODO: reemplazar con imagen + modal video */}
-      <div className="relative h-full w-full bg-[#110d24]">
-        <p className="absolute inset-0 flex items-center justify-center text-sm text-[#C9A84C]/30">
-          [ sobre-elara-video.jpg ]
-        </p>
-        <button
-          type="button"
-          className="absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#C9A84C]/60 bg-[#C9A84C]/20"
-          aria-label="Reproducir video sobre Elara Nova"
+      <Image
+        src="/hero/sobre-elara.jpg"
+        alt="Elara Nova — Un espacio creado por y para mujeres"
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+      <div className="absolute inset-0 bg-[#0d0920]/30" />
+      <button
+        type="button"
+        className="absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#C9A84C]/60 bg-[#C9A84C]/20 backdrop-blur-sm"
+        aria-label="Reproducir video sobre Elara Nova"
+      >
+        <svg
+          className="ml-1 h-6 w-6 text-[#C9A84C]"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden
         >
-          <svg
-            className="ml-1 h-6 w-6 text-[#C9A84C]"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden
-          >
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
-      </div>
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
     </div>
   )
 }
