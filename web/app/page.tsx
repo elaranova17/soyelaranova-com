@@ -275,10 +275,10 @@ const creationSteps: readonly CreationStep[] = [
 ] as const
 
 const serviceTrustItems: readonly ServiceTrustItem[] = [
-  { icon: 'Descargar', label: 'Envíos con cuidado', description: 'Empaques realizados con intención.' },
-  { icon: 'Proteccion', label: 'Compra segura', description: 'Tus datos y pagos protegidos.' },
-  { icon: 'Comunidad', label: 'Atención real', description: 'Estamos para acompañarte siempre.' },
-  { icon: 'Corazon', label: 'Cambios con respeto', description: '14 días para devoluciones sin drama.' },
+  { icon: 'Correo',    label: 'Envíos con cuidado',  description: 'Empaques realizados con intención.' },
+  { icon: 'Proteccion', label: 'Compra segura',       description: 'Tus datos y pagos protegidos.' },
+  { icon: 'Comunidad', label: 'Atención real',        description: 'Siempre estamos para vos.' },
+  { icon: 'Corazon',   label: 'Cambios con respeto',  description: '14 días para devoluciones sin drama.' },
 ] as const
 
 const toolCardStyles = {
@@ -292,11 +292,11 @@ const toolCardStyles = {
   },
   oraculo: {
     label: 'Oráculo',
-    card: 'border-[#D4AF37]/30 bg-[#F5EEF8]',
-    labelText: 'text-[#7B4FB5]/60',
-    title: 'text-[#1A0F3D]',
-    description: 'text-[#2D1870]/60',
-    cta: 'border-[#1A0F3D]/15 text-[#1A0F3D]/70 hover:text-[#7B4FB5]',
+    card: 'border-[#D4AF37]/35 bg-[#1A0A40]',
+    labelText: 'text-[#D4AF37]/60',
+    title: 'text-[#F5EEF8]',
+    description: 'text-[#C49AD4]/70',
+    cta: 'border-[#D4AF37]/25 text-[#D4AF37]/75 hover:text-[#D4AF37]',
   },
   recurso: {
     label: 'Recurso',
@@ -1413,8 +1413,9 @@ export default function HomePage() {
         </motion.div>
 
         <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
+          {/* Connector line — centrada en los círculos de 96px (top-12) */}
           <div
-            className="pointer-events-none absolute top-10 right-[8%] left-[8%] hidden h-px bg-[#D4AF37]/30 md:block"
+            className="pointer-events-none absolute top-12 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/55 to-transparent md:block"
             aria-hidden
           />
           {creationSteps.map((step, index) => (
@@ -1427,29 +1428,53 @@ export default function HomePage() {
               variants={fadeUp}
               className="relative z-10 flex flex-col items-center text-center"
             >
-              <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#D4AF37] bg-[#2D1870] shadow-[0_0_30px_rgba(212,175,55,0.12)]">
-                {ElaraIcons[step.icon].render(34)}
-                <span className="absolute -bottom-2 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/60 bg-[#1A0F3D] text-[10px] font-semibold text-[#D4AF37]">
+              <motion.div
+                className="relative flex h-24 w-24 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
+                animate={{
+                  boxShadow: [
+                    '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    '0 0 36px rgba(212,175,55,0.38), inset 0 1px 0 rgba(255,255,255,0.12)',
+                    '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+                  ],
+                }}
+                transition={{ duration: 2.8 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
+                whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+              >
+                {ElaraIcons[step.icon].render(44)}
+                <span className="absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/70 bg-[#0E0726] text-[10px] font-bold text-[#D4AF37]">
                   {index + 1}
                 </span>
-              </div>
-              <h3 className="font-display mt-7 text-xl text-[#F5EEF8]">
+              </motion.div>
+              <h3 className="font-display mt-8 text-xl text-[#F5EEF8]">
                 {step.title}
               </h3>
-              <p className="font-serif-italic mt-2 max-w-[11rem] text-sm leading-relaxed text-[#C49AD4]/75">
+              <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[#C49AD4]/70 italic">
                 {step.text}
               </p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-8 border-t border-[#D4AF37]/10 pt-10 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-4 border-t border-[#D4AF37]/15 pt-10 md:grid-cols-4">
           {serviceTrustItems.map((item) => (
-            <div key={item.label} className="flex flex-col items-center gap-3 text-center">
-              <div className="opacity-55">{ElaraIcons[item.icon].render(24)}</div>
-              <p className="text-[10px] font-semibold leading-snug tracking-widest text-[#C49AD4]/50 uppercase">{item.label}</p>
-              <p className="text-[11px] leading-relaxed text-[#C49AD4]/35">{item.description}</p>
-            </div>
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+              className="flex flex-col items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/50 px-4 py-5 text-center backdrop-blur-sm"
+            >
+              <motion.div
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+              >
+                {ElaraIcons[item.icon].render(32)}
+              </motion.div>
+              <p className="text-[10px] font-semibold leading-snug tracking-[0.2em] text-[#D4AF37]/75 uppercase">{item.label}</p>
+              <p className="text-[11px] leading-relaxed text-[#C49AD4]/55">{item.description}</p>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -1499,7 +1524,7 @@ export default function HomePage() {
                 whileTap={{ scale: 0.97 }}
                 className="mt-2 flex items-center gap-2.5 self-start rounded-2xl border border-[#D4AF37]/40 px-7 py-3.5 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase transition-all duration-300 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/[0.08]"
               >
-                Conocer más <span aria-hidden>→</span>
+                Conocé mi historia <span aria-hidden>→</span>
               </motion.a>
             </motion.div>
 
