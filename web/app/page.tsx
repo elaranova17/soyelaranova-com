@@ -214,12 +214,12 @@ const cursos = [
 
 const products: readonly ProductCard[] = [
   {
-    img: '/images/curso-astrologia.jpg',
+    img: '/images/curso-astrologia.png',
     title: 'Astrología Práctica',
     text: 'El curso para leer tu mapa natal. Desde cero hasta intermedio, a tu ritmo.',
   },
   {
-    img: '/images/curso-ciclos.jpg',
+    img: '/images/ciclos-lunares-rituales.png',
     title: 'Ciclo Nova del Regreso',
     text: 'Ebook de retorno personal. Rituales suaves para volver a vos después de lo que sea.',
     href: 'https://pay.hotmart.com/REPLACE_WITH_REAL_HOTMART_PRODUCT_ID',

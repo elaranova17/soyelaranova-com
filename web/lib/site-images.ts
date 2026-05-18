@@ -18,7 +18,7 @@ export const siteImages = {
     principal: '/images/herramientas-astrales.jpg',
     astrologia: '/images/herramienta-astrologia.png',
     cartaNatal: '/images/herramienta-carta-natal.png',
-    ciclosLunares: '/images/herramienta-ciclos-lunares.png',
+    ciclosLunares: '/images/ciclos-lunares-rituales.png',
     calendarioLunar: '/images/herramienta-calendario-lunar.png',
     chakras: '/images/herramienta-chakras.png',
     rituales: '/images/herramienta-rituales.png',
