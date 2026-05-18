@@ -299,6 +299,244 @@ function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
   )
 }
 
+/* ── NAV LANDING ─────────────────────────────────────────────────────── */
+const NAV_LINKS = [
+  { href: '#herramientas', label: 'Herramientas' },
+  { href: '#circulo',      label: 'Círculo' },
+  { href: '#cursos',       label: 'Cursos' },
+  { href: '#sobre',        label: 'Sobre mí' },
+] as const
+
+function NavLanding() {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen]         = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = prev
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  return (
+    <>
+      {/* ── BAR ─────────────────────────────────────────────────────── */}
+      <motion.header
+        initial={{ opacity: 0, y: -14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        className={[
+          'fixed inset-x-0 top-0 z-50 flex h-[68px] items-center justify-between px-6 md:px-10 transition-all duration-500',
+          scrolled
+            ? 'bg-[#0E0726]/93 backdrop-blur-2xl border-b border-[#7B4FB5]/18 shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
+            : 'bg-gradient-to-b from-[#0E0726]/65 to-transparent',
+        ].join(' ')}
+      >
+        {/* Logo */}
+        <a href="#inicio" aria-label="Elara Nova · Inicio">
+          <LogoBrand size="md" />
+        </a>
+
+        {/* Desktop links */}
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegación">
+          {NAV_LINKS.map(({ href, label }, i) => (
+            <a
+              key={href}
+              href={href}
+              className="group relative px-4 py-2 text-[10px] tracking-[0.26em] uppercase text-[#C49AD4]/60 transition-colors duration-200 hover:text-[#D4AF37]"
+            >
+              {i > 0 && (
+                <span aria-hidden className="absolute left-0 top-1/2 -translate-y-1/2 text-[8px] text-[#7B4FB5]/30">✦</span>
+              )}
+              {label}
+              {/* hover underline */}
+              <span className="absolute bottom-1 left-4 right-4 h-px origin-left scale-x-0 bg-gradient-to-r from-[#D4AF37]/70 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
+            </a>
+          ))}
+        </nav>
+
+        {/* Right side */}
+        <div className="flex items-center gap-3">
+          {/* CTA — desktop */}
+          <motion.a
+            href="#email"
+            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(212,175,55,0.35)' }}
+            whileTap={{ scale: 0.97 }}
+            className="hidden sm:flex items-center gap-2 rounded-full bg-[#D4AF37] px-5 py-2.5 text-[10px] font-bold tracking-[0.28em] text-[#0E0726] uppercase"
+          >
+            <span aria-hidden className="text-[8px]">✦</span>
+            Unirme
+          </motion.a>
+
+          {/* Hamburger — mobile */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label="Abrir menú"
+            aria-expanded={open}
+            className="flex lg:hidden flex-col items-end gap-[6px] p-2 group"
+          >
+            <span className="block h-px w-5 bg-[#C49AD4] transition-all duration-300 group-hover:bg-[#D4AF37]" />
+            <span className="block h-px w-3.5 bg-[#C49AD4] transition-all duration-300 group-hover:w-5 group-hover:bg-[#D4AF37]" />
+          </button>
+        </div>
+      </motion.header>
+
+      {/* ── FULLSCREEN OVERLAY (mobile) ──────────────────────────────── */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="nav-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[80] lg:hidden"
+          >
+            {/* Backdrop */}
+            <motion.button
+              className="absolute inset-0 h-full w-full cursor-default"
+              onClick={() => setOpen(false)}
+              aria-label="Cerrar menú"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                background: 'rgba(10,0,22,0.92)',
+                backdropFilter: 'blur(28px) saturate(160%)',
+                WebkitBackdropFilter: 'blur(28px) saturate(160%)',
+              }}
+            />
+
+            {/* Bloom top */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[55vh]"
+              style={{ background: 'radial-gradient(55% 70% at 50% 0%, rgba(212,175,55,0.14), transparent 70%)' }} />
+            {/* Bloom bottom */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[40vh]"
+              style={{ background: 'radial-gradient(55% 70% at 50% 100%, rgba(123,79,181,0.22), transparent 70%)' }} />
+
+            {/* Polvo dorado */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50"
+              style={{
+                backgroundImage: `
+                  radial-gradient(1.5px 1.5px at 15% 25%, rgba(212,175,55,0.8) 50%, transparent),
+                  radial-gradient(1px 1px at 80% 60%, rgba(212,175,55,0.7) 50%, transparent),
+                  radial-gradient(1.5px 1.5px at 40% 80%, rgba(212,175,55,0.75) 50%, transparent),
+                  radial-gradient(1px 1px at 88% 20%, rgba(212,175,55,0.65) 50%, transparent),
+                  radial-gradient(1.5px 1.5px at 25% 65%, rgba(212,175,55,0.8) 50%, transparent),
+                  radial-gradient(1px 1px at 60% 15%, rgba(212,175,55,0.6) 50%, transparent),
+                  radial-gradient(1px 1px at 92% 88%, rgba(212,175,55,0.7) 50%, transparent),
+                  radial-gradient(1.5px 1.5px at 8% 90%, rgba(212,175,55,0.75) 50%, transparent)
+                `,
+              }} />
+
+            {/* Frame dorado */}
+            <div aria-hidden className="pointer-events-none absolute inset-5 rounded-lg border border-[#D4AF37]/20" />
+
+            {/* Logo overlay */}
+            <motion.div
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="absolute left-6 top-5"
+            >
+              <LogoBrand size="md" />
+            </motion.div>
+
+            {/* Cerrar X */}
+            <motion.button
+              initial={{ opacity: 0, rotate: -45 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 45 }}
+              transition={{ duration: 0.45, delay: 0.12 }}
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => setOpen(false)}
+              aria-label="Cerrar menú"
+              className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#D4AF37]/40"
+              style={{ background: 'rgba(26,15,61,0.6)', backdropFilter: 'blur(10px)', color: '#D4AF37' }}
+            >
+              <svg width={16} height={16} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" aria-hidden>
+                <path d="M2 2 L14 14 M14 2 L2 14" />
+              </svg>
+            </motion.button>
+
+            {/* Links centrados */}
+            <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-1 px-8">
+              {NAV_LINKS.map(({ href, label }, i) => (
+                <motion.div
+                  key={href}
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 18, transition: { duration: 0.18, delay: (NAV_LINKS.length - 1 - i) * 0.04 } }}
+                  transition={{ duration: 0.65, delay: 0.22 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <a
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="group relative flex items-baseline gap-5 py-2"
+                  >
+                    <span className="font-serif-italic italic text-[#D4AF37]/40 text-[11px] tracking-[0.4em] min-w-[28px]">
+                      0{i + 1}
+                    </span>
+                    <span
+                      className="font-display italic text-[#F5EEF8] transition-colors duration-200 group-hover:text-[#D4AF37]"
+                      style={{ fontSize: 'clamp(32px, 8vw, 52px)', lineHeight: 1.05, fontWeight: 400 }}
+                    >
+                      {label}
+                      <span aria-hidden className="absolute bottom-1.5 left-[52px] right-0 h-px origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+                        style={{ background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)' }} />
+                    </span>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA bottom */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 18 }}
+              transition={{ duration: 0.55, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute bottom-12 left-1/2 z-10 -translate-x-1/2"
+            >
+              <a
+                href="#email"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2.5 rounded-full bg-[#D4AF37] px-7 py-3.5 text-[10px] font-bold tracking-[0.3em] text-[#0E0726] uppercase shadow-xl shadow-[#D4AF37]/30"
+              >
+                <span aria-hidden>✦</span> Unirme al Círculo
+              </a>
+            </motion.div>
+
+            {/* Firma pie */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.45 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 font-serif-italic italic text-[#D4AF37]/50 text-[10px] tracking-[0.18em] whitespace-nowrap"
+            >
+              Tu alma ya sabe. ✦
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
 function ToolGlyph({ kind }: { kind: ToolCard['icon'] }) {
   const props = {
     className: 'h-7 w-7',
@@ -454,33 +692,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#0E0726] text-[#F5EEF8]">
-      <nav className="sticky top-0 z-50 border-b border-white/5 bg-[#0E0726]/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <LogoBrand />
-          <div className="hidden items-center gap-8 md:flex">
-            {[
-              { icon: 'Herramientas' as const, label: 'Herramientas', href: '#herramientas' },
-              { icon: 'Recursos' as const, label: 'Recursos', href: '#productos' },
-              { icon: 'Comunidad' as const, label: 'Círculo', href: '#circulo' },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="flex items-center gap-2 text-[10px] tracking-widest text-[#C49AD4] uppercase transition-colors hover:text-[#D4AF37]"
-              >
-                {ElaraIcons[item.icon].render(16)}
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <a
-            href="#email"
-            className={buttonStyles.tertiary}
-          >
-            Unirme
-          </a>
-        </div>
-      </nav>
+      <NavLanding />
 
       <section id="inicio" className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-[88px] pb-20">
         <div aria-hidden className="pointer-events-none absolute top-1/4 left-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[140px]" />
