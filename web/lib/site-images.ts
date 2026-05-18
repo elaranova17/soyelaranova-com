@@ -62,4 +62,8 @@ export const siteImages = {
     oraculo: '/images/circulo-oraculo.png',
     amigasNoche: '/images/circulo-amigas-noche.jpg',
   },
+  sello: {
+    principal: '/images/sello-elara-nova.png',
+    oscuro: '/images/sello-elara-nova-oscuro.png',
+  },
 } as const

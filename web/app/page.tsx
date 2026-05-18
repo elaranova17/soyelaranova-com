@@ -1178,7 +1178,7 @@ export default function HomePage() {
                 whileTap={{ scale: 0.97 }}
                 className="mt-2 flex items-center gap-2.5 self-start rounded-2xl bg-[#7B4FB5] px-7 py-4 text-[10px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase transition-colors hover:bg-[#8B5FC5]"
               >
-                Unirme al Círculo <span aria-hidden>✦</span>
+                Unite al Círculo <span aria-hidden>✦</span>
               </motion.a>
             </motion.div>
           </div>

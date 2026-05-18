@@ -443,7 +443,7 @@ export function SiteNav() {
                 whiteSpace: 'nowrap',
               }}
             >
-              Mira todo lo que siempre fuiste capaz de ser.
+              Mirá todo lo que siempre fuiste capaz de ser.
             </motion.div>
           </motion.div>
         )}
