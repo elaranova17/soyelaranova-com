@@ -793,17 +793,17 @@ export default function HomePage() {
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
         <div className="absolute inset-0" aria-hidden>
           <Image
-            src="/images/hero-elara-noche.png"
+            src="/images/hero-elara-escritorio.jpg"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover object-right-top"
+            className="object-cover object-center"
           />
-          {/* Gradient izquierda — contenido legible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/88 to-transparent lg:via-[#0E0726]/72" />
+          {/* Gradient izquierda — contenido legible (escritorio centrado, más cobertura) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/92 lg:via-[#0E0726]/80 to-[#0E0726]/30" />
           {/* Gradient arriba + abajo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/55 via-transparent to-[#0E0726]/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/60 via-transparent to-[#0E0726]/92" />
           {/* Bloom izquierda */}
           <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[130px]" />
           <div className="pointer-events-none absolute top-1/2 left-1/3 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.03] blur-[80px]" />
@@ -924,18 +924,31 @@ export default function HomePage() {
                     initial="hidden"
                     animate="show"
                     variants={fadeUp}
-                    className="group flex flex-col items-center gap-2.5 border-b border-[#7B4FB5]/10 p-5 text-center transition-colors duration-300 hover:bg-[#1A0F3D]/70 lg:border-b-0"
+                    className="group flex flex-col items-center gap-3 border-b border-[#7B4FB5]/10 px-4 py-6 text-center transition-colors duration-300 hover:bg-[#1A0F3D]/70 lg:border-b-0"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/80 opacity-70 transition-all duration-300 group-hover:border-[#D4AF37]/30 group-hover:opacity-100">
-                      {ElaraIcons[icon].render(20)}
-                    </div>
-                    <p className="text-[9px] font-semibold leading-snug tracking-[0.2em] text-[#C49AD4]/65 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]/80">
+                    {/* Icono grande con glow pulsante */}
+                    <motion.div
+                      className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#7B4FB5]/30 bg-[#1A0F3D]/90 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:border-[#D4AF37]/50 group-hover:shadow-[0_0_22px_rgba(212,175,55,0.25)]"
+                      animate={{
+                        boxShadow: [
+                          '0 0 0px rgba(212,175,55,0)',
+                          '0 0 14px rgba(212,175,55,0.22)',
+                          '0 0 0px rgba(212,175,55,0)',
+                        ],
+                      }}
+                      transition={{ repeat: Infinity, duration: 3 + i * 0.3, delay: i * 0.2, ease: 'easeInOut' }}
+                      whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
+                    >
+                      {ElaraIcons[icon].render(30)}
+                    </motion.div>
+
+                    <p className="text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]/90">
                       {label}
                     </p>
-                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/38">
+                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/45">
                       {description}
                     </p>
-                    <span className="text-[10px] text-[#D4AF37]/35 transition-colors duration-300 group-hover:text-[#D4AF37]/70">→</span>
+                    <span className="text-[11px] text-[#D4AF37]/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#D4AF37]/80">→</span>
                   </motion.a>
                 ))}
               </div>
