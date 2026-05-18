@@ -375,58 +375,23 @@ const HERO_FEATURES = [
 ] as const
 
 function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
-  const scale = size === 'sm' ? 0.78 : 1
-  const arcW = Math.round(72 * scale)
-  const arcH = Math.round(28 * scale)
-  const elaraSize = size === 'sm' ? 'text-[1.25rem]' : 'text-[1.65rem]'
-  const novaSize = size === 'sm' ? 'text-[8px]' : 'text-[10px]'
+  const h = size === 'sm' ? 44 : 56
+  const w = size === 'sm' ? 110 : 140
 
   return (
-    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
-      {/* Arco de luna + estrella */}
-      <svg
-        width={arcW}
-        height={arcH}
-        viewBox="0 0 72 28"
-        fill="none"
-        aria-hidden
-        className="-mb-1 ml-3"
-      >
-        {/* Arco */}
-        <path
-          d="M4 26 Q36 0 68 26"
-          stroke="#D4AF37"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          fill="none"
-        />
-        {/* Estrella central */}
-        <path
-          d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z"
-          fill="#D4AF37"
-        />
-        {/* Destellos pequeños */}
-        <circle cx="14" cy="22" r="1" fill="#D4AF37" opacity="0.55" />
-        <circle cx="58" cy="22" r="1" fill="#D4AF37" opacity="0.55" />
-      </svg>
-
-      {/* "Elara" script */}
-      <span className={`font-serif-italic leading-none text-[#D4AF37] italic ${elaraSize}`}>
-        Elara
-      </span>
-
-      {/* "— NOVA —" con líneas */}
-      <div className={`flex items-center gap-1.5 ${novaSize}`}>
-        <span className="h-px w-4 bg-[#D4AF37]/60" />
-        <span className={`font-sans font-medium tracking-[0.45em] text-[#D4AF37]/80 uppercase ${novaSize}`}>
-          NOVA
-        </span>
-        <span className="h-px w-4 bg-[#D4AF37]/60" />
-        {/* Estrella mini */}
-        <svg width="6" height="6" viewBox="0 0 8 8" fill="#D4AF37" opacity="0.6" aria-hidden>
-          <path d="M4 0 L4.8 3.2 L8 4 L4.8 4.8 L4 8 L3.2 4.8 L0 4 L3.2 3.2 Z" />
-        </svg>
-      </div>
+    <div
+      aria-label="Elara Nova"
+      className="overflow-hidden"
+      style={{ width: w, height: h }}
+    >
+      <Image
+        src="/images/logo-elara-nova.png"
+        alt="Elara Nova"
+        width={w}
+        height={w}
+        priority
+        style={{ mixBlendMode: 'screen', display: 'block' }}
+      />
     </div>
   )
 }
@@ -1130,7 +1095,9 @@ export default function HomePage() {
                     key={label}
                     className="flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
                   >
-                    <div className="mt-0.5 shrink-0 opacity-75">{ElaraIcons[icon].render(24)}</div>
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#D4AF37]/35 bg-gradient-to-br from-[#2D1870] to-[#1A0F3D] shadow-[0_0_14px_rgba(212,175,55,0.12)]">
+                      {ElaraIcons[icon].render(26)}
+                    </div>
                     <div>
                       <p className="text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
                       <p className="mt-1 text-[11px] leading-relaxed text-[#C49AD4]/50">{description}</p>
@@ -1149,8 +1116,8 @@ export default function HomePage() {
                   variants={fadeUp}
                   className="flex items-start gap-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#7B4FB5]/30 bg-[#2D1870] text-[#D4AF37]">
-                    {ElaraIcons[icon].render(22)}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-gradient-to-br from-[#2D1870] to-[#1A0F3D] shadow-[0_0_18px_rgba(212,175,55,0.18)]">
+                    {ElaraIcons[icon].render(26)}
                   </div>
                   <div>
                     <p className="font-display text-[15px] text-[#F5EEF8]">{title}</p>
@@ -1196,7 +1163,9 @@ export default function HomePage() {
           <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[#7B4FB5]/15 pt-8 md:grid-cols-4">
             {CIRCULO_TRUST.map(({ icon, label, description }) => (
               <div key={label} className="flex flex-col items-center gap-3 text-center">
-                <div className="opacity-50">{ElaraIcons[icon].render(26)}</div>
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF37]/30 bg-gradient-to-br from-[#2D1870]/80 to-[#1A0F3D] shadow-[0_0_12px_rgba(212,175,55,0.10)]">
+                  {ElaraIcons[icon].render(28)}
+                </div>
                 <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/55 uppercase">{label}</p>
                 <p className="text-[11px] leading-relaxed text-[#C49AD4]/38">{description}</p>
               </div>
@@ -1346,7 +1315,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
+      <section id="atelier" className="relative overflow-hidden bg-[#0E0726] py-28">
+        {/* Decorative atmosphere */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#08051A] to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7B4FB5]/[0.06] blur-[100px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[400px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
+
+        <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1357,15 +1334,22 @@ export default function HomePage() {
           <p className="mb-4 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
             ✦ Proceso del Atelier
           </p>
-          <h2 className="font-display text-4xl text-[#F5EEF8] xl:text-5xl">
+          <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
             De la intención a tus manos
           </h2>
+          <p className="font-serif-italic mt-3 text-base text-[#C49AD4]/60 italic">
+            Cada pieza que creamos nace de una intención real.
+          </p>
         </motion.div>
 
         <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
-          {/* Connector line — centrada en los círculos de 96px (top-12) */}
+          {/* Connector lines — centered on 112px circles (top-14 = 56px) */}
           <div
-            className="pointer-events-none absolute top-12 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/55 to-transparent md:block"
+            className="pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent md:block"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute top-[57px] right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent md:block"
             aria-hidden
           />
           {creationSteps.map((step, index) => (
@@ -1379,7 +1363,7 @@ export default function HomePage() {
               className="relative z-10 flex flex-col items-center text-center"
             >
               <motion.div
-                className="relative flex h-24 w-24 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
+                className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
                 animate={{
                   boxShadow: [
                     '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
@@ -1390,7 +1374,7 @@ export default function HomePage() {
                 transition={{ duration: 2.8 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
                 whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
               >
-                {ElaraIcons[step.icon].render(44)}
+                {ElaraIcons[step.icon].render(48)}
                 <span className="absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/70 bg-[#0E0726] text-[10px] font-bold text-[#D4AF37]">
                   {index + 1}
                 </span>
@@ -1426,6 +1410,7 @@ export default function HomePage() {
               <p className="text-[11px] leading-relaxed text-[#C49AD4]/55">{item.description}</p>
             </motion.div>
           ))}
+        </div>
         </div>
       </section>
 
