@@ -39,6 +39,39 @@ const NAV: readonly NavLink[] = [
   { href: '/recursos',      label: 'Cursos',        num: '07' },
 ]
 
+type TopNavLink = { href: string; label: string; activePaths: readonly string[] }
+const TOP_NAV: readonly TopNavLink[] = [
+  { href: '/herramientas', label: 'Herramientas', activePaths: ['/herramientas'] },
+  { href: '/recursos', label: 'Recursos', activePaths: ['/recursos'] },
+  { href: '/comunidad', label: 'Círculo', activePaths: ['/comunidad', '/circulo'] },
+]
+
+function TopLogo() {
+  return (
+    <div className="flex items-center gap-2.5">
+      <svg
+        width={20}
+        height={20}
+        viewBox="0 0 20 20"
+        aria-hidden
+        style={{ color: 'var(--color-gold-bright)' }}
+      >
+        <path
+          d="M10 1.5 11.75 7.9 18.5 10 11.75 12.1 10 18.5 8.25 12.1 1.5 10 8.25 7.9 10 1.5Z"
+          fill="currentColor"
+        />
+        <path
+          d="M10 5.4 10.9 9.1 14.6 10 10.9 10.9 10 14.6 9.1 10.9 5.4 10 9.1 9.1 10 5.4Z"
+          fill="rgba(245,238,248,0.42)"
+        />
+      </svg>
+      <span className="font-sans text-[11px] font-medium tracking-[0.3em] text-[var(--color-cream)] uppercase">
+        Elara Nova
+      </span>
+    </div>
+  )
+}
+
 function Logo() {
   return (
     <div className="flex items-center gap-3">
@@ -93,7 +126,7 @@ export function SiteNav() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed left-0 right-0 top-0 z-[60] flex items-center justify-between px-6 py-5 md:px-10"
+        className="fixed top-0 right-0 left-0 z-[60] grid grid-cols-[1fr_auto] items-center px-6 py-5 md:grid-cols-[1fr_auto_1fr] md:px-10"
         style={{
           background:
             'linear-gradient(180deg, rgba(10,0,16,0.55) 0%, rgba(10,0,16,0.20) 60%, transparent 100%)',
@@ -102,14 +135,34 @@ export function SiteNav() {
         }}
       >
         <Link href="/" prefetch aria-label="Elara Nova · Inicio">
-          <Logo />
+          <TopLogo />
         </Link>
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Navegación principal">
+          {TOP_NAV.map((link) => {
+            const active = link.activePaths.includes(pathname)
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={[
+                  'font-sans text-[10px] tracking-[0.28em] uppercase transition-colors duration-200 underline-offset-4',
+                  active
+                    ? 'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
+                    : 'text-[var(--color-cream)]/75 hover:text-[var(--color-gold-soft)] hover:opacity-100',
+                ].join(' ')}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </nav>
 
         <button
           onClick={() => setOpen(true)}
           aria-label="Abrir menú"
           aria-expanded={open}
-          className="group flex items-center gap-3 rounded-full border border-[var(--color-gold)]/45 px-5 py-2.5 transition-all hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]/80"
+          className="group justify-self-end flex items-center gap-3 rounded-full border border-[var(--color-gold)]/50 px-5 py-2.5 transition-all hover:border-[var(--color-gold)]/80 hover:bg-[var(--color-gold)]/10"
           style={{
             background: 'rgba(26,15,61,0.45)',
             backdropFilter: 'blur(12px) saturate(160%)',
@@ -117,21 +170,6 @@ export function SiteNav() {
             boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)',
           }}
         >
-          {/* 3 lineas hamburger refinado */}
-          <span className="flex h-3.5 w-5 flex-col justify-between" aria-hidden>
-            <span
-              className="block h-px w-full transition-all group-hover:w-3/4"
-              style={{ background: 'var(--color-gold-bright)' }}
-            />
-            <span
-              className="block h-px w-3/4 transition-all group-hover:w-full"
-              style={{ background: 'var(--color-gold-bright)', alignSelf: 'flex-end' }}
-            />
-            <span
-              className="block h-px w-full transition-all group-hover:w-2/3"
-              style={{ background: 'var(--color-gold-bright)' }}
-            />
-          </span>
           <span
             style={{
               fontFamily: 'var(--font-sans)',
@@ -142,7 +180,7 @@ export function SiteNav() {
               fontWeight: 600,
             }}
           >
-            Menú
+            Entrar
           </span>
         </button>
       </motion.header>
