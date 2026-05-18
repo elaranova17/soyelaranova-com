@@ -10,6 +10,7 @@ type IconKey = keyof typeof ElaraIcons
 type ToolCard = {
   img: string
   variant: 'herramienta' | 'oraculo' | 'recurso'
+  icon: 'planet' | 'cards' | 'journal' | 'moon' | 'energy' | 'compass'
   title: string
   text: string
   cta: string
@@ -66,6 +67,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-astrologia.png',
     variant: 'herramienta',
+    icon: 'planet',
     title: 'Carta Natal',
     text: 'Conoce tu mapa energético y tu propósito de vida.',
     cta: 'Explorar →',
@@ -73,6 +75,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-lectura-tarot.png',
     variant: 'oraculo',
+    icon: 'cards',
     title: 'Lectura de Tarot',
     text: 'Recibe guía intuitiva para tu momento actual.',
     cta: 'Pedir mensaje →',
@@ -80,6 +83,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-calendario-lunar.png',
     variant: 'recurso',
+    icon: 'journal',
     title: 'Journal Lunar',
     text: 'Conecta contigo cada día y escribe tu magia.',
     cta: 'Ver recurso →',
@@ -87,6 +91,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-ciclos-lunares.png',
     variant: 'herramienta',
+    icon: 'moon',
     title: 'Ciclos Lunares',
     text: 'Sincronizate con la luna para planificar, soltar y florecer cada mes.',
     cta: 'Explorar →',
@@ -94,6 +99,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-chakras.png',
     variant: 'oraculo',
+    icon: 'energy',
     title: 'Energía & Chakras',
     text: 'Aprendé a leer y equilibrar tu campo energético con herramientas simples.',
     cta: 'Pedir mensaje →',
@@ -101,6 +107,7 @@ const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-proposito.png',
     variant: 'recurso',
+    icon: 'compass',
     title: 'Tu Propósito',
     text: 'Claridad sobre quién sos, qué querés crear y cómo servir desde el alma.',
     cta: 'Ver recurso →',
@@ -264,6 +271,88 @@ const toolCardStyles = {
   }
 >
 
+function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
+  const elaraSize = size === 'md' ? 'text-[1.7rem]' : 'text-[1.35rem]'
+  const novaTracking = size === 'md' ? 'tracking-[0.55em]' : 'tracking-[0.45em]'
+
+  return (
+    <div className="flex flex-col leading-none" aria-label="Elara Nova">
+      <span className={`font-serif-italic italic text-[#D4AF37] ${elaraSize}`}>
+        Elara
+      </span>
+      <div className="mt-1 flex items-center gap-2">
+        <span className={`font-serif-italic text-[10px] text-[#D4AF37]/75 uppercase italic ${novaTracking}`}>
+          nova
+        </span>
+        <span className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/80 via-[#D4AF37]/30 to-transparent" />
+      </div>
+    </div>
+  )
+}
+
+function ToolGlyph({ kind }: { kind: ToolCard['icon'] }) {
+  const props = {
+    className: 'h-7 w-7',
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.5,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  }
+
+  switch (kind) {
+    case 'planet':
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="4.5" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.2" />
+          <circle cx="9.8" cy="10.3" r="0.8" fill="currentColor" stroke="none" />
+        </svg>
+      )
+    case 'cards':
+      return (
+        <svg {...props}>
+          <rect x="7" y="4" width="10" height="15" rx="1.5" />
+          <path d="M11 7.5h2M10 16h4" />
+          <path d="m12 9 1 2.2 2.2.2-1.7 1.4.5 2.1-2-1.1-2 1.1.5-2.1-1.7-1.4 2.2-.2L12 9z" />
+          <path d="M17 7.2 19 8v12H9.5" />
+        </svg>
+      )
+    case 'journal':
+      return (
+        <svg {...props}>
+          <path d="M6 5.5A2.5 2.5 0 0 1 8.5 3H19v18H8.5A2.5 2.5 0 0 1 6 18.5v-13z" />
+          <path d="M9 7h6M9 10h5M9 14h7" />
+          <path d="M6 18.5A2.5 2.5 0 0 1 8.5 16H19" />
+        </svg>
+      )
+    case 'moon':
+      return (
+        <svg {...props}>
+          <path d="M20 14.3A8 8 0 1 1 9.7 4 9.5 9.5 0 0 0 20 14.3z" />
+          <path d="m5 5 1 2 2 .6-2 .8-1 2-1-2-2-.8 2-.6 1-2z" />
+        </svg>
+      )
+    case 'energy':
+      return (
+        <svg {...props}>
+          <path d="M13 2 5 13h6l-1 9 9-12h-6l1-8z" />
+          <path d="M4 20c2-1.5 4-1.5 6 0s4 1.5 6 0 3.3-1.4 5 0" />
+        </svg>
+      )
+    case 'compass':
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2z" />
+          <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      )
+  }
+}
+
 function ToolProductCard({
   item,
   index,
@@ -275,27 +364,48 @@ function ToolProductCard({
 
   return (
     <motion.article
+      className={`group relative overflow-hidden rounded-2xl border ${styles.card}`}
       custom={index}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
       variants={fadeUp}
       whileHover={{ y: -4 }}
-      className={`relative min-h-[260px] overflow-hidden rounded-2xl border p-6 ${styles.card}`}
     >
-      <div className="absolute top-4 right-4 h-28 w-28 overflow-hidden rounded-2xl opacity-80 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+      <div className="relative h-72 overflow-hidden">
         <Image
           src={item.img}
           alt={item.title}
           fill
-          className="object-cover"
-          sizes="112px"
+          className="scale-100 object-cover transition-transform duration-1000 group-hover:scale-110"
+          sizes="(max-width: 1024px) 100vw, 33vw"
         />
-      </div>
-      <div className="relative z-10 pr-24">
-        <span className={`text-[9px] tracking-[0.35em] uppercase ${styles.labelText}`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726] via-[#0E0726]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/20 via-transparent to-transparent" />
+        <div className="absolute inset-y-0 -left-1/2 w-1/2 -translate-x-full bg-gradient-to-r from-transparent via-white/7 to-transparent transition-transform duration-1000 group-hover:translate-x-[300%]" />
+        <span className={`absolute top-4 right-4 rounded-full border border-white/10 bg-[#0E0726]/70 px-3 py-1 text-[9px] tracking-[0.35em] uppercase backdrop-blur ${styles.labelText}`}>
           {styles.label}
         </span>
+        <motion.div
+          className="absolute bottom-5 left-5 flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-[#D4AF37]/50 bg-[#0E0726]/80 text-[#D4AF37] backdrop-blur-md"
+          animate={{
+            boxShadow: [
+              '0 0 0px rgba(212,175,55,0)',
+              '0 0 18px rgba(212,175,55,0.35)',
+              '0 0 0px rgba(212,175,55,0)',
+            ],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2.8,
+            delay: index * 0.18,
+          }}
+          whileHover={{ scale: 1.12 }}
+        >
+          <ToolGlyph kind={item.icon} />
+        </motion.div>
+      </div>
+      <div className="relative z-10 p-6">
         <h3 className={`font-display mt-3 text-2xl ${styles.title}`}>
           {item.title}
         </h3>
@@ -309,6 +419,7 @@ function ToolProductCard({
           {item.cta}
         </a>
       </div>
+      <div className="pointer-events-none absolute inset-0 opacity-0 shadow-[inset_0_0_60px_rgba(212,175,55,0.07),inset_0_0_1px_rgba(212,175,55,0.25)] transition-opacity duration-500 group-hover:opacity-100" />
     </motion.article>
   )
 }
@@ -336,9 +447,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#0E0726] text-[#F5EEF8]">
       <nav className="sticky top-0 z-50 border-b border-white/5 bg-[#0E0726]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <span className="font-display text-xl tracking-wide text-[#D4AF37]">
-            ✦ Elara Nova
-          </span>
+          <LogoBrand />
           <div className="hidden items-center gap-8 md:flex">
             {[
               { icon: 'Herramientas' as const, label: 'Herramientas', href: '#herramientas' },
@@ -856,7 +965,7 @@ export default function HomePage() {
 
       <footer className="border-t border-white/5 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <span className="font-display text-lg text-[#D4AF37]">✦ Elara Nova</span>
+          <LogoBrand size="sm" />
           <div className="flex gap-8">
             {['Herramientas', 'Círculo', 'Productos', 'Contacto'].map((label) => (
               <a
