@@ -9,9 +9,10 @@ type IconKey = keyof typeof ElaraIcons
 
 type ToolCard = {
   img: string
-  icon: IconKey
+  variant: 'herramienta' | 'oraculo' | 'recurso'
   title: string
   text: string
+  cta: string
 }
 
 type CircleBenefit = {
@@ -19,14 +20,33 @@ type CircleBenefit = {
   label: string
 }
 
-type ProductCard = {
-  img: string
-  badge: string
-  badgeColor: string
+type CircleStep = {
+  icon: IconKey
   title: string
   text: string
-  cta: string
-  price: string | null
+}
+
+type HeroTrustBadge = {
+  icon: IconKey
+  label: string
+  text: string
+}
+
+type ProductCard = {
+  img: string
+  title: string
+  text: string
+}
+
+type CreationStep = {
+  icon: IconKey
+  title: string
+  text: string
+}
+
+type ServiceTrustItem = {
+  icon: IconKey
+  label: string
 }
 
 const fadeUp = {
@@ -45,39 +65,45 @@ const fadeUp = {
 const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-astrologia.png',
-    icon: 'Planetas',
+    variant: 'herramienta',
     title: 'Carta Natal',
-    text: 'Tu mapa del cielo al nacer. Descubrí tus dones, desafíos y propósito.',
-  },
-  {
-    img: '/images/herramienta-ciclos-lunares.png',
-    icon: 'Luna',
-    title: 'Ciclos Lunares',
-    text: 'Sincronizate con la luna para planificar, soltar y florecer cada mes.',
+    text: 'Conoce tu mapa energético y tu propósito de vida.',
+    cta: 'Explorar →',
   },
   {
     img: '/images/herramienta-lectura-tarot.png',
-    icon: 'Oraculo',
-    title: 'Tarot Intuitivo',
-    text: 'El tarot como espejo del alma. Sin predicciones, solo claridad interior.',
+    variant: 'oraculo',
+    title: 'Lectura de Tarot',
+    text: 'Recibe guía intuitiva para tu momento actual.',
+    cta: 'Pedir mensaje →',
+  },
+  {
+    img: '/images/herramienta-calendario-lunar.png',
+    variant: 'recurso',
+    title: 'Journal Lunar',
+    text: 'Conecta contigo cada día y escribe tu magia.',
+    cta: 'Ver recurso →',
+  },
+  {
+    img: '/images/herramienta-ciclos-lunares.png',
+    variant: 'herramienta',
+    title: 'Ciclos Lunares',
+    text: 'Sincronizate con la luna para planificar, soltar y florecer cada mes.',
+    cta: 'Explorar →',
   },
   {
     img: '/images/herramienta-chakras.png',
-    icon: 'Energia',
+    variant: 'oraculo',
     title: 'Energía & Chakras',
     text: 'Aprendé a leer y equilibrar tu campo energético con herramientas simples.',
-  },
-  {
-    img: '/images/herramienta-rituales.png',
-    icon: 'Proteccion',
-    title: 'Rituales de Intención',
-    text: 'Rituales lunares y de soltar para marcar tus ciclos con consciencia.',
+    cta: 'Pedir mensaje →',
   },
   {
     img: '/images/herramienta-proposito.png',
-    icon: 'Guia',
+    variant: 'recurso',
     title: 'Tu Propósito',
     text: 'Claridad sobre quién sos, qué querés crear y cómo servir desde el alma.',
+    cta: 'Ver recurso →',
   },
 ] as const
 
@@ -88,28 +114,204 @@ const circuloBenefits: readonly CircleBenefit[] = [
   { icon: 'Corazon', label: 'Contención real' },
 ] as const
 
-const heroChips = ['✦ Astrología', '✦ Tarot', '✦ Rituales', '✦ Círculo'] as const
+const circleSteps: readonly CircleStep[] = [
+  {
+    icon: 'Comunidad',
+    title: 'Encontrarte',
+    text: 'Entrás a un espacio íntimo con mujeres en tu misma búsqueda.',
+  },
+  {
+    icon: 'Ebook',
+    title: 'Aprender',
+    text: 'Recibís guías, clases y recursos para profundizar sin prisa.',
+  },
+  {
+    icon: 'Luna',
+    title: 'Rituales',
+    text: 'Nos reunimos alrededor de ciclos lunares, intención y cuidado.',
+  },
+  {
+    icon: 'Florecer',
+    title: 'Crecer',
+    text: 'Integrás lo aprendido en tu vida real, paso a paso.',
+  },
+] as const
+
+const heroTrustBadges: readonly HeroTrustBadge[] = [
+  {
+    icon: 'Florecer',
+    label: 'Hecho con intención',
+    text: 'Cada pieza nace con cuidado.',
+  },
+  {
+    icon: 'Proteccion',
+    label: 'Materiales conscientes',
+    text: 'Recursos suaves para tu proceso.',
+  },
+  {
+    icon: 'Corazon',
+    label: 'Energía que acompaña',
+    text: 'Rituales para sostenerte.',
+  },
+] as const
 
 const products: readonly ProductCard[] = [
   {
+    img: '/images/curso-astrologia.jpg',
+    title: 'Astrología esencial',
+    text: 'Aprende a leer tu mapa natal y reconocer tus patrones internos.',
+  },
+  {
     img: '/images/curso-ciclos.jpg',
-    badge: 'VOL. 01',
-    badgeColor: 'border-[#D4AF37]/40 text-[#D4AF37]',
-    title: 'Ciclo Nova del Regreso',
-    text: 'El ebook que te guía a través de tus ciclos interiores para regresar a vos.',
-    cta: 'Quiero el ebook →',
-    price: '$27 USD',
+    title: 'Ciclos lunares',
+    text: 'Rituales y guía práctica para vivir en sincronía con la luna.',
+  },
+  {
+    img: '/images/curso-tarot.jpg',
+    title: 'Tarot intuitivo',
+    text: 'Un recorrido suave para escuchar el símbolo y tu voz interior.',
+  },
+  {
+    img: '/images/producto-kit-rituales.jpg',
+    title: 'Kit de rituales',
+    text: 'Piezas y prácticas para crear espacios de intención en casa.',
   },
   {
     img: '/images/producto-planificador-lunar.jpg',
-    badge: 'GRATIS',
-    badgeColor: 'border-[#C49AD4]/40 text-[#C49AD4]',
-    title: 'Planificador Lunar Mayo',
-    text: 'Organizá tu mes con la energía de cada fase lunar. Descarga gratuita.',
-    cta: 'Descargar gratis →',
-    price: null,
+    title: 'Planificador lunar',
+    text: 'Organiza tu mes con fases, energía disponible y pequeñas acciones.',
   },
 ] as const
+
+const creationSteps: readonly CreationStep[] = [
+  {
+    icon: 'Estrellas',
+    title: 'Inspiración',
+    text: 'Escuchamos la señal y abrimos la intención.',
+  },
+  {
+    icon: 'Atelier',
+    title: 'Diseño',
+    text: 'Damos forma visual a la energía del ritual.',
+  },
+  {
+    icon: 'Guia',
+    title: 'Elaboración',
+    text: 'Creamos cada pieza con detalle y propósito.',
+  },
+  {
+    icon: 'Proteccion',
+    title: 'Preparación',
+    text: 'Cuidamos el empaque, la guía y el momento.',
+  },
+  {
+    icon: 'Corazon',
+    title: 'Llega a ti',
+    text: 'Recibís una experiencia lista para acompañarte.',
+  },
+] as const
+
+const serviceTrustItems: readonly ServiceTrustItem[] = [
+  { icon: 'Descargar', label: 'Envíos conscientes' },
+  { icon: 'Proteccion', label: 'Pago seguro' },
+  { icon: 'Comunidad', label: 'Atención personalizada' },
+  { icon: 'Corazon', label: 'Devoluciones con amor' },
+] as const
+
+const buttonStyles = {
+  primary:
+    'inline-flex items-center gap-2 rounded-full bg-[#D4AF37] px-6 py-3 text-[11px] font-bold tracking-[0.3em] text-[#0E0726] uppercase hover:bg-[#E5C145]',
+  secondary:
+    'inline-flex items-center rounded-full bg-[#7B4FB5] px-6 py-3 text-[11px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase hover:bg-[#8B5FC5]',
+  tertiary:
+    'inline-flex items-center rounded-full border border-[#7B4FB5]/50 px-6 py-3 text-[11px] tracking-[0.3em] text-[#C49AD4] uppercase hover:border-[#7B4FB5] hover:text-[#F5EEF8]',
+} as const
+
+const toolCardStyles = {
+  herramienta: {
+    label: 'Herramienta',
+    card: 'border-[#7B4FB5]/20 bg-[#1A0F3D]',
+    labelText: 'text-[#D4AF37]/50',
+    title: 'text-[#F5EEF8]',
+    description: 'text-[#C49AD4]/60',
+    cta: 'border-white/10 text-[#F5EEF8]/70 hover:text-[#D4AF37]',
+  },
+  oraculo: {
+    label: 'Oráculo',
+    card: 'border-[#D4AF37]/30 bg-[#F5EEF8]',
+    labelText: 'text-[#7B4FB5]/60',
+    title: 'text-[#1A0F3D]',
+    description: 'text-[#2D1870]/60',
+    cta: 'border-[#1A0F3D]/15 text-[#1A0F3D]/70 hover:text-[#7B4FB5]',
+  },
+  recurso: {
+    label: 'Recurso',
+    card: 'border-[#7B4FB5]/30 bg-[#2D1870]',
+    labelText: 'text-[#C49AD4]/60',
+    title: 'text-[#F5EEF8]',
+    description: 'text-[#C49AD4]/70',
+    cta: 'border-[#D4AF37]/20 text-[#D4AF37]/70 hover:text-[#D4AF37]',
+  },
+} satisfies Record<
+  ToolCard['variant'],
+  {
+    label: string
+    card: string
+    labelText: string
+    title: string
+    description: string
+    cta: string
+  }
+>
+
+function ToolProductCard({
+  item,
+  index,
+}: {
+  item: ToolCard
+  index: number
+}) {
+  const styles = toolCardStyles[item.variant]
+
+  return (
+    <motion.article
+      custom={index}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      whileHover={{ y: -4 }}
+      className={`relative min-h-[260px] overflow-hidden rounded-2xl border p-6 ${styles.card}`}
+    >
+      <div className="absolute top-4 right-4 h-28 w-28 overflow-hidden rounded-2xl opacity-80 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+        <Image
+          src={item.img}
+          alt={item.title}
+          fill
+          className="object-cover"
+          sizes="112px"
+        />
+      </div>
+      <div className="relative z-10 pr-24">
+        <span className={`text-[9px] tracking-[0.35em] uppercase ${styles.labelText}`}>
+          {styles.label}
+        </span>
+        <h3 className={`font-display mt-3 text-2xl ${styles.title}`}>
+          {item.title}
+        </h3>
+        <p className={`font-serif-italic mt-2 text-sm italic ${styles.description}`}>
+          {item.text}
+        </p>
+        <a
+          href="#email"
+          className={`mt-5 inline-flex items-center gap-2 border-b pb-0.5 text-[10px] tracking-widest uppercase ${styles.cta}`}
+        >
+          {item.cta}
+        </a>
+      </div>
+    </motion.article>
+  )
+}
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
@@ -155,155 +357,123 @@ export default function HomePage() {
           </div>
           <a
             href="#email"
-            className="rounded-full border border-[#D4AF37]/60 px-4 py-2 text-[11px] tracking-widest text-[#D4AF37] uppercase transition-colors hover:bg-[#D4AF37]/10"
+            className={buttonStyles.tertiary}
           >
             Unirme
           </a>
         </div>
       </nav>
 
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-24">
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="relative overflow-hidden rounded-3xl shadow-[0_0_60px_#7B4FB520]">
-              <Image
-                src="/images/sobre-elara.jpg"
-                alt="Elara en su estudio"
-                width={600}
-                height={700}
-                priority
-                className="h-[520px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/40 to-transparent" />
-            </div>
-            <div className="absolute right-4 -bottom-4 left-4 flex flex-wrap justify-center gap-2">
-              {heroChips.map((chip, index) => (
-                <motion.span
-                  key={chip}
-                  className="rounded-full border border-[#D4AF37]/30 bg-[#1A0F3D]/90 px-3 py-1.5 text-[10px] tracking-widest text-[#D4AF37] uppercase backdrop-blur"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3 + index * 0.4,
-                    delay: index * 0.3,
-                  }}
-                >
-                  {chip}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
+      <section className="relative flex min-h-screen items-center overflow-hidden px-6 py-28 md:px-16">
+        <Image
+          src="/images/herramientas-astrales.jpg"
+          alt="Atelier Elara Nova"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#1A0F3D]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06040D]/80 via-[#1A0F3D]/55 to-[#1A0F3D]/10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(212,175,55,0.18),transparent_35%)]" />
 
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="flex flex-col gap-6"
-          >
-            <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
-              ✦ Bienvenida
-            </p>
-            <h1 className="font-display text-5xl leading-tight text-[#F5EEF8] xl:text-6xl">
-              Tu alma ya sabe.
-              <br />
-              <span className="text-[#D4AF37]">Vos solo aprendés</span>
-              <br />
-              a escucharla.
-            </h1>
-            <p className="font-serif-italic text-xl leading-relaxed text-[#C49AD4]">
-              Herramientas de autoconocimiento para mujeres que eligen vivir de
-              adentro hacia afuera.
-            </p>
-            <div className="mt-2 flex flex-wrap gap-4">
-              <a
-                href="#herramientas"
-                className="rounded-full bg-[#D4AF37] px-6 py-3 font-sans text-[11px] tracking-widest text-[#0E0726] uppercase transition-colors hover:bg-[#F0D060]"
-              >
-                Explorar herramientas
-              </a>
-              <a
-                href="#circulo"
-                className="rounded-full border border-[#D4AF37]/40 px-6 py-3 font-sans text-[11px] tracking-widest text-[#D4AF37] uppercase transition-colors hover:bg-[#D4AF37]/10"
-              >
-                Ver el Círculo
-              </a>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="mt-4 flex flex-wrap gap-4"
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start"
+        >
+          <p className="mb-5 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
+            ✦ Atelier Elara Nova ✦
+          </p>
+          <h1 className="font-display max-w-4xl text-5xl leading-[0.98] font-semibold text-[#F5EEF8] md:text-7xl">
+            Creamos magia
+            <br />
+            para tu{' '}
+            <em className="font-serif-italic font-normal text-[#D4AF37] italic">
+              evolución.
+            </em>
+          </h1>
+          <p className="font-serif-italic mt-7 max-w-xl text-xl leading-relaxed text-[#E8D5F0]/85 md:text-2xl">
+            Recursos, rituales y piezas únicas diseñadas para acompañarte en tu
+            camino.
+          </p>
+
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a
+              href="#productos"
+              className={buttonStyles.secondary}
             >
-              {(['Luna', 'Estrellas', 'Eclipse', 'Energia', 'Intuicion', 'Proteccion'] as const).map((key) => (
-                <IconCard key={key} icon={ElaraIcons[key].render(22)} size="sm" />
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+              Explorar productos ✦
+            </a>
+            <a
+              href="#circulo"
+              className={buttonStyles.tertiary}
+            >
+              Ver el Círculo →
+            </a>
+          </div>
+
+          <div className="mt-12 grid max-w-3xl gap-4 sm:grid-cols-3">
+            {heroTrustBadges.map((badge, index) => (
+              <motion.div
+                key={badge.label}
+                custom={index}
+                initial="hidden"
+                animate="show"
+                variants={fadeUp}
+                className="flex items-start gap-3 rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/55 p-4 backdrop-blur"
+              >
+                <div className="mt-0.5 shrink-0">
+                  {ElaraIcons[badge.icon].render(22)}
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-[#F5EEF8]">
+                    {badge.label}
+                  </p>
+                  <p className="mt-1 text-xs leading-snug text-[#C49AD4]/70">
+                    {badge.text}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <section id="herramientas" className="mx-auto max-w-6xl px-6 py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="mb-16 text-center"
-        >
-          <p className="mb-4 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
-            ✦ Las herramientas
-          </p>
-          <h2 className="font-display text-4xl text-[#F5EEF8] xl:text-5xl">
-            Las herramientas que te acompañan
-          </h2>
-          <p className="font-serif-italic mt-4 text-xl text-[#C49AD4]">
-            Cada una diseñada para que te conozcas más profundo.
-          </p>
-        </motion.div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-10 flex items-center justify-between gap-6">
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase"
+          >
+            ✦ Nuestras herramientas
+          </motion.p>
+          <a
+            href="#productos"
+            className="text-[10px] tracking-widest text-[#D4AF37] uppercase hover:text-[#F0D070]"
+          >
+            Ver todas →
+          </a>
+        </div>
+        <div className="grid gap-6 lg:grid-cols-3">
           {herramientas.map((item, index) => (
-            <motion.div
-              key={item.title}
-              custom={index}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 30px #D4AF3720' }}
-              transition={{ duration: 0.2 }}
-              className="cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/20 bg-[#1A0F3D]/60"
-            >
-              <div className="relative h-52 w-full">
-                <Image src={item.img} alt={item.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D] via-transparent to-transparent" />
-              </div>
-              <div className="p-6">
-                <div className="mb-3">{ElaraIcons[item.icon].render(28)}</div>
-                <h3 className="font-display mb-2 text-xl text-[#F5EEF8]">
-                  {item.title}
-                </h3>
-                <p className="font-serif-italic leading-relaxed text-[#C49AD4]">
-                  {item.text}
-                </p>
-              </div>
-            </motion.div>
+            <ToolProductCard key={item.title} item={item} index={index} />
           ))}
         </div>
       </section>
 
-      <section id="circulo" className="bg-[#1A0F3D] py-24">
+      <section id="circulo" className="bg-[#1A0F3D]/50 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mb-16 text-center"
+            className="mb-14 text-center"
           >
             <p className="mb-4 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
               ✦ El Círculo
@@ -317,13 +487,13 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="mb-16 grid gap-6 md:grid-cols-2">
+          <div className="mb-20 grid gap-6 md:grid-cols-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative h-96 overflow-hidden rounded-3xl"
+              className="relative h-96 overflow-hidden rounded-3xl md:col-span-2 md:row-span-2 md:h-full"
             >
               <Image src="/images/circulo-juntas.png" alt="Crecemos juntas" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
@@ -333,27 +503,122 @@ export default function HomePage() {
                 </p>
               </div>
             </motion.div>
-            <div className="flex flex-col gap-6">
-              {[
-                { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
-                { src: '/images/circulo-tarot.png', alt: 'Juntas somos magia' },
-              ].map((img, index) => (
+            {[
+              { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
+              { src: '/images/circulo-tarot.png', alt: 'Juntas somos magia' },
+            ].map((img, index) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="relative h-44 overflow-hidden rounded-2xl md:col-span-2"
+              >
+                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/45 to-transparent" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mb-16">
+            <p className="mb-10 text-center text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
+              Así funciona el Círculo
+            </p>
+            <div className="relative grid gap-8 md:grid-cols-4">
+              <div
+                className="pointer-events-none absolute top-10 right-[12%] left-[12%] hidden border-t border-dashed border-[#D4AF37]/40 md:block"
+                aria-hidden
+              />
+              {circleSteps.map((step, index) => (
                 <motion.div
-                  key={img.src}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={step.title}
+                  custom={index}
+                  initial="hidden"
+                  whileInView="show"
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="relative h-44 overflow-hidden rounded-2xl"
+                  variants={fadeUp}
+                  className="relative z-10 flex flex-col items-center text-center"
                 >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/40 to-transparent" />
+                  <div className="rounded-3xl border border-[#D4AF37]/25 bg-[#0E0726] p-3 shadow-[0_0_30px_rgba(212,175,55,0.10)]">
+                    {ElaraIcons[step.icon].render(36)}
+                  </div>
+                  <h3 className="font-display mt-5 text-xl text-[#F5EEF8]">
+                    {step.title}
+                  </h3>
+                  <p className="font-serif-italic mt-2 max-w-[14rem] text-sm leading-relaxed text-[#C49AD4]/75">
+                    {step.text}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          <div className="mb-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="rounded-2xl border border-[#D4AF37]/35 bg-[#1A0F3D] p-8"
+            >
+              <span className="text-[9px] tracking-[0.35em] text-[#D4AF37]/60 uppercase">
+                Ediciones especiales
+              </span>
+              <h3 className="font-display mt-3 text-3xl text-[#F5EEF8]">
+                Rituales, guías y encuentros de temporada.
+              </h3>
+              <p className="font-serif-italic mt-4 text-[#C49AD4]/75">
+                Cada luna trae una puerta. En el Círculo recibís piezas creadas
+                para acompañar tu momento, no para llenarte de ruido.
+              </p>
+              <a
+                href="#productos"
+                className={`mt-6 ${buttonStyles.tertiary}`}
+              >
+                Ver ediciones →
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="rounded-2xl border border-[#7B4FB5]/40 bg-[#2D1870] p-8"
+            >
+              <span className="text-[9px] tracking-[0.35em] text-[#C49AD4]/70 uppercase">
+                Únete al Círculo
+              </span>
+              <h3 className="font-display mt-3 text-3xl text-[#F5EEF8]">
+                Entrá por la puerta suave.
+              </h3>
+              <p className="font-serif-italic mt-4 text-[#C49AD4]/75">
+                Dejame tu correo y te envío la próxima invitación.
+              </p>
+              <form
+                onSubmit={(event) => event.preventDefault()}
+                className="mt-6 flex flex-col gap-3 sm:flex-row"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  placeholder="tu@email.com"
+                  required
+                  className="font-serif-italic min-w-0 flex-1 rounded-full border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-5 py-3 text-[#F5EEF8] placeholder:text-[#C49AD4]/50 focus:border-[#D4AF37]/70 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className={buttonStyles.primary}
+                >
+                  Unirme <span>✦</span>
+                </button>
+              </form>
+            </motion.div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
             {circuloBenefits.map((benefit, index) => (
               <motion.div
                 key={benefit.label}
@@ -370,15 +635,6 @@ export default function HomePage() {
                 </span>
               </motion.div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <a
-              href="#email"
-              className="inline-block rounded-full bg-[#D4AF37] px-8 py-4 font-sans text-[11px] tracking-widest text-[#0E0726] uppercase transition-colors hover:bg-[#F0D060]"
-            >
-              Quiero unirme al Círculo
-            </a>
           </div>
         </div>
       </section>
@@ -398,7 +654,7 @@ export default function HomePage() {
             Lo que Elara creó para vos
           </h2>
         </motion.div>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="-mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 md:pb-0">
           {products.map((product, index) => (
             <motion.div
               key={product.title}
@@ -407,37 +663,92 @@ export default function HomePage() {
               whileInView="show"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="overflow-hidden rounded-2xl border border-[#D4AF37]/20 bg-[#1A0F3D]/60"
+              className="w-[76vw] shrink-0 snap-start md:w-auto"
             >
-              <div className="relative h-64 w-full">
-                <Image src={product.img} alt={product.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D] via-transparent to-transparent" />
-                <span
-                  className={`absolute top-4 left-4 rounded-full border bg-[#0E0726]/80 px-3 py-1 text-[10px] tracking-widest uppercase ${product.badgeColor}`}
-                >
-                  {product.badge}
-                </span>
+              <div className="relative h-48 overflow-hidden rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]">
+                <Image
+                  src={product.img}
+                  alt={product.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 76vw, 20vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/35 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="font-display mb-2 text-2xl text-[#F5EEF8]">
+              <div className="pt-5">
+                <h3 className="font-display text-2xl text-[#F5EEF8]">
                   {product.title}
                 </h3>
-                {product.price && (
-                  <p className="mb-2 font-sans text-sm text-[#D4AF37]">
-                    {product.price}
-                  </p>
-                )}
-                <p className="font-serif-italic mb-4 text-[#C49AD4]">
+                <p className="font-serif-italic mt-2 text-sm leading-relaxed text-[#C49AD4]/75">
                   {product.text}
                 </p>
                 <a
                   href="#email"
-                  className="border-b border-[#D4AF37]/40 pb-0.5 text-[11px] tracking-widest text-[#D4AF37] uppercase transition-colors hover:border-[#D4AF37]"
+                  className="mt-4 inline-flex border-b border-[#D4AF37]/30 pb-0.5 text-[10px] tracking-widest text-[#D4AF37] uppercase hover:border-[#D4AF37]"
                 >
-                  {product.cta}
+                  Ver más →
                 </a>
               </div>
             </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="mb-14 text-center"
+        >
+          <p className="mb-4 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
+            ✦ Proceso del Atelier
+          </p>
+          <h2 className="font-display text-4xl text-[#F5EEF8] xl:text-5xl">
+            De la inspiración a tus manos
+          </h2>
+        </motion.div>
+
+        <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
+          <div
+            className="pointer-events-none absolute top-10 right-[8%] left-[8%] hidden h-px bg-[#D4AF37]/30 md:block"
+            aria-hidden
+          />
+          {creationSteps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              custom={index}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="relative z-10 flex flex-col items-center text-center"
+            >
+              <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#D4AF37] bg-[#2D1870] shadow-[0_0_30px_rgba(212,175,55,0.12)]">
+                {ElaraIcons[step.icon].render(34)}
+                <span className="absolute -bottom-2 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/60 bg-[#1A0F3D] text-[10px] font-semibold text-[#D4AF37]">
+                  {index + 1}
+                </span>
+              </div>
+              <h3 className="font-display mt-7 text-xl text-[#F5EEF8]">
+                {step.title}
+              </h3>
+              <p className="font-serif-italic mt-2 max-w-[11rem] text-sm leading-relaxed text-[#C49AD4]/75">
+                {step.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-16 grid grid-cols-2 gap-8 border-t border-[#D4AF37]/10 pt-10 md:grid-cols-4">
+          {serviceTrustItems.map((item) => (
+            <div key={item.label} className="flex flex-col items-center gap-3 text-center">
+              <div className="opacity-55">{ElaraIcons[item.icon].render(24)}</div>
+              <p className="text-[10px] leading-snug tracking-widest text-[#C49AD4]/40 uppercase">
+                {item.label}
+              </p>
+            </div>
           ))}
         </div>
       </section>
@@ -529,9 +840,9 @@ export default function HomePage() {
                   />
                   <button
                     type="submit"
-                    className="whitespace-nowrap rounded-full bg-[#D4AF37] px-6 py-3 font-sans text-[11px] tracking-widest text-[#0E0726] uppercase transition-colors hover:bg-[#F0D060]"
+                    className={`whitespace-nowrap ${buttonStyles.primary}`}
                   >
-                    Quiero recibirlos
+                    Quiero recibirlos <span>✦</span>
                   </button>
                 </div>
               </form>
