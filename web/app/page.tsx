@@ -37,6 +37,9 @@ type ProductCard = {
   img: string
   title: string
   text: string
+  href?: string
+  target?: string
+  rel?: string
 }
 
 type CreationStep = {
@@ -170,8 +173,11 @@ const products: readonly ProductCard[] = [
   },
   {
     img: '/images/curso-ciclos.jpg',
-    title: 'Ciclos lunares',
-    text: 'Rituales y guía práctica para vivir en sincronía con la luna.',
+    title: 'Ciclo Nova del Regreso',
+    text: 'Ebook de retorno personal para sostener tu proceso con rituales suaves.',
+    href: 'https://pay.hotmart.com/REPLACE_WITH_REAL_HOTMART_PRODUCT_ID',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
     img: '/images/curso-tarot.jpg',
@@ -187,6 +193,9 @@ const products: readonly ProductCard[] = [
     img: '/images/producto-planificador-lunar.jpg',
     title: 'Planificador lunar',
     text: 'Organiza tu mes con fases, energía disponible y pequeñas acciones.',
+    href: 'https://soyelaranova.ck.page/REPLACE_WITH_REAL_CONVERTKIT_FORM',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ] as const
 
@@ -377,8 +386,8 @@ function ToolProductCard({
           src={item.img}
           alt={item.title}
           fill
-          className="scale-100 object-cover transition-transform duration-1000 group-hover:scale-110"
-          sizes="(max-width: 1024px) 100vw, 33vw"
+          className="object-cover transition-transform duration-1000 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726] via-[#0E0726]/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/20 via-transparent to-transparent" />
@@ -473,81 +482,240 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <section className="section-fade-edge relative flex min-h-screen items-center overflow-hidden px-6 py-28 md:px-16">
-        <Image
-          src="/images/herramientas-astrales.jpg"
-          alt="Atelier Elara Nova"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#1A0F3D]/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06040D]/80 via-[#1A0F3D]/55 to-[#1A0F3D]/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(212,175,55,0.18),transparent_35%)]" />
+      <section id="inicio" className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-[88px] pb-20">
+        <div aria-hidden className="pointer-events-none absolute top-1/4 left-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] translate-x-1/4 rounded-full bg-[#1A0F3D]/60 blur-[100px]" />
+        <div aria-hidden className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.03] blur-[80px]" />
 
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start"
-        >
-          <p className="mb-5 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
-            ✦ Atelier Elara Nova ✦
-          </p>
-          <h1 className="font-display max-w-4xl text-5xl leading-[0.98] font-semibold text-[#F5EEF8] md:text-7xl">
-            Creamos magia
-            <br />
-            para tu{' '}
-            <em className="font-serif-italic font-normal text-[#D4AF37] italic">
-              evolución.
-            </em>
-          </h1>
-          <p className="font-serif-italic mt-7 max-w-xl text-xl leading-relaxed text-[#E8D5F0]/85 md:text-2xl">
-            Recursos, rituales y piezas únicas diseñadas para acompañarte en tu
-            camino.
-          </p>
+        {[
+          { mark: '✦', className: 'top-[18%] left-[12%] text-[8px] text-[#D4AF37]/25', duration: 3.2, delay: 0 },
+          { mark: '·', className: 'top-[28%] left-[46%] text-[10px] text-[#D4AF37]/20', duration: 4.4, delay: 0.4 },
+          { mark: '✦', className: 'top-[16%] right-[18%] text-[6px] text-[#D4AF37]/30', duration: 5.2, delay: 1.1 },
+          { mark: '·', className: 'top-[52%] left-[8%] text-[9px] text-[#D4AF37]/15', duration: 3.8, delay: 1.6 },
+          { mark: '✦', className: 'right-[9%] bottom-[28%] text-[10px] text-[#D4AF37]/20', duration: 5.8, delay: 0.8 },
+          { mark: '·', className: 'bottom-[18%] left-[34%] text-[8px] text-[#D4AF37]/25', duration: 4.8, delay: 1.3 },
+          { mark: '✦', className: 'right-[38%] bottom-[12%] text-[7px] text-[#D4AF37]/30', duration: 3.6, delay: 0.2 },
+          { mark: '·', className: 'top-[40%] right-[48%] text-[6px] text-[#D4AF37]/20', duration: 6, delay: 2 },
+        ].map((star) => (
+          <motion.span
+            key={`${star.className}-${star.mark}`}
+            aria-hidden
+            className={`pointer-events-none absolute ${star.className}`}
+            animate={{ opacity: [0.2, 0.7, 0.2] }}
+            transition={{ repeat: Infinity, duration: star.duration, delay: star.delay }}
+          >
+            {star.mark}
+          </motion.span>
+        ))}
 
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="#productos"
-              className={buttonStyles.secondary}
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-[1fr_460px] lg:gap-24">
+          <div className="flex flex-col items-center lg:items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              className="mb-8 inline-flex items-center gap-2.5 self-center rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06] px-4 py-2 lg:self-start"
             >
-              Explorar productos ✦
-            </a>
-            <a
-              href="#circulo"
-              className={buttonStyles.tertiary}
-            >
-              Ver el Círculo →
-            </a>
-          </div>
-
-          <div className="mt-12 grid max-w-3xl gap-4 sm:grid-cols-3">
-            {heroTrustBadges.map((badge, index) => (
-              <motion.div
-                key={badge.label}
-                custom={index}
-                initial="hidden"
-                animate="show"
-                variants={fadeUp}
-                className="flex items-start gap-3 rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/55 p-4 backdrop-blur"
+              <motion.span
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
               >
-                <div className="mt-0.5 shrink-0">
-                  {ElaraIcons[badge.icon].render(22)}
+                {ElaraIcons.Estrellas.render(11)}
+              </motion.span>
+              <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/75 uppercase">
+                Tu universo ✦ Tu camino
+              </span>
+              <span className="hidden h-px w-8 bg-gradient-to-r from-[#D4AF37]/40 to-transparent sm:block" />
+            </motion.div>
+
+            <h1 className="font-display mb-6 text-center text-[2.6rem] leading-[1.04] tracking-[-0.022em] text-[#F5EEF8] sm:text-[3.2rem] lg:text-left lg:text-[4.1rem]">
+              {[
+                { content: 'Tu alma ya sabe.' },
+                { content: <em className="font-serif-italic font-light text-[#C49AD4] italic">Vos solo aprendés</em> },
+                { content: 'a escucharla.' },
+              ].map((line, index) => (
+                <div key={index} className="overflow-hidden">
+                  <motion.div
+                    initial={{ y: '110%', opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.72, delay: 0.08 + index * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
+                  >
+                    {line.content}
+                  </motion.div>
                 </div>
-                <div>
-                  <p className="text-xs font-medium text-[#F5EEF8]">
-                    {badge.label}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-[#C49AD4]/70">
-                    {badge.text}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] as const }}
+              className="font-serif-italic mb-10 max-w-[380px] self-center text-center text-[1.05rem] leading-[1.8] text-[#C49AD4]/60 italic lg:self-start lg:text-left"
+            >
+              Herramientas de autoconocimiento para mujeres que eligen vivir de adentro hacia afuera.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] as const }}
+              className="mb-12 flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row"
+            >
+              <motion.a
+                href="#herramientas"
+                whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(123,79,181,0.55)' }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[#7B4FB5] px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase sm:w-auto"
+              >
+                <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                Explorar herramientas
+              </motion.a>
+              <motion.a
+                href="#circulo"
+                whileHover={{ scale: 1.015 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex w-full items-center justify-center gap-2.5 rounded-2xl border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-all duration-300 hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/[0.04] hover:text-[#D4AF37] sm:w-auto"
+              >
+                Entrar al Círculo
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="mb-12 flex flex-wrap items-center justify-center gap-4 self-center text-[9px] tracking-[0.25em] text-[#C49AD4]/35 uppercase lg:self-start lg:justify-start"
+            >
+              {['✦ Rituales compartidos', '✦ Ciclos lunares', '✦ Comunidad viva'].map((item, index) => (
+                <span key={item} className="contents">
+                  {index > 0 ? <span className="text-[#7B4FB5]/30">·</span> : null}
+                  <span>{item}</span>
+                </span>
+              ))}
+            </motion.div>
+
+            <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
+              {['✦ Astrología', '✦ Tarot', '✦ Rituales', '✦ Ciclos lunares', '✦ Autoconocimiento'].map((label, index) => (
+                <motion.span
+                  key={label}
+                  initial={{ opacity: 0, scale: 0.8, y: 12 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.85 + index * 0.08 }}
+                >
+                  <motion.span
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ repeat: Infinity, duration: 3 + index * 0.5, delay: index * 0.35, ease: 'easeInOut' }}
+                    className="inline-block cursor-default rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/[0.07] px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-[#D4AF37]/65 uppercase"
+                  >
+                    {label}
+                  </motion.span>
+                </motion.span>
+              ))}
+            </div>
           </div>
-        </motion.div>
+
+          <div className="relative mx-auto flex w-full max-w-[320px] justify-center lg:max-w-none lg:justify-end">
+            <div className="relative w-full max-w-[460px]">
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute -inset-8 rounded-[50%] bg-[#7B4FB5]/20 blur-[90px]"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-4 rounded-full bg-[#D4AF37]/[0.04] blur-[50px]" />
+
+              <motion.div
+                initial={{ opacity: 0, scale: 1.06 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.3, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+                className="group relative overflow-hidden rounded-[1.75rem] shadow-2xl shadow-[#0E0726]/90"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src="/images/hero-elara-noche.png"
+                    alt="Elara Nova — autoconocimiento para mujeres"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 460px"
+                    className="object-cover object-top transition-transform duration-[2000ms] group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0E0726]/65 via-[#0E0726]/15 to-transparent" />
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0E0726]/25 via-transparent to-transparent" />
+                <div aria-hidden className="pointer-events-none absolute top-0 left-0 h-full w-1/2 bg-gradient-to-r from-[#7B4FB5]/15 to-transparent" />
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-3 -left-4 sm:-left-8"
+                initial={{ opacity: 0, x: -16, y: 16 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
+              >
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
+                  className="whitespace-nowrap rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E5C14A] px-5 py-2.5 text-[9px] font-bold tracking-[0.28em] text-[#0E0726] uppercase shadow-xl shadow-[#D4AF37]/35"
+                >
+                  Tu magia. Tu camino. ✦
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                className="absolute -top-4 -right-4 sm:-right-8"
+                initial={{ opacity: 0, x: 16, y: -16 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 1, duration: 0.6, ease: 'easeOut' }}
+              >
+                <motion.div
+                  animate={{ y: [0, 7, 0] }}
+                  transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+                  className="flex h-[60px] w-[60px] flex-col items-center justify-center gap-1 rounded-2xl border border-[#7B4FB5]/35 bg-[#1A0F3D]/95 shadow-2xl shadow-[#0E0726]/60 backdrop-blur-md"
+                >
+                  {ElaraIcons.Meditacion.render(26)}
+                  <span className="text-[6px] tracking-widest text-[#D4AF37]/55 uppercase">Rituales</span>
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                className="absolute top-1/3 -left-3 sm:-left-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.15, duration: 0.6 }}
+              >
+                <motion.div
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                  className="flex items-center gap-2 rounded-xl border border-[#D4AF37]/20 bg-[#0E0726]/90 px-3 py-2 shadow-lg shadow-[#0E0726]/40 backdrop-blur-md"
+                >
+                  {ElaraIcons.Luna.render(14)}
+                  <span className="whitespace-nowrap text-[7px] tracking-[0.3em] text-[#D4AF37]/65 uppercase">
+                    Luna llena
+                  </span>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        <motion.a
+          href="#herramientas"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8 }}
+          className="group absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[#C49AD4]/25 transition-colors duration-300 hover:text-[#C49AD4]/60"
+          aria-label="Explorar herramientas"
+        >
+          <span className="text-[8px] tracking-[0.4em] uppercase">Explorar</span>
+          <motion.div
+            animate={{ y: [0, 7, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M12 5v14" />
+              <path d="m19 12-7 7-7-7" />
+            </svg>
+          </motion.div>
+        </motion.a>
       </section>
 
       <section id="herramientas" className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
@@ -604,7 +772,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="relative h-96 overflow-hidden rounded-3xl md:col-span-2 md:row-span-2 md:h-full"
             >
-              <Image src="/images/circulo-juntas.png" alt="Crecemos juntas" fill className="object-cover" />
+              <Image src="/images/circulo-juntas.png" alt="Crecemos juntas" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
               <div className="absolute bottom-6 left-6">
                 <p className="font-serif-italic text-2xl text-[#F5EEF8]">
@@ -624,7 +792,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="relative h-44 overflow-hidden rounded-2xl md:col-span-2"
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/45 to-transparent" />
               </motion.div>
             ))}
@@ -774,13 +942,13 @@ export default function HomePage() {
               variants={fadeUp}
               className="w-[76vw] shrink-0 snap-start md:w-auto"
             >
-              <div className="relative h-48 overflow-hidden rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]">
+              <div className="relative h-64 overflow-hidden rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]">
                 <Image
                   src={product.img}
                   alt={product.title}
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 76vw, 20vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/35 to-transparent" />
               </div>
@@ -792,7 +960,9 @@ export default function HomePage() {
                   {product.text}
                 </p>
                 <a
-                  href="#email"
+                  href={product.href ?? '#email'}
+                  target={product.target}
+                  rel={product.rel}
                   className="mt-4 inline-flex border-b border-[#D4AF37]/30 pb-0.5 text-[10px] tracking-widest text-[#D4AF37] uppercase hover:border-[#D4AF37]"
                 >
                   Ver más →
@@ -872,7 +1042,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="relative h-80 overflow-hidden rounded-2xl"
             >
-              <Image src="/images/elara-escribiendo.jpg" alt="Elara escribiendo" fill className="object-cover" />
+              <Image src="/images/elara-escribiendo.jpg" alt="Elara escribiendo" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
             </motion.div>
             <motion.div
               initial="hidden"
@@ -965,7 +1135,40 @@ export default function HomePage() {
 
       <footer className="border-t border-white/5 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <LogoBrand size="sm" />
+          <div className="flex flex-col items-center">
+            <LogoBrand size="sm" />
+            <div className="mt-4 flex items-center gap-4">
+              <motion.a
+                href="https://instagram.com/soyelaranova"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Elara Nova"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.93 }}
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+              </motion.a>
+              <motion.a
+                href="https://tiktok.com/@soyelaranova"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok de Elara Nova"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.93 }}
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M14 3v10.2a4.2 4.2 0 1 1-4.2-4.2" />
+                  <path d="M14 5.5c1.2 2.5 3 4 5.5 4.2" />
+                </svg>
+              </motion.a>
+            </div>
+          </div>
           <div className="flex gap-8">
             {['Herramientas', 'Círculo', 'Productos', 'Contacto'].map((label) => (
               <a

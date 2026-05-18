@@ -26,20 +26,58 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Elara Nova · Mira todo lo que siempre fuiste capaz de ser',
-  description:
-    'Oráculo íntimo y rituales para mujeres latinas en reinvención. Sacá tu carta del día.',
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://soyelaranova.com',
-  ),
-  openGraph: {
-    title: 'Elara Nova',
-    description:
-      'Oráculo íntimo y rituales para mujeres latinas en reinvención.',
-    type: 'website',
-    locale: 'es',
+  metadataBase: new URL('https://soyelaranova.com'),
+  title: {
+    default: 'Elara Nova — Autoconocimiento para mujeres',
+    template: '%s | Elara Nova',
   },
-  robots: { index: true, follow: true },
+  description:
+    'Herramientas de autoconocimiento para mujeres: astrología, oráculo, rituales y ciclos lunares. Unite al Círculo de Elara Nova.',
+  keywords: [
+    'astrología',
+    'oráculo',
+    'rituales lunares',
+    'autoconocimiento',
+    'chakras',
+    'carta natal',
+    'ciclos lunares',
+    'mujeres',
+    'espiritualidad',
+  ],
+  authors: [{ name: 'Elara Nova', url: 'https://soyelaranova.com' }],
+  creator: 'Elara Nova',
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    url: 'https://soyelaranova.com',
+    siteName: 'Elara Nova',
+    title: 'Elara Nova — Autoconocimiento para mujeres',
+    description:
+      'Herramientas de autoconocimiento para mujeres: astrología, oráculo, rituales y ciclos lunares.',
+    images: [
+      {
+        url: '/images/hero-elara-noche.png',
+        width: 1200,
+        height: 630,
+        alt: 'Elara Nova',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elara Nova — Autoconocimiento para mujeres',
+    description:
+      'Herramientas de autoconocimiento para mujeres: astrología, oráculo, rituales y ciclos lunares.',
+    images: ['/images/hero-elara-noche.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
