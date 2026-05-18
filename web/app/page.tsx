@@ -473,7 +473,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <section className="relative flex min-h-screen items-center overflow-hidden px-6 py-28 md:px-16">
+      <section className="section-fade-edge relative flex min-h-screen items-center overflow-hidden px-6 py-28 md:px-16">
         <Image
           src="/images/herramientas-astrales.jpg"
           alt="Atelier Elara Nova"
@@ -550,7 +550,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <section id="herramientas" className="mx-auto max-w-6xl px-6 py-24">
+      <section id="herramientas" className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
         <div className="mb-10 flex items-center justify-between gap-6">
           <motion.p
             initial="hidden"
@@ -575,7 +575,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="circulo" className="bg-[#1A0F3D]/50 py-24">
+      <section id="circulo" className="section-fade-edge section-fade-edge-top bg-[#1A0F3D]/50 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial="hidden"
@@ -748,7 +748,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="productos" className="mx-auto max-w-6xl px-6 py-24">
+      <section id="productos" className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -803,7 +803,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-24">
+      <section className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -862,7 +862,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#1A0F3D]/50 py-24">
+      <section className="section-fade-edge section-fade-edge-top bg-[#1A0F3D]/50 py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <motion.div
@@ -905,7 +905,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="email" className="bg-gradient-to-b from-[#1A0F3D] to-[#0E0726] py-24">
+      <section id="email" className="section-fade-edge-top bg-gradient-to-b from-[#1A0F3D] to-[#0E0726] py-24">
         <div className="mx-auto max-w-xl px-6 text-center">
           <motion.div
             initial="hidden"
