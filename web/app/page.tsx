@@ -977,7 +977,7 @@ export default function HomePage() {
                       transition={{ repeat: Infinity, duration: 3 + i * 0.3, delay: i * 0.2, ease: 'easeInOut' }}
                       whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
                     >
-                      {ElaraIcons[icon].render(30)}
+                      {ElaraIcons[icon].render(36)}
                     </motion.div>
 
                     <p className="text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]/90">
@@ -1180,7 +1180,7 @@ export default function HomePage() {
                     key={label}
                     className="flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
                   >
-                    <div className="mt-0.5 shrink-0 opacity-75">{ElaraIcons[icon].render(20)}</div>
+                    <div className="mt-0.5 shrink-0 opacity-75">{ElaraIcons[icon].render(24)}</div>
                     <div>
                       <p className="text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
                       <p className="mt-1 text-[11px] leading-relaxed text-[#C49AD4]/50">{description}</p>
@@ -1200,7 +1200,7 @@ export default function HomePage() {
                   className="flex items-start gap-4"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#7B4FB5]/30 bg-[#2D1870] text-[#D4AF37]">
-                    {ElaraIcons[icon].render(20)}
+                    {ElaraIcons[icon].render(22)}
                   </div>
                   <div>
                     <p className="font-display text-[15px] text-[#F5EEF8]">{title}</p>
@@ -1246,7 +1246,7 @@ export default function HomePage() {
           <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[#7B4FB5]/15 pt-8 md:grid-cols-4">
             {CIRCULO_TRUST.map(({ icon, label, description }) => (
               <div key={label} className="flex flex-col items-center gap-3 text-center">
-                <div className="opacity-50">{ElaraIcons[icon].render(22)}</div>
+                <div className="opacity-50">{ElaraIcons[icon].render(26)}</div>
                 <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/55 uppercase">{label}</p>
                 <p className="text-[11px] leading-relaxed text-[#C49AD4]/38">{description}</p>
               </div>
@@ -1705,7 +1705,7 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4">
             {EMAIL_FEATURES.map(({ icon, label, description }) => (
               <div key={label} className="flex flex-col items-center gap-3 text-center">
-                <div className="opacity-50">{ElaraIcons[icon].render(24)}</div>
+                <div className="opacity-50">{ElaraIcons[icon].render(28)}</div>
                 <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/60 uppercase">{label}</p>
                 <p className="text-[11px] leading-relaxed text-[#C49AD4]/40">{description}</p>
               </div>
