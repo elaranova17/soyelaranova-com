@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import { useState, type FormEvent } from 'react'
-import { ElaraIcons, IconCard } from '@/components/elara-icons'
+import { useEffect, useState, type FormEvent } from 'react'
+import { ElaraIcons } from '@/components/elara-icons'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -13,7 +13,7 @@ type ToolCard = {
   icon: 'planet' | 'cards' | 'journal' | 'moon' | 'energy' | 'compass'
   title: string
   text: string
-  cta: string
+  tag: string
 }
 
 type CircleBenefit = {
@@ -24,12 +24,6 @@ type CircleBenefit = {
 type CircleStep = {
   icon: IconKey
   title: string
-  text: string
-}
-
-type HeroTrustBadge = {
-  icon: IconKey
-  label: string
   text: string
 }
 
@@ -69,51 +63,75 @@ const fadeUp = {
 const herramientas: readonly ToolCard[] = [
   {
     img: '/images/herramienta-astrologia.png',
-    variant: 'herramienta',
     icon: 'planet',
     title: 'Carta Natal',
-    text: 'Conoce tu mapa energético y tu propósito de vida.',
-    cta: 'Explorar →',
-  },
-  {
-    img: '/images/herramienta-oraculo.png',
-    variant: 'oraculo',
-    icon: 'cards',
-    title: 'Lectura de Oráculo',
-    text: 'Recibe guía intuitiva para tu momento actual.',
-    cta: 'Pedir mensaje →',
-  },
-  {
-    img: '/images/herramienta-calendario-lunar.png',
-    variant: 'recurso',
-    icon: 'journal',
-    title: 'Journal Lunar',
-    text: 'Conecta contigo cada día y escribe tu magia.',
-    cta: 'Ver recurso →',
-  },
-  {
-    img: '/images/herramienta-ciclos-lunares.png',
+    text: 'Tu mapa del cielo al nacer. Descubrí tus dones, desafíos y propósito único.',
+    tag: 'Astrología',
     variant: 'herramienta',
+  },
+  {
+    img: '/images/meditacion-lunar.png',
     icon: 'moon',
     title: 'Ciclos Lunares',
     text: 'Sincronizate con la luna para planificar, soltar y florecer cada mes.',
-    cta: 'Explorar →',
+    tag: 'Luna',
+    variant: 'herramienta',
+  },
+  {
+    img: '/images/herramienta-oraculo.png',
+    icon: 'cards',
+    title: 'Oráculo & Mensajes',
+    text: 'El oráculo como espejo del alma. Mensajes que iluminan tu momento actual.',
+    tag: 'Oráculo',
+    variant: 'oraculo',
   },
   {
     img: '/images/herramienta-chakras.png',
-    variant: 'oraculo',
     icon: 'energy',
     title: 'Energía & Chakras',
     text: 'Aprendé a leer y equilibrar tu campo energético con herramientas simples.',
-    cta: 'Pedir mensaje →',
+    tag: 'Energía',
+    variant: 'herramienta',
+  },
+  {
+    img: '/images/herramienta-rituales.png',
+    icon: 'compass',
+    title: 'Rituales de Intención',
+    text: 'Rituales lunares y de soltar para marcar tus ciclos con consciencia.',
+    tag: 'Rituales',
+    variant: 'recurso',
   },
   {
     img: '/images/herramienta-proposito.png',
-    variant: 'recurso',
-    icon: 'compass',
+    icon: 'journal',
     title: 'Tu Propósito',
     text: 'Claridad sobre quién sos, qué querés crear y cómo servir desde el alma.',
-    cta: 'Ver recurso →',
+    tag: 'Propósito',
+    variant: 'recurso',
+  },
+  {
+    img: '/images/herramienta-sinastria.png',
+    icon: 'cards',
+    title: 'Sinastría & Vínculos',
+    text: 'Comprendé tus vínculos profundos a través de la compatibilidad astrológica.',
+    tag: 'Vínculos',
+    variant: 'herramienta',
+  },
+  {
+    img: '/images/herramienta-calendario-lunar.png',
+    icon: 'moon',
+    title: 'Calendario Lunar',
+    text: 'Planificá tu mes con la energía de cada fase lunar. Fluí con el ciclo.',
+    tag: 'Calendario',
+    variant: 'recurso',
+  },
+  {
+    img: '/images/meditacion-cristales.jpg',
+    icon: 'energy',
+    title: 'Cristales & Energía',
+    text: 'Aprende a elegir, limpiar y programar cristales para sostener tu proceso.',
+    tag: 'Cristales',
+    variant: 'recurso',
   },
 ] as const
 
@@ -147,21 +165,48 @@ const circleSteps: readonly CircleStep[] = [
   },
 ] as const
 
-const heroTrustBadges: readonly HeroTrustBadge[] = [
+const circuloImagenes = [
+  { src: '/images/circulo-juntas.png',          alt: 'Mujeres del Círculo juntas' },
+  { src: '/images/circulo-ritual-lunar.png',    alt: 'Ritual lunar grupal' },
+  { src: '/images/circulo-ritual-inclusion.png', alt: 'Ritual de apertura' },
+  { src: '/images/circulo-oraculo.png',         alt: 'Lectura colectiva' },
+  { src: '/images/circulo-amigas-noche.jpg',    alt: 'Conexión real' },
+  { src: '/images/circulo-carta-natal.png',     alt: 'Estudio de carta natal' },
+] as const
+
+const cursos = [
   {
-    icon: 'Florecer',
-    label: 'Hecho con intención',
-    text: 'Cada pieza nace con cuidado.',
+    img: '/images/curso-astrologia.jpg',
+    tag: 'Online · A tu ritmo',
+    badge: 'DISPONIBLE',
+    badgeColor: 'text-[#D4AF37] border-[#D4AF37]/50',
+    title: 'Astrología Práctica',
+    text: 'Aprendé a leer tu carta natal y la de las personas que querés. Desde cero hasta intermedio.',
+    price: '$97 USD',
+    cta: 'Explorar curso',
+    href: '#email',
   },
   {
-    icon: 'Proteccion',
-    label: 'Materiales conscientes',
-    text: 'Recursos suaves para tu proceso.',
+    img: '/images/oraculo-maestra.png',
+    tag: 'Nuevo · Agosto 2026',
+    badge: 'PRONTO',
+    badgeColor: 'text-[#C49AD4] border-[#C49AD4]/50',
+    title: 'Oráculo Intuitivo',
+    text: 'Un método propio para leer el oráculo desde la intuición. Sin memorizar, con presencia.',
+    price: '$77 USD',
+    cta: 'Anotarme',
+    href: '#email',
   },
   {
-    icon: 'Corazon',
-    label: 'Energía que acompaña',
-    text: 'Rituales para sostenerte.',
+    img: '/images/curso-estudiante.jpg',
+    tag: 'Online · En vivo',
+    badge: 'EN VIVO',
+    badgeColor: 'text-[#F5EEF8] border-[#F5EEF8]/30',
+    title: 'Círculo de Estudio',
+    text: 'Clases en vivo con la comunidad. Preguntás, aprendés y te conectás con otras.',
+    price: '$57 USD',
+    cta: 'Ver horarios',
+    href: '#email',
   },
 ] as const
 
@@ -234,15 +279,6 @@ const serviceTrustItems: readonly ServiceTrustItem[] = [
   { icon: 'Corazon', label: 'Devoluciones con amor' },
 ] as const
 
-const buttonStyles = {
-  primary:
-    'inline-flex items-center gap-2 rounded-full bg-[#D4AF37] px-6 py-3 text-[11px] font-bold tracking-[0.3em] text-[#0E0726] uppercase hover:bg-[#E5C145]',
-  secondary:
-    'inline-flex items-center rounded-full bg-[#7B4FB5] px-6 py-3 text-[11px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase hover:bg-[#8B5FC5]',
-  tertiary:
-    'inline-flex items-center rounded-full border border-[#7B4FB5]/50 px-6 py-3 text-[11px] tracking-[0.3em] text-[#C49AD4] uppercase hover:border-[#7B4FB5] hover:text-[#F5EEF8]',
-} as const
-
 const toolCardStyles = {
   herramienta: {
     label: 'Herramienta',
@@ -302,9 +338,10 @@ function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
 /* ── NAV LANDING ─────────────────────────────────────────────────────── */
 const NAV_LINKS = [
   { href: '#herramientas', label: 'Herramientas' },
-  { href: '#circulo',      label: 'Círculo' },
-  { href: '#cursos',       label: 'Cursos' },
-  { href: '#sobre',        label: 'Sobre mí' },
+  { href: '#circulo',      label: 'Círculo'       },
+  { href: '#cursos',       label: 'Cursos'        },
+  { href: '#productos',    label: 'Productos'     },
+  { href: '#sobre',        label: 'Sobre mí'      },
 ] as const
 
 function NavLanding() {
@@ -604,69 +641,70 @@ function ToolProductCard({
   item,
   index,
 }: {
-  item: ToolCard
+  item: typeof herramientas[number]
   index: number
 }) {
   const styles = toolCardStyles[item.variant]
-
   return (
     <motion.article
-      className={`group relative overflow-hidden rounded-2xl border ${styles.card}`}
       custom={index}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '-60px' }}
       variants={fadeUp}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -8, transition: { type: 'spring', stiffness: 260, damping: 20 } }}
+      className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-[#7B4FB5]/15 transition-all duration-500 hover:border-[#D4AF37]/40 ${styles.card}`}
     >
+      {/* Image */}
       <div className="relative h-72 overflow-hidden">
         <Image
           src={item.img}
           alt={item.title}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-1000 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726] via-[#0E0726]/25 to-transparent" />
+        {/* Depth gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726] via-[#0E0726]/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/20 via-transparent to-transparent" />
-        <div className="absolute inset-y-0 -left-1/2 w-1/2 -translate-x-full bg-gradient-to-r from-transparent via-white/7 to-transparent transition-transform duration-1000 group-hover:translate-x-[300%]" />
-        <span className={`absolute top-4 right-4 rounded-full border border-white/10 bg-[#0E0726]/70 px-3 py-1 text-[9px] tracking-[0.35em] uppercase backdrop-blur ${styles.labelText}`}>
-          {styles.label}
+        {/* Shimmer sweep */}
+        <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+        {/* Tag */}
+        <span className={`absolute top-3 right-3 rounded-full border border-[#D4AF37]/40 bg-[#0E0726]/75 px-2.5 py-1 text-[9px] tracking-[0.25em] uppercase backdrop-blur-sm ${styles.labelText}`}>
+          {item.tag}
         </span>
-        <motion.div
-          className="absolute bottom-5 left-5 flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-[#D4AF37]/50 bg-[#0E0726]/80 text-[#D4AF37] backdrop-blur-md"
-          animate={{
-            boxShadow: [
-              '0 0 0px rgba(212,175,55,0)',
-              '0 0 18px rgba(212,175,55,0.35)',
-              '0 0 0px rgba(212,175,55,0)',
-            ],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 2.8,
-            delay: index * 0.18,
-          }}
-          whileHover={{ scale: 1.12 }}
-        >
-          <ToolGlyph kind={item.icon} />
-        </motion.div>
+        {/* Icon overlay — bottom left, pulsing gold glow */}
+        <div className="absolute bottom-4 left-4">
+          <motion.div
+            className="flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#0E0726]/80 text-[#D4AF37] shadow-2xl backdrop-blur-md"
+            animate={{ boxShadow: ['0 0 0px rgba(212,175,55,0)', '0 0 18px rgba(212,175,55,0.35)', '0 0 0px rgba(212,175,55,0)'] }}
+            transition={{ repeat: Infinity, duration: 2.8, delay: index * 0.18, ease: 'easeInOut' }}
+            whileHover={{ scale: 1.12, transition: { type: 'spring', stiffness: 300 } }}
+          >
+            <ToolGlyph kind={item.icon} />
+          </motion.div>
+        </div>
       </div>
-      <div className="relative z-10 p-6">
-        <h3 className={`font-display mt-3 text-2xl ${styles.title}`}>
+      {/* Content */}
+      <div className="flex flex-1 flex-col gap-3 p-6">
+        <h3 className={`font-display text-[16px] leading-snug tracking-tight ${styles.title}`}>
           {item.title}
         </h3>
-        <p className={`font-serif-italic mt-2 text-sm italic ${styles.description}`}>
+        <p className={`font-serif-italic text-sm leading-relaxed italic ${styles.description}`}>
           {item.text}
         </p>
-        <a
-          href="#email"
-          className={`mt-5 inline-flex items-center gap-2 border-b pb-0.5 text-[10px] tracking-widest uppercase ${styles.cta}`}
-        >
-          {item.cta}
-        </a>
+        <div className={`mt-auto flex items-center gap-2 pt-2 text-[10px] tracking-[0.28em] uppercase transition-colors duration-300 group-hover:text-[#D4AF37] ${styles.cta}`}>
+          <span>Explorar</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 opacity-0 shadow-[inset_0_0_60px_rgba(212,175,55,0.07),inset_0_0_1px_rgba(212,175,55,0.25)] transition-opacity duration-500 group-hover:opacity-100" />
+      {/* Inner glow on hover */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+        style={{ boxShadow: 'inset 0 0 60px rgba(212,175,55,0.07), inset 0 0 1px rgba(212,175,55,0.25)' }}
+      />
     </motion.article>
   )
 }
@@ -930,199 +968,333 @@ export default function HomePage() {
         </motion.a>
       </section>
 
-      <section id="herramientas" className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-10 flex items-center justify-between gap-6">
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase"
-          >
-            ✦ Nuestras herramientas
-          </motion.p>
-          <a
-            href="#productos"
-            className="text-[10px] tracking-widest text-[#D4AF37] uppercase hover:text-[#F0D070]"
-          >
-            Ver todas →
-          </a>
-        </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {herramientas.map((item, index) => (
-            <ToolProductCard key={item.title} item={item} index={index} />
-          ))}
-        </div>
-      </section>
+      <section id="herramientas" className="relative overflow-hidden px-6 py-24">
+        {/* Background accent */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-      <section id="circulo" className="section-fade-edge section-fade-edge-top bg-[#1A0F3D]/50 py-24">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl">
+          {/* Section label + title */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mb-14 text-center"
+            className="mb-16 text-center"
           >
-            <p className="mb-4 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
-              ✦ El Círculo
-            </p>
-            <h2 className="font-display text-4xl text-[#F5EEF8] xl:text-5xl">
-              No caminás sola
+            <p className="mb-4 text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">✦ Herramientas de alma</p>
+            <h2 className="font-display text-[2.8rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
+              Lo que siempre pudiste
+              <br />
+              <em className="font-serif-italic font-light text-[#C49AD4] italic">hacer.</em>
             </h2>
-            <p className="font-serif-italic mx-auto mt-4 max-w-xl text-xl text-[#C49AD4]">
-              Un espacio donde mujeres como vos se encuentran, estudian y crecen
-              juntas.
+            <p className="font-serif-italic mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#C49AD4]/60 italic">
+              Nueve herramientas para que te conozcas desde adentro y elijas con claridad.
             </p>
           </motion.div>
 
-          <div className="mb-20 grid gap-6 md:grid-cols-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-96 overflow-hidden rounded-3xl md:col-span-2 md:row-span-2 md:h-full"
-            >
-              <Image src="/images/circulo-juntas.png" alt="Crecemos juntas" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="font-serif-italic text-2xl text-[#F5EEF8]">
-                  &quot;Crecemos juntas, brillamos siempre&quot;
-                </p>
-              </div>
-            </motion.div>
-            {[
-              { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
-              { src: '/images/circulo-oraculo.png', alt: 'Juntas somos magia' },
-            ].map((img, index) => (
-              <motion.div
-                key={img.src}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative h-44 overflow-hidden rounded-2xl md:col-span-2"
-              >
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/45 to-transparent" />
-              </motion.div>
+          {/* Grid 3 cols */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {herramientas.map((item, index) => (
+              <ToolProductCard key={item.title} item={item} index={index} />
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mb-16">
-            <p className="mb-10 text-center text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
-              Así funciona el Círculo
-            </p>
-            <div className="relative grid gap-8 md:grid-cols-4">
-              <div
-                className="pointer-events-none absolute top-10 right-[12%] left-[12%] hidden border-t border-dashed border-[#D4AF37]/40 md:block"
-                aria-hidden
+      {/* ── FRANJA VISUAL ────────────────────────────────────────────── */}
+      <div className="relative overflow-hidden py-20" aria-hidden>
+        {/* Cinematic quote banner — herramientas-astrales.jpg background */}
+        <div className="relative mx-0 h-[420px] overflow-hidden">
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/herramientas-astrales.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-[#0E0726]/65" />
+            {/* Gold vignette edges */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-transparent to-[#0E0726]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/30 via-transparent to-[#0E0726]/50" />
+          </div>
+          {/* Quote centered */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+          >
+            <p className="mb-6 text-[10px] tracking-[0.5em] text-[#D4AF37]/70 uppercase">✦ Elara Nova</p>
+            <blockquote className="font-display max-w-3xl text-[2rem] leading-[1.08] tracking-tight text-[#F5EEF8] italic sm:text-[2.8rem] lg:text-[3.4rem]">
+              &quot;Rituales de lujo silencioso.
+              <br />
+              <em className="font-serif-italic font-light text-[#C49AD4] italic">Lo que siempre pudiste hacer.</em>&quot;
+            </blockquote>
+          </motion.div>
+        </div>
+
+        {/* Horizontal image strip — 6 images, auto-scroll feel */}
+        <div className="scrollbar-none mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 lg:grid lg:grid-cols-6 lg:overflow-visible">
+          {[
+            { src: '/images/herramienta-carta-natal.png', alt: 'Carta natal' },
+            { src: '/images/rituales-altar-cristales.jpg', alt: 'Rituales' },
+            { src: '/images/meditacion-cristales.jpg', alt: 'Cristales' },
+            { src: '/images/herramienta-chakras.png', alt: 'Chakras' },
+            { src: '/images/circulo-juntas.png', alt: 'Círculo' },
+            { src: '/images/oraculo-tres-cartas.jpg', alt: 'Oráculo' },
+          ].map((img, i) => (
+            <motion.div
+              key={img.src}
+              initial={{ opacity: 0, scale: 1.04 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative h-[240px] w-[200px] shrink-0 snap-start overflow-hidden rounded-2xl lg:w-auto"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 1024px) 200px, 17vw"
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              {circleSteps.map((step, index) => (
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/50 to-transparent" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <section id="circulo" className="relative overflow-hidden py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#7B4FB5]/40 to-transparent" />
+
+        <div className="mx-auto max-w-6xl px-6">
+          {/* Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mb-16 text-center"
+          >
+            <p className="mb-4 text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">
+              ✦ El Círculo
+            </p>
+            <h2 className="font-display text-[2.8rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
+              No caminás sola
+            </h2>
+            <p className="font-serif-italic mx-auto mt-5 max-w-xl text-xl leading-relaxed text-[#C49AD4]/65 italic">
+              Un espacio íntimo donde mujeres como vos se encuentran, estudian y crecen juntas.
+            </p>
+          </motion.div>
+
+          {/* Main layout: big image left + content right */}
+          <div className="mb-16 grid items-stretch gap-12 lg:grid-cols-[1fr_480px]">
+            {/* Left: stacked image mosaic */}
+            <div className="grid h-[520px] grid-cols-2 gap-3">
+              {/* Main tall image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 1.04 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="relative col-span-1 row-span-2 overflow-hidden rounded-3xl"
+              >
+                <Image
+                  src={circuloImagenes[4].src}
+                  alt="Mujeres del Círculo"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5">
+                  <span className="text-[9px] font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
+                    ✦ Conexión real
+                  </span>
+                </div>
+              </motion.div>
+              {/* 2 small images stacked right */}
+              {[
+                { ...circuloImagenes[1], label: 'Rituales lunares' },
+                { ...circuloImagenes[2], label: 'Apertura' },
+              ].map(({ src, alt, label }, i) => (
                 <motion.div
-                  key={step.title}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="show"
+                  key={src}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  variants={fadeUp}
-                  className="relative z-10 flex flex-col items-center text-center"
+                  transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
+                  className="relative overflow-hidden rounded-2xl"
                 >
-                  <div className="rounded-3xl border border-[#D4AF37]/25 bg-[#0E0726] p-3 shadow-[0_0_30px_rgba(212,175,55,0.10)]">
-                    {ElaraIcons[step.icon].render(36)}
-                  </div>
-                  <h3 className="font-display mt-5 text-xl text-[#F5EEF8]">
-                    {step.title}
-                  </h3>
-                  <p className="font-serif-italic mt-2 max-w-[14rem] text-sm leading-relaxed text-[#C49AD4]/75">
-                    {step.text}
+                  <Image src={src} alt={alt} fill sizes="25vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/70 to-transparent" />
+                  <p className="absolute bottom-3 left-3 text-[8px] tracking-[0.25em] text-[#D4AF37]/80 uppercase">
+                    {label}
                   </p>
                 </motion.div>
               ))}
             </div>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+            {/* Right: benefits + CTA */}
             <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="rounded-2xl border border-[#D4AF37]/35 bg-[#1A0F3D] p-8"
+              className="flex flex-col justify-center gap-6"
             >
-              <span className="text-[9px] tracking-[0.35em] text-[#D4AF37]/60 uppercase">
-                Ediciones especiales
-              </span>
-              <h3 className="font-display mt-3 text-3xl text-[#F5EEF8]">
-                Rituales, guías y encuentros de temporada.
-              </h3>
-              <p className="font-serif-italic mt-4 text-[#C49AD4]/75">
-                Cada luna trae una puerta. En el Círculo recibís piezas creadas
-                para acompañar tu momento, no para llenarte de ruido.
-              </p>
-              <a
-                href="#productos"
-                className={`mt-6 ${buttonStyles.tertiary}`}
-              >
-                Ver ediciones →
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="rounded-2xl border border-[#7B4FB5]/40 bg-[#2D1870] p-8"
-            >
-              <span className="text-[9px] tracking-[0.35em] text-[#C49AD4]/70 uppercase">
-                Únete al Círculo
-              </span>
-              <h3 className="font-display mt-3 text-3xl text-[#F5EEF8]">
-                Entrá por la puerta suave.
-              </h3>
-              <p className="font-serif-italic mt-4 text-[#C49AD4]/75">
-                Dejame tu correo y te envío la próxima invitación.
-              </p>
-              <form
-                onSubmit={(event) => event.preventDefault()}
-                className="mt-6 flex flex-col gap-3 sm:flex-row"
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="tu@email.com"
-                  required
-                  className="font-serif-italic min-w-0 flex-1 rounded-full border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-5 py-3 text-[#F5EEF8] placeholder:text-[#C49AD4]/50 focus:border-[#D4AF37]/70 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className={buttonStyles.primary}
+              <div className="grid grid-cols-2 gap-4">
+                {circuloBenefits.map(({ icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
+                  >
+                    <div className="shrink-0 opacity-80">{ElaraIcons[icon].render(22)}</div>
+                    <span className="text-[11px] leading-tight tracking-[0.18em] text-[#C49AD4]/80 uppercase">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="h-px bg-gradient-to-r from-[#D4AF37]/20 to-transparent" />
+              {circleSteps.map(({ icon, title, text }, i) => (
+                <motion.div
+                  key={title}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="flex items-start gap-4"
                 >
-                  Unirme <span>✦</span>
-                </button>
-              </form>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#7B4FB5]/30 bg-[#2D1870] text-[#D4AF37]">
+                    {ElaraIcons[icon].render(20)}
+                  </div>
+                  <div>
+                    <p className="font-display text-[15px] text-[#F5EEF8]">{title}</p>
+                    <p className="font-serif-italic mt-0.5 text-sm leading-relaxed text-[#C49AD4]/60 italic">
+                      {text}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+              <motion.a
+                href="#email"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="mt-2 flex items-center gap-2.5 self-start rounded-2xl bg-[#7B4FB5] px-7 py-4 text-[10px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase transition-colors hover:bg-[#8B5FC5]"
+              >
+                Unirme al Círculo <span aria-hidden>✦</span>
+              </motion.a>
             </motion.div>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
-            {circuloBenefits.map((benefit, index) => (
+          {/* Bottom image strip — 3 more circulo images */}
+          <div className="grid h-[180px] grid-cols-3 gap-4">
+            {[
+              circuloImagenes[3],
+              { src: '/images/circulo-estudio.png', alt: '' },
+              circuloImagenes[5],
+            ].map((img, i) => (
               <motion.div
-                key={benefit.label}
+                key={img.src}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative overflow-hidden rounded-2xl"
+              >
+                <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover transition-transform duration-700 hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="cursos" className="relative overflow-hidden px-6 py-24">
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
+
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mb-16 text-center"
+          >
+            <p className="mb-4 text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">✦ Formación</p>
+            <h2 className="font-display text-[2.8rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
+              Aprender también
+              <br />
+              <em className="font-serif-italic font-light text-[#C49AD4] italic">es un ritual.</em>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {cursos.map(({ img, tag, badge, badgeColor, title, text, price, cta, href }, index) => (
+              <motion.article
+                key={title}
                 custom={index}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '-60px' }}
                 variants={fadeUp}
-                className="flex flex-col items-center gap-3 text-center"
+                whileHover={{ y: -6, transition: { type: 'spring', stiffness: 260, damping: 20 } }}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#7B4FB5]/15 bg-[#1A0F3D]/60 backdrop-blur-sm transition-all duration-500 hover:border-[#D4AF37]/35"
               >
-                <IconCard icon={ElaraIcons[benefit.icon].render(28)} size="md" />
-                <span className="text-[11px] tracking-widest text-[#C49AD4] uppercase">
-                  {benefit.label}
-                </span>
-              </motion.div>
+                {/* Image */}
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={img}
+                    alt={title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/80 via-[#0E0726]/20 to-transparent" />
+                  {/* Shimmer */}
+                  <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                  {/* Tag + badge */}
+                  <div className="absolute top-4 inset-x-4 flex items-start justify-between">
+                    <span className="rounded-full border border-[#7B4FB5]/20 bg-[#0E0726]/70 px-2.5 py-1 text-[8px] tracking-[0.3em] text-[#C49AD4]/70 uppercase backdrop-blur-sm">
+                      {tag}
+                    </span>
+                    <span className={`rounded-full border bg-[#0E0726]/70 px-2.5 py-1 text-[8px] tracking-[0.3em] uppercase backdrop-blur-sm ${badgeColor}`}>
+                      {badge}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col gap-4 p-6">
+                  <div>
+                    <h3 className="font-display text-xl tracking-tight text-[#F5EEF8]">{title}</h3>
+                    <p className="font-serif-italic mt-2 text-sm leading-relaxed text-[#C49AD4]/65 italic">{text}</p>
+                  </div>
+                  <div className="mt-auto flex items-center justify-between border-t border-[#7B4FB5]/10 pt-3">
+                    <span className="font-serif-italic text-lg text-[#D4AF37] italic">{price}</span>
+                    <a
+                      href={href}
+                      className="flex items-center gap-2 text-[10px] tracking-[0.28em] text-[#D4AF37]/50 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]"
+                    >
+                      {cta}
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                        <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                {/* Inner glow */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                  style={{ boxShadow: 'inset 0 0 60px rgba(212,175,55,0.06), inset 0 0 1px rgba(212,175,55,0.2)' }}
+                />
+              </motion.article>
             ))}
           </div>
         </div>
@@ -1244,51 +1416,128 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-fade-edge section-fade-edge-top bg-[#1A0F3D]/50 py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-80 overflow-hidden rounded-2xl"
-            >
-              <Image src="/images/elara-escribiendo.jpg" alt="Elara escribiendo" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-            </motion.div>
+      <section id="sobre" className="relative overflow-hidden py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
+
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid items-center gap-16 lg:grid-cols-[1fr_460px]">
+            {/* Left: content */}
             <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="flex flex-col gap-5"
+              className="order-2 flex flex-col gap-6 lg:order-1"
             >
-              <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
+              <p className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">
                 ✦ Quién soy
               </p>
-              <h2 className="font-display text-4xl text-[#F5EEF8]">Hola, soy Elara</h2>
-              <p className="font-serif-italic text-xl leading-relaxed text-[#C49AD4]">
-                Empecé a estudiar astrología buscando entenderme a mí misma. Hoy
-                acompaño a mujeres que sienten que hay algo más, algo más profundo
-                esperándolas adentro.
+              <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.2rem]">
+                Hola, soy<br />
+                <em className="font-serif-italic font-light text-[#C49AD4] italic">Elara Nova.</em>
+              </h2>
+              <p className="font-serif-italic text-xl leading-[1.75] text-[#C49AD4]/70 italic">
+                Empecé a estudiar astrología buscando entenderme a mí misma.
+                Hoy acompaño a mujeres que sienten que hay algo más —
+                algo más profundo esperándolas adentro.
+              </p>
+              <p className="font-serif-italic text-lg leading-[1.75] text-[#C49AD4]/55 italic">
+                Todo lo que creé nació de una pregunta honesta: ¿qué necesitaba yo cuando
+                empecé? Eso es exactamente lo que encontrás acá.
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
-                {['Autoconocimiento', 'Ciclos', 'Magia cotidiana'].map((value) => (
+                {['Autoconocimiento', 'Ciclos lunares', 'Magia cotidiana', 'Carta natal'].map((value) => (
                   <span
                     key={value}
-                    className="rounded-full border border-[#D4AF37]/30 px-3 py-1.5 text-[10px] tracking-widest text-[#D4AF37] uppercase"
+                    className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-4 py-1.5 text-[10px] tracking-[0.25em] text-[#D4AF37]/75 uppercase"
                   >
                     ✦ {value}
                   </span>
                 ))}
               </div>
+              <motion.a
+                href="#email"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="mt-2 flex items-center gap-2.5 self-start rounded-2xl border border-[#D4AF37]/40 px-7 py-3.5 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase transition-all duration-300 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/[0.08]"
+              >
+                Conocer más <span aria-hidden>→</span>
+              </motion.a>
             </motion.div>
+
+            {/* Right: 3-image editorial layout */}
+            <div className="relative order-1 lg:order-2">
+              {/* Main large portrait */}
+              <motion.div
+                initial={{ opacity: 0, scale: 1.04 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="relative h-[480px] overflow-hidden rounded-3xl shadow-2xl shadow-[#0E0726]/80"
+              >
+                <Image
+                  src="/images/sobre-elara.jpg"
+                  alt="Elara Nova"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 460px"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#7B4FB5]/10 to-transparent" />
+              </motion.div>
+
+              {/* Small image — bottom left overlap */}
+              <motion.div
+                initial={{ opacity: 0, x: -20, y: 20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.35 }}
+                className="absolute -bottom-5 -left-5 h-44 w-36 overflow-hidden rounded-2xl border-2 border-[#0E0726] shadow-xl shadow-[#0E0726]/60"
+              >
+                <Image
+                  src="/images/elara-escribiendo.jpg"
+                  alt="Elara escribiendo"
+                  fill
+                  sizes="144px"
+                  className="object-cover"
+                />
+              </motion.div>
+
+              {/* Small image — top right overlap */}
+              <motion.div
+                initial={{ opacity: 0, x: 20, y: -20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="absolute -top-5 -right-5 h-40 w-32 overflow-hidden rounded-2xl border-2 border-[#0E0726] shadow-xl shadow-[#0E0726]/60"
+              >
+                <Image
+                  src="/images/elara-journal.png"
+                  alt="Elara con journal"
+                  fill
+                  sizes="128px"
+                  className="object-cover object-top"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="email" className="section-fade-edge-top bg-gradient-to-b from-[#1A0F3D] to-[#0E0726] py-24">
-        <div className="mx-auto max-w-xl px-6 text-center">
+      <section id="email" className="relative overflow-hidden px-6 py-28">
+        {/* Background image — very subtle */}
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src="/images/journal-magico-flatlay.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-[0.06]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1A0F3D] via-[#0E0726]/95 to-[#0E0726]" />
+        </div>
+
+        <div className="relative mx-auto max-w-xl text-center">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -1296,50 +1545,77 @@ export default function HomePage() {
             variants={fadeUp}
             className="flex flex-col items-center gap-6"
           >
-            <div className="mb-2">{ElaraIcons.Correo.render(48)}</div>
-            <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase">
-              ✦ Newsletter
+            {/* Icon */}
+            <motion.div
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              {ElaraIcons.Correo.render(44)}
+            </motion.div>
+
+            <p className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">
+              ✦ El Círculo íntimo
             </p>
-            <h2 className="font-display text-4xl text-[#F5EEF8]">
-              Recibí magia en tu bandeja
+
+            <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.2rem]">
+              Recibí magia
+              <br />
+              <em className="font-serif-italic font-light text-[#C49AD4] italic">en tu bandeja.</em>
             </h2>
-            <p className="font-serif-italic text-xl text-[#C49AD4]">
-              Guía lunar mensual + rituales + novedades. Solo para el Círculo íntimo.
+
+            <p className="font-serif-italic max-w-sm text-xl leading-relaxed text-[#C49AD4]/65 italic">
+              Guía lunar mensual · Rituales de cada ciclo · Novedades para el Círculo.
             </p>
+
             {sent ? (
-              <p className="font-serif-italic text-2xl text-[#D4AF37]">
-                ✦ ¡Bienvenida al Círculo!
-              </p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center gap-3"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
+                    <path d="M6 14 L11 19 L22 9" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <p className="font-serif-italic text-2xl text-[#D4AF37] italic">
+                  ✦ ¡Bienvenida al Círculo!
+                </p>
+                <p className="font-serif-italic text-sm text-[#C49AD4]/60 italic">
+                  Revisá tu bandeja — llegó tu primera guía.
+                </p>
+              </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
+              <form onSubmit={handleSubmit} className="mt-2 flex w-full flex-col gap-3">
                 <input
                   type="email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@email.com"
                   required
-                  className="font-serif-italic flex-1 rounded-full border border-[#D4AF37]/30 bg-[#1A0F3D] px-5 py-3 text-lg text-[#F5EEF8] placeholder:text-[#C49AD4]/50 focus:border-[#D4AF37]/70 focus:outline-none"
+                  className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/40 focus:border-[#D4AF37]/60 focus:outline-none"
                 />
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <input
-                    type="date"
-                    value={birthDate}
-                    onChange={(event) => setBirthDate(event.target.value)}
-                    required
-                    className="font-serif-italic flex-1 rounded-full border border-[#D4AF37]/30 bg-[#1A0F3D] px-5 py-3 text-lg text-[#F5EEF8] placeholder:text-[#C49AD4]/50 focus:border-[#D4AF37]/70 focus:outline-none"
-                    aria-label="Fecha de nacimiento"
-                  />
-                  <button
-                    type="submit"
-                    className={`whitespace-nowrap ${buttonStyles.primary}`}
-                  >
-                    Quiero recibirlos <span>✦</span>
-                  </button>
-                </div>
+                <input
+                  type="date"
+                  value={birthDate}
+                  onChange={(e) => setBirthDate(e.target.value)}
+                  required
+                  aria-label="Fecha de nacimiento (para tu guía lunar personalizada)"
+                  className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors focus:border-[#D4AF37]/60 focus:outline-none"
+                />
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.03, boxShadow: '0 10px 32px rgba(212,175,55,0.35)' }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full rounded-2xl bg-[#D4AF37] py-4 text-[10px] font-bold tracking-[0.35em] text-[#0E0726] uppercase"
+                >
+                  ✦ Quiero recibirlos
+                </motion.button>
               </form>
             )}
-            <p className="text-[10px] tracking-widest text-[#C49AD4]/50 uppercase">
-              Sin spam. Podés salir cuando quieras. ✦
+
+            <p className="text-[9px] tracking-[0.3em] text-[#C49AD4]/35 uppercase">
+              Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
             </p>
           </motion.div>
         </div>
