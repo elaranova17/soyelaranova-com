@@ -39,67 +39,100 @@ type IconKind =
 function Defs() {
   return (
     <defs>
+      {/* Base gradients */}
       <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#C49AD4" />
-        <stop offset="100%" stopColor="#7B4FB5" />
+        <stop offset="50%" stopColor="#9B6EC8" />
+        <stop offset="100%" stopColor="#6B3BA5" />
       </linearGradient>
       <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#F0D070" />
-        <stop offset="100%" stopColor="#D4AF37" />
+        <stop offset="0%" stopColor="#F5DF8A" />
+        <stop offset="40%" stopColor="#E8C540" />
+        <stop offset="100%" stopColor="#C9980A" />
+      </linearGradient>
+      <linearGradient id="gGoldMetalic" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#FFF0A0" />
+        <stop offset="25%" stopColor="#E8C540" />
+        <stop offset="50%" stopColor="#D4AF37" />
+        <stop offset="75%" stopColor="#B8940A" />
+        <stop offset="100%" stopColor="#E8C540" />
       </linearGradient>
       <linearGradient id="gRose" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#F9A8D4" />
+        <stop offset="0%" stopColor="#F0C8E8" />
         <stop offset="100%" stopColor="#C49AD4" />
       </linearGradient>
       <linearGradient id="gDeep" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#2D1870" />
-        <stop offset="100%" stopColor="#1A0F3D" />
+        <stop offset="0%" stopColor="#3D1F7A" />
+        <stop offset="100%" stopColor="#1A0A40" />
       </linearGradient>
       <linearGradient id="gCream" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#F5EEF8" />
-        <stop offset="100%" stopColor="#E8D5F0" />
+        <stop offset="0%" stopColor="#FFF8F0" />
+        <stop offset="100%" stopColor="#ECD8F5" />
       </linearGradient>
-      <radialGradient id="gGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.2" />
+
+      {/* Glow radials */}
+      <radialGradient id="gGlow" cx="50%" cy="40%" r="50%">
+        <stop offset="0%" stopColor="#F0D070" stopOpacity="0.35" />
+        <stop offset="60%" stopColor="#D4AF37" stopOpacity="0.12" />
         <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
       </radialGradient>
-      <radialGradient id="gPurpleGlow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#7B4FB5" stopOpacity="0.3" />
+      <radialGradient id="gPurpleGlow" cx="50%" cy="35%" r="55%">
+        <stop offset="0%" stopColor="#9B6EC8" stopOpacity="0.45" />
+        <stop offset="60%" stopColor="#7B4FB5" stopOpacity="0.18" />
         <stop offset="100%" stopColor="#7B4FB5" stopOpacity="0" />
       </radialGradient>
+      <radialGradient id="gShine" cx="35%" cy="25%" r="45%">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.22" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+      </radialGradient>
+
+      {/* Filters */}
       <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
-        <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#06040D" floodOpacity="0.45" />
+        <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" floodColor="#06040D" floodOpacity="0.55" />
+      </filter>
+      <filter id="goldGlow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+        <feColorMatrix in="blur" type="matrix" values="1.8 0.5 0 0 0.1  1 1 0 0 0.05  0 0 0.2 0 0  0 0 0 1.2 0" result="goldBlur" />
+        <feMerge>
+          <feMergeNode in="goldBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <filter id="purpleGlow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
       </filter>
     </defs>
   )
 }
 
-function IconShell({
-  size,
-  children,
-}: {
-  size: number
-  children: ReactNode
-}) {
+function IconShell({ size, children }: { size: number; children: ReactNode }) {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 32 32"
-      fill="none"
-      aria-hidden
-    >
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
       <Defs />
-      <circle cx="16" cy="16" r="15" fill="url(#gPurpleGlow)" />
-      <circle cx="16" cy="16" r="13.5" fill="url(#gDeep)" opacity="0.92" />
+      {/* Outer glow ring */}
+      <circle cx="16" cy="16" r="15.5" fill="url(#gPurpleGlow)" />
+      {/* Gold metallic border */}
+      <circle cx="16" cy="16" r="14.5" stroke="url(#gGoldMetalic)" strokeWidth="1.4" fill="none" />
+      {/* Deep bg fill */}
+      <circle cx="16" cy="16" r="13.5" fill="url(#gDeep)" />
+      {/* Shine overlay top-left */}
+      <circle cx="16" cy="16" r="13.5" fill="url(#gShine)" />
+      {/* Icon content */}
       {children}
+      {/* Top highlight arc */}
       <path
-        d="M8 6.8C10.4 5.1 13 4.3 16 4.3"
+        d="M7.5 8.5C9.8 6.4 12.7 5.2 16 5.2"
         stroke="url(#gCream)"
-        strokeWidth="1.2"
+        strokeWidth="1.4"
         strokeLinecap="round"
-        opacity="0.32"
+        opacity="0.4"
       />
+      {/* Second inner gold ring subtle */}
+      <circle cx="16" cy="16" r="13.5" stroke="url(#gGold)" strokeWidth="0.4" fill="none" opacity="0.3" />
     </svg>
   )
 }
@@ -151,6 +184,34 @@ export function IconCrystalBall({ size = 32 }: IconProps) {
         opacity="0.65"
       />
       <path d="M18 9.2l.7 1.4 1.45.7-1.45.7L18 13.4l-.7-1.4-1.45-.7 1.45-.7.7-1.4z" fill="url(#gGold)" />
+      <Sparkles />
+    </IconShell>
+  )
+}
+
+export function IconAtelier({ size = 32 }: IconProps) {
+  return (
+    <IconShell size={size}>
+      {/* Arco / portal */}
+      <path
+        d="M8.5 27V16.5C8.5 11.2 11.8 7.3 16 7.3S23.5 11.2 23.5 16.5V27"
+        stroke="url(#gGold)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+        filter="url(#softShadow)"
+      />
+      {/* Luna creciente interior */}
+      <circle cx="16" cy="16.5" r="4.2" fill="url(#gCream)" opacity="0.75" />
+      <circle cx="18" cy="15.2" r="3.8" fill="url(#gDeep)" />
+      {/* Hoja izquierda */}
+      <path d="M8.5 22c-2.2 1.2-3.2 2.6-2.6 4 1.8-.3 3.4-1.4 4.2-3l-1.6-1z" fill="url(#gPurple)" opacity="0.8" />
+      <path d="M8.5 22c-1 2.2-.8 3.8.5 4.6.8-1.6.7-3.2-.5-4.6z" fill="url(#gGold)" opacity="0.55" />
+      {/* Hoja derecha */}
+      <path d="M23.5 22c2.2 1.2 3.2 2.6 2.6 4-1.8-.3-3.4-1.4-4.2-3l1.6-1z" fill="url(#gPurple)" opacity="0.8" />
+      <path d="M23.5 22c1 2.2.8 3.8-.5 4.6-.8-1.6-.7-3.2.5-4.6z" fill="url(#gGold)" opacity="0.55" />
+      {/* Estrella arriba */}
+      <path d="M16 5.5l.65 1.8 1.85.05-1.5 1.15.55 1.8L16 9.3l-1.55 1-.55-1.8-1.5-1.15 1.85-.05L16 5.5z" fill="url(#gGold)" />
       <Sparkles />
     </IconShell>
   )
@@ -487,35 +548,44 @@ export function IconCard({
 }
 
 export const ElaraIcons = {
-  Inicio: { render: (size = 24) => <IllustratedIcon kind="star" size={size} /> },
-  Herramientas: { render: (size = 24) => <IllustratedIcon kind="zap" size={size} /> },
-  Oraculo: { render: (size = 24) => <IconCrystalBall size={size} /> },
-  Recursos: { render: (size = 24) => <IllustratedIcon kind="book" size={size} /> },
-  Comunidad: { render: (size = 24) => <IllustratedIcon kind="users" size={size} /> },
-  Amazon: { render: (size = 24) => <IllustratedIcon kind="bag" size={size} /> },
-  Cursos: { render: (size = 24) => <IllustratedIcon kind="graduation" size={size} /> },
-  Atelier: { render: (size = 24) => <IllustratedIcon kind="palette" size={size} /> },
-  Buscar: { render: (size = 24) => <IllustratedIcon kind="search" size={size} /> },
-  Calendario: { render: (size = 24) => <IllustratedIcon kind="calendar" size={size} /> },
-  Favoritos: { render: (size = 24) => <IllustratedIcon kind="heart" size={size} /> },
-  Descargar: { render: (size = 24) => <IllustratedIcon kind="download" size={size} /> },
-  Correo: { render: (size = 24) => <IllustratedIcon kind="mail" size={size} /> },
-  Notificaciones: { render: (size = 24) => <IllustratedIcon kind="bell" size={size} /> },
-  Luna: { render: (size = 24) => <IllustratedIcon kind="moon" size={size} /> },
-  Estrellas: { render: (size = 24) => <IconEstrella size={size} /> },
-  Sol: { render: (size = 24) => <IllustratedIcon kind="sun" size={size} /> },
-  Planetas: { render: (size = 24) => <IconPlaneta size={size} /> },
-  Eclipse: { render: (size = 24) => <IconEclipse size={size} /> },
-  Energia: { render: (size = 24) => <IllustratedIcon kind="zap" size={size} /> },
-  Intuicion: { render: (size = 24) => <IllustratedIcon kind="eye" size={size} /> },
-  Proteccion: { render: (size = 24) => <IllustratedIcon kind="shield" size={size} /> },
-  Corazon: { render: (size = 24) => <IllustratedIcon kind="heart" size={size} /> },
-  Florecer: { render: (size = 24) => <IllustratedIcon kind="flower" size={size} /> },
-  Guia: { render: (size = 24) => <IllustratedIcon kind="compass" size={size} /> },
-  Ebook: { render: (size = 24) => <IllustratedIcon kind="book" size={size} /> },
-  Journal: { render: (size = 24) => <IllustratedIcon kind="file" size={size} /> },
-  Meditacion: { render: (size = 24) => <IconMeditacion size={size} /> },
-  Audio: { render: (size = 24) => <IllustratedIcon kind="headphones" size={size} /> },
-  Video: { render: (size = 24) => <IllustratedIcon kind="video" size={size} /> },
-  PDF: { render: (size = 24) => <IllustratedIcon kind="file" size={size} /> },
+  // NAVEGACIÓN PRINCIPAL
+  Inicio:         { render: (size = 24) => <IllustratedIcon kind="compass"    size={size} /> },
+  Herramientas:   { render: (size = 24) => <IconCrystalBall                   size={size} /> },
+  Oraculo:        { render: (size = 24) => <IconTarot                         size={size} /> },
+  Recursos:       { render: (size = 24) => <IllustratedIcon kind="book"       size={size} /> },
+  Comunidad:      { render: (size = 24) => <IllustratedIcon kind="users"      size={size} /> },
+  Amazon:         { render: (size = 24) => <IllustratedIcon kind="bag"        size={size} /> },
+  Cursos:         { render: (size = 24) => <IllustratedIcon kind="graduation" size={size} /> },
+  Atelier:        { render: (size = 24) => <IconAtelier                       size={size} /> },
+
+  // CELESTIALES Y ENERGÉTICOS
+  Luna:           { render: (size = 24) => <IllustratedIcon kind="moon"       size={size} /> },
+  Estrellas:      { render: (size = 24) => <IconEstrella                      size={size} /> },
+  Sol:            { render: (size = 24) => <IllustratedIcon kind="sun"        size={size} /> },
+  Planetas:       { render: (size = 24) => <IconPlaneta                       size={size} /> },
+  Eclipse:        { render: (size = 24) => <IconEclipse                       size={size} /> },
+  Destino:        { render: (size = 24) => <IconPortal                        size={size} /> },
+  Corazon:        { render: (size = 24) => <IllustratedIcon kind="heart"      size={size} /> },
+  Intuicion:      { render: (size = 24) => <IconLotus                         size={size} /> },
+  Vision:         { render: (size = 24) => <IllustratedIcon kind="eye"        size={size} /> },
+  Proteccion:     { render: (size = 24) => <IllustratedIcon kind="shield"     size={size} /> },
+  Energia:        { render: (size = 24) => <IllustratedIcon kind="zap"        size={size} /> },
+  Guia:           { render: (size = 24) => <IconLanterna                      size={size} /> },
+
+  // CONTENIDO
+  Ebook:          { render: (size = 24) => <IllustratedIcon kind="book"       size={size} /> },
+  Journal:        { render: (size = 24) => <IllustratedIcon kind="file"       size={size} /> },
+  Meditacion:     { render: (size = 24) => <IconMeditacion                    size={size} /> },
+  Audio:          { render: (size = 24) => <IllustratedIcon kind="headphones" size={size} /> },
+  Video:          { render: (size = 24) => <IllustratedIcon kind="video"      size={size} /> },
+  PDF:            { render: (size = 24) => <IllustratedIcon kind="file"       size={size} /> },
+
+  // ACCIONES
+  Buscar:         { render: (size = 24) => <IllustratedIcon kind="search"     size={size} /> },
+  Calendario:     { render: (size = 24) => <IllustratedIcon kind="calendar"   size={size} /> },
+  Favoritos:      { render: (size = 24) => <IllustratedIcon kind="heart"      size={size} /> },
+  Descargar:      { render: (size = 24) => <IllustratedIcon kind="download"   size={size} /> },
+  Correo:         { render: (size = 24) => <IllustratedIcon kind="mail"       size={size} /> },
+  Notificaciones: { render: (size = 24) => <IllustratedIcon kind="bell"       size={size} /> },
+  Florecer:       { render: (size = 24) => <IllustratedIcon kind="flower"     size={size} /> },
 } as const
