@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState, type FormEvent } from 'react'
 import { ElaraIcons } from '@/components/elara-icons'
+import { MagicParticles } from '@/components/magic-particles'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -762,6 +763,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#0E0726] text-[#F5EEF8]">
+      <MagicParticles density="normal" zone="full" />
       <NavLanding />
 
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
@@ -783,6 +785,9 @@ export default function HomePage() {
           <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[130px]" />
           <div className="pointer-events-none absolute top-1/2 left-1/3 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.03] blur-[80px]" />
         </div>
+
+        {/* Hero particles — más densas y grandes en el hero */}
+        <MagicParticles density="high" zone="hero" />
 
         {/* ── ESTRELLAS flotantes ───────────────────────────────── */}
         {[
@@ -972,16 +977,17 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent z-10" />
 
         {/* Cinematic quote banner */}
-        <div className="relative mx-0 h-[420px] overflow-hidden">
+        <div className="relative mx-0 h-[500px] overflow-hidden">
           <div className="relative h-full w-full">
             <Image
               src="/images/herramientas-astrales.jpg"
               alt=""
               fill
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: 'center 18%' }}
             />
-            <div className="absolute inset-0 bg-[#0E0726]/65" />
+            <div className="absolute inset-0 bg-[#0E0726]/52" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-transparent to-[#0E0726]" />
             <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/40 via-transparent to-[#0E0726]/60" />
           </div>
@@ -1430,6 +1436,7 @@ export default function HomePage() {
         {/* Degradado salida hacia email */}
         <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-[#7B4FB5]/[0.07] blur-[120px]" />
+        <MagicParticles density="low" zone="full" />
 
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-[1fr_500px]">
@@ -1682,7 +1689,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
               <div className="relative h-[110px] w-[110px] shrink-0">
                 <Image
-                  src="/images/sello-elara-nova.png"
+                  src="/images/sello-elara-nova-oscuro.png"
                   alt="Sello Elara Nova"
                   fill
                   sizes="110px"
@@ -1719,6 +1726,21 @@ export default function HomePage() {
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.27 8.27 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.07-.16z" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com/in/evelynpatino"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn de Evelyn Patiño"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.93 }}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
                   </svg>
                 </motion.a>
               </div>
@@ -1764,10 +1786,10 @@ export default function HomePage() {
 
           {/* Bottom: línea + copyright */}
           <div className="mt-14 flex flex-col items-center gap-3 border-t border-white/5 pt-8 md:flex-row md:justify-between">
-            <p className="text-[9px] tracking-[0.22em] text-[#C49AD4]/25 uppercase">
+            <p className="text-[9px] tracking-[0.22em] text-[#C49AD4]/55 uppercase">
               © 2026 Elara Nova
             </p>
-            <p className="font-serif-italic text-[10px] text-[#C49AD4]/20 italic">
+            <p className="font-serif-italic text-[10px] text-[#C49AD4]/45 italic">
               Hecho con alma ✦
             </p>
           </div>
