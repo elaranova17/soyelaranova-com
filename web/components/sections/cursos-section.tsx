@@ -41,14 +41,14 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     imageSrc: siteImages.cursos.astrologia,
   },
   {
-    id: 'tarot',
+    id: 'oraculo',
     badge: 'NUEVO',
     badgeVariant: 'purple',
-    title: 'Tarot intuitivo para principiantes',
+    title: 'Oráculo intuitivo para principiantes',
     weeks: 6,
     lessons: 24,
     price: 77,
-    imageSrc: siteImages.cursos.tarot,
+    imageSrc: siteImages.cursos.oraculo,
   },
   {
     id: 'ciclos',

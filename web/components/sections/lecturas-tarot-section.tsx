@@ -77,8 +77,8 @@ function ImagePlaceholder() {
   return (
     <div className="relative min-h-[400px] overflow-hidden rounded-2xl">
       <Image
-        src={siteImages.tarot.seccion}
-        alt="Lecturas de tarot personalizadas — Elara Nova"
+        src={siteImages.oraculo.seccion}
+        alt="Lecturas de oráculo personalizadas — Elara Nova"
         fill
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 50vw"
@@ -91,17 +91,17 @@ function ImagePlaceholder() {
 export function LecturasTarotSection() {
   return (
     <section
-      id="lecturas-tarot"
+      id="lecturas-oraculo"
       className="bg-[#0a0612] px-6 py-20 md:px-16"
-      aria-labelledby="lecturas-tarot-heading"
+      aria-labelledby="lecturas-oraculo-heading"
     >
       <div className="mx-auto grid max-w-7xl items-stretch gap-12 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <p className="mb-3 text-xs tracking-widest text-[#C9A84C] uppercase">
-            03 · Tarot
+            03 · Oráculo
           </p>
           <h2
-            id="lecturas-tarot-heading"
+            id="lecturas-oraculo-heading"
             className="font-serif text-4xl font-bold text-[#e8e0f0]"
           >
             Haz tu pregunta. Recibe tu respuesta.
