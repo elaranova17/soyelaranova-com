@@ -19,6 +19,7 @@ type ToolCard = {
 type CircleBenefit = {
   icon: IconKey
   label: string
+  description: string
 }
 
 type CircleStep = {
@@ -45,6 +46,7 @@ type CreationStep = {
 type ServiceTrustItem = {
   icon: IconKey
   label: string
+  description: string
 }
 
 const fadeUp = {
@@ -65,7 +67,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-astrologia.png',
     icon: 'planet',
     title: 'Carta Natal',
-    text: 'Tu mapa del cielo al nacer. Descubrí tus dones, desafíos y propósito único.',
+    text: 'Tu mapa al nacer. Ahí están tus dones, tus sombras y el hilo que los conecta.',
     tag: 'Astrología',
     variant: 'herramienta',
   },
@@ -73,7 +75,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/meditacion-lunar.png',
     icon: 'moon',
     title: 'Ciclos Lunares',
-    text: 'Sincronizate con la luna para planificar, soltar y florecer cada mes.',
+    text: 'La luna no espera. Aprendé a moverte con ella — no contra vos misma.',
     tag: 'Luna',
     variant: 'herramienta',
   },
@@ -81,7 +83,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-oraculo.png',
     icon: 'cards',
     title: 'Oráculo & Mensajes',
-    text: 'El oráculo como espejo del alma. Mensajes que iluminan tu momento actual.',
+    text: 'No es adivinación. Es aprender a escucharte a través del símbolo.',
     tag: 'Oráculo',
     variant: 'oraculo',
   },
@@ -89,7 +91,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-chakras.png',
     icon: 'energy',
     title: 'Energía & Chakras',
-    text: 'Aprendé a leer y equilibrar tu campo energético con herramientas simples.',
+    text: 'Tu cuerpo habla antes que tu mente. Aprendé a leerlo sin complicarte.',
     tag: 'Energía',
     variant: 'herramienta',
   },
@@ -97,7 +99,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-rituales.png',
     icon: 'compass',
     title: 'Rituales de Intención',
-    text: 'Rituales lunares y de soltar para marcar tus ciclos con consciencia.',
+    text: 'Un gesto consciente puede cambiar más que mil pensamientos. Empezá simple.',
     tag: 'Rituales',
     variant: 'recurso',
   },
@@ -105,7 +107,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-proposito.png',
     icon: 'journal',
     title: 'Tu Propósito',
-    text: 'Claridad sobre quién sos, qué querés crear y cómo servir desde el alma.',
+    text: 'No es una fórmula. Es la pregunta que vas respondiendo con honestidad.',
     tag: 'Propósito',
     variant: 'recurso',
   },
@@ -113,7 +115,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-sinastria.png',
     icon: 'cards',
     title: 'Sinastría & Vínculos',
-    text: 'Comprendé tus vínculos profundos a través de la compatibilidad astrológica.',
+    text: 'Tus relaciones también tienen un mapa. Leerlo es entenderte más a vos.',
     tag: 'Vínculos',
     variant: 'herramienta',
   },
@@ -121,7 +123,7 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/herramienta-calendario-lunar.png',
     icon: 'moon',
     title: 'Calendario Lunar',
-    text: 'Planificá tu mes con la energía de cada fase lunar. Fluí con el ciclo.',
+    text: 'Cada fase tiene su energía. Usarla bien no es magia — es inteligencia.',
     tag: 'Calendario',
     variant: 'recurso',
   },
@@ -129,39 +131,39 @@ const herramientas: readonly ToolCard[] = [
     img: '/images/meditacion-cristales.jpg',
     icon: 'energy',
     title: 'Cristales & Energía',
-    text: 'Aprende a elegir, limpiar y programar cristales para sostener tu proceso.',
+    text: 'Piezas que sostienen tu proceso. Sin misticismos innecesarios, con intención real.',
     tag: 'Cristales',
     variant: 'recurso',
   },
 ] as const
 
 const circuloBenefits: readonly CircleBenefit[] = [
-  { icon: 'Comunidad', label: 'Encuentros en vivo' },
-  { icon: 'Luna', label: 'Rituales lunares grupales' },
-  { icon: 'Ebook', label: 'Recursos exclusivos' },
-  { icon: 'Corazon', label: 'Contención real' },
+  { icon: 'Comunidad', label: 'Vivas cada mes', description: 'Charlas, talleres y círculos de estudio.' },
+  { icon: 'Luna', label: 'Rituales de luna llena', description: 'Ceremonias grupales con intención.' },
+  { icon: 'Ebook', label: 'Material de estudio', description: 'Contenido exclusivo para profundizar.' },
+  { icon: 'Corazon', label: 'Acompañamiento real', description: 'Comunidad y apoyo genuino.' },
 ] as const
 
 const circleSteps: readonly CircleStep[] = [
   {
     icon: 'Comunidad',
-    title: 'Encontrarte',
-    text: 'Entrás a un espacio íntimo con mujeres en tu misma búsqueda.',
+    title: 'Entrás',
+    text: 'Un espacio sin filtros, con mujeres en tu misma búsqueda. Sin performar.',
   },
   {
     icon: 'Ebook',
-    title: 'Aprender',
-    text: 'Recibís guías, clases y recursos para profundizar sin prisa.',
+    title: 'Aprendés',
+    text: 'Guías, clases y material para profundizar a tu ritmo. Sin presión.',
   },
   {
     icon: 'Luna',
-    title: 'Rituales',
-    text: 'Nos reunimos alrededor de ciclos lunares, intención y cuidado.',
+    title: 'Ritualizás',
+    text: 'Rituales de luna llena y ciclos lunares. Juntas. Con presencia.',
   },
   {
     icon: 'Florecer',
-    title: 'Crecer',
-    text: 'Integrás lo aprendido en tu vida real, paso a paso.',
+    title: 'Integrás',
+    text: 'Lo llevás a tu vida real. Paso a paso, con acompañamiento de verdad.',
   },
 ] as const
 
@@ -181,29 +183,29 @@ const cursos = [
     badge: 'DISPONIBLE',
     badgeColor: 'text-[#D4AF37] border-[#D4AF37]/50',
     title: 'Astrología Práctica',
-    text: 'Aprendé a leer tu carta natal y la de las personas que querés. Desde cero hasta intermedio.',
+    text: 'Leer tu carta natal no es difícil. Acá aprendés desde cero, con herramientas que te sirven toda la vida.',
     price: '$97 USD',
     cta: 'Explorar curso',
     href: '#email',
   },
   {
     img: '/images/oraculo-maestra.png',
-    tag: 'Nuevo · Agosto 2026',
+    tag: 'Disponible · Agosto 2026',
     badge: 'PRONTO',
     badgeColor: 'text-[#C49AD4] border-[#C49AD4]/50',
     title: 'Oráculo Intuitivo',
-    text: 'Un método propio para leer el oráculo desde la intuición. Sin memorizar, con presencia.',
+    text: 'No memorizás nada. Aprendés a escuchar el símbolo y tu intuición al mismo tiempo.',
     price: '$77 USD',
     cta: 'Anotarme',
     href: '#email',
   },
   {
     img: '/images/curso-estudiante.jpg',
-    tag: 'Online · En vivo',
+    tag: 'Programa · En vivo',
     badge: 'EN VIVO',
     badgeColor: 'text-[#F5EEF8] border-[#F5EEF8]/30',
     title: 'Círculo de Estudio',
-    text: 'Clases en vivo con la comunidad. Preguntás, aprendés y te conectás con otras.',
+    text: 'Clases en vivo, preguntas reales, comunidad activa. El grupo te sostiene cuando estudiar sola cansa.',
     price: '$57 USD',
     cta: 'Ver horarios',
     href: '#email',
@@ -213,31 +215,31 @@ const cursos = [
 const products: readonly ProductCard[] = [
   {
     img: '/images/curso-astrologia.jpg',
-    title: 'Astrología esencial',
-    text: 'Aprende a leer tu mapa natal y reconocer tus patrones internos.',
+    title: 'Astrología Práctica',
+    text: 'El curso para leer tu mapa natal. Desde cero hasta intermedio, a tu ritmo.',
   },
   {
     img: '/images/curso-ciclos.jpg',
     title: 'Ciclo Nova del Regreso',
-    text: 'Ebook de retorno personal para sostener tu proceso con rituales suaves.',
+    text: 'Ebook de retorno personal. Rituales suaves para volver a vos después de lo que sea.',
     href: 'https://pay.hotmart.com/REPLACE_WITH_REAL_HOTMART_PRODUCT_ID',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     img: '/images/oraculo-maestra.png',
-    title: 'Oráculo intuitivo',
-    text: 'Un recorrido suave para escuchar el símbolo y tu voz interior.',
+    title: 'Oráculo Intuitivo',
+    text: 'Un método propio para leer el oráculo. Sin memorizar. Con intuición activa.',
   },
   {
-    img: '/images/producto-kit-rituales.jpg',
-    title: 'Kit de rituales',
-    text: 'Piezas y prácticas para crear espacios de intención en casa.',
+    img: '/images/rituales-altar-cristales.jpg',
+    title: 'Kit de Rituales',
+    text: 'Piezas y prácticas para crear espacios de intención en casa. Con guía incluida.',
   },
   {
     img: '/images/producto-planificador-lunar.jpg',
-    title: 'Planificador lunar',
-    text: 'Organiza tu mes con fases, energía disponible y pequeñas acciones.',
+    title: 'Planificador Lunar',
+    text: 'Organizá tu mes con las fases lunares. PDF descargable, imprimible, tuyo.',
     href: 'https://soyelaranova.ck.page/REPLACE_WITH_REAL_CONVERTKIT_FORM',
     target: '_blank',
     rel: 'noopener noreferrer',
@@ -247,36 +249,36 @@ const products: readonly ProductCard[] = [
 const creationSteps: readonly CreationStep[] = [
   {
     icon: 'Estrellas',
-    title: 'Inspiración',
-    text: 'Escuchamos la señal y abrimos la intención.',
+    title: 'La señal',
+    text: 'Algo llega — una idea, un ciclo, una necesidad. Lo abrimos.',
   },
   {
     icon: 'Atelier',
-    title: 'Diseño',
-    text: 'Damos forma visual a la energía del ritual.',
+    title: 'El diseño',
+    text: 'Le damos forma. Visual, energética, y con propósito claro.',
   },
   {
     icon: 'Guia',
-    title: 'Elaboración',
-    text: 'Creamos cada pieza con detalle y propósito.',
+    title: 'La creación',
+    text: 'Cada pieza se hace con detalle. Sin atajos.',
   },
   {
     icon: 'Proteccion',
-    title: 'Preparación',
-    text: 'Cuidamos el empaque, la guía y el momento.',
+    title: 'El cuidado',
+    text: 'El empaque, la guía, el momento de recibirlo. Todo importa.',
   },
   {
     icon: 'Corazon',
-    title: 'Llega a ti',
-    text: 'Recibís una experiencia lista para acompañarte.',
+    title: 'Llegó',
+    text: 'Una experiencia lista para acompañar tu proceso. En tus manos.',
   },
 ] as const
 
 const serviceTrustItems: readonly ServiceTrustItem[] = [
-  { icon: 'Descargar', label: 'Envíos conscientes' },
-  { icon: 'Proteccion', label: 'Pago seguro' },
-  { icon: 'Comunidad', label: 'Atención personalizada' },
-  { icon: 'Corazon', label: 'Devoluciones con amor' },
+  { icon: 'Descargar', label: 'Envíos con cuidado', description: 'Empaques realizados con intención.' },
+  { icon: 'Proteccion', label: 'Compra segura', description: 'Tus datos y pagos protegidos.' },
+  { icon: 'Comunidad', label: 'Atención real', description: 'Estamos para acompañarte siempre.' },
+  { icon: 'Corazon', label: 'Cambios con respeto', description: '14 días para devoluciones sin drama.' },
 ] as const
 
 const toolCardStyles = {
@@ -315,6 +317,22 @@ const toolCardStyles = {
     cta: string
   }
 >
+
+type EmailFeatureItem = { icon: IconKey; label: string; description: string }
+
+const EMAIL_FEATURES: readonly EmailFeatureItem[] = [
+  { icon: 'Luna', label: 'Con propósito', description: 'Contenido que te mueve de verdad.' },
+  { icon: 'Meditacion', label: 'En tu ciclo', description: 'Recursos alineados con cada fase lunar.' },
+  { icon: 'Estrellas', label: 'Solo para el Círculo', description: 'Acceso anticipado a lo que viene.' },
+  { icon: 'Comunidad', label: 'Comunidad real', description: 'Mujeres que se sostienen.' },
+] as const
+
+const CIRCULO_TRUST = [
+  { icon: 'Proteccion' as IconKey, label: 'Espacio seguro', description: 'Un lugar para ser vos misma.' },
+  { icon: 'Luna' as IconKey, label: 'Ciclos alineados', description: 'Nos movemos con la energía del mes.' },
+  { icon: 'Guia' as IconKey, label: 'Herramientas reales', description: 'Para aplicar en tu día a día.' },
+  { icon: 'Comunidad' as IconKey, label: 'Comunidad viva', description: 'Mujeres que se sostienen.' },
+] as const
 
 function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
   const elaraSize = size === 'md' ? 'text-[1.7rem]' : 'text-[1.35rem]'
@@ -711,7 +729,7 @@ function ToolProductCard({
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
-  const [birthDate, setBirthDate] = useState('')
+  const [name, setName] = useState('')
   const [sent, setSent] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -720,7 +738,7 @@ export default function HomePage() {
     try {
       await fetch('/api/oracle/subscribe', {
         method: 'POST',
-        body: JSON.stringify({ email, birthDate }),
+        body: JSON.stringify({ email, name }),
         headers: { 'Content-Type': 'application/json' },
       })
     } finally {
@@ -988,7 +1006,7 @@ export default function HomePage() {
               <em className="font-serif-italic font-light text-[#C49AD4] italic">hacer.</em>
             </h2>
             <p className="font-serif-italic mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#C49AD4]/60 italic">
-              Nueve herramientas para que te conozcas desde adentro y elijas con claridad.
+              Nueve formas de volverte a encontrar. Sin afán, sin drama. Con precisión.
             </p>
           </motion.div>
 
@@ -1087,7 +1105,7 @@ export default function HomePage() {
               No caminás sola
             </h2>
             <p className="font-serif-italic mx-auto mt-5 max-w-xl text-xl leading-relaxed text-[#C49AD4]/65 italic">
-              Un espacio íntimo donde mujeres como vos se encuentran, estudian y crecen juntas.
+              Un espacio real. Mujeres que estudian, ritualizan y se sostienen. De verdad.
             </p>
           </motion.div>
 
@@ -1120,7 +1138,7 @@ export default function HomePage() {
               {/* 2 small images stacked right */}
               {[
                 { ...circuloImagenes[1], label: 'Rituales lunares' },
-                { ...circuloImagenes[2], label: 'Apertura' },
+                { ...circuloImagenes[2], label: 'Intención' },
               ].map(({ src, alt, label }, i) => (
                 <motion.div
                   key={src}
@@ -1148,15 +1166,16 @@ export default function HomePage() {
               className="flex flex-col justify-center gap-6"
             >
               <div className="grid grid-cols-2 gap-4">
-                {circuloBenefits.map(({ icon, label }) => (
+                {circuloBenefits.map(({ icon, label, description }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
+                    className="flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
                   >
-                    <div className="shrink-0 opacity-80">{ElaraIcons[icon].render(22)}</div>
-                    <span className="text-[11px] leading-tight tracking-[0.18em] text-[#C49AD4]/80 uppercase">
-                      {label}
-                    </span>
+                    <div className="mt-0.5 shrink-0 opacity-75">{ElaraIcons[icon].render(20)}</div>
+                    <div>
+                      <p className="text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
+                      <p className="mt-1 text-[11px] leading-relaxed text-[#C49AD4]/50">{description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1211,6 +1230,17 @@ export default function HomePage() {
                 <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover transition-transform duration-700 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
               </motion.div>
+            ))}
+          </div>
+
+          {/* Trust bar */}
+          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[#7B4FB5]/15 pt-8 md:grid-cols-4">
+            {CIRCULO_TRUST.map(({ icon, label, description }) => (
+              <div key={label} className="flex flex-col items-center gap-3 text-center">
+                <div className="opacity-50">{ElaraIcons[icon].render(22)}</div>
+                <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/55 uppercase">{label}</p>
+                <p className="text-[11px] leading-relaxed text-[#C49AD4]/38">{description}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -1369,7 +1399,7 @@ export default function HomePage() {
             ✦ Proceso del Atelier
           </p>
           <h2 className="font-display text-4xl text-[#F5EEF8] xl:text-5xl">
-            De la inspiración a tus manos
+            De la intención a tus manos
           </h2>
         </motion.div>
 
@@ -1408,9 +1438,8 @@ export default function HomePage() {
           {serviceTrustItems.map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-3 text-center">
               <div className="opacity-55">{ElaraIcons[item.icon].render(24)}</div>
-              <p className="text-[10px] leading-snug tracking-widest text-[#C49AD4]/40 uppercase">
-                {item.label}
-              </p>
+              <p className="text-[10px] font-semibold leading-snug tracking-widest text-[#C49AD4]/50 uppercase">{item.label}</p>
+              <p className="text-[11px] leading-relaxed text-[#C49AD4]/35">{item.description}</p>
             </div>
           ))}
         </div>
@@ -1437,16 +1466,16 @@ export default function HomePage() {
                 <em className="font-serif-italic font-light text-[#C49AD4] italic">Elara Nova.</em>
               </h2>
               <p className="font-serif-italic text-xl leading-[1.75] text-[#C49AD4]/70 italic">
-                Empecé a estudiar astrología buscando entenderme a mí misma.
-                Hoy acompaño a mujeres que sienten que hay algo más —
-                algo más profundo esperándolas adentro.
+                Empecé estudiando astrología para entenderme a mí misma.
+                No porque todo estuviera mal — sino porque sentía que había algo
+                más profundo esperando adentro. Y lo había.
               </p>
               <p className="font-serif-italic text-lg leading-[1.75] text-[#C49AD4]/55 italic">
-                Todo lo que creé nació de una pregunta honesta: ¿qué necesitaba yo cuando
-                empecé? Eso es exactamente lo que encontrás acá.
+                Todo lo que creé nació de esa pregunta: ¿qué hubiera necesitado
+                yo al principio? Eso es lo que encontrás acá. Sin vueltas.
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
-                {['Autoconocimiento', 'Ciclos lunares', 'Magia cotidiana', 'Carta natal'].map((value) => (
+                {['Autoconocimiento', 'Ciclos lunares', 'Rituales cotidianos', 'Carta natal'].map((value) => (
                   <span
                     key={value}
                     className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-4 py-1.5 text-[10px] tracking-[0.25em] text-[#D4AF37]/75 uppercase"
@@ -1484,6 +1513,20 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/50 via-transparent to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#7B4FB5]/10 to-transparent" />
+
+                {/* Quote card flotante */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.65 }}
+                  className="absolute right-5 bottom-5 w-44 rounded-2xl border border-[#D4AF37]/25 bg-[#0E0726]/90 p-4 shadow-2xl shadow-[#0E0726]/70 backdrop-blur-md"
+                >
+                  <div className="mb-2 opacity-70">{ElaraIcons.Estrellas.render(14)}</div>
+                  <p className="font-serif-italic text-[11px] leading-relaxed text-[#C49AD4]/80 italic">
+                    Mi propósito es recordarte todo lo que siempre fuiste capaz de ser. ✦
+                  </p>
+                </motion.div>
               </motion.div>
 
               {/* Small image — bottom left overlap */}
@@ -1524,153 +1567,183 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="email" className="relative overflow-hidden px-6 py-28">
-        {/* Background image — very subtle */}
-        <div className="absolute inset-0" aria-hidden>
-          <Image
-            src="/images/journal-magico-flatlay.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover opacity-[0.06]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1A0F3D] via-[#0E0726]/95 to-[#0E0726]" />
+      <section id="email" className="relative overflow-hidden bg-[#08051A]">
+        {/* Blooms */}
+        <div aria-hidden className="pointer-events-none absolute top-0 left-0 h-[500px] w-[500px] -translate-x-1/4 rounded-full bg-[#D4AF37]/[0.05] blur-[100px]" />
+        <div aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/3 rounded-full bg-[#7B4FB5]/[0.07] blur-[80px]" />
+
+        {/* 2-col grid */}
+        <div className="relative grid min-h-[600px] lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_560px]">
+          {/* LEFT — form */}
+          <div className="relative z-10 flex flex-col justify-center px-8 py-24 md:px-16">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="flex max-w-md flex-col gap-6"
+            >
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="self-start"
+              >
+                {ElaraIcons.Correo.render(40)}
+              </motion.div>
+
+              <p className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">✦ El Círculo íntimo</p>
+
+              <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.4rem]">
+                Recibí tu guía
+                <br />
+                <em className="font-serif-italic font-light text-[#C49AD4] italic">cada luna nueva.</em>
+              </h2>
+
+              <p className="font-serif-italic text-lg leading-relaxed text-[#C49AD4]/65 italic">
+                Guía lunar mensual · Rituales de intención · Lo nuevo del Círculo.
+              </p>
+
+              {sent ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col gap-3"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10">
+                    <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden>
+                      <path d="M6 14 L11 19 L22 9" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <p className="font-serif-italic text-2xl text-[#D4AF37] italic">✦ ¡Bienvenida al Círculo!</p>
+                  <p className="font-serif-italic text-sm text-[#C49AD4]/60 italic">
+                    Revisá tu bandeja — llegó tu primera guía.
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="mt-2 flex flex-col gap-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="tu@email.com"
+                    required
+                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/40 focus:border-[#D4AF37]/60 focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Tu nombre (opcional)"
+                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/50 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/35 focus:border-[#D4AF37]/40 focus:outline-none"
+                  />
+                  <motion.button
+                    type="submit"
+                    whileHover={{ scale: 1.02, boxShadow: '0 10px 35px rgba(212,175,55,0.35)' }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#D4AF37] py-4 text-[10px] font-bold tracking-[0.3em] text-[#0E0726] uppercase"
+                  >
+                    <span aria-hidden>✦</span> Quiero recibirlos
+                  </motion.button>
+                  <p className="text-center text-[9px] tracking-[0.2em] text-[#C49AD4]/30 uppercase">
+                    Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
+                  </p>
+                </form>
+              )}
+            </motion.div>
+          </div>
+
+          {/* RIGHT — image */}
+          <div className="relative hidden lg:block">
+            <Image
+              src="/images/sobre-elara.jpg"
+              alt="Elara Nova"
+              fill
+              sizes="560px"
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#08051A] via-[#08051A]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#08051A]/40 via-transparent to-[#08051A]/70" />
+          </div>
         </div>
 
-        <div className="relative mx-auto max-w-xl text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="flex flex-col items-center gap-6"
-          >
-            {/* Icon */}
-            <motion.div
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {ElaraIcons.Correo.render(44)}
-            </motion.div>
-
-            <p className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">
-              ✦ El Círculo íntimo
-            </p>
-
-            <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.2rem]">
-              Recibí magia
-              <br />
-              <em className="font-serif-italic font-light text-[#C49AD4] italic">en tu bandeja.</em>
-            </h2>
-
-            <p className="font-serif-italic max-w-sm text-xl leading-relaxed text-[#C49AD4]/65 italic">
-              Guía lunar mensual · Rituales de cada ciclo · Novedades para el Círculo.
-            </p>
-
-            {sent ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center gap-3"
-              >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
-                    <path d="M6 14 L11 19 L22 9" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p className="font-serif-italic text-2xl text-[#D4AF37] italic">
-                  ✦ ¡Bienvenida al Círculo!
-                </p>
-                <p className="font-serif-italic text-sm text-[#C49AD4]/60 italic">
-                  Revisá tu bandeja — llegó tu primera guía.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-2 flex w-full flex-col gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  required
-                  className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/40 focus:border-[#D4AF37]/60 focus:outline-none"
-                />
-                <input
-                  type="date"
-                  value={birthDate}
-                  onChange={(e) => setBirthDate(e.target.value)}
-                  required
-                  aria-label="Fecha de nacimiento (para tu guía lunar personalizada)"
-                  className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors focus:border-[#D4AF37]/60 focus:outline-none"
-                />
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.03, boxShadow: '0 10px 32px rgba(212,175,55,0.35)' }}
-                  whileTap={{ scale: 0.97 }}
-                  className="w-full rounded-2xl bg-[#D4AF37] py-4 text-[10px] font-bold tracking-[0.35em] text-[#0E0726] uppercase"
-                >
-                  ✦ Quiero recibirlos
-                </motion.button>
-              </form>
-            )}
-
-            <p className="text-[9px] tracking-[0.3em] text-[#C49AD4]/35 uppercase">
-              Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
-            </p>
-          </motion.div>
+        {/* Bottom features strip */}
+        <div className="relative border-t border-[#7B4FB5]/15 px-6 py-10 md:px-16">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4">
+            {EMAIL_FEATURES.map(({ icon, label, description }) => (
+              <div key={label} className="flex flex-col items-center gap-3 text-center">
+                <div className="opacity-50">{ElaraIcons[icon].render(24)}</div>
+                <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/60 uppercase">{label}</p>
+                <p className="text-[11px] leading-relaxed text-[#C49AD4]/40">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <div className="flex flex-col items-center">
-            <LogoBrand size="sm" />
-            <div className="mt-4 flex items-center gap-4">
-              <motion.a
-                href="https://instagram.com/soyelaranova"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram de Elara Nova"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.93 }}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-                </svg>
-              </motion.a>
-              <motion.a
-                href="https://tiktok.com/@soyelaranova"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok de Elara Nova"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.93 }}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M14 3v10.2a4.2 4.2 0 1 1-4.2-4.2" />
-                  <path d="M14 5.5c1.2 2.5 3 4 5.5 4.2" />
-                </svg>
-              </motion.a>
+      <footer className="border-t border-white/5 bg-[#08051A] px-6 py-12">
+        <div className="mx-auto max-w-6xl">
+          {/* Top row */}
+          <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-start">
+            {/* Logo + social */}
+            <div className="flex flex-col items-center gap-4 md:items-start">
+              <LogoBrand size="sm" />
+              <div className="flex items-center gap-3">
+                <motion.a
+                  href="https://instagram.com/soyelaranova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram de Elara Nova"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.93 }}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                  </svg>
+                </motion.a>
+                <motion.a
+                  href="https://tiktok.com/@soyelaranova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok de Elara Nova"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.93 }}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.27 8.27 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.07-.16z" />
+                  </svg>
+                </motion.a>
+              </div>
             </div>
+
+            {/* Nav links */}
+            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-end" aria-label="Footer">
+              {[
+                { href: '#herramientas', label: 'Herramientas' },
+                { href: '#circulo', label: 'Círculo' },
+                { href: '#productos', label: 'Productos' },
+                { href: '/contact', label: 'Contacto' },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="text-[10px] tracking-[0.22em] text-[#C49AD4]/40 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
           </div>
-          <div className="flex gap-8">
-            {['Herramientas', 'Círculo', 'Productos', 'Contacto'].map((label) => (
-              <a
-                key={label}
-                href="#"
-                className="text-[10px] tracking-widest text-[#C49AD4] uppercase transition-colors hover:text-[#D4AF37]"
-              >
-                {label}
-              </a>
-            ))}
+
+          {/* Bottom row */}
+          <div className="mt-8 border-t border-white/5 pt-6 text-center">
+            <p className="text-[9px] tracking-[0.22em] text-[#C49AD4]/25 uppercase">
+              © 2026 Elara Nova · Hecho con alma ✦
+            </p>
           </div>
-          <p className="text-[10px] tracking-widest text-[#C49AD4]/40 uppercase">
-            © 2026 Elara Nova · Hecho con alma ✦
-          </p>
         </div>
       </footer>
     </div>
