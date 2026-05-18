@@ -13,6 +13,11 @@ export const siteImages = {
     journal: '/images/elara-journal.png',
     aprendiendo: '/images/elara-aprendiendo.png',
     cursos: '/images/elara-cursos.png',
+    durmiendo: '/images/elara-durmiendo.png',
+    meditando: '/images/elara-meditando.png',
+    cocinando: '/images/elara-cocinando.png',
+    yoga: '/images/elara-yoga.png',
+    pintando: '/images/elara-pintando.png',
   },
   herramientas: {
     principal: '/images/herramientas-astrales.jpg',
