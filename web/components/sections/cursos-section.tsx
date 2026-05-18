@@ -34,7 +34,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     id: 'astrologia',
     badge: 'MÁS POPULAR',
     badgeVariant: 'gold',
-    title: 'Astrología para conectarte contigo',
+    title: 'Astrología Práctica',
     weeks: 8,
     lessons: 32,
     price: 97,
@@ -44,7 +44,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     id: 'oraculo',
     badge: 'NUEVO',
     badgeVariant: 'purple',
-    title: 'Oráculo intuitivo para principiantes',
+    title: 'Oráculo Intuitivo',
     weeks: 6,
     lessons: 24,
     price: 77,
@@ -54,7 +54,7 @@ const FEATURED_COURSES: readonly CourseCard[] = [
     id: 'ciclos',
     badge: 'MÁS ELEGIDO',
     badgeVariant: 'gold',
-    title: 'Ciclos lunares y magia consciente',
+    title: 'Ciclos Lunares & Rituales',
     weeks: 4,
     lessons: 16,
     price: 57,
@@ -62,9 +62,9 @@ const FEATURED_COURSES: readonly CourseCard[] = [
   },
   {
     id: 'sanar',
-    badge: 'TRANSFORMADOR',
+    badge: 'PARA VOS',
     badgeVariant: 'purple',
-    title: 'Sanar para volver a ti',
+    title: 'Sanar para volver a vos',
     weeks: 7,
     lessons: 28,
     price: 87,
@@ -76,27 +76,27 @@ const BENEFITS: readonly BenefitItem[] = [
   {
     id: 'ritmo',
     icon: 'pace',
-    label: 'Aprende a tu ritmo',
-    description: 'Accedé cuando quieras y desde donde estés.',
+    label: 'A tu ritmo',
+    description: 'Accedé cuando quieras, desde donde estés. Sin presión.',
   },
   {
     id: 'calidad',
     icon: 'quality',
-    label: 'Contenido de calidad',
-    description: 'Material exclusivo creado por expertas.',
+    label: 'Contenido real',
+    description: 'Material exclusivo con propósito. Nada de relleno.',
   },
   {
     id: 'guia',
     icon: 'community',
-    label: 'Comunidad y guía',
-    description: 'Acompañamiento en cada paso de tu aprendizaje.',
+    label: 'Comunidad viva',
+    description: 'No estudiás sola. El Círculo te acompaña en cada paso.',
   },
 ] as const
 
 const MEMBERSHIP_BULLETS: readonly MembershipBullet[] = [
   { id: 'cursos', label: 'Acceso a todos los cursos' },
-  { id: 'talleres', label: 'Talleres en vivo cada mes' },
-  { id: 'comunidad', label: 'Comunidad privada' },
+  { id: 'talleres', label: 'Clases en vivo cada mes' },
+  { id: 'comunidad', label: 'Comunidad privada activa' },
   { id: 'recursos', label: 'Recursos descargables exclusivos' },
 ] as const
 
@@ -169,11 +169,11 @@ function CursosHeroHeader() {
           ✦ Cursos y Talleres ✦
         </p>
         <h2 className="mt-3 font-serif text-4xl font-bold text-[#f0eafa]">
-          Aprende. Integra. Transforma.
+          Aprendé. Integrá. Transformate.
         </h2>
         <p className="mt-3 max-w-lg text-[#9080b0]">
-          Formaciones online para expandir tu conocimiento y vivir tu
-          espiritualidad con profundidad y propósito.
+          Formaciones online para que te entiendas a fondo — y lo apliques
+          en tu vida real.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Link
@@ -259,11 +259,11 @@ function MembershipBanner() {
             Membresía Elara Nova
           </p>
           <h3 className="mt-2 font-serif text-3xl text-[#f0eafa]">
-            Aprende sin límites
+            Aprendé sin límites
           </h3>
           <p className="mt-2 max-w-sm text-[#9080b0]">
-            Un espacio para crecer con formación, comunidad y recursos que
-            acompañan tu camino.
+            Formación, comunidad y recursos para las que eligieron ir más
+            adentro.
           </p>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {MEMBERSHIP_BULLETS.map((bullet) => (
@@ -283,7 +283,7 @@ function MembershipBanner() {
             href="/comunidad"
             className="mt-4 inline-flex items-center rounded-full bg-[#C9A84C] px-8 py-3 text-sm font-bold tracking-wide text-black uppercase"
           >
-            Únete ahora ✦
+            Unite ahora ✦
           </Link>
         </div>
       </div>
