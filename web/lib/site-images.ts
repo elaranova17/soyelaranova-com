@@ -42,9 +42,9 @@ export const siteImages = {
   },
   cursos: {
     header: '/images/herramientas-astrales.jpg',
-    astrologia: '/images/curso-astrologia.jpg',
+    astrologia: '/images/curso-astrologia.png',
     oraculo: '/images/oraculo-maestra.png',
-    ciclos: '/images/curso-ciclos.jpg',
+    ciclos: '/images/ciclos-lunares-rituales.png',
     sanar: '/images/curso-sanar.jpg',
     estudiante: '/images/curso-estudiante.jpg',
   },
