@@ -76,10 +76,10 @@ const herramientas: readonly ToolCard[] = [
     cta: 'Explorar →',
   },
   {
-    img: '/images/herramienta-lectura-tarot.png',
+    img: '/images/herramienta-oraculo.png',
     variant: 'oraculo',
     icon: 'cards',
-    title: 'Lectura de Tarot',
+    title: 'Lectura de Oráculo',
     text: 'Recibe guía intuitiva para tu momento actual.',
     cta: 'Pedir mensaje →',
   },
@@ -180,8 +180,8 @@ const products: readonly ProductCard[] = [
     rel: 'noopener noreferrer',
   },
   {
-    img: '/images/curso-tarot.jpg',
-    title: 'Tarot intuitivo',
+    img: '/images/oraculo-maestra.png',
+    title: 'Oráculo intuitivo',
     text: 'Un recorrido suave para escuchar el símbolo y tu voz interior.',
   },
   {
@@ -595,7 +595,7 @@ export default function HomePage() {
             </motion.div>
 
             <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
-              {['✦ Astrología', '✦ Tarot', '✦ Rituales', '✦ Ciclos lunares', '✦ Autoconocimiento'].map((label, index) => (
+              {['✦ Astrología', '✦ Oráculo', '✦ Rituales', '✦ Ciclos lunares', '✦ Autoconocimiento'].map((label, index) => (
                 <motion.span
                   key={label}
                   initial={{ opacity: 0, scale: 0.8, y: 12 }}
@@ -782,7 +782,7 @@ export default function HomePage() {
             </motion.div>
             {[
               { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
-              { src: '/images/circulo-tarot.png', alt: 'Juntas somos magia' },
+              { src: '/images/circulo-oraculo.png', alt: 'Juntas somos magia' },
             ].map((img, index) => (
               <motion.div
                 key={img.src}
