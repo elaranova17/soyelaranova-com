@@ -13,28 +13,27 @@ const LECTURA_STEPS: readonly LecturaStep[] = [
   {
     id: 'pregunta',
     number: 1,
-    title: 'Haz tu pregunta',
-    description: 'Cuéntanos tu duda o situación.',
+    title: 'Hacé tu pregunta',
+    description: 'Contanos qué querés entender.',
   },
   {
     id: 'lectura',
     number: 2,
     title: 'Realizamos tu lectura',
-    description:
-      'Con intención y conexión, nuestro equipo trabaja para vos.',
+    description: 'Con intención y presencia, trabajamos solo para vos.',
   },
   {
     id: 'respuesta',
     number: 3,
-    title: 'Recibí tu lectura',
-    description: 'Te enviamos un PDF con tu mensaje.',
+    title: 'Recibí tu respuesta',
+    description: 'Te enviamos un PDF con tu mensaje en 24h hábiles.',
   },
 ] as const
 
 const PRICE_BULLETS: readonly string[] = [
-  '1 pregunta específica',
-  'Lectura profunda y clara',
-  'Respuesta en 24h hábiles',
+  '1 pregunta concreta',
+  'Lectura personalizada y directa',
+  'PDF en tus manos en 24h hábiles',
 ] as const
 
 function LecturaStepsList() {
@@ -104,10 +103,10 @@ export function LecturasTarotSection() {
             id="lecturas-oraculo-heading"
             className="font-serif text-4xl font-bold text-[#e8e0f0]"
           >
-            Haz tu pregunta. Recibe tu respuesta.
+            Hacé tu pregunta. Recibí tu respuesta.
           </h2>
           <p className="mt-3 text-[#9080b0]">
-            Lectura personalizada en máximo 24 horas hábiles.
+            Lectura personalizada. Tu mensaje llega en 24h hábiles.
           </p>
 
           <LecturaStepsList />
@@ -117,7 +116,7 @@ export function LecturasTarotSection() {
             href="/lecturas"
             className="mt-8 inline-flex w-fit items-center rounded-full bg-[#7c3aed] px-8 py-3 text-xs font-semibold tracking-widest text-white uppercase"
           >
-            Hacer mi pregunta →
+            Hacé tu pregunta →
           </Link>
         </div>
 

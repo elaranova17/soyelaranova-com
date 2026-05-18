@@ -180,7 +180,7 @@ function CursosHeroHeader() {
             href="/cursos"
             className="inline-flex items-center rounded-full bg-[#7c3aed] px-8 py-3.5 text-sm font-semibold tracking-wide text-white uppercase"
           >
-            Explorar cursos →
+            Explorá los cursos →
           </Link>
           <Link
             href="/cursos#como-funciona"
