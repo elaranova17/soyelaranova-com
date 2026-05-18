@@ -10,7 +10,7 @@ type IconKey = keyof typeof ElaraIcons
 type ToolCard = {
   img: string
   variant: 'herramienta' | 'oraculo' | 'recurso'
-  icon: 'planet' | 'cards' | 'journal' | 'moon' | 'energy' | 'compass'
+  icon: IconKey
   title: string
   text: string
   tag: string
@@ -65,15 +65,15 @@ const fadeUp = {
 const herramientas: readonly ToolCard[] = [
   {
     img: '/images/curso-astrologia.png',
-    icon: 'planet',
+    icon: 'Planetas',
     title: 'Carta Natal',
     text: 'Tu mapa al nacer. Ahí están tus dones, tus sombras y el hilo que los conecta.',
     tag: 'Astrología',
     variant: 'herramienta',
   },
   {
-    img: '/images/ciclos-lunares-rituales.png',
-    icon: 'moon',
+    img: '/images/meditacion-lunar.png',
+    icon: 'Luna',
     title: 'Ciclos Lunares',
     text: 'La luna no espera. Aprendé a moverte con ella — no contra vos misma.',
     tag: 'Luna',
@@ -81,7 +81,7 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-oraculo.png',
-    icon: 'cards',
+    icon: 'Oraculo',
     title: 'Oráculo & Mensajes',
     text: 'No es adivinación. Es aprender a escucharte a través del símbolo.',
     tag: 'Oráculo',
@@ -89,7 +89,7 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-chakras.png',
-    icon: 'energy',
+    icon: 'Vision',
     title: 'Energía & Chakras',
     text: 'Tu cuerpo habla antes que tu mente. Aprendé a leerlo sin complicarte.',
     tag: 'Energía',
@@ -97,7 +97,7 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-rituales.png',
-    icon: 'compass',
+    icon: 'Estrellas',
     title: 'Rituales de Intención',
     text: 'Un gesto consciente puede cambiar más que mil pensamientos. Empezá simple.',
     tag: 'Rituales',
@@ -105,7 +105,7 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-proposito.png',
-    icon: 'journal',
+    icon: 'Guia',
     title: 'Tu Propósito',
     text: 'No es una fórmula. Es la pregunta que vas respondiendo con honestidad.',
     tag: 'Propósito',
@@ -113,7 +113,7 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-sinastria.png',
-    icon: 'cards',
+    icon: 'Corazon',
     title: 'Sinastría & Vínculos',
     text: 'Tus relaciones también tienen un mapa. Leerlo es entenderte más a vos.',
     tag: 'Vínculos',
@@ -121,15 +121,15 @@ const herramientas: readonly ToolCard[] = [
   },
   {
     img: '/images/herramienta-calendario-lunar.png',
-    icon: 'moon',
+    icon: 'Calendario',
     title: 'Calendario Lunar',
-    text: 'Cada fase tiene su energía. Usarla bien no es magia — es inteligencia.',
+    text: 'Cada fase tiene su energía. Seguirla es inteligencia — no casualidad.',
     tag: 'Calendario',
     variant: 'recurso',
   },
   {
     img: '/images/meditacion-cristales.jpg',
-    icon: 'energy',
+    icon: 'Energia',
     title: 'Cristales & Energía',
     text: 'Piezas que sostienen tu proceso. Sin misticismos innecesarios, con intención real.',
     tag: 'Cristales',
@@ -669,69 +669,6 @@ function NavLanding() {
   )
 }
 
-function ToolGlyph({ kind }: { kind: ToolCard['icon'] }) {
-  const props = {
-    className: 'h-7 w-7',
-    viewBox: '0 0 24 24',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: 1.5,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-    'aria-hidden': true,
-  }
-
-  switch (kind) {
-    case 'planet':
-      return (
-        <svg {...props}>
-          <circle cx="12" cy="12" r="4.5" />
-          <ellipse cx="12" cy="12" rx="9" ry="3.2" />
-          <circle cx="9.8" cy="10.3" r="0.8" fill="currentColor" stroke="none" />
-        </svg>
-      )
-    case 'cards':
-      return (
-        <svg {...props}>
-          <rect x="7" y="4" width="10" height="15" rx="1.5" />
-          <path d="M11 7.5h2M10 16h4" />
-          <path d="m12 9 1 2.2 2.2.2-1.7 1.4.5 2.1-2-1.1-2 1.1.5-2.1-1.7-1.4 2.2-.2L12 9z" />
-          <path d="M17 7.2 19 8v12H9.5" />
-        </svg>
-      )
-    case 'journal':
-      return (
-        <svg {...props}>
-          <path d="M6 5.5A2.5 2.5 0 0 1 8.5 3H19v18H8.5A2.5 2.5 0 0 1 6 18.5v-13z" />
-          <path d="M9 7h6M9 10h5M9 14h7" />
-          <path d="M6 18.5A2.5 2.5 0 0 1 8.5 16H19" />
-        </svg>
-      )
-    case 'moon':
-      return (
-        <svg {...props}>
-          <path d="M20 14.3A8 8 0 1 1 9.7 4 9.5 9.5 0 0 0 20 14.3z" />
-          <path d="m5 5 1 2 2 .6-2 .8-1 2-1-2-2-.8 2-.6 1-2z" />
-        </svg>
-      )
-    case 'energy':
-      return (
-        <svg {...props}>
-          <path d="M13 2 5 13h6l-1 9 9-12h-6l1-8z" />
-          <path d="M4 20c2-1.5 4-1.5 6 0s4 1.5 6 0 3.3-1.4 5 0" />
-        </svg>
-      )
-    case 'compass':
-      return (
-        <svg {...props}>
-          <circle cx="12" cy="12" r="8.5" />
-          <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2z" />
-          <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
-        </svg>
-      )
-  }
-}
-
 function ToolProductCard({
   item,
   index,
@@ -771,12 +708,12 @@ function ToolProductCard({
         {/* Icon overlay — bottom left, pulsing gold glow */}
         <div className="absolute bottom-4 left-4">
           <motion.div
-            className="flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#0E0726]/80 text-[#D4AF37] shadow-2xl backdrop-blur-md"
-            animate={{ boxShadow: ['0 0 0px rgba(212,175,55,0)', '0 0 18px rgba(212,175,55,0.35)', '0 0 0px rgba(212,175,55,0)'] }}
+            className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#D4AF37]/35 bg-[#0E0726]/85 shadow-2xl backdrop-blur-md"
+            animate={{ boxShadow: ['0 0 0px rgba(212,175,55,0)', '0 0 22px rgba(212,175,55,0.4)', '0 0 0px rgba(212,175,55,0)'] }}
             transition={{ repeat: Infinity, duration: 2.8, delay: index * 0.18, ease: 'easeInOut' }}
             whileHover={{ scale: 1.12, transition: { type: 'spring', stiffness: 300 } }}
           >
-            <ToolGlyph kind={item.icon} />
+            {ElaraIcons[item.icon].render(38)}
           </motion.div>
         </div>
       </div>
@@ -995,8 +932,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="herramientas" className="relative overflow-hidden px-6 py-24">
-        {/* Background accent */}
+      <section id="herramientas" className="relative overflow-hidden px-6 pb-24 pt-20">
+        {/* Degradado entrada */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0E0726] via-[#0E0726]/60 to-transparent" />
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
         <div className="mx-auto max-w-6xl">
@@ -1029,8 +967,11 @@ export default function HomePage() {
       </section>
 
       {/* ── FRANJA VISUAL ────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden py-20" aria-hidden>
-        {/* Cinematic quote banner — herramientas-astrales.jpg background */}
+      <div className="relative overflow-hidden">
+        {/* Degradado suave desde la sección anterior */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent z-10" />
+
+        {/* Cinematic quote banner */}
         <div className="relative mx-0 h-[420px] overflow-hidden">
           <div className="relative h-full w-full">
             <Image
@@ -1040,13 +981,10 @@ export default function HomePage() {
               sizes="100vw"
               className="object-cover object-center"
             />
-            {/* Dark overlay */}
             <div className="absolute inset-0 bg-[#0E0726]/65" />
-            {/* Gold vignette edges */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-transparent to-[#0E0726]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/30 via-transparent to-[#0E0726]/50" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/40 via-transparent to-[#0E0726]/60" />
           </div>
-          {/* Quote centered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1063,40 +1001,46 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Horizontal image strip — 6 images, auto-scroll feel */}
-        <div className="scrollbar-none mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 lg:grid lg:grid-cols-6 lg:overflow-visible">
+        {/* Galería Elara — 5 ilustraciones del personaje */}
+        <div className="scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-6">
           {[
-            { src: '/images/herramienta-carta-natal.png', alt: 'Carta natal' },
-            { src: '/images/rituales-altar-cristales.jpg', alt: 'Rituales' },
-            { src: '/images/meditacion-cristales.jpg', alt: 'Cristales' },
-            { src: '/images/herramienta-chakras.png', alt: 'Chakras' },
-            { src: '/images/circulo-juntas.png', alt: 'Círculo' },
-            { src: '/images/oraculo-tres-cartas.jpg', alt: 'Oráculo' },
-          ].map((img, i) => (
+            { src: '/images/elara-durmiendo.png',  alt: 'Elara descansando',   pos: 'object-top'    },
+            { src: '/images/elara-meditando.png',  alt: 'Elara meditando',     pos: 'object-top'    },
+            { src: '/images/elara-cocinando.png',  alt: 'Elara en la cocina',  pos: 'object-top'    },
+            { src: '/images/elara-yoga.png',       alt: 'Elara haciendo yoga', pos: 'object-center' },
+            { src: '/images/elara-pintando.png',   alt: 'Elara pintando',      pos: 'object-top'    },
+          ].map(({ src, alt, pos }, i) => (
             <motion.div
-              key={img.src}
-              initial={{ opacity: 0, scale: 1.04 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative h-[240px] w-[200px] shrink-0 snap-start overflow-hidden rounded-2xl lg:w-auto"
+              key={src}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.65, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              whileHover={{ scale: 1.03, transition: { type: 'spring', stiffness: 280, damping: 22 } }}
+              className="relative h-[320px] w-[220px] shrink-0 snap-start overflow-hidden rounded-2xl lg:w-auto"
+              style={{ boxShadow: '0 8px 32px rgba(14,7,38,0.7)' }}
             >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={src}
+                alt={alt}
                 fill
-                sizes="(max-width: 1024px) 200px, 17vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 220px, 20vw"
+                className={`object-cover transition-transform duration-700 hover:scale-105 ${pos}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/50 to-transparent" />
+              {/* Velo inferior suave */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/55 via-transparent to-transparent" />
             </motion.div>
           ))}
         </div>
+
+        {/* Degradado suave hacia la sección siguiente */}
+        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
       </div>
 
       <section id="circulo" className="relative overflow-hidden py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#7B4FB5]/40 to-transparent" />
+        {/* Degradado entrada desde galería */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#1A0F3D]/80 to-transparent" />
 
         <div className="mx-auto max-w-6xl px-6">
           {/* Header */}
@@ -1481,9 +1425,14 @@ export default function HomePage() {
 
       <section id="sobre" className="relative overflow-hidden py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
+        {/* Degradado entrada */}
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent" />
+        {/* Degradado salida hacia email */}
+        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-[#7B4FB5]/[0.07] blur-[120px]" />
 
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-[1fr_460px]">
+          <div className="grid items-center gap-16 lg:grid-cols-[1fr_500px]">
             {/* Left: content */}
             <motion.div
               initial="hidden"
@@ -1492,13 +1441,18 @@ export default function HomePage() {
               variants={fadeUp}
               className="order-2 flex flex-col gap-6 lg:order-1"
             >
-              <p className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase">
-                ✦ Quién soy
-              </p>
-              <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.2rem]">
+              {/* Label con icono */}
+              <div className="flex items-center gap-2">
+                {ElaraIcons.Estrellas.render(14)}
+                <p className="text-[10px] tracking-[0.45em] text-[#D4AF37] uppercase">Quién soy</p>
+                {ElaraIcons.Estrellas.render(14)}
+              </div>
+
+              <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.4rem]">
                 Hola, soy<br />
                 <em className="font-serif-italic font-light text-[#C49AD4] italic">Elara Nova.</em>
               </h2>
+
               <p className="font-serif-italic text-xl leading-[1.75] text-[#C49AD4]/70 italic">
                 Empecé estudiando astrología para entenderme a mí misma.
                 No porque todo estuviera mal — sino porque sentía que había algo
@@ -1508,95 +1462,98 @@ export default function HomePage() {
                 Todo lo que creé nació de esa pregunta: ¿qué hubiera necesitado
                 yo al principio? Eso es lo que encontrás acá. Sin vueltas.
               </p>
+
               <div className="mt-2 flex flex-wrap gap-2">
-                {['Autoconocimiento', 'Ciclos lunares', 'Rituales cotidianos', 'Carta natal'].map((value) => (
-                  <span
-                    key={value}
-                    className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-4 py-1.5 text-[10px] tracking-[0.25em] text-[#D4AF37]/75 uppercase"
+                {([
+                  { icon: 'Intuicion' as IconKey, label: 'Autoconocimiento' },
+                  { icon: 'Luna'      as IconKey, label: 'Ciclos lunares' },
+                  { icon: 'Estrellas' as IconKey, label: 'Rituales cotidianos' },
+                  { icon: 'Planetas'  as IconKey, label: 'Carta natal' },
+                ] as const).map(({ icon, label }) => (
+                  <motion.span
+                    key={label}
+                    whileHover={{ scale: 1.04 }}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-[#D4AF37]/75 uppercase"
                   >
-                    ✦ {value}
-                  </span>
+                    <span className="opacity-80">{ElaraIcons[icon].render(14)}</span>
+                    {label}
+                  </motion.span>
                 ))}
               </div>
+
               <motion.a
                 href="#email"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="mt-2 flex items-center gap-2.5 self-start rounded-2xl border border-[#D4AF37]/40 px-7 py-3.5 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase transition-all duration-300 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/[0.08]"
               >
+                <span className="opacity-70">{ElaraIcons.Guia.render(16)}</span>
                 Conocé mi historia <span aria-hidden>→</span>
               </motion.a>
             </motion.div>
 
-            {/* Right: 3-image editorial layout */}
-            <div className="relative order-1 lg:order-2">
-              {/* Main large portrait */}
-              <motion.div
-                initial={{ opacity: 0, scale: 1.04 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative h-[480px] overflow-hidden rounded-3xl shadow-2xl shadow-[#0E0726]/80"
+            {/* Right: character illustration */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative order-1 lg:order-2"
+            >
+              {/* Marco exterior con glow */}
+              <div
+                className="relative h-[580px] overflow-hidden rounded-3xl"
+                style={{ boxShadow: '0 0 60px rgba(123,79,181,0.22), 0 40px 80px rgba(14,7,38,0.9)' }}
               >
                 <Image
-                  src="/images/sobre-elara.jpg"
-                  alt="Elara Nova"
+                  src="/images/hero-elara-escritorio.jpg"
+                  alt="Elara Nova en su estudio"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/50 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#7B4FB5]/10 to-transparent" />
-
-                {/* Quote card flotante */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20, y: 20 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.65 }}
-                  className="absolute right-5 bottom-5 w-44 rounded-2xl border border-[#D4AF37]/25 bg-[#0E0726]/90 p-4 shadow-2xl shadow-[#0E0726]/70 backdrop-blur-md"
-                >
-                  <div className="mb-2 opacity-70">{ElaraIcons.Estrellas.render(14)}</div>
-                  <p className="font-serif-italic text-[11px] leading-relaxed text-[#C49AD4]/80 italic">
-                    Mi propósito es recordarte todo lo que siempre fuiste capaz de ser. ✦
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* Small image — bottom left overlap */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.35 }}
-                className="absolute -bottom-5 -left-5 h-44 w-36 overflow-hidden rounded-2xl border-2 border-[#0E0726] shadow-xl shadow-[#0E0726]/60"
-              >
-                <Image
-                  src="/images/elara-escribiendo.jpg"
-                  alt="Elara escribiendo"
-                  fill
-                  sizes="144px"
+                  sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover"
+                  style={{ objectPosition: 'center 15%' }}
                 />
-              </motion.div>
+                {/* Gradiente bottom — fusiona con el fondo de página */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/70 via-[#0E0726]/10 to-transparent" />
+                {/* Velo izquierdo — funde con el contenido */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1A0F3D]/40 via-transparent to-transparent" />
 
-              {/* Small image — top right overlap */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, y: -20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute -top-5 -right-5 h-40 w-32 overflow-hidden rounded-2xl border-2 border-[#0E0726] shadow-xl shadow-[#0E0726]/60"
-              >
-                <Image
-                  src="/images/elara-journal.png"
-                  alt="Elara con journal"
-                  fill
-                  sizes="128px"
-                  className="object-cover object-top"
-                />
-              </motion.div>
-            </div>
+                {/* Quote card — bottom right, flotante */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="absolute right-4 bottom-4 w-56 rounded-2xl border border-[#D4AF37]/28 bg-[#0E0726]/93 p-5 backdrop-blur-md"
+                  style={{ boxShadow: '0 0 28px rgba(212,175,55,0.12), 0 20px 40px rgba(14,7,38,0.8)' }}
+                >
+                  <div className="mb-2.5 flex items-center gap-2">
+                    {ElaraIcons.Estrellas.render(16)}
+                    <span className="text-[8px] tracking-[0.38em] text-[#D4AF37]/50 uppercase">Elara Nova</span>
+                  </div>
+                  <p className="font-serif-italic text-[11.5px] leading-relaxed text-[#C49AD4]/82 italic">
+                    Mi propósito es recordarte todo lo que siempre fuiste capaz de ser.
+                  </p>
+                  <div className="mt-3 flex items-center gap-2">
+                    <div className="h-px flex-1 bg-[#D4AF37]/18" />
+                    <span className="text-[9px] text-[#D4AF37]/35">✦</span>
+                    <div className="h-px flex-1 bg-[#D4AF37]/18" />
+                  </div>
+                </motion.div>
+
+                {/* Chip de herramienta — top right */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-[#7B4FB5]/40 bg-[#0E0726]/75 px-3 py-1.5 backdrop-blur-sm"
+                >
+                  {ElaraIcons.Luna.render(14)}
+                  <span className="text-[8px] tracking-[0.28em] text-[#C49AD4]/65 uppercase">Ciclos · Rituales</span>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -1676,7 +1633,7 @@ export default function HomePage() {
                     whileTap={{ scale: 0.97 }}
                     className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#D4AF37] py-4 text-[10px] font-bold tracking-[0.3em] text-[#0E0726] uppercase"
                   >
-                    <span aria-hidden>✦</span> Quiero recibirlos
+                    <span className="opacity-70">{ElaraIcons.Correo.render(16)}</span> Quiero recibirlos
                   </motion.button>
                   <p className="text-center text-[9px] tracking-[0.2em] text-[#C49AD4]/30 uppercase">
                     Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
@@ -1689,13 +1646,13 @@ export default function HomePage() {
           {/* RIGHT — image */}
           <div className="relative hidden lg:block">
             <Image
-              src="/images/sobre-elara.jpg"
-              alt="Elara Nova"
+              src="/images/circulo-amigas-noche.jpg"
+              alt="El Círculo íntimo de Elara Nova"
               fill
               sizes="560px"
-              className="object-cover object-top"
+              className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#08051A] via-[#08051A]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#08051A] via-[#08051A]/25 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-b from-[#08051A]/40 via-transparent to-[#08051A]/70" />
           </div>
         </div>
