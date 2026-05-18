@@ -374,19 +374,57 @@ const HERO_FEATURES = [
 ] as const
 
 function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
-  const elaraSize = size === 'md' ? 'text-[1.7rem]' : 'text-[1.35rem]'
-  const novaTracking = size === 'md' ? 'tracking-[0.55em]' : 'tracking-[0.45em]'
+  const scale = size === 'sm' ? 0.78 : 1
+  const arcW = Math.round(72 * scale)
+  const arcH = Math.round(28 * scale)
+  const elaraSize = size === 'sm' ? 'text-[1.25rem]' : 'text-[1.65rem]'
+  const novaSize = size === 'sm' ? 'text-[8px]' : 'text-[10px]'
 
   return (
-    <div className="flex flex-col leading-none" aria-label="Elara Nova">
-      <span className={`font-serif-italic italic text-[#D4AF37] ${elaraSize}`}>
+    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
+      {/* Arco de luna + estrella */}
+      <svg
+        width={arcW}
+        height={arcH}
+        viewBox="0 0 72 28"
+        fill="none"
+        aria-hidden
+        className="-mb-1 ml-3"
+      >
+        {/* Arco */}
+        <path
+          d="M4 26 Q36 0 68 26"
+          stroke="#D4AF37"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* Estrella central */}
+        <path
+          d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z"
+          fill="#D4AF37"
+        />
+        {/* Destellos pequeños */}
+        <circle cx="14" cy="22" r="1" fill="#D4AF37" opacity="0.55" />
+        <circle cx="58" cy="22" r="1" fill="#D4AF37" opacity="0.55" />
+      </svg>
+
+      {/* "Elara" script */}
+      <span className={`font-serif-italic leading-none text-[#D4AF37] italic ${elaraSize}`}>
         Elara
       </span>
-      <div className="mt-1 flex items-center gap-2">
-        <span className={`font-serif-italic text-[10px] text-[#D4AF37]/75 uppercase italic ${novaTracking}`}>
-          nova
+
+      {/* "— NOVA —" con líneas */}
+      <div className={`flex items-center gap-1.5 ${novaSize}`}>
+        <span className="h-px w-4 bg-[#D4AF37]/60" />
+        <span className={`font-sans font-medium tracking-[0.45em] text-[#D4AF37]/80 uppercase ${novaSize}`}>
+          NOVA
         </span>
-        <span className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/80 via-[#D4AF37]/30 to-transparent" />
+        <span className="h-px w-4 bg-[#D4AF37]/60" />
+        {/* Estrella mini */}
+        <svg width="6" height="6" viewBox="0 0 8 8" fill="#D4AF37" opacity="0.6" aria-hidden>
+          <path d="M4 0 L4.8 3.2 L8 4 L4.8 4.8 L4 8 L3.2 4.8 L0 4 L3.2 3.2 Z" />
+        </svg>
       </div>
     </div>
   )
@@ -1651,14 +1689,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-[#08051A] px-6 py-12">
-        <div className="mx-auto max-w-6xl">
-          {/* Top row */}
-          <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-start">
-            {/* Logo + social */}
-            <div className="flex flex-col items-center gap-4 md:items-start">
-              <LogoBrand size="sm" />
-              <div className="flex items-center gap-3">
+      <footer className="relative overflow-hidden border-t border-white/5 bg-[#08051A]">
+        {/* Bloom dorado fondo */}
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
+
+        <div className="relative mx-auto max-w-6xl px-6 py-16">
+          {/* Grid principal 3 columnas */}
+          <div className="grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
+            {/* Col 1: Sello + tagline */}
+            <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
+              <div className="relative h-[110px] w-[110px] shrink-0">
+                <Image
+                  src="/images/sello-elara-nova.png"
+                  alt="Sello Elara Nova"
+                  fill
+                  sizes="110px"
+                  className="object-contain"
+                />
+              </div>
+              <p className="font-serif-italic text-sm leading-relaxed text-[#C49AD4]/50 italic">
+                Inspira · Transforma · Conecta
+              </p>
+              <div className="flex items-center gap-3 pt-1">
                 <motion.a
                   href="https://instagram.com/soyelaranova"
                   target="_blank"
@@ -1690,29 +1742,51 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Nav links */}
-            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-end" aria-label="Footer">
-              {[
-                { href: '#herramientas', label: 'Herramientas' },
-                { href: '#circulo', label: 'Círculo' },
-                { href: '#productos', label: 'Productos' },
-                { href: '/contact', label: 'Contacto' },
-              ].map(({ href, label }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="text-[10px] tracking-[0.22em] text-[#C49AD4]/40 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
+            {/* Col 2: Navegación */}
+            <div className="flex flex-col items-center gap-6 md:items-start">
+              <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Explorar</p>
+              <nav className="flex flex-col gap-3" aria-label="Footer nav">
+                {[
+                  { href: '#herramientas', label: 'Herramientas' },
+                  { href: '#circulo', label: 'El Círculo' },
+                  { href: '#cursos', label: 'Cursos' },
+                  { href: '#productos', label: 'Productos' },
+                  { href: '#sobre', label: 'Sobre Elara' },
+                ].map(({ href, label }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Col 3: CTA + frase */}
+            <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
+              <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Empezá</p>
+              <p className="font-serif-italic text-base leading-relaxed text-[#C49AD4]/55 italic">
+                Tu alma ya sabe.<br />
+                Solo necesita el espacio para recordar.
+              </p>
+              <a
+                href="#email"
+                className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/35 px-6 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all duration-300 hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.06]"
+              >
+                <span aria-hidden>✦</span> Unite al Círculo
+              </a>
+            </div>
           </div>
 
-          {/* Bottom row */}
-          <div className="mt-8 border-t border-white/5 pt-6 text-center">
+          {/* Bottom: línea + copyright */}
+          <div className="mt-14 flex flex-col items-center gap-3 border-t border-white/5 pt-8 md:flex-row md:justify-between">
             <p className="text-[9px] tracking-[0.22em] text-[#C49AD4]/25 uppercase">
-              © 2026 Elara Nova · Hecho con alma ✦
+              © 2026 Elara Nova
+            </p>
+            <p className="font-serif-italic text-[10px] text-[#C49AD4]/20 italic">
+              Hecho con alma ✦
             </p>
           </div>
         </div>

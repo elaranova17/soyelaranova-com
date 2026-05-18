@@ -48,24 +48,15 @@ const TOP_NAV: readonly TopNavLink[] = [
 
 function TopLogo() {
   return (
-    <div className="flex items-center gap-2.5">
-      <svg
-        width={20}
-        height={20}
-        viewBox="0 0 20 20"
-        aria-hidden
-        style={{ color: 'var(--color-gold-bright)' }}
-      >
-        <path
-          d="M10 1.5 11.75 7.9 18.5 10 11.75 12.1 10 18.5 8.25 12.1 1.5 10 8.25 7.9 10 1.5Z"
-          fill="currentColor"
-        />
-        <path
-          d="M10 5.4 10.9 9.1 14.6 10 10.9 10.9 10 14.6 9.1 10.9 5.4 10 9.1 9.1 10 5.4Z"
-          fill="rgba(245,238,248,0.42)"
-        />
+    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
+      {/* Arco + estrella compacto */}
+      <svg width="52" height="18" viewBox="0 0 72 28" fill="none" aria-hidden className="-mb-0.5 ml-2">
+        <path d="M4 26 Q36 0 68 26" stroke="var(--color-gold-bright)" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+        <path d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z" fill="var(--color-gold-bright)" />
+        <circle cx="14" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
+        <circle cx="58" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
       </svg>
-      <span className="font-sans text-[11px] font-medium tracking-[0.3em] text-[var(--color-cream)] uppercase">
+      <span className="font-sans text-[11px] font-medium leading-none tracking-[0.25em] text-[var(--color-cream)] uppercase">
         Elara Nova
       </span>
     </div>
@@ -74,28 +65,32 @@ function TopLogo() {
 
 function Logo() {
   return (
-    <div className="flex items-center gap-3">
-      <svg width={26} height={20} viewBox="0 0 26 20" aria-hidden style={{ color: 'var(--color-gold-bright)' }}>
-        <g fill="none" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round">
-          <circle cx={3} cy={10} r={1.5} fill="currentColor" />
-          <circle cx={9} cy={4}  r={1.5} fill="currentColor" />
-          <circle cx={13} cy={12} r={1.5} fill="currentColor" />
-          <circle cx={19} cy={6}  r={1.5} fill="currentColor" />
-          <circle cx={23} cy={14} r={1.5} fill="currentColor" />
-          <path d="M3 10 L9 4 L13 12 L19 6 L23 14" />
-        </g>
+    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
+      <svg width="76" height="26" viewBox="0 0 72 28" fill="none" aria-hidden className="-mb-1 ml-4">
+        <path d="M4 26 Q36 0 68 26" stroke="var(--color-gold-bright)" strokeWidth="1.4" strokeLinecap="round" fill="none" />
+        <path d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z" fill="var(--color-gold-bright)" />
+        <circle cx="14" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
+        <circle cx="58" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
       </svg>
       <span
         style={{
           fontFamily: 'var(--font-display)',
           fontStyle: 'italic',
           color: 'var(--color-cream)',
-          fontSize: 18,
-          letterSpacing: '0.1em',
+          fontSize: 22,
+          letterSpacing: '0.08em',
+          lineHeight: 1,
         }}
       >
-        Elara Nova
+        Elara
       </span>
+      <div className="mt-0.5 flex items-center gap-1.5">
+        <span className="h-px w-5 bg-[var(--color-gold)]/60" />
+        <span style={{ fontFamily: 'var(--font-sans)', fontSize: 9, letterSpacing: '0.5em', color: 'var(--color-gold-soft)', textTransform: 'uppercase' }}>
+          NOVA
+        </span>
+        <span className="h-px w-5 bg-[var(--color-gold)]/60" />
+      </div>
     </div>
   )
 }
