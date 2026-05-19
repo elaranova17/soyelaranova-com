@@ -223,9 +223,7 @@ const products: readonly ProductCard[] = [
     img: '/images/ciclos-lunares-rituales.png',
     title: 'Ciclo Nova del Regreso',
     text: 'Ebook de retorno personal. Rituales suaves para volver a vos después de lo que sea.',
-    href: 'https://pay.hotmart.com/REPLACE_WITH_REAL_HOTMART_PRODUCT_ID',
-    target: '_blank',
-    rel: 'noopener noreferrer',
+    href: '#email',
   },
   {
     img: '/images/oraculo-maestra.png',
@@ -241,9 +239,7 @@ const products: readonly ProductCard[] = [
     img: '/images/producto-planificador-lunar.jpg',
     title: 'Planificador Lunar',
     text: 'Organizá tu mes con las fases lunares. PDF descargable, imprimible, tuyo.',
-    href: 'https://soyelaranova.ck.page/REPLACE_WITH_REAL_CONVERTKIT_FORM',
-    target: '_blank',
-    rel: 'noopener noreferrer',
+    href: '#email',
   },
 ] as const
 
@@ -337,38 +333,44 @@ const CIRCULO_TRUST = [
 
 const HERO_FEATURES = [
   {
-    icon: 'Estrellas' as IconKey,
-    href: '#herramientas',
-    label: 'Herramientas de alma',
-    description: 'Calculá tu carta, leé tus ciclos, entendete.',
-  },
-  {
     icon: 'Oraculo' as IconKey,
     href: '#lecturas-oraculo',
+    img: '/hero/tarot-elara-cartas.jpg',
     label: 'Lecturas de oráculo',
     description: 'Hacé tu pregunta. Tu mensaje en 24h.',
   },
   {
     icon: 'Luna' as IconKey,
     href: '#herramientas',
+    img: '/hero/portal-lunar-bg.jpg',
     label: 'Calendario lunar',
     description: 'Conectate con la energía de cada fase.',
   },
   {
-    icon: 'Ebook' as IconKey,
-    href: '#productos',
-    label: 'Recursos digitales',
-    description: 'Ebooks, journals y planificadores para vos.',
-  },
-  {
     icon: 'Comunidad' as IconKey,
     href: '#circulo',
+    img: '/hero/circulo-bg.jpg',
     label: 'El Círculo',
     description: 'Comunidad de mujeres que se sostienen.',
   },
   {
+    icon: 'Estrellas' as IconKey,
+    href: '#herramientas',
+    img: '/hero/herramientas-elara-orbe.jpg',
+    label: 'Herramientas de alma',
+    description: 'Calculá tu carta, leé tus ciclos, entendete.',
+  },
+  {
+    icon: 'Ebook' as IconKey,
+    href: '#productos',
+    img: '/hero/archivo-astral-bg.jpg',
+    label: 'Recursos digitales',
+    description: 'Ebooks, journals y planificadores para vos.',
+  },
+  {
     icon: 'Cursos' as IconKey,
     href: '#cursos',
+    img: '/hero/codice-bg.jpg',
     label: 'Cursos',
     description: 'Formaciones para aprender de verdad.',
   },
@@ -398,11 +400,11 @@ function LogoBrand({ size = 'md' }: { size?: 'sm' | 'md' }) {
 
 /* ── NAV LANDING ─────────────────────────────────────────────────────── */
 const NAV_LINKS = [
-  { href: '#herramientas', label: 'Herramientas' },
-  { href: '#circulo',      label: 'Círculo'       },
-  { href: '#cursos',       label: 'Cursos'        },
-  { href: '#productos',    label: 'Productos'     },
-  { href: '#sobre',        label: 'Sobre mí'      },
+  { href: '#herramientas', label: 'Herramientas', dropdown: true },
+  { href: '#circulo',      label: 'Círculo',       dropdown: false },
+  { href: '#cursos',       label: 'Cursos',        dropdown: false },
+  { href: '#productos',    label: 'Productos',     dropdown: false },
+  { href: '#sobre',        label: 'Sobre mí',      dropdown: false },
 ] as const
 
 function NavLanding() {
@@ -448,19 +450,24 @@ function NavLanding() {
 
         {/* Desktop links */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegación">
-          {NAV_LINKS.map(({ href, label }, i) => (
-            <a
-              key={href}
-              href={href}
-              className="group relative px-4 py-2 text-[10px] tracking-[0.26em] uppercase text-[#C49AD4]/60 transition-colors duration-200 hover:text-[#D4AF37]"
-            >
+          {NAV_LINKS.map(({ href, label, dropdown }, i) => (
+            <span key={href} className="flex items-center">
               {i > 0 && (
-                <span aria-hidden className="absolute left-0 top-1/2 -translate-y-1/2 text-[8px] text-[#7B4FB5]/30">✦</span>
+                <span aria-hidden className="mx-1 text-[8px] text-[#D4AF37]/25 select-none">+</span>
               )}
-              {label}
-              {/* hover underline */}
-              <span className="absolute bottom-1 left-4 right-4 h-px origin-left scale-x-0 bg-gradient-to-r from-[#D4AF37]/70 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
-            </a>
+              <a
+                href={href}
+                className="group relative flex items-center gap-1 px-3 py-2 text-[10px] tracking-[0.26em] uppercase text-[#C49AD4]/70 transition-colors duration-200 hover:text-[#D4AF37]"
+              >
+                {label}
+                {dropdown && (
+                  <svg aria-hidden width="8" height="5" viewBox="0 0 8 5" fill="none" className="opacity-50 group-hover:opacity-100 transition-opacity">
+                    <path d="M1 1l3 3 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+                <span aria-hidden className="absolute bottom-1 left-3 right-3 h-px origin-left scale-x-0 bg-gradient-to-r from-[#D4AF37]/70 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
+              </a>
+            </span>
           ))}
         </nav>
 
@@ -469,9 +476,10 @@ function NavLanding() {
           {/* CTA — desktop */}
           <motion.a
             href="#email"
-            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(212,175,55,0.35)' }}
+            whileHover={{ scale: 1.03, boxShadow: '0 0 28px rgba(212,175,55,0.30)' }}
             whileTap={{ scale: 0.97 }}
-            className="hidden sm:flex items-center gap-2 rounded-full bg-[#D4AF37] px-5 py-2.5 text-[10px] font-bold tracking-[0.28em] text-[#0E0726] uppercase"
+            className="hidden sm:flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/[0.07] px-5 py-2.5 text-[10px] font-semibold tracking-[0.28em] text-[#D4AF37] uppercase backdrop-blur-sm"
+            style={{ boxShadow: '0 0 18px rgba(212,175,55,0.12)' }}
           >
             <span aria-hidden className="text-[8px]">✦</span>
             Unirme
@@ -836,68 +844,98 @@ export default function HomePage() {
                 href="#herramientas"
                 whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(123,79,181,0.55)' }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[#7B4FB5] px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
+                className="group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
+                style={{ background: 'linear-gradient(135deg, #6F42C1 0%, #B58CFF 100%)', boxShadow: '0 0 32px rgba(181,140,255,0.30)' }}
               >
                 <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span aria-hidden className="text-[#F2D578]">✦</span>
                 Descubrí tu camino
               </motion.a>
               <motion.a
                 href="#circulo"
-                whileHover={{ scale: 1.015 }}
+                whileHover={{ scale: 1.015, borderColor: 'rgba(212,175,55,0.55)', backgroundColor: 'rgba(212,175,55,0.04)' }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center justify-center gap-2.5 rounded-2xl border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-all duration-300 hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/[0.04] hover:text-[#D4AF37]"
+                className="flex items-center justify-center gap-2.5 rounded-full border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-colors duration-300"
+                style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', background: 'rgba(255,255,255,0.03)' }}
               >
+                {/* Crescent moon icon */}
+                <svg aria-hidden width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M11 9.5A5.5 5.5 0 1 1 3.5 2a4 4 0 0 0 7.5 7.5z" fill="currentColor" opacity="0.8"/>
+                </svg>
                 Entrar al Círculo
               </motion.a>
             </motion.div>
           </div>
 
-          {/* ── FEATURE STRIP — fondo del hero ───────────────────── */}
+          {/* ── FEATURE CARDS — imagen + ícono + copy ────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="px-4 pb-6 md:px-8"
+            className="px-4 pb-8 md:px-8"
           >
-            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/10 bg-[#0E0726]/90 backdrop-blur-md">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:divide-x lg:divide-[#7B4FB5]/10">
-                {HERO_FEATURES.map(({ icon, href, label, description }, i) => (
-                  <motion.a
-                    key={label}
-                    href={href}
-                    custom={i}
-                    initial="hidden"
-                    animate="show"
-                    variants={fadeUp}
-                    className="group flex flex-col items-center gap-3 border-b border-[#7B4FB5]/10 px-4 py-6 text-center transition-colors duration-300 hover:bg-[#1A0F3D]/70 lg:border-b-0"
-                  >
-                    {/* Icono grande con glow pulsante */}
-                    <motion.div
-                      className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#7B4FB5]/30 bg-[#1A0F3D]/90 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:border-[#D4AF37]/50 group-hover:shadow-[0_0_22px_rgba(212,175,55,0.25)]"
-                      animate={{
-                        boxShadow: [
-                          '0 0 0px rgba(212,175,55,0)',
-                          '0 0 14px rgba(212,175,55,0.22)',
-                          '0 0 0px rgba(212,175,55,0)',
-                        ],
-                      }}
-                      transition={{ repeat: Infinity, duration: 3 + i * 0.3, delay: i * 0.2, ease: 'easeInOut' }}
-                      whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+              {HERO_FEATURES.map(({ icon, href, img, label, description }, i) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  custom={i}
+                  initial="hidden"
+                  animate="show"
+                  variants={fadeUp}
+                  whileHover={{ y: -6, transition: { type: 'spring', stiffness: 280, damping: 20 } }}
+                  className="group relative flex flex-col overflow-hidden rounded-[22px] border border-[#D4AF37]/15 transition-all duration-500 hover:border-[#D4AF37]/40"
+                  style={{ background: 'rgba(18,10,40,0.78)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
+                >
+                  {/* Image */}
+                  <div className="relative h-[140px] overflow-hidden">
+                    <Image
+                      src={img}
+                      alt={label}
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#120A28]/90 via-[#120A28]/20 to-transparent" />
+                    {/* Hover glow sweep */}
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                    {/* Icon pill — top right */}
+                    <div
+                      className="absolute top-2.5 right-2.5 flex h-8 w-8 items-center justify-center rounded-full border border-[#D4AF37]/30 transition-all duration-300 group-hover:border-[#D4AF37]/60"
+                      style={{ background: 'rgba(14,7,38,0.80)', backdropFilter: 'blur(8px)' }}
                     >
-                      {ElaraIcons[icon].render(36)}
-                    </motion.div>
+                      {ElaraIcons[icon].render(18)}
+                    </div>
+                  </div>
 
-                    <p className="text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]/90">
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col gap-1.5 px-3.5 py-3">
+                    <p className="text-[9.5px] font-semibold leading-snug tracking-[0.2em] text-[#F5EEF8]/85 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]">
                       {label}
                     </p>
-                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/45">
+                    <p className="text-[9px] leading-relaxed text-[#C49AD4]/55 line-clamp-2">
                       {description}
                     </p>
-                    <span className="text-[11px] text-[#D4AF37]/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#D4AF37]/80">→</span>
-                  </motion.a>
-                ))}
-              </div>
+                    <div className="mt-auto pt-2">
+                      <span
+                        className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/25 text-[10px] text-[#D4AF37]/50 transition-all duration-300 group-hover:border-[#D4AF37]/70 group-hover:text-[#D4AF37] group-hover:shadow-[0_0_10px_rgba(212,175,55,0.35)]"
+                      >
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
             </div>
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="mt-5 text-center font-serif text-[11px] italic tracking-[0.18em] text-[#D4AF37]/40"
+            >
+              ✦ &nbsp; Este es tu lugar. Volvé siempre a vos. &nbsp; ✦
+            </motion.p>
           </motion.div>
         </div>
       </section>

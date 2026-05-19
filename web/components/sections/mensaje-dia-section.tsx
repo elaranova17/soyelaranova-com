@@ -7,7 +7,7 @@ export function MensajeDiaSection() {
           Hoy el universo te recuerda que tu luz no necesita permiso para brillar.
         </h2>
         <p className="text-[#b8a8d0] mb-8">Confía. Fluye. Todo se acomoda.</p>
-        <a href="#" className="text-[#C9A84C] text-sm border border-[#C9A84C]/40 px-6 py-2 rounded-full hover:bg-[#C9A84C]/10 transition-colors">
+        <a href="/herramientas" className="text-[#C9A84C] text-sm border border-[#C9A84C]/40 px-6 py-2 rounded-full hover:bg-[#C9A84C]/10 transition-colors">
           Ver mensajes anteriores →
         </a>
       </div>
