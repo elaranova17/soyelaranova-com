@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { siteImages } from '@/lib/site-images'
 
@@ -6,33 +9,18 @@ type DigitalProduct = {
   title: string
   price: number
   imageSrc: string | null
+  tab: string
 }
 
-const TABS = [
-  'Destacados',
-  'Ebooks',
-  'Journals',
-  'Plantillas',
-  'Wallpapers',
-  'Kits',
-] as const
+const TABS = ['Destacados', 'Ebooks', 'Journals', 'Plantillas', 'Wallpapers', 'Kits'] as const
+type Tab = typeof TABS[number]
 
 const DIGITAL_PRODUCTS: readonly DigitalProduct[] = [
-  { id: 'guia', title: 'Guía para Manifestar', price: 12, imageSrc: null },
-  { id: 'diario', title: 'Diario de la Abundancia', price: 18, imageSrc: null },
-  {
-    id: 'planificador',
-    title: 'Planificador Lunar',
-    price: 9,
-    imageSrc: siteImages.tienda.planificadorLunar,
-  },
-  {
-    id: 'kit',
-    title: 'Kit de Rituales',
-    price: 20,
-    imageSrc: siteImages.tienda.kitRituales,
-  },
-  { id: 'luna', title: 'Colección Luna', price: 6, imageSrc: null },
+  { id: 'guia',          title: 'Guía para Manifestar',    price: 12, imageSrc: null,                          tab: 'Ebooks' },
+  { id: 'diario',        title: 'Diario de la Abundancia', price: 18, imageSrc: null,                          tab: 'Journals' },
+  { id: 'planificador',  title: 'Planificador Lunar',       price: 9,  imageSrc: siteImages.tienda.planificadorLunar, tab: 'Plantillas' },
+  { id: 'kit',           title: 'Kit de Rituales',          price: 20, imageSrc: siteImages.tienda.kitRituales, tab: 'Kits' },
+  { id: 'luna',          title: 'Colección Luna',           price: 6,  imageSrc: null,                          tab: 'Wallpapers' },
 ] as const
 
 function ProductCard({ product }: { product: DigitalProduct }) {
@@ -63,6 +51,12 @@ function ProductCard({ product }: { product: DigitalProduct }) {
 }
 
 export function RecursosDigitalesSection() {
+  const [activeTab, setActiveTab] = useState<Tab>('Destacados')
+
+  const filtered = activeTab === 'Destacados'
+    ? DIGITAL_PRODUCTS
+    : DIGITAL_PRODUCTS.filter((p) => p.tab === activeTab)
+
   return (
     <section
       id="recursos-digitales"
@@ -81,14 +75,15 @@ export function RecursosDigitalesSection() {
         </h2>
 
         <div className="mb-8 flex flex-wrap gap-2">
-          {TABS.map((tab, index) => (
+          {TABS.map((tab) => (
             <button
               key={tab}
               type="button"
-              className={`rounded-full px-4 py-2 text-sm ${
-                index === 0
+              onClick={() => setActiveTab(tab)}
+              className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
+                activeTab === tab
                   ? 'bg-[#7c3aed] text-white'
-                  : 'border border-[#2d1f4e] text-[#9080b0]'
+                  : 'border border-[#2d1f4e] text-[#9080b0] hover:border-[#7c3aed]/50 hover:text-[#C9A84C]'
               }`}
             >
               {tab}
@@ -97,9 +92,15 @@ export function RecursosDigitalesSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-          {DIGITAL_PRODUCTS.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {filtered.length > 0 ? (
+            filtered.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          ) : (
+            <p className="col-span-full py-12 text-center text-sm text-[#9080b0]">
+              Próximamente en esta categoría.
+            </p>
+          )}
         </div>
       </div>
     </section>
