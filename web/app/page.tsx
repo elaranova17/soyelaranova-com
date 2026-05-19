@@ -436,12 +436,16 @@ function NavLanding() {
         initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        className={[
-          'fixed inset-x-0 top-0 z-50 flex h-[68px] items-center justify-between px-6 md:px-10 transition-all duration-500',
-          scrolled
-            ? 'bg-[#0E0726]/93 backdrop-blur-2xl border-b border-[#7B4FB5]/18 shadow-[0_8px_40px_rgba(0,0,0,0.5)]'
-            : 'bg-gradient-to-b from-[#0E0726]/65 to-transparent',
-        ].join(' ')}
+        className="fixed inset-x-0 top-0 z-50 flex h-[72px] items-center justify-between px-6 md:px-10 transition-all duration-500"
+        style={{
+          background: scrolled
+            ? 'rgba(10,6,25,0.92)'
+            : 'rgba(10,6,25,0.60)',
+          backdropFilter: 'blur(18px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(160%)',
+          borderBottom: '1px solid rgba(212,175,55,0.12)',
+          boxShadow: scrolled ? '0 8px 40px rgba(0,0,0,0.45)' : 'none',
+        }}
       >
         {/* Logo */}
         <a href="#inicio" aria-label="Elara Nova · Inicio">
@@ -485,15 +489,16 @@ function NavLanding() {
             Unirme
           </motion.a>
 
-          {/* Hamburger — mobile */}
+          {/* Hamburger — visible en todos los breakpoints como en mockup */}
           <button
             onClick={() => setOpen(true)}
             aria-label="Abrir menú"
             aria-expanded={open}
-            className="flex lg:hidden flex-col items-end gap-[6px] p-2 group"
+            className="flex flex-col items-center justify-center gap-[5px] rounded-lg p-2.5 transition-colors duration-200 hover:bg-[#D4AF37]/10 group"
           >
-            <span className="block h-px w-5 bg-[#C49AD4] transition-all duration-300 group-hover:bg-[#D4AF37]" />
-            <span className="block h-px w-3.5 bg-[#C49AD4] transition-all duration-300 group-hover:w-5 group-hover:bg-[#D4AF37]" />
+            <span className="block h-[1.5px] w-[18px] bg-[#C49AD4]/70 transition-all duration-300 group-hover:bg-[#D4AF37]" />
+            <span className="block h-[1.5px] w-[13px] bg-[#C49AD4]/70 transition-all duration-300 group-hover:w-[18px] group-hover:bg-[#D4AF37]" />
+            <span className="block h-[1.5px] w-[18px] bg-[#C49AD4]/70 transition-all duration-300 group-hover:bg-[#D4AF37]" />
           </button>
         </div>
       </motion.header>
@@ -739,8 +744,9 @@ export default function HomePage() {
       <MagicParticles density="normal" zone="full" />
       <NavLanding />
 
-      <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
-        {/* ── BACKGROUND full-bleed ────────────────────────────── */}
+      <section id="inicio" className="relative overflow-hidden bg-[#0A0010]" style={{ minHeight: '100svh' }}>
+
+        {/* ── IMAGEN PERSONAJE — posicionada a la derecha ───────── */}
         <div className="absolute inset-0" aria-hidden>
           <Image
             src="/images/hero-elara-escritorio.jpg"
@@ -748,76 +754,92 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-right"
           />
-          {/* Gradient izquierda — contenido legible (escritorio centrado, más cobertura) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/92 lg:via-[#0E0726]/80 to-[#0E0726]/30" />
-          {/* Gradient arriba + abajo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/60 via-transparent to-[#0E0726]/92" />
-          {/* Bloom izquierda */}
-          <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/3 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.03] blur-[80px]" />
+          {/* Gradiente izquierda: cubre el área de texto, desvanece hacia el personaje */}
+          <div className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #0A0010 0%, #0A0010 38%, rgba(10,0,16,0.80) 52%, rgba(10,0,16,0.30) 70%, rgba(10,0,16,0.08) 100%)' }}
+          />
+          {/* Degradado superior */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0010]/70 via-transparent to-transparent" />
+          {/* Degradado inferior */}
+          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#0A0010] to-transparent" />
+          {/* Bloom lila detrás del texto */}
+          <div className="pointer-events-none absolute top-1/3 left-0 h-[500px] w-[500px] -translate-x-1/3 rounded-full bg-[#6F42C1]/[0.18] blur-[120px]" />
         </div>
 
-        {/* Hero particles — más densas y grandes en el hero */}
+        {/* Partículas */}
         <MagicParticles density="high" zone="hero" />
 
-        {/* ── ESTRELLAS flotantes ───────────────────────────────── */}
+        {/* Estrellas flotantes */}
         {[
-          { mark: '✦', className: 'top-[18%] left-[12%] text-[8px] text-[#D4AF37]/25', duration: 3.2, delay: 0 },
-          { mark: '·', className: 'top-[28%] left-[36%] text-[10px] text-[#D4AF37]/20', duration: 4.4, delay: 0.4 },
-          { mark: '✦', className: 'top-[16%] left-[55%] text-[6px] text-[#D4AF37]/20', duration: 5.2, delay: 1.1 },
-          { mark: '·', className: 'top-[52%] left-[8%] text-[9px] text-[#D4AF37]/15', duration: 3.8, delay: 1.6 },
-          { mark: '✦', className: 'left-[45%] bottom-[38%] text-[10px] text-[#D4AF37]/18', duration: 5.8, delay: 0.8 },
-          { mark: '·', className: 'bottom-[28%] left-[24%] text-[8px] text-[#D4AF37]/22', duration: 4.8, delay: 1.3 },
-        ].map((star) => (
-          <motion.span
-            key={star.className}
-            aria-hidden
-            className={`pointer-events-none absolute ${star.className}`}
-            animate={{ opacity: [0.2, 0.7, 0.2] }}
-            transition={{ repeat: Infinity, duration: star.duration, delay: star.delay }}
-          >
-            {star.mark}
-          </motion.span>
+          { mark: '✦', top: '20%', left: '8%',  size: '7px',  op: '0.22', dur: 3.2, del: 0 },
+          { mark: '·', top: '32%', left: '32%', size: '9px',  op: '0.18', dur: 4.4, del: 0.4 },
+          { mark: '✦', top: '14%', left: '52%', size: '5px',  op: '0.15', dur: 5.2, del: 1.1 },
+          { mark: '·', top: '55%', left: '6%',  size: '8px',  op: '0.12', dur: 3.8, del: 1.6 },
+          { mark: '✦', top: '62%', left: '42%', size: '9px',  op: '0.14', dur: 5.8, del: 0.8 },
+        ].map((s) => (
+          <motion.span key={s.left + s.top} aria-hidden
+            className="pointer-events-none absolute"
+            style={{ top: s.top, left: s.left, fontSize: s.size, color: `rgba(212,175,55,${s.op})` }}
+            animate={{ opacity: [+s.op * 0.4, +s.op * 1.8, +s.op * 0.4] }}
+            transition={{ repeat: Infinity, duration: s.dur, delay: s.del }}
+          >{s.mark}</motion.span>
         ))}
 
-        {/* ── CONTENIDO ─────────────────────────────────────────── */}
+        {/* "Tu magia." — texto sobre la imagen (esquina superior derecha) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1.5 }}
+          aria-hidden
+          className="pointer-events-none absolute top-[22%] right-[6%] hidden text-right lg:block"
+        >
+          {['Tu magia.', 'Tu camino.', 'Tu nueva vida.'].map((line) => (
+            <p key={line}
+              className="font-serif leading-snug text-[#F5EEF8]/25"
+              style={{ fontSize: 'clamp(14px, 1.4vw, 20px)', fontStyle: 'italic', letterSpacing: '0.04em' }}
+            >{line}</p>
+          ))}
+        </motion.div>
+
+        {/* ── CONTENIDO PRINCIPAL ───────────────────────────────── */}
         <div className="relative z-10 flex min-h-[100svh] flex-col pt-[88px]">
-          {/* Área principal — izquierda */}
-          <div className="flex flex-1 flex-col justify-center px-8 py-16 md:px-16 lg:max-w-[58%] xl:max-w-[52%]">
-            {/* Chip badge */}
+
+          {/* Texto + CTAs — columna izquierda */}
+          <div className="flex flex-1 flex-col justify-center px-6 py-16 md:px-14 lg:max-w-[55%] xl:max-w-[48%]">
+
+            {/* Eyebrow pill */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 inline-flex items-center gap-2.5 self-start rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06] px-4 py-2"
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-7 inline-flex items-center gap-2 self-start rounded-full border border-[#D4AF37]/35 bg-[#D4AF37]/[0.07] px-4 py-2"
             >
-              <motion.span
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-              >
-                {ElaraIcons.Estrellas.render(11)}
-              </motion.span>
-              <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/75 uppercase">
-                Lo que siempre pudiste hacer ✦
+              <span className="text-[9px] tracking-[0.38em] text-[#D4AF37]/80 uppercase select-none">
+                ✦ &nbsp;Lo que siempre pudiste hacer&nbsp; ✦
               </span>
             </motion.div>
 
-            {/* H1 */}
-            <h1 className="font-display mb-6 text-[2.6rem] leading-[1.04] tracking-[-0.022em] text-[#F5EEF8] sm:text-[3.2rem] lg:text-[4.1rem]">
+            {/* H1 — grande como en el mockup */}
+            <h1 className="font-display mb-7 tracking-[-0.02em] text-[#F5EEF8]"
+              style={{ fontSize: 'clamp(2.8rem, 5.8vw, 5.2rem)', lineHeight: 1.02 }}
+            >
               {[
-                { content: 'Tu alma ya sabe.' },
-                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">Vos solo aprendés</em> },
-                { content: 'a escucharla.' },
-              ].map((line, index) => (
-                <div key={index} className="overflow-hidden">
+                { text: 'Tu alma ya sabe.',  em: false },
+                { text: 'Vos solo aprendés', em: true  },
+                { text: 'a escucharla.',     em: false },
+              ].map(({ text, em }, i) => (
+                <div key={i} className="overflow-hidden">
                   <motion.div
                     initial={{ y: '110%', opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.72, delay: 0.08 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.70, delay: 0.06 + i * 0.13, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {line.content}
+                    {em
+                      ? <em className="not-italic" style={{ color: '#B58CFF', fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontWeight: 400 }}>{text}</em>
+                      : text
+                    }
                   </motion.div>
                 </div>
               ))}
@@ -825,10 +847,11 @@ export default function HomePage() {
 
             {/* Subtítulo */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif-italic mb-10 max-w-[380px] text-[1.05rem] leading-[1.8] text-[#C49AD4]/60 italic"
+              transition={{ duration: 0.55, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-10 max-w-[400px] leading-relaxed text-[#C8B6E6]/65"
+              style={{ fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}
             >
               Herramientas de autoconocimiento para mujeres que eligen vivirse desde adentro.
             </motion.p>
@@ -837,41 +860,43 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-3.5 sm:flex-row"
+              transition={{ duration: 0.5, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-wrap gap-3.5"
             >
+              {/* Primario — velvet purple */}
               <motion.a
                 href="#herramientas"
-                whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(123,79,181,0.55)' }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 44px rgba(111,66,193,0.65)' }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
-                style={{ background: 'linear-gradient(135deg, #6F42C1 0%, #B58CFF 100%)', boxShadow: '0 0 32px rgba(181,140,255,0.30)' }}
+                className="group relative flex items-center gap-2.5 overflow-hidden rounded-full px-8 py-[15px] text-[10px] font-bold tracking-[0.28em] text-[#F5EEF8] uppercase"
+                style={{ background: 'linear-gradient(135deg,#6F42C1 0%,#9B5FE8 60%,#B58CFF 100%)', boxShadow: '0 0 36px rgba(181,140,255,0.28)' }}
               >
-                <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                <span aria-hidden className="text-[#F2D578]">✦</span>
+                <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span aria-hidden style={{ color: '#F2D578', fontSize: 9 }}>✦</span>
                 Descubrí tu camino
               </motion.a>
+
+              {/* Secundario — glass dark */}
               <motion.a
                 href="#circulo"
-                whileHover={{ scale: 1.015, borderColor: 'rgba(212,175,55,0.55)', backgroundColor: 'rgba(212,175,55,0.04)' }}
+                whileHover={{ scale: 1.02, borderColor: 'rgba(212,175,55,0.50)' }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center justify-center gap-2.5 rounded-full border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-colors duration-300"
-                style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', background: 'rgba(255,255,255,0.03)' }}
+                className="flex items-center gap-2.5 rounded-full border border-[#D4AF37]/22 px-8 py-[15px] text-[10px] tracking-[0.28em] text-[#C8B6E6]/80 uppercase transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
               >
-                {/* Crescent moon icon */}
-                <svg aria-hidden width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <path d="M11 9.5A5.5 5.5 0 1 1 3.5 2a4 4 0 0 0 7.5 7.5z" fill="currentColor" opacity="0.8"/>
+                <svg aria-hidden width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M10.5 8.5A5 5 0 1 1 3.5 1.5a3.5 3.5 0 0 0 7 7z" fill="currentColor" opacity="0.75"/>
                 </svg>
                 Entrar al Círculo
               </motion.a>
             </motion.div>
           </div>
 
-          {/* ── FEATURE CARDS — imagen + ícono + copy ────────────── */}
+          {/* ── 6 FEATURE CARDS ───────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="px-4 pb-8 md:px-8"
           >
             <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
@@ -883,42 +908,42 @@ export default function HomePage() {
                   initial="hidden"
                   animate="show"
                   variants={fadeUp}
-                  whileHover={{ y: -6, transition: { type: 'spring', stiffness: 280, damping: 20 } }}
-                  className="group relative flex flex-col overflow-hidden rounded-[22px] border border-[#D4AF37]/15 transition-all duration-500 hover:border-[#D4AF37]/40"
-                  style={{ background: 'rgba(18,10,40,0.78)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
+                  whileHover={{ y: -7, transition: { type: 'spring', stiffness: 280, damping: 20 } }}
+                  className="group relative flex flex-col overflow-hidden rounded-[20px] border border-[#D4AF37]/18 transition-all duration-500 hover:border-[#D4AF37]/45 hover:shadow-[0_0_28px_rgba(212,175,55,0.14)]"
+                  style={{ background: 'rgba(14,7,38,0.82)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
                 >
-                  {/* Image */}
-                  <div className="relative h-[140px] overflow-hidden">
+                  {/* Imagen */}
+                  <div className="relative h-[160px] overflow-hidden">
                     <Image
                       src={img}
                       alt={label}
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-106"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#120A28]/90 via-[#120A28]/20 to-transparent" />
-                    {/* Hover glow sweep */}
-                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                    {/* Icon pill — top right */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0010]/85 via-[#0A0010]/15 to-transparent" />
+                    {/* Shimmer */}
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.05] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                    {/* Ícono — top right */}
                     <div
-                      className="absolute top-2.5 right-2.5 flex h-8 w-8 items-center justify-center rounded-full border border-[#D4AF37]/30 transition-all duration-300 group-hover:border-[#D4AF37]/60"
-                      style={{ background: 'rgba(14,7,38,0.80)', backdropFilter: 'blur(8px)' }}
+                      className="absolute top-2.5 right-2.5 flex h-[30px] w-[30px] items-center justify-center rounded-full border border-[#D4AF37]/30 transition-all duration-300 group-hover:border-[#D4AF37]/65"
+                      style={{ background: 'rgba(10,0,16,0.82)', backdropFilter: 'blur(8px)' }}
                     >
-                      {ElaraIcons[icon].render(18)}
+                      {ElaraIcons[icon].render(16)}
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex flex-1 flex-col gap-1.5 px-3.5 py-3">
-                    <p className="text-[9.5px] font-semibold leading-snug tracking-[0.2em] text-[#F5EEF8]/85 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]">
+                  {/* Contenido */}
+                  <div className="flex flex-1 flex-col gap-1.5 px-3.5 py-3.5">
+                    <p className="text-[9px] font-bold leading-tight tracking-[0.22em] text-[#F5EEF8]/88 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]">
                       {label}
                     </p>
-                    <p className="text-[9px] leading-relaxed text-[#C49AD4]/55 line-clamp-2">
+                    <p className="text-[9px] leading-[1.5] text-[#C8B6E6]/50 line-clamp-2">
                       {description}
                     </p>
-                    <div className="mt-auto pt-2">
+                    <div className="mt-auto pt-2.5">
                       <span
-                        className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/25 text-[10px] text-[#D4AF37]/50 transition-all duration-300 group-hover:border-[#D4AF37]/70 group-hover:text-[#D4AF37] group-hover:shadow-[0_0_10px_rgba(212,175,55,0.35)]"
+                        className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-full border border-[#D4AF37]/28 text-[10px] text-[#D4AF37]/55 transition-all duration-300 group-hover:border-[#D4AF37]/75 group-hover:text-[#D4AF37] group-hover:shadow-[0_0_12px_rgba(212,175,55,0.38)]"
                       >
                         →
                       </span>
@@ -927,12 +952,14 @@ export default function HomePage() {
                 </motion.a>
               ))}
             </div>
+
             {/* Tagline */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="mt-5 text-center font-serif text-[11px] italic tracking-[0.18em] text-[#D4AF37]/40"
+              transition={{ duration: 0.9, delay: 1.5 }}
+              className="mt-5 text-center text-[11px] italic tracking-[0.2em] text-[#D4AF37]/38"
+              style={{ fontFamily: 'var(--font-cormorant)' }}
             >
               ✦ &nbsp; Este es tu lugar. Volvé siempre a vos. &nbsp; ✦
             </motion.p>
