@@ -1,0 +1,188 @@
+{
+  "brand": {
+    "name": "Elara Nova",
+    "style": "Pixar 3D + Disney Encanto + esoterismo paisa colombiano",
+    "palette": {
+      "void": "#0A0010",
+      "purple_night": "#1A0F3D",
+      "purple_deep": "#2D1B69",
+      "lavender": "#9B6BC4",
+      "gold": "#D4AF37",
+      "gold_bright": "#F2D578",
+      "white_rose": "#F5EEF8"
+    },
+    "fonts": ["Playfair Display", "Cormorant Garamond italic", "Lato"],
+    "negative_prompt": "stock photo, corporate, white background, plain, minimal, TikTok, coach, bright daylight, modern sans-serif only, flat design, no texture"
+  },
+
+  "sections": {
+
+    "hero_background": {
+      "id": "hero-elara-escritorio",
+      "description": "Imagen de fondo hero principal del sitio",
+      "prompt": "A young Colombian woman with dark hair and green eyes, wearing an embroidered purple floral dress, sitting at an antique wooden desk covered in open books, tarot-oracle cards, candles, crystals, and a glowing celestial orb. She gazes warmly toward the viewer. Background: a large arched window showing a deep purple night sky with a crescent moon, golden stars, candlelight glow, magical mystical atmosphere. Pixar 3D render quality, Disney Encanto art style, hyper-detailed, cinematic lighting, rich deep purples #1A0F3D, warm gold accents #D4AF37, ambient candle glow. Portrait composition, subject on right half of frame. 16:9 ratio.",
+      "variations": [
+        "same scene but character looking slightly left, more dreamy expression",
+        "close-up medium shot showing character from waist up, more books and crystals visible",
+        "wider establishing shot showing full mystic study room, character smaller but centered"
+      ],
+      "negative_prompt": "daytime, white walls, modern furniture, stock photo, realistic photo, ugly, blurry, western witch aesthetic",
+      "ratio": "16:9",
+      "output_path": "/web/public/images/hero-elara-escritorio.jpg"
+    },
+
+    "oracle_card_front": {
+      "id": "oracle-card-anverso",
+      "description": "Cara decorativa frontal de la carta del oráculo (boca abajo)",
+      "prompt": "A luxurious oracle card back design. Deep purple background #1A0F3D with intricate golden ornamental frame, delicate corner flourishes, celestial mandala in center made of thin gold lines, tiny stars and crescent moons woven into the border. The monogram 'EN' in elegant Playfair Display serif at center, surrounded by thin golden rays like a sun. Card proportions 2.5:3.5 (poker card). Very detailed, Art Nouveau meets celestial mysticism, print-quality illustration on dark background.",
+      "variations": [
+        "frame more baroque/ornate with vines and leaves",
+        "frame more minimal/geometric with art deco lines",
+        "frame with Andean/Colombian indigenous geometric patterns fused with celestial"
+      ],
+      "negative_prompt": "modern, flat, simple, pastel, white, generic playing card",
+      "ratio": "5:7",
+      "output_path": "/web/public/images/oracle-card-back.png"
+    },
+
+    "oracle_card_message": {
+      "id": "oracle-card-mensaje",
+      "description": "Cara con mensaje del oráculo (boca arriba después del flip)",
+      "prompt": "An oracle card face showing a mystical illustration. A luminous woman's silhouette standing in moonlight, arms raised, surrounded by golden particles and tiny stars. Deep purple background #0A0010, golden frame border #D4AF37, elegant serif text area at bottom reading 'Tu alma ya sabe' in Playfair Display. Art style: Disney Encanto meets Art Nouveau tarot card illustration. Ethereal, magical, warm candlelight glow. Card proportions 2.5:3.5.",
+      "variations": [
+        "woman looking at reflection in water surrounded by moon phase symbols",
+        "woman sitting in meditation pose inside a circle of floating botanical elements",
+        "a crescent moon with a woman's face, surrounded by celestial symbols"
+      ],
+      "negative_prompt": "dark or evil imagery, skulls, modern photography, stock art, explicit",
+      "ratio": "5:7",
+      "output_path": "/web/public/images/oracle-card-message.png"
+    },
+
+    "feature_card_oraculo": {
+      "id": "feature-lecturas-oraculo",
+      "description": "Imagen para feature card: Lecturas de Oráculo",
+      "prompt": "Three oracle cards fanned out on a dark purple velvet surface, glowing with golden inner light. Cards have intricate golden frame borders. Scattered crystal clusters, dried flowers, and a lit candle nearby. Warm candlelight, deep purple background #1A0F3D, gold particles floating. Pixar/Encanto illustration quality, top-down slightly angled view. Very atmospheric and magical.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/tarot-elara-cartas.jpg"
+    },
+
+    "feature_card_luna": {
+      "id": "feature-calendario-lunar",
+      "description": "Imagen para feature card: Calendario Lunar",
+      "prompt": "A large glowing crescent moon in a deep indigo purple sky #0A0010. The moon has a warm golden inner glow #F2D578 and a soft lavender halo. Below, a mystical landscape of purple hills, tiny golden stars everywhere. In the foreground, delicate moon phase symbols arranged in an arc. Pixar 3D cinematic render, magical dreamy atmosphere, Encanto color palette of deep purples and warm golds. No people.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/portal-lunar-bg.jpg"
+    },
+
+    "feature_card_circulo": {
+      "id": "feature-el-circulo",
+      "description": "Imagen para feature card: El Círculo",
+      "prompt": "A circle of 5-6 Latin women in their late 20s-30s sitting together in a cozy candlelit space, some holding journals or oracle cards, all listening warmly to each other. The scene has a spiritual gathering feel: candles, crystals, dried flowers on a low table. Deep purple ambient lighting, warm golden candlelight on faces, women wearing earthy but elegant clothes. Pixar/Encanto illustration style, community and sisterhood energy, no sad expressions, all warm and connected.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/circulo-bg.jpg"
+    },
+
+    "feature_card_herramientas": {
+      "id": "feature-herramientas-alma",
+      "description": "Imagen para feature card: Herramientas de Alma",
+      "prompt": "A magical astrologer's workspace: a large glowing celestial sphere showing a birth chart, surrounded by open books with golden illustrations, compass, quill pen, dried roses, amethyst crystals, and a star map scroll. Everything bathed in warm golden light against a deep purple background #1A0F3D. Pixar/Encanto 3D illustration quality, abundance of intricate detail, magical academic aesthetic. Overhead slightly angled shot.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/herramientas-elara-orbe.jpg"
+    },
+
+    "feature_card_recursos": {
+      "id": "feature-recursos-digitales",
+      "description": "Imagen para feature card: Recursos Digitales",
+      "prompt": "A flat lay of magical digital products: a glowing laptop showing purple and gold UI, surrounded by a printed moon calendar, an open illustrated journal with golden handwriting, a stack of decorated ebook covers, dried lavender, small crystal, and a lit candle. Deep purple wooden surface texture background, warm golden light. Pixar/Encanto illustration style, cozy magical home office vibes.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/archivo-astral-bg.jpg"
+    },
+
+    "feature_card_cursos": {
+      "id": "feature-cursos",
+      "description": "Imagen para feature card: Cursos",
+      "prompt": "An enchanted study portal: a grand arched doorway glowing with golden light leading to a celestial library. Floating books, scrolls with star maps, glowing orbs of light floating like lanterns. Stone archway covered in carved celestial symbols. Deep purple mystical atmosphere #0A0010, warm gold light through the arch #F2D578. Pixar 3D render quality, cinematic, sense of knowledge and magic waiting inside.",
+      "ratio": "4:3",
+      "output_path": "/web/public/hero/codice-bg.jpg"
+    },
+
+    "section_sobre_elara": {
+      "id": "sobre-elara-portrait",
+      "description": "Foto/ilustración para sección Sobre Elara",
+      "prompt": "Portrait of a Colombian woman in her early 30s with dark hair, green eyes, warm smile. She sits writing in a journal at a cozy candlelit desk. She wears a purple embroidered blouse, gold hoop earrings, and a small cross necklace. Bookshelves behind her, candles, crystals. She feels like a wise older sister, not a guru. Pixar/Encanto illustration quality, intimate and warm, NOT glamour photography. Deep purple ambient light, gold accents, authentic paisa Colombian warmth.",
+      "ratio": "3:4",
+      "output_path": "/web/public/images/sobre-elara.jpg"
+    },
+
+    "section_circulo_comunidad": {
+      "id": "circulo-juntas",
+      "description": "Imagen principal de la sección El Círculo",
+      "prompt": "A warm intimate gathering of Latin women in a beautiful candlelit room with ornate architecture. They sit in a circle on cushions, some holding cups of tea, a few with journals open. The space has hanging dried flowers, crystal clusters on a central table, candles everywhere. The mood is sacred, sisterhood, safety. Ages 25-38, diverse body types and skin tones, all Latin. Pixar Disney Encanto illustration style, warm golden candlelight, deep purple shadows, magical realism aesthetic. Community, not workshop.",
+      "ratio": "16:9",
+      "output_path": "/web/public/images/comunidad-mujeres.jpg"
+    },
+
+    "product_ebook_ciclo_nova": {
+      "id": "ebook-ciclo-nova",
+      "description": "Cover del ebook: Ciclo Nova del Regreso",
+      "prompt": "A luxurious digital ebook cover. Title: 'Ciclo Nova del Regreso' in elegant Playfair Display gold serif font on deep purple background #1A0F3D. Subtitle: 'Un ritual suave para volver a vos' in Cormorant Garamond italic. Center illustration: a woman curled peacefully in a crescent moon shape, surrounded by botanical elements (lavender, roses, ferns) rendered in Art Nouveau style, all gold line-art on purple. Ornate gold frame border. The 'EN' monogram/seal at bottom. Book cover proportions 6:9. Sophisticated, not cute, mystical premium.",
+      "ratio": "2:3",
+      "output_path": "/web/public/images/ebook-ciclo-nova-cover.jpg"
+    },
+
+    "oracle_section_header": {
+      "id": "oraculo-seccion-bg",
+      "description": "Fondo para la sección /oraculo",
+      "prompt": "A mystical oracle room interior. Walls covered in dark purple velvet with gold star patterns. In the center, a round table draped in deep purple cloth with golden embroidery, crystal ball glowing softly in the middle. Three oracle cards are laid face-down on the table. Floating golden particles and small stars everywhere in the air. Candlelight from multiple tall candelabras. Deeply atmospheric, Pixar/Encanto cinematic quality, sense of magic waiting to be revealed. Overhead wide shot.",
+      "ratio": "16:9",
+      "output_path": "/web/public/hero/oraculo-sala.jpg"
+    },
+
+    "email_capture_background": {
+      "id": "email-form-bg",
+      "description": "Fondo decorativo para la sección de captura de email",
+      "prompt": "Abstract mystical background: deep purple space #0A0010 with slowly moving golden particles, thin gold constellation lines connecting stars, a soft glowing full moon in distance. Delicate botanical silhouettes (lavender, moon flowers) at bottom edges. Very minimal and atmospheric, designed as a background for text overlay. No focal character. Subtle, beautiful, magical. Pixar cinematic color grade.",
+      "ratio": "16:9",
+      "output_path": "/web/public/hero/email-section-bg.jpg"
+    }
+  },
+
+  "ui_mockup_prompts": {
+
+    "home_full_mockup": {
+      "id": "home-mockup-desktop",
+      "description": "Mockup completo de la home en desktop 1440px para aprobación visual",
+      "prompt": "A premium website mockup screenshot at 1440px width. Dark mystical website for 'Elara Nova' spiritual wellness brand for Latin women. NAVBAR: dark glass bar with 'Elara Nova' script logo left, navigation links center (HERRAMIENTAS + CÍRCULO + CURSOS + PRODUCTOS + SOBRE MÍ with + dividers), gold outlined '✦ UNIRME' pill button right + hamburger icon. HERO: Full viewport, Pixar-style Latin woman character on right half, deep purple #0A0010 background, LEFT SIDE: gold pill eyebrow label, large white serif headline 'Tu alma ya sabe. / Vos solo aprendés / a escucharla.' with purple italic middle line, purple velvet pill CTA button '✦ DESCUBRÍ TU CAMINO' and glass ghost CTA 'ENTRAR AL CÍRCULO'. BOTTOM CARDS: 6 image-cards in a row with dark glass background, gold border, images visible, small icon badge top right, uppercase title, description text, arrow in circle. Ultra detailed UI mockup, not a real screenshot.",
+      "ratio": "16:9",
+      "use_for": "Client approval, sprint planning, AI image generation reference"
+    },
+
+    "oracle_card_interaction": {
+      "id": "oracle-flip-mockup",
+      "description": "Mockup de la interacción de la carta del oráculo",
+      "prompt": "Website UI mockup showing oracle card interaction section. Black-purple background with floating gold particles. Center of screen: a large playing-card-sized oracle card mid-flip animation (3D rotation visible), front shows ornate purple and gold back design, back shows 'Tu alma ya sabe' message with mystical woman illustration. Below card: a simple elegant form with two inputs (Email, Fecha de nacimiento) and a gold gradient submit button 'RECIBIR MI MENSAJE'. Section heading in Playfair Display: 'Tu carta de hoy te espera'. Overall premium spiritual brand feel.",
+      "ratio": "16:9",
+      "use_for": "Sprint A3-A4 implementation reference"
+    },
+
+    "mobile_home_mockup": {
+      "id": "home-mockup-mobile",
+      "description": "Mockup mobile 390px de la home",
+      "prompt": "Mobile website screenshot mockup at 390px width (iPhone Pro size). Dark purple mystical website Elara Nova. TOP: compact glass nav bar with script logo and hamburger. HERO: Full-screen with Pixar Colombian woman character taking up right half, dark gradient overlay on left for text readability. TEXT: small gold eyebrow pill, large white serif headline 3 lines, lavender italic middle line, two pill CTA buttons stacked vertically. BOTTOM STRIP: 2-column grid of 3 image cards with dark glass bg, gold border, image visible, title and arrow. Very premium mobile design.",
+      "ratio": "9:19.5",
+      "use_for": "Mobile QA reference, 90% of traffic is mobile"
+    }
+  },
+
+  "midjourney_style_codes": {
+    "base_style": "--style raw --v 6.1 --q 2",
+    "illustration_suffix": "Pixar 3D render quality, Disney Encanto color palette, Colombian magical realism, cinematic lighting, ultra detailed, 8K",
+    "color_suffix": "deep purple #1A0F3D background, warm gold #D4AF37 accents, lavender highlights #9B6BC4, candlelight warm glow, no white, no bright colors",
+    "negative_suffix": "--no stock photo, modern minimal, flat design, TikTok aesthetic, generic, white background, daytime, corporate"
+  },
+
+  "gemini_imagen_system_prompt": "You are generating premium brand illustrations for Elara Nova, a Colombian spiritual wellness brand for Latin women aged 25-38. The visual style combines Pixar 3D quality with Disney Encanto's Colombian magical realism. Color palette: deep purple void (#0A0010) as base, warm gold (#D4AF37) accents, lavender (#9B6BC4) glow, candlelight warm tones. Never use: white backgrounds, flat design, stock photo aesthetics, modern minimalism. The main character is a young Colombian woman with dark hair, green eyes, and warm brown skin wearing purple embroidered clothing.",
+
+  "gpt_image_system_prompt": "Generate illustrations for Elara Nova, a premium spiritual wellness brand. Style: Pixar 3D + Disney Encanto + Colombian magical realism. Always use this palette: background #0A0010 (deep void purple), accents #D4AF37 (gold), glow #9B6BC4 (lavender), text #F5EEF8 (white rose). The brand character is a young Colombian woman with dark hair, green eyes, purple floral embroidered dress. Settings include: antique desk with books and crystals, candlelit rooms, celestial night skies, mystical gardens. Quality: ultra-detailed, cinematic, print-ready. Never: stock photo, flat design, bright backgrounds, non-Latin aesthetic."
+}
