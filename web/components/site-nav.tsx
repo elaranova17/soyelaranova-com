@@ -1,110 +1,145 @@
 'use client'
 
 /**
- * SiteNav — UNICA navegacion del sitio Elara Nova.
+ * SiteNav — navegación única Elara Nova (v1).
  *
- * Patron: minimal bar arriba (logo + menu button) → fullscreen overlay
- * cinematografico con stagger entrance.
+ * Patrón: barra fija · logo centro · enlaces laterales (desktop)
+ * · móvil: panel desliza desde la derecha + overlay + hamburger → X
  *
- * Closed state:
- *   - Bar top transparente con logo constelacion + "Elara Nova" italic (izq)
- *   - Boton "Menú" cartouche (der)
- *   - Sin links horizontales visibles
- *
- * Open state:
- *   - Backdrop full-screen con blur + tinte purple + dark vignette
- *   - 5 links large italic Playfair centrados verticalmente con stagger
- *   - Active link en gold-bright con star marker
- *   - CTA "Entrar" abajo
- *   - Boton X cerrar arriba derecha
- *   - Polvo dorado de fondo (estatico atmosfera)
- *   - ESC cierra · click en backdrop cierra · click en link navega + cierra
- *   - Body scroll lock cuando esta abierto
+ * En `/` usa anclas de la landing; en el resto, rutas v1 del CONTEXT.
  */
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ElaraLogo } from '@/components/elara-logo'
 
-type NavLink = { href: string; label: string; num: string }
-const NAV: readonly NavLink[] = [
-  { href: '/',              label: 'Inicio',        num: '00' },
-  { href: '/herramientas',  label: 'Herramientas',  num: '01' },
-  { href: '/herramientas',  label: 'Astrología',    num: '02' },
-  { href: '/herramientas',  label: 'Oráculo',       num: '03' },
-  { href: '/recursos',      label: 'Recursos',      num: '04' },
-  { href: '/comunidad',     label: 'Comunidad',     num: '05' },
-  { href: '/atelier',       label: 'Atelier',       num: '06' },
-  { href: '/recursos',      label: 'Cursos',        num: '07' },
+type NavItem = { href: string; label: string; match?: readonly string[] }
+
+const ROUTE_NAV: readonly NavItem[] = [
+  { href: '/', label: 'Inicio', match: ['/'] },
+  { href: '/oraculo', label: 'Oráculo', match: ['/oraculo'] },
+  { href: '/universo', label: 'Universo', match: ['/universo'] },
+  { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
 ]
 
-type TopNavLink = { href: string; label: string; activePaths: readonly string[] }
-const TOP_NAV: readonly TopNavLink[] = [
-  { href: '/herramientas', label: 'Herramientas', activePaths: ['/herramientas'] },
-  { href: '/recursos', label: 'Recursos', activePaths: ['/recursos'] },
-  { href: '/comunidad', label: 'Círculo', activePaths: ['/comunidad', '/circulo'] },
+const LANDING_NAV: readonly NavItem[] = [
+  { href: '#herramientas', label: 'Herramientas' },
+  { href: '#circulo', label: 'Círculo' },
+  { href: '#cursos', label: 'Cursos' },
+  { href: '#productos', label: 'Productos' },
+  { href: '#sobre', label: 'Sobre mí' },
 ]
 
-function TopLogo() {
+function isActive(pathname: string, item: NavItem): boolean {
+  if (item.match) return item.match.includes(pathname)
+  if (item.href.startsWith('#')) return false
+  return pathname === item.href
+}
+
+function NavLink({
+  item,
+  pathname,
+  onNavigate,
+  className = '',
+}: {
+  item: NavItem
+  pathname: string
+  onNavigate?: () => void
+  className?: string
+}) {
+  const active = isActive(pathname, item)
+  const shared =
+    'font-sans text-[10px] tracking-[0.26em] uppercase transition-colors duration-200 underline-offset-4'
+  const activeCls = 'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
+  const idleCls =
+    'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
+
+  if (item.href.startsWith('#')) {
+    return (
+      <a
+        href={item.href}
+        onClick={onNavigate}
+        className={`${shared} ${idleCls} ${className}`}
+      >
+        {item.label}
+      </a>
+    )
+  }
+
   return (
-    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
-      {/* Arco + estrella compacto */}
-      <svg width="52" height="18" viewBox="0 0 72 28" fill="none" aria-hidden className="-mb-0.5 ml-2">
-        <path d="M4 26 Q36 0 68 26" stroke="var(--color-gold-bright)" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-        <path d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z" fill="var(--color-gold-bright)" />
-        <circle cx="14" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
-        <circle cx="58" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
-      </svg>
-      <span className="font-sans text-[11px] font-medium leading-none tracking-[0.25em] text-[var(--color-cream)] uppercase">
-        Elara Nova
-      </span>
-    </div>
+    <Link
+      href={item.href}
+      prefetch
+      onClick={onNavigate}
+      aria-current={active ? 'page' : undefined}
+      className={`${shared} ${active ? activeCls : idleCls} ${className}`}
+    >
+      {item.label}
+    </Link>
   )
 }
 
-function Logo() {
+function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
   return (
-    <div className="flex flex-col items-start leading-none" aria-label="Elara Nova">
-      <svg width="76" height="26" viewBox="0 0 72 28" fill="none" aria-hidden className="-mb-1 ml-4">
-        <path d="M4 26 Q36 0 68 26" stroke="var(--color-gold-bright)" strokeWidth="1.4" strokeLinecap="round" fill="none" />
-        <path d="M36 6 L37.1 9.7 L41 10.5 L37.1 11.3 L36 15 L34.9 11.3 L31 10.5 L34.9 9.7 Z" fill="var(--color-gold-bright)" />
-        <circle cx="14" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
-        <circle cx="58" cy="22" r="1" fill="var(--color-gold-bright)" opacity="0.5" />
-      </svg>
+    <button
+      type="button"
+      id="site-menu-btn"
+      onClick={onClick}
+      aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+      aria-expanded={open}
+      aria-controls="site-nav-panel"
+      className="menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] p-2 lg:hidden"
+    >
       <span
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontStyle: 'italic',
-          color: 'var(--color-cream)',
-          fontSize: 22,
-          letterSpacing: '0.08em',
-          lineHeight: 1,
-        }}
-      >
-        Elara
-      </span>
-      <div className="mt-0.5 flex items-center gap-1.5">
-        <span className="h-px w-5 bg-[var(--color-gold)]/60" />
-        <span style={{ fontFamily: 'var(--font-sans)', fontSize: 9, letterSpacing: '0.5em', color: 'var(--color-gold-soft)', textTransform: 'uppercase' }}>
-          NOVA
-        </span>
-        <span className="h-px w-5 bg-[var(--color-gold)]/60" />
-      </div>
-    </div>
+        className={[
+          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center',
+          open ? 'translate-y-[6px] rotate-45' : '',
+        ].join(' ')}
+      />
+      <span
+        className={[
+          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300',
+          open ? 'opacity-0 scale-x-0' : '',
+        ].join(' ')}
+      />
+      <span
+        className={[
+          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center',
+          open ? '-translate-y-[6px] -rotate-45' : '',
+        ].join(' ')}
+      />
+    </button>
   )
 }
 
 export function SiteNav() {
-  const [open, setOpen] = useState(false)
   const pathname = usePathname() ?? '/'
+  const isLanding = pathname === '/'
+  const links = isLanding ? LANDING_NAV : ROUTE_NAV
+  const leftLinks = links.slice(0, Math.ceil(links.length / 2))
+  const rightLinks = links.slice(Math.ceil(links.length / 2))
 
-  // ESC cierra · body scroll lock cuando esta abierto
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 48)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    function onKey(e: KeyboardEvent) {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false)
     }
     window.addEventListener('keydown', onKey)
@@ -114,333 +149,138 @@ export function SiteNav() {
     }
   }, [open])
 
+  const close = () => setOpen(false)
+  const toggle = () => setOpen((v) => !v)
+
   return (
     <>
-      {/* === MINIMAL BAR TOP === */}
       <motion.header
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 right-0 left-0 z-[60] grid grid-cols-[1fr_auto] items-center px-6 py-5 md:grid-cols-[1fr_auto_1fr] md:px-10"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(10,0,16,0.55) 0%, rgba(10,0,16,0.20) 60%, transparent 100%)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-        }}
+        transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+        className={[
+          'fixed inset-x-0 top-0 z-[60] grid h-[68px] grid-cols-[1fr_auto_1fr] items-center px-5 md:px-10 transition-all duration-500',
+          scrolled
+            ? 'border-b border-[var(--color-lavender)]/20 bg-[var(--color-purple-night)]/93 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
+            : 'bg-gradient-to-b from-[var(--color-purple-night)]/70 to-transparent',
+        ].join(' ')}
       >
-        <Link href="/" prefetch aria-label="Elara Nova · Inicio">
-          <TopLogo />
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navegación principal">
-          {TOP_NAV.map((link) => {
-            const active = link.activePaths.includes(pathname)
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={[
-                  'font-sans text-[10px] tracking-[0.28em] uppercase transition-colors duration-200 underline-offset-4',
-                  active
-                    ? 'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
-                    : 'text-[var(--color-cream)]/75 hover:text-[var(--color-gold-soft)] hover:opacity-100',
-                ].join(' ')}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
+        <nav
+          className="hidden items-center gap-5 justify-self-start lg:flex"
+          aria-label="Navegación principal"
+        >
+          {leftLinks.map((item) => (
+            <NavLink key={item.href + item.label} item={item} pathname={pathname} />
+          ))}
         </nav>
 
-        <button
-          onClick={() => setOpen(true)}
-          aria-label="Abrir menú"
-          aria-expanded={open}
-          className="group justify-self-end flex items-center gap-3 rounded-full border border-[var(--color-gold)]/50 px-5 py-2.5 transition-all hover:border-[var(--color-gold)]/80 hover:bg-[var(--color-gold)]/10"
-          style={{
-            background: 'rgba(26,15,61,0.45)',
-            backdropFilter: 'blur(12px) saturate(160%)',
-            WebkitBackdropFilter: 'blur(12px) saturate(160%)',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)',
-          }}
-        >
-          <span
-            style={{
-              fontFamily: 'var(--font-sans)',
-              color: 'var(--color-cream)',
-              fontSize: 11,
-              letterSpacing: '0.32em',
-              textTransform: 'uppercase',
-              fontWeight: 600,
-            }}
-          >
-            Entrar
-          </span>
-        </button>
+        <div className="justify-self-center">
+          <ElaraLogo size="md" href={isLanding ? '#inicio' : '/'} />
+        </div>
+
+        <div className="flex items-center justify-end gap-4 justify-self-end">
+          <nav className="hidden items-center gap-5 lg:flex" aria-label="Navegación secundaria">
+            {rightLinks.map((item) => (
+              <NavLink key={item.href + item.label} item={item} pathname={pathname} />
+            ))}
+          </nav>
+
+          {isLanding && (
+            <a
+              href="#email"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-5 py-2.5 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90"
+            >
+              <span aria-hidden>✦</span>
+              Unirme
+            </a>
+          )}
+
+          <MenuButton open={open} onClick={toggle} />
+        </div>
       </motion.header>
 
-      {/* === FULLSCREEN OVERLAY === */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            key="overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[80]"
-          >
-            {/* Backdrop blur + tinte */}
+          <>
             <motion.button
+              key="nav-overlay"
+              type="button"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setOpen(false)}
+              transition={{ duration: 0.35 }}
               aria-label="Cerrar menú"
-              className="absolute inset-0 h-full w-full cursor-default"
-              style={{
-                background: 'rgba(10,0,16,0.88)',
-                backdropFilter: 'blur(24px) saturate(160%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-              }}
+              className="nav-overlay fixed inset-0 z-[70] cursor-default bg-[var(--color-void)]/55 backdrop-blur-[2px] lg:hidden"
+              onClick={close}
             />
 
-            {/* Bloom dorado top */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-[60vh]"
-              style={{
-                background:
-                  'radial-gradient(60% 80% at 50% 0%, rgba(242,213,120,0.18), transparent 70%)',
-              }}
-            />
-            {/* Bloom morado bottom */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-[40vh]"
-              style={{
-                background:
-                  'radial-gradient(60% 80% at 50% 100%, rgba(94,28,177,0.25), transparent 70%)',
-              }}
-            />
-
-            {/* Polvo dorado decorativo */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-60"
-              style={{
-                backgroundImage: `
-                  radial-gradient(1.5px 1.5px at 18% 28%, rgba(242,213,120,0.85) 50%, transparent 100%),
-                  radial-gradient(1.5px 1.5px at 82% 64%, rgba(242,213,120,0.7) 50%, transparent 100%),
-                  radial-gradient(1px 1px at 38% 78%, rgba(242,213,120,0.8) 50%, transparent 100%),
-                  radial-gradient(1.5px 1.5px at 88% 22%, rgba(242,213,120,0.7) 50%, transparent 100%),
-                  radial-gradient(1px 1px at 22% 62%, rgba(242,213,120,0.85) 50%, transparent 100%),
-                  radial-gradient(1.5px 1.5px at 62% 14%, rgba(242,213,120,0.65) 50%, transparent 100%),
-                  radial-gradient(1px 1px at 8% 90%, rgba(242,213,120,0.85) 50%, transparent 100%),
-                  radial-gradient(1px 1px at 95% 85%, rgba(242,213,120,0.7) 50%, transparent 100%)
-                `,
-              }}
-            />
-
-            {/* Frame dorado interior */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-6 rounded-md border border-[var(--color-gold)]/25"
-            />
-
-            {/* Logo top-left dentro del overlay */}
-            <motion.div
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="absolute left-6 top-6 md:left-10 md:top-8"
+            <motion.aside
+              id="site-nav-panel"
+              key="nav-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú de navegación"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(300px,82vw)] flex-col justify-center border-l border-[var(--color-gold)]/15 bg-[var(--color-purple-night)] px-10 py-20 lg:hidden"
+              style={{ boxShadow: 'var(--shadow-glow-purple)' }}
             >
-              <Logo />
-            </motion.div>
-
-            {/* Boton X cerrar top-right */}
-            <motion.button
-              initial={{ opacity: 0, rotate: -45 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: 45 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              whileHover={{ scale: 1.08, rotate: 90 }}
-              whileTap={{ scale: 0.94 }}
-              onClick={() => setOpen(false)}
-              aria-label="Cerrar menú"
-              className="absolute right-6 top-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border md:right-10 md:top-8"
-              style={{
-                background: 'rgba(26,15,61,0.55)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                borderColor: 'rgba(212,175,55,0.55)',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.45)',
-                color: 'var(--color-gold-bright)',
-              }}
-            >
-              <svg width={18} height={18} viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round">
-                <path d="M3 3 L15 15 M15 3 L3 15" />
-              </svg>
-            </motion.button>
-
-            {/* === NAV LINKS centrados === */}
-            <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-1.5 px-6">
-              {NAV.map((link, i) => {
-                const isActive = pathname === link.href
-                return (
+              <nav className="flex flex-col gap-1" aria-label="Menú móvil">
+                {links.map((item, i) => (
                   <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{
-                      opacity: 0,
-                      y: 20,
-                      transition: { duration: 0.2, delay: (NAV.length - 1 - i) * 0.03 },
-                    }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.25 + i * 0.08,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
+                    key={item.href + item.label}
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 + i * 0.05, duration: 0.4 }}
                   >
-                    <Link
-                      href={link.href}
-                      prefetch
-                      onClick={() => setOpen(false)}
-                      className="group relative flex items-baseline gap-5 py-2 transition-all md:gap-7"
-                    >
-                      <span
-                        style={{
-                          fontFamily: 'var(--font-sans)',
-                          color: isActive
-                            ? 'var(--color-gold-bright)'
-                            : 'var(--color-gold-soft)',
-                          fontSize: 11,
-                          letterSpacing: '0.4em',
-                          textTransform: 'uppercase',
-                          opacity: 0.85,
-                          minWidth: 32,
-                        }}
+                    {item.href.startsWith('#') ? (
+                      <a
+                        href={item.href}
+                        onClick={close}
+                        className="block border-b border-[var(--color-cream)]/10 py-3.5 font-display text-xl italic text-[var(--color-cream)] transition-colors hover:text-[var(--color-gold-bright)]"
                       >
-                        {link.num}
-                      </span>
-                      <span
-                        className="relative"
-                        style={{
-                          fontFamily: 'var(--font-display)',
-                          fontStyle: 'italic',
-                          color: isActive
-                            ? 'var(--color-gold-bright)'
-                            : 'var(--color-cream)',
-                          fontSize: 'clamp(34px, 5vw, 56px)',
-                          lineHeight: 1.05,
-                          fontWeight: 400,
-                          textShadow: isActive
-                            ? '0 0 32px rgba(242,213,120,0.55)'
-                            : 'none',
-                          transition: 'color 250ms, text-shadow 250ms',
-                        }}
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        prefetch
+                        onClick={close}
+                        aria-current={isActive(pathname, item) ? 'page' : undefined}
+                        className={[
+                          'block border-b border-[var(--color-cream)]/10 py-3.5 font-display text-xl italic transition-colors',
+                          isActive(pathname, item)
+                            ? 'text-[var(--color-gold-bright)]'
+                            : 'text-[var(--color-cream)]/85 hover:text-[var(--color-gold-bright)]',
+                        ].join(' ')}
                       >
-                        {link.label}
-                        {/* Underline gold que aparece on hover */}
-                        <span
-                          aria-hidden
-                          className="absolute bottom-1 left-0 h-px transition-all duration-500"
-                          style={{
-                            width: isActive ? '100%' : 0,
-                            background:
-                              'linear-gradient(90deg, transparent, var(--color-gold-bright), transparent)',
-                            boxShadow: '0 0 8px rgba(242,213,120,0.7)',
-                          }}
-                        />
-                      </span>
-                      {/* Star marker active */}
-                      {isActive && (
-                        <motion.span
-                          aria-hidden
-                          initial={{ opacity: 0, scale: 0, rotate: -90 }}
-                          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                          transition={{ duration: 0.5, delay: 0.4 }}
-                          style={{
-                            color: 'var(--color-gold-bright)',
-                            filter:
-                              'drop-shadow(0 0 6px rgba(242,213,120,0.9))',
-                          }}
-                        >
-                          <svg width={14} height={14} viewBox="0 0 16 16" aria-hidden>
-                            <path
-                              d="M8 0 L9.5 6.5 L16 8 L9.5 9.5 L8 16 L6.5 9.5 L0 8 L6.5 6.5 Z"
-                              fill="currentColor"
-                            />
-                          </svg>
-                        </motion.span>
-                      )}
-                    </Link>
+                        {item.label}
+                      </Link>
+                    )}
                   </motion.div>
-                )
-              })}
-            </div>
+                ))}
+              </nav>
 
-            {/* CTA Entrar bottom */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 md:bottom-14"
-            >
-              <Link
-                href="/login"
-                prefetch
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 rounded-full border border-[var(--color-gold)]/50 px-7 py-3 transition-all hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]/90"
-                style={{
-                  background: 'rgba(26,15,61,0.4)',
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                }}
-              >
-                <svg width={14} height={14} viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth={1.4} aria-hidden style={{ color: 'var(--color-gold-bright)' }}>
-                  <circle cx={7} cy={5} r={2.4} />
-                  <path d="M2 13 Q2 8 7 8 Q12 8 12 13" />
-                </svg>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    color: 'var(--color-cream)',
-                    fontSize: 11,
-                    letterSpacing: '0.36em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                  }}
+              {isLanding && (
+                <a
+                  href="#email"
+                  onClick={close}
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] px-6 py-3 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase"
                 >
-                  Entrar a mi cuenta
-                </span>
-              </Link>
-            </motion.div>
+                  Unirme al Círculo
+                </a>
+              )}
 
-            {/* Pie firma */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.55 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2"
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontStyle: 'italic',
-                color: 'var(--color-gold-soft)',
-                fontSize: 11,
-                letterSpacing: '0.18em',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Mirá todo lo que siempre fuiste capaz de ser.
-            </motion.div>
-          </motion.div>
+              <p
+                className="pointer-events-none absolute bottom-8 left-10 right-10 font-serif text-[10px] italic tracking-[0.2em] text-[var(--color-gold-soft)]/50"
+                aria-hidden
+              >
+                Mira todo lo que siempre fuiste capaz de ser.
+              </p>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>
