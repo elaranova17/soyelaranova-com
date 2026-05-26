@@ -9,11 +9,9 @@ const nextConfig: NextConfig = {
    */
   async rewrites() {
     return [
-      // Páginas rediseñadas en Next.js NO tienen rewrite (se sirven desde app/<route>/page.tsx)
-      // /linktree → app/linktree/page.tsx (rediseñado)
+      // /linktree → app/linktree/page.tsx (Next.js + iconografía Elara)
 
-      // Páginas B2B de Evelyn — carpeta evelyn-b2b para no mezclar con Elara
-      { source: '/linktree',          destination: '/evelyn-b2b/linktree.html' },
+      // Páginas B2B de Evelyn — HTML estático en evelyn-b2b/
       { source: '/cv',                destination: '/evelyn-b2b/cv.html' },
       { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
