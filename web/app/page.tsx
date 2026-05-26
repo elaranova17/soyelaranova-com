@@ -1,11 +1,20 @@
 'use client'
 
 /**
- * Home / — ritual de oráculo sobre fondo de tokens (sin imágenes fantasy).
+ * Home / — entrada al universo: loader cinematográfico + portal lunar + carta del oráculo.
  */
 
-import { HomeRitualHero } from '@/components/home-ritual-hero'
+import { useState } from 'react'
+import { CinematicLoader } from '@/components/cinematic-loader'
+import { PortalLunarHero } from '@/components/portal-lunar-hero'
 
 export default function HomePage() {
-  return <HomeRitualHero />
+  const [loaderDone, setLoaderDone] = useState(false)
+
+  return (
+    <>
+      <CinematicLoader onComplete={() => setLoaderDone(true)} />
+      <PortalLunarHero revealDelay={loaderDone ? 200 : 2700} />
+    </>
+  )
 }
