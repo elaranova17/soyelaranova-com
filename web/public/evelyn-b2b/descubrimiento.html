@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Descubrimiento · [Nombre del cliente] · Evelyn Patiño Laverde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Cuestionario de descubrimiento para proyectos freelance con Evelyn Patiño Laverde — Ingeniera de Software." />
+<meta name="theme-color" content="#2D1B69" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --purple-deep: #2D1B69; --purple-mid: #3D2580; --purple: #4A2D9C;
+  --lavender: #9B6BC4; --pale-lav: #E5DBF0; --mist: #F5F0F9; --mist-warm: #FAF6F0;
+  --gold: #D4AF37; --gold-soft: #E5C770; --gold-dark: #B8941F;
+  --cream: #F5F0E1; --cream-warm: #FAF4E2; --ink: #1A0F3D; --grey: #6B6680;
+
+  --display: 'Playfair Display', serif;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Lato', system-ui, sans-serif;
+  --max-w: 50rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream-warm);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold); color: var(--purple-deep); }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+/* ── COVER ── */
+.cover {
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(155,107,196,0.35) 0%, transparent 55%),
+    linear-gradient(135deg, #2D1B69 0%, #3D2580 55%, #4A2D9C 100%);
+  color: var(--cream);
+  padding: 4rem 2.5rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='350' viewBox='0 0 900 350'><g stroke='%23D4AF37' stroke-width='0.4' fill='none' opacity='0.22'><path d='M-50 120 Q250 165 450 120 T950 120'/><path d='M-50 145 Q250 190 450 145 T950 145'/><path d='M-50 170 Q250 215 450 170 T950 170'/><circle cx='800' cy='60' r='1.3' fill='%23D4AF37'/><circle cx='100' cy='280' r='1' fill='%23D4AF37'/></g></svg>");
+  background-size: cover;
+  pointer-events: none;
+}
+.cover__inner { position: relative; z-index: 1; }
+.cover__label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.cover__title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+.cover__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  background: linear-gradient(135deg, #D4AF37, #E5C770, #B8941F);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.cover__diamond { display: inline-flex; align-items: center; gap: 0.75rem; margin: 1.5rem 0; }
+.cover__diamond::before, .cover__diamond::after { content: ''; width: 44px; height: 1px; background: var(--gold); }
+.cover__diamond span { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+.cover__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--lavender);
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+.cover__client {
+  margin-top: 2.25rem;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: rgba(245,240,225,0.8);
+}
+.cover__client strong { color: var(--gold-soft); }
+
+/* ── INTRO CARD ── */
+.intro-card {
+  background: white;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 2rem 2.25rem;
+  margin: 3rem 0 2rem;
+  box-shadow: 0 4px 20px -8px rgba(45,27,105,0.16);
+}
+.intro-card__title {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  color: var(--purple-deep);
+  margin-bottom: 0.85rem;
+}
+.intro-card__body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+.intro-card__body strong { font-style: normal; color: var(--purple-deep); font-family: var(--sans); font-size: 0.9rem; }
+
+/* ── SECTIONS ── */
+.disc-section { margin-bottom: 3rem; }
+.disc-section__head { margin-bottom: 1.75rem; }
+.disc-section__eyebrow {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.disc-section__eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.disc-section__title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--purple-deep);
+  margin-top: 0.35rem;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+/* ── QUESTIONS ── */
+.q-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.q {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--pale-lav);
+  box-shadow: 0 2px 12px -6px rgba(45,27,105,0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.q:focus-within { border-color: var(--gold); box-shadow: 0 4px 20px -8px rgba(212,175,55,0.25); }
+
+.q__num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--gold-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.q__label {
+  font-family: var(--sans);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+.q__hint {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--grey);
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 0.94rem;
+  color: var(--ink);
+  background: var(--mist-warm);
+  border: 1px solid var(--pale-lav);
+  border-radius: 7px;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+  line-height: 1.5;
+  resize: vertical;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+  background: white;
+}
+textarea { min-height: 90px; }
+select { appearance: none; cursor: pointer; }
+
+/* Radio / checkbox groups */
+.q__options { display: flex; flex-direction: column; gap: 0.5rem; }
+.q__option { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+.q__option input[type="radio"],
+.q__option input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold-dark); cursor: pointer; }
+.q__option-label { font-size: 0.94rem; color: var(--ink); }
+
+/* Budget pills */
+.budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem; }
+.budget-option { position: relative; }
+.budget-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+.budget-option label {
+  display: block;
+  text-align: center;
+  padding: 0.65rem 0.5rem;
+  border: 1px solid var(--pale-lav);
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--grey);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+.budget-option input:checked + label {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04));
+  color: var(--purple-deep);
+}
+
+/* ── DIVIDER ── */
+.divider { display: flex; align-items: center; gap: 0.75rem; margin: 2.5rem 0; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent); }
+.divider span { font-size: 0.6rem; color: var(--gold); }
+
+/* ── SUBMIT AREA ── */
+.submit-area {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(155,107,196,0.25) 0%, transparent 55%),
+    linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+  color: var(--cream);
+  border-radius: 14px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.submit-area::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50%, rgba(212,175,55,0.1), transparent 60%); pointer-events: none; }
+.submit-area__inner { position: relative; z-index: 1; }
+.submit-area__title { font-family: var(--display); font-size: 2rem; color: var(--cream); margin-bottom: 0.75rem; letter-spacing: -0.015em; }
+.submit-area__sub { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--lavender); margin-bottom: 2rem; }
+
+.btn-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn--gold { background: var(--gold); color: var(--purple-deep); box-shadow: 0 8px 24px -8px rgba(212,175,55,0.5); }
+.btn--gold:hover { background: var(--gold-soft); transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: var(--cream); border: 1.5px solid rgba(212,175,55,0.5); }
+.btn--ghost:hover { border-color: var(--gold); background: rgba(212,175,55,0.1); }
+.btn--wa { background: linear-gradient(135deg, #25D366, #128C7E); color: white; box-shadow: 0 8px 24px -8px rgba(37,211,102,0.4); }
+.btn--wa:hover { transform: translateY(-2px); color: white; }
+
+/* ── FOOTER ── */
+.page-footer { background: #14093A; color: rgba(245,240,225,0.5); padding: 2rem; text-align: center; font-size: 0.72rem; letter-spacing: 0.05em; }
+.page-footer__brand { color: var(--gold); font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 0.5rem; font-size: 0.68rem; }
+
+/* ── PRINT ── */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: white; }
+  .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .btn-group, .submit-area .btn-group { display: none; }
+  .submit-area { padding: 2rem; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  .cover { padding: 3rem 1.5rem; }
+  .container { padding: 0 1.25rem; }
+  .disc-section__title { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__inner">
+    <p class="cover__label">Descubrimiento de proyecto · 2026</p>
+    <h1 class="cover__title">Cuéntame<br /><em>tu proyecto.</em></h1>
+    <div class="cover__diamond"><span></span></div>
+    <p class="cover__sub">Antes de armar cualquier propuesta necesito entender bien qué construiremos, para quién y por qué. Esto no toma más de 10 minutos.</p>
+    <div class="cover__client">
+      Preparado para · <strong>[Nombre del cliente]</strong>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div style="padding: 3rem 0 0;">
+<div class="container">
+
+  <div class="intro-card">
+    <h2 class="intro-card__title">¿Para qué sirve esto?</h2>
+    <p class="intro-card__body">
+      Este cuestionario me ayuda a entender tu negocio, tus objetivos y las restricciones reales antes de sentarme a diseñar una solución.
+      <strong>No es un formulario burocrático</strong> — es la base para que la propuesta que te mande sea precisa y útil, no una plantilla genérica.
+      Puedes completarlo y enviármelo por email, o usarlo de guía en nuestra primera llamada.
+    </p>
+  </div>
+
+  <!-- ── BLOQUE 01: SOBRE TI ── -->
+  <div class="disc-section">
+    <div class="disc-section__head">
+      <p class="disc-section__eyebrow">— 01 —</p>
+      <h2 class="disc-section__title">Sobre ti y tu negocio</h2>
+    </div>
+    <div class="q-list">
+
+      <div class="q">
+        <p class="q__num">01.1</p>
+        <p class="q__label">¿Cómo te llamas y qué haces?</p>
+        <p class="q__hint">Nombre, rol, empresa o proyecto, sector.</p>
+        <textarea placeholder="Ej: Soy Laura García, directora de una tienda online de ropa sostenible llamada Verde & Co, con base en Barcelona..."></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">01.2</p>
+        <p class="q__label">¿A qué público sirves? ¿Quiénes son tus clientes hoy?</p>
+        <p class="q__hint">Edad, idioma, ubicación, nivel técnico. Cuanto más concreto, mejor.</p>
+        <textarea placeholder="Ej: Mujeres de 28-45 años, en España y México, con poder adquisitivo medio-alto, que compran online..."></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">01.3</p>
+        <p class="q__label">¿Cuál es el problema concreto que quieres resolver con este proyecto?</p>
+        <p class="q__hint">No el qué quieres construir todavía — el por qué. ¿Qué duele ahora?</p>
+        <textarea placeholder="Ej: Mi tienda en Shopify carga lento, tengo un 70% de abandono de carrito y no puedo integrar el sistema de fidelidad que necesito..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- ── BLOQUE 02: EL PROYECTO ── -->
+  <div class="disc-section">
+    <div class="disc-section__head">
+      <p class="disc-section__eyebrow">— 02 —</p>
+      <h2 class="disc-section__title">El proyecto</h2>
+    </div>
+    <div class="q-list">
+
+      <div class="q">
+        <p class="q__num">02.1</p>
+        <p class="q__label">¿Qué tipo de proyecto es?</p>
+        <p class="q__hint">Puedes marcar varios si aplica.</p>
+        <div class="q__options">
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Sitio web nuevo (landing, corporativo, portafolio)</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Rediseño / mejora de sitio existente</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Aplicación web a medida (dashboard, panel, SaaS)</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Tienda online / e-commerce</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Integración de IA (chatbot, automatización, análisis)</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Análisis técnico / documentación / arquitectura</span></label>
+          <label class="q__option"><input type="checkbox" /><span class="q__option-label">Otro:</span></label>
+        </div>
+        <input type="text" placeholder="Especifica si marcaste Otro…" style="margin-top: 0.6rem;" />
+      </div>
+
+      <div class="q">
+        <p class="q__num">02.2</p>
+        <p class="q__label">Descríbeme el proyecto en 3-5 frases como si me lo explicaras a mí por primera vez.</p>
+        <p class="q__hint">Sin tecnicismos. Solo qué se construye, para quién y qué lo hace diferente.</p>
+        <textarea placeholder="Ej: Necesito una web para mi estudio de yoga que permita a mis alumnas reservar clases, pagar online y recibir recordatorios automáticos. Ahora lo gestiono todo por WhatsApp y no escala..."></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">02.3</p>
+        <p class="q__label">¿Cuáles son las 3 funcionalidades que SÍ o SÍ debe tener?</p>
+        <p class="q__hint">Las que sin ellas el proyecto no tiene sentido. Sin ellas no vale la pena lanzar.</p>
+        <textarea placeholder="1. Reserva de clases online con calendario en tiempo real&#10;2. Pago con tarjeta integrado (Stripe o similar)&#10;3. Panel de gestión para mí sin necesitar a un técnico"></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">02.4</p>
+        <p class="q__label">¿Qué podría quedar fuera de la primera versión?</p>
+        <p class="q__hint">Ayuda a enfocar el alcance real vs. el ideal.</p>
+        <textarea placeholder="Ej: Una app móvil, integración con Google Calendar, módulo de membresías premium..."></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">02.5</p>
+        <p class="q__label">¿Tienes referencias visuales o funcionales que te gusten?</p>
+        <p class="q__hint">Webs, apps, capturas de pantalla — cualquier cosa que diga "algo así". URLs son bienvenidas.</p>
+        <textarea placeholder="Ej: Me gusta el diseño de mindk.com, la usabilidad de Notion, y el tono de voz de Monday.com..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- ── BLOQUE 03: TÉCNICO ── -->
+  <div class="disc-section">
+    <div class="disc-section__head">
+      <p class="disc-section__eyebrow">— 03 —</p>
+      <h2 class="disc-section__title">Contexto técnico</h2>
+    </div>
+    <div class="q-list">
+
+      <div class="q">
+        <p class="q__num">03.1</p>
+        <p class="q__label">¿Tienes algo construido ya? ¿En qué tecnología?</p>
+        <p class="q__hint">Código existente, sistema heredado, CMS, base de datos…</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="existing" /><span class="q__option-label">Sí, tengo algo funcionando (voy a describirlo abajo)</span></label>
+          <label class="q__option"><input type="radio" name="existing" /><span class="q__option-label">Tengo algo pero está roto / desactualizado</span></label>
+          <label class="q__option"><input type="radio" name="existing" /><span class="q__option-label">No, es proyecto nuevo desde cero</span></label>
+        </div>
+        <textarea placeholder="Describe brevemente lo que existe: stack, hosting, accesos disponibles, problemas conocidos..." style="margin-top:0.75rem;"></textarea>
+      </div>
+
+      <div class="q">
+        <p class="q__num">03.2</p>
+        <p class="q__label">¿Tienes preferencias de tecnología o restricciones técnicas?</p>
+        <p class="q__hint">Ej: "Debe ser WordPress porque lo gestiona mi equipo", "No puede ser Firebase porque ya tenemos un servidor SQL".</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="tech_pref" /><span class="q__option-label">Sí, tengo preferencias / restricciones claras</span></label>
+          <label class="q__option"><input type="radio" name="tech_pref" /><span class="q__option-label">No, confío en tu criterio técnico</span></label>
+        </div>
+        <input type="text" placeholder="Cuáles (si aplica)…" style="margin-top:0.6rem;" />
+      </div>
+
+      <div class="q">
+        <p class="q__num">03.3</p>
+        <p class="q__label">¿Tienes dominio y hosting? ¿En qué proveedor?</p>
+        <p class="q__hint">No es bloqueante si no tienes, te oriento.</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="hosting" /><span class="q__option-label">Sí, tengo dominio y hosting propio</span></label>
+          <label class="q__option"><input type="radio" name="hosting" /><span class="q__option-label">Tengo dominio pero no hosting</span></label>
+          <label class="q__option"><input type="radio" name="hosting" /><span class="q__option-label">No tengo nada, partimos desde cero</span></label>
+        </div>
+        <input type="text" placeholder="Proveedor actual (ej: GoDaddy, Namecheap, AWS, Vercel…)" style="margin-top:0.6rem;" />
+      </div>
+
+      <div class="q">
+        <p class="q__num">03.4</p>
+        <p class="q__label">¿Hay integraciones con sistemas externos que necesitas?</p>
+        <p class="q__hint">Ej: pasarela de pago, CRM, ERP, WhatsApp API, redes sociales, email marketing…</p>
+        <textarea placeholder="Ej: Stripe para pagos, Mailchimp para email, HubSpot CRM, API de Correos España..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- ── BLOQUE 04: PLAZOS Y PRESUPUESTO ── -->
+  <div class="disc-section">
+    <div class="disc-section__head">
+      <p class="disc-section__eyebrow">— 04 —</p>
+      <h2 class="disc-section__title">Plazos y presupuesto</h2>
+    </div>
+    <div class="q-list">
+
+      <div class="q">
+        <p class="q__num">04.1</p>
+        <p class="q__label">¿Cuándo necesitas que esté listo?</p>
+        <p class="q__hint">Fecha ideal y fecha límite real (si hay un evento, lanzamiento o hito de negocio).</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="deadline" /><span class="q__option-label">Urgente — menos de 4 semanas</span></label>
+          <label class="q__option"><input type="radio" name="deadline" /><span class="q__option-label">Normal — 1 a 3 meses</span></label>
+          <label class="q__option"><input type="radio" name="deadline" /><span class="q__option-label">Sin prisa — más de 3 meses</span></label>
+          <label class="q__option"><input type="radio" name="deadline" /><span class="q__option-label">Hay una fecha fija:</span></label>
+        </div>
+        <input type="text" placeholder="Fecha o evento específico…" style="margin-top:0.6rem;" />
+      </div>
+
+      <div class="q">
+        <p class="q__num">04.2</p>
+        <p class="q__label">¿Cuál es tu presupuesto disponible para este proyecto?</p>
+        <p class="q__hint">Si no tienes certeza, selecciona el rango que se acerque más. Esto me permite calibrar el alcance real.</p>
+        <div class="budget-grid">
+          <div class="budget-option"><input type="radio" id="b1" name="budget" /><label for="b1">Hasta 500 €</label></div>
+          <div class="budget-option"><input type="radio" id="b2" name="budget" /><label for="b2">500 – 1.500 €</label></div>
+          <div class="budget-option"><input type="radio" id="b3" name="budget" /><label for="b3">1.500 – 4.000 €</label></div>
+          <div class="budget-option"><input type="radio" id="b4" name="budget" /><label for="b4">4.000 – 10.000 €</label></div>
+          <div class="budget-option"><input type="radio" id="b5" name="budget" /><label for="b5">Más de 10.000 €</label></div>
+          <div class="budget-option"><input type="radio" id="b6" name="budget" /><label for="b6">Aún no lo sé</label></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- ── BLOQUE 05: COMUNICACIÓN ── -->
+  <div class="disc-section">
+    <div class="disc-section__head">
+      <p class="disc-section__eyebrow">— 05 —</p>
+      <h2 class="disc-section__title">Cómo trabajamos juntos</h2>
+    </div>
+    <div class="q-list">
+
+      <div class="q">
+        <p class="q__num">05.1</p>
+        <p class="q__label">¿Cómo prefieres comunicarte durante el proyecto?</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="comms" /><span class="q__option-label">WhatsApp — respuesta directa y ágil</span></label>
+          <label class="q__option"><input type="radio" name="comms" /><span class="q__option-label">Email — documentación escrita de todo</span></label>
+          <label class="q__option"><input type="radio" name="comms" /><span class="q__option-label">Videollamadas semanales + async el resto</span></label>
+          <label class="q__option"><input type="radio" name="comms" /><span class="q__option-label">Sin preferencia — lo que funcione mejor</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <p class="q__num">05.2</p>
+        <p class="q__label">¿Cuánta implicación quieres tener en el proceso?</p>
+        <div class="q__options">
+          <label class="q__option"><input type="radio" name="involvement" /><span class="q__option-label">Alta — quiero estar en cada decisión</span></label>
+          <label class="q__option"><input type="radio" name="involvement" /><span class="q__option-label">Media — apruebo hitos importantes, confío el día a día</span></label>
+          <label class="q__option"><input type="radio" name="involvement" /><span class="q__option-label">Baja — entregame el resultado, confío en ti</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <p class="q__num">05.3</p>
+        <p class="q__label">¿Hay algo más que quieras contarme antes de la primera llamada?</p>
+        <p class="q__hint">Contexto extra, preguntas, miedos, restricciones que no entraron en ninguna pregunta anterior.</p>
+        <textarea placeholder="Espacio libre — cuéntame lo que quieras..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="submit-area">
+    <div class="submit-area__inner">
+      <h2 class="submit-area__title">¿Listo para arrancar?</h2>
+      <p class="submit-area__sub">Envíame este cuestionario completo y agendamos la primera llamada.</p>
+      <div class="btn-group">
+        <a class="btn btn--gold" href="mailto:evelynpatildr@gmail.com?subject=Descubrimiento%20de%20proyecto%20—%20[Tu%20nombre]&body=Hola%20Evelyn%2C%20te%20env%C3%ADo%20mi%20cuestionario%20de%20descubrimiento%20completo%3A%0A%0A[Pega%20aqui%20tus%20respuestas]">
+          Enviar por email ↗
+        </a>
+        <a class="btn btn--wa" href="https://wa.me/41783480550?text=Hola%20Evelyn%2C%20he%20completado%20el%20cuestionario%20de%20descubrimiento%20y%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener">
+          WhatsApp ↗
+        </a>
+        <button class="btn btn--ghost" onclick="window.print()">
+          Imprimir / PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- PIE -->
+<footer class="page-footer">
+  <p class="page-footer__brand">Evelyn Patiño Laverde · Freelance Software Engineer</p>
+  <p>Lausana · Suiza · evelynpatildr@gmail.com · +41 78 348 0550</p>
+  <p style="margin-top:0.5rem;font-style:italic;color:rgba(245,240,225,0.3);">soyelaranova.com</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Factura · [N°] · Evelyn Patiño Laverde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#2D1B69" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --purple-deep: #2D1B69; --purple-mid: #3D2580; --purple: #4A2D9C;
+  --lavender: #9B6BC4; --pale-lav: #E5DBF0; --mist: #F5F0F9; --mist-warm: #FAF6F0;
+  --gold: #D4AF37; --gold-soft: #E5C770; --gold-dark: #B8941F; --gold-bright: #F2D578;
+  --cream: #F5F0E1; --cream-warm: #FAF4E2; --ink: #1A0F3D; --grey: #6B6680;
+  --green: #22C55E; --red: #EF4444;
+
+  --display: 'Playfair Display', serif;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Lato', system-ui, sans-serif;
+  --max-w: 52rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream-warm);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold); color: var(--purple-deep); }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+/* ── ENCABEZADO ── */
+.invoice-header {
+  background: linear-gradient(135deg, #2D1B69 0%, #3D2580 55%, #4A2D9C 100%);
+  color: var(--cream);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.invoice-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='300' viewBox='0 0 800 300'><g stroke='%23D4AF37' stroke-width='0.4' fill='none' opacity='0.25'><path d='M-50 100 Q200 140 400 100 T850 100'/><path d='M-50 120 Q200 160 400 120 T850 120'/><path d='M-50 140 Q200 180 400 140 T850 140'/><circle cx='700' cy='50' r='1.2' fill='%23D4AF37'/><circle cx='120' cy='220' r='1' fill='%23D4AF37'/></g></svg>");
+  background-size: cover;
+  pointer-events: none;
+}
+.invoice-header__inner {
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.invoice-header__brand { flex: 1; }
+.invoice-header__brand-name {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+.invoice-header__brand-name::after {
+  content: '*';
+  font-size: 0.5em;
+  vertical-align: top;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 0.1em;
+}
+.invoice-header__brand-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(245,240,225,0.6);
+  margin-top: 0.35rem;
+  font-weight: 700;
+}
+.invoice-header__brand-contact {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: rgba(245,240,225,0.75);
+  line-height: 1.7;
+}
+.invoice-header__brand-contact a { color: var(--gold-soft); text-decoration: none; }
+
+.invoice-header__meta { text-align: right; }
+.invoice-header__word {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.invoice-header__num {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+.invoice-header__dates {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  color: rgba(245,240,225,0.7);
+  line-height: 1.8;
+  text-align: right;
+}
+.invoice-header__dates strong { color: var(--gold-soft); }
+
+/* ── STATUS BADGE ── */
+.status-bar {
+  background: var(--purple-deep);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.status-badge--pending { background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.5); color: var(--gold-soft); }
+.status-badge--paid    { background: rgba(34,197,94,0.12);  border: 1px solid rgba(34,197,94,0.45); color: #86EFAC; }
+.status-badge__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ── BODY ── */
+.invoice-body { padding: 3.5rem 0; }
+
+/* ── ADDRESSES ── */
+.addresses { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+.address { padding: 1.5rem 1.75rem; background: white; border-radius: 10px; border-top: 3px solid var(--gold); box-shadow: 0 4px 20px -8px rgba(45,27,105,0.14); }
+.address__label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-dark); font-weight: 700; margin-bottom: 0.85rem; }
+.address__name { font-family: var(--display); font-size: 1.25rem; color: var(--purple-deep); margin-bottom: 0.35rem; }
+.address__body { font-size: 0.92rem; color: var(--grey); line-height: 1.65; }
+
+/* ── TABLE ── */
+.table-wrap { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px -12px rgba(45,27,105,0.22); margin-bottom: 2rem; }
+table { width: 100%; border-collapse: collapse; }
+thead { background: var(--purple-deep); }
+thead th {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  padding: 1.1rem 1.5rem;
+  text-align: left;
+}
+thead th:last-child { text-align: right; }
+thead th:nth-child(2),
+thead th:nth-child(3) { text-align: center; }
+
+tbody tr { border-bottom: 1px solid var(--pale-lav); transition: background 0.2s ease; }
+tbody tr:last-child { border-bottom: 0; }
+tbody tr:hover { background: var(--mist-warm); }
+
+td { padding: 1.25rem 1.5rem; font-size: 0.94rem; color: var(--ink); vertical-align: middle; }
+td.desc { max-width: 28rem; }
+td.desc .desc__title { font-weight: 700; color: var(--purple-deep); margin-bottom: 0.2rem; }
+td.desc .desc__hint { font-family: var(--serif); font-style: italic; font-size: 0.85rem; color: var(--grey); }
+td.qty, td.unit { text-align: center; color: var(--grey); }
+td.amount { text-align: right; font-weight: 700; color: var(--purple-deep); font-family: var(--display); }
+
+/* ── TOTALS ── */
+.totals { margin-bottom: 2.5rem; }
+.totals__table { width: 100%; max-width: 22rem; margin-left: auto; }
+.totals__row { display: flex; justify-content: space-between; padding: 0.65rem 0; border-bottom: 1px solid var(--pale-lav); font-size: 0.94rem; }
+.totals__row:last-child { border-bottom: 0; }
+.totals__row.subtotal .totals__label { color: var(--grey); }
+.totals__row.subtotal .totals__value { color: var(--ink); font-weight: 700; }
+.totals__row.discount .totals__label { color: var(--green); }
+.totals__row.discount .totals__value { color: var(--green); font-weight: 700; }
+.totals__row.tax .totals__label { color: var(--grey); font-size: 0.85rem; }
+.totals__row.tax .totals__value { color: var(--grey); font-size: 0.85rem; }
+.totals__row.grand {
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  border: 0;
+}
+.totals__row.grand .totals__label { font-family: var(--display); font-size: 1.15rem; color: var(--cream); letter-spacing: -0.01em; }
+.totals__row.grand .totals__value { font-family: var(--display); font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+
+/* ── PAYMENT ── */
+.payment { background: white; border-radius: 12px; padding: 2rem 2.25rem; border-left: 3px solid var(--gold); box-shadow: 0 4px 20px -8px rgba(45,27,105,0.14); margin-bottom: 2rem; }
+.payment__title { font-family: var(--display); font-size: 1.3rem; color: var(--purple-deep); margin-bottom: 1.25rem; }
+.payment__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.payment__item { display: flex; flex-direction: column; gap: 0.25rem; }
+.payment__label { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold-dark); font-weight: 700; }
+.payment__value { font-size: 0.94rem; color: var(--ink); font-weight: 400; }
+
+/* ── NOTES ── */
+.notes { background: linear-gradient(135deg, rgba(212,175,55,0.06), rgba(155,107,196,0.04)); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
+.notes__title { font-family: var(--display); font-size: 1.1rem; color: var(--purple-deep); margin-bottom: 0.75rem; }
+.notes__body { font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: var(--grey); line-height: 1.6; }
+
+/* ── FOOTER ── */
+.invoice-footer {
+  background: #14093A;
+  color: rgba(245,240,225,0.5);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+.invoice-footer__brand { color: var(--gold); font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 0.5rem; }
+
+/* ── PRINT ── */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: white; }
+  .invoice-header, .status-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .table-wrap, .address, .payment { box-shadow: none !important; }
+  .invoice-footer { page-break-before: always; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .addresses { grid-template-columns: 1fr; }
+  .invoice-header__inner { flex-direction: column; }
+  .invoice-header__meta { text-align: left; }
+  td.qty, td.unit { display: none; }
+  thead th:nth-child(2), thead th:nth-child(3) { display: none; }
+  .container { padding: 0 1.25rem; }
+}
+
+/* ── PRINT BUTTON ── */
+.print-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--gold);
+  color: var(--purple-deep);
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -8px rgba(212,175,55,0.5);
+  transition: all 0.3s ease;
+  z-index: 99;
+}
+.print-btn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+@media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<!-- ENCABEZADO -->
+<header class="invoice-header">
+  <div class="invoice-header__inner">
+    <div class="invoice-header__brand">
+      <div class="invoice-header__brand-name">Evelyn Patiño Laverde</div>
+      <div class="invoice-header__brand-sub">Freelance Software Engineer · Suiza</div>
+      <div class="invoice-header__brand-contact">
+        evelynpatildr@gmail.com<br />
+        +41 78 348 0550 · WhatsApp<br />
+        linkedin.com/in/evelyn-patino-laverde<br />
+        Lausana, Suiza<br />
+        NIF/ID fiscal: [COMPLETAR]
+      </div>
+    </div>
+
+    <div class="invoice-header__meta">
+      <div class="invoice-header__word">Factura</div>
+      <div class="invoice-header__num">N° [XXXX] · 2026</div>
+      <div class="invoice-header__dates">
+        <strong>Fecha de emisión:</strong> [DD/MM/2026]<br />
+        <strong>Fecha de vencimiento:</strong> [DD/MM/2026]<br />
+        <strong>Condiciones:</strong> 15 días neto
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATUS -->
+<div class="status-bar">
+  <!-- Activa el badge correcto según el estado: pending o paid -->
+  <span class="status-badge status-badge--pending">
+    <span class="status-badge__dot"></span>
+    Pendiente de pago
+  </span>
+  <!-- <span class="status-badge status-badge--paid"><span class="status-badge__dot"></span>Pagada</span> -->
+</div>
+
+<!-- BODY -->
+<div class="invoice-body">
+  <div class="container">
+
+    <!-- DIRECCIONES -->
+    <div class="addresses">
+      <div class="address">
+        <div class="address__label">Emisora · Evelyn</div>
+        <div class="address__name">Evelyn Patiño Laverde</div>
+        <div class="address__body">
+          Freelance Software Engineer<br />
+          Lausana, Suiza<br />
+          evelynpatildr@gmail.com<br />
+          NIF: [COMPLETAR]
+        </div>
+      </div>
+
+      <div class="address">
+        <div class="address__label">Cliente · Facturado a</div>
+        <div class="address__name">[Nombre del cliente · Empresa]</div>
+        <div class="address__body">
+          [Cargo del contacto]<br />
+          [Dirección · Ciudad · País]<br />
+          [email@cliente.com]<br />
+          NIF/CIF: [COMPLETAR]
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLA DE CONCEPTOS -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Descripción del servicio</th>
+            <th>Cant.</th>
+            <th>Precio unit.</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="desc">
+              <div class="desc__title">Desarrollo frontend — [nombre del módulo / sprint]</div>
+              <div class="desc__hint">Período: [DD/MM] – [DD/MM/2026] · según propuesta N°[XXXX]</div>
+            </td>
+            <td class="qty">1</td>
+            <td class="unit">[CHF/EUR X.XXX]</td>
+            <td class="amount">[CHF/EUR X.XXX]</td>
+          </tr>
+          <tr>
+            <td class="desc">
+              <div class="desc__title">Diseño UX/UI — wireframes y revisiones</div>
+              <div class="desc__hint">Incluye hasta 2 rondas de revisión aprobadas por el cliente</div>
+            </td>
+            <td class="qty">1</td>
+            <td class="unit">[CHF/EUR XXX]</td>
+            <td class="amount">[CHF/EUR XXX]</td>
+          </tr>
+          <tr>
+            <td class="desc">
+              <div class="desc__title">Reuniones y documentación técnica</div>
+              <div class="desc__hint">X horas · tarifario acordado [CHF/EUR XX/h]</div>
+            </td>
+            <td class="qty">[X h]</td>
+            <td class="unit">[CHF/EUR XX]</td>
+            <td class="amount">[CHF/EUR XXX]</td>
+          </tr>
+          <!-- Añade más filas copiando el bloque <tr>...</tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TOTALES -->
+    <div class="totals">
+      <div class="totals__table">
+        <div class="totals__row subtotal">
+          <span class="totals__label">Subtotal</span>
+          <span class="totals__value">[CHF/EUR X.XXX]</span>
+        </div>
+        <div class="totals__row discount">
+          <!-- Eliminar si no aplica descuento -->
+          <span class="totals__label">Descuento acordado ([X]%)</span>
+          <span class="totals__value">– [CHF/EUR XXX]</span>
+        </div>
+        <div class="totals__row tax">
+          <!-- Suiza: IVA 8.1% si aplica / España: IVA 21% / LATAM: varía -->
+          <span class="totals__label">IVA [8.1 / 21]%</span>
+          <span class="totals__value">[CHF/EUR XXX]</span>
+        </div>
+        <div class="totals__row grand">
+          <span class="totals__label">Total a pagar</span>
+          <span class="totals__value">[CHF/EUR X.XXX]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATOS DE PAGO -->
+    <div class="payment">
+      <h2 class="payment__title">Datos bancarios para el pago</h2>
+      <div class="payment__grid">
+        <div class="payment__item">
+          <span class="payment__label">Titular</span>
+          <span class="payment__value">Evelyn Patiño Laverde</span>
+        </div>
+        <div class="payment__item">
+          <span class="payment__label">Banco</span>
+          <span class="payment__value">[Nombre del banco]</span>
+        </div>
+        <div class="payment__item">
+          <span class="payment__label">IBAN</span>
+          <span class="payment__value">[CH00 0000 0000 0000 0000 0]</span>
+        </div>
+        <div class="payment__item">
+          <span class="payment__label">BIC / SWIFT</span>
+          <span class="payment__value">[XXXXXXXX]</span>
+        </div>
+        <div class="payment__item">
+          <span class="payment__label">Referencia</span>
+          <span class="payment__value">FAC-[XXXX] · [Nombre cliente]</span>
+        </div>
+        <div class="payment__item">
+          <span class="payment__label">Divisa</span>
+          <span class="payment__value">CHF · EUR (acordar con cliente)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTAS -->
+    <div class="notes">
+      <h3 class="notes__title">Notas</h3>
+      <p class="notes__body">
+        Esta factura cubre el [X]° pago parcial según la propuesta aprobada N°[XXXX] del [DD/MM/2026].
+        El código fuente y todos los entregables digitales son propiedad del cliente al recibir el pago completo.
+        Para dudas o ajustes, escríbeme directamente a evelynpatildr@gmail.com o por WhatsApp.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- PIE -->
+<footer class="invoice-footer">
+  <p class="invoice-footer__brand">Evelyn Patiño Laverde · Freelance</p>
+  <p>Lausana · Suiza · evelynpatildr@gmail.com · +41 78 348 0550</p>
+  <p style="margin-top:0.5rem;font-style:italic;color:rgba(245,240,225,0.35);">Construido a mano · soyelaranova.com</p>
+</footer>
+
+</body>
+</html>
