@@ -129,7 +129,7 @@ export function SiteNav() {
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
-    ? { href: '/', label: 'Conoce a Elara' }
+    ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
     : { href: '/linktree', label: 'Conoce a Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)

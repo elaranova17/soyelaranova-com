@@ -56,16 +56,17 @@ const LINKS: readonly HubLink[] = [
     external: true,
   },
   {
-    href: '/descubrimiento',
-    label: '¿Tienes un proyecto?',
-    hint: 'Cuéntame — formulario de descubrimiento',
-    icon: 'Buscar',
+    href: '/casos-exito',
+    label: 'Clientes felices',
+    hint: 'Proyectos reales · resultados reales',
+    icon: 'Estrellas',
   },
   {
-    href: '/propuesta',
-    label: 'Propuesta / Cotización',
-    hint: 'Plantilla para nuevos proyectos',
-    icon: 'PDF',
+    href: '/descubrimiento',
+    label: 'Cotizar mi proyecto',
+    hint: 'Cuéntame qué necesitás — respondo en 24h',
+    icon: 'Buscar',
+    featured: true,
   },
   {
     href: '/',
@@ -227,16 +228,16 @@ export default function LinktreePage() {
           <p className="font-display text-[1.05rem] font-medium text-white">
             Ingeniera de Software ·{' '}
             <em className="font-semibold text-[var(--color-gold-soft)] not-italic">
-              Especialista Angular
+              Automatización &amp; Procesos · Datos
             </em>
           </p>
           <p className="mt-1 mb-4 font-serif text-[0.95rem] italic text-[var(--color-pale-lav)]">
-            6 años en software financiero · Sophos · Bancolombia
+            Toda una vida en fábricas de software · Multistack · Medianas y grandes empresas
           </p>
 
           <blockquote className="linktree-tagline">
             <span className="linktree-tagline-corner linktree-tagline-corner--tl" />
-            Pienso como <strong>diseñadora</strong>, construyo como <strong>ingeniera</strong>.
+            Creo soluciones con <strong>amor</strong> y <strong>dedicación</strong> — porque detrás de cada proyecto hay sueños reales.
             <span className="linktree-tagline-corner linktree-tagline-corner--br" />
           </blockquote>
 
