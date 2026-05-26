@@ -27,6 +27,15 @@ const nextConfig: NextConfig = {
     return [
       // /comunidad y /circulo son la misma cosa — consolidamos en /circulo
       { source: '/comunidad', destination: '/circulo', permanent: true },
+      // B2B Evelyn — URLs legacy (carpeta evelyn-b2b o GitHub Pages)
+      { source: '/evelyn-b2b/portfolio.html', destination: '/portfolio', permanent: true },
+      { source: '/evelyn-b2b/cv.html', destination: '/cv', permanent: true },
+      { source: '/evelyn-b2b/linktree.html', destination: '/linktree', permanent: true },
+      { source: '/evelyn-b2b/propuesta-template.html', destination: '/propuesta', permanent: true },
+      { source: '/evelyn-b2b/descubrimiento.html', destination: '/descubrimiento', permanent: true },
+      { source: '/evelyn-b2b/portfolio-print.html', destination: '/portfolio-print', permanent: true },
+      { source: '/evelyn-b2b/factura-template.html', destination: '/factura', permanent: true },
+      { source: '/work', destination: '/portfolio', permanent: false },
     ]
   },
 }
