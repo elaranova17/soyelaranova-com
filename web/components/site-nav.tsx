@@ -1,12 +1,8 @@
 'use client'
 
 /**
- * SiteNav — navegación única Elara Nova (v1).
- *
- * Patrón: logo tipográfico izquierda · enlaces derecha (desktop)
- * · móvil: panel desliza desde la derecha + overlay + hamburger → X
- *
- * En `/` usa anclas de la landing; en el resto, rutas v1 del CONTEXT.
+ * SiteNav — Elara Nova (secciones landing) · Evelyn B2B (portfolio).
+ * Mismo diseño visual; enlaces según contexto.
  */
 
 import { useEffect, useState } from 'react'
@@ -14,19 +10,16 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ElaraLogo } from '@/components/elara-logo'
-
-type NavItem = { href: string; label: string; match?: readonly string[] }
-
-const ROUTE_NAV: readonly NavItem[] = [
-  { href: '/', label: 'Inicio', match: ['/'] },
-  { href: '/oraculo', label: 'Oráculo', match: ['/oraculo'] },
-  { href: '/universo', label: 'Universo', match: ['/universo'] },
-  { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
-]
+import {
+  B2B_NAV,
+  elaraExploreNav,
+  isB2bPath,
+  type NavItem,
+} from '@/lib/navigation'
 
 function isActive(pathname: string, item: NavItem): boolean {
   if (item.match) return item.match.includes(pathname)
-  if (item.href.startsWith('#')) return false
+  if (item.href.includes('#')) return false
   return pathname === item.href
 }
 
@@ -44,11 +37,13 @@ function NavLink({
   const active = isActive(pathname, item)
   const shared =
     'font-sans text-[10px] tracking-[0.26em] uppercase transition-colors duration-200 underline-offset-4'
-  const activeCls = 'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
-  const idleCls =
-    'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
+  const activeCls =
+    'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
+  const idleCls = 'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
 
-  if (item.href.startsWith('#')) {
+  const isHash = item.href.includes('#')
+
+  if (isHash) {
     return (
       <a
         href={item.href}
@@ -69,6 +64,40 @@ function NavLink({
       className={`${shared} ${active ? activeCls : idleCls} ${className}`}
     >
       {item.label}
+    </Link>
+  )
+}
+
+function NavCta({
+  href,
+  label,
+  onClick,
+  className = '',
+}: {
+  href: string
+  label: string
+  onClick?: () => void
+  className?: string
+}) {
+  const isExternal = href.startsWith('http') || href.startsWith('mailto:')
+  const cls = [
+    'inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90 sm:px-5',
+    className,
+  ].join(' ')
+
+  if (isExternal || href.includes('#')) {
+    return (
+      <a href={href} onClick={onClick} className={cls}>
+        <span aria-hidden>✦</span>
+        {label}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={href} prefetch onClick={onClick} className={cls}>
+      <span aria-hidden>✦</span>
+      {label}
     </Link>
   )
 }
@@ -108,7 +137,15 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
 
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
-  const links = ROUTE_NAV
+  const b2b = isB2bPath(pathname)
+  const onHome = pathname === '/'
+
+  const links: readonly NavItem[] = b2b ? B2B_NAV : elaraExploreNav(pathname)
+
+  const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
+  const cta = b2b
+    ? { href: '/', label: 'Conoce a Elara' }
+    : { href: '/portfolio', label: 'Conoce a Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -120,6 +157,10 @@ export function SiteNav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setOpenForPath(null)
+  }, [pathname])
 
   useEffect(() => {
     if (!open) return
@@ -145,33 +186,34 @@ export function SiteNav() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
         className={[
-          'fixed inset-x-0 top-0 z-[60] flex h-[68px] items-center justify-between gap-6 px-5 md:px-10 transition-all duration-500',
+          'fixed inset-x-0 top-0 z-[60] flex h-[68px] items-center justify-between gap-4 px-5 md:px-10 transition-all duration-500',
           scrolled
             ? 'border-b border-[var(--color-lavender)]/20 bg-[var(--color-purple-night)]/93 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
             : 'bg-gradient-to-b from-[var(--color-purple-night)]/70 to-transparent',
         ].join(' ')}
       >
-        <ElaraLogo size="md" href="/" className="min-w-0 shrink" />
+        {b2b ? (
+          <Link
+            href="/linktree"
+            className="min-w-0 shrink font-display text-lg italic tracking-tight text-[var(--color-cream)] transition-opacity hover:opacity-90 md:text-xl"
+          >
+            Evelyn Patiño
+          </Link>
+        ) : (
+          <ElaraLogo size="md" href={logoHref} className="min-w-0 shrink" />
+        )}
 
-        <div className="flex items-center justify-end gap-4">
+        <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
           <nav
-            className="hidden items-center gap-5 lg:flex"
-            aria-label="Navegación principal"
+            className="hidden max-w-[min(100%,52rem)] items-center gap-2 overflow-hidden lg:flex xl:gap-3"
+            aria-label={b2b ? 'Navegación Evelyn B2B' : 'Navegación Elara Nova'}
           >
             {links.map((item) => (
               <NavLink key={item.href + item.label} item={item} pathname={pathname} />
             ))}
           </nav>
 
-          {pathname === '/' && (
-            <Link
-              href="/sobre-elara"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-5 py-2.5 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90"
-            >
-              <span aria-hidden>✦</span>
-              Conocer a Elara
-            </Link>
-          )}
+          <NavCta href={cta.href} label={cta.label} className="hidden sm:inline-flex" />
 
           <MenuButton open={open} onClick={toggle} />
         </div>
@@ -213,7 +255,7 @@ export function SiteNav() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.08 + i * 0.05, duration: 0.4 }}
                   >
-                    {item.href.startsWith('#') ? (
+                    {item.href.includes('#') ? (
                       <a
                         href={item.href}
                         onClick={close}
@@ -241,22 +283,15 @@ export function SiteNav() {
                 ))}
               </nav>
 
-              {pathname === '/' && (
-                <Link
-                  href="/sobre-elara"
-                  prefetch
-                  onClick={close}
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] px-6 py-3 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase"
-                >
-                  Conocer a Elara
-                </Link>
-              )}
+              <NavCta href={cta.href} label={cta.label} onClick={close} className="mt-8 w-full justify-center" />
 
               <p
                 className="pointer-events-none absolute bottom-8 left-10 right-10 font-serif text-[10px] italic tracking-[0.2em] text-[var(--color-gold-soft)]/50"
                 aria-hidden
               >
-                Mira todo lo que siempre fuiste capaz de ser.
+                {b2b
+                  ? 'Ingeniera de software · Suiza'
+                  : 'Mira todo lo que siempre fuiste capaz de ser.'}
               </p>
             </motion.aside>
           </>

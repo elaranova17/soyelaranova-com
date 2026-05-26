@@ -177,13 +177,13 @@ function CursosHeroHeader() {
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Link
-            href="/cursos"
+            href="/#cursos"
             className="inline-flex items-center rounded-full bg-[#7c3aed] px-8 py-3.5 text-sm font-semibold tracking-wide text-white uppercase"
           >
             Explorá los cursos →
           </Link>
           <Link
-            href="/cursos#como-funciona"
+            href="/#cursos"
             className="inline-flex items-center rounded-full border border-[#C9A84C]/60 px-8 py-3.5 text-sm tracking-wide text-[#C9A84C] uppercase"
           >
             ¿Cómo funciona?
@@ -280,7 +280,7 @@ function MembershipBanner() {
           <p className="text-4xl font-bold text-[#f0eafa]">$17</p>
           <p className="text-sm text-[#9080b0]">USD / mes</p>
           <Link
-            href="/comunidad"
+            href="/#circulo"
             className="mt-4 inline-flex items-center rounded-full bg-[#C9A84C] px-8 py-3 text-sm font-bold tracking-wide text-black uppercase"
           >
             Unite ahora ✦
@@ -310,7 +310,7 @@ export function CursosSection() {
             Cursos destacados
           </h3>
           <Link
-            href="/cursos"
+            href="/#cursos"
             className="text-sm text-[#C9A84C]"
           >
             Ver todos los cursos →

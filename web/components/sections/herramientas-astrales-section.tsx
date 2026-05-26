@@ -226,7 +226,7 @@ function MembershipCtaBanner() {
           Tu evolución merece acompañamiento.
         </p>
         <Link
-          href="/comunidad"
+          href="/#circulo"
           className="inline-flex items-center rounded-full bg-[#7c3aed] px-8 py-3 text-xs font-semibold tracking-widest text-white uppercase"
         >
           Quiero ser miembro

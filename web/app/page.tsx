@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useState, type FormEvent } from 'react'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
+import { ELARA_SECTIONS } from '@/lib/navigation'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -170,12 +171,12 @@ const circleSteps: readonly CircleStep[] = [
 ] as const
 
 const circuloImagenes = [
-  { src: '/images/circulo-juntas.png',          alt: 'Mujeres del Círculo juntas' },
-  { src: '/images/circulo-ritual-lunar.png',    alt: 'Ritual lunar grupal' },
+  { src: '/images/circulo-juntas.png', alt: 'Mujeres del Círculo juntas' },
+  { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
   { src: '/images/circulo-ritual-inclusion.png', alt: 'Ritual de apertura' },
-  { src: '/images/circulo-oraculo.png',         alt: 'Lectura colectiva' },
-  { src: '/images/circulo-estudio.png',         alt: 'Conexión real' },
-  { src: '/images/circulo-carta-natal.png',     alt: 'Estudio de carta natal' },
+  { src: '/images/circulo-oraculo.png', alt: 'Lectura colectiva' },
+  { src: '/images/circulo-estudio.png', alt: 'Conexión real' },
+  { src: '/images/circulo-carta-natal.png', alt: 'Estudio de carta natal' },
 ] as const
 
 const cursos = [
@@ -188,7 +189,7 @@ const cursos = [
     text: 'Leer tu carta natal no es difícil. Acá aprendés desde cero, con herramientas que te sirven toda la vida.',
     price: '$97 USD',
     cta: 'Explorar curso',
-    href: '#email',
+    href: '#contacto',
   },
   {
     img: '/images/oraculo-maestra.png',
@@ -199,7 +200,7 @@ const cursos = [
     text: 'No memorizás nada. Aprendés a escuchar el símbolo y tu intuición al mismo tiempo.',
     price: '$77 USD',
     cta: 'Anotarme',
-    href: '#email',
+    href: '#contacto',
   },
   {
     img: '/images/circulo-estudio.png',
@@ -210,7 +211,7 @@ const cursos = [
     text: 'Clases en vivo, preguntas reales, comunidad activa. El grupo te sostiene cuando estudiar sola cansa.',
     price: '$57 USD',
     cta: 'Ver horarios',
-    href: '#email',
+    href: '#contacto',
   },
 ] as const
 
@@ -345,7 +346,7 @@ const HERO_FEATURES = [
   },
   {
     icon: 'Oraculo' as IconKey,
-    href: '#lecturas-oraculo',
+    href: '#oraculo',
     label: 'Lecturas de oráculo',
     description: 'Hacé tu pregunta. Tu mensaje en 24h.',
   },
@@ -639,7 +640,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="herramientas" className="relative overflow-hidden px-6 pb-24 pt-20">
+      <section id="herramientas" className="relative overflow-hidden px-6 pb-24 pt-20 scroll-mt-[5.5rem]">
         {/* Degradado entrada */}
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0E0726] via-[#0E0726]/60 to-transparent" />
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
@@ -673,8 +674,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FRANJA VISUAL ────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden">
+      {/* ── ORÁCULO · franja visual ───────────────────────────────────── */}
+      <section id="oraculo" className="relative overflow-hidden scroll-mt-[5.5rem]">
         {/* Degradado suave desde la sección anterior */}
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent z-10" />
 
@@ -683,7 +684,7 @@ export default function HomePage() {
           <div className="relative h-full w-full">
             <Image
               src="/images/oraculo-maestra.png"
-              alt=""
+              alt="Elara Nova — oráculo y rituales"
               fill
               sizes="100vw"
               className="object-cover object-center opacity-40"
@@ -711,11 +712,11 @@ export default function HomePage() {
         {/* Galería Elara — 5 ilustraciones del personaje */}
         <div className="scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-6">
           {[
-            { src: '/images/elara-durmiendo.png',  alt: 'Elara descansando',   pos: 'object-top'    },
-            { src: '/images/elara-meditando.png',  alt: 'Elara meditando',     pos: 'object-top'    },
-            { src: '/images/elara-cocinando.png',  alt: 'Elara en la cocina',  pos: 'object-top'    },
-            { src: '/images/elara-yoga.png',       alt: 'Elara haciendo yoga', pos: 'object-center' },
-            { src: '/images/elara-pintando.png',   alt: 'Elara pintando',      pos: 'object-top'    },
+            { src: '/images/elara-durmiendo.png', alt: 'Elara descansando', pos: 'object-top' },
+            { src: '/images/elara-meditando.png', alt: 'Elara meditando', pos: 'object-top' },
+            { src: '/images/elara-cocinando.png', alt: 'Elara en la cocina', pos: 'object-top' },
+            { src: '/images/elara-yoga.png', alt: 'Elara haciendo yoga', pos: 'object-center' },
+            { src: '/images/elara-pintando.png', alt: 'Elara pintando', pos: 'object-top' },
           ].map(({ src, alt, pos }, i) => (
             <motion.div
               key={src}
@@ -742,9 +743,9 @@ export default function HomePage() {
 
         {/* Degradado suave hacia la sección siguiente */}
         <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
-      </div>
+      </section>
 
-      <section id="circulo" className="relative overflow-hidden py-24">
+      <section id="circulo" className="relative overflow-hidden py-24 scroll-mt-[5.5rem]">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
         {/* Degradado entrada desde galería */}
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#1A0F3D]/80 to-transparent" />
@@ -864,7 +865,7 @@ export default function HomePage() {
                 </motion.div>
               ))}
               <motion.a
-                href="#email"
+                href="#contacto"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="mt-2 flex items-center gap-2.5 self-start rounded-2xl bg-[#7B4FB5] px-7 py-4 text-[10px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase transition-colors hover:bg-[#8B5FC5]"
@@ -994,7 +995,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="productos" className="section-fade-edge-top mx-auto max-w-6xl px-6 py-24">
+      <section id="productos" className="section-fade-edge-top mx-auto max-w-6xl scroll-mt-[5.5rem] px-6 py-24">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1038,7 +1039,7 @@ export default function HomePage() {
                   {product.text}
                 </p>
                 <a
-                  href={product.href ?? '#email'}
+                  href={product.href ?? '#contacto'}
                   target={product.target}
                   rel={product.rel}
                   className="mt-4 inline-flex border-b border-[#D4AF37]/30 pb-0.5 text-[10px] tracking-widest text-[#D4AF37] uppercase hover:border-[#D4AF37]"
@@ -1048,105 +1049,6 @@ export default function HomePage() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      <section id="atelier" className="relative overflow-hidden bg-[#0E0726] py-28">
-        {/* Decorative atmosphere */}
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#08051A] to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7B4FB5]/[0.06] blur-[100px]" />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[400px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
-
-        <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="mb-14 text-center"
-        >
-          <p className="mb-4 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
-            ✦ Proceso del Atelier
-          </p>
-          <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
-            De la intención a tus manos
-          </h2>
-          <p className="font-serif-italic mt-3 text-base text-[#C49AD4]/60 italic">
-            Cada pieza que creamos nace de una intención real.
-          </p>
-        </motion.div>
-
-        <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
-          {/* Connector lines — centered on 112px circles (top-14 = 56px) */}
-          <div
-            className="pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent md:block"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute top-[57px] right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent md:block"
-            aria-hidden
-          />
-          {creationSteps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              custom={index}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="relative z-10 flex flex-col items-center text-center"
-            >
-              <motion.div
-                className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
-                animate={{
-                  boxShadow: [
-                    '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
-                    '0 0 36px rgba(212,175,55,0.38), inset 0 1px 0 rgba(255,255,255,0.12)',
-                    '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
-                  ],
-                }}
-                transition={{ duration: 2.8 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
-                whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
-              >
-                {ElaraIcons[step.icon].render(48)}
-                <span className="absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/70 bg-[#0E0726] text-[10px] font-bold text-[#D4AF37]">
-                  {index + 1}
-                </span>
-              </motion.div>
-              <h3 className="font-display mt-8 text-xl text-[#F5EEF8]">
-                {step.title}
-              </h3>
-              <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[#C49AD4]/70 italic">
-                {step.text}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 gap-4 border-t border-[#D4AF37]/15 pt-10 md:grid-cols-4">
-          {serviceTrustItems.map((item) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/50 px-4 py-5 text-center backdrop-blur-sm"
-            >
-              <motion.div
-                animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
-              >
-                {ElaraIcons[item.icon].render(32)}
-              </motion.div>
-              <p className="text-[10px] font-semibold leading-snug tracking-[0.2em] text-[#D4AF37]/75 uppercase">{item.label}</p>
-              <p className="text-[11px] leading-relaxed text-[#C49AD4]/55">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
         </div>
       </section>
 
@@ -1219,23 +1121,47 @@ export default function HomePage() {
                 Conocé mi historia <span aria-hidden>→</span>
               </motion.a>
 
-              {/* ── Eve: la persona real detrás de la marca ── */}
-              <div className="mt-6 flex items-center gap-3 self-start">
-                <div className="h-px w-8 bg-[#D4AF37]/25" />
-                <span className="text-[9px] tracking-[0.38em] text-[#C49AD4]/45 uppercase">La desarrolladora detrás</span>
-                <div className="h-px w-8 bg-[#D4AF37]/25" />
-              </div>
-              <p className="text-[13px] leading-relaxed text-[#C49AD4]/55">
-                Soy <strong className="font-semibold text-[#C49AD4]/75">Evelyn Patiño</strong> — ingeniera de software,
-                6 años en banca, radicada en Suiza.
-                Este sitio es lo que construyo para clientes.
-              </p>
-              <Link
-                href="/linktree"
-                className="inline-flex items-center gap-2 self-start rounded-full border border-[#C49AD4]/25 px-5 py-2 text-[9px] tracking-[0.28em] text-[#C49AD4]/55 uppercase transition-all hover:border-[#C49AD4]/50 hover:text-[#C49AD4]/80"
+              {/* ── Elara/Evelyn: la historia del alter ego ── */}
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="mt-8 rounded-3xl border border-[#7B4FB5]/25 bg-[#1A0F3D]/50 p-7 backdrop-blur-sm"
               >
-                Ver portafolio de Evelyn <span aria-hidden>↗</span>
-              </Link>
+                <div className="mb-5 flex items-center gap-3">
+                  <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
+                  <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/60 uppercase">✦ La mujer detrás</span>
+                  <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
+                </div>
+
+                <p className="font-serif-italic mb-5 text-[1.05rem] leading-[1.8] text-[#C49AD4]/85 italic">
+                  Detrás de mí hay una mujer real:{' '}
+                  <strong className="not-italic font-semibold text-[#F5EEF8]/90">Evelyn Patiño</strong>.
+                </p>
+
+                <p className="text-[13px] leading-[1.9] text-[#C49AD4]/65">
+                  Una madre colombiana que vive en Suiza, que un día me encontró —
+                  no como una marca, sino como su manera de tender la mano hacia otras mujeres.
+                  Para caminar juntas. Para crecer juntas.{' '}
+                  <em className="italic text-[#C49AD4]/80">Desde lo más íntimo hasta lo más profesional.</em>
+                </p>
+
+                <p className="mt-4 text-[13px] leading-[1.9] text-[#C49AD4]/55">
+                  Evelyn es ingeniera de software. Toda su vida adentro de fábricas de software —
+                  construyendo soluciones, automatizando lo que parecía imposible, trabajando con datos
+                  donde otros veían caos. Crea cada rincón de este espacio con amor y dedicación,
+                  porque sabe que lo que vos traés acá es real.
+                </p>
+
+                <Link
+                  href="/linktree"
+                  className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-[#D4AF37]/40 px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.07] hover:text-[#D4AF37]"
+                >
+                  <span className="opacity-70">{ElaraIcons.Guia.render(14)}</span>
+                  Conoce más de Evelyn <span aria-hidden>→</span>
+                </Link>
+              </motion.div>
             </motion.div>
 
             {/* Right: character illustration */}
@@ -1303,7 +1229,102 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="email" className="relative overflow-hidden bg-[#08051A]">
+      <section id="atelier" className="relative overflow-hidden bg-[#0E0726] py-28">
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#08051A] to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7B4FB5]/[0.06] blur-[100px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[400px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
+
+        <div className="mx-auto max-w-6xl px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mb-14 text-center"
+          >
+            <p className="mb-4 text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase">
+              ✦ Así crea Evelyn
+            </p>
+            <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
+              De la intención a tus manos
+            </h2>
+            <p className="font-serif-italic mt-3 text-base text-[#C49AD4]/60 italic">
+              Cada pieza que creamos nace de una intención real.
+            </p>
+          </motion.div>
+
+          <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
+            <div
+              className="pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent md:block"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute top-[57px] right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent md:block"
+              aria-hidden
+            />
+            {creationSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                custom={index}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="relative z-10 flex flex-col items-center text-center"
+              >
+                <motion.div
+                  className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
+                  animate={{
+                    boxShadow: [
+                      '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+                      '0 0 36px rgba(212,175,55,0.38), inset 0 1px 0 rgba(255,255,255,0.12)',
+                      '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    ],
+                  }}
+                  transition={{ duration: 2.8 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
+                  whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+                >
+                  {ElaraIcons[step.icon].render(48)}
+                  <span className="absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/70 bg-[#0E0726] text-[10px] font-bold text-[#D4AF37]">
+                    {index + 1}
+                  </span>
+                </motion.div>
+                <h3 className="font-display mt-8 text-xl text-[#F5EEF8]">{step.title}</h3>
+                <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[#C49AD4]/70 italic">
+                  {step.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 gap-4 border-t border-[#D4AF37]/15 pt-10 md:grid-cols-4">
+            {serviceTrustItems.map((item) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+                className="flex flex-col items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/50 px-4 py-5 text-center backdrop-blur-sm"
+              >
+                <motion.div
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+                >
+                  {ElaraIcons[item.icon].render(32)}
+                </motion.div>
+                <p className="text-[10px] font-semibold leading-snug tracking-[0.2em] text-[#D4AF37]/75 uppercase">{item.label}</p>
+                <p className="text-[11px] leading-relaxed text-[#C49AD4]/55">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" className="relative overflow-hidden scroll-mt-[5.5rem] bg-[#08051A]">
         {/* Blooms */}
         <div aria-hidden className="pointer-events-none absolute top-0 left-0 h-[500px] w-[500px] -translate-x-1/4 rounded-full bg-[#D4AF37]/[0.05] blur-[100px]" />
         <div aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/3 rounded-full bg-[#7B4FB5]/[0.07] blur-[80px]" />
@@ -1497,16 +1518,10 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-6 md:items-start">
               <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Explorar</p>
               <nav className="flex flex-col gap-3" aria-label="Footer nav">
-                {[
-                  { href: '#herramientas', label: 'Herramientas' },
-                  { href: '#circulo', label: 'El Círculo' },
-                  { href: '#cursos', label: 'Cursos' },
-                  { href: '#productos', label: 'Productos' },
-                  { href: '#sobre', label: 'Sobre Elara' },
-                ].map(({ href, label }) => (
+                {ELARA_SECTIONS.map(({ id, label }) => (
                   <a
-                    key={href}
-                    href={href}
+                    key={id}
+                    href={`#${id}`}
                     className="text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
                   >
                     {label}
@@ -1523,7 +1538,7 @@ export default function HomePage() {
                 Solo necesita el espacio para recordar.
               </p>
               <a
-                href="#email"
+                href="#contacto"
                 className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/35 px-6 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all duration-300 hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.06]"
               >
                 <span aria-hidden>✦</span> Unite al Círculo

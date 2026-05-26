@@ -17,7 +17,7 @@ export function ComunidadSection() {
               </div>
             ))}
           </div>
-          <a href="/comunidad" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium">
+          <a href="/#circulo" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium">
             Quiero unirme →
           </a>
         </div>

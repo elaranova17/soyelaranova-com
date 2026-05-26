@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
       { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
       { source: '/propuesta',         destination: '/evelyn-b2b/propuesta-template.html' },
+      { source: '/casos-exito',       destination: '/evelyn-b2b/propuesta.html' },
       { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
       { source: '/descubrimiento',    destination: '/evelyn-b2b/descubrimiento.html' },
     ]
@@ -23,13 +24,19 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // /comunidad y /circulo son la misma cosa — consolidamos en /circulo
-      { source: '/comunidad', destination: '/circulo', permanent: true },
+      // Rutas legacy → secciones de la landing fusionada
+      { source: '/comunidad', destination: '/#circulo', permanent: false },
+      { source: '/circulo', destination: '/#circulo', permanent: false },
+      { source: '/cursos', destination: '/#cursos', permanent: false },
+      { source: '/herramientas', destination: '/#herramientas', permanent: false },
+      { source: '/contacto', destination: '/#contacto', permanent: false },
+      { source: '/lecturas', destination: '/oraculo', permanent: false },
       // B2B Evelyn — URLs legacy (carpeta evelyn-b2b o GitHub Pages)
       { source: '/evelyn-b2b/portfolio.html', destination: '/portfolio', permanent: true },
       { source: '/evelyn-b2b/cv.html', destination: '/cv', permanent: true },
       { source: '/evelyn-b2b/linktree.html', destination: '/linktree', permanent: true },
       { source: '/evelyn-b2b/propuesta-template.html', destination: '/propuesta', permanent: true },
+      { source: '/evelyn-b2b/propuesta.html', destination: '/casos-exito', permanent: true },
       { source: '/evelyn-b2b/descubrimiento.html', destination: '/descubrimiento', permanent: true },
       { source: '/evelyn-b2b/portfolio-print.html', destination: '/portfolio-print', permanent: true },
       { source: '/evelyn-b2b/factura-template.html', destination: '/factura', permanent: true },

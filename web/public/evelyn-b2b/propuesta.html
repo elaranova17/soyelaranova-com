@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Casos de éxito · Evelyn Patiño Laverde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Clientes felices de Evelyn Patiño — Sama, Ofelia y proyectos web entregados con calidad." />
+<meta name="theme-color" content="#2D1B69" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/evelyn-b2b/b2b-nav.css" />
+<style>
+:root {
+  --purple-deep: #2D1B69; --purple-night: #1A0F3D; --purple-mid: #3D2580;
+  --gold: #D4AF37; --gold-soft: #E5C770; --gold-bright: #F2D578;
+  --cream: #FAF4E2; --pale-lav: #E5DBF0; --ink: #1A0F3D; --grey: #6B6680;
+  --display: 'Playfair Display', serif; --serif: 'Cormorant Garamond', serif;
+  --sans: 'Lato', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+
+.hero {
+  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 55%, #4A2D9C 100%);
+  color: var(--cream);
+  padding: 5rem 1.5rem 3.5rem;
+  text-align: center;
+}
+.hero__eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin-bottom: 0.75rem;
+}
+.hero h1 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); }
+.hero p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--pale-lav);
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+}
+.hero__cta {
+  display: inline-flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero__cta a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.hero__cta .btn-gold {
+  background: var(--gold);
+  color: var(--purple-night);
+}
+.hero__cta .btn-ghost {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: var(--gold-soft);
+}
+.hero__cta a:hover { transform: translateY(-1px); opacity: 0.95; }
+
+.section { padding: 3.5rem 0; }
+.section--lav { background: #F5F0F9; }
+
+.section__head { text-align: center; margin-bottom: 2.5rem; }
+.section__head .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.section__head h2 {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--purple-deep);
+}
+
+.cases {
+  display: grid;
+  gap: 1.75rem;
+}
+@media (min-width: 768px) {
+  .cases { grid-template-columns: 1fr 1fr; }
+}
+
+.case {
+  background: #fff;
+  border: 1px solid rgba(45, 27, 105, 0.1);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 12px 40px -16px rgba(45, 27, 105, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.case:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px -16px rgba(45, 27, 105, 0.28);
+}
+.case__badge {
+  display: inline-block;
+  margin: 1.25rem 1.25rem 0;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.15);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.case__body { padding: 1rem 1.25rem 1.5rem; }
+.case h3 {
+  font-family: var(--display);
+  font-size: 1.65rem;
+  color: var(--purple-deep);
+  margin-bottom: 0.35rem;
+}
+.case__role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.85rem;
+}
+.case p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #3d3560;
+  margin-bottom: 0.75rem;
+}
+.case ul {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+.case li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(45, 27, 105, 0.08);
+  color: var(--ink);
+}
+.case li strong { color: var(--purple-deep); }
+
+.note {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(45, 27, 105, 0.06);
+  border-left: 3px solid var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.note a { color: var(--purple-deep); font-weight: 700; }
+
+.footer-mini {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+</style>
+</head>
+<body class="has-b2b-nav">
+<nav class="en-b2b-nav" aria-label="Navegación Evelyn">
+  <a href="/linktree">← Enlaces</a>
+  <a href="/portfolio">Portfolio</a>
+  <a href="/cv">CV</a>
+  <a href="/propuesta">Propuesta</a>
+  <a href="/" class="en-b2b-nav__cta">Conoce a Elara</a>
+</nav>
+
+<header class="hero">
+  <p class="hero__eyebrow">Clientes felices · Evelyn Patiño</p>
+  <h1>Casos de <em>éxito</em></h1>
+  <p>Proyectos reales con marcas que confiaron en un proceso claro: descubrimiento, diseño con intención y entrega técnica sin intermediarios.</p>
+  <div class="hero__cta">
+    <a class="btn-gold" href="/descubrimiento">Empezar un proyecto</a>
+    <a class="btn-ghost" href="/portfolio">Ver portfolio completo</a>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">— Referencias —</p>
+      <h2>Quién ya trabajó conmigo</h2>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <span class="case__badge">Cliente activo</span>
+        <div class="case__body">
+          <h3>Ofelia</h3>
+          <p class="case__role">Marca personal · presencia digital</p>
+          <p>
+            Hub de enlaces y ecosistema B2B con identidad editorial: tipografía limpia, navegación clara
+            y experiencia premium sin ruido visual. Portfolio, CV y propuesta conectados desde un solo
+            punto de entrada.
+          </p>
+          <ul>
+            <li><strong>Entregable:</strong> Link hub + páginas B2B (portfolio, CV, casos)</li>
+            <li><strong>Stack:</strong> Next.js · diseño custom · Vercel</li>
+            <li><strong>Resultado:</strong> Una sola URL para compartir con clientes y colaboradores</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <span class="case__badge">Cliente feliz</span>
+        <div class="case__body">
+          <h3>Sama</h3>
+          <p class="case__role">Proyecto web · experiencia de marca</p>
+          <p>
+            Sitio y flujo digital alineados con la voz de la marca: estructura pensada para convertir,
+            componentes reutilizables y base técnica lista para crecer sin rehacer todo cada mes.
+          </p>
+          <ul>
+            <li><strong>Entregable:</strong> Sitio web + sistema visual coherente</li>
+            <li><strong>Enfoque:</strong> Mobile-first · performance · claridad de mensaje</li>
+            <li><strong>Resultado:</strong> Presencia profesional lista para captar y cerrar leads</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <p class="note">
+      Para un <strong>nuevo cliente</strong> uso la plantilla de propuesta personalizada (alcance, cronograma, inversión).
+      Esa plantilla vive en nuestra biblioteca interna — no es pública. Si querés empezar,
+      <a href="/descubrimiento">completá el descubrimiento</a> y te armo la propuesta a medida.
+    </p>
+  </div>
+</section>
+
+<p class="footer-mini">Evelyn Patiño Laverde · Ingeniera de Software · Suiza</p>
+</body>
+</html>
