@@ -1111,57 +1111,6 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <motion.a
-                href="/sobre-elara"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="mt-2 flex items-center gap-2.5 self-start rounded-2xl border border-[#D4AF37]/40 px-7 py-3.5 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase transition-all duration-300 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/[0.08]"
-              >
-                <span className="opacity-70">{ElaraIcons.Guia.render(16)}</span>
-                Conocé mi historia <span aria-hidden>→</span>
-              </motion.a>
-
-              {/* ── Elara/Evelyn: la historia del alter ego ── */}
-              <motion.div
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="mt-8 rounded-3xl border border-[#7B4FB5]/25 bg-[#1A0F3D]/50 p-7 backdrop-blur-sm"
-              >
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
-                  <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/60 uppercase">✦ La mujer detrás</span>
-                  <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
-                </div>
-
-                <p className="font-serif-italic mb-5 text-[1.05rem] leading-[1.8] text-[#C49AD4]/85 italic">
-                  Detrás de mí hay una mujer real:{' '}
-                  <strong className="not-italic font-semibold text-[#F5EEF8]/90">Evelyn Patiño</strong>.
-                </p>
-
-                <p className="text-[13px] leading-[1.9] text-[#C49AD4]/65">
-                  Una madre colombiana que vive en Suiza, que un día me encontró —
-                  no como una marca, sino como su manera de tender la mano hacia otras mujeres.
-                  Para caminar juntas. Para crecer juntas.{' '}
-                  <em className="italic text-[#C49AD4]/80">Desde lo más íntimo hasta lo más profesional.</em>
-                </p>
-
-                <p className="mt-4 text-[13px] leading-[1.9] text-[#C49AD4]/55">
-                  Evelyn es ingeniera de software. Toda su vida adentro de fábricas de software —
-                  construyendo soluciones, automatizando lo que parecía imposible, trabajando con datos
-                  donde otros veían caos. Crea cada rincón de este espacio con amor y dedicación,
-                  porque sabe que lo que vos traés acá es real.
-                </p>
-
-                <Link
-                  href="/linktree"
-                  className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-[#D4AF37]/40 px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.07] hover:text-[#D4AF37]"
-                >
-                  <span className="opacity-70">{ElaraIcons.Guia.render(14)}</span>
-                  Conoce más de Evelyn <span aria-hidden>→</span>
-                </Link>
-              </motion.div>
             </motion.div>
 
             {/* Right: character illustration */}
@@ -1226,17 +1175,11 @@ export default function HomePage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      <section id="atelier" className="relative overflow-hidden bg-[#0E0726] py-28">
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#08051A] to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
-        <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7B4FB5]/[0.06] blur-[100px]" />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[400px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
-
-        <div className="mx-auto max-w-6xl px-6">
+          {/* ── Timeline: así crea Evelyn ── */}
+          <div id="atelier" className="mt-24 scroll-mt-[5.5rem]">
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
+            <div aria-hidden className="pointer-events-none my-4 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.05] blur-[80px]" />
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -1299,29 +1242,51 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-4 border-t border-[#D4AF37]/15 pt-10 md:grid-cols-4">
-            {serviceTrustItems.map((item) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ y: -3, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
-                className="flex flex-col items-center gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/50 px-4 py-5 text-center backdrop-blur-sm"
-              >
-                <motion.div
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
-                >
-                  {ElaraIcons[item.icon].render(32)}
-                </motion.div>
-                <p className="text-[10px] font-semibold leading-snug tracking-[0.2em] text-[#D4AF37]/75 uppercase">{item.label}</p>
-                <p className="text-[11px] leading-relaxed text-[#C49AD4]/55">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+          </div>{/* close #atelier */}
+
+          {/* ── La mujer detrás: cajoncito Evelyn ── */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mt-16 rounded-3xl border border-[#7B4FB5]/25 bg-[#1A0F3D]/50 p-8 backdrop-blur-sm lg:p-10"
+          >
+            <div className="mb-5 flex items-center gap-3">
+              <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
+              <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/60 uppercase">✦ La mujer detrás</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
+            </div>
+
+            <p className="font-serif-italic mb-5 text-[1.1rem] leading-[1.8] text-[#C49AD4]/85 italic">
+              Detrás de mí hay una mujer real:{' '}
+              <strong className="not-italic font-semibold text-[#F5EEF8]/90">Evelyn Patiño</strong>.
+            </p>
+
+            <div className="grid gap-5 lg:grid-cols-2">
+              <p className="text-[13px] leading-[1.9] text-[#C49AD4]/65">
+                Una madre colombiana que vive en Suiza, que un día me encontró —
+                no como una marca, sino como su manera de tender la mano hacia otras mujeres.
+                Para caminar juntas. Para crecer juntas.{' '}
+                <em className="italic text-[#C49AD4]/80">Desde lo más íntimo hasta lo más profesional.</em>
+              </p>
+              <p className="text-[13px] leading-[1.9] text-[#C49AD4]/55">
+                Evelyn es ingeniera de software. Toda su vida adentro de fábricas de software —
+                construyendo soluciones, automatizando lo que parecía imposible, trabajando con datos
+                donde otros veían caos. Crea cada rincón de este espacio con amor y dedicación,
+                porque sabe que lo que vos traés acá es real.
+              </p>
+            </div>
+
+            <Link
+              href="/linktree"
+              className="mt-7 inline-flex items-center gap-2 rounded-2xl border border-[#D4AF37]/40 px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.07] hover:text-[#D4AF37]"
+            >
+              <span className="opacity-70">{ElaraIcons.Guia.render(14)}</span>
+              Conoce más de Evelyn <span aria-hidden>→</span>
+            </Link>
+          </motion.div>
+        </div>{/* close mx-auto */}
       </section>
 
       <section id="contacto" className="relative overflow-hidden scroll-mt-[5.5rem] bg-[#08051A]">
