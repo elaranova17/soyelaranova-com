@@ -1,6 +1,9 @@
 'use client'
 
 /**
+ * @deprecated No usar en rutas activas — fondo Midjourney (portal-lago) prohibido.
+ * Home usa `HomeRitualHero`. Mantener solo referencia histórica hasta limpieza.
+ *
  * PortalLunarHero — la entrada al universo Elara Nova.
  *
  * Construido en capas (back → front), con efectos cinematograficos:

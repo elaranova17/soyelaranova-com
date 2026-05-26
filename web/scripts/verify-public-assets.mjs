@@ -39,9 +39,11 @@ async function main() {
     process.exit(1)
   }
 
-  const heroDir = join(publicDir, 'hero')
-  if (!existsSync(heroDir)) {
-    errors.push('Falta web/public/hero/ (requerido para assets legacy en /images/)')
+  const forbiddenHero = join(publicDir, 'hero')
+  if (existsSync(forbiddenHero)) {
+    errors.push(
+      'web/public/hero/ no debe existir (assets Midjourney/fantasy archivados en 06_ARCHIVO/). Usá /images/ con archivos reales.',
+    )
   }
 
   await walk(publicDir)
