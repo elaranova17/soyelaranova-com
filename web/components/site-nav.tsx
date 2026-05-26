@@ -3,7 +3,7 @@
 /**
  * SiteNav — navegación única Elara Nova (v1).
  *
- * Patrón: barra fija · logo centro · enlaces laterales (desktop)
+ * Patrón: logo tipográfico izquierda · enlaces derecha (desktop)
  * · móvil: panel desliza desde la derecha + overlay + hamburger → X
  *
  * En `/` usa anclas de la landing; en el resto, rutas v1 del CONTEXT.
@@ -109,8 +109,6 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
   const links = ROUTE_NAV
-  const leftLinks = links.slice(0, Math.ceil(links.length / 2))
-  const rightLinks = links.slice(Math.ceil(links.length / 2))
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -147,28 +145,20 @@ export function SiteNav() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
         className={[
-          'fixed inset-x-0 top-0 z-[60] grid h-[68px] grid-cols-[1fr_auto_1fr] items-center px-5 md:px-10 transition-all duration-500',
+          'fixed inset-x-0 top-0 z-[60] flex h-[68px] items-center justify-between gap-6 px-5 md:px-10 transition-all duration-500',
           scrolled
             ? 'border-b border-[var(--color-lavender)]/20 bg-[var(--color-purple-night)]/93 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
             : 'bg-gradient-to-b from-[var(--color-purple-night)]/70 to-transparent',
         ].join(' ')}
       >
-        <nav
-          className="hidden items-center gap-5 justify-self-start lg:flex"
-          aria-label="Navegación principal"
-        >
-          {leftLinks.map((item) => (
-            <NavLink key={item.href + item.label} item={item} pathname={pathname} />
-          ))}
-        </nav>
+        <ElaraLogo size="md" href="/" className="min-w-0 shrink" />
 
-        <div className="justify-self-center">
-          <ElaraLogo size="md" href="/" />
-        </div>
-
-        <div className="flex items-center justify-end gap-4 justify-self-end">
-          <nav className="hidden items-center gap-5 lg:flex" aria-label="Navegación secundaria">
-            {rightLinks.map((item) => (
+        <div className="flex items-center justify-end gap-4">
+          <nav
+            className="hidden items-center gap-5 lg:flex"
+            aria-label="Navegación principal"
+          >
+            {links.map((item) => (
               <NavLink key={item.href + item.label} item={item} pathname={pathname} />
             ))}
           </nav>
