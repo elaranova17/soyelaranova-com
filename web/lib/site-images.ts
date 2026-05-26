@@ -1,15 +1,16 @@
 /**
  * Rutas de imágenes del sitio · /public/images/
- * Actualizado mayo 2026: tarot → oráculo, imágenes nuevas agregadas.
+ * Solo ilustraciones estilo Pixar/Encanto (.png). Sin fotos Midjourney (.jpg).
+ * JPG archivados en 06_ARCHIVO/web-images-fantasy-jpg-deprecated/
  */
 export const siteImages = {
   hero: {
     elara: '/images/hero-elara-noche.png',
-    escritorio: '/images/hero-elara-escritorio.jpg',
+    escritorio: '/images/elara-meditando.png',
   },
   sobre: {
-    elara: '/images/sobre-elara.jpg',
-    escribiendo: '/images/elara-escribiendo.jpg',
+    elara: '/images/elara-meditando.png',
+    escribiendo: '/images/elara-journal.png',
     journal: '/images/elara-journal.png',
     aprendiendo: '/images/elara-aprendiendo.png',
     cursos: '/images/elara-cursos.png',
@@ -20,7 +21,7 @@ export const siteImages = {
     pintando: '/images/elara-pintando.png',
   },
   herramientas: {
-    principal: '/images/herramientas-astrales.jpg',
+    principal: '/images/oraculo-maestra.png',
     astrologia: '/images/herramienta-astrologia.png',
     cartaNatal: '/images/herramienta-carta-natal.png',
     ciclosLunares: '/images/ciclos-lunares-rituales.png',
@@ -31,32 +32,32 @@ export const siteImages = {
     proposito: '/images/herramienta-proposito.png',
     oraculo: '/images/herramienta-oraculo.png',
     meditacion: '/images/meditacion-lunar.png',
-    cristales: '/images/meditacion-cristales.jpg',
-    ritualAltares: '/images/rituales-altar-cristales.jpg',
+    cristales: '/images/herramienta-chakras.png',
+    ritualAltares: '/images/herramienta-rituales.png',
   },
   oraculo: {
-    seccion: '/images/oraculo-tres-cartas.jpg',
+    seccion: '/images/oraculo-maestra.png',
     maestra: '/images/oraculo-maestra.png',
   },
   comunidad: {
-    mujeres: '/images/comunidad-mujeres.jpg',
-    amigasNoche: '/images/circulo-amigas-noche.jpg',
+    mujeres: '/images/circulo-juntas.png',
+    amigasNoche: '/images/circulo-juntas.png',
   },
   atelier: {
-    escribiendo: '/images/elara-escribiendo.jpg',
+    escribiendo: '/images/elara-journal.png',
   },
   cursos: {
-    header: '/images/herramientas-astrales.jpg',
+    header: '/images/curso-astrologia.png',
     astrologia: '/images/curso-astrologia.png',
     oraculo: '/images/oraculo-maestra.png',
     ciclos: '/images/ciclos-lunares-rituales.png',
-    sanar: '/images/curso-sanar.jpg',
-    estudiante: '/images/curso-estudiante.jpg',
+    sanar: '/images/ciclos-lunares-rituales.png',
+    estudiante: '/images/circulo-estudio.png',
   },
   tienda: {
-    kitRituales: '/images/rituales-altar-cristales.jpg',
-    planificadorLunar: '/images/producto-planificador-lunar.jpg',
-    journal: '/images/journal-magico-flatlay.jpg',
+    kitRituales: '/images/herramienta-rituales.png',
+    planificadorLunar: '/images/ciclos-lunares-rituales.png',
+    journal: '/images/elara-journal.png',
   },
   circulo: {
     juntas: '/images/circulo-juntas.png',
@@ -65,7 +66,7 @@ export const siteImages = {
     ritualLunar: '/images/circulo-ritual-lunar.png',
     estudio: '/images/circulo-estudio.png',
     oraculo: '/images/circulo-oraculo.png',
-    amigasNoche: '/images/circulo-amigas-noche.jpg',
+    amigasNoche: '/images/circulo-juntas.png',
   },
   sello: {
     principal: '/images/sello-elara-nova.png',

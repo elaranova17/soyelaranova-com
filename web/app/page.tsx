@@ -130,7 +130,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'recurso',
   },
   {
-    img: '/images/meditacion-cristales.jpg',
+    img: '/images/herramienta-chakras.png',
     icon: 'Energia',
     title: 'Cristales & Energía',
     text: 'Piezas que sostienen tu proceso. Sin misticismos innecesarios, con intención real.',
@@ -174,7 +174,7 @@ const circuloImagenes = [
   { src: '/images/circulo-ritual-lunar.png',    alt: 'Ritual lunar grupal' },
   { src: '/images/circulo-ritual-inclusion.png', alt: 'Ritual de apertura' },
   { src: '/images/circulo-oraculo.png',         alt: 'Lectura colectiva' },
-  { src: '/images/circulo-amigas-noche.jpg',    alt: 'Conexión real' },
+  { src: '/images/circulo-estudio.png',         alt: 'Conexión real' },
   { src: '/images/circulo-carta-natal.png',     alt: 'Estudio de carta natal' },
 ] as const
 
@@ -202,7 +202,7 @@ const cursos = [
     href: '#email',
   },
   {
-    img: '/images/curso-estudiante.jpg',
+    img: '/images/circulo-estudio.png',
     tag: 'Programa · En vivo',
     badge: 'EN VIVO',
     badgeColor: 'text-[#F5EEF8] border-[#F5EEF8]/30',
@@ -234,12 +234,12 @@ const products: readonly ProductCard[] = [
     text: 'Un método propio para leer el oráculo. Sin memorizar. Con intuición activa.',
   },
   {
-    img: '/images/rituales-altar-cristales.jpg',
+    img: '/images/herramienta-rituales.png',
     title: 'Kit de Rituales',
     text: 'Piezas y prácticas para crear espacios de intención en casa. Con guía incluida.',
   },
   {
-    img: '/images/producto-planificador-lunar.jpg',
+    img: '/images/ciclos-lunares-rituales.png',
     title: 'Planificador Lunar',
     text: 'Organizá tu mes con las fases lunares. PDF descargable, imprimible, tuyo.',
     href: 'https://soyelaranova.ck.page/REPLACE_WITH_REAL_CONVERTKIT_FORM',
@@ -480,22 +480,12 @@ export default function HomePage() {
 
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
-        <div className="absolute inset-0" aria-hidden>
-          <Image
-            src="/images/hero-elara-escritorio.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          {/* Gradient izquierda — contenido legible (escritorio centrado, más cobertura) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/92 lg:via-[#0E0726]/80 to-[#0E0726]/30" />
-          {/* Gradient arriba + abajo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/60 via-transparent to-[#0E0726]/92" />
-          {/* Bloom izquierda */}
-          <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.09] blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/3 h-[300px] w-[300px] -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.03] blur-[80px]" />
+        <div className="absolute inset-0 linktree-page" aria-hidden>
+          <div className="linktree-stars absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/95 to-[#1A0F3D]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/70 via-transparent to-[#0E0726]/95" />
+          <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.12] blur-[130px]" />
+          <div className="pointer-events-none absolute top-1/2 right-0 h-[400px] w-[400px] translate-x-1/4 rounded-full bg-[#D4AF37]/[0.06] blur-[100px]" />
         </div>
 
         {/* Hero particles — más densas y grandes en el hero */}
@@ -692,16 +682,15 @@ export default function HomePage() {
         <div className="relative mx-0 h-[500px] overflow-hidden">
           <div className="relative h-full w-full">
             <Image
-              src="/images/herramientas-astrales.jpg"
+              src="/images/oraculo-maestra.png"
               alt=""
               fill
               sizes="100vw"
-              className="object-cover"
-              style={{ objectPosition: 'center 18%' }}
+              className="object-cover object-center opacity-40"
             />
-            <div className="absolute inset-0 bg-[#0E0726]/52" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-transparent to-[#0E0726]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/40 via-transparent to-[#0E0726]/60" />
+            <div className="absolute inset-0 bg-[#0E0726]/75" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/40 to-[#0E0726]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/50 via-transparent to-[#0E0726]/70" />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1263,12 +1252,11 @@ export default function HomePage() {
                 style={{ boxShadow: '0 0 60px rgba(123,79,181,0.22), 0 40px 80px rgba(14,7,38,0.9)' }}
               >
                 <Image
-                  src="/images/hero-elara-escritorio.jpg"
-                  alt="Elara Nova en su estudio"
+                  src="/images/elara-meditando.png"
+                  alt="Elara Nova"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover"
-                  style={{ objectPosition: 'center 15%' }}
+                  className="object-cover object-top"
                 />
                 {/* Gradiente bottom — fusiona con el fondo de página */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/70 via-[#0E0726]/10 to-transparent" />
@@ -1412,7 +1400,7 @@ export default function HomePage() {
           {/* RIGHT — image */}
           <div className="relative hidden lg:block">
             <Image
-              src="/images/circulo-amigas-noche.jpg"
+              src="/images/circulo-juntas.png"
               alt="El Círculo íntimo de Elara Nova"
               fill
               sizes="560px"

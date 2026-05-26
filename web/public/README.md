@@ -2,7 +2,8 @@
 
 **Reglas (no romper deploy):**
 
-1. **No symlinks** salvo que el destino exista dentro de `public/` (el build en Vercel falla si apuntan a carpetas archivadas).
-2. **`hero/`** — copia de respaldo en producción; varias rutas en `/images/` dependen de estos JPG. No mover a `06_ARCHIVO/` sin reemplazar los archivos en `/images/` por copias reales.
-3. **Fuente de diseño** — nuevos assets primero en `03_VISUAL_KIT/`, luego copiar aquí solo lo que use el sitio.
-4. Antes de push: `cd web && npm run verify:assets`
+1. **No symlinks** salvo que el destino exista dentro de `public/`.
+2. **No `public/hero/`** — fondos Midjourney prohibidos (`06_ARCHIVO/web-public-hero-fantasy-deprecated/`).
+3. **No `.jpg` en `public/images/`** — solo ilustraciones Pixar/Encanto (`.png`). JPG viejos en `06_ARCHIVO/web-images-fantasy-jpg-deprecated/`.
+4. **B2B Evelyn** — `/_assets/photos/` y HTML en `evelyn-b2b/` (fotos reales, no Elara).
+5. Antes de push: `cd web && npm run verify:assets`
