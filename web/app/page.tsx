@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState, type FormEvent } from 'react'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
@@ -1212,7 +1213,7 @@ export default function HomePage() {
               </div>
 
               <motion.a
-                href="#email"
+                href="/sobre-elara"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="mt-2 flex items-center gap-2.5 self-start rounded-2xl border border-[#D4AF37]/40 px-7 py-3.5 text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase transition-all duration-300 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/[0.08]"
@@ -1220,6 +1221,24 @@ export default function HomePage() {
                 <span className="opacity-70">{ElaraIcons.Guia.render(16)}</span>
                 Conocé mi historia <span aria-hidden>→</span>
               </motion.a>
+
+              {/* ── Eve: la persona real detrás de la marca ── */}
+              <div className="mt-6 flex items-center gap-3 self-start">
+                <div className="h-px w-8 bg-[#D4AF37]/25" />
+                <span className="text-[9px] tracking-[0.38em] text-[#C49AD4]/45 uppercase">La desarrolladora detrás</span>
+                <div className="h-px w-8 bg-[#D4AF37]/25" />
+              </div>
+              <p className="text-[13px] leading-relaxed text-[#C49AD4]/55">
+                Soy <strong className="font-semibold text-[#C49AD4]/75">Evelyn Patiño</strong> — ingeniera de software,
+                6 años en banca, radicada en Suiza.
+                Este sitio es lo que construyo para clientes.
+              </p>
+              <Link
+                href="/linktree"
+                className="inline-flex items-center gap-2 self-start rounded-full border border-[#C49AD4]/25 px-5 py-2 text-[9px] tracking-[0.28em] text-[#C49AD4]/55 uppercase transition-all hover:border-[#C49AD4]/50 hover:text-[#C49AD4]/80"
+              >
+                Ver portafolio de Evelyn <span aria-hidden>↗</span>
+              </Link>
             </motion.div>
 
             {/* Right: character illustration */}
