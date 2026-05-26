@@ -163,7 +163,7 @@ export function SiteNav() {
         </nav>
 
         <div className="justify-self-center">
-          <ElaraLogo size="md" href={isLanding ? '#inicio' : '/'} />
+          <ElaraLogo size="md" href="/" />
         </div>
 
         <div className="flex items-center justify-end gap-4 justify-self-end">
