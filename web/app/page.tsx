@@ -83,7 +83,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'herramienta',
   },
   {
-    img: '/images/herramienta-oraculo.png',
+    img: '/images/oraculo-maestra.png',
     icon: 'Oraculo',
     title: 'Oráculo & Mensajes',
     text: 'No es adivinación. Es aprender a escucharte a través del símbolo.',
@@ -512,6 +512,28 @@ export default function HomePage() {
           </motion.span>
         ))}
 
+        {/* ── IMAGEN HERO — derecha, solo lg+ ─────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute top-0 right-0 hidden h-full w-[48%] lg:block"
+          aria-hidden
+        >
+          <Image
+            src="/images/hero-elara-noche.png"
+            alt=""
+            fill
+            sizes="48vw"
+            priority
+            className="object-cover object-top"
+          />
+          {/* Velo izquierdo — funde con contenido */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/30 to-transparent" />
+          {/* Velo inferior */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/90 via-transparent to-transparent" />
+        </motion.div>
+
         {/* ── CONTENIDO ─────────────────────────────────────────── */}
         <div className="relative z-10 flex min-h-[100svh] flex-col pt-[88px]">
           {/* Área principal — izquierda */}
@@ -683,7 +705,7 @@ export default function HomePage() {
         <div className="relative mx-0 h-[500px] overflow-hidden">
           <div className="relative h-full w-full">
             <Image
-              src="/images/oraculo-maestra.png"
+              src="/images/herramienta-oraculo.png"
               alt="Elara Nova — oráculo y rituales"
               fill
               sizes="100vw"
@@ -911,7 +933,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="cursos" className="relative overflow-hidden px-6 py-24">
+      <section id="cursos" className="relative overflow-hidden px-6 py-24 scroll-mt-[5.5rem]">
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
 
         <div className="mx-auto max-w-6xl">
@@ -1052,7 +1074,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="sobre" className="relative overflow-hidden py-24">
+      <section id="sobre" className="relative overflow-hidden py-24 scroll-mt-[5.5rem]">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
         {/* Degradado entrada */}
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent" />
