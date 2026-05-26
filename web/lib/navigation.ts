@@ -20,11 +20,37 @@ export const ELARA_SECTIONS = [
 
 export type ElaraSectionId = (typeof ELARA_SECTIONS)[number]['id']
 
-export function elaraExploreNav(pathname: string): readonly NavItem[] {
+export function elaraSectionHref(sectionId: ElaraSectionId, pathname: string): string {
+  return pathname === '/' ? `#${sectionId}` : `/#${sectionId}`
+}
+
+export function elaraSectionNav(pathname: string): readonly NavItem[] {
   return ELARA_SECTIONS.map(({ id, label }) => ({
-    href: pathname === '/' ? `#${id}` : `/#${id}`,
+    href: elaraSectionHref(id, pathname),
     label,
   }))
+}
+
+/** @deprecated Use elaraSectionNav */
+export const elaraExploreNav = elaraSectionNav
+
+export const ELARA_ROUTE_NAV: readonly NavItem[] = [
+  { href: '/oraculo',     label: 'Oráculo',     match: ['/oraculo'] },
+  { href: '/universo',    label: 'Universo',    match: ['/universo'] },
+  { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
+]
+
+/** Nav header landing = secciones clave + rutas */
+export function elaraLandingNav(): readonly NavItem[] {
+  return [
+    { href: '#herramientas', label: 'Herramientas' },
+    { href: '#circulo',      label: 'El Círculo'   },
+    { href: '#cursos',       label: 'Cursos'       },
+    { href: '#productos',    label: 'Productos'    },
+    { href: '#sobre',        label: 'Sobre Elara'  },
+    { href: '/oraculo',      label: 'Oráculo',     match: ['/oraculo'] },
+    { href: '/universo',     label: 'Universo',    match: ['/universo'] },
+  ]
 }
 
 /** Rutas Next / rewrites que usan nav B2B (Evelyn) */

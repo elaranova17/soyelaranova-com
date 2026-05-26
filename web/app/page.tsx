@@ -1518,10 +1518,20 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-6 md:items-start">
               <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Explorar</p>
               <nav className="flex flex-col gap-3" aria-label="Footer nav">
-                {ELARA_SECTIONS.map(({ id, label }) => (
+                {([
+                  { href: '#herramientas', label: 'Herramientas' },
+                  { href: '#circulo',      label: 'El Círculo'   },
+                  { href: '#cursos',       label: 'Cursos'       },
+                  { href: '#productos',    label: 'Productos'    },
+                  { href: '#sobre',        label: 'Sobre Elara'  },
+                  { href: '#atelier',      label: 'Cómo creamos' },
+                  { href: '#contacto',     label: 'Únete al Círculo' },
+                  { href: '/oraculo',      label: 'Oráculo'      },
+                  { href: '/universo',     label: 'Universo'     },
+                ] as const).map(({ href, label }) => (
                   <a
-                    key={id}
-                    href={`#${id}`}
+                    key={href}
+                    href={href}
                     className="text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
                   >
                     {label}
