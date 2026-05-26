@@ -1,19 +1,19 @@
 # Archivo · legacy assets
 
-Copias de respaldo no referenciadas directamente por imports de código. **No borrar** sin revisar.
+Copias de respaldo no referenciadas por el sitio activo. **No borrar** sin revisar.
 
 ## Contenido
 
 | Subcarpeta | Qué es |
 |------------|--------|
-| `web-public-hero-unused/hero/` | Backup de `web/public/hero/` (20 JPG Midjourney). |
+| `web-public-hero-unused/hero/` | Backup histórico (JPG Midjourney). |
+| `web-public-hero-fantasy-deprecated/` | Fondos sección: portal-lago, manifiesto-bg, etc. |
+| `web-images-fantasy-jpg-deprecated/` | Fotos `.jpg` que salieron de `web/public/images/`. |
 
-## Importante para deploy
+## Sitio activo
 
-El sitio en producción **sí usa** `web/public/hero/` y varios JPG en `/images/`.  
-Si movés assets aquí, antes:
-
-1. Copiar archivos reales a `web/public/images/` (no symlinks).
-2. Correr `cd web && npm run verify:assets`.
+- Solo **`.png` ilustrado** (Pixar/Encanto) en `web/public/images/`.
+- Sin `web/public/hero/`.
+- `npm run verify:assets` en `web/` valida esto antes del build.
 
 Ver `web/public/README.md` y `docs/DEPLOY.md`.
