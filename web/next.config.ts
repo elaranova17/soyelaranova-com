@@ -12,11 +12,14 @@ const nextConfig: NextConfig = {
       // Páginas rediseñadas en Next.js NO tienen rewrite (se sirven desde app/<route>/page.tsx)
       // /linktree → app/linktree/page.tsx (rediseñado)
 
-      // Páginas legacy aún servidas como HTML estático hasta tener su diseño nuevo
-      { source: '/cv',                destination: '/cv.html' },
-      { source: '/portfolio',         destination: '/portfolio.html' },
-      { source: '/portfolio-print',   destination: '/portfolio-print.html' },
-      { source: '/propuesta',         destination: '/propuesta-template.html' },
+      // Páginas B2B de Evelyn — carpeta evelyn-b2b para no mezclar con Elara
+      { source: '/linktree',          destination: '/evelyn-b2b/linktree.html' },
+      { source: '/cv',                destination: '/evelyn-b2b/cv.html' },
+      { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
+      { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
+      { source: '/propuesta',         destination: '/evelyn-b2b/propuesta-template.html' },
+      { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
+      { source: '/descubrimiento',    destination: '/evelyn-b2b/descubrimiento.html' },
     ]
   },
 
