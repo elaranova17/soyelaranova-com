@@ -13,7 +13,6 @@ type HubLink = {
   href: string
   label: string
   hint: string
-  accent: string
   icon: IconKey
   external?: boolean
   featured?: boolean
@@ -25,7 +24,6 @@ const LINKS: readonly HubLink[] = [
     href: '/portfolio',
     label: 'Portfolio completo',
     hint: 'Sitios · apps · IA · análisis técnico',
-    accent: 'var(--color-gold-bright)',
     icon: 'Vision',
     featured: true,
   },
@@ -33,14 +31,12 @@ const LINKS: readonly HubLink[] = [
     href: '/cv',
     label: 'Currículum',
     hint: 'Experiencia · stack · idiomas',
-    accent: 'var(--color-lavender)',
     icon: 'PDF',
   },
   {
     href: 'https://www.linkedin.com/in/evelyn-patino-laverde/',
     label: 'LinkedIn',
     hint: 'Conectar profesionalmente',
-    accent: 'var(--color-crystal-cyan)',
     icon: 'Comunidad',
     external: true,
   },
@@ -48,7 +44,6 @@ const LINKS: readonly HubLink[] = [
     href: 'https://wa.me/41783480550?text=Hola%20Evelyn%2C%20te%20escribo%20por%20tu%20portfolio.',
     label: 'WhatsApp',
     hint: '+41 78 348 0550 · respuesta directa',
-    accent: '#25D366',
     icon: 'Correo',
     external: true,
     variant: 'whatsapp',
@@ -57,7 +52,6 @@ const LINKS: readonly HubLink[] = [
     href: 'mailto:evelynpatildr@gmail.com?subject=Proyecto%20freelance',
     label: 'Email',
     hint: 'evelynpatildr@gmail.com',
-    accent: 'var(--color-gold-soft)',
     icon: 'Correo',
     external: true,
   },
@@ -65,21 +59,18 @@ const LINKS: readonly HubLink[] = [
     href: '/descubrimiento',
     label: '¿Tienes un proyecto?',
     hint: 'Cuéntame — formulario de descubrimiento',
-    accent: 'var(--color-crystal-pink)',
     icon: 'Buscar',
   },
   {
     href: '/propuesta',
     label: 'Propuesta / Cotización',
     hint: 'Plantilla para nuevos proyectos',
-    accent: 'var(--color-violet-flower)',
     icon: 'PDF',
   },
   {
     href: '/',
     label: 'Elara Nova',
     hint: 'Oráculo · calendario lunar · círculo',
-    accent: 'var(--color-lavender)',
     icon: 'Oraculo',
   },
 ] as const
@@ -88,19 +79,31 @@ const TECH_STACK =
   'Angular ◆ TypeScript ◆ Java ◆ .NET ◆ SQL ◆ WordPress ◆ IA aplicada ◆ Tailwind ◆ APIs ◆'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 14 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: 0.08 * i, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { duration: 0.45, delay: 0.06 * i, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
+}
+
+function AvatarSpark({ className }: { className: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="var(--color-gold-bright)"
+      aria-hidden
+    >
+      <path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z" />
+    </svg>
+  )
 }
 
 function HubLinkCard({
   href,
   label,
   hint,
-  accent,
   icon,
   external,
   featured,
@@ -108,61 +111,25 @@ function HubLinkCard({
   index,
 }: HubLink & { index: number }) {
   const isExternal = external ?? /^https?:|^mailto:/.test(href)
-  const cardClass =
-    'group relative flex items-center gap-4 rounded-2xl border p-4 text-left transition-all duration-300 hover:-translate-y-0.5'
-
-  const cardStyle = {
-    background: 'rgba(26, 15, 61, 0.58)',
-    backdropFilter: 'blur(12px)',
-    WebkitBackdropFilter: 'blur(12px)',
-    borderColor:
-      variant === 'whatsapp'
-        ? 'rgba(37, 211, 102, 0.45)'
-        : featured
-          ? 'rgba(242, 213, 120, 0.55)'
-          : 'rgba(212, 175, 55, 0.28)',
-    boxShadow: featured ? '0 0 28px rgba(212, 175, 55, 0.15)' : undefined,
-  } as const
+  const className = [
+    'linktree-hub-link',
+    featured ? 'linktree-hub-link--featured' : '',
+    variant === 'whatsapp' ? 'linktree-hub-link--whatsapp' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   const inner = (
     <>
-      {featured ? (
-        <span
-          className="absolute -top-2.5 right-4 rounded-full px-2.5 py-0.5 font-sans text-[8px] font-bold tracking-[0.2em] uppercase"
-          style={{
-            background: 'linear-gradient(135deg, var(--color-gold-bright), var(--color-gold))',
-            color: 'var(--color-purple-night)',
-          }}
-        >
-          ★ Principal
-        </span>
-      ) : null}
-      <div
-        className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full"
-        style={{
-          background: `radial-gradient(circle, color-mix(in srgb, ${accent} 28%, transparent) 0%, rgba(26,15,61,0.85) 75%)`,
-          border: `1px solid color-mix(in srgb, ${accent} 65%, transparent)`,
-          boxShadow: `0 0 22px color-mix(in srgb, ${accent} 25%, transparent)`,
-          color: accent,
-        }}
-      >
-        {ElaraIcons[icon].render(26)}
-      </div>
-      <div className="min-w-0 flex-1">
-        <span
-          className="block font-display text-lg italic text-[var(--color-cream)]"
-          style={{ lineHeight: 1.2 }}
-        >
-          {label}
-        </span>
-        <span className="mt-0.5 block font-serif text-sm italic text-[var(--color-gold-soft)]/85">
-          {hint}
-        </span>
-      </div>
-      <span
-        aria-hidden
-        className="text-[var(--color-gold-bright)] opacity-70 transition-transform group-hover:translate-x-1"
-      >
+      {featured ? <span className="linktree-hub-link__badge">★ Principal</span> : null}
+      <span className="linktree-hub-link__icon" aria-hidden>
+        {ElaraIcons[icon].render(22)}
+      </span>
+      <span className="linktree-hub-link__body">
+        <span className="linktree-hub-link__label">{label}</span>
+        <span className="linktree-hub-link__hint">{hint}</span>
+      </span>
+      <span className="linktree-hub-link__arrow" aria-hidden>
         →
       </span>
     </>
@@ -173,15 +140,14 @@ function HubLinkCard({
       {isExternal ? (
         <a
           href={href}
+          className={className}
           target={href.startsWith('mailto:') ? undefined : '_blank'}
           rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-          className={cardClass}
-          style={cardStyle}
         >
           {inner}
         </a>
       ) : (
-        <Link href={href} prefetch className={cardClass} style={cardStyle}>
+        <Link href={href} prefetch className={className}>
           {inner}
         </Link>
       )}
@@ -191,106 +157,124 @@ function HubLinkCard({
 
 export default function LinktreePage() {
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden pt-28 pb-16">
+    <main className="linktree-page relative isolate min-h-screen overflow-x-hidden pt-28 pb-16">
       <MagicParticles density="low" zone="full" />
+      <div className="linktree-stars" aria-hidden />
 
-      {/* Fondo Midjourney */}
-      <div className="pointer-events-none absolute inset-0 -z-20">
-        <Image
-          src="/hero/manifiesto-bg.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+      <svg
+        className="linktree-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <path
+          d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+          fill="url(#linktreeMoonGrad)"
+          stroke="var(--color-gold)"
+          strokeWidth="1"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse at 18% 8%, rgba(212,175,55,0.14), transparent 45%), radial-gradient(ellipse at 82% 92%, rgba(155,107,196,0.2), transparent 50%), linear-gradient(165deg, rgba(45,27,105,0.92) 0%, rgba(26,15,61,0.95) 100%)',
-          }}
-        />
-      </div>
+        <defs>
+          <linearGradient id="linktreeMoonGrad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stopColor="var(--color-gold-bright)" />
+            <stop offset="100%" stopColor="var(--color-gold)" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-      {/* Ornamentos tipográficos */}
-      <span
-        aria-hidden
-        className="pointer-events-none fixed -left-8 -top-12 z-0 select-none font-display text-[14rem] font-extrabold italic leading-none text-[var(--color-gold)]/[0.07]"
-      >
-        E
-      </span>
-      <span
-        aria-hidden
-        className="pointer-events-none fixed -bottom-16 -right-6 z-0 rotate-6 select-none font-display text-[16rem] font-extrabold italic leading-none text-[var(--color-gold)]/[0.06]"
-      >
-        N
-      </span>
-
-      <p
-        className="pointer-events-none fixed right-6 top-7 z-10 hidden font-display text-[10px] tracking-[0.32em] text-[var(--color-gold-soft)]/60 uppercase sm:block"
-        aria-hidden
-      >
+      <p className="linktree-signature" aria-hidden>
         — EVELYN · 2026 —
       </p>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-md flex-col items-center gap-8 px-5">
-        {/* Avatar con anillo dorado */}
+      <span className="linktree-ornament linktree-ornament--tl" aria-hidden>
+        E
+      </span>
+      <span className="linktree-ornament linktree-ornament--br" aria-hidden>
+        P
+      </span>
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[30rem] flex-col items-center px-5 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-4 text-center"
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="flex w-full flex-col items-center"
         >
-          <div className="linktree-avatar-ring relative h-[150px] w-[150px]">
-            <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--color-gold-bright)] shadow-[0_0_32px_rgba(242,213,120,0.45)]">
+          <div className="linktree-avatar-ring relative mb-7 h-[150px] w-[150px]">
+            <AvatarSpark className="linktree-avatar-spark linktree-avatar-spark--1" />
+            <AvatarSpark className="linktree-avatar-spark linktree-avatar-spark--2" />
+            <AvatarSpark className="linktree-avatar-spark linktree-avatar-spark--3" />
+            <div className="relative h-full w-full overflow-hidden rounded-full border-[3px] border-[var(--color-gold)] bg-gradient-to-br from-[var(--color-pale-lav)] to-[var(--color-white-rose)] shadow-[inset_0_0_20px_rgba(45,27,105,0.3),0_0_0_6px_rgba(212,175,55,0.1),0_16px_48px_-12px_rgba(0,0,0,0.55)]">
               <Image
                 src="/_assets/photos/evelyn_pro_perfil.jpg"
                 alt="Evelyn Patiño Laverde"
                 fill
                 sizes="150px"
-                className="object-cover object-center"
+                className="object-cover object-center contrast-[1.06] saturate-[0.95]"
                 priority
               />
             </div>
           </div>
 
-          <span className="font-sans text-[10px] tracking-[0.4em] text-[var(--color-gold-soft)] uppercase">
-            — Behind the magic —
-          </span>
-          <h1 className="font-display text-4xl italic text-[var(--color-cream)] drop-shadow-[0_0_24px_rgba(242,213,120,0.35)] md:text-[2.75rem]">
-            Evelyn Patiño Laverde
-          </h1>
-          <p className="max-w-sm font-serif text-lg italic leading-relaxed text-[var(--color-pale-lav)]/95">
-            Ingeniera de Software · Angular senior · 6 años en banca. Freelance desde Suiza para
-            España y LATAM.
+          <p className="linktree-eyebrow">Servicios Freelance · 2026</p>
+          <h1 className="linktree-name">Evelyn</h1>
+          <p className="linktree-last">Patiño Laverde</p>
+
+          <div className="linktree-diamond" aria-hidden>
+            <span />
+          </div>
+
+          <p className="font-display text-[1.05rem] font-medium text-white">
+            Ingeniera de Software ·{' '}
+            <em className="font-semibold text-[var(--color-gold-soft)] not-italic">
+              Especialista Angular
+            </em>
           </p>
-          <p className="font-serif text-sm italic text-[var(--color-gold-soft)]/80">
-            Pienso como diseñadora, construyo como ingeniera.
+          <p className="mt-1 mb-4 font-serif text-[0.95rem] italic text-[var(--color-pale-lav)]">
+            6 años en software financiero · Sophos · Bancolombia
           </p>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-gold)]/30 bg-[var(--color-purple-night)]/50 px-4 py-1.5 backdrop-blur-sm">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-            <span className="font-sans text-[9px] tracking-[0.22em] text-[var(--color-cream)]/80 uppercase">
-              Disponible para nuevos proyectos
-            </span>
-          </div>
+          <blockquote className="linktree-tagline">
+            <span className="linktree-tagline-corner linktree-tagline-corner--tl" />
+            Pienso como <strong>diseñadora</strong>, construyo como <strong>ingeniera</strong>.
+            <span className="linktree-tagline-corner linktree-tagline-corner--br" />
+          </blockquote>
+
+          <p className="linktree-locations">
+            <span>Suiza</span>
+            <span className="text-[var(--color-gold)] text-[0.55rem] opacity-80">◆</span>
+            <span>España</span>
+            <span className="text-[var(--color-gold)] text-[0.55rem] opacity-80">◆</span>
+            <span>LATAM</span>
+          </p>
+
+          <span className="linktree-status">
+            <span className="linktree-status__dot" />
+            Disponible para nuevos proyectos
+          </span>
         </motion.div>
 
-        <div className="flex items-center gap-3 text-[var(--color-gold)]/50" aria-hidden>
-          <span className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--color-gold)]/40" />
-          {ElaraIcons.Estrellas.render(14)}
-          <span className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--color-gold)]/40" />
+        <div className="linktree-section-divider w-full" aria-hidden>
+          <svg
+            className="h-7 w-7 text-[var(--color-gold)] drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+          </svg>
         </div>
 
-        <nav className="flex w-full flex-col gap-3" aria-label="Enlaces principales de Evelyn">
+        <nav className="flex w-full flex-col gap-[0.85rem]" aria-label="Enlaces principales de Evelyn">
           {LINKS.map((link, index) => (
             <HubLinkCard key={link.href + link.label} {...link} index={index} />
           ))}
         </nav>
 
-        {/* Tech ribbon */}
-        <div className="relative w-full overflow-hidden rounded-full border border-[var(--color-gold)]/15 bg-[var(--color-purple-night)]/40 py-2 backdrop-blur-sm">
+        <div className="relative mt-8 w-full overflow-hidden rounded-full border border-[var(--color-gold)]/15 bg-[var(--color-purple-night)]/40 py-2 backdrop-blur-sm">
           <div className="linktree-tech-track flex whitespace-nowrap font-sans text-[9px] tracking-[0.18em] text-[var(--color-gold-soft)]/70 uppercase">
             <span className="px-4">{TECH_STACK}</span>
             <span className="px-4" aria-hidden>
@@ -299,13 +283,15 @@ export default function LinktreePage() {
           </div>
         </div>
 
-        <p className="max-w-xs text-center font-serif text-sm italic text-[var(--color-gold-soft)]/65">
-          Donde el alto rendimiento de Node.js se fusiona con la sabiduría de la Nueva Era.
+        <p className="mt-6 max-w-xs font-serif text-sm italic text-[var(--color-gold-soft)]/65">
+          Donde el alto rendimiento se fusiona con la estética Elara Nova.
         </p>
 
-        <ElaraButton href="/" variant="secondary">
-          Volver al portal Elara
-        </ElaraButton>
+        <div className="mt-6">
+          <ElaraButton href="/" variant="secondary">
+            Volver al portal Elara
+          </ElaraButton>
+        </div>
       </div>
     </main>
   )

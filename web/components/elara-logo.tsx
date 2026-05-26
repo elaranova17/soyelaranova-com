@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 type ElaraLogoProps = {
@@ -7,40 +6,42 @@ type ElaraLogoProps = {
   className?: string
 }
 
+/** Wordmark tipográfico — sin imagen ni fondo (estilo editorial). */
 export function ElaraLogo({ size = 'md', href = '/', className = '' }: ElaraLogoProps) {
-  const h = size === 'sm' ? 44 : 56
-  const w = size === 'sm' ? 110 : 140
-
-  const img = (
-    <div
-      aria-label="Elara Nova"
-      className={`overflow-hidden ${className}`}
-      style={{ width: w, height: h }}
+  const wordmark = (
+    <span
+      className={[
+        'font-display font-semibold italic leading-none tracking-[-0.02em] text-[var(--color-gold-bright)]',
+        'drop-shadow-[0_0_20px_rgba(242,213,120,0.25)]',
+        size === 'sm' ? 'text-xl md:text-[1.35rem]' : 'text-2xl md:text-[1.65rem]',
+        className,
+      ].join(' ')}
     >
-      <Image
-        src="/images/logo-elara-nova.png"
-        alt="Elara Nova"
-        width={w}
-        height={h}
-        priority={size === 'md'}
-        style={{ mixBlendMode: 'screen', display: 'block', width: '100%', height: 'auto' }}
-      />
-    </div>
+      Elara Nova
+    </span>
   )
 
-  if (!href) return img
+  const label = 'Elara Nova · Inicio'
+
+  if (!href) {
+    return (
+      <span aria-label={label} className="inline-flex shrink-0">
+        {wordmark}
+      </span>
+    )
+  }
 
   if (href.startsWith('#')) {
     return (
-      <a href={href} aria-label="Elara Nova · Inicio" className={`inline-flex shrink-0 ${className}`}>
-        {img}
+      <a href={href} aria-label={label} className="inline-flex shrink-0 transition-opacity hover:opacity-90">
+        {wordmark}
       </a>
     )
   }
 
   return (
-    <Link href={href} prefetch aria-label="Elara Nova · Inicio" className={`inline-flex shrink-0 ${className}`}>
-      {img}
+    <Link href={href} prefetch aria-label={label} className="inline-flex shrink-0 transition-opacity hover:opacity-90">
+      {wordmark}
     </Link>
   )
 }
