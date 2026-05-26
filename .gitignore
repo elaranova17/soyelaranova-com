@@ -1,9 +1,15 @@
 node_modules/
+.pnpm-store/
 .next/
 out/
+.env
 .env.local
 .env*.local
 .DS_Store
 *.log
 
 .vercel
+
+# Local package manager caches
+web/node_modules/
+api/node_modules/

@@ -1,0 +1,220 @@
+{
+  "_TITULO": "Códice Tierno v11 — Páginas Interiores Mejoradas con Gemini",
+  "_FECHA": "2026-04-28",
+  "_OBJETIVO": "Convertir el lead magnet de PDF funcional → objeto sagrado coleccionable con coherencia visual cinematográfica. Todas las imágenes generadas en Gemini (Imagen 4 / Nano Banana 2) bajo canon Elara Nova.",
+  "_USO": "Pegar en chat nuevo + decir: 'Ejecuta este brief y dame los 8 prompts pulidos para Gemini'.",
+
+  "═══CONTEXTO_MARCA_ESENCIAL═══": {
+    "marca": "Elara Nova",
+    "creadora": "Evelyn Patino (colombiana en Suiza)",
+    "audiencia": "Mujeres latinas 20-52 años",
+    "lanzamiento_IG": "2026-04-29",
+    "dominio": "soyelaranova.com · @soyelaranova · luna@soyelaranova.com",
+    "manifiesto": "Mira todo lo que siempre fuiste capaz de ser.",
+    "voz": "Cálida, mística, hermana mayor paisa. Sin 'mija'. Oráculo NO tarot."
+  },
+
+  "═══REGLAS_SAGRADAS═══": {
+    "avatar_canon": "BOB + FLEQUILLO + ojos verde hazel + maquillaje místico (luna dorada en pómulo) + piel peachy con pecas + kimono lavanda con bordados dorados + tatuajes signature (luna detrás de oreja, estrella muñeca, serpiente antebrazo) + piercing septum dorado + 3 collares con dije de luna",
+    "evelyn_no_es_elara": "Evelyn nunca frontal. Elara siempre con bob+flequillo. Cero confusión.",
+    "3_niveles": "PIXAR (3D Encanto) · HÍBRIDO (semi-real) · REAL (foto-pintura)",
+    "5_objetos_personajes": "Vela, Tapete, Olla, Carta del Oráculo, Celular — todos Pixar 3D con ojos hazel firma común",
+    "DNA_visual": "Nivel detalle Encanto · 2-3 ornamentos dorados por cuadrante · texturas múltiples · ojos hazel firma",
+    "oraculo_no_tarot": "SIEMPRE oráculo (mensajes íntimos), NUNCA tarot tradicional"
+  },
+
+  "═══PALETA_TIPOGRAFIA═══": {
+    "colores": {
+      "fondo": "#0B0712",
+      "morado_marca": "#3D1A4A",
+      "morado_kimono": "#5B2C6F",
+      "dorado": "#D4A857",
+      "dorado_glow": "#F4D77A",
+      "blanco_calido": "#F8F1E4"
+    },
+    "fuentes": {
+      "titulos": "Playfair Display Black",
+      "script": "Allura / Pinyon Script",
+      "secundaria": "Cormorant Garamond Italic",
+      "lectura": "Lato Light/Regular/Bold"
+    }
+  },
+
+  "═══ESTRUCTURA_FINAL_v11═══": {
+    "total_paginas": 22,
+    "orden": [
+      "01 — Portada (ya generada, brief separado)",
+      "02 — Bienvenida",
+      "03 — Cómo usar este códice",
+      "04 — ÍNDICE VISUAL 7 MANTRAS YO SOY (NUEVO)",
+      "05 — CARTA ASTRONÓMICA: 7 FASES LUNARES (NUEVO)",
+      "06 — TRACKER VISUAL 7 LUNAS COLORABLES (NUEVO)",
+      "07 — Día 1: Vela · Muerte Simbólica + ilustración Elara",
+      "08 — Día 2: Tapete · Descenso + ilustración Elara",
+      "09 — Día 3: Olla · Corte + ilustración Elara",
+      "10 — Día 4: Carta del Oráculo · Raíz + ilustración Elara",
+      "11 — Día 5: Celular · Expansión + ilustración Elara",
+      "12 — Día 6: Vela vuelve · Empoderamiento + ilustración Elara",
+      "13 — Día 7: Carta · Renacimiento + ilustración Elara",
+      "14 — Manifiesto",
+      "15 — TESTIMONIOS DEL YO DEL DÍA 7 (NUEVO)",
+      "16 — PÁGINA DE FIRMA PERSONAL (NUEVO)",
+      "17 — QR AUDIOS MEDITACIÓN ELARA (NUEVO)",
+      "18 — CTA CICLO NOVA (NUEVO/MEJORADO)",
+      "19 — Comunidad LUNA + cierre"
+    ]
+  },
+
+  "═══8_PROMPTS_GEMINI═══": {
+
+    "1_TESTIMONIOS_DIA_7": {
+      "titulo_pagina": "Lo que tu yo del Día 7 le escribirá a tu yo del Día 1",
+      "concepto": "3 cartas-tarjeta sobre fondo de terciopelo morado, cada una con escritura a mano de un mensaje íntimo del yo futuro. Sello de cera dorada con luna creciente en cada carta.",
+      "prompt_gemini": "Top-down photograph of three handwritten letter cards on deep purple velvet fabric, dramatic warm lighting. Each card is cream-colored aged paper with elegant cursive Spanish handwriting in dark sepia ink. Each card is sealed with golden wax stamp featuring crescent moon emblem. Scattered around: dried lavender sprigs, a small gold pen, dried bougainvillea petals, tiny gold stars. Soft golden bokeh in background. Mystical Latin spiritual aesthetic, cinematic, sacred, intimate. The handwriting on cards is in Spanish: card 1 reads 'Lo lograste. Sabía que lo harías.', card 2 reads 'No te disculpes por lo que sentiste. Era sagrado.', card 3 reads 'Eres más tú ahora. Y apenas empieza.'. Color palette: deep plum #3D1A4A, gold #D4A857, cream #F8F1E4. Square ratio 1:1, photorealistic with painterly touches. ALL TEXT IN SPANISH, no English. --ar 1:1 --style raw --stylize 400",
+      "copy_overlay": {
+        "titulo": "Lo que ya sabes y aún no recuerdas",
+        "subtitulo": "Tres cartas que tu yo del Día 7 te dejó escritas. Léelas si dudas.",
+        "footer": "Antes de empezar, ábrelas con calma."
+      }
+    },
+
+    "2_INDICE_7_MANTRAS_YO_SOY": {
+      "titulo_pagina": "Los siete Yo Soy del códice",
+      "concepto": "Página índice tipo gallery con 7 paneles verticales, cada uno con el elemento del día (vela/tapete/olla/carta/celular/vela2/carta2) en miniatura Pixar 3D y el mantra correspondiente en script dorado",
+      "prompt_gemini": "Mystical book index page layout, vertical 2:3 ratio, deep dark plum background #0B0712 with subtle gold constellation pattern. 7 panels arranged in a 2-3-2 grid (or single column with ornate dividers). Each panel contains: a Pixar-3D miniature object with hazel green eyes (1: purple candle with golden flame, 2: woven mat with gold tassel, 3: copper pot with steam, 4: oracle card with 8-pointed star, 5: white phone with moon on screen, 6: candle again taller and brighter, 7: oracle card again with rising sun). Below each object, in elegant gold script: 'Yo Soy quien siempre fui antes de que el mundo me dijera quién ser', 'Yo Soy presencia que respira en este cuerpo sagrado', 'Yo Soy la que se elige a sí misma sin pedir permiso', 'Yo Soy memoria sagrada de las mujeres que me trajeron aquí', 'Yo Soy quien escucha sin juzgar lo que pasa por dentro', 'Yo Soy fuerza tierna que florece sin pedir disculpas', 'Yo Soy la que renace cada vez que se elige'. Top header in serif gold: 'LOS SIETE YO SOY DEL CÓDICE'. Art deco gold border with corner flourishes. Color palette: plum, gold, warm cream. Encanto-Pixar detail level, sacred intimate mood. ALL TEXT IN SPANISH ONLY. --ar 2:3 --style raw --stylize 450",
+      "copy_overlay": {
+        "titulo_top": "LOS SIETE YO SOY",
+        "subtitulo": "Léelos en voz alta antes de empezar. Uno te va a llamar más fuerte que los otros — ese es por dónde comienza tu cuerpo."
+      }
+    },
+
+    "3_CARTA_ASTRONOMICA_FASES_LUNARES": {
+      "titulo_pagina": "Las siete fases del códice",
+      "concepto": "Carta astronómica vintage con 7 fases lunares mapeadas a los 7 días, estilo manuscrito antiguo iluminado pero con DNA Elara Nova",
+      "prompt_gemini": "Vintage celestial astronomy chart in mystical Latin spiritual style, deep dark plum background #0B0712 with aged parchment texture overlay. Center: 7 detailed crescent moons in a gentle arc, each in different phase: 1) waning gibbous (death), 2) third quarter (descent), 3) waning crescent (cut), 4) new moon dark (root), 5) waxing crescent (expansion), 6) first quarter (empowerment), 7) full moon glowing (rebirth). Each moon labeled in elegant gold script with day number and theme in Spanish: 'Día 1 · Muerte Simbólica', 'Día 2 · Descenso', 'Día 3 · Corte', 'Día 4 · Raíz', 'Día 5 · Expansión', 'Día 6 · Empoderamiento', 'Día 7 · Renacimiento'. Surrounding ornaments: zodiac symbols in gold linework, scattered stars, hand-drawn constellation lines, golden compass rose at bottom, ornate art deco corner flourishes. Top header in serif gold: 'LAS SIETE FASES DEL CÓDICE'. Bottom subtitle script: 'cada día tiene su luna. cada luna, su mensaje.'. Color palette: deep plum, gold #D4A857, cream parchment. Encanto-Pixar level detail, sacred manuscript feel, cinematic warm lighting. ALL TEXT IN SPANISH. --ar 2:3 --style raw --stylize 500",
+      "copy_overlay": {
+        "titulo": "LAS SIETE FASES DEL CÓDICE",
+        "subtitulo": "cada día tiene su luna. cada luna, su mensaje."
+      }
+    },
+
+    "4_TRACKER_7_LUNAS_COLORABLES": {
+      "titulo_pagina": "Tu mapa de regreso",
+      "concepto": "Tracker interactivo con 7 lunas en línea dorada (line-art) que la usuaria puede colorear/rellenar conforme avanza. Muy simple, casi minimalista pero ornamentado",
+      "prompt_gemini": "Sacred ritual tracker page, deep dark plum background #0B0712 with very subtle gold star dust. 7 large crescent moons in clean gold line-art (NOT filled, only outlines so user can color them in), arranged in a flowing curve from top-left to bottom-right. Each moon outline is approximately 80mm wide, with clear gold border that can be filled by hand. Below each moon outline, a small gold label with day number in Spanish: 'Día 1', 'Día 2'... 'Día 7'. Between moons, delicate gold dotted lines connecting them like a constellation path. Top header in serif gold: 'TU MAPA DE REGRESO'. Below header in italic gold script: 'colorea cada luna al terminar el día'. Bottom: small ornate gold flourish + the manifesto in script: 'No estás empezando. Estás regresando.'. Side margins have hand-drawn moon phase symbols and tiny gold stars. Vertical 2:3 ratio. Mood: sacred, tactile, meditative. ALL TEXT IN SPANISH. --ar 2:3 --style raw --stylize 400",
+      "copy_overlay": {
+        "titulo": "TU MAPA DE REGRESO",
+        "subtitulo": "colorea cada luna al terminar el día",
+        "manifiesto": "No estás empezando. Estás regresando."
+      }
+    },
+
+    "5_ILUSTRACIONES_ELARA_7_DIAS": {
+      "titulo_pagina": "Mini-ilustraciones de Elara para abrir cada día",
+      "concepto": "7 spot-illustrations de Elara avatar canon en pose distinta para cada día, en estilo Pixar 3D. Se colocan en esquina superior de cada página de día",
+      "regla_critica": "BOB + FLEQUILLO obligatorio en TODAS. Ojos hazel verde. Kimono lavanda. Misma cara en todas (continuidad).",
+      "7_poses": [
+        {
+          "dia": 1,
+          "tema": "Muerte Simbólica · Vela",
+          "pose": "Elara de pie 3/4 perfil, ojos cerrados, manos juntas en mudra de oración a la altura del pecho, llama dorada flotando frente a ella, expresión de rendición serena"
+        },
+        {
+          "dia": 2,
+          "tema": "Descenso · Tapete",
+          "pose": "Elara sentada en posición de loto sobre tapete morado con borla dorada, ojos semi-cerrados, una mano sobre el corazón, vapor dorado subiendo de los pies"
+        },
+        {
+          "dia": 3,
+          "tema": "Corte · Olla",
+          "pose": "Elara de pie en cocina mística, removiendo una olla cobre con cuchara dorada, vapor dorado en espiral, ojos abiertos hazel mirando hacia abajo concentrada"
+        },
+        {
+          "dia": 4,
+          "tema": "Raíz · Carta del Oráculo",
+          "pose": "Elara sentada en suelo con piernas cruzadas, sosteniendo una carta del oráculo iluminada con estrella dorada, raíces doradas saliendo del suelo conectándola con la tierra"
+        },
+        {
+          "dia": 5,
+          "tema": "Expansión · Celular",
+          "pose": "Elara de pie con celular bocabajo a un lado, brazos abiertos hacia el cielo, ojos cerrados con sonrisa, partículas doradas volando hacia arriba, alas energéticas insinuadas"
+        },
+        {
+          "dia": 6,
+          "tema": "Empoderamiento · Vela vuelve",
+          "pose": "Elara de pie firme con postura recta, mentón alto, ojos abiertos directos hazel, sosteniendo vela alta encendida con llama dorada grande, kimono cayendo elegante"
+        },
+        {
+          "dia": 7,
+          "tema": "Renacimiento · Carta cierra",
+          "pose": "Elara surgiendo de fondo dorado luminoso, ojos abiertos brillantes, alas de fénix doradas detrás (line-art), sonrisa serena de plenitud, cartas del oráculo cayendo alrededor"
+        }
+      ],
+      "prompt_gemini_template": "Pixar 3D character illustration, single full-body figure isolated on transparent or solid plum background. Character: young Latin woman with SHORT BOB HAIRCUT to jawline + STRAIGHT BANGS over eyebrows (mandatory), peachy warm skin with subtle freckles on cheekbones, large hazel green eyes, golden crescent moon painted on left cheekbone, gold septum piercing, lavender purple velvet kimono with embroidered gold moons and stars, gold celestial jewelry (3 delicate necklaces with moon pendant, moon-and-star earrings), small tattoos visible (crescent moon behind ear, star on wrist, delicate snake on forearm). Style: Pixar 3D Encanto-level detail, soft cinematic warm lighting, ornate but tender. POSE FOR THIS DAY: [INSERT POSE FROM 7_POSES ARRAY]. Mood: sacred, intimate. Background: gradient plum to gold, subtle stardust. ALL CONSISTENT WITH SAME CHARACTER ACROSS ALL 7 IMAGES. --ar 1:1 --style raw --stylize 500",
+      "instruccion_uso": "Generar las 7 imágenes en serie con seed similar para máxima consistencia facial. Si Gemini permite reference image, usar la primera generada como referencia para las 6 siguientes."
+    },
+
+    "6_QR_AUDIOS_MEDITACION": {
+      "titulo_pagina": "Los audios de Elara para acompañarte",
+      "concepto": "7 QR codes en marcos dorados ornamentados, cada uno enlazando a una meditación en voz clone Elara (ElevenLabs). Estilo museum plaque pero místico",
+      "prompt_gemini": "Mystical sacred page layout, vertical 2:3 ratio, deep dark plum background #0B0712 with subtle gold sparkle texture. 7 ornate gold-framed cards arranged in a 2-3-2 grid or 7-row layout. Each card has: an art-deco gold ornamental frame with corner flourishes, a centered QR code (placeholder grid pattern that will be replaced with real QR), a small Pixar-3D miniature object icon at top (matching the 5 personajes pattern), and elegant Spanish gold text below: 'Día 1 · Vela · Meditación de Muerte Simbólica · 7 minutos', 'Día 2 · Tapete · Meditación de Descenso · 8 minutos', 'Día 3 · Olla · Meditación de Corte · 6 minutos', 'Día 4 · Carta del Oráculo · Meditación de Raíz · 9 minutos', 'Día 5 · Celular · Meditación de Expansión · 7 minutos', 'Día 6 · Vela · Meditación de Empoderamiento · 8 minutos', 'Día 7 · Carta del Oráculo · Meditación de Renacimiento · 11 minutos'. Top header in serif gold: 'LOS AUDIOS QUE TE ACOMPAÑAN'. Subtitle script: 'mi voz sostenida contigo, una página a la vez'. Bottom: small icon of headphones in gold + 'escanea con tu celular o entra a soyelaranova.com/audios'. Encanto-Pixar level detail, sacred manuscript feel. ALL TEXT IN SPANISH. --ar 2:3 --style raw --stylize 400",
+      "nota_implementacion": "Reemplazar placeholders QR con QR reales generados desde soyelaranova.com/audios/dia-1, /dia-2, etc. Audios grabar después con voice clone Elara en ElevenLabs (settings: paisa cálido, no plana siempre con emoción)."
+    },
+
+    "7_PAGINA_FIRMA_PERSONAL": {
+      "titulo_pagina": "Yo terminé este viaje",
+      "concepto": "Página final tipo certificado sagrado coleccionable. Espacio para firma, fecha, fase lunar (círculo para colorear), y un sello dorado central",
+      "prompt_gemini": "Sacred certificate page, vertical 2:3 ratio, aged cream parchment texture overlay on deep dark plum background. Center: large ornate gold-framed cartouche with art-deco flourishes, containing the following Spanish text in elegant typography (mix of serif and gold script): top reads 'Yo,' followed by long elegant blank line for handwritten name, then 'terminé este viaje el' followed by blank line for date, then 'con luna' followed by a small empty crescent moon outline that user colors to match the moon phase that night. Below the text block: a large central golden seal/stamp with crescent moon emblem and surrounding text 'CÓDICE TIERNO · ELARA NOVA · SOY MÁS YO'. At very bottom: ornate gold script reading 'Esto no fue un libro. Fue un retorno.' and below in smaller text 'firma — Elara ♡' with handwritten signature feel. Surrounding ornaments: dried lavender, gold stars, small fenix in line-art on top corners. Color palette: deep plum, gold #D4A857, cream parchment #F8F1E4. Cinematic warm rim lighting, sacred document mood. Encanto-level detail. ALL TEXT IN SPANISH. --ar 2:3 --style raw --stylize 450",
+      "copy_overlay": {
+        "linea_principal": "Yo, _______________, terminé este viaje el _______ con luna _______",
+        "sello": "CÓDICE TIERNO · ELARA NOVA · SOY MÁS YO",
+        "firma_cierre": "Esto no fue un libro. Fue un retorno. — Elara ♡"
+      }
+    },
+
+    "8_CTA_CICLO_NOVA": {
+      "titulo_pagina": "Lo que sigue: El Ciclo Nova del Regreso",
+      "concepto": "Sales page para Ciclo Nova ebook (28 días, 4 fases lunares). Mockup 3D del libro + 3 beneficios + CTA fuerte + testimonio placeholder",
+      "prompt_gemini": "Mystical Latin spiritual product showcase page, vertical 2:3 ratio, deep dark plum background #0B0712 with golden constellation pattern. Center-left: realistic 3D book mockup tilted 15 degrees showing front cover of 'EL CICLO NOVA DEL REGRESO — 28 días para volver entera' with same Elara Nova branding (gold serif title, lavender purple cover, 4 moon phases on cover, Elara avatar in profile with bob and bangs and lavender kimono). Center-right: 3 benefit cards stacked, each with gold circular icon and Spanish text: 1) 'Cuatro fases lunares · veintiocho rituales · una mujer que se reconstruye entera', 2) 'Audio de Elara para cada noche · voz que te conoce', 3) 'Comunidad LUNA acceso prioritario · no caminas sola'. Below: large gold CTA button shape with text 'Ya sabes que esto era el principio →' in elegant serif. Below button: testimonial placeholder card with 5 gold stars and quote in italic 'Los 7 días me cambiaron. El Ciclo Nova me volvió a mí entera. — Camila, 34, Bogotá'. Top header in serif gold: 'LO QUE SIGUE'. Subtitle script: 'siete días te abrieron. veintiocho te transforman.'. Bottom: ornate gold border with URL 'soyelaranova.com/ciclo · @soyelaranova'. Encanto-Pixar level detail, sacred sales mood (intimate not pushy). ALL TEXT IN SPANISH. --ar 2:3 --style raw --stylize 450",
+      "copy_overlay": {
+        "header": "LO QUE SIGUE",
+        "subtitulo": "siete días te abrieron. veintiocho te transforman.",
+        "cta": "Ya sabes que esto era el principio →",
+        "testimonio_etico": "Reemplazar 'Camila, 34, Bogotá' con testimonio real cuando exista — placeholder hasta entonces marcado claramente como ejemplo"
+      }
+    }
+  },
+
+  "═══CHECKLIST_FINAL_QA═══": [
+    "[ ] TODO el texto en español, cero inglés",
+    "[ ] Avatar Elara con BOB+FLEQUILLO en las 7 ilustraciones",
+    "[ ] Ojos hazel verde firma en Elara y los 5 objetos",
+    "[ ] Solo paleta morado+dorado+blanco cálido",
+    "[ ] Cada página con marco/ornamento dorado mínimo 2-3 detalles",
+    "[ ] Mantras 'Yo Soy' coinciden con los del PDF original",
+    "[ ] 7 fases lunares correctas y mapeadas a temas correctos",
+    "[ ] CTA Ciclo Nova menciona DM 'LUNA' a @soyelaranova",
+    "[ ] URL soyelaranova.com presente en al menos 3 páginas",
+    "[ ] Email luna@soyelaranova.com (NO info@) en página final",
+    "[ ] Nivel detalle Encanto-Pixar en todas las imágenes",
+    "[ ] Cero referencias a tarot — solo oráculo",
+    "[ ] Ningún testimonio inventado sin marcar como placeholder",
+    "[ ] Coherencia facial Elara en las 7 ilustraciones (mismo seed)"
+  ],
+
+  "═══WORKFLOW_RECOMENDADO_GEMINI═══": {
+    "paso_1": "Generar primero la ilustración Día 1 de Elara — esa es la cara base",
+    "paso_2": "Usar esa imagen como reference para las 6 ilustraciones restantes (consistencia facial)",
+    "paso_3": "Generar las 4 páginas estructurales (índice mantras, fases lunares, tracker, firma) en lote — comparten DNA visual",
+    "paso_4": "Generar testimonios + QR + CTA — son las páginas más cargadas, requieren más iteración",
+    "paso_5": "Compilar en InDesign/Canva manteniendo paleta exacta",
+    "paso_6": "Probar imprimible en color (las pantallas mienten — el morado profundo debe verse rico no negro)",
+    "paso_7": "QA final con la checklist arriba antes de publicar"
+  },
+
+  "═══BONUS_OPCIONAL═══": {
+    "version_audio_completa": "Si tiempo permite: grabar el códice completo en audio con voice clone Elara — convierte el PDF en producto doble (lectura + escucha). Vendible al doble en Hotmart fase 4-6 meses.",
+    "version_imprimible_deluxe": "Edición física A5 con tapa morada terciopelo + lámina dorada + cinta marcador morada. Producto premium para fase 12+ meses.",
+    "kit_redes_complementario": "9 reels de 15s con cada elemento del códice — uno por día + portada + cierre. Pre-cargados para automatizar lanzamiento."
+  }
+}

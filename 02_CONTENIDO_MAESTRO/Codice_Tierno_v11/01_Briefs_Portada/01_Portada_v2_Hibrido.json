@@ -1,0 +1,206 @@
+{
+  "proyecto": "Elara Nova — Códice Tierno",
+  "titulo_ebook": "Los 7 Días de Elara Nova",
+  "subtitulo": "Renacer del Fénix",
+  "tagline": "siete días para volver a ti",
+  "version_portada": "v2 — bestseller-ready",
+  "fecha_brief": "2026-04-27",
+
+  "objetivo_comercial": "Lead magnet GRATIS que convierta scroll en download en menos de 2 segundos. Diseñada para verse perfecta a 3 escalas: thumbnail Instagram (320x320), preview Linktree (vertical full), y mockup 3D para reels.",
+
+  "formato": {
+    "ratio": "2:3 (1024 x 1536 px) — formato ebook clásico",
+    "modo_color": "RGB digital + CMYK-safe (por si imprime)",
+    "exportar": ["PNG transparente", "PDF print-ready", "Mockup 3D libro abierto"]
+  },
+
+  "paleta_oficial": {
+    "fondo_base": "#0B0712 (negro vinotinto profundo, casi púrpura)",
+    "morado_marca": "#3D1A4A",
+    "dorado_principal": "#D4A857",
+    "dorado_glow": "#F4D77A",
+    "blanco_calido": "#F8F1E4",
+    "rosa_seco_acento": "#8E4B5E (botánica de borde)",
+    "regla": "morado+dorado SIEMPRE dominantes, jamás introducir azul, verde ni rojo puro"
+  },
+
+  "tipografia": {
+    "marca_top": {
+      "texto": "ELARA NOVA",
+      "fuente": "Playfair Display SemiBold",
+      "tamano_relativo": "8% de altura total",
+      "tracking": "+200",
+      "color": "#D4A857",
+      "posicion": "top, centrado, pequeño (NO domina)"
+    },
+    "etiqueta": {
+      "texto": "—  códice tierno  —",
+      "fuente": "Cormorant Garamond Italic",
+      "tamano_relativo": "2.5% altura",
+      "color": "#F8F1E4 con 70% opacidad"
+    },
+    "titulo_hero": {
+      "texto": "LOS 7 DÍAS",
+      "fuente": "Playfair Display Black",
+      "tamano_relativo": "14% altura — DOMINANTE",
+      "color": "#F8F1E4",
+      "tratamiento": "el numero 7 reemplazado por brushstroke dorado #F4D77A con textura de pincel real, NO sobrepuesto al script"
+    },
+    "titulo_script": {
+      "texto": "de Elara Nova",
+      "fuente": "Allura o Pinyon Script (cursiva fluida)",
+      "tamano_relativo": "11% altura",
+      "color": "gradient #D4A857 → #F4D77A",
+      "posicion": "debajo del hero, ligeramente desplazado a la derecha, NUNCA superpuesto al 7"
+    },
+    "subtitulo_renacer": {
+      "texto": "—  RENACER DEL FÉNIX  —",
+      "fuente": "Cormorant Garamond Medium tracked",
+      "tamano_relativo": "3.2% altura",
+      "color": "#D4A857",
+      "tracking": "+400"
+    },
+    "tagline_promesa": {
+      "texto": "siete días para volver a ti",
+      "fuente": "Lato Light Italic",
+      "tamano_relativo": "2.8% altura — más visible que la versión anterior",
+      "color": "#F8F1E4"
+    }
+  },
+
+  "composicion": {
+    "estructura": "tercio superior = jerarquía título · centro = figura + elementos místicos · tercio inferior = los 5 personajes objeto + cierre",
+    "regla_oro": "el título 'LOS 7 DÍAS' debe ser legible a 200x300 px de thumbnail",
+    "marco": "borde dorado fino estilo manuscrito antiguo, esquinas con flourishes art-decó místico"
+  },
+
+  "figura_central": {
+    "sujeto": "Mujer latina (Elara nivel REAL del sistema 3 niveles), perfil 3/4 hacia la izquierda, ojos cerrados",
+    "regla_sagrada": "PERFIL O 3/4 — JAMÁS frontal completo. Cumple regla 'Evelyn nunca frontal'",
+    "detalle_facial": "luna creciente dorada pintada en pómulo · pestañas largas · piel peachy con luz cálida · pecas sutiles",
+    "cabello": "ondulado oscuro suelto con mechón frontal cayendo, no recogido completo (sutil guiño al bob+flequillo del avatar canon)",
+    "joyeria": "pendiente de luna y estrella (firma visual marca) · 3 collares dorados delicados · 1 con dije de luna",
+    "vestuario": "drapeado morado profundo #3D1A4A con hombro descubierto, textura tipo terciopelo o crepé",
+    "expresion": "serenidad post-llanto, ojos cerrados, ligera sonrisa interna — momento de rendición tierna"
+  },
+
+  "elementos_misticos": {
+    "luna": {
+      "tipo": "luna creciente con textura realista craterizada",
+      "tamano": "ocupa 25% del ancho, posicionada izquierda detrás de la figura",
+      "color": "dorado luminoso #D4A857 con halo difuminado #F4D77A"
+    },
+    "fenix": {
+      "tipo": "fénix en línea dorada (line-art), ALAS abiertas hacia arriba",
+      "tamano": "20% del ancho, derecha, simétrico opuesto a la luna",
+      "tratamiento": "trazo fino dorado con partículas brillantes alrededor, NO bloque sólido — debe sentirse etéreo",
+      "simbolismo": "ata directo al subtítulo 'Renacer del Fénix'"
+    },
+    "estrellas_y_polvo": "constelación sutil de puntos dorados de fondo, densidad mayor cerca de la luna",
+    "botanica_inferior": {
+      "tipo": "hojas de monstera + buganvilla seca + ramas secas con bayas pequeñas",
+      "color": "morado oscuro con bordes dorados",
+      "posicion": "marco inferior izquierdo y derecho, enmarcando los 5 objetos"
+    }
+  },
+
+  "los_5_personajes_objeto": {
+    "regla": "DEBEN ser visibles a thumbnail. Cada uno en círculo dorado de 8% del ancho, alineados horizontalmente al pie del 60% inferior",
+    "estilo": "Pixar 3D miniaturas con ojos hazel firma, ornamentación dorada en cada uno",
+    "lista": [
+      {"nombre": "VELA", "dia": "DÍA 1", "tema": "Muerte Simbólica", "color_acento": "llama dorada"},
+      {"nombre": "TAPETE", "dia": "DÍA 2", "tema": "Descenso", "color_acento": "morado con borla dorada"},
+      {"nombre": "OLLA", "dia": "DÍA 3", "tema": "Corte", "color_acento": "cobre con vapor dorado"},
+      {"nombre": "CARTA DEL ORÁCULO", "dia": "DÍA 4", "tema": "Raíz", "color_acento": "morado profundo con estrella dorada"},
+      {"nombre": "CELULAR", "dia": "DÍA 5", "tema": "Expansión", "color_acento": "blanco con luna dorada en pantalla"}
+    ],
+    "tipografia_etiquetas": "Cormorant SemiBold para nombre, Lato Light tracked para día, blanco cálido"
+  },
+
+  "elementos_de_conversion": {
+    "badge_circular_izquierda": {
+      "texto": "UN VIAJE\nÍNTIMO.\nSIETE DÍAS.\nTÚ.",
+      "fuente": "Cormorant Italic + Lato",
+      "estilo": "círculo con borde dorado punteado, fondo translúcido",
+      "posicion": "esquina inferior izquierda nivel pecho de la figura"
+    },
+    "nota_handwritten_derecha": {
+      "texto": "No estás rota.\nSolo te\ndesconectaste\nde ti.\n— Elara ♡",
+      "fuente": "script natural tipo Caveat o Homemade Apple",
+      "color": "#F8F1E4",
+      "posicion": "esquina derecha nivel hombro de la figura, ligeramente rotado 3°"
+    },
+    "badge_workbook_inferior_derecha": {
+      "texto": "WORKBOOK\nCON RITUALES,\nESCANEOS Y\nPREGUNTAS\nGUIADAS",
+      "estilo": "círculo morado oscuro con borde dorado, etiquetado tipo sello editorial",
+      "tipografia": "Lato Bold tracked",
+      "tamano": "12% del ancho"
+    },
+    "etiqueta_top_alternativa": {
+      "comentario": "REEMPLAZAR 'BESTSELLER EMOCIONAL Y ESPIRITUAL' (prematuro pre-lanzamiento)",
+      "opciones": [
+        "GUÍA SAGRADA DE 7 DÍAS",
+        "REGALO ÍNTIMO DE ELARA NOVA",
+        "DESCARGA GRATIS · 7 RITUALES",
+        "EDICIÓN INAUGURAL · ABRIL 2026"
+      ],
+      "recomendacion": "GUÍA SAGRADA DE 7 DÍAS — autoritativa sin reclamo falso"
+    },
+    "cierre_inferior": {
+      "linea_principal": "UN CÓDICE. SIETE ACTOS. UN REGRESO A TI.",
+      "linea_firma": "Es tu momento. Eres tú.",
+      "tipografia_firma": "Allura Script en gradient dorado",
+      "icono_final": "luna creciente dorada centrada bajo el texto"
+    },
+    "url_y_handle_pie": {
+      "texto": "soyelaranova.com  ·  @soyelaranova",
+      "fuente": "Lato Light tracked",
+      "tamano": "muy pequeño, color #D4A857 al 70%",
+      "posicion": "borde inferior centrado"
+    }
+  },
+
+  "estilo_visual_global": {
+    "referencia_genero": "ebook místico-espiritual latino contemporáneo, cruce entre 'The Witch of Portobello' y 'Encanto' Disney",
+    "iluminacion": "cinematográfica con luz cálida lateral, sombras profundas pero no negras",
+    "texturas": "papel envejecido sutil + foil dorado real + grano cinematográfico ligero",
+    "ornamentacion_minima": "2-3 detalles dorados por cuadrante (regla DNA visual estándar)",
+    "mood": "sagrado · tierno · cinematográfico · íntimo — nunca grunge ni gótico ni new-age cliché"
+  },
+
+  "tres_versiones_a_generar": [
+    {
+      "nombre": "v2.1 PIXAR",
+      "uso": "carrusel Instagram personal, reels animados",
+      "ajuste": "figura central como avatar Elara 3D Pixar canon (bob+flequillo+ojos hazel+kimono lavanda)"
+    },
+    {
+      "nombre": "v2.2 HÍBRIDO",
+      "uso": "portada principal lead magnet PDF",
+      "ajuste": "figura semi-realista con toques 3D suaves — la versión actual mejorada"
+    },
+    {
+      "nombre": "v2.3 REAL",
+      "uso": "mockup imprimible deluxe edition futura",
+      "ajuste": "figura totalmente fotográfica perfil/3-4, tratamiento foto-pintura"
+    }
+  ],
+
+  "prompt_para_generador_imagen": {
+    "midjourney_v7": "mystical Latin spiritual ebook cover, woman in 3/4 profile with eyes closed, golden crescent moon painted on cheekbone, draped deep purple velvet shoulder, gold celestial jewelry, large textured crescent moon left, line-art golden phoenix right, scattered gold stardust, monstera and dried bougainvillea botanical frame, 5 small Pixar-3D miniature objects in gold circles at bottom (candle, woven mat, copper pot, oracle card, phone), title 'LOS 7 DÍAS de Elara Nova' in serif + script gold typography, deep dark plum background #0B0712, art deco mystical border, cinematic warm rim light, ornate but tender, book cover ratio 2:3 --ar 2:3 --style raw --stylize 400",
+    "negativo": "no full frontal face, no neon colors, no goth, no cliché tarot imagery, no blue, no green, no red, no children, no cartoonish style for main figure (only objects), no cluttered composition"
+  },
+
+  "checklist_QA_pre_publicacion": [
+    "Título 'LOS 7 DÍAS' legible a 320x320 thumbnail",
+    "5 objetos personajes visibles con sus nombres",
+    "Cara de figura en perfil/3-4, NUNCA frontal",
+    "Solo morado+dorado+blanco cálido en paleta",
+    "Subtitulo 'siete días para volver a ti' visible",
+    "URL soyelaranova.com presente al pie",
+    "Sin claim 'bestseller' prematuro",
+    "Borde con ornamentación dorada art-decó",
+    "Luna y fénix en simetría compositiva",
+    "Badge workbook visible para promesa de utilidad"
+  ]
+}

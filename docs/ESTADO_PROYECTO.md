@@ -1,8 +1,9 @@
 # Estado del proyecto · soyelaranova.com
 
-**Actualizado:** 16 mayo 2026  
+**Actualizado:** 26 mayo 2026  
 **Fuente de verdad estratégica:** [`../CONTEXT_CURSOR.md`](../CONTEXT_CURSOR.md)  
-**Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main`
+**Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main`  
+**Deploy:** [`DEPLOY.md`](DEPLOY.md) · mapa repo: [`REPO_STRUCTURE.md`](REPO_STRUCTURE.md)
 
 ---
 
@@ -29,39 +30,45 @@ Portal visual **muy avanzado** (Midjourney full-bleed + inmersión en 6 seccione
 | Resend / ElevenLabs / Sanity | ❌ no integrado |
 | Hotmart | ❌ solo copy; links pendientes |
 
-**Build:** `pnpm build` en `web/` pasa (18 rutas estáticas).
+**Build:** `npm run build` en `web/` pasa (16 rutas estáticas, mayo 2026).
 
 ---
 
-## Rutas actuales (18)
+## Estructura del monorepo (26 mayo 2026)
 
-### Inmersión completa (`ImmersiveScene`)
+Ver detalle completo en [`REPO_STRUCTURE.md`](REPO_STRUCTURE.md).
 
-`/portal` · `/archivo-astral` · `/codice` · `/circulo` · `/atelier` · `/manifiesto`
+| Carpeta | Rol |
+|---------|-----|
+| `web/` | App Next.js — **único deploy Vercel** |
+| `docs/` | Marca, estado, deploy |
+| `01_LANZAMIENTO/` … `06_ARCHIVO/` | Ops, contenido, visual, reels, estrategia, archivo |
+| `assets/b2b/` | PDFs portfolio Evelyn |
+| `CONTEXT_CURSOR.md` | Brief lockeado (raíz) |
 
-### Home especial
+---
 
-`/` → `HeroPortal` (parallax 2D Midjourney, mariposas, sidebar, bottom nav)
+## Rutas actuales (16)
 
-### Hub
+### Landing + secciones home
 
-`/universo` → moodboard 6 secciones + tarjetas 3D mouse-tilt + fondos Midjourney
+`/` → landing completa (hero, herramientas, círculo, cursos, email)
 
-### Placeholder (`ComingSoonSection`)
+### Rutas v1 CONTEXT
 
-`/oraculo` · `/lecturas` · `/herramientas` · `/comunidad` · `/login` · `/signup`
+`/oraculo` · `/universo` · `/sobre-elara`
 
-### Otros
+### API
 
-`/linktree` (voz Evelyn B2B mezclada con Elara)
+`POST /api/oracle/subscribe` — captura email (Resend si configurado)
+
+### Stubs / fuera de scope v1 (existen, no invertir)
+
+`/login` · `/signup` · `/cuenta` · `/amazon` · `/atelier` · `/comunidad` · `/herramientas` · `/recursos`
 
 ### Faltan según CONTEXT v1
 
-`/sobre-elara` · `/work` (B2B Evelyn, solo footer)
-
-### Existen pero CONTEXT dice no construir en 2026
-
-`/login` · `/signup` → mantener como stub o redirigir; no invertir tiempo
+`/work` (B2B Evelyn, solo footer)
 
 ---
 
