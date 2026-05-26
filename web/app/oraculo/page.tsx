@@ -17,14 +17,14 @@ export default function OraculoPage() {
         Tu carta del día
       </h1>
       <p className="mt-6 max-w-md font-serif text-lg italic leading-relaxed text-[var(--color-cream)]/80">
-        El ritual completo vive en el portal de entrada. Volvé al inicio para sacar tu carta y dejar tu
-        correo.
+        El ritual completo está en la entrada del portal. Volvé al inicio, sacá tu carta y dejá tu
+        correo para recibir la de mañana.
       </p>
       <Link
-        href="/#email"
+        href="/"
         className="mt-10 inline-flex rounded-full border border-[var(--color-gold)]/50 bg-[var(--color-purple-deep)]/40 px-8 py-3 font-sans text-[10px] font-semibold tracking-[0.3em] text-[var(--color-cream)] uppercase transition-colors hover:border-[var(--color-gold)]"
       >
-        Ir al ritual
+        Ir al portal
       </Link>
     </main>
   )
