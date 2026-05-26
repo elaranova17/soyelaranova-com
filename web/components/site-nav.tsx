@@ -130,7 +130,7 @@ export function SiteNav() {
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/', label: 'Conoce a Elara' }
-    : { href: '/sobre-elara', label: 'Conocer a Elara' }
+    : { href: '/linktree', label: 'Conoce a Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
