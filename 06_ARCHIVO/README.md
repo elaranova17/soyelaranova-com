@@ -1,11 +1,19 @@
 # Archivo · legacy assets
 
-Copias no referenciadas en el código activo. **No borrar** sin revisar — pueden ser útiles para recuperación.
+Copias de respaldo no referenciadas directamente por imports de código. **No borrar** sin revisar.
 
 ## Contenido
 
 | Subcarpeta | Qué es |
 |------------|--------|
-| `web-public-hero-unused/hero/` | 20 imágenes Midjourney de `web/public/hero/` (mayo 2026). El sitio usa `/images/*` en su lugar. |
+| `web-public-hero-unused/hero/` | Backup de `web/public/hero/` (20 JPG Midjourney). |
 
-Para restaurar un asset al sitio: copiar de vuelta a `web/public/images/` y actualizar `web/lib/site-images.ts`.
+## Importante para deploy
+
+El sitio en producción **sí usa** `web/public/hero/` y varios JPG en `/images/`.  
+Si movés assets aquí, antes:
+
+1. Copiar archivos reales a `web/public/images/` (no symlinks).
+2. Correr `cd web && npm run verify:assets`.
+
+Ver `web/public/README.md` y `docs/DEPLOY.md`.

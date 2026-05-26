@@ -1,0 +1,15 @@
+# Solo se despliega web/ (Root Directory en dashboard).
+# Si alguien corre `vercel` desde la raíz del monorepo, no subir carpetas de contenido.
+01_LANZAMIENTO
+02_CONTENIDO_MAESTRO
+03_VISUAL_KIT
+04_PRODUCCION_REEL
+05_DOCS_ESTRATEGIA
+06_ARCHIVO
+assets
+ebooks
+api
+docs
+CONTEXT_CURSOR.md
+README.md
+netlify.toml

@@ -18,7 +18,7 @@ soyelaranova-com/
 ├── 06_ARCHIVO/             ← Legacy / copias no usadas en código
 ├── ebooks/                 ← Manuscritos ebook (Ciclo Nova)
 ├── CONTEXT_CURSOR.md       ← Brief lockeado (fuente de verdad)
-├── vercel.json             ← Build desde web/
+├── web/vercel.json         ← Config Vercel (dentro de Root Directory)
 └── README.md               ← Este archivo
 ```
 
@@ -45,9 +45,14 @@ npm run lint
 
 ## Deploy
 
-Vercel apunta a `web/` vía `vercel.json`. Solo la rama `main` despliega automáticamente.
+| Qué | Dónde |
+|-----|-------|
+| App | `web/` — Root Directory en Vercel |
+| Config | `web/vercel.json` (sin `builds` legacy) |
+| Check assets | `cd web && npm run verify:assets` |
+| Docs | `docs/DEPLOY.md` |
 
-Ver `docs/DEPLOY.md` para variables de entorno y pasos manuales.
+Solo `main` → producción. GitHub Actions valida build en cada push a `web/`.
 
 ## Duplicados intencionales
 

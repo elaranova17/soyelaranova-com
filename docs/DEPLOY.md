@@ -10,20 +10,17 @@
 
 | Setting | Valor |
 |---------|-------|
-| Root Directory | `web` (o usar `vercel.json` en raíz del repo) |
+| Root Directory | **`web`** (obligatorio) |
 | Framework | Next.js |
 | Build Command | `npm run build` |
 | Install Command | `npm ci` o `pnpm install` |
 | Output | `.next` (default Next.js) |
 
-El archivo raíz `vercel.json` ya apunta a `web/package.json`:
+**No usar** `builds` legacy en `vercel.json` si Root Directory = `web` (provoca deploy vacío → 404).
 
-```json
-{
-  "builds": [{ "src": "web/package.json", "use": "@vercel/next" }],
-  "git": { "deploymentEnabled": { "main": true } }
-}
-```
+Config actual: Root Directory `web` en dashboard + `web/vercel.json` solo con reglas git.
+
+**Assets:** en `web/public/images/` no dejar symlinks a `../hero/` — Vercel falla el build. Los JPG deben ser archivos reales (carpeta `public/hero/` incluida en el repo).
 
 ### Dashboard Vercel (verificar manualmente)
 
@@ -61,9 +58,14 @@ El build de Next.js pasa sin env vars; runtime de auth/email fallará hasta conf
 ```bash
 cd web
 npm ci
-npm run lint    # debe pasar (0 errors)
-npm run build   # debe generar 16+ rutas estáticas
+npm run verify:assets   # symlinks / hero/ — falla si algo está roto
+npm run lint            # debe pasar (0 errors)
+npm run build           # prebuild ejecuta verify:assets automáticamente
 ```
+
+**CI:** push a `main` con cambios en `web/` dispara `.github/workflows/web.yml`.
+
+**CLI:** si desplegás con `vercel`, hacerlo desde `cd web` (proyecto `soyelaranova-com`). No desde la raíz del monorepo.
 
 ---
 

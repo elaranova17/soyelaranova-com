@@ -9,7 +9,7 @@
 
 ## Resumen en una línea
 
-Portal visual **muy avanzado** (Midjourney full-bleed + inmersión en 6 secciones), pero **sin el corazón del producto v1**: carta del oráculo interactiva, captura email + fecha de nacimiento, ni rutas `/work` / `/sobre-elara` del brief.
+Portal visual **muy avanzado**; **producción en Vercel OK** (mayo 2026). Falta corazón v1: carta del oráculo interactiva en home, ritual oráculo completo, `/work`. Formulario home: email + **fecha de nacimiento** → API (Resend si hay env).
 
 ---
 
@@ -30,7 +30,7 @@ Portal visual **muy avanzado** (Midjourney full-bleed + inmersión en 6 seccione
 | Resend / ElevenLabs / Sanity | ❌ no integrado |
 | Hotmart | ❌ solo copy; links pendientes |
 
-**Build:** `npm run build` en `web/` pasa (16 rutas estáticas, mayo 2026).
+**Build:** `npm run build` en `web/` pasa (16 rutas). **Deploy:** `soyelaranova.com` — Root Directory `web`, `verify:assets` en prebuild, CI `web.yml`.
 
 ---
 

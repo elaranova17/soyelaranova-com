@@ -449,20 +449,28 @@ function ToolProductCard({
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
+  const [birthDate, setBirthDate] = useState('')
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    setSubmitError(null)
 
     try {
-      await fetch('/api/oracle/subscribe', {
+      const res = await fetch('/api/oracle/subscribe', {
         method: 'POST',
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, birthDate }),
         headers: { 'Content-Type': 'application/json' },
       })
-    } finally {
+      const data = (await res.json()) as { ok?: boolean; error?: string }
+      if (!res.ok || !data.ok) {
+        setSubmitError(data.error ?? 'No pudimos registrarte. Intentá de nuevo.')
+        return
+      }
       setSent(true)
+    } catch {
+      setSubmitError('Error de conexión. Intentá de nuevo.')
     }
   }
 
@@ -1369,13 +1377,22 @@ export default function HomePage() {
                     required
                     className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/40 focus:border-[#D4AF37]/60 focus:outline-none"
                   />
+                  <label className="sr-only" htmlFor="birth-date">
+                    Fecha de nacimiento
+                  </label>
                   <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Tu nombre (opcional)"
-                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/50 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/35 focus:border-[#D4AF37]/40 focus:outline-none"
+                    id="birth-date"
+                    type="date"
+                    value={birthDate}
+                    onChange={(e) => setBirthDate(e.target.value)}
+                    required
+                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/50 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors focus:border-[#D4AF37]/40 focus:outline-none"
                   />
+                  {submitError ? (
+                    <p className="text-center text-sm text-red-300/90" role="alert">
+                      {submitError}
+                    </p>
+                  ) : null}
                   <motion.button
                     type="submit"
                     whileHover={{ scale: 1.02, boxShadow: '0 10px 35px rgba(212,175,55,0.35)' }}
