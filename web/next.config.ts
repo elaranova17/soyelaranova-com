@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
       { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
       { source: '/propuesta',         destination: '/evelyn-b2b/propuesta-template.html' },
+      { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
+      { source: '/descubrimiento',    destination: '/evelyn-b2b/descubrimiento.html' },
     ]
   },
 
