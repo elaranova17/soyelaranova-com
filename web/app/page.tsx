@@ -1,9 +1,9 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState, type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
 

@@ -122,7 +122,8 @@ export function SiteNav() {
   const rightLinks = links.slice(Math.ceil(links.length / 2))
 
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [openForPath, setOpenForPath] = useState<string | null>(null)
+  const open = openForPath === pathname
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
@@ -132,15 +133,11 @@ export function SiteNav() {
   }, [])
 
   useEffect(() => {
-    setOpen(false)
-  }, [pathname])
-
-  useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') setOpenForPath(null)
     }
     window.addEventListener('keydown', onKey)
     return () => {
@@ -149,8 +146,8 @@ export function SiteNav() {
     }
   }, [open])
 
-  const close = () => setOpen(false)
-  const toggle = () => setOpen((v) => !v)
+  const close = () => setOpenForPath(null)
+  const toggle = () => setOpenForPath(open ? null : pathname)
 
   return (
     <>

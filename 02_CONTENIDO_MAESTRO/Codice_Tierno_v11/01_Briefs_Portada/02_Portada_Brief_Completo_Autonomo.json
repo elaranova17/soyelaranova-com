@@ -1,0 +1,180 @@
+{
+  "_INSTRUCCIONES_PARA_NUEVO_CHAT": "Pegar este JSON COMPLETO al inicio del chat nuevo. Contiene todo el contexto de marca + reglas sagradas + canon avatar + spec de portada. NO necesita memoria previa para funcionar.",
+
+  "PROYECTO": {
+    "marca": "Elara Nova",
+    "creadora_real": "Evelyn Patino (colombiana en Suiza)",
+    "fecha_lanzamiento_IG": "2026-04-29",
+    "dominio": "soyelaranova.com",
+    "handle": "@soyelaranova",
+    "email": "luna@soyelaranova.com",
+    "manifiesto": "Mira todo lo que siempre fuiste capaz de ser.",
+    "audiencia": "Mujeres latinas 20-38 años + extensión 38-52 con poder adquisitivo (Meta unificado IG+FB)",
+    "pilares_activos": ["Reinvención y energía femenina", "Oráculo y espiritualidad práctica latina", "Comunidad LUNA"]
+  },
+
+  "REGLAS_SAGRADAS_INVIOLABLES": {
+    "1_evelyn_no_es_elara": "Evelyn (persona real) ≠ Elara (avatar de marca). NUNCA confundir ni mezclar.",
+    "2_evelyn_fisica": "Si aparece Evelyn física: SOLO perfil, 3/4, o sombra. JAMÁS frontal completo.",
+    "3_avatar_elara_canon_OBLIGATORIO": "Bob + flequillo + maquillaje místico. SIEMPRE.",
+    "4_tres_niveles_visuales": {
+      "PIXAR": "Avatar 3D animado tipo Encanto/Disney. Bob+flequillo+ojos hazel obligatorio.",
+      "HIBRIDO": "Semi-realista con toques 3D suaves. Reconocible como Elara, conserva bob+flequillo.",
+      "REAL": "Foto-pintura cinematográfica. Conserva rasgos canon (bob, flequillo, maquillaje místico, ojos hazel)."
+    },
+    "5_oraculo_no_tarot": "Elara lee ORÁCULO (mensajes íntimos intuitivos). NUNCA tarot tradicional.",
+    "6_voz": "Spanish · colombiano paisa. Sin 'mija'. Cálida, mística, hermana mayor.",
+    "7_dna_visual_estandar": "Nivel ornamental Pixar Encanto. Cero gap de detalle. Ojos hazel firma común. Ornamentación dorada mínima 2-3 detalles por cuadrante. Texturas múltiples. Narrative cute details."
+  },
+
+  "AVATAR_ELARA_CANON_DETALLADO": {
+    "rostro": {
+      "forma": "óvalo suave, mejillas redondas con rubor peachy",
+      "piel": "tono peachy cálido latino, luminosa, con pecas sutiles dispersas en pómulos y nariz",
+      "ojos": "verde hazel (firma de marca), grandes, expresivos, con pestañas largas oscuras",
+      "cejas": "definidas, naturales, levemente arqueadas",
+      "labios": "carnosos, color rosa-tierra natural con brillo sutil",
+      "nariz": "pequeña, levemente respingada"
+    },
+    "cabello": {
+      "estilo": "BOB CORTO a la altura de la mandíbula",
+      "flequillo": "FLEQUILLO RECTO suave que cae sobre las cejas (OBLIGATORIO)",
+      "color": "castaño oscuro casi negro con reflejos cálidos",
+      "textura": "ondulado suave, con movimiento, brillo natural"
+    },
+    "maquillaje_mistico": {
+      "ojos": "delineado dorado sutil, sombra morada-vino con shimmer dorado, pestañas marcadas",
+      "pomulos": "luna creciente dorada pintada en pómulo izquierdo (firma)",
+      "labios": "rosa-vino con acabado satinado"
+    },
+    "marcas_signature": {
+      "piercing": "septum delicado dorado",
+      "tatuajes": "luna creciente pequeña detrás de oreja + estrella en muñeca + serpiente sutil en antebrazo",
+      "joyeria": "pendientes de luna y estrella, 3 collares dorados delicados (uno con dije de luna), anillos finos"
+    },
+    "vestuario_canon": "Kimono lavanda/morado profundo con bordados dorados de luna y estrellas, hombro descubierto, textura terciopelo o seda"
+  },
+
+  "5_PERSONAJES_OBJETO_CANON": {
+    "regla": "Pixar 3D, ojos verde hazel firma común con Elara, ornamentación dorada en cada uno",
+    "personajes": [
+      {
+        "nombre": "VELA",
+        "dia": "DÍA 1",
+        "tema": "Muerte Simbólica",
+        "voz": "cansada-amorosa, hermana mayor que ya te vio romperte cien veces",
+        "diseno": "vela morada con llama dorada, base ornamentada con luna creciente, ojos hazel cálidos"
+      },
+      {
+        "nombre": "TAPETE",
+        "dia": "DÍA 2",
+        "tema": "Descenso",
+        "voz": "drama mediterráneo, queja amorosa",
+        "diseno": "tapete morado con borla dorada y patrón de estrellas, esquinas con flecos"
+      },
+      {
+        "nombre": "OLLA",
+        "dia": "DÍA 3",
+        "tema": "Corte",
+        "voz": "paisa orgulloso, abuela del sancocho dominical",
+        "diseno": "olla cobre con tapa dorada, vapor en espiral, ojos hazel grandes"
+      },
+      {
+        "nombre": "CARTA DEL ORÁCULO",
+        "dia": "DÍA 4",
+        "tema": "Raíz",
+        "voz": "paciencia sabia, 'ya sabía que ibas a preguntar eso'",
+        "diseno": "carta morada con borde dorado, estrella de 8 puntas central, NO es tarot"
+      },
+      {
+        "nombre": "CELULAR",
+        "dia": "DÍA 5",
+        "tema": "Expansión",
+        "voz": "agotado-sarcástico, te ha visto stalkeando a las 3 AM",
+        "diseno": "celular blanco con luna dorada en pantalla, pequeño y moderno"
+      }
+    ]
+  },
+
+  "PALETA_OFICIAL": {
+    "fondo_base": "#0B0712",
+    "morado_marca": "#3D1A4A",
+    "morado_kimono": "#5B2C6F",
+    "dorado_principal": "#D4A857",
+    "dorado_glow": "#F4D77A",
+    "blanco_calido": "#F8F1E4",
+    "regla": "Solo morado + dorado + blanco cálido. JAMÁS azul, verde puro, rojo."
+  },
+
+  "TIPOGRAFIA_OFICIAL": {
+    "serif_titulos": "Playfair Display (regular y Black)",
+    "script_cursiva": "Allura o Pinyon Script",
+    "serif_secundaria": "Cormorant Garamond (italic y medium)",
+    "sans_lectura": "Lato (Light, Regular, Bold)"
+  },
+
+  "PORTADA_BRIEF": {
+    "titulo_ebook": "Los 7 Días de Elara Nova",
+    "subtitulo": "Renacer del Fénix",
+    "tagline": "siete días para volver a ti",
+    "cierre": "Es tu momento. Eres tú.",
+    "formato": "2:3 ratio, 1024x1536 px mínimo",
+    "etiqueta_top": "GUÍA SAGRADA DE 7 DÍAS",
+    "marca_top": "ELARA NOVA — códice tierno —",
+
+    "composicion": {
+      "tercio_superior": "etiqueta + marca + título HERO 'LOS 7 DÍAS' (con número 7 en brushstroke dorado) + 'de Elara Nova' en script + 'RENACER DEL FÉNIX' + tagline",
+      "tercio_central": "FIGURA ELARA CANON 3/4 perfil con ojos cerrados + luna texturizada izquierda + fénix line-art dorado derecha + estrellas",
+      "tercio_inferior": "5 personajes objeto en círculos dorados con etiquetas EN ESPAÑOL + cierre en script dorado + URL pie",
+      "marco": "borde dorado fino art-decó místico con flourishes en esquinas"
+    },
+
+    "elementos_de_conversion": {
+      "badge_izquierda": "círculo con borde dorado punteado: 'UN VIAJE ÍNTIMO. SIETE DÍAS. TÚ.'",
+      "nota_handwritten_derecha": "script natural rotado 3°: 'No estás rota. Solo te desconectaste de ti. — Elara ♡'",
+      "badge_workbook": "círculo morado con borde dorado: 'WORKBOOK CON RITUALES, ESCANEOS Y PREGUNTAS GUIADAS'",
+      "url_pie": "soyelaranova.com · @soyelaranova"
+    },
+
+    "ETIQUETAS_5_OBJETOS_OBLIGATORIO_EN_ESPAÑOL": [
+      "VELA · DÍA 1 · Muerte Simbólica",
+      "TAPETE · DÍA 2 · Descenso",
+      "OLLA · DÍA 3 · Corte",
+      "CARTA DEL ORÁCULO · DÍA 4 · Raíz",
+      "CELULAR · DÍA 5 · Expansión"
+    ],
+    "ADVERTENCIA_TRADUCCION": "TODO EL TEXTO EN ESPAÑOL. NUNCA traducir 'Corte' como 'court', NUNCA usar inglés. Ningún elemento puede salir en otro idioma."
+  },
+
+  "PROMPT_FINAL_PARA_GENERADOR_IMAGEN": {
+    "version_recomendada": "HÍBRIDO (semi-realista con esencia Pixar Elara reconocible)",
+    "midjourney_v7_prompt": "Latin spiritual mystical ebook cover 2:3 ratio. Central figure: young Latin woman with SHORT BOB HAIRCUT to jawline + STRAIGHT BANGS over eyebrows (mandatory canon), peachy warm skin with subtle freckles, hazel green eyes closed, golden crescent moon painted on left cheekbone, golden eyeliner with shimmer, lavender purple velvet kimono with gold moon embroidery, gold celestial jewelry (moon and star earrings, 3 delicate gold necklaces with moon pendant), 3/4 profile turned slightly left. Background: deep dark plum #0B0712 with scattered gold stardust and constellation. Large textured golden crescent moon on left side, line-art golden phoenix with open wings on right side (etheric, particle glow). Bottom: 5 small Pixar-3D miniature objects in gold-bordered circles with hazel green eyes, Spanish labels: 'VELA · DÍA 1 · Muerte Simbólica', 'TAPETE · DÍA 2 · Descenso', 'OLLA · DÍA 3 · Corte', 'CARTA DEL ORÁCULO · DÍA 4 · Raíz', 'CELULAR · DÍA 5 · Expansión'. Botanical frame: bougainvillea and monstera in dark purple with gold edges. Top text: 'GUÍA SAGRADA DE 7 DÍAS' + 'ELARA NOVA — códice tierno —'. Hero title: 'LOS 7 DÍAS' in serif gold-and-white, the number 7 in golden brushstroke texture. Subtitle in script: 'de Elara Nova'. Below: '— RENACER DEL FÉNIX —' tracked. Tagline: 'siete días para volver a ti'. Side badges: 'UN VIAJE ÍNTIMO. SIETE DÍAS. TÚ.' (left circle), 'No estás rota. Solo te desconectaste de ti. — Elara ♡' (right handwritten), 'WORKBOOK CON RITUALES, ESCANEOS Y PREGUNTAS GUIADAS' (bottom right circle). Closing: 'UN CÓDICE. SIETE ACTOS. UN REGRESO A TI.' + 'Es tu momento. Eres tú.' in gold script. Footer: 'soyelaranova.com · @soyelaranova'. Art deco mystical gold border with corner flourishes. Cinematic warm rim lighting, ornate but tender, Encanto-Pixar level detail, sacred and intimate mood. ALL TEXT IN SPANISH ONLY. --ar 2:3 --style raw --stylize 450 --v 7",
+
+    "negativo": "no full frontal face, no English text anywhere, no 'court' word, no neon colors, no goth, no cliché tarot imagery, no blue, no green pure, no red, no children, no cluttered composition, no watermarks, no signatures, no random shapes in corners, hair MUST be bob with bangs not loose long",
+
+    "instrucciones_post_generacion": "Si el generador falla con texto en inglés o sin el bob+flequillo, REGENERAR. Estos dos elementos son no-negociables."
+  },
+
+  "CHECKLIST_QA_FINAL": [
+    "[ ] Elara tiene BOB + FLEQUILLO visible",
+    "[ ] Ojos verde hazel (cerrados o abiertos)",
+    "[ ] Luna creciente dorada en pómulo",
+    "[ ] Kimono lavanda/morado",
+    "[ ] Perfil 3/4, NUNCA frontal",
+    "[ ] Título 'LOS 7 DÍAS' es hero (legible thumbnail)",
+    "[ ] El '7' en brushstroke dorado",
+    "[ ] 5 objetos con etiquetas EN ESPAÑOL ('Muerte Simbólica' no 'symbolic death')",
+    "[ ] Solo paleta morado+dorado+blanco cálido",
+    "[ ] Marco art-decó dorado con esquinas ornamentadas",
+    "[ ] Luna texturizada izquierda + fénix line-art derecha",
+    "[ ] Botánica buganvilla+monstera enmarcando inferior",
+    "[ ] 'GUÍA SAGRADA DE 7 DÍAS' arriba (NO 'BESTSELLER')",
+    "[ ] Badge workbook visible",
+    "[ ] Nota handwritten 'No estás rota...' en español",
+    "[ ] URL soyelaranova.com pie",
+    "[ ] Sin watermarks ni elementos extraños en esquinas",
+    "[ ] 'Es tu momento. Eres tú.' en script dorado cierre"
+  ],
+
+  "_NOTAS_FINALES": "Este brief es autónomo. Pegar al inicio de un chat nuevo y pedir: 'Genera la portada del Códice Tierno siguiendo este brief al pie de la letra' o 'dame el prompt final pulido para Midjourney/Sora/Veo'. El nuevo chat tendrá todo el contexto necesario sin depender de memoria previa."
+}
