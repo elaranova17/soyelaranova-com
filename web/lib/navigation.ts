@@ -71,7 +71,8 @@ export function isB2bPath(pathname: string): boolean {
 }
 
 export const B2B_NAV: readonly NavItem[] = [
-  { href: '/portfolio',  label: 'Portfolio',  match: ['/portfolio', '/work'] },
-  { href: '/cv',         label: 'CV',         match: ['/cv'] },
-  { href: '/propuesta',  label: 'Propuesta',  match: ['/propuesta'] },
+  { href: '/linktree',   label: '← Enlaces',  match: ['/linktree'] },
+  { href: '/portfolio',  label: 'Portfolio',   match: ['/portfolio', '/work'] },
+  { href: '/cv',         label: 'CV',          match: ['/cv'] },
+  { href: '/propuesta',  label: 'Propuesta',   match: ['/propuesta'] },
 ]
