@@ -29,7 +29,8 @@ soyelaranova-com/
 | Monetización | PDF lead magnet en `public/` | Hotmart en tienda, checkout links |
 | B2B | `public/portfolio.html`, `cv.html` | `/work` en App Router |
 
-**Build:** `cd web && pnpm build` ✅
+**Build:** `cd web && npm run verify:assets && npm run build` ✅  
+**Deploy:** Vercel Root Directory = `web` · config en `web/vercel.json` · ver `docs/DEPLOY.md`
 
 ## Componentes clave
 
