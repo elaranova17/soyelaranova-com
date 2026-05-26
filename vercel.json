@@ -2,6 +2,5 @@
   "buildCommand": "cd web && pnpm install && pnpm build",
   "outputDirectory": "web/.next",
   "installCommand": "npm install -g pnpm@latest",
-  "devCommand": "cd web && pnpm dev",
-  "framework": "nextjs"
+  "devCommand": "cd web && pnpm dev"
 }
