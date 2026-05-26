@@ -1,10 +1,5 @@
 'use client'
 
-/**
- * SiteNav — Elara Nova (secciones landing) · Evelyn B2B (portfolio).
- * Mismo diseño visual; enlaces según contexto.
- */
-
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,7 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ElaraLogo } from '@/components/elara-logo'
 import {
   B2B_NAV,
-  elaraExploreNav,
+  ELARA_ROUTE_NAV,
+  elaraSectionNav,
+  elaraLandingNav,
   isB2bPath,
   type NavItem,
 } from '@/lib/navigation'
@@ -41,15 +38,9 @@ function NavLink({
     'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
   const idleCls = 'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
 
-  const isHash = item.href.includes('#')
-
-  if (isHash) {
+  if (item.href.includes('#')) {
     return (
-      <a
-        href={item.href}
-        onClick={onNavigate}
-        className={`${shared} ${idleCls} ${className}`}
-      >
+      <a href={item.href} onClick={onNavigate} className={`${shared} ${idleCls} ${className}`}>
         {item.label}
       </a>
     )
@@ -79,30 +70,31 @@ function NavCta({
   onClick?: () => void
   className?: string
 }) {
-  const isExternal = href.startsWith('http') || href.startsWith('mailto:')
   const cls = [
     'inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90 sm:px-5',
     className,
   ].join(' ')
 
-  if (isExternal || href.includes('#')) {
-    return (
-      <a href={href} onClick={onClick} className={cls}>
-        <span aria-hidden>✦</span>
-        {label}
-      </a>
-    )
+  if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
+    return <a href={href} onClick={onClick} className={cls}><span aria-hidden>✦</span>{label}</a>
   }
 
   return (
     <Link href={href} prefetch onClick={onClick} className={cls}>
-      <span aria-hidden>✦</span>
-      {label}
+      <span aria-hidden>✦</span>{label}
     </Link>
   )
 }
 
-function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
+function MenuButton({
+  open,
+  onClick,
+  alwaysVisible = false,
+}: {
+  open: boolean
+  onClick: () => void
+  alwaysVisible?: boolean
+}) {
   return (
     <button
       type="button"
@@ -111,26 +103,14 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
       aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
       aria-expanded={open}
       aria-controls="site-nav-panel"
-      className="menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] p-2 lg:hidden"
+      className={[
+        'menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] p-2',
+        alwaysVisible ? '' : 'lg:hidden',
+      ].join(' ')}
     >
-      <span
-        className={[
-          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center',
-          open ? 'translate-y-[6px] rotate-45' : '',
-        ].join(' ')}
-      />
-      <span
-        className={[
-          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300',
-          open ? 'opacity-0 scale-x-0' : '',
-        ].join(' ')}
-      />
-      <span
-        className={[
-          'block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center',
-          open ? '-translate-y-[6px] -rotate-45' : '',
-        ].join(' ')}
-      />
+      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center', open ? 'translate-y-[6px] rotate-45' : ''].join(' ')} />
+      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300', open ? 'opacity-0 scale-x-0' : ''].join(' ')} />
+      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center', open ? '-translate-y-[6px] -rotate-45' : ''].join(' ')} />
     </button>
   )
 }
@@ -140,12 +120,17 @@ export function SiteNav() {
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
 
-  const links: readonly NavItem[] = b2b ? B2B_NAV : elaraExploreNav(pathname)
+  const sectionLinks = elaraSectionNav(pathname)
+  const links: readonly NavItem[] = b2b
+    ? B2B_NAV
+    : onHome
+      ? elaraLandingNav()
+      : [...sectionLinks, ...ELARA_ROUTE_NAV]
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/', label: 'Conoce a Elara' }
-    : { href: '/portfolio', label: 'Conoce a Evelyn' }
+    : { href: '/sobre-elara', label: 'Conocer a Elara' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -158,17 +143,13 @@ export function SiteNav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setOpenForPath(null)
-  }, [pathname])
+  useEffect(() => { setOpenForPath(null) }, [pathname])
 
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenForPath(null)
-    }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenForPath(null) }
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = prev
@@ -192,6 +173,7 @@ export function SiteNav() {
             : 'bg-gradient-to-b from-[var(--color-purple-night)]/70 to-transparent',
         ].join(' ')}
       >
+        {/* Logo */}
         {b2b ? (
           <Link
             href="/linktree"
@@ -204,18 +186,30 @@ export function SiteNav() {
         )}
 
         <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
-          <nav
-            className="hidden max-w-[min(100%,52rem)] items-center gap-2 overflow-hidden lg:flex xl:gap-3"
-            aria-label={b2b ? 'Navegación Evelyn B2B' : 'Navegación Elara Nova'}
-          >
-            {links.map((item) => (
-              <NavLink key={item.href + item.label} item={item} pathname={pathname} />
-            ))}
-          </nav>
+          {/* Desktop nav — solo B2B; Elara siempre hamburguesa */}
+          {b2b && (
+            <nav
+              className="hidden items-center gap-1 lg:flex xl:gap-2"
+              aria-label="Navegación Evelyn B2B"
+            >
+              {/* "← Enlaces" separado visualmente del resto */}
+              <NavLink
+                key={B2B_NAV[0].href}
+                item={B2B_NAV[0]}
+                pathname={pathname}
+                className="mr-3 opacity-60 hover:opacity-100"
+              />
+              <div className="h-3.5 w-px bg-[var(--color-cream)]/15" aria-hidden />
+              {B2B_NAV.slice(1).map((item) => (
+                <NavLink key={item.href + item.label} item={item} pathname={pathname} className="ml-1" />
+              ))}
+            </nav>
+          )}
 
           <NavCta href={cta.href} label={cta.label} className="hidden sm:inline-flex" />
 
-          <MenuButton open={open} onClick={toggle} />
+          {/* Hamburguesa: siempre en Elara, solo mobile en B2B */}
+          <MenuButton open={open} onClick={toggle} alwaysVisible={!b2b} />
         </div>
       </motion.header>
 
@@ -230,7 +224,10 @@ export function SiteNav() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
               aria-label="Cerrar menú"
-              className="nav-overlay fixed inset-0 z-[70] cursor-default bg-[var(--color-void)]/55 backdrop-blur-[2px] lg:hidden"
+              className={[
+                'nav-overlay fixed inset-0 z-[70] cursor-default bg-[var(--color-void)]/55 backdrop-blur-[2px]',
+                b2b ? 'lg:hidden' : '',
+              ].join(' ')}
               onClick={close}
             />
 
@@ -244,10 +241,13 @@ export function SiteNav() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(300px,82vw)] flex-col justify-center border-l border-[var(--color-gold)]/15 bg-[var(--color-purple-night)] px-10 py-20 lg:hidden"
+              className={[
+                'nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(300px,82vw)] flex-col justify-center border-l border-[var(--color-gold)]/15 bg-[var(--color-purple-night)] px-10 py-20',
+                b2b ? 'lg:hidden' : '',
+              ].join(' ')}
               style={{ boxShadow: 'var(--shadow-glow-purple)' }}
             >
-              <nav className="flex flex-col gap-1" aria-label="Menú móvil">
+              <nav className="flex flex-col gap-1" aria-label="Menú">
                 {links.map((item, i) => (
                   <motion.div
                     key={item.href + item.label}
