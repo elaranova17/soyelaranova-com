@@ -784,18 +784,16 @@ section { padding: 7rem 0; position: relative; }
 </style>
 </head>
 <body class="has-b2b-nav">
-<nav class="en-b2b-nav" aria-label="Navegación Evelyn B2B">
+<nav class="en-b2b-nav" aria-label="Navegación Evelyn">
   <a href="/linktree">← Enlaces</a>
-  <a href="/portfolio">Portfolio</a>
+  <a href="/portfolio" class="is-active" aria-current="page">Portfolio</a>
   <a href="/cv">CV</a>
   <a href="/propuesta">Propuesta</a>
-  <a href="/">Elara Nova</a>
+  <a href="/" class="en-b2b-nav__cta">Conoce a Elara</a>
 </nav>
 
-<nav class="lang-bar" aria-label="Idioma / Language">
-  <button class="lang-btn" data-lang-btn="es" data-active="true">ES</button>
-  <button class="lang-btn" data-lang-btn="en">EN</button>
-  <button class="lang-btn" data-lang-btn="fr">FR</button>
+<nav class="lang-bar" aria-label="Volver a Elara Nova" style="border-radius:12px;">
+  <a href="/" class="lang-btn" style="color:rgba(245,240,225,0.85);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;" data-active="false">← Elara Nova</a>
 </nav>
 
 <!-- HERO -->
@@ -809,10 +807,10 @@ section { padding: 7rem 0; position: relative; }
 
     <div class="hero__diamond"><span></span></div>
 
-    <p class="hero__role" data-i18n="hero.role">Ingeniera de Software · Especialista Angular</p>
-    <p class="hero__sub" data-i18n="hero.sub">6 años en software financiero · Sophos · Bancolombia</p>
+    <p class="hero__role" data-i18n="hero.role">Ingeniera de Software · Automatización & Procesos · Datos</p>
+    <p class="hero__sub" data-i18n="hero.sub">Toda una vida en fábricas de software · Multistack · Medianos y grandes empresarios</p>
 
-    <p class="hero__quote" data-i18n="hero.quote">Pienso como diseñadora, construyo como ingeniera.</p>
+    <p class="hero__quote" data-i18n="hero.quote">Creo con amor y dedicación — porque detrás de cada proyecto hay sueños reales.</p>
 
     <div class="hero__locations">
       <span>Suiza</span><span class="sep">◆</span>
@@ -845,11 +843,11 @@ section { padding: 7rem 0; position: relative; }
       </div>
 
       <div class="about__body">
-        <p class="about__lead" data-i18n="about.lead">Soy de Medellín. Vivo en Suiza. Soy mamá. Vengo de seis años en banca — donde un detalle mal hecho cuesta dinero real.</p>
+        <p class="about__lead" data-i18n="about.lead">Soy de Medellín. Vivo en Suiza. Soy mamá. Y llevo toda una vida en fábricas de software — el entorno que más me enseñó a crecer como ingeniera.</p>
 
-        <p data-i18n="about.p1">Trabajé en <strong>Sophos Solutions</strong> y <strong>Bancolombia</strong> liderando análisis, desarrollo, pruebas y soporte de soluciones técnicas para banca core, integraciones y aplicaciones empresariales. Allí entrené el músculo de la disciplina, los plazos, y la calidad como compromiso.</p>
+        <p data-i18n="about.p1">Moverse en fábricas de software me expuso a decenas de tecnologías, industrias y equipos. Esa versatilidad me hizo lo que soy hoy: una <strong>creadora de soluciones</strong> que sabe automatizar y optimizar procesos, trabajar con datos, y adaptarse a lo que el proyecto necesite. Aprendo rápido, enseño con gusto, y siempre llego a tiempo.</p>
 
-        <p data-i18n="about.p2">Hoy llevo esa misma seriedad técnica a proyectos web freelance para clientes en España, LATAM y comunidades hispanas globalmente. Mi especialidad es <strong>Angular</strong>, mi obsesión es la calidad, y mi diferencial es trabajar contigo directamente — sin agencias intermediarias.</p>
+        <p data-i18n="about.p2">Hoy trabajo con medianos y grandes empresarios que necesitan más que un dev: necesitan a alguien que entienda su negocio, se tome su plazo en serio, y les entregue algo que funcione de verdad. Cada cosa que hago la hago con amor y dedicación — porque sé que detrás de cada proyecto hay sueños e ideas geniales.</p>
       </div>
     </div>
   </div>
@@ -869,34 +867,34 @@ section { padding: 7rem 0; position: relative; }
     <div class="services-grid">
       <article class="svc-card">
         <p class="svc-num">— 01 —</p>
-        <h3 class="svc-title" data-i18n="svc.1.title">Sitios web profesionales</h3>
-        <p class="svc-desc" data-i18n="svc.1.desc">Sitios que funcionan, cargan rápido y respetan tu marca. Angular para algo serio, WordPress para algo editable. Diseño + código + despliegue + capacitación incluidos.</p>
-        <p class="svc-for" data-i18n="svc.1.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · emprendedoras · pequeñas empresas · profesionales</p>
-        <div class="svc-stack"><span>Angular</span><span>WordPress</span><span>HTML/CSS</span><span>Tailwind</span></div>
+        <h3 class="svc-title" data-i18n="svc.1.title">Automatización de procesos</h3>
+        <p class="svc-desc" data-i18n="svc.1.desc">Identifico cuellos de botella, diseño flujos eficientes e implemento la automatización. Menos tiempo manual, menos errores, más capacidad operativa. Esto es lo que más me apasiona.</p>
+        <p class="svc-for" data-i18n="svc.1.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · medianas empresas · operaciones · equipos que quieren escalar</p>
+        <div class="svc-stack"><span>Flujos</span><span>APIs</span><span>SQL</span><span>IA aplicada</span></div>
       </article>
 
       <article class="svc-card">
         <p class="svc-num">— 02 —</p>
-        <h3 class="svc-title" data-i18n="svc.2.title">Aplicaciones web a medida</h3>
-        <p class="svc-desc" data-i18n="svc.2.desc">Cuando tu negocio necesita más que un sitio: dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura, te explico las decisiones, construyo lo validado.</p>
-        <p class="svc-for" data-i18n="svc.2.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · startups · empresas con procesos · fintechs hispanas</p>
-        <div class="svc-stack"><span>Angular</span><span>Java</span><span>.NET</span><span>SQL</span><span>APIs</span></div>
+        <h3 class="svc-title" data-i18n="svc.2.title">Soluciones digitales a medida</h3>
+        <p class="svc-desc" data-i18n="svc.2.desc">Dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura pensando en tu negocio, te explico cada decisión y construyo lo que realmente necesitas.</p>
+        <p class="svc-for" data-i18n="svc.2.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · empresas con procesos complejos · equipos técnicos · gerencia</p>
+        <div class="svc-stack"><span>Next.js</span><span>Java</span><span>.NET</span><span>SQL</span><span>APIs</span></div>
       </article>
 
       <article class="svc-card">
         <p class="svc-num">— 03 —</p>
-        <h3 class="svc-title" data-i18n="svc.3.title">IA aplicada a tu negocio</h3>
-        <p class="svc-desc" data-i18n="svc.3.desc">Workflows automatizados con Claude, GPT o Gemini. Asistentes virtuales, generación de contenido, análisis de datos. Diseño prompts efectivos y los integro a tu producto.</p>
-        <p class="svc-for" data-i18n="svc.3.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · marketing · creadores · pymes que aceleran</p>
-        <div class="svc-stack"><span>Claude</span><span>GPT</span><span>Gemini</span><span>Prompt Eng.</span></div>
+        <h3 class="svc-title" data-i18n="svc.3.title">IA aplicada al negocio</h3>
+        <p class="svc-desc" data-i18n="svc.3.desc">Workflows inteligentes con Claude, GPT o Gemini. Análisis de datos, asistentes virtuales, generación de reportes. Integro la IA donde tiene sentido — sin promesas vacías.</p>
+        <p class="svc-for" data-i18n="svc.3.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · empresas que quieren eficiencia real · no tecnología de vitrina</p>
+        <div class="svc-stack"><span>Claude</span><span>GPT</span><span>Gemini</span><span>Datos</span></div>
       </article>
 
       <article class="svc-card">
         <p class="svc-num">— 04 —</p>
-        <h3 class="svc-title" data-i18n="svc.4.title">Análisis y documentación técnica</h3>
-        <p class="svc-desc" data-i18n="svc.4.desc">Tienes una idea pero no claridad. Levanto requisitos, propongo arquitectura, entrego un documento que cualquier dev pueda ejecutar. Mi superpoder de banca.</p>
-        <p class="svc-for" data-i18n="svc.4.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · fundadores no-técnicos · proyectos rescate · sin PM</p>
-        <div class="svc-stack"><span>Análisis</span><span>Wireframes</span><span>Arquitectura</span><span>Scrum</span></div>
+        <h3 class="svc-title" data-i18n="svc.4.title">Análisis técnico y consultoría</h3>
+        <p class="svc-desc" data-i18n="svc.4.desc">Tienes una idea, un problema o un sistema que no está rindiendo. Analizo, propongo, documento y te doy claridad antes de que empiece el desarrollo. Decisiones bien tomadas ahorran mucho dinero.</p>
+        <p class="svc-for" data-i18n="svc.4.for" style="margin-top:1rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold-dark);font-weight:700;text-transform:uppercase;">Para · gerencia · fundadores · equipos sin dirección técnica clara</p>
+        <div class="svc-stack"><span>Análisis</span><span>Arquitectura</span><span>Documentación</span><span>Scrum</span></div>
       </article>
     </div>
 
@@ -956,25 +954,25 @@ section { padding: 7rem 0; position: relative; }
 
     <div class="stack-grid">
       <div class="stack-col">
-        <h4 data-i18n="stack.col.frontend">Frontend</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Angular</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 95%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">JavaScript</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">TypeScript</span><span class="skill__years">5+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">HTML / CSS / SCSS</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 92%"></div></div></div>
+        <h4 data-i18n="stack.col.automation">Automatización &amp; Procesos</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Diseño de flujos y optimización</span><span class="skill__years">Toda la carrera</span></div><div class="skill__bar"><div class="skill__fill" style="width: 95%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">SQL · PostgreSQL · Datos</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">IA aplicada · Prompt Engineering</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
       </div>
 
       <div class="stack-col">
-        <h4 data-i18n="stack.col.backend">Backend &amp; datos</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Java</span><span class="skill__years">6 años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 85%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">.NET / C#</span><span class="skill__years">4+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 78%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">SQL · PostgreSQL</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
+        <h4 data-i18n="stack.col.dev">Desarrollo &amp; Plataformas</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name">JavaScript · TypeScript</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">HTML / CSS · Next.js</span><span class="skill__years">5+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Java · .NET · C#</span><span class="skill__years">6 años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 82%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Angular · WordPress</span><span class="skill__years">Uso profesional</span></div><div class="skill__bar"><div class="skill__fill" style="width: 75%"></div></div></div>
       </div>
 
       <div class="stack-col">
-        <h4 data-i18n="stack.col.platforms">Plataformas &amp; IA</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name" data-i18n="skill.ai">IA aplicada · Prompt Engineering</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">WordPress · Elementor</span><span class="skill__years">3+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 80%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Git · GitHub</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+        <h4 data-i18n="stack.col.platforms">Metodología &amp; Herramientas</h4>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Análisis y documentación técnica</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 92%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Git · GitHub · Scrum</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
+        <div class="skill"><div class="skill__head"><span class="skill__name">Aprendizaje continuo &amp; enseñanza</span><span class="skill__years">Siempre</span></div><div class="skill__bar"><div class="skill__fill" style="width: 98%"></div></div></div>
       </div>
     </div>
   </div>
@@ -982,8 +980,8 @@ section { padding: 7rem 0; position: relative; }
 
 <!-- PHILOSOPHY -->
 <section class="philosophy">
-  <p class="philosophy__quote" data-i18n="philosophy.quote">No hay agencia detrás. Soy yo, mi laptop, mucho café y la <span class="gradient-gold" style="font-weight:600;">disciplina</span> de no decepcionarte. Esa es la oferta entera.</p>
-  <p class="philosophy__attr" data-i18n="philosophy.attr">— Evelyn, en voz baja</p>
+  <p class="philosophy__quote" data-i18n="philosophy.quote">Cada cosa que hago la hago con <span class="gradient-gold" style="font-weight:600;">amor y dedicación</span> — porque sé que detrás de cada proyecto hay sueños e ideas geniales que merecen lo mejor.</p>
+  <p class="philosophy__attr" data-i18n="philosophy.attr">— Evelyn, siempre</p>
 </section>
 
 <!-- CONTACT -->
@@ -1025,31 +1023,31 @@ section { padding: 7rem 0; position: relative; }
 const i18n = {
   es: {
     "hero.eyebrow": "Portfolio · Servicios Freelance · 2026",
-    "hero.role": "Ingeniera de Software · Especialista Angular",
-    "hero.sub": "6 años en software financiero · Sophos · Bancolombia",
-    "hero.quote": "Pienso como diseñadora, construyo como ingeniera.",
+    "hero.role": "Ingeniera de Software · Automatización & Procesos · Datos",
+    "hero.sub": "Toda una vida en fábricas de software · Multistack · Medianos y grandes empresarios",
+    "hero.quote": "Creo con amor y dedicación — porque detrás de cada proyecto hay sueños reales.",
 
     "about.eyebrow": "— 01 — Sobre mí",
     "about.title": 'Soy Evelyn. <em><span class="gradient-gold">Paisa</span></em>, ingeniera, vivo en Suiza.',
-    "about.lead": "Soy de Medellín. Vivo en Suiza. Soy mamá. Vengo de seis años en banca — donde un detalle mal hecho cuesta dinero real.",
-    "about.p1": "Trabajé en <strong>Sophos Solutions</strong> y <strong>Bancolombia</strong> liderando análisis, desarrollo, pruebas y soporte de soluciones técnicas para banca core, integraciones y aplicaciones empresariales. Allí entrené el músculo de la disciplina, los plazos, y la calidad como compromiso.",
-    "about.p2": "Hoy llevo esa misma seriedad técnica a proyectos web freelance para clientes en España, LATAM y comunidades hispanas globalmente. Mi especialidad es <strong>Angular</strong>, mi obsesión es la calidad, y mi diferencial es trabajar contigo directamente — sin agencias intermediarias.",
+    "about.lead": "Soy de Medellín. Vivo en Suiza. Soy mamá. Y llevo toda una vida en fábricas de software — el entorno que más me enseñó a crecer como ingeniera.",
+    "about.p1": "Moverse en fábricas de software me expuso a decenas de tecnologías, industrias y equipos. Esa versatilidad me hizo lo que soy hoy: una <strong>creadora de soluciones</strong> que sabe automatizar y optimizar procesos, trabajar con datos, y adaptarse a lo que el proyecto necesite. Aprendo rápido, enseño con gusto, y siempre llego a tiempo.",
+    "about.p2": "Hoy trabajo con medianos y grandes empresarios que necesitan más que un dev: necesitan a alguien que entienda su negocio, se tome su plazo en serio, y les entregue algo que funcione de verdad. Cada cosa que hago la hago con amor y dedicación — porque sé que detrás de cada proyecto hay sueños e ideas geniales.",
 
     "svc.eyebrow": "— 02 — Servicios",
     "svc.title": 'Lo que <em><span class="gradient-gold">construyo</span></em>.',
-    "svc.sub": "Cuatro frentes de trabajo, una sola filosofía: calidad y compromiso.",
-    "svc.1.title": "Sitios web profesionales",
-    "svc.1.desc": "Sitios que funcionan, cargan rápido y respetan tu marca. Angular para algo serio, WordPress para algo editable. Diseño + código + despliegue + capacitación incluidos.",
-    "svc.1.for": "Para · emprendedoras · pequeñas empresas · profesionales",
-    "svc.2.title": "Aplicaciones web a medida",
-    "svc.2.desc": "Cuando tu negocio necesita más que un sitio: dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura, te explico las decisiones, construyo lo validado.",
-    "svc.2.for": "Para · startups · empresas con procesos · fintechs hispanas",
-    "svc.3.title": "IA aplicada a tu negocio",
-    "svc.3.desc": "Workflows automatizados con Claude, GPT o Gemini. Asistentes virtuales, generación de contenido, análisis de datos. Diseño prompts efectivos y los integro a tu producto.",
-    "svc.3.for": "Para · marketing · creadores · pymes que aceleran",
-    "svc.4.title": "Análisis y documentación técnica",
-    "svc.4.desc": "Tienes una idea pero no claridad. Levanto requisitos, propongo arquitectura, entrego un documento que cualquier dev pueda ejecutar. Mi superpoder de banca.",
-    "svc.4.for": "Para · fundadores no-técnicos · proyectos rescate · sin PM",
+    "svc.sub": "Cuatro frentes de trabajo, una sola filosofía: amor, dedicación y resultados.",
+    "svc.1.title": "Automatización de procesos",
+    "svc.1.desc": "Identifico cuellos de botella, diseño flujos eficientes e implemento la automatización. Menos tiempo manual, menos errores, más capacidad operativa. Esto es lo que más me apasiona.",
+    "svc.1.for": "Para · medianas empresas · operaciones · equipos que quieren escalar",
+    "svc.2.title": "Soluciones digitales a medida",
+    "svc.2.desc": "Dashboards, paneles internos, gestión de clientes, integraciones con APIs. Diseño la arquitectura pensando en tu negocio, te explico cada decisión y construyo lo que realmente necesitas.",
+    "svc.2.for": "Para · empresas con procesos complejos · equipos técnicos · gerencia",
+    "svc.3.title": "IA aplicada al negocio",
+    "svc.3.desc": "Workflows inteligentes con Claude, GPT o Gemini. Análisis de datos, asistentes virtuales, generación de reportes. Integro la IA donde tiene sentido — sin promesas vacías.",
+    "svc.3.for": "Para · empresas que quieren eficiencia real · no tecnología de vitrina",
+    "svc.4.title": "Análisis técnico y consultoría",
+    "svc.4.desc": "Tienes una idea, un problema o un sistema que no está rindiendo. Analizo, propongo, documento y te doy claridad antes de que empiece el desarrollo. Decisiones bien tomadas ahorran mucho dinero.",
+    "svc.4.for": "Para · gerencia · fundadores · equipos sin dirección técnica clara",
     "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Soporte y mantenimiento</strong><br />Acompañamiento técnico continuo a proyectos vivos. Refactor, optimización, evolución incremental. Disponible bajo retainer mensual.',
 
     "proc.eyebrow": "— 03 — Proceso",
@@ -1066,14 +1064,15 @@ const i18n = {
 
     "stack.eyebrow": "— 04 — Stack técnico",
     "stack.title": 'Las <em><span class="gradient-gold">herramientas</span></em>.',
-    "stack.sub": "Tecnologías con experiencia laboral real, no aprendidas en cursos online.",
+    "stack.sub": "Tecnologías con experiencia laboral real, en distintas industrias y equipos.",
+    "stack.col.automation": "Automatización & Procesos",
+    "stack.col.dev": "Desarrollo & Plataformas",
+    "stack.col.platforms": "Metodología & Herramientas",
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & datos",
-    "stack.col.platforms": "Plataformas & IA",
-    "skill.ai": "IA aplicada · Prompt Engineering",
 
-    "philosophy.quote": 'No hay agencia detrás. Soy yo, mi laptop, mucho café y la <span class="gradient-gold" style="font-weight:600;">disciplina</span> de no decepcionarte. Esa es la oferta entera.',
-    "philosophy.attr": "— Evelyn, en voz baja",
+    "philosophy.quote": 'Cada cosa que hago la hago con <span class="gradient-gold" style="font-weight:600;">amor y dedicación</span> — porque sé que detrás de cada proyecto hay sueños e ideas geniales que merecen lo mejor.',
+    "philosophy.attr": "— Evelyn, siempre",
 
     "cta.eyebrow": "— 05 — Contacto",
     "cta.title": "¿Hablamos?",
@@ -1090,31 +1089,31 @@ const i18n = {
 
   en: {
     "hero.eyebrow": "Portfolio · Freelance Services · 2026",
-    "hero.role": "Software Engineer · Angular Specialist",
-    "hero.sub": "6 years in financial software · Sophos · Bancolombia",
-    "hero.quote": "I think like a designer, build like an engineer.",
+    "hero.role": "Software Engineer · Process Automation · Data",
+    "hero.sub": "A lifetime in software factories · Multistack · Mid & large businesses",
+    "hero.quote": "I build with love and dedication — because behind every project there are real dreams.",
 
     "about.eyebrow": "— 01 — About me",
     "about.title": 'I\'m Evelyn. <em><span class="gradient-gold">Latina</span></em>, engineer, based in Switzerland.',
-    "about.lead": "I'm from Medellín. Based in Switzerland. I'm a mom. Six years in banking — the sector where one wrong detail costs real money.",
-    "about.p1": "I worked at <strong>Sophos Solutions</strong> and <strong>Bancolombia</strong> leading analysis, development, testing and support of technical solutions for core banking, integrations and enterprise apps. There I trained the muscle of discipline, deadlines, and quality as commitment.",
-    "about.p2": "Today I bring that same technical seriousness to freelance web projects for clients in Spain, LATAM and Hispanic communities globally. My specialty is <strong>Angular</strong>, my obsession is quality, and my differentiator is working with you directly — no agencies in between.",
+    "about.lead": "I'm from Medellín. Based in Switzerland. I'm a mom. And I've spent my whole career in software factories — the environment that taught me the most about growing as an engineer.",
+    "about.p1": "Moving through software factories exposed me to dozens of technologies, industries and teams. That versatility made me what I am today: a <strong>solution creator</strong> who knows how to automate and optimize processes, work with data, and adapt to what each project needs. I learn fast, teach gladly, and always deliver on time.",
+    "about.p2": "Today I work with mid-size and large business owners who need more than a dev: they need someone who understands their business, takes their deadlines seriously, and delivers something that truly works. Everything I do, I do with love and dedication — because I know that behind every project there are dreams and brilliant ideas.",
 
     "svc.eyebrow": "— 02 — Services",
     "svc.title": 'What I <em><span class="gradient-gold">build</span></em>.',
-    "svc.sub": "Four fronts of work, one philosophy: quality and commitment.",
-    "svc.1.title": "Professional websites",
-    "svc.1.desc": "Sites that work, load fast and respect your brand. Angular for serious projects, WordPress for editable ones. Design + code + deployment + training included.",
-    "svc.1.for": "For · founders · small businesses · independent professionals",
-    "svc.2.title": "Custom web applications",
-    "svc.2.desc": "When your business needs more than a site: dashboards, internal panels, customer management, API integrations. I design the architecture, explain decisions, build what's validated.",
-    "svc.2.for": "For · startups · companies with processes · Hispanic fintechs",
+    "svc.sub": "Four areas of work, one philosophy: love, dedication and results.",
+    "svc.1.title": "Process automation",
+    "svc.1.desc": "I identify bottlenecks, design efficient flows and implement automation. Less manual work, fewer errors, more operational capacity. This is what I'm most passionate about.",
+    "svc.1.for": "For · mid-size companies · operations · teams that want to scale",
+    "svc.2.title": "Custom digital solutions",
+    "svc.2.desc": "Dashboards, internal panels, customer management, API integrations. I design the architecture with your business in mind, explain every decision and build what you truly need.",
+    "svc.2.for": "For · companies with complex processes · technical teams · management",
     "svc.3.title": "Applied AI for your business",
-    "svc.3.desc": "Automated workflows with Claude, GPT or Gemini. Virtual assistants, content generation, data analysis. I design effective prompts and integrate them into your product.",
-    "svc.3.for": "For · marketing · creators · SMBs who accelerate",
-    "svc.4.title": "Analysis & technical documentation",
-    "svc.4.desc": "You have an idea but no clarity. I gather requirements, propose architecture, deliver a document any dev can execute. My banking superpower.",
-    "svc.4.for": "For · non-technical founders · rescue projects · no-PM teams",
+    "svc.3.desc": "Smart workflows with Claude, GPT or Gemini. Data analysis, virtual assistants, report generation. I integrate AI where it makes sense — no empty promises.",
+    "svc.3.for": "For · companies that want real efficiency · not showcase technology",
+    "svc.4.title": "Technical analysis & consulting",
+    "svc.4.desc": "You have an idea, a problem or a system underperforming. I analyze, propose, document and give you clarity before development begins. Well-made decisions save a lot of money.",
+    "svc.4.for": "For · management · founders · teams without clear technical direction",
     "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Support & maintenance</strong><br />Continuous technical accompaniment for live projects. Refactor, optimization, incremental evolution. Available on monthly retainer.',
 
     "proc.eyebrow": "— 03 — Process",
@@ -1131,14 +1130,15 @@ const i18n = {
 
     "stack.eyebrow": "— 04 — Tech stack",
     "stack.title": 'The <em><span class="gradient-gold">tools</span></em>.',
-    "stack.sub": "Technologies with real on-the-job experience, not just tutorials.",
+    "stack.sub": "Technologies with real professional experience, across different industries and teams.",
+    "stack.col.automation": "Automation & Processes",
+    "stack.col.dev": "Development & Platforms",
+    "stack.col.platforms": "Methodology & Tools",
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & data",
-    "stack.col.platforms": "Platforms & AI",
-    "skill.ai": "Applied AI · Prompt Engineering",
 
-    "philosophy.quote": 'No agency behind me. Just me, my laptop, lots of coffee and the <span class="gradient-gold" style="font-weight:600;">discipline</span> not to disappoint you. That\'s the whole offer.',
-    "philosophy.attr": "— Evelyn, quietly",
+    "philosophy.quote": 'Everything I do, I do with <span class="gradient-gold" style="font-weight:600;">love and dedication</span> — because I know that behind every project there are dreams and brilliant ideas that deserve the best.',
+    "philosophy.attr": "— Evelyn, always",
 
     "cta.eyebrow": "— 05 — Contact",
     "cta.title": "Shall we talk?",
@@ -1155,31 +1155,31 @@ const i18n = {
 
   fr: {
     "hero.eyebrow": "Portfolio · Services Freelance · 2026",
-    "hero.role": "Ingénieure logiciel · Spécialiste Angular",
-    "hero.sub": "6 ans en logiciel financier · Sophos · Bancolombia",
-    "hero.quote": "Je pense en designer, je construis en ingénieure.",
+    "hero.role": "Ingénieure logiciel · Automatisation & Processus · Données",
+    "hero.sub": "Toute une carrière dans des usines logicielles · Multistack · Moyennes et grandes entreprises",
+    "hero.quote": "Je crée avec amour et dévouement — parce que derrière chaque projet il y a de vrais rêves.",
 
     "about.eyebrow": "— 01 — À propos",
     "about.title": 'Je suis Evelyn. <em><span class="gradient-gold">Latino-américaine</span></em>, ingénieure, basée en Suisse.',
-    "about.lead": "Je viens de Medellín. J'habite en Suisse. Je suis maman. Six ans dans la banque — le secteur où un détail mal fait coûte de l'argent réel.",
-    "about.p1": "J'ai travaillé chez <strong>Sophos Solutions</strong> et <strong>Bancolombia</strong> en pilotant l'analyse, le développement, les tests et le support de solutions techniques pour le core banking, les intégrations et les applications d'entreprise. J'y ai forgé la discipline, les délais et la qualité comme engagement.",
-    "about.p2": "Aujourd'hui j'apporte ce sérieux technique à des projets web freelance pour des clients en Espagne, en Amérique latine et des communautés hispanophones globalement. Ma spécialité est <strong>Angular</strong>, mon obsession est la qualité, et mon différenciateur est de travailler avec vous directement — sans agences intermédiaires.",
+    "about.lead": "Je viens de Medellín. J'habite en Suisse. Je suis maman. Et j'ai passé toute ma carrière dans des usines logicielles — l'environnement qui m'a le plus appris à grandir en tant qu'ingénieure.",
+    "about.p1": "Évoluer dans des usines logicielles m'a exposée à des dizaines de technologies, d'industries et d'équipes. Cette polyvalence a fait de moi ce que je suis : une <strong>créatrice de solutions</strong> qui sait automatiser et optimiser des processus, travailler avec des données et s'adapter à chaque projet. J'apprends vite, j'enseigne volontiers et je livre toujours à temps.",
+    "about.p2": "Aujourd'hui je travaille avec des dirigeants de moyennes et grandes entreprises qui ont besoin de plus qu'un développeur : quelqu'un qui comprend leur business, respecte leurs délais et livre quelque chose qui fonctionne vraiment. Chaque chose que je fais, je la fais avec amour et dévouement.",
 
     "svc.eyebrow": "— 02 — Services",
     "svc.title": 'Ce que je <em><span class="gradient-gold">construis</span></em>.',
-    "svc.sub": "Quatre fronts de travail, une seule philosophie : qualité et engagement.",
-    "svc.1.title": "Sites web professionnels",
-    "svc.1.desc": "Sites qui fonctionnent, chargent vite et respectent votre marque. Angular pour quelque chose de sérieux, WordPress pour quelque chose d'éditable. Design + code + déploiement + formation inclus.",
-    "svc.1.for": "Pour · entrepreneuses · petites entreprises · indépendants",
-    "svc.2.title": "Applications web sur mesure",
-    "svc.2.desc": "Quand votre entreprise a besoin de plus qu'un site : dashboards, panneaux internes, gestion de clients, intégrations API. Je conçois l'architecture, explique les décisions, construis le validé.",
-    "svc.2.for": "Pour · startups · entreprises avec processus · fintechs hispaniques",
-    "svc.3.title": "IA appliquée à votre business",
-    "svc.3.desc": "Workflows automatisés avec Claude, GPT ou Gemini. Assistants virtuels, génération de contenu, analyse de données. Je conçois des prompts efficaces et les intègre dans votre produit.",
-    "svc.3.for": "Pour · marketing · créateurs · PME qui accélèrent",
-    "svc.4.title": "Analyse et documentation technique",
-    "svc.4.desc": "Vous avez une idée mais pas de clarté. Je recueille les besoins, propose l'architecture, livre un document que n'importe quel dev peut exécuter. Mon super-pouvoir bancaire.",
-    "svc.4.for": "Pour · fondateurs non-techniques · projets sauvetage · sans PM",
+    "svc.sub": "Quatre domaines de travail, une seule philosophie : amour, dévouement et résultats.",
+    "svc.1.title": "Automatisation de processus",
+    "svc.1.desc": "J'identifie les goulots d'étranglement, conçois des flux efficaces et implémente l'automatisation. Moins de travail manuel, moins d'erreurs, plus de capacité opérationnelle.",
+    "svc.1.for": "Pour · moyennes entreprises · opérations · équipes qui veulent scaler",
+    "svc.2.title": "Solutions digitales sur mesure",
+    "svc.2.desc": "Dashboards, panneaux internes, gestion de clients, intégrations API. Je conçois l'architecture en pensant à votre business, explique chaque décision et construis ce dont vous avez vraiment besoin.",
+    "svc.2.for": "Pour · entreprises avec processus complexes · équipes techniques · direction",
+    "svc.3.title": "IA appliquée au business",
+    "svc.3.desc": "Workflows intelligents avec Claude, GPT ou Gemini. Analyse de données, assistants virtuels, génération de rapports. J'intègre l'IA là où ça a du sens — sans promesses vides.",
+    "svc.3.for": "Pour · entreprises qui veulent une vraie efficacité · pas de la technologie vitrine",
+    "svc.4.title": "Analyse technique & conseil",
+    "svc.4.desc": "Vous avez une idée, un problème ou un système sous-performant. J'analyse, propose, documente et vous donne de la clarté avant que le développement commence. De bonnes décisions font gagner beaucoup d'argent.",
+    "svc.4.for": "Pour · direction · fondateurs · équipes sans cap technique clair",
     "svc.addon": '<strong style="font-family:var(--sans);font-style:normal;font-weight:700;color:var(--purple-deep);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;">+ Add-on · Support et maintenance</strong><br />Accompagnement technique continu pour projets vivants. Refactor, optimisation, évolution incrémentale. Disponible en retainer mensuel.',
 
     "proc.eyebrow": "— 03 — Processus",
@@ -1196,14 +1196,16 @@ const i18n = {
 
     "stack.eyebrow": "— 04 — Stack technique",
     "stack.title": 'Les <em><span class="gradient-gold">outils</span></em>.',
-    "stack.sub": "Technologies avec une expérience professionnelle réelle, pas apprises dans des tutoriels.",
+    "stack.sub": "Technologies avec une expérience professionnelle réelle, dans différentes industries et équipes.",
+    "stack.col.automation": "Automatisation & Processus",
+    "stack.col.dev": "Développement & Plateformes",
+    "stack.col.platforms": "Méthodologie & Outils",
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & données",
-    "stack.col.platforms": "Plateformes & IA",
     "skill.ai": "IA appliquée · Prompt Engineering",
 
-    "philosophy.quote": 'Aucune agence derrière moi. Juste moi, mon ordinateur, beaucoup de café et la <span class="gradient-gold" style="font-weight:600;">discipline</span> de ne pas vous décevoir. Voilà l\'offre complète.',
-    "philosophy.attr": "— Evelyn, à voix basse",
+    "philosophy.quote": 'Chaque chose que je fais, je la fais avec <span class="gradient-gold" style="font-weight:600;">amour et dévouement</span> — parce que je sais que derrière chaque projet se cachent des rêves et des idées géniales qui méritent le meilleur.',
+    "philosophy.attr": "— Evelyn, toujours",
 
     "cta.eyebrow": "— 05 — Contact",
     "cta.title": "On se parle ?",

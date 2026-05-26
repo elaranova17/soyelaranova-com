@@ -37,6 +37,31 @@
   background: rgba(212, 175, 55, 0.1);
 }
 
+.en-b2b-nav a.is-active {
+  color: #f2d578;
+  border-color: rgba(212, 175, 55, 0.55);
+  background: rgba(212, 175, 55, 0.14);
+  pointer-events: none;
+}
+
+.en-b2b-nav__cta {
+  color: #1a0f3d !important;
+  background: #d4af37;
+  border-color: #d4af37;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.en-b2b-nav__cta:hover {
+  color: #1a0f3d !important;
+  background: #f2d578;
+  border-color: #f2d578;
+}
+
 body.has-b2b-nav {
   padding-top: 3.25rem !important;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
 }

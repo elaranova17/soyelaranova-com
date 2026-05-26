@@ -9,7 +9,7 @@ export function ManifiestoSection() {
         <p className="text-[#b8a8d0] mb-10">
           Elara Nova es el espacio para recordarte quién eres, confiar en tu camino y crear la vida en sintonía con tu esencia.
         </p>
-        <a href="/comunidad" className="bg-[#7c3aed] text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-[#6d28d9] transition-colors">
+        <a href="/#circulo" className="bg-[#7c3aed] text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-[#6d28d9] transition-colors">
           Este es mi momento →
         </a>
       </div>

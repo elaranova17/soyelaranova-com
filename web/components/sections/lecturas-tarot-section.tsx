@@ -113,7 +113,7 @@ export function LecturasTarotSection() {
           <PriceCard />
 
           <Link
-            href="/lecturas"
+            href="/oraculo"
             className="mt-8 inline-flex w-fit items-center rounded-full bg-[#7c3aed] px-8 py-3 text-xs font-semibold tracking-widest text-white uppercase"
           >
             Hacé tu pregunta →

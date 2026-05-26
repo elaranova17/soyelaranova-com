@@ -90,7 +90,7 @@ Existe `netlify.toml` en la raíz con `base = "web"`. **No es el deploy activo.*
 
 ## Portfolio Evelyn (B2B)
 
-Rutas: `/portfolio`, `/cv`, `/linktree`, `/propuesta`, `/descubrimiento`.  
+Rutas: `/portfolio`, `/cv`, `/linktree`, `/propuesta`, `/casos-exito`, `/descubrimiento`.  
 Archivos en `web/public/evelyn-b2b/` — enlaces e imágenes deben ser **absolutos** (`/portfolio`, `/_assets/photos/...`). Ver `web/public/evelyn-b2b/README.md`.
 
 ---
