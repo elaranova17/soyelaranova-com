@@ -24,14 +24,6 @@ const ROUTE_NAV: readonly NavItem[] = [
   { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
 ]
 
-const LANDING_NAV: readonly NavItem[] = [
-  { href: '#herramientas', label: 'Herramientas' },
-  { href: '#circulo', label: 'Círculo' },
-  { href: '#cursos', label: 'Cursos' },
-  { href: '#productos', label: 'Productos' },
-  { href: '#sobre', label: 'Sobre mí' },
-]
-
 function isActive(pathname: string, item: NavItem): boolean {
   if (item.match) return item.match.includes(pathname)
   if (item.href.startsWith('#')) return false
@@ -116,8 +108,7 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
 
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
-  const isLanding = pathname === '/'
-  const links = isLanding ? LANDING_NAV : ROUTE_NAV
+  const links = ROUTE_NAV
   const leftLinks = links.slice(0, Math.ceil(links.length / 2))
   const rightLinks = links.slice(Math.ceil(links.length / 2))
 
@@ -182,14 +173,14 @@ export function SiteNav() {
             ))}
           </nav>
 
-          {isLanding && (
-            <a
-              href="#email"
+          {pathname === '/' && (
+            <Link
+              href="/sobre-elara"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-5 py-2.5 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90"
             >
               <span aria-hidden>✦</span>
-              Unirme
-            </a>
+              Conocer a Elara
+            </Link>
           )}
 
           <MenuButton open={open} onClick={toggle} />
@@ -260,14 +251,15 @@ export function SiteNav() {
                 ))}
               </nav>
 
-              {isLanding && (
-                <a
-                  href="#email"
+              {pathname === '/' && (
+                <Link
+                  href="/sobre-elara"
+                  prefetch
                   onClick={close}
                   className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] px-6 py-3 font-sans text-[10px] font-bold tracking-[0.28em] text-[var(--color-purple-night)] uppercase"
                 >
-                  Unirme al Círculo
-                </a>
+                  Conocer a Elara
+                </Link>
               )}
 
               <p
