@@ -12,6 +12,9 @@ HTML estático servido vía `next.config.ts` rewrites. **Usar siempre rutas abso
 | `/descubrimiento` | `descubrimiento.html` |
 | `/portfolio-print` | `portfolio-print.html` |
 | `/factura` | `factura-template.html` |
+| `/propuesta-val-debarras` | `propuesta-val-debarras.html` (Val-Débarras · ES/FR) |
+
+**Val-Débarras:** idioma por defecto **FR** (cliente suizo). Cambiar con botones FR/ES o `?lang=es` / `?lang=fr`.
 
 ## Nav B2B (igual en todas las páginas HTML)
 
