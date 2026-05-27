@@ -58,15 +58,17 @@ export const B2B_ROUTES = [
   '/linktree',
   '/portfolio',
   '/cv',
-  '/propuesta',
   '/descubrimiento',
   '/casos-exito',
   '/portfolio-print',
   '/factura',
   '/work',
+  '/propuesta-val-debarras',
 ] as const
 
+/** Cotizaciones por cliente: /propuesta-{slug} — nunca la plantilla genérica. */
 export function isB2bPath(pathname: string): boolean {
+  if (pathname.startsWith('/propuesta-')) return true
   return B2B_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`))
 }
 
