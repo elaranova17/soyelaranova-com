@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { siteImages } from '@/lib/site-images'
 
 export function ComunidadSection() {
@@ -17,9 +18,9 @@ export function ComunidadSection() {
               </div>
             ))}
           </div>
-          <a href="/#circulo" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium">
+          <Link href="/#circulo" className="bg-[#7c3aed] text-white px-8 py-3 rounded-full font-medium">
             Quiero unirme →
-          </a>
+          </Link>
         </div>
         <div className="relative h-72 rounded-2xl overflow-hidden md:h-[400px]">
           <Image

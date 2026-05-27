@@ -462,6 +462,28 @@ img { max-width: 100%; display: block; }
 }
 .pricing__row.total .pricing__value { color: var(--gold-dark); }
 
+.pricing__row.list-price .pricing__value {
+  color: var(--grey);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.pricing__row.discount .pricing__value {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.pricing-note {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(90deg, var(--mist) 0%, var(--cream-warm) 100%);
+  border-left: 3px solid var(--lavender);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
 .pricing__label { font-size: 0.95rem; color: var(--ink); }
 .pricing__value { text-align: right; font-weight: 700; color: var(--purple-deep); }
 
@@ -752,8 +774,10 @@ img { max-width: 100%; display: block; }
   .footer { page-break-before: always; }
 }
 
+.reveal { opacity: 1; transform: none; }
+
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal:not(.in) { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity: 1; transform: none; }
 }
 
@@ -802,7 +826,6 @@ img { max-width: 100%; display: block; }
   .lang-bar { display: none !important; }
 }
 </style>
-<script src="/evelyn-b2b/propuesta-val-debarras-i18n.js" defer></script>
 </head>
 <body class="has-b2b-nav">
 
@@ -1230,11 +1253,21 @@ img { max-width: 100%; display: block; }
         <div class="pricing__label" data-i18n="s07.r5">Support post-lancement — 3 semaines</div>
         <div class="pricing__value" data-i18n="s07.r5.val">Inclus</div>
       </div>
+      <div class="pricing__row list-price">
+        <div class="pricing__label" data-i18n="s07.list.label">Tarif standard</div>
+        <div class="pricing__value" data-i18n="s07.list.val">CHF 3,500</div>
+      </div>
+      <div class="pricing__row discount">
+        <div class="pricing__label" data-i18n="s07.discount.label">Remise nouveau client</div>
+        <div class="pricing__value" data-i18n="s07.discount.val">− CHF 700</div>
+      </div>
       <div class="pricing__row total">
-        <div class="pricing__label" data-i18n="s07.total.label">Total projet</div>
-        <div class="pricing__value">CHF 3,500</div>
+        <div class="pricing__label" data-i18n="s07.total.label">Total convenu</div>
+        <div class="pricing__value" data-i18n="s07.total.val">CHF 2,800</div>
       </div>
     </div>
+
+    <p class="pricing-note reveal" data-i18n="s07.discount.note">Val-Débarras serait mon premier cas client B2B…</p>
 
     <div class="payment-plan reveal">
       <h4 data-i18n="s07.payment.title">Modalités de paiement suggérées</h4>
@@ -1342,13 +1375,18 @@ img { max-width: 100%; display: block; }
   <p style="margin-top: 0.5rem; opacity: 0.4;" data-i18n="footer.line2">Proposition #2026-005 · Val-Débarras · 27 mai 2026 · Valable jusqu'au 11 juin 2026</p>
 </footer>
 
+<script src="/evelyn-b2b/propuesta-val-debarras-i18n.js"></script>
 <script>
   const reveal = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(
-    (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')),
-    { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
-  );
-  reveal.forEach(el => io.observe(el));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+    );
+    reveal.forEach(el => io.observe(el));
+  } else {
+    reveal.forEach(el => el.classList.add('in'));
+  }
 </script>
 
 </body>
