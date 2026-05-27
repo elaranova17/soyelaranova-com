@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       { source: '/casos-exito',       destination: '/evelyn-b2b/propuesta.html' },
       { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
       { source: '/descubrimiento',    destination: '/evelyn-b2b/descubrimiento.html' },
+      { source: '/propuesta-val-debarras', destination: '/evelyn-b2b/propuesta-val-debarras.html' },
     ]
   },
 
@@ -40,6 +41,7 @@ const nextConfig: NextConfig = {
       { source: '/evelyn-b2b/descubrimiento.html', destination: '/descubrimiento', permanent: true },
       { source: '/evelyn-b2b/portfolio-print.html', destination: '/portfolio-print', permanent: true },
       { source: '/evelyn-b2b/factura-template.html', destination: '/factura', permanent: true },
+      { source: '/evelyn-b2b/propuesta-val-debarras.html', destination: '/propuesta-val-debarras', permanent: true },
       { source: '/work', destination: '/portfolio', permanent: false },
     ]
   },
