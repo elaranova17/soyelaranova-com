@@ -7,7 +7,6 @@ HTML estático servido vía `next.config.ts` rewrites. **Usar siempre rutas abso
 | `/portfolio` | `portfolio.html` |
 | `/cv` | `cv.html` |
 | `/linktree` | App Next `web/app/linktree` |
-| `/propuesta` | `propuesta-template.html` |
 | `/casos-exito` | `propuesta.html` (referencias Sama, Ofelia) |
 | `/descubrimiento` | `descubrimiento.html` |
 | `/portfolio-print` | `portfolio-print.html` |
@@ -18,7 +17,9 @@ HTML estático servido vía `next.config.ts` rewrites. **Usar siempre rutas abso
 
 ## Nav B2B (igual en todas las páginas HTML)
 
-`← Enlaces` · Portfolio · CV · Propuesta · **Conoce a Elara** (→ `/`)
+`← Enlaces` · Portfolio · CV · **Conoce a Elara** (→ `/`)
+
+**Plantilla cotización (solo interno, no deploy):** `web/templates/evelyn-b2b/propuesta-template.html` · copia en `assets/biblioteca-b2b/`. Duplicar para cada cliente → publicar solo bajo `/propuesta-{cliente}` (ej. `/propuesta-val-debarras`).
 
 En Next.js (`/linktree`) el mismo patrón vía `SiteNav`.
 
