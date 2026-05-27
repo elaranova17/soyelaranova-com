@@ -143,7 +143,9 @@ export function SiteNav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { setOpenForPath(null) }, [pathname])
+  useEffect(() => {
+    queueMicrotask(() => setOpenForPath(null))
+  }, [pathname])
 
   useEffect(() => {
     if (!open) return

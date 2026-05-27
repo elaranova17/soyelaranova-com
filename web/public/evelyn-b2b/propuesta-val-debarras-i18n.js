@@ -121,7 +121,7 @@ const PROP_VAL_I18N = {
     's06.d6.desc': 'El cliente gestiona su sitio de forma independiente',
     's07.eyebrow': '— 07 — Inversión',
     's07.title': 'Transparente. <em><span class="gradient-gold">Sin letra pequeña</span></em>.',
-    's07.sub': 'Precio competitivo para el mercado de Suiza romanda — sin ser el más barato, sin ser el más caro.',
+    's07.sub': 'Precio competitivo para Suiza romanda — con condiciones especiales por ser caso de referencia en mi portfolio.',
     's07.th.concept': 'Concepto',
     's07.th.amount': 'Importe',
     's07.r1': 'Auditoría + arquitectura de información + UX/UI (wireframes y mockups)',
@@ -130,9 +130,15 @@ const PROP_VAL_I18N = {
     's07.r4': 'Capacitación al cliente + documentación básica',
     's07.r5': 'Soporte post-lanzamiento — 3 semanas',
     's07.r5.val': 'Incluido',
-    's07.total.label': 'Total proyecto',
+    's07.list.label': 'Tarifa estándar (referencia)',
+    's07.list.val': 'CHF 3,500',
+    's07.discount.label': 'Descuento portfolio — cliente nuevo de referencia',
+    's07.discount.val': '− CHF 700',
+    's07.discount.note': 'Val-Débarras sería mi <strong>primer caso de éxito B2B</strong> en web comercial para Suiza romanda. Por eso ofrezco CHF 700 de descuento sobre la tarifa estándar. A cambio, con tu autorización, el proyecto podrá mostrarse en mi portfolio profesional (antes/después, testimonio breve o enlace — lo acordamos por escrito).',
+    's07.total.label': 'Total acordado',
+    's07.total.val': 'CHF 2,800',
     's07.payment.title': 'Forma de pago sugerida',
-    's07.payment.list': '<li><strong>30 % — CHF 1,050</strong> a la firma del acuerdo (anticipo, inicio del proyecto)</li><li><strong>40 % — CHF 1,400</strong> al completar y aprobar la fase de desarrollo (antes del lanzamiento)</li><li><strong>30 % — CHF 1,050</strong> a la entrega final en producción y validación del cliente</li>',
+    's07.payment.list': '<li><strong>30 % — CHF 840</strong> a la firma del acuerdo (anticipo, inicio del proyecto)</li><li><strong>40 % — CHF 1,120</strong> al completar y aprobar la fase de desarrollo (antes del lanzamiento)</li><li><strong>30 % — CHF 840</strong> a la entrega final en producción y validación del cliente</li>',
     's07.hourly': 'Tarifa horaria para cambios fuera de alcance o funcionalidades adicionales: <strong style="color: var(--purple-deep); font-style: normal;">CHF 90 / hora</strong> · Se informa antes de ejecutar cualquier trabajo extra.',
     's07.market': '<em>Referencia de mercado Suiza romanda 2026:</em> freelancers CHF 1,500–6,000 · agencias CHF 4,000–12,000 para proyectos equivalentes. Esta propuesta se posiciona en la franja media, con la calidad y garantías de una agencia al precio de un freelancer especializado.',
     's08.eyebrow': '— 08 — Términos',
@@ -290,7 +296,7 @@ const PROP_VAL_I18N = {
     's06.d6.desc': 'Le client gère son site de façon autonome',
     's07.eyebrow': '— 07 — Investissement',
     's07.title': 'Transparent. <em><span class="gradient-gold">Sans petites lignes</span></em>.',
-    's07.sub': 'Prix compétitif pour le marché de Suisse romande — ni le moins cher, ni le plus cher.',
+    's07.sub': 'Prix compétitif pour la Suisse romande — avec conditions spéciales pour un cas de référence dans mon portfolio.',
     's07.th.concept': 'Poste',
     's07.th.amount': 'Montant',
     's07.r1': 'Audit + architecture d\'information + UX/UI (wireframes et maquettes)',
@@ -299,9 +305,15 @@ const PROP_VAL_I18N = {
     's07.r4': 'Formation client + documentation de base',
     's07.r5': 'Support post-lancement — 3 semaines',
     's07.r5.val': 'Inclus',
-    's07.total.label': 'Total projet',
+    's07.list.label': 'Tarif standard (référence)',
+    's07.list.val': 'CHF 3\'500',
+    's07.discount.label': 'Remise portfolio — nouveau client de référence',
+    's07.discount.val': '− CHF 700',
+    's07.discount.note': 'Val-Débarras serait mon <strong>premier cas client B2B</strong> en web commercial pour la Suisse romande. C\'est pourquoi j\'offre CHF 700 de remise sur le tarif standard. En échange, avec votre accord, le projet pourra figurer dans mon portfolio professionnel (avant/après, court témoignage ou lien — nous le convenons par écrit).',
+    's07.total.label': 'Total convenu',
+    's07.total.val': 'CHF 2\'800',
     's07.payment.title': 'Modalités de paiement suggérées',
-    's07.payment.list': '<li><strong>30 % — CHF 1\'050</strong> à la signature du contrat (acompte, démarrage du projet)</li><li><strong>40 % — CHF 1\'400</strong> à l\'achèvement et validation de la phase développement (avant lancement)</li><li><strong>30 % — CHF 1\'050</strong> à la livraison finale en production et validation du client</li>',
+    's07.payment.list': '<li><strong>30 % — CHF 840</strong> à la signature du contrat (acompte, démarrage du projet)</li><li><strong>40 % — CHF 1\'120</strong> à l\'achèvement et validation de la phase développement (avant lancement)</li><li><strong>30 % — CHF 840</strong> à la livraison finale en production et validation du client</li>',
     's07.hourly': 'Tarif horaire pour changements hors périmètre ou fonctionnalités additionnelles : <strong style="color: var(--purple-deep); font-style: normal;">CHF 90 / heure</strong> · Tout travail supplémentaire est annoncé avant exécution.',
     's07.market': '<em>Référence marché Suisse romande 2026 :</em> freelances CHF 1\'500–6\'000 · agences CHF 4\'000–12\'000 pour des projets équivalents. Cette proposition se situe dans la fourchette médiane, avec la qualité d\'une agence au tarif d\'une freelance spécialisée.',
     's08.eyebrow': '— 08 — Conditions',
@@ -365,7 +377,7 @@ function setPropValLanguage(lang) {
 
   try {
     localStorage.setItem('prop-val-debarras-lang', lang);
-  } catch (e) {
+  } catch {
     /* ignore */
   }
 }
@@ -378,7 +390,7 @@ document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
   let saved = null;
   try {
     saved = localStorage.getItem('prop-val-debarras-lang');
-  } catch (e) {
+  } catch {
     /* ignore */
   }
   const params = new URLSearchParams(window.location.search);

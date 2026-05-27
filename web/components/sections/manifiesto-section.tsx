@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function ManifiestoSection() {
   return (
     <section className="bg-[#0a0612] py-24 px-6 md:px-16 text-center">
@@ -9,9 +11,9 @@ export function ManifiestoSection() {
         <p className="text-[#b8a8d0] mb-10">
           Elara Nova es el espacio para recordarte quién eres, confiar en tu camino y crear la vida en sintonía con tu esencia.
         </p>
-        <a href="/#circulo" className="bg-[#7c3aed] text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-[#6d28d9] transition-colors">
+        <Link href="/#circulo" className="bg-[#7c3aed] text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-[#6d28d9] transition-colors">
           Este es mi momento →
-        </a>
+        </Link>
       </div>
     </section>
   )

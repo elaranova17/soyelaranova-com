@@ -16,8 +16,10 @@ export function OracleRitualPanel({ drawSignal = 0 }: OracleRitualPanelProps) {
 
   useEffect(() => {
     if (drawSignal < 1) return
-    setMessage(pickOracleMessage())
-    setPhase('drawing')
+    queueMicrotask(() => {
+      setMessage(pickOracleMessage())
+      setPhase('drawing')
+    })
   }, [drawSignal])
 
   function handleFlipComplete() {
