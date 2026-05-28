@@ -1,0 +1,317 @@
+/* Elara Nova — solo secciones Cursos + Productos (rediseño parcial) */
+
+:root {
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0f0f24;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --text-primary: #e8dcc8;
+  --text-secondary: rgba(232, 220, 200, 0.6);
+  --text-muted: rgba(232, 220, 200, 0.4);
+  --gold: #c9a96e;
+  --gold-light: rgba(201, 169, 110, 0.15);
+  --gold-medium: rgba(201, 169, 110, 0.3);
+  --gold-dark: rgba(201, 169, 110, 0.5);
+  --timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --radius: 16px;
+  --radius-lg: 20px;
+}
+
+.elara-cursos *,
+.elara-productos *,
+.elara-divider * {
+  box-sizing: border-box;
+}
+
+.elara-cursos {
+  background: var(--bg-primary);
+  padding: 60px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-label {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 400;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.curso-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.5s var(--timing);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.curso-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-medium);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.curso-imagen {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.curso-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.curso-card:hover .curso-imagen img {
+  transform: scale(1.08);
+}
+
+.curso-content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-titulo {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.curso-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.curso-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.curso-meta-tag {
+  font-size: 0.7rem;
+  color: rgba(201, 169, 110, 0.8);
+  background: var(--gold-light);
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.05em;
+}
+
+.curso-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.curso-precio {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.curso-btn {
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.elara-divider {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.elara-divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(201, 169, 110, 0.3));
+}
+
+.elara-divider-text {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.elara-productos {
+  background: var(--bg-secondary);
+  padding: 60px 24px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.producto-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.5s var(--timing);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.producto-card:hover {
+  border-color: rgba(201, 169, 110, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.producto-imagen {
+  height: 100%;
+  min-height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.producto-content {
+  padding: 24px;
+}
+
+.producto-titulo {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.producto-specs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.producto-spec {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.producto-spec::before {
+  content: '·';
+  margin-right: 6px;
+  color: var(--gold-dark);
+}
+
+.producto-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.producto-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.producto-precio {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.producto-btn {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.producto-btn:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-dark);
+}
+
+@media (max-width: 768px) {
+  .cursos-grid,
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-card {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-imagen {
+    height: 180px;
+  }
+}
