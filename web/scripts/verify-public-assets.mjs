@@ -51,10 +51,13 @@ async function main() {
     process.exit(1)
   }
 
-  if (existsSync(join(publicDir, 'hero'))) {
-    errors.push(
-      'web/public/hero/ no debe existir (fondos Midjourney archivados en 06_ARCHIVO/).',
-    )
+  const publicEntries = await readdir(publicDir, { withFileTypes: true })
+  for (const entry of publicEntries) {
+    if (entry.isDirectory() && entry.name.toLowerCase().startsWith('hero')) {
+      errors.push(
+        `web/public/${entry.name}/ no debe existir (fondos Midjourney archivados en 06_ARCHIVO/).`,
+      )
+    }
   }
 
   await checkNoFantasyJpgInImages()

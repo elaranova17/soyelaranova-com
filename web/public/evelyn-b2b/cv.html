@@ -29,7 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/evelyn-b2b/b2b-nav.css" />
+<link rel="stylesheet" href="/site-nav-ritual.css" />
+<link rel="stylesheet" href="/elara-ritual.css" />
 
 <style>
 /* ═══════════════════════════════════════════════════════
@@ -1027,19 +1028,14 @@ section { padding: 7rem 0; position: relative; }
 }
 </style>
 </head>
-<body class="has-b2b-nav">
-<nav class="en-b2b-nav" aria-label="Navegación Evelyn">
-  <a href="/linktree">← Enlaces</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/cv" class="is-active" aria-current="page">CV</a>
-  <a href="/casos-exito">Clientes felices</a>
-  <a href="/" class="en-b2b-nav__cta">Conoce a Elara</a>
-</nav>
+<body>
+<div id="site-nav-root" data-active-path="/cv"></div>
+<script src="/site-nav-ritual.js" defer></script>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- LANGUAGE SWITCHER                                       -->
+<!-- LANGUAGE SWITCHER (oculto — i18n en página)               -->
 <!-- ═══════════════════════════════════════════════════════ -->
-<nav class="lang-bar" aria-label="Idioma / Language">
+<nav class="lang-bar" aria-label="Idioma / Language" hidden>
   <button class="lang-btn" data-lang-btn="es" data-active="true">ES</button>
   <button class="lang-btn" data-lang-btn="en">EN</button>
   <button class="lang-btn" data-lang-btn="fr">FR</button>
