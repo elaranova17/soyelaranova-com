@@ -1,0 +1,116 @@
+/**
+ * Elara Nova · ritual motion (CTAs compartidos)
+ * Usado en páginas HTML estáticas B2B + coherente con globals.css
+ */
+:root {
+  --ease-ritual: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --color-gold: #d4af37;
+  --color-gold-soft: #e5c770;
+  --color-purple-night: #1a0f3d;
+  --color-cream: #faf4e2;
+}
+
+.btn-ritual {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 420ms var(--ease-ritual),
+    border-color 420ms var(--ease-ritual),
+    box-shadow 420ms var(--ease-ritual),
+    background-position 480ms var(--ease-ritual),
+    color 320ms var(--ease-ritual);
+}
+
+.btn-ritual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgb(201 169 110 / 0.18) 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 420ms var(--ease-ritual);
+  pointer-events: none;
+}
+
+.btn-ritual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgb(250 244 226 / 0.22) 0%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+.btn-ritual:hover::before {
+  opacity: 1;
+}
+
+.btn-ritual:active::after {
+  animation: ritual-ripple 620ms var(--ease-ritual);
+}
+
+@keyframes ritual-ripple {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+.btn-ritual--ghost {
+  background: linear-gradient(135deg, rgb(212 175 55 / 0.06), transparent 60%);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+}
+
+.btn-ritual--ghost:hover {
+  background-position: 100% 50%;
+  border-color: rgb(212 175 55 / 0.55);
+}
+
+.btn-ritual--gold {
+  background: linear-gradient(135deg, #f2d578, #d4af37 50%, #b8941f);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  color: var(--color-purple-night);
+}
+
+.btn-ritual--gold:hover {
+  background-position: 100% 50%;
+}
+
+.btn-arrow__icon {
+  display: inline-block;
+  transition: transform 320ms var(--ease-ritual);
+}
+
+.btn-arrow:hover .btn-arrow__icon,
+.tile:hover .btn-arrow__icon {
+  transform: translateX(6px);
+}
+
+.btn-explorar__label,
+.tile h3 {
+  transition: letter-spacing 380ms var(--ease-ritual);
+}
+
+.tile:hover h3,
+.btn-explorar:hover .btn-explorar__label {
+  letter-spacing: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ritual,
+  .btn-ritual::before,
+  .btn-ritual::after,
+  .btn-arrow__icon,
+  .tile h3 {
+    transition: none !important;
+    animation: none !important;
+  }
+}
