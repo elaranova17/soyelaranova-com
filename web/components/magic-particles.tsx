@@ -18,6 +18,8 @@ type Particle = {
 type MagicParticlesProps = {
   density?: 'low' | 'normal' | 'high'
   zone?: 'full' | 'top' | 'hero'
+  /** viewport = fixed (solo hero). section = absolute dentro del padre relative */
+  scope?: 'viewport' | 'section'
 }
 
 const DENSITY_COUNTS: Record<NonNullable<MagicParticlesProps['density']>, number> = {
@@ -148,7 +150,11 @@ function particleTransition(particle: Particle, multiplier = 1): Transition {
   }
 }
 
-export function MagicParticles({ density = 'normal', zone = 'full' }: MagicParticlesProps) {
+export function MagicParticles({
+  density = 'normal',
+  zone = 'full',
+  scope = 'viewport',
+}: MagicParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([])
   const reducedMotion = useReducedMotion()
   const count = DENSITY_COUNTS[density]
@@ -194,7 +200,7 @@ export function MagicParticles({ density = 'normal', zone = 'full' }: MagicParti
         return (
           <motion.div
             key={particle.id}
-            className="absolute"
+            className="pointer-events-none absolute"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -220,12 +226,15 @@ export function MagicParticles({ density = 'normal', zone = 'full' }: MagicParti
 
   if (particles.length === 0) return null
 
+  const positionClass =
+    scope === 'section'
+      ? 'pointer-events-none absolute inset-0 overflow-hidden'
+      : 'pointer-events-none fixed inset-0 overflow-hidden'
+
+  const zIndex = scope === 'section' ? 0 : 1
+
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 overflow-hidden"
-      style={{ zIndex: 6, ...zoneStyle }}
-    >
+    <div aria-hidden className={positionClass} style={{ zIndex, ...zoneStyle }}>
       {renderedParticles}
     </div>
   )

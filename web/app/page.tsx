@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, type FormEvent } from 'react'
+import { CreationTimeline } from '@/components/creation-timeline'
+import { ElaraFramedImage, ElaraSectionBridge } from '@/components/elara-framed-image'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
 import { ELARA_SECTIONS } from '@/lib/navigation'
@@ -337,7 +339,7 @@ const CIRCULO_TRUST = [
   { icon: 'Comunidad' as IconKey, label: 'Comunidad viva', description: 'Mujeres que se sostienen.' },
 ] as const
 
-const HERO_FEATURES = [
+const HERO_FEATURES_ICON = [
   {
     icon: 'Estrellas' as IconKey,
     href: '#herramientas',
@@ -349,18 +351,6 @@ const HERO_FEATURES = [
     href: '#oraculo',
     label: 'Lecturas de oráculo',
     description: 'Hacé tu pregunta. Tu mensaje en 24h.',
-  },
-  {
-    icon: 'Luna' as IconKey,
-    href: '#herramientas',
-    label: 'Calendario lunar',
-    description: 'Conectate con la energía de cada fase.',
-  },
-  {
-    icon: 'Ebook' as IconKey,
-    href: '#productos',
-    label: 'Recursos digitales',
-    description: 'Ebooks, journals y planificadores para vos.',
   },
   {
     icon: 'Comunidad' as IconKey,
@@ -376,6 +366,24 @@ const HERO_FEATURES = [
   },
 ] as const
 
+const HERO_FEATURES_TEXT = [
+  {
+    href: '#herramientas',
+    label: 'Calendario lunar',
+    description: 'Conectate con la energía de cada fase.',
+  },
+  {
+    href: '#productos',
+    label: 'Recursos digitales',
+    description: 'Ebooks, journals y planificadores para vos.',
+  },
+] as const
+
+function toolCardHref(variant: ToolCard['variant']): string {
+  if (variant === 'oraculo') return '#oraculo'
+  return '#contacto'
+}
+
 function ToolProductCard({
   item,
   index,
@@ -385,35 +393,29 @@ function ToolProductCard({
 }) {
   const styles = toolCardStyles[item.variant]
   return (
-    <motion.article
+    <motion.a
+      href={toolCardHref(item.variant)}
       custom={index}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
       variants={fadeUp}
-      whileHover={{ y: -8, transition: { type: 'spring', stiffness: 260, damping: 20 } }}
-      className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-[#7B4FB5]/15 transition-all duration-500 hover:border-[#D4AF37]/40 ${styles.card}`}
+      className={`elara-card group relative flex flex-col rounded-3xl border border-[#7B4FB5]/15 ${styles.card}`}
     >
-      {/* Image */}
-      <div className="relative h-72 overflow-hidden">
-        <Image
+      <div className="relative">
+        <ElaraFramedImage
           src={item.img}
           alt={item.title}
-          fill
+          veil="card"
+          aspect="card"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-110"
+          frameClassName="rounded-t-3xl"
         />
-        {/* Depth gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726] via-[#0E0726]/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/20 via-transparent to-transparent" />
-        {/* Shimmer sweep */}
-        <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-        {/* Tag */}
-        <span className={`absolute top-3 right-3 rounded-full border border-[#D4AF37]/40 bg-[#0E0726]/75 px-2.5 py-1 text-[9px] tracking-[0.25em] uppercase backdrop-blur-sm ${styles.labelText}`}>
+        <div className="pointer-events-none absolute inset-0 z-[2] -translate-x-full bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+        <span className={`absolute top-3 right-3 z-[3] rounded-full border border-[#D4AF37]/40 bg-[#0E0726]/75 px-2.5 py-1 text-[9px] tracking-[0.25em] uppercase backdrop-blur-sm ${styles.labelText}`}>
           {item.tag}
         </span>
-        {/* Icon overlay — bottom left, pulsing gold glow */}
-        <div className="absolute bottom-4 left-4">
+        <div className="absolute bottom-4 left-4 z-[3]">
           <motion.div
             className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#D4AF37]/35 bg-[#0E0726]/85 shadow-2xl backdrop-blur-md"
             animate={{ boxShadow: ['0 0 0px rgba(212,175,55,0)', '0 0 22px rgba(212,175,55,0.4)', '0 0 0px rgba(212,175,55,0)'] }}
@@ -426,17 +428,19 @@ function ToolProductCard({
       </div>
       {/* Content */}
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <h3 className={`font-display text-[16px] leading-snug tracking-tight ${styles.title}`}>
+        <h3 className={`elara-card__title font-display text-[16px] leading-snug tracking-tight ${styles.title}`}>
           {item.title}
         </h3>
         <p className={`font-serif-italic text-sm leading-relaxed italic ${styles.description}`}>
           {item.text}
         </p>
-        <div className={`mt-auto flex items-center gap-2 pt-2 text-[10px] tracking-[0.28em] uppercase transition-colors duration-300 group-hover:text-[#D4AF37] ${styles.cta}`}>
-          <span>Explorar</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+        <div className={`elara-card__cta btn-explorar btn-arrow mt-auto flex items-center gap-2 pt-2 text-[10px] tracking-[0.28em] uppercase ${styles.cta}`}>
+          <span className="btn-explorar__label">Explorar</span>
+          <span className="btn-arrow__icon" aria-hidden>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </div>
       {/* Inner glow on hover */}
@@ -444,7 +448,7 @@ function ToolProductCard({
         className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         style={{ boxShadow: 'inset 0 0 60px rgba(212,175,55,0.07), inset 0 0 1px rgba(212,175,55,0.25)' }}
       />
-    </motion.article>
+    </motion.a>
   )
 }
 
@@ -477,11 +481,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#0E0726] text-[#F5EEF8]">
-      <MagicParticles density="normal" zone="full" />
-
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
-        <div className="absolute inset-0 linktree-page" aria-hidden>
+        <div className="pointer-events-none absolute inset-0 linktree-page" aria-hidden>
           <div className="linktree-stars absolute inset-0" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/95 to-[#1A0F3D]/80" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/70 via-transparent to-[#0E0726]/95" />
@@ -489,8 +491,8 @@ export default function HomePage() {
           <div className="pointer-events-none absolute top-1/2 right-0 h-[400px] w-[400px] translate-x-1/4 rounded-full bg-[#D4AF37]/[0.06] blur-[100px]" />
         </div>
 
-        {/* Hero particles — más densas y grandes en el hero */}
-        <MagicParticles density="high" zone="hero" />
+        {/* Hero particles — confinadas a esta sección */}
+        <MagicParticles density="high" zone="hero" scope="section" />
 
         {/* ── ESTRELLAS flotantes ───────────────────────────────── */}
         {[
@@ -520,18 +522,14 @@ export default function HomePage() {
           className="pointer-events-none absolute top-0 right-0 hidden h-full w-[48%] lg:block"
           aria-hidden
         >
-          <Image
+          <ElaraFramedImage
             src="/images/hero-elara-noche.png"
             alt=""
             fill
-            sizes="48vw"
             priority
-            className="object-cover object-top"
+            veil="hero"
+            sizes="48vw"
           />
-          {/* Velo izquierdo — funde con contenido */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/30 to-transparent" />
-          {/* Velo inferior */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/90 via-transparent to-transparent" />
         </motion.div>
 
         {/* ── CONTENIDO ─────────────────────────────────────────── */}
@@ -592,23 +590,19 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col gap-3.5 sm:flex-row"
             >
-              <motion.a
+              <a
                 href="#herramientas"
-                whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(123,79,181,0.55)' }}
-                whileTap={{ scale: 0.97 }}
-                className="group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[#7B4FB5] px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
+                className="btn-ritual btn-ritual--lavender group relative flex items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
               >
                 <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 Descubrí tu camino
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href="#circulo"
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center justify-center gap-2.5 rounded-2xl border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-all duration-300 hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/[0.04] hover:text-[#D4AF37]"
+                className="btn-ritual btn-ritual--ghost flex items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] tracking-[0.32em] uppercase"
               >
                 Entrar al Círculo
-              </motion.a>
+              </a>
             </motion.div>
           </div>
 
@@ -619,9 +613,9 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="px-4 pb-6 md:px-8"
           >
-            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/10 bg-[#0E0726]/90 backdrop-blur-md">
+            <div className="soul-feature-strip overflow-hidden rounded-2xl border border-[#D4AF37]/10 bg-[#0a0a1a]/95 backdrop-blur-md">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:divide-x lg:divide-[#7B4FB5]/10">
-                {HERO_FEATURES.map(({ icon, href, label, description }, i) => (
+                {HERO_FEATURES_ICON.map(({ icon, href, label, description }, i) => (
                   <motion.a
                     key={label}
                     href={href}
@@ -629,31 +623,33 @@ export default function HomePage() {
                     initial="hidden"
                     animate="show"
                     variants={fadeUp}
-                    className="group flex flex-col items-center gap-3 border-b border-[#7B4FB5]/10 px-4 py-6 text-center transition-colors duration-300 hover:bg-[#1A0F3D]/70 lg:border-b-0"
+                    className="soul-feature soul-feature--icon group flex cursor-pointer flex-col items-center gap-3 border-b border-[#7B4FB5]/10 px-4 py-6 text-center lg:border-b-0"
                   >
-                    {/* Icono grande con glow pulsante */}
-                    <motion.div
-                      className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#7B4FB5]/30 bg-[#1A0F3D]/90 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:border-[#D4AF37]/50 group-hover:shadow-[0_0_22px_rgba(212,175,55,0.25)]"
-                      animate={{
-                        boxShadow: [
-                          '0 0 0px rgba(212,175,55,0)',
-                          '0 0 14px rgba(212,175,55,0.22)',
-                          '0 0 0px rgba(212,175,55,0)',
-                        ],
-                      }}
-                      transition={{ repeat: Infinity, duration: 3 + i * 0.3, delay: i * 0.2, ease: 'easeInOut' }}
-                      whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
-                    >
+                    <div className="soul-feature__icon-wrap flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#7B4FB5]/30 bg-[#1A0F3D]/90">
                       {ElaraIcons[icon].render(36)}
-                    </motion.div>
-
-                    <p className="text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]/90">
+                    </div>
+                    <p className="soul-feature__label text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase">
                       {label}
                     </p>
-                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/45">
-                      {description}
+                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/45">{description}</p>
+                    <span className="soul-feature__arrow btn-arrow__icon text-[11px] text-[#C9A96E]/40">→</span>
+                  </motion.a>
+                ))}
+                {HERO_FEATURES_TEXT.map(({ href, label, description }, i) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    custom={i + HERO_FEATURES_ICON.length}
+                    initial="hidden"
+                    animate="show"
+                    variants={fadeUp}
+                    className="soul-feature soul-feature--text group flex cursor-pointer flex-col items-center justify-center gap-2 border-b border-[#7B4FB5]/10 px-4 py-6 text-center lg:border-b-0"
+                  >
+                    <p className="soul-feature__label mt-2 text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/65 uppercase">
+                      {label}
                     </p>
-                    <span className="text-[11px] text-[#D4AF37]/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#D4AF37]/80">→</span>
+                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/40">{description}</p>
+                    <span className="soul-feature__arrow btn-arrow__icon text-[11px] text-[#C9A96E]/35">→</span>
                   </motion.a>
                 ))}
               </div>
@@ -662,12 +658,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="herramientas" className="relative overflow-hidden px-6 pb-24 pt-20 scroll-mt-[5.5rem]">
-        {/* Degradado entrada */}
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0E0726] via-[#0E0726]/60 to-transparent" />
+      <section id="herramientas" className="elara-section relative overflow-hidden px-6 pb-24 pt-20 scroll-mt-[5.5rem]">
+        <ElaraSectionBridge position="top" />
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
 
-        <div className="mx-auto max-w-6xl">
+        <div className="elara-section__content mx-auto max-w-6xl">
           {/* Section label + title */}
           <motion.div
             initial="hidden"
@@ -698,29 +693,23 @@ export default function HomePage() {
 
       {/* ── ORÁCULO · franja visual ───────────────────────────────────── */}
       <section id="oraculo" className="relative overflow-hidden scroll-mt-[5.5rem]">
-        {/* Degradado suave desde la sección anterior */}
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent z-10" />
+        <ElaraSectionBridge position="top" />
 
-        {/* Cinematic quote banner */}
-        <div className="relative mx-0 h-[500px] overflow-hidden">
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/herramienta-oraculo.png"
-              alt="Elara Nova — oráculo y rituales"
-              fill
-              sizes="100vw"
-              className="object-cover object-center opacity-40"
-            />
-            <div className="absolute inset-0 bg-[#0E0726]/75" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/40 to-[#0E0726]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/50 via-transparent to-[#0E0726]/70" />
-          </div>
+        <div className="relative mx-0 h-[min(52vh,500px)] overflow-hidden">
+          <ElaraFramedImage
+            src="/images/oraculo-maestra.png"
+            alt="Elara Nova — oráculo y rituales"
+            fill
+            veil="banner"
+            sizes="100vw"
+            imageClassName="opacity-85"
+          />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+            className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
           >
             <p className="mb-6 text-[10px] tracking-[0.5em] text-[#D4AF37]/70 uppercase">✦ Elara Nova</p>
             <blockquote className="font-display max-w-3xl text-[2rem] leading-[1.08] tracking-tight text-[#F5EEF8] italic sm:text-[2.8rem] lg:text-[3.4rem]">
@@ -732,47 +721,44 @@ export default function HomePage() {
         </div>
 
         {/* Galería Elara — 5 ilustraciones del personaje */}
-        <div className="scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-6">
+        <div className="scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 lg:grid lg:grid-cols-5 lg:gap-3 lg:overflow-visible lg:px-6">
           {[
-            { src: '/images/elara-durmiendo.png', alt: 'Elara descansando', pos: 'object-top' },
-            { src: '/images/elara-meditando.png', alt: 'Elara meditando', pos: 'object-top' },
-            { src: '/images/elara-cocinando.png', alt: 'Elara en la cocina', pos: 'object-top' },
-            { src: '/images/elara-yoga.png', alt: 'Elara haciendo yoga', pos: 'object-center' },
-            { src: '/images/elara-pintando.png', alt: 'Elara pintando', pos: 'object-top' },
-          ].map(({ src, alt, pos }, i) => (
+            { src: '/images/elara-durmiendo.png', alt: 'Elara descansando' },
+            { src: '/images/elara-meditando.png', alt: 'Elara meditando' },
+            { src: '/images/elara-cocinando.png', alt: 'Elara en la cocina' },
+            { src: '/images/elara-yoga.png', alt: 'Elara haciendo yoga' },
+            { src: '/images/elara-pintando.png', alt: 'Elara pintando' },
+          ].map(({ src, alt }, i) => (
             <motion.div
               key={src}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.65, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ scale: 1.03, transition: { type: 'spring', stiffness: 280, damping: 22 } }}
-              className="relative h-[320px] w-[220px] shrink-0 snap-start overflow-hidden rounded-2xl lg:w-auto"
+              whileHover={{ scale: 1.02, transition: { type: 'spring', stiffness: 280, damping: 22 } }}
+              className="elara-media-tile relative w-[min(220px,72vw)] shrink-0 snap-start overflow-hidden rounded-2xl lg:w-auto"
               style={{ boxShadow: '0 8px 32px rgba(14,7,38,0.7)' }}
             >
-              <Image
+              <ElaraFramedImage
                 src={src}
                 alt={alt}
-                fill
+                veil="gallery"
+                aspect="gallery"
                 sizes="(max-width: 1024px) 220px, 20vw"
-                className={`object-cover transition-transform duration-700 hover:scale-105 ${pos}`}
+                frameClassName="rounded-2xl"
               />
-              {/* Velo inferior suave */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/55 via-transparent to-transparent" />
             </motion.div>
           ))}
         </div>
 
-        {/* Degradado suave hacia la sección siguiente */}
-        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
+        <ElaraSectionBridge position="bottom" />
       </section>
 
-      <section id="circulo" className="relative overflow-hidden py-24 scroll-mt-[5.5rem]">
+      <section id="circulo" className="elara-section relative overflow-hidden py-24 scroll-mt-[5.5rem]">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
-        {/* Degradado entrada desde galería */}
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#1A0F3D]/80 to-transparent" />
+        <ElaraSectionBridge position="top" />
 
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="elara-section__content mx-auto max-w-6xl px-6">
           {/* Header */}
           <motion.div
             initial="hidden"
@@ -795,30 +781,27 @@ export default function HomePage() {
           {/* Main layout: big image left + content right */}
           <div className="mb-16 grid items-stretch gap-12 lg:grid-cols-[1fr_480px]">
             {/* Left: stacked image mosaic */}
-            <div className="grid h-[520px] grid-cols-2 gap-3">
-              {/* Main tall image */}
+            <div className="grid h-[min(520px,68vh)] grid-cols-2 grid-rows-2 gap-3">
               <motion.div
                 initial={{ opacity: 0, scale: 1.04 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative col-span-1 row-span-2 overflow-hidden rounded-3xl"
+                className="relative col-start-1 row-span-2 row-start-1 min-h-0 overflow-hidden rounded-3xl"
               >
-                <Image
+                <ElaraFramedImage
                   src={circuloImagenes[4].src}
                   alt="Mujeres del Círculo"
                   fill
+                  veil="mosaic"
                   sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/60 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5">
+                <div className="absolute bottom-5 left-5 z-[3]">
                   <span className="text-[9px] font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
                     ✦ Conexión real
                   </span>
                 </div>
               </motion.div>
-              {/* 2 small images stacked right */}
               {[
                 { ...circuloImagenes[1], label: 'Rituales lunares' },
                 { ...circuloImagenes[2], label: 'Intención' },
@@ -829,11 +812,11 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
-                  className="relative overflow-hidden rounded-2xl"
+                  className="relative col-start-2 min-h-0 overflow-hidden rounded-2xl"
+                  style={{ gridRow: i + 1 }}
                 >
-                  <Image src={src} alt={alt} fill sizes="25vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/70 to-transparent" />
-                  <p className="absolute bottom-3 left-3 text-[8px] tracking-[0.25em] text-[#D4AF37]/80 uppercase">
+                  <ElaraFramedImage src={src} alt={alt} fill veil="mosaic" sizes="25vw" />
+                  <p className="absolute bottom-3 left-3 z-[3] text-[8px] tracking-[0.25em] text-[#D4AF37]/80 uppercase">
                     {label}
                   </p>
                 </motion.div>
@@ -850,18 +833,19 @@ export default function HomePage() {
             >
               <div className="grid grid-cols-2 gap-4">
                 {circuloBenefits.map(({ icon, label, description }) => (
-                  <div
+                  <a
                     key={label}
-                    className="flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
+                    href="#contacto"
+                    className="elara-chip flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#D4AF37]/35 bg-gradient-to-br from-[#2D1870] to-[#1A0F3D] shadow-[0_0_14px_rgba(212,175,55,0.12)]">
                       {ElaraIcons[icon].render(26)}
                     </div>
                     <div>
-                      <p className="text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
+                      <p className="elara-chip__label text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
                       <p className="mt-1 text-[11px] leading-relaxed text-[#C49AD4]/50">{description}</p>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
               <div className="h-px bg-gradient-to-r from-[#D4AF37]/20 to-transparent" />
@@ -886,22 +870,20 @@ export default function HomePage() {
                   </div>
                 </motion.div>
               ))}
-              <motion.a
+              <a
                 href="#contacto"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="mt-2 flex items-center gap-2.5 self-start rounded-2xl bg-[#7B4FB5] px-7 py-4 text-[10px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase transition-colors hover:bg-[#8B5FC5]"
+                className="btn-ritual btn-ritual--lavender mt-2 inline-flex items-center gap-2.5 self-start rounded-2xl px-7 py-4 text-[10px] font-semibold tracking-[0.3em] text-[#F5EEF8] uppercase"
               >
                 Unite al Círculo <span aria-hidden>✦</span>
-              </motion.a>
+              </a>
             </motion.div>
           </div>
 
           {/* Bottom image strip — 3 more circulo images */}
-          <div className="grid h-[180px] grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {[
               circuloImagenes[3],
-              { src: '/images/circulo-estudio.png', alt: '' },
+              { src: '/images/circulo-estudio.png', alt: 'Círculo de estudio' },
               circuloImagenes[5],
             ].map((img, i) => (
               <motion.div
@@ -910,10 +892,9 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative overflow-hidden rounded-2xl"
+                className="relative aspect-[16/10] overflow-hidden rounded-2xl"
               >
-                <Image src={img.src} alt={img.alt} fill sizes="33vw" className="object-cover transition-transform duration-700 hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/60 to-transparent" />
+                <ElaraFramedImage src={img.src} alt={img.alt} fill veil="mosaic" sizes="33vw" />
               </motion.div>
             ))}
           </div>
@@ -931,12 +912,14 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        <ElaraSectionBridge position="bottom" />
       </section>
 
-      <section id="cursos" className="relative overflow-hidden px-6 py-24 scroll-mt-[5.5rem]">
+      <section id="cursos" className="elara-section relative overflow-hidden px-6 py-24 scroll-mt-[5.5rem]">
+        <ElaraSectionBridge position="top" />
         <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/25 to-transparent" />
 
-        <div className="mx-auto max-w-6xl">
+        <div className="elara-section__content mx-auto max-w-6xl">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -954,30 +937,27 @@ export default function HomePage() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             {cursos.map(({ img, tag, badge, badgeColor, title, text, price, cta, href }, index) => (
-              <motion.article
+              <motion.a
                 key={title}
+                href={href}
                 custom={index}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: '-60px' }}
                 variants={fadeUp}
-                whileHover={{ y: -6, transition: { type: 'spring', stiffness: 260, damping: 20 } }}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#7B4FB5]/15 bg-[#1A0F3D]/60 backdrop-blur-sm transition-all duration-500 hover:border-[#D4AF37]/35"
+                className="elara-card group relative flex flex-col rounded-3xl border border-[#7B4FB5]/15 bg-[#1A0F3D]/60 backdrop-blur-sm"
               >
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <Image
+                <div className="relative">
+                  <ElaraFramedImage
                     src={img}
                     alt={title}
-                    fill
+                    veil="card"
+                    aspect="course"
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    frameClassName="rounded-t-3xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/80 via-[#0E0726]/20 to-transparent" />
-                  {/* Shimmer */}
-                  <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-                  {/* Tag + badge */}
-                  <div className="absolute top-4 inset-x-4 flex items-start justify-between">
+                  <div className="pointer-events-none absolute inset-0 z-[2] -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                  <div className="absolute top-4 inset-x-4 z-[3] flex items-start justify-between">
                     <span className="rounded-full border border-[#7B4FB5]/20 bg-[#0E0726]/70 px-2.5 py-1 text-[8px] tracking-[0.3em] text-[#C49AD4]/70 uppercase backdrop-blur-sm">
                       {tag}
                     </span>
@@ -990,20 +970,19 @@ export default function HomePage() {
                 {/* Content */}
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div>
-                    <h3 className="font-display text-xl tracking-tight text-[#F5EEF8]">{title}</h3>
+                    <h3 className="elara-card__title font-display text-xl tracking-tight text-[#F5EEF8]">{title}</h3>
                     <p className="font-serif-italic mt-2 text-sm leading-relaxed text-[#C49AD4]/65 italic">{text}</p>
                   </div>
                   <div className="mt-auto flex items-center justify-between border-t border-[#7B4FB5]/10 pt-3">
                     <span className="font-serif-italic text-lg text-[#D4AF37] italic">{price}</span>
-                    <a
-                      href={href}
-                      className="flex items-center gap-2 text-[10px] tracking-[0.28em] text-[#D4AF37]/50 uppercase transition-colors duration-300 group-hover:text-[#D4AF37]"
-                    >
-                      {cta}
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                        <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
+                    <span className="elara-card__cta btn-arrow btn-explorar flex items-center gap-2 text-[10px] tracking-[0.28em] text-[#D4AF37]/50 uppercase">
+                      <span className="btn-explorar__label">{cta}</span>
+                      <span className="btn-arrow__icon" aria-hidden>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </span>
                   </div>
                 </div>
                 {/* Inner glow */}
@@ -1011,13 +990,15 @@ export default function HomePage() {
                   className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                   style={{ boxShadow: 'inset 0 0 60px rgba(212,175,55,0.06), inset 0 0 1px rgba(212,175,55,0.2)' }}
                 />
-              </motion.article>
+              </motion.a>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="productos" className="section-fade-edge-top mx-auto max-w-6xl scroll-mt-[5.5rem] px-6 py-24">
+      <section id="productos" className="elara-section section-fade-edge-top relative scroll-mt-[5.5rem] overflow-hidden py-24">
+        <ElaraSectionBridge position="top" />
+        <div className="elara-section__content mx-auto max-w-6xl px-6">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1034,56 +1015,54 @@ export default function HomePage() {
         </motion.div>
         <div className="-mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 md:pb-0">
           {products.map((product, index) => (
-            <motion.div
+            <motion.a
               key={product.title}
+              href={product.href ?? '#contacto'}
+              target={product.target}
+              rel={product.rel}
               custom={index}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="w-[76vw] shrink-0 snap-start md:w-auto"
+              className="elara-card group w-[min(76vw,280px)] shrink-0 snap-start overflow-hidden rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]/80 md:w-auto"
             >
-              <div className="relative h-64 overflow-hidden rounded-2xl border border-[#D4AF37]/15 bg-[#1A0F3D]">
-                <Image
+                <ElaraFramedImage
                   src={product.img}
                   alt={product.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  veil="soft"
+                  aspect="product"
+                  sizes="(max-width: 768px) 76vw, 20vw"
+                  frameClassName="rounded-t-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F3D]/35 to-transparent" />
-              </div>
-              <div className="pt-5">
-                <h3 className="font-display text-2xl text-[#F5EEF8]">
+              <div className="p-5">
+                <h3 className="elara-card__title font-display text-2xl text-[#F5EEF8]">
                   {product.title}
                 </h3>
                 <p className="font-serif-italic mt-2 text-sm leading-relaxed text-[#C49AD4]/75">
                   {product.text}
                 </p>
-                <a
-                  href={product.href ?? '#contacto'}
-                  target={product.target}
-                  rel={product.rel}
-                  className="mt-4 inline-flex border-b border-[#D4AF37]/30 pb-0.5 text-[10px] tracking-widest text-[#D4AF37] uppercase hover:border-[#D4AF37]"
-                >
-                  Ver más →
-                </a>
+                <span className="elara-card__cta btn-arrow mt-4 inline-flex items-center gap-1.5 border-b border-[#D4AF37]/30 pb-0.5 text-[10px] tracking-widest text-[#D4AF37] uppercase">
+                  Ver más <span className="btn-arrow__icon" aria-hidden>→</span>
+                </span>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
+        </div>
+        <ElaraSectionBridge position="bottom" />
       </section>
 
-      <section id="sobre" className="relative overflow-hidden py-24 scroll-mt-[5.5rem]">
+      <section id="sobre" className="elara-section relative overflow-hidden py-24 scroll-mt-[5.5rem]">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
-        {/* Degradado entrada */}
-        <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0E0726] to-transparent" />
-        {/* Degradado salida hacia email */}
-        <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#08051A] to-transparent" />
+        <ElaraSectionBridge position="top" />
+        <ElaraSectionBridge position="bottom" />
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-[#7B4FB5]/[0.07] blur-[120px]" />
-        <MagicParticles density="low" zone="full" />
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <MagicParticles density="low" zone="full" scope="section" />
+        </div>
 
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="elara-section__content mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-[1fr_500px]">
             {/* Left: content */}
             <motion.div
@@ -1122,14 +1101,15 @@ export default function HomePage() {
                   { icon: 'Estrellas' as IconKey, label: 'Rituales cotidianos' },
                   { icon: 'Planetas'  as IconKey, label: 'Carta natal' },
                 ] as const).map(({ icon, label }) => (
-                  <motion.span
+                  <motion.a
                     key={label}
+                    href="#herramientas"
                     whileHover={{ scale: 1.04 }}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-[#D4AF37]/75 uppercase"
+                    className="elara-chip inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.05] px-3.5 py-1.5 text-[10px] tracking-[0.22em] text-[#D4AF37]/75 uppercase"
                   >
                     <span className="opacity-80">{ElaraIcons[icon].render(14)}</span>
-                    {label}
-                  </motion.span>
+                    <span className="elara-chip__label">{label}</span>
+                  </motion.a>
                 ))}
               </div>
 
@@ -1145,20 +1125,16 @@ export default function HomePage() {
             >
               {/* Marco exterior con glow */}
               <div
-                className="relative h-[580px] overflow-hidden rounded-3xl"
+                className="relative aspect-[4/5] max-h-[580px] min-h-[420px] overflow-hidden rounded-3xl lg:aspect-[3/4]"
                 style={{ boxShadow: '0 0 60px rgba(123,79,181,0.22), 0 40px 80px rgba(14,7,38,0.9)' }}
               >
-                <Image
+                <ElaraFramedImage
                   src="/images/elara-meditando.png"
                   alt="Elara Nova"
                   fill
+                  veil="card"
                   sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover object-top"
                 />
-                {/* Gradiente bottom — fusiona con el fondo de página */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/70 via-[#0E0726]/10 to-transparent" />
-                {/* Velo izquierdo — funde con el contenido */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1A0F3D]/40 via-transparent to-transparent" />
 
                 {/* Quote card — bottom right, flotante */}
                 <motion.div
@@ -1166,7 +1142,7 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="absolute right-4 bottom-4 w-56 rounded-2xl border border-[#D4AF37]/28 bg-[#0E0726]/93 p-5 backdrop-blur-md"
+                  className="absolute right-4 bottom-4 z-[3] w-56 rounded-2xl border border-[#D4AF37]/28 bg-[#0E0726]/93 p-5 backdrop-blur-md"
                   style={{ boxShadow: '0 0 28px rgba(212,175,55,0.12), 0 20px 40px rgba(14,7,38,0.8)' }}
                 >
                   <div className="mb-2.5 flex items-center gap-2">
@@ -1220,49 +1196,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
-            <div
-              className="pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent md:block"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute top-[57px] right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent md:block"
-              aria-hidden
-            />
-            {creationSteps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                custom={index}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="relative z-10 flex flex-col items-center text-center"
-              >
-                <motion.div
-                  className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[#D4AF37]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
-                  animate={{
-                    boxShadow: [
-                      '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
-                      '0 0 36px rgba(212,175,55,0.38), inset 0 1px 0 rgba(255,255,255,0.12)',
-                      '0 0 18px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
-                    ],
-                  }}
-                  transition={{ duration: 2.8 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
-                  whileHover={{ scale: 1.08, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
-                >
-                  {ElaraIcons[step.icon].render(48)}
-                  <span className="absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[#D4AF37]/70 bg-[#0E0726] text-[10px] font-bold text-[#D4AF37]">
-                    {index + 1}
-                  </span>
-                </motion.div>
-                <h3 className="font-display mt-8 text-xl text-[#F5EEF8]">{step.title}</h3>
-                <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[#C49AD4]/70 italic">
-                  {step.text}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <CreationTimeline steps={creationSteps} />
 
           </div>{/* close #atelier */}
 
@@ -1302,10 +1236,10 @@ export default function HomePage() {
 
             <Link
               href="/linktree"
-              className="mt-7 inline-flex items-center gap-2 rounded-2xl border border-[#D4AF37]/40 px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.07] hover:text-[#D4AF37]"
+              className="btn-ritual btn-ritual--ghost btn-arrow mt-7 inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase hover:text-[#D4AF37]"
             >
               <span className="opacity-70">{ElaraIcons.Guia.render(14)}</span>
-              Conoce más de Evelyn <span aria-hidden>→</span>
+              Conoce más de Evelyn <span className="btn-arrow__icon" aria-hidden>→</span>
             </Link>
           </motion.div>
         </div>{/* close mx-auto */}
@@ -1389,14 +1323,12 @@ export default function HomePage() {
                       {submitError}
                     </p>
                   ) : null}
-                  <motion.button
+                  <button
                     type="submit"
-                    whileHover={{ scale: 1.02, boxShadow: '0 10px 35px rgba(212,175,55,0.35)' }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#D4AF37] py-4 text-[10px] font-bold tracking-[0.3em] text-[#0E0726] uppercase"
+                    className="btn-ritual btn-ritual--gold flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-[10px] font-bold tracking-[0.3em] uppercase"
                   >
                     <span className="opacity-70">{ElaraIcons.Correo.render(16)}</span> Quiero recibirlos
-                  </motion.button>
+                  </button>
                   <p className="text-center text-[9px] tracking-[0.2em] text-[#C49AD4]/30 uppercase">
                     Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
                   </p>
@@ -1406,16 +1338,14 @@ export default function HomePage() {
           </div>
 
           {/* RIGHT — image */}
-          <div className="relative hidden lg:block">
-            <Image
+          <div className="relative hidden h-full min-h-[600px] lg:block">
+            <ElaraFramedImage
               src="/images/circulo-juntas.png"
               alt="El Círculo íntimo de Elara Nova"
               fill
+              veil="panel"
               sizes="560px"
-              className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#08051A] via-[#08051A]/25 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#08051A]/40 via-transparent to-[#08051A]/70" />
           </div>
         </div>
 
@@ -1519,7 +1449,7 @@ export default function HomePage() {
                   <a
                     key={href}
                     href={href}
-                    className="text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase transition-colors duration-200 hover:text-[#D4AF37]/70"
+                    className="nav-link-ritual text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase"
                   >
                     {label}
                   </a>
@@ -1536,7 +1466,7 @@ export default function HomePage() {
               </p>
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/35 px-6 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase transition-all duration-300 hover:border-[#D4AF37]/65 hover:bg-[#D4AF37]/[0.06]"
+                className="btn-ritual btn-ritual--ghost inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase hover:text-[#D4AF37]"
               >
                 <span aria-hidden>✦</span> Unite al Círculo
               </a>
