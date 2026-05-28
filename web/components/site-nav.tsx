@@ -71,7 +71,7 @@ function NavCta({
   className?: string
 }) {
   const cls = [
-    'inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90 sm:px-5',
+    'inline-flex min-h-10 items-center gap-2 rounded-full border border-[var(--color-gold-bright)]/60 bg-[linear-gradient(180deg,var(--color-gold-bright),var(--color-gold))] px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.22em] text-[var(--color-purple-night)] uppercase shadow-[0_0_26px_rgba(212,175,55,0.28)] transition-transform hover:scale-[1.02] hover:shadow-[0_0_34px_rgba(212,175,55,0.42)] sm:px-5',
     className,
   ].join(' ')
 
@@ -104,7 +104,7 @@ function MenuButton({
       aria-expanded={open}
       aria-controls="site-nav-panel"
       className={[
-        'menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] p-2',
+        'menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-[var(--color-gold)]/25 bg-[var(--color-purple-night)]/55 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-md transition-colors hover:border-[var(--color-gold)]/55',
         alwaysVisible ? '' : 'lg:hidden',
       ].join(' ')}
     >
@@ -130,7 +130,7 @@ export function SiteNav() {
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
-    : { href: '/linktree', label: 'Conoce a Evelyn' }
+    : { href: '/portfolio', label: 'Work by Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -169,10 +169,10 @@ export function SiteNav() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
         className={[
-          'fixed inset-x-0 top-0 z-[60] flex h-[68px] items-center justify-between gap-4 px-5 md:px-10 transition-all duration-500',
+          'fixed inset-x-0 top-0 z-[60] mx-auto flex h-[72px] items-center justify-between gap-4 px-5 md:px-8 transition-all duration-500',
           scrolled
-            ? 'border-b border-[var(--color-lavender)]/20 bg-[var(--color-purple-night)]/93 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
-            : 'bg-gradient-to-b from-[var(--color-purple-night)]/70 to-transparent',
+            ? 'border-b border-[var(--color-gold)]/18 bg-[var(--color-purple-night)]/90 shadow-[0_10px_44px_rgba(0,0,0,0.48)] backdrop-blur-2xl'
+            : 'bg-gradient-to-b from-[var(--color-purple-night)]/72 to-transparent backdrop-blur-[2px]',
         ].join(' ')}
       >
         {/* Logo */}
@@ -244,12 +244,23 @@ export function SiteNav() {
               exit={{ x: '100%' }}
               transition={{ duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
               className={[
-                'nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(300px,82vw)] flex-col justify-center border-l border-[var(--color-gold)]/15 bg-[var(--color-purple-night)] px-10 py-20',
+                'nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(360px,88vw)] flex-col justify-center overflow-hidden border-l border-[var(--color-gold)]/20 bg-[var(--color-purple-night)] px-8 py-20',
                 b2b ? 'lg:hidden' : '',
               ].join(' ')}
               style={{ boxShadow: 'var(--shadow-glow-purple)' }}
             >
-              <nav className="flex flex-col gap-1" aria-label="Menú">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.08]"
+                style={{
+                  backgroundImage: 'url(/images/hero-elara-noche.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                aria-hidden
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--color-purple-night)] via-[var(--color-purple-night)]/92 to-[var(--color-void)]" aria-hidden />
+
+              <nav className="relative z-10 flex flex-col gap-2" aria-label="Menú">
                 {links.map((item, i) => (
                   <motion.div
                     key={item.href + item.label}
@@ -261,9 +272,12 @@ export function SiteNav() {
                       <a
                         href={item.href}
                         onClick={close}
-                        className="block border-b border-[var(--color-cream)]/10 py-3.5 font-display text-xl italic text-[var(--color-cream)] transition-colors hover:text-[var(--color-gold-bright)]"
+                        className="group flex items-center justify-between rounded-xl border border-[var(--color-cream)]/8 bg-[var(--color-cream)]/[0.03] px-4 py-3.5 font-display text-xl italic text-[var(--color-cream)] transition-colors hover:border-[var(--color-gold)]/35 hover:text-[var(--color-gold-bright)]"
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        <span className="font-sans text-[10px] not-italic text-[var(--color-gold-soft)]/55 transition-transform group-hover:translate-x-1">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
                       </a>
                     ) : (
                       <Link
@@ -272,23 +286,26 @@ export function SiteNav() {
                         onClick={close}
                         aria-current={isActive(pathname, item) ? 'page' : undefined}
                         className={[
-                          'block border-b border-[var(--color-cream)]/10 py-3.5 font-display text-xl italic transition-colors',
+                          'group flex items-center justify-between rounded-xl border px-4 py-3.5 font-display text-xl italic transition-colors',
                           isActive(pathname, item)
-                            ? 'text-[var(--color-gold-bright)]'
-                            : 'text-[var(--color-cream)]/85 hover:text-[var(--color-gold-bright)]',
+                            ? 'border-[var(--color-gold)]/35 bg-[var(--color-gold)]/[0.08] text-[var(--color-gold-bright)]'
+                            : 'border-[var(--color-cream)]/8 bg-[var(--color-cream)]/[0.03] text-[var(--color-cream)]/85 hover:border-[var(--color-gold)]/35 hover:text-[var(--color-gold-bright)]',
                         ].join(' ')}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        <span className="font-sans text-[10px] not-italic text-[var(--color-gold-soft)]/55 transition-transform group-hover:translate-x-1">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
                       </Link>
                     )}
                   </motion.div>
                 ))}
               </nav>
 
-              <NavCta href={cta.href} label={cta.label} onClick={close} className="mt-8 w-full justify-center" />
+              <NavCta href={cta.href} label={cta.label} onClick={close} className="relative z-10 mt-8 w-full justify-center" />
 
               <p
-                className="pointer-events-none absolute bottom-8 left-10 right-10 font-serif text-[10px] italic tracking-[0.2em] text-[var(--color-gold-soft)]/50"
+                className="pointer-events-none absolute bottom-8 left-8 right-8 z-10 font-serif text-[10px] italic tracking-[0.18em] text-[var(--color-gold-soft)]/55"
                 aria-hidden
               >
                 {b2b
