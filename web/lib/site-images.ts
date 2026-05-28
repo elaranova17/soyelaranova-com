@@ -5,7 +5,7 @@
  */
 export const siteImages = {
   hero: {
-    elara: '/images/hero-elara-noche.png',
+    elara: '/images/hero-portal-lago.png',
     escritorio: '/images/elara-meditando.png',
   },
   sobre: {

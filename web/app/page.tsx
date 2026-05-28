@@ -8,7 +8,6 @@ import { CreationTimeline } from '@/components/creation-timeline'
 import { ElaraFramedImage, ElaraSectionBridge } from '@/components/elara-framed-image'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
-import { ELARA_SECTIONS } from '@/lib/navigation'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -46,12 +45,6 @@ type CreationStep = {
   icon: IconKey
   title: string
   text: string
-}
-
-type ServiceTrustItem = {
-  icon: IconKey
-  label: string
-  description: string
 }
 
 const fadeUp = {
@@ -279,13 +272,6 @@ const creationSteps: readonly CreationStep[] = [
   },
 ] as const
 
-const serviceTrustItems: readonly ServiceTrustItem[] = [
-  { icon: 'Correo',    label: 'Envíos con cuidado',  description: 'Empaques realizados con intención.' },
-  { icon: 'Proteccion', label: 'Compra segura',       description: 'Tus datos y pagos protegidos.' },
-  { icon: 'Comunidad', label: 'Atención real',        description: 'Siempre estamos para vos.' },
-  { icon: 'Corazon',   label: 'Cambios con respeto',  description: '14 días para devoluciones sin drama.' },
-] as const
-
 const toolCardStyles = {
   herramienta: {
     label: 'Herramienta',
@@ -483,12 +469,18 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#0E0726] text-[#F5EEF8]">
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
-        <div className="pointer-events-none absolute inset-0 linktree-page" aria-hidden>
-          <div className="linktree-stars absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/95 to-[#1A0F3D]/80" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/70 via-transparent to-[#0E0726]/95" />
-          <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.12] blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 right-0 h-[400px] w-[400px] translate-x-1/4 rounded-full bg-[#D4AF37]/[0.06] blur-[100px]" />
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <Image
+            src="/images/hero-portal-lago.png"
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0010] via-[#0E0726]/88 to-[#0E0726]/24" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0010]/35 via-transparent to-[#0E0726]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(212,175,55,0.10),transparent_38%)]" />
         </div>
 
         {/* Hero particles — confinadas a esta sección */}
@@ -514,28 +506,10 @@ export default function HomePage() {
           </motion.span>
         ))}
 
-        {/* ── IMAGEN HERO — derecha, solo lg+ ─────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-none absolute top-0 right-0 hidden h-full w-[48%] lg:block"
-          aria-hidden
-        >
-          <ElaraFramedImage
-            src="/images/hero-elara-noche.png"
-            alt=""
-            fill
-            priority
-            veil="hero"
-            sizes="48vw"
-          />
-        </motion.div>
-
         {/* ── CONTENIDO ─────────────────────────────────────────── */}
         <div className="relative z-10 flex min-h-[100svh] flex-col pt-[88px]">
           {/* Área principal — izquierda */}
-          <div className="flex flex-1 flex-col justify-center px-8 py-16 md:px-16 lg:max-w-[58%] xl:max-w-[52%]">
+          <div className="flex flex-1 flex-col justify-center px-8 py-16 md:px-16 lg:max-w-[58%] xl:max-w-[50%]">
             {/* Chip badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -550,16 +524,16 @@ export default function HomePage() {
                 {ElaraIcons.Estrellas.render(11)}
               </motion.span>
               <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/75 uppercase">
-                Lo que siempre pudiste hacer ✦
+                Oráculo diario · universo Elara Nova
               </span>
             </motion.div>
 
             {/* H1 */}
-            <h1 className="font-display mb-6 text-[2.6rem] leading-[1.04] tracking-[-0.022em] text-[#F5EEF8] sm:text-[3.2rem] lg:text-[4.1rem]">
+            <h1 className="font-display mb-6 text-[2.65rem] leading-[1.04] text-[#F5EEF8] sm:text-[3.25rem] lg:text-[4.15rem]">
               {[
-                { content: 'Tu alma ya sabe.' },
-                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">Vos solo aprendés</em> },
-                { content: 'a escucharla.' },
+                { content: 'Mira todo lo que' },
+                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">siempre fuiste</em> },
+                { content: 'capaz de ser.' },
               ].map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <motion.div
@@ -578,9 +552,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif-italic mb-10 max-w-[380px] text-[1.05rem] leading-[1.8] text-[#C49AD4]/60 italic"
+              className="font-serif-italic mb-8 max-w-[430px] text-[1.08rem] leading-[1.8] text-[#E5DBF0]/72 italic"
             >
-              Herramientas de autoconocimiento para mujeres que eligen vivirse desde adentro.
+              Un portal de autoconocimiento creado para sentirse como ritual, convertir como estrategia y mostrar lo que una web premium puede hacer por una marca.
             </motion.p>
 
             {/* CTAs */}
@@ -588,21 +562,38 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-3.5 sm:flex-row"
+              className="flex flex-col gap-3.5 sm:flex-row sm:items-center"
             >
               <a
                 href="#herramientas"
-                className="btn-ritual btn-ritual--lavender group relative flex items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
+                className="btn-ritual btn-ritual--lavender group relative flex w-full items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase sm:w-auto"
               >
                 <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 Descubrí tu camino
               </a>
               <a
                 href="#circulo"
-                className="btn-ritual btn-ritual--ghost flex items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] tracking-[0.32em] uppercase"
+                className="btn-ritual btn-ritual--ghost flex w-full items-center justify-center gap-2.5 rounded-2xl px-8 py-4 text-[10px] tracking-[0.32em] uppercase sm:w-auto"
               >
                 Entrar al Círculo
               </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.58, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 flex max-w-[480px] flex-col gap-3 rounded-2xl border border-[#D4AF37]/18 bg-[#1A0F3D]/45 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between"
+            >
+              <p className="max-w-[260px] text-[11px] leading-relaxed tracking-[0.12em] text-[#E5DBF0]/65 uppercase">
+                También es un caso real de diseño, estrategia y desarrollo web.
+              </p>
+              <Link
+                href="/portfolio"
+                className="nav-link-ritual text-[10px] font-semibold tracking-[0.24em] text-[#D4AF37] uppercase"
+              >
+                Work by Evelyn →
+              </Link>
             </motion.div>
           </div>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { ElaraButton } from '@/components/elara-button'
 
 export const metadata: Metadata = {
   title: 'Sobre Elara',
@@ -86,28 +86,18 @@ export default function SobreElaraPage() {
           </ul>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-gold)] bg-[var(--color-gold)]/15 px-8 py-3.5 font-sans text-[10px] font-bold tracking-[0.3em] text-[var(--color-gold-bright)] uppercase transition-all hover:border-[var(--color-gold-bright)] hover:bg-[var(--color-gold)]/25"
-            >
+            <ElaraButton href="/portfolio" className="w-full sm:w-auto">
               Ver portafolio de Evelyn
-              <span aria-hidden>↗</span>
-            </Link>
-            <Link
-              href="/linktree"
-              className="inline-flex items-center justify-center rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-purple-deep)]/50 px-8 py-3.5 font-sans text-[10px] font-semibold tracking-[0.28em] text-[var(--color-cream)] uppercase transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold-soft)]"
-            >
+            </ElaraButton>
+            <ElaraButton href="/linktree" variant="secondary" className="w-full sm:w-auto">
               CV · contacto · propuesta
-            </Link>
+            </ElaraButton>
           </div>
         </div>
 
-        <Link
-          href="/"
-          className="inline-flex rounded-full border border-[var(--color-gold)]/50 bg-[var(--color-purple-deep)]/40 px-8 py-3 font-sans text-[10px] font-semibold tracking-[0.3em] text-[var(--color-cream)] uppercase transition-colors hover:border-[var(--color-gold)]"
-        >
-          Sacá tu carta del día
-        </Link>
+        <ElaraButton href="/" variant="secondary">
+          Volver al portal
+        </ElaraButton>
       </section>
     </main>
   )
