@@ -104,7 +104,7 @@ html, body {
 
 .elara-frame__img {
   object-fit: cover;
-  transform: scale(1.07);
+  transform: scale(1.02);
   transform-origin: center;
 }
 
@@ -138,10 +138,17 @@ html, body {
     linear-gradient(0deg, rgb(14 7 38 / 0.75) 0%, transparent 42%, rgb(14 7 38 / 0.7) 100%);
 }
 
+/* Banner con cita · la ilustración debe verse difuminada al fondo */
+.elara-frame__veil--banner-light {
+  background:
+    linear-gradient(90deg, rgb(14 7 38 / 0.72) 0%, rgb(14 7 38 / 0.2) 38%, rgb(14 7 38 / 0.55) 100%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.45) 0%, transparent 55%, rgb(14 7 38 / 0.5) 100%);
+}
+
 .elara-frame__veil--mosaic {
   background:
-    linear-gradient(180deg, rgb(14 7 38 / 0.25) 0%, transparent 28%),
-    linear-gradient(0deg, rgb(14 7 38 / 0.78) 0%, rgb(14 7 38 / 0.35) 48%, transparent 72%);
+    linear-gradient(180deg, rgb(14 7 38 / 0.15) 0%, transparent 30%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.55) 0%, rgb(14 7 38 / 0.2) 50%, transparent 75%);
 }
 
 .elara-frame__veil--gallery {
@@ -158,8 +165,8 @@ html, body {
 
 .elara-frame__veil--panel {
   background:
-    linear-gradient(90deg, rgb(8 5 26 / 0.94) 0%, rgb(8 5 26 / 0.4) 44%, transparent 72%),
-    linear-gradient(0deg, rgb(8 5 26 / 0.6) 0%, transparent 48%, rgb(8 5 26 / 0.78) 100%);
+    linear-gradient(90deg, rgb(8 5 26 / 0.75) 0%, rgb(8 5 26 / 0.25) 44%, transparent 72%),
+    linear-gradient(0deg, rgb(8 5 26 / 0.35) 0%, transparent 52%, rgb(8 5 26 / 0.55) 100%);
 }
 
 .elara-section-bridge-top {
@@ -940,6 +947,16 @@ body.has-b2b-nav {
 
 .group:hover .btn-explorar__label {
   letter-spacing: 0.05em;
+}
+
+.timeline-ritual__line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.75s var(--ease-ritual);
+}
+
+.timeline-ritual__line--on {
+  transform: scaleX(1);
 }
 
 .timeline-ritual__num {

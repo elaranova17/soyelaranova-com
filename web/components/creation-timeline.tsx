@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { ElaraIcons } from '@/components/elara-icons'
 
 type IconKey = keyof typeof ElaraIcons
@@ -13,13 +13,13 @@ export type CreationStep = {
 }
 
 const stepReveal = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 14 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.65,
-      delay: i * 0.15,
+      duration: 0.42,
+      delay: i * 0.07,
       ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   }),
@@ -27,24 +27,13 @@ const stepReveal = {
 
 export function CreationTimeline({ steps }: { steps: readonly CreationStep[] }) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const inView = useInView(containerRef, { once: true, margin: '-80px' })
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start 0.85', 'end 0.35'],
-  })
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const inView = useInView(containerRef, { once: true, margin: '-60px' })
 
   return (
     <div ref={containerRef} className="timeline-ritual relative">
-      <motion.div
+      <div
         aria-hidden
-        className="timeline-ritual__line pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px origin-left bg-gradient-to-r from-transparent via-[var(--color-gold)]/70 to-transparent md:block"
-        style={{ scaleX: lineScale }}
-      />
-      <motion.div
-        aria-hidden
-        className="timeline-ritual__line-glow pointer-events-none absolute top-[57px] right-[8%] left-[8%] hidden h-px origin-left bg-gradient-to-r from-transparent via-[var(--color-gold)]/25 to-transparent md:block"
-        style={{ scaleX: lineScale }}
+        className={`timeline-ritual__line pointer-events-none absolute top-14 right-[8%] left-[8%] hidden h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/70 to-transparent md:block ${inView ? 'timeline-ritual__line--on' : ''}`}
       />
 
       <div className="relative grid gap-10 md:grid-cols-5 md:gap-6">
@@ -59,8 +48,8 @@ export function CreationTimeline({ steps }: { steps: readonly CreationStep[] }) 
           >
             <motion.div
               className="timeline-ritual__orb group/orb relative flex h-28 w-28 items-center justify-center rounded-full border border-[var(--color-gold)]/80 bg-gradient-to-br from-[#3D2080] to-[#1A0F3D]"
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 22 }}
             >
               {ElaraIcons[step.icon].render(48)}
               <span className="timeline-ritual__num absolute -bottom-2.5 flex h-6 w-6 items-center justify-center rounded-full border border-[var(--color-gold)]/70 bg-[#0E0726] text-[10px] font-bold text-[var(--color-gold)]">
