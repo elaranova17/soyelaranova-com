@@ -1,13 +1,12 @@
 'use client'
 
 /**
- * LenisProvider — smooth scroll global para toda la app.
- * Lenis intercepta el scroll nativo y aplica easing/momentum suave,
- * dandole sensacion cinematografica al scroll. Respeta reduced-motion.
+ * LenisProvider — scroll suave + anclas # con offset de nav fijo.
  */
-
 import Lenis from 'lenis'
 import { useEffect } from 'react'
+
+const NAV_OFFSET = -88
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -18,11 +17,11 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     if (prefersReducedMotion) return
 
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 0.95,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.4,
+      wheelMultiplier: 1.15,
+      touchMultiplier: 1.1,
     })
 
     let rafId = 0
@@ -32,8 +31,37 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     }
     rafId = requestAnimationFrame(raf)
 
+    const onAnchorClick = (event: MouseEvent) => {
+      const anchor = (event.target as HTMLElement).closest<HTMLAnchorElement>(
+        'a[href^="#"]',
+      )
+      if (!anchor) return
+      const hash = anchor.getAttribute('href')
+      if (!hash || hash === '#') return
+      const target = document.querySelector(hash)
+      if (!target) return
+      event.preventDefault()
+      lenis.scrollTo(target, { offset: NAV_OFFSET, duration: 1.05 })
+    }
+
+    document.addEventListener('click', onAnchorClick)
+
+    const scrollToHash = () => {
+      const hash = window.location.hash
+      if (!hash) return
+      const target = document.querySelector(hash)
+      if (target) {
+        lenis.scrollTo(target, { offset: NAV_OFFSET, duration: 1.05, immediate: false })
+      }
+    }
+
+    scrollToHash()
+    window.addEventListener('hashchange', scrollToHash)
+
     return () => {
       cancelAnimationFrame(rafId)
+      document.removeEventListener('click', onAnchorClick)
+      window.removeEventListener('hashchange', scrollToHash)
       lenis.destroy()
     }
   }, [])

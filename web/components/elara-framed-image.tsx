@@ -1,12 +1,22 @@
 import Image from 'next/image'
 import { imageFocal } from '@/lib/image-focal'
 
-export type ElaraVeil = 'card' | 'soft' | 'banner' | 'mosaic' | 'gallery' | 'hero' | 'panel'
+export type ElaraVeil =
+  | 'card'
+  | 'soft'
+  | 'banner'
+  | 'banner-light'
+  | 'mosaic'
+  | 'gallery'
+  | 'hero'
+  | 'panel'
+  | 'none'
 
-const VEIL_CLASS: Record<ElaraVeil, string> = {
+const VEIL_CLASS: Record<Exclude<ElaraVeil, 'none'>, string> = {
   card: 'elara-frame__veil--card',
   soft: 'elara-frame__veil--soft',
   banner: 'elara-frame__veil--banner',
+  'banner-light': 'elara-frame__veil--banner-light',
   mosaic: 'elara-frame__veil--mosaic',
   gallery: 'elara-frame__veil--gallery',
   hero: 'elara-frame__veil--hero',
@@ -47,13 +57,13 @@ export function ElaraFramedImage({
   focal,
 }: ElaraFramedImageProps) {
   const objectPosition = focal ?? imageFocal(src)
-  const veilCls = VEIL_CLASS[veil]
+  const veilCls = veil === 'none' ? '' : VEIL_CLASS[veil]
 
   const imageCls = ['elara-frame__img', imageClassName].filter(Boolean).join(' ')
 
   if (fill) {
     return (
-      <div className={`elara-frame absolute inset-0 ${frameClassName}`.trim()}>
+      <div className={`elara-frame relative h-full w-full min-h-[1px] ${frameClassName}`.trim()}>
         <Image
           src={src}
           alt={alt}
@@ -63,7 +73,7 @@ export function ElaraFramedImage({
           className={imageCls}
           style={{ objectPosition }}
         />
-        <div className={`elara-frame__veil ${veilCls}`} aria-hidden />
+        {veilCls ? <div className={`elara-frame__veil ${veilCls}`} aria-hidden /> : null}
       </div>
     )
   }
@@ -81,7 +91,7 @@ export function ElaraFramedImage({
         className={imageCls}
         style={{ objectPosition }}
       />
-      <div className={`elara-frame__veil ${veilCls}`} aria-hidden />
+      {veilCls ? <div className={`elara-frame__veil ${veilCls}`} aria-hidden /> : null}
     </div>
   )
 }
