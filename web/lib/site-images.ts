@@ -24,7 +24,7 @@ export const siteImages = {
     principal: '/images/oraculo-maestra.png',
     astrologia: '/images/herramienta-astrologia.png',
     cartaNatal: '/images/herramienta-carta-natal.png',
-    ciclosLunares: '/images/ciclos-lunares-rituales.png',
+    ciclosLunares: '/images/herramienta-ciclos-lunares.png',
     calendarioLunar: '/images/herramienta-calendario-lunar.png',
     chakras: '/images/herramienta-chakras.png',
     rituales: '/images/herramienta-rituales.png',

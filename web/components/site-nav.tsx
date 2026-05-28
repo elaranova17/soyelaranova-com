@@ -309,7 +309,7 @@ export function SiteNav() {
               >
                 {b2b
                   ? 'Ingeniera de software · Suiza'
-                  : 'Mira todo lo que siempre fuiste capaz de ser.'}
+                  : 'Mira todo lo que siempre fuiste capaz de hacer.'}
               </p>
             </motion.aside>
           </>

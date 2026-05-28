@@ -8,6 +8,10 @@ import { CreationTimeline } from '@/components/creation-timeline'
 import { ElaraFramedImage, ElaraSectionBridge } from '@/components/elara-framed-image'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
+import { SectionBanner } from '@/components/section-banner'
+import { SectionCoverImage } from '@/components/section-cover-image'
+import { homeImages } from '@/lib/home-images'
+import { siteImages } from '@/lib/site-images'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -62,7 +66,7 @@ const fadeUp = {
 
 const herramientas: readonly ToolCard[] = [
   {
-    img: '/images/curso-astrologia.png',
+    img: siteImages.herramientas.cartaNatal,
     icon: 'Planetas',
     title: 'Carta Natal',
     text: 'Tu mapa al nacer. Ahí están tus dones, tus sombras y el hilo que los conecta.',
@@ -70,7 +74,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'herramienta',
   },
   {
-    img: '/images/meditacion-lunar.png',
+    img: siteImages.herramientas.ciclosLunares,
     icon: 'Luna',
     title: 'Ciclos Lunares',
     text: 'La luna no espera. Aprendé a moverte con ella — no contra vos misma.',
@@ -78,7 +82,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'herramienta',
   },
   {
-    img: '/images/oraculo-maestra.png',
+    img: siteImages.herramientas.oraculo,
     icon: 'Oraculo',
     title: 'Oráculo & Mensajes',
     text: 'No es adivinación. Es aprender a escucharte a través del símbolo.',
@@ -86,7 +90,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'oraculo',
   },
   {
-    img: '/images/herramienta-chakras.png',
+    img: siteImages.herramientas.chakras,
     icon: 'Vision',
     title: 'Energía & Chakras',
     text: 'Tu cuerpo habla antes que tu mente. Aprendé a leerlo sin complicarte.',
@@ -94,7 +98,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'herramienta',
   },
   {
-    img: '/images/herramienta-rituales.png',
+    img: siteImages.herramientas.rituales,
     icon: 'Estrellas',
     title: 'Rituales de Intención',
     text: 'Un gesto consciente puede cambiar más que mil pensamientos. Empezá simple.',
@@ -102,7 +106,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'recurso',
   },
   {
-    img: '/images/herramienta-proposito.png',
+    img: siteImages.herramientas.proposito,
     icon: 'Guia',
     title: 'Tu Propósito',
     text: 'No es una fórmula. Es la pregunta que vas respondiendo con honestidad.',
@@ -110,7 +114,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'recurso',
   },
   {
-    img: '/images/herramienta-sinastria.png',
+    img: siteImages.herramientas.sinastria,
     icon: 'Corazon',
     title: 'Sinastría & Vínculos',
     text: 'Tus relaciones también tienen un mapa. Leerlo es entenderte más a vos.',
@@ -118,7 +122,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'herramienta',
   },
   {
-    img: '/images/herramienta-calendario-lunar.png',
+    img: siteImages.herramientas.calendarioLunar,
     icon: 'Calendario',
     title: 'Calendario Lunar',
     text: 'Cada fase tiene su energía. Seguirla es inteligencia — no casualidad.',
@@ -126,7 +130,7 @@ const herramientas: readonly ToolCard[] = [
     variant: 'recurso',
   },
   {
-    img: '/images/herramienta-chakras.png',
+    img: '/images/chakras-v2.png',
     icon: 'Energia',
     title: 'Cristales & Energía',
     text: 'Piezas que sostienen tu proceso. Sin misticismos innecesarios, con intención real.',
@@ -166,17 +170,17 @@ const circleSteps: readonly CircleStep[] = [
 ] as const
 
 const circuloImagenes = [
-  { src: '/images/circulo-juntas.png', alt: 'Mujeres del Círculo juntas' },
-  { src: '/images/circulo-ritual-lunar.png', alt: 'Ritual lunar grupal' },
-  { src: '/images/circulo-ritual-inclusion.png', alt: 'Ritual de apertura' },
-  { src: '/images/circulo-oraculo.png', alt: 'Lectura colectiva' },
-  { src: '/images/circulo-estudio.png', alt: 'Conexión real' },
-  { src: '/images/circulo-carta-natal.png', alt: 'Estudio de carta natal' },
+  { src: homeImages.circuloMosaic[0], alt: 'Mujeres del Círculo juntas' },
+  { src: homeImages.circuloMosaic[1], alt: 'Ritual lunar grupal' },
+  { src: homeImages.circuloMosaic[2], alt: 'Ritual de apertura' },
+  { src: homeImages.circuloMosaic[3], alt: 'Lectura colectiva' },
+  { src: homeImages.circuloMosaic[4], alt: 'Círculo de estudio' },
+  { src: homeImages.circuloMosaic[5], alt: 'Estudio de carta natal' },
 ] as const
 
 const cursos = [
   {
-    img: '/images/curso-astrologia.png',
+    img: homeImages.cursos[0],
     tag: 'Online · A tu ritmo',
     badge: 'DISPONIBLE',
     badgeColor: 'text-[#D4AF37] border-[#D4AF37]/50',
@@ -187,7 +191,7 @@ const cursos = [
     href: '#contacto',
   },
   {
-    img: '/images/oraculo-maestra.png',
+    img: homeImages.cursos[1],
     tag: 'Disponible · Agosto 2026',
     badge: 'PRONTO',
     badgeColor: 'text-[#C49AD4] border-[#C49AD4]/50',
@@ -198,7 +202,7 @@ const cursos = [
     href: '#contacto',
   },
   {
-    img: '/images/circulo-estudio.png',
+    img: homeImages.cursos[2],
     tag: 'Programa · En vivo',
     badge: 'EN VIVO',
     badgeColor: 'text-[#F5EEF8] border-[#F5EEF8]/30',
@@ -212,33 +216,33 @@ const cursos = [
 
 const products: readonly ProductCard[] = [
   {
-    img: '/images/curso-astrologia.png',
+    img: homeImages.productos[0],
     title: 'Astrología Práctica',
     text: 'El curso para leer tu mapa natal. Desde cero hasta intermedio, a tu ritmo.',
   },
   {
-    img: '/images/ciclos-lunares-rituales.png',
+    img: homeImages.productos[1],
     title: 'Ciclo Nova del Regreso',
     text: 'Ebook de retorno personal. Rituales suaves para volver a vos después de lo que sea.',
-    href: 'https://pay.hotmart.com/REPLACE_WITH_REAL_HOTMART_PRODUCT_ID',
+    href: '/universo',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
-    img: '/images/oraculo-maestra.png',
+    img: homeImages.productos[2],
     title: 'Oráculo Intuitivo',
     text: 'Un método propio para leer el oráculo. Sin memorizar. Con intuición activa.',
   },
   {
-    img: '/images/herramienta-rituales.png',
+    img: homeImages.productos[3],
     title: 'Kit de Rituales',
     text: 'Piezas y prácticas para crear espacios de intención en casa. Con guía incluida.',
   },
   {
-    img: '/images/ciclos-lunares-rituales.png',
+    img: homeImages.productos[4],
     title: 'Planificador Lunar',
     text: 'Organizá tu mes con las fases lunares. PDF descargable, imprimible, tuyo.',
-    href: 'https://soyelaranova.ck.page/REPLACE_WITH_REAL_CONVERTKIT_FORM',
+    href: '#contacto',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -443,10 +447,12 @@ export default function HomePage() {
   const [birthDate, setBirthDate] = useState('')
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSubmitError(null)
+    setSubmitting(true)
 
     try {
       const res = await fetch('/api/oracle/subscribe', {
@@ -460,8 +466,18 @@ export default function HomePage() {
         return
       }
       setSent(true)
+      try {
+        localStorage.setItem(
+          'elara-circulo-subscribe',
+          JSON.stringify({ email, birthDate, at: new Date().toISOString() }),
+        )
+      } catch {
+        /* ignore quota */
+      }
     } catch {
       setSubmitError('Error de conexión. Intentá de nuevo.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -471,7 +487,7 @@ export default function HomePage() {
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <Image
-            src="/images/hero-portal-lago.png"
+            src={homeImages.hero}
             alt=""
             fill
             sizes="100vw"
@@ -533,7 +549,7 @@ export default function HomePage() {
               {[
                 { content: 'Mira todo lo que' },
                 { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">siempre fuiste</em> },
-                { content: 'capaz de ser.' },
+                { content: 'capaz de hacer.' },
               ].map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <motion.div
@@ -554,7 +570,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif-italic mb-8 max-w-[430px] text-[1.08rem] leading-[1.8] text-[#E5DBF0]/72 italic"
             >
-              Un portal de autoconocimiento creado para sentirse como ritual, convertir como estrategia y mostrar lo que una web premium puede hacer por una marca.
+              Portal de autoconocimiento, oráculo y rituales. Sin afán, con precisión — como una hermana que te acompaña en el camino de volver a vos.
             </motion.p>
 
             {/* CTAs */}
@@ -683,24 +699,20 @@ export default function HomePage() {
       </section>
 
       {/* ── ORÁCULO · franja visual ───────────────────────────────────── */}
-      <section id="oraculo" className="relative overflow-hidden scroll-mt-[5.5rem]">
+      <section id="oraculo" className="elara-section relative overflow-hidden scroll-mt-[5.5rem]">
         <ElaraSectionBridge position="top" />
 
-        <div className="relative mx-0 h-[min(52vh,500px)] overflow-hidden">
-          <ElaraFramedImage
-            src="/images/oraculo-maestra.png"
-            alt="Elara Nova — oráculo y rituales"
-            fill
-            veil="banner"
-            sizes="100vw"
-            imageClassName="opacity-85"
-          />
+        <SectionBanner
+          src={homeImages.oraculoBanner}
+          alt="Elara Nova — oráculo y rituales"
+          priority
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+            className="pointer-events-none flex flex-col items-center px-6 text-center"
           >
             <p className="mb-6 text-[10px] tracking-[0.5em] text-[#D4AF37]/70 uppercase">✦ Elara Nova</p>
             <blockquote className="font-display max-w-3xl text-[2rem] leading-[1.08] tracking-tight text-[#F5EEF8] italic sm:text-[2.8rem] lg:text-[3.4rem]">
@@ -709,17 +721,19 @@ export default function HomePage() {
               <em className="font-serif-italic font-light text-[#C49AD4] italic">Lo que siempre pudiste hacer.</em>&quot;
             </blockquote>
           </motion.div>
-        </div>
+        </SectionBanner>
 
         {/* Galería Elara — 5 ilustraciones del personaje */}
-        <div className="scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 lg:grid lg:grid-cols-5 lg:gap-3 lg:overflow-visible lg:px-6">
-          {[
-            { src: '/images/elara-durmiendo.png', alt: 'Elara descansando' },
-            { src: '/images/elara-meditando.png', alt: 'Elara meditando' },
-            { src: '/images/elara-cocinando.png', alt: 'Elara en la cocina' },
-            { src: '/images/elara-yoga.png', alt: 'Elara haciendo yoga' },
-            { src: '/images/elara-pintando.png', alt: 'Elara pintando' },
-          ].map(({ src, alt }, i) => (
+        <div className="elara-section__content scrollbar-none mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 lg:grid lg:grid-cols-5 lg:gap-3 lg:overflow-visible lg:px-6">
+          {(
+            [
+              { src: homeImages.oraculoGallery[0], alt: 'Elara descansando' },
+              { src: homeImages.oraculoGallery[1], alt: 'Elara en la cocina' },
+              { src: homeImages.oraculoGallery[2], alt: 'Elara haciendo yoga' },
+              { src: homeImages.oraculoGallery[3], alt: 'Elara pintando' },
+              { src: homeImages.oraculoGallery[4], alt: 'Elara aprendiendo' },
+            ] as const
+          ).map(({ src, alt }, i) => (
             <motion.div
               key={src}
               initial={{ opacity: 0, y: 16 }}
@@ -772,19 +786,17 @@ export default function HomePage() {
           {/* Main layout: big image left + content right */}
           <div className="mb-16 grid items-stretch gap-12 lg:grid-cols-[1fr_480px]">
             {/* Left: stacked image mosaic */}
-            <div className="grid h-[min(520px,68vh)] grid-cols-2 grid-rows-2 gap-3">
+            <div className="grid min-h-[320px] h-[min(520px,68vh)] grid-cols-2 grid-rows-2 gap-3">
               <motion.div
                 initial={{ opacity: 0, scale: 1.04 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative col-start-1 row-span-2 row-start-1 min-h-0 overflow-hidden rounded-3xl"
+                className="relative col-start-1 row-span-2 row-start-1 h-full min-h-[260px] overflow-hidden rounded-3xl"
               >
-                <ElaraFramedImage
-                  src={circuloImagenes[4].src}
+                <SectionCoverImage
+                  src={circuloImagenes[0].src}
                   alt="Mujeres del Círculo"
-                  fill
-                  veil="mosaic"
                   sizes="(max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute bottom-5 left-5 z-[3]">
@@ -803,10 +815,10 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
-                  className="relative col-start-2 min-h-0 overflow-hidden rounded-2xl"
+                  className="relative col-start-2 h-full min-h-[120px] overflow-hidden rounded-2xl"
                   style={{ gridRow: i + 1 }}
                 >
-                  <ElaraFramedImage src={src} alt={alt} fill veil="mosaic" sizes="25vw" />
+                  <SectionCoverImage src={src} alt={alt} sizes="25vw" />
                   <p className="absolute bottom-3 left-3 z-[3] text-[8px] tracking-[0.25em] text-[#D4AF37]/80 uppercase">
                     {label}
                   </p>
@@ -873,9 +885,9 @@ export default function HomePage() {
           {/* Bottom image strip — 3 more circulo images */}
           <div className="grid grid-cols-3 gap-4">
             {[
-              circuloImagenes[3],
-              { src: '/images/circulo-estudio.png', alt: 'Círculo de estudio' },
-              circuloImagenes[5],
+              { src: homeImages.circuloStrip[0], alt: 'Lectura colectiva en el Círculo' },
+              { src: homeImages.circuloStrip[1], alt: 'Círculo de estudio' },
+              { src: homeImages.circuloStrip[2], alt: 'Ritual de apertura' },
             ].map((img, i) => (
               <motion.div
                 key={img.src}
@@ -883,9 +895,9 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative aspect-[16/10] overflow-hidden rounded-2xl"
+                className="relative aspect-[16/10] min-h-[140px] overflow-hidden rounded-2xl"
               >
-                <ElaraFramedImage src={img.src} alt={img.alt} fill veil="mosaic" sizes="33vw" />
+                <SectionCoverImage src={img.src} alt={img.alt} sizes="33vw" />
               </motion.div>
             ))}
           </div>
@@ -1120,8 +1132,8 @@ export default function HomePage() {
                 style={{ boxShadow: '0 0 60px rgba(123,79,181,0.22), 0 40px 80px rgba(14,7,38,0.9)' }}
               >
                 <ElaraFramedImage
-                  src="/images/elara-meditando.png"
-                  alt="Elara Nova"
+                  src={homeImages.sobrePortrait}
+                  alt="Elara Nova escribiendo en su journal"
                   fill
                   veil="card"
                   sizes="(max-width: 1024px) 100vw, 500px"
@@ -1141,7 +1153,7 @@ export default function HomePage() {
                     <span className="text-[8px] tracking-[0.38em] text-[#D4AF37]/50 uppercase">Elara Nova</span>
                   </div>
                   <p className="font-serif-italic text-[11.5px] leading-relaxed text-[#C49AD4]/82 italic">
-                    Mi propósito es recordarte todo lo que siempre fuiste capaz de ser.
+                    Mi propósito es recordarte todo lo que siempre fuiste capaz de hacer.
                   </p>
                   <div className="mt-3 flex items-center gap-2">
                     <div className="h-px flex-1 bg-[#D4AF37]/18" />
@@ -1316,9 +1328,11 @@ export default function HomePage() {
                   ) : null}
                   <button
                     type="submit"
-                    className="btn-ritual btn-ritual--gold flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-[10px] font-bold tracking-[0.3em] uppercase"
+                    disabled={submitting}
+                    className="btn-ritual btn-ritual--gold flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-[10px] font-bold tracking-[0.3em] uppercase disabled:opacity-60"
                   >
-                    <span className="opacity-70">{ElaraIcons.Correo.render(16)}</span> Quiero recibirlos
+                    <span className="opacity-70">{ElaraIcons.Correo.render(16)}</span>
+                    {submitting ? 'Enviando…' : 'Quiero recibirlos'}
                   </button>
                   <p className="text-center text-[9px] tracking-[0.2em] text-[#C49AD4]/30 uppercase">
                     Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
@@ -1329,12 +1343,10 @@ export default function HomePage() {
           </div>
 
           {/* RIGHT — image */}
-          <div className="relative hidden h-full min-h-[600px] lg:block">
-            <ElaraFramedImage
-              src="/images/circulo-juntas.png"
+          <div className="relative hidden min-h-[600px] lg:block">
+            <SectionCoverImage
+              src={homeImages.contacto}
               alt="El Círculo íntimo de Elara Nova"
-              fill
-              veil="panel"
               sizes="560px"
             />
           </div>
@@ -1359,9 +1371,7 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
 
         <div className="relative mx-auto max-w-6xl px-6 py-16">
-          {/* Grid principal 3 columnas */}
-          <div className="grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
-            {/* Col 1: Sello + tagline */}
+          <div className="grid gap-12 md:grid-cols-2 md:gap-10 lg:gap-20">
             <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
               <div className="relative h-[110px] w-[110px] shrink-0">
                 <Image
@@ -1375,80 +1385,11 @@ export default function HomePage() {
               <p className="font-serif-italic text-sm leading-relaxed text-[#C49AD4]/50 italic">
                 Inspira · Transforma · Conecta
               </p>
-              <div className="flex items-center gap-3 pt-1">
-                <motion.a
-                  href="https://instagram.com/soyelaranova"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram de Elara Nova"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.93 }}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <rect x="2" y="2" width="20" height="20" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-                  </svg>
-                </motion.a>
-                <motion.a
-                  href="https://tiktok.com/@soyelaranova"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok de Elara Nova"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.93 }}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.27 8.27 0 0 0 4.84 1.55V6.85a4.85 4.85 0 0 1-1.07-.16z" />
-                  </svg>
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com/in/evelynpatino"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn de Evelyn Patiño"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.93 }}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#7B4FB5]/25 text-[#C49AD4]/50 transition-all duration-300 hover:border-[#D4AF37]/40 hover:text-[#D4AF37]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                    <rect x="2" y="9" width="4" height="12"/>
-                    <circle cx="4" cy="4" r="2"/>
-                  </svg>
-                </motion.a>
-              </div>
+              <p className="max-w-xs text-[10px] leading-relaxed tracking-[0.12em] text-[#C49AD4]/40 uppercase">
+                Mira todo lo que siempre fuiste capaz de hacer.
+              </p>
             </div>
 
-            {/* Col 2: Navegación */}
-            <div className="flex flex-col items-center gap-6 md:items-start">
-              <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Explorar</p>
-              <nav className="flex flex-col gap-3" aria-label="Footer nav">
-                {([
-                  { href: '#herramientas', label: 'Herramientas' },
-                  { href: '#circulo',      label: 'El Círculo'   },
-                  { href: '#cursos',       label: 'Cursos'       },
-                  { href: '#productos',    label: 'Productos'    },
-                  { href: '#sobre',        label: 'Sobre Elara'  },
-                  { href: '#atelier',      label: 'Cómo creamos' },
-                  { href: '#contacto',     label: 'Únete al Círculo' },
-                  { href: '/oraculo',      label: 'Oráculo'      },
-                  { href: '/universo',     label: 'Universo'     },
-                ] as const).map(({ href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    className="nav-link-ritual text-[11px] tracking-[0.15em] text-[#C49AD4]/45 uppercase"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Col 3: CTA + frase */}
             <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
               <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Empezá</p>
               <p className="font-serif-italic text-base leading-relaxed text-[#C49AD4]/55 italic">
