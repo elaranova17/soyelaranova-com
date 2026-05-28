@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
       { source: '/cursos', destination: '/#cursos', permanent: false },
       { source: '/herramientas', destination: '/#herramientas', permanent: false },
       { source: '/contacto', destination: '/#contacto', permanent: false },
+      { source: '/atelier', destination: '/#atelier', permanent: false },
+      { source: '/recursos', destination: '/#productos', permanent: false },
+      { source: '/amazon', destination: '/universo', permanent: false },
+      { source: '/login', destination: '/', permanent: false },
+      { source: '/signup', destination: '/#contacto', permanent: false },
+      { source: '/cuenta', destination: '/#contacto', permanent: false },
+      { source: '/manifiesto', destination: '/sobre-elara', permanent: false },
       { source: '/lecturas', destination: '/oraculo', permanent: false },
       // B2B Evelyn — URLs legacy (carpeta evelyn-b2b o GitHub Pages)
       { source: '/evelyn-b2b/portfolio.html', destination: '/portfolio', permanent: true },

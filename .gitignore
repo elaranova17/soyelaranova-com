@@ -10,6 +10,9 @@ out/
 
 .vercel
 
+# JPG fantasy prohibidos en deploy (usar 06_ARCHIVO/)
+web/public/hero/
+
 # Local package manager caches
 web/node_modules/
 api/node_modules/

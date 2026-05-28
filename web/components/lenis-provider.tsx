@@ -8,6 +8,11 @@ import { useEffect } from 'react'
 
 const NAV_OFFSET = -88
 
+function scrollTargetFromHash(hash: string): HTMLElement | null {
+  const el = document.querySelector(hash)
+  return el instanceof HTMLElement ? el : null
+}
+
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -38,7 +43,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       if (!anchor) return
       const hash = anchor.getAttribute('href')
       if (!hash || hash === '#') return
-      const target = document.querySelector(hash)
+      const target = scrollTargetFromHash(hash)
       if (!target) return
       event.preventDefault()
       lenis.scrollTo(target, { offset: NAV_OFFSET, duration: 1.05 })
@@ -49,7 +54,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     const scrollToHash = () => {
       const hash = window.location.hash
       if (!hash) return
-      const target = document.querySelector(hash)
+      const target = scrollTargetFromHash(hash)
       if (target) {
         lenis.scrollTo(target, { offset: NAV_OFFSET, duration: 1.05, immediate: false })
       }
