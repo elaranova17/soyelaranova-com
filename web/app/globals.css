@@ -83,10 +83,110 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background: linear-gradient(to top, transparent, var(--color-void));
+  height: 7rem;
+  background: linear-gradient(
+    to bottom,
+    var(--color-purple-night) 0%,
+    color-mix(in srgb, var(--color-purple-night) 55%, transparent) 45%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 2;
+}
+
+/* Marcos de imagen · difuminado y encuadre uniforme */
+.elara-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: inherit;
+}
+
+.elara-frame__img {
+  object-fit: cover;
+  transform: scale(1.07);
+  transform-origin: center;
+}
+
+.elara-frame__veil {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.elara-frame__veil--card {
+  background:
+    linear-gradient(180deg, rgb(14 7 38 / 0.32) 0%, transparent 24%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.9) 0%, rgb(14 7 38 / 0.4) 44%, transparent 74%);
+}
+
+.elara-frame__veil--soft {
+  background:
+    linear-gradient(180deg, rgb(14 7 38 / 0.2) 0%, transparent 20%),
+    linear-gradient(0deg, rgb(26 15 61 / 0.78) 0%, rgb(26 15 61 / 0.2) 50%, transparent 72%);
+}
+
+.elara-frame__veil--banner {
+  background:
+    linear-gradient(
+      90deg,
+      rgb(14 7 38 / 0.96) 0%,
+      rgb(14 7 38 / 0.5) 42%,
+      rgb(14 7 38 / 0.88) 100%
+    ),
+    linear-gradient(0deg, rgb(14 7 38 / 0.75) 0%, transparent 42%, rgb(14 7 38 / 0.7) 100%);
+}
+
+.elara-frame__veil--mosaic {
+  background:
+    linear-gradient(180deg, rgb(14 7 38 / 0.25) 0%, transparent 28%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.78) 0%, rgb(14 7 38 / 0.35) 48%, transparent 72%);
+}
+
+.elara-frame__veil--gallery {
+  background:
+    linear-gradient(180deg, rgb(14 7 38 / 0.18) 0%, transparent 22%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.65) 0%, rgb(14 7 38 / 0.15) 45%, transparent 70%);
+}
+
+.elara-frame__veil--hero {
+  background:
+    linear-gradient(90deg, rgb(14 7 38 / 1) 0%, rgb(14 7 38 / 0.5) 40%, transparent 72%),
+    linear-gradient(0deg, rgb(14 7 38 / 0.92) 0%, transparent 50%);
+}
+
+.elara-frame__veil--panel {
+  background:
+    linear-gradient(90deg, rgb(8 5 26 / 0.94) 0%, rgb(8 5 26 / 0.4) 44%, transparent 72%),
+    linear-gradient(0deg, rgb(8 5 26 / 0.6) 0%, transparent 48%, rgb(8 5 26 / 0.78) 100%);
+}
+
+.elara-section-bridge-top {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7rem;
+  background: linear-gradient(
+    to bottom,
+    rgb(14 7 38 / 1) 0%,
+    rgb(14 7 38 / 0.55) 40%,
+    transparent 100%
+  );
+  z-index: 5;
+}
+
+.elara-section-bridge-bottom {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  background: linear-gradient(to top, rgb(26 15 61 / 0.8) 0%, transparent 100%);
+  z-index: 5;
 }
 
 /* Evelyn B2B · link hub */
@@ -514,6 +614,8 @@ body.has-b2b-nav {
   border: 1px solid rgba(212, 175, 55, 0.32);
   border-radius: 16px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  background-size: 160% 160%;
+  background-position: 0% 50%;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     0 4px 14px -8px rgba(0, 0, 0, 0.4);
@@ -525,7 +627,11 @@ body.has-b2b-nav {
   text-decoration: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    transform 420ms var(--ease-ritual),
+    border-color 420ms var(--ease-ritual),
+    box-shadow 420ms var(--ease-ritual),
+    background-position 480ms var(--ease-ritual);
 }
 
 .linktree-hub-link::before {
@@ -534,24 +640,24 @@ body.has-b2b-nav {
   inset: 0;
   left: -100%;
   background: linear-gradient(110deg, transparent 30%, rgba(212, 175, 55, 0.15) 50%, transparent 70%);
-  transition: left 0.7s ease;
+  transition: left 0.7s var(--ease-ritual);
 }
 
 .linktree-hub-link::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 16px;
-  left: 16px;
-  height: 1px;
-  opacity: 0.4;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
-  transition: opacity 0.4s ease;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 40%, rgb(201 169 110 / 0.16) 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 420ms var(--ease-ritual);
+  pointer-events: none;
 }
 
 .linktree-hub-link:hover {
   border-color: var(--color-gold);
   background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(155, 107, 196, 0.06));
+  background-position: 100% 50%;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 16px 36px -14px rgba(212, 175, 55, 0.4);
@@ -566,9 +672,17 @@ body.has-b2b-nav {
   opacity: 1;
 }
 
+.linktree-hub-link:active::after {
+  animation: ritual-ripple 620ms var(--ease-ritual);
+}
+
 .linktree-hub-link:hover .linktree-hub-link__arrow {
   color: var(--color-gold);
   transform: translateX(6px);
+}
+
+.linktree-hub-link:hover .linktree-hub-link__label {
+  letter-spacing: 0.05em;
 }
 
 .linktree-hub-link:hover .linktree-hub-link__icon {
@@ -645,6 +759,7 @@ body.has-b2b-nav {
 .linktree-hub-link__label {
   display: block;
   font-size: 0.96rem;
+  transition: letter-spacing 380ms var(--ease-ritual);
 }
 
 .linktree-hub-link__hint {
@@ -664,7 +779,7 @@ body.has-b2b-nav {
   font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--color-pale-lav);
-  transition: all 0.4s ease;
+  transition: transform 320ms var(--ease-ritual), color 320ms var(--ease-ritual);
 }
 
 @media (max-width: 540px) {
@@ -711,4 +826,407 @@ body.has-b2b-nav {
   right: 1rem;
   bottom: 1rem;
   border-width: 0 1px 1px 0;
+}
+
+/* ─── Ritual motion · CTAs, timeline, nav (sitio completo) ─── */
+:root {
+  --ease-ritual: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ritual-gold-glow: #c9a96e;
+}
+
+.btn-ritual {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 420ms var(--ease-ritual),
+    border-color 420ms var(--ease-ritual),
+    box-shadow 420ms var(--ease-ritual),
+    background-position 480ms var(--ease-ritual),
+    color 320ms var(--ease-ritual);
+}
+
+.btn-ritual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgb(201 169 110 / 0.18) 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 420ms var(--ease-ritual);
+  pointer-events: none;
+}
+
+.btn-ritual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgb(250 244 226 / 0.22) 0%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+.btn-ritual:hover::before {
+  opacity: 1;
+}
+
+.btn-ritual:active::after {
+  animation: ritual-ripple 620ms var(--ease-ritual);
+}
+
+@keyframes ritual-ripple {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+.btn-ritual--lavender {
+  background: linear-gradient(135deg, #7b4fb5 0%, #6a4599 55%, #5a3d88 100%);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  color: #f5eef8;
+}
+
+.btn-ritual--lavender:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 12px 40px rgb(123 79 181 / 0.45);
+}
+
+.btn-ritual--ghost {
+  background: linear-gradient(135deg, rgb(212 175 55 / 0.04), transparent 60%);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  border: 1px solid rgb(123 79 181 / 0.4);
+  color: #c49ad4;
+}
+
+.btn-ritual--ghost:hover {
+  background-position: 100% 50%;
+  border-color: rgb(212 175 55 / 0.55);
+  color: var(--color-gold);
+}
+
+.btn-ritual--gold {
+  background: linear-gradient(135deg, var(--color-gold-bright), var(--color-gold) 50%, var(--color-gold-dark));
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  color: var(--color-purple-night);
+}
+
+.btn-ritual--gold:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 10px 35px rgb(212 175 55 / 0.35);
+}
+
+.btn-arrow__icon {
+  display: inline-block;
+  transition: transform 320ms var(--ease-ritual);
+}
+
+.group:hover .btn-arrow__icon,
+.btn-arrow:hover .btn-arrow__icon {
+  transform: translateX(6px);
+}
+
+.btn-explorar__label {
+  transition: letter-spacing 380ms var(--ease-ritual);
+}
+
+.group:hover .btn-explorar__label {
+  letter-spacing: 0.05em;
+}
+
+.timeline-ritual__num {
+  transition: transform 380ms var(--ease-ritual);
+}
+
+.timeline-ritual__orb:hover .timeline-ritual__num {
+  animation: timeline-num-pulse 900ms var(--ease-ritual);
+}
+
+@keyframes timeline-num-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.nav-link-ritual {
+  position: relative;
+}
+
+.nav-link-ritual::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms var(--ease-ritual);
+}
+
+.nav-link-ritual:hover::after,
+.nav-link-ritual[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+.nav-cta-ritual {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta-ritual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgb(201 169 110 / 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 380ms var(--ease-ritual);
+}
+
+.nav-cta-ritual:hover::before {
+  opacity: 1;
+}
+
+.section-inview-glow {
+  transition: box-shadow 800ms var(--ease-ritual);
+}
+
+.section-inview-glow.is-visible {
+  box-shadow: inset 0 0 120px rgb(123 79 181 / 0.06);
+}
+
+/* Hero · Herramientas de alma strip (4 iconos + 2 texto) */
+.soul-feature {
+  transition: background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.soul-feature--icon:hover {
+  background-color: rgb(26 15 61 / 0.55);
+}
+
+.soul-feature__icon-wrap {
+  opacity: 0.5;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.soul-feature--icon:hover .soul-feature__icon-wrap {
+  opacity: 1;
+  transform: scale(1.05);
+  border-color: rgb(212 175 55 / 0.45);
+  filter: drop-shadow(0 0 8px rgb(201 169 110 / 0.3));
+}
+
+.soul-feature__label {
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.soul-feature--icon:hover .soul-feature__label {
+  color: rgb(245 238 248 / 0.95);
+}
+
+.soul-feature--text:hover .soul-feature__label {
+  color: rgb(212 175 55 / 0.88);
+}
+
+.soul-feature__arrow {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.soul-feature--icon:hover .soul-feature__arrow {
+  transform: translateX(4px);
+  color: rgb(201 169 110 / 0.85);
+}
+
+.soul-feature--text:hover .soul-feature__arrow {
+  transform: translateX(4px);
+  color: rgb(201 169 110 / 0.7);
+}
+
+.soul-feature--icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.soul-feature--icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgb(250 244 226 / 0.2) 0%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.3);
+  pointer-events: none;
+}
+
+.soul-feature--icon:active::after {
+  animation: ritual-ripple 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Secciones · contenido por encima de puentes/partículas */
+.elara-section {
+  isolation: isolate;
+}
+
+.elara-section__content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Tarjetas clickeables · ritual unificado */
+.elara-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.elara-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, rgb(201 169 110 / 0.14) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.elara-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgb(250 244 226 / 0.18) 0%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.25);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.elara-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(212 175 55 / 0.45);
+  box-shadow: 0 14px 36px -18px rgb(212 175 55 / 0.35);
+}
+
+.elara-card:hover::before {
+  opacity: 1;
+}
+
+.elara-card:active::after {
+  animation: ritual-ripple 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.elara-card:hover .elara-card__title {
+  color: rgb(245 238 248 / 0.98);
+}
+
+.elara-card:hover .elara-card__cta {
+  color: var(--color-gold);
+  border-color: rgb(212 175 55 / 0.65);
+}
+
+.elara-card__title {
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.elara-card__cta {
+  transition:
+    color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Chips informativos (círculo) — hover sutil */
+.elara-chip {
+  position: relative;
+  cursor: default;
+  transition:
+    border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a.elara-chip {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.elara-chip:hover {
+  border-color: rgb(212 175 55 / 0.38);
+  background-color: rgb(26 15 61 / 0.78);
+}
+
+a.elara-chip:hover .elara-chip__label {
+  color: rgb(212 175 55 / 0.92);
+}
+
+/* Mosaico / galería — hover visual sin enlace */
+.elara-media-tile {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.elara-media-tile:hover {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ritual,
+  .btn-ritual::before,
+  .btn-ritual::after,
+  .btn-arrow__icon,
+  .btn-explorar__label,
+  .timeline-ritual__num,
+  .nav-link-ritual::after,
+  .linktree-hub-link,
+  .linktree-hub-link::before {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .btn-ritual:active::after {
+    animation: none !important;
+  }
+
+  .soul-feature__icon-wrap,
+  .soul-feature__arrow,
+  .soul-feature__label {
+    transition: none !important;
+  }
+
+  .soul-feature--icon:hover .soul-feature__icon-wrap {
+    transform: none;
+    filter: none;
+  }
+
+  .elara-card,
+  .elara-card::before,
+  .elara-card::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .elara-card:hover {
+    transform: none;
+  }
 }
