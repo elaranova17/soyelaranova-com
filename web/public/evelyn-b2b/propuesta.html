@@ -10,12 +10,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/evelyn-b2b/b2b-nav.css" />
+<link rel="stylesheet" href="/elara-ritual.css" />
 <style>
 :root {
-  --purple-deep: #2D1B69; --purple-night: #1A0F3D; --purple-mid: #3D2580;
-  --gold: #D4AF37; --gold-soft: #E5C770; --gold-bright: #F2D578;
-  --cream: #FAF4E2; --pale-lav: #E5DBF0; --ink: #1A0F3D; --grey: #6B6680;
-  --display: 'Playfair Display', serif; --serif: 'Cormorant Garamond', serif;
+  --purple-deep: #2D1B69;
+  --purple-night: #1A0F3D;
+  --gold: #C9A96E;
+  --gold-soft: #E5C770;
+  --cream: #F5F0E8;
+  --ink: #1a1a2e;
+  --grey: #6b6b8a;
+  --display: 'Playfair Display', serif;
+  --serif: 'Cormorant Garamond', serif;
   --sans: 'Lato', system-ui, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,10 +31,9 @@ body {
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
 }
-.container { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
 
 .hero {
-  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 55%, #4A2D9C 100%);
+  background: linear-gradient(135deg, var(--purple-deep) 0%, #3D2580 55%, #4A2D9C 100%);
   color: var(--cream);
   padding: 5rem 1.5rem 3.5rem;
   text-align: center;
@@ -48,12 +53,12 @@ body {
   line-height: 1.08;
   margin-bottom: 0.75rem;
 }
-.hero h1 em { font-family: var(--serif); font-style: italic; color: var(--gold-bright); }
+.hero h1 em { font-family: var(--serif); font-style: italic; color: var(--gold-soft); }
 .hero p {
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--pale-lav);
+  color: #E5DBF0;
   max-width: 36rem;
   margin: 0 auto 1.5rem;
 }
@@ -72,115 +77,232 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .hero__cta .btn-gold {
   background: var(--gold);
   color: var(--purple-night);
 }
 .hero__cta .btn-ghost {
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  border: 1px solid rgba(201, 169, 110, 0.45);
   color: var(--gold-soft);
 }
-.hero__cta a:hover { transform: translateY(-1px); opacity: 0.95; }
 
-.section { padding: 3.5rem 0; }
-.section--lav { background: #F5F0F9; }
-
-.section__head { text-align: center; margin-bottom: 2.5rem; }
-.section__head .eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
+/* ===== CLIENT SHOWCASE ===== */
+.client-showcase {
+  background: var(--cream);
+  padding: 5rem 1.5rem;
 }
-.section__head h2 {
+
+.client-showcase__inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.client-showcase h2 {
   font-family: var(--display);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  color: var(--purple-deep);
+  color: var(--ink);
+  text-align: center;
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
-.cases {
+.client-showcase h2::before,
+.client-showcase h2::after {
+  content: '✦';
+  color: var(--gold);
+  margin: 0 1rem;
+  font-size: 1.1rem;
+}
+
+.client-grid {
   display: grid;
   gap: 1.75rem;
 }
+
 @media (min-width: 768px) {
-  .cases { grid-template-columns: 1fr 1fr; }
+  .client-grid { grid-template-columns: 1fr 1fr; }
 }
 
-.case {
+.client-card {
+  display: block;
   background: #fff;
-  border: 1px solid rgba(45, 27, 105, 0.1);
-  border-radius: 1.25rem;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 40px -16px rgba(45, 27, 105, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 24px rgba(26, 26, 46, 0.08);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
 }
-.case:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 48px -16px rgba(45, 27, 105, 0.28);
+
+.client-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 26, 46, 0.15);
 }
-.case__badge {
-  display: inline-block;
-  margin: 1.25rem 1.25rem 0;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(212, 175, 55, 0.15);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+
+.client-preview {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-preview--ofelia {
+  background: linear-gradient(145deg, #1a1a2e 0%, #2d2d44 40%, #3d2580 100%);
+}
+
+.client-preview--sama {
+  background: linear-gradient(145deg, #1a2e1a 0%, #2d4438 45%, #1a1a2e 100%);
+}
+
+.client-preview__mock {
+  position: absolute;
+  inset: 12% 10% 8%;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  transition: transform 0.6s ease;
+}
+
+.client-card:hover .client-preview__mock {
+  transform: scale(1.03);
+}
+
+.client-preview__bar {
+  height: 6px;
+  width: 40%;
+  border-radius: 4px;
+  background: rgba(201, 169, 110, 0.5);
+}
+
+.client-preview__line {
+  height: 4px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.15);
+}
+
+.client-preview__line--short { width: 55%; }
+.client-preview__line--mid { width: 72%; }
+
+.client-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,46,0.55) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.client-card:hover .client-preview::after {
+  opacity: 1;
+}
+
+.client-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
-}
-.case__body { padding: 1rem 1.25rem 1.5rem; }
-.case h3 {
-  font-family: var(--display);
-  font-size: 1.65rem;
-  color: var(--purple-deep);
-  margin-bottom: 0.35rem;
-}
-.case__role {
-  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  z-index: 2;
+}
+
+.badge-active {
+  background: rgba(201, 169, 110, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+.badge-happy {
+  background: rgba(46, 139, 87, 0.1);
+  color: #2E8B57;
+  border: 1px solid rgba(46, 139, 87, 0.2);
+}
+
+.client-info {
+  padding: 28px;
+}
+
+.client-name {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.client-category {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--grey);
-  margin-bottom: 0.85rem;
+  margin-bottom: 16px;
 }
-.case p {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #3d3560;
-  margin-bottom: 0.75rem;
-}
-.case ul {
-  list-style: none;
-  margin: 0.75rem 0 0;
-  padding: 0;
-}
-.case li {
-  font-size: 0.85rem;
-  padding: 0.35rem 0;
-  border-top: 1px solid rgba(45, 27, 105, 0.08);
-  color: var(--ink);
-}
-.case li strong { color: var(--purple-deep); }
 
-.note {
-  margin-top: 2.5rem;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background: rgba(45, 27, 105, 0.06);
-  border-left: 3px solid var(--gold);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ink);
+.client-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: gap 0.3s ease;
 }
-.note a { color: var(--purple-deep); font-weight: 700; }
+
+.client-card:hover .client-link {
+  gap: 12px;
+}
+
+.client-link::after {
+  content: '→';
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.client-card:hover .client-link::after {
+  transform: translateX(4px);
+}
+
+.client-cta {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(201, 169, 110, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+.client-cta p {
+  font-family: var(--display);
+  font-style: italic;
+  color: #4a4a5a;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.client-cta a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.client-cta a:hover {
+  border-color: var(--gold);
+}
 
 .footer-mini {
   text-align: center;
@@ -189,6 +311,7 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--grey);
+  background: var(--cream);
 }
 </style>
 </head>
@@ -206,60 +329,55 @@ body {
   <h1>Casos de <em>éxito</em></h1>
   <p>Proyectos reales con marcas que confiaron en un proceso claro: descubrimiento, diseño con intención y entrega técnica sin intermediarios.</p>
   <div class="hero__cta">
-    <a class="btn-gold" href="/descubrimiento">Empezar un proyecto</a>
-    <a class="btn-ghost" href="/portfolio">Ver portfolio completo</a>
+    <a class="btn-gold btn-ritual btn-ritual--gold" href="/descubrimiento">Empezar un proyecto</a>
+    <a class="btn-ghost btn-ritual btn-ritual--ghost" href="/portfolio">Ver portfolio completo</a>
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <div class="section__head">
-      <p class="eyebrow">— Referencias —</p>
-      <h2>Quién ya trabajó conmigo</h2>
+<section class="client-showcase" aria-labelledby="client-showcase-title">
+  <div class="client-showcase__inner">
+    <h2 id="client-showcase-title">Quién ya creció conmigo</h2>
+
+    <div class="client-grid">
+      <a href="/linktree" class="client-card" target="_blank" rel="noopener noreferrer">
+        <div class="client-preview client-preview--ofelia">
+          <span class="client-badge badge-active">Cliente activo</span>
+          <div class="client-preview__mock" aria-hidden="true">
+            <div class="client-preview__bar"></div>
+            <div class="client-preview__line client-preview__line--mid"></div>
+            <div class="client-preview__line client-preview__line--short"></div>
+            <div class="client-preview__line"></div>
+          </div>
+        </div>
+        <div class="client-info">
+          <h3 class="client-name">Ofelia</h3>
+          <p class="client-category">Marca personal · Presencia digital</p>
+          <span class="client-link">Ver hub de enlaces</span>
+        </div>
+      </a>
+
+      <a href="/portfolio" class="client-card">
+        <div class="client-preview client-preview--sama">
+          <span class="client-badge badge-happy">Cliente feliz</span>
+          <div class="client-preview__mock" aria-hidden="true">
+            <div class="client-preview__bar" style="background: rgba(46,139,87,0.45);"></div>
+            <div class="client-preview__line client-preview__line--mid"></div>
+            <div class="client-preview__line"></div>
+            <div class="client-preview__line client-preview__line--short"></div>
+          </div>
+        </div>
+        <div class="client-info">
+          <h3 class="client-name">Sama</h3>
+          <p class="client-category">Proyecto web · Experiencia de marca</p>
+          <span class="client-link">Ver en portfolio</span>
+        </div>
+      </a>
     </div>
 
-    <div class="cases">
-      <article class="case">
-        <span class="case__badge">Cliente activo</span>
-        <div class="case__body">
-          <h3>Ofelia</h3>
-          <p class="case__role">Marca personal · presencia digital</p>
-          <p>
-            Hub de enlaces y ecosistema B2B con identidad editorial: tipografía limpia, navegación clara
-            y experiencia premium sin ruido visual. Portfolio, CV y propuesta conectados desde un solo
-            punto de entrada.
-          </p>
-          <ul>
-            <li><strong>Entregable:</strong> Link hub + páginas B2B (portfolio, CV, casos)</li>
-            <li><strong>Stack:</strong> Next.js · diseño custom · Vercel</li>
-            <li><strong>Resultado:</strong> Una sola URL para compartir con clientes y colaboradores</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="case">
-        <span class="case__badge">Cliente feliz</span>
-        <div class="case__body">
-          <h3>Sama</h3>
-          <p class="case__role">Proyecto web · experiencia de marca</p>
-          <p>
-            Sitio y flujo digital alineados con la voz de la marca: estructura pensada para convertir,
-            componentes reutilizables y base técnica lista para crecer sin rehacer todo cada mes.
-          </p>
-          <ul>
-            <li><strong>Entregable:</strong> Sitio web + sistema visual coherente</li>
-            <li><strong>Enfoque:</strong> Mobile-first · performance · claridad de mensaje</li>
-            <li><strong>Resultado:</strong> Presencia profesional lista para captar y cerrar leads</li>
-          </ul>
-        </div>
-      </article>
+    <div class="client-cta">
+      <p>Para un <em>nuevo cliente</em> preparo una propuesta personalizada —
+        <a href="/descubrimiento">completá el descubrimiento</a> y te armo la propuesta a medida.</p>
     </div>
-
-    <p class="note">
-      Para un <strong>nuevo cliente</strong> preparo una propuesta personalizada (alcance, cronograma, inversión) — enlace privado por proyecto, no plantilla pública.
-      Esa plantilla vive en nuestra biblioteca interna — no es pública. Si querés empezar,
-      <a href="/descubrimiento">completá el descubrimiento</a> y te armo la propuesta a medida.
-    </p>
   </div>
 </section>
 

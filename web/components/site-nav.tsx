@@ -33,9 +33,8 @@ function NavLink({
 }) {
   const active = isActive(pathname, item)
   const shared =
-    'font-sans text-[10px] tracking-[0.26em] uppercase transition-colors duration-200 underline-offset-4'
-  const activeCls =
-    'text-[var(--color-gold-bright)] underline decoration-[var(--color-gold)] decoration-1'
+    'nav-link-ritual font-sans text-[10px] tracking-[0.26em] uppercase transition-colors duration-200 underline-offset-4'
+  const activeCls = 'text-[var(--color-gold-bright)]'
   const idleCls = 'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
 
   if (item.href.includes('#')) {
@@ -71,7 +70,7 @@ function NavCta({
   className?: string
 }) {
   const cls = [
-    'inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] text-[var(--color-purple-night)] uppercase transition-opacity hover:opacity-90 sm:px-5',
+    'nav-cta-ritual btn-ritual btn-ritual--gold inline-flex items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] uppercase sm:px-5',
     className,
   ].join(' ')
 
@@ -242,7 +241,7 @@ export function SiteNav() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className={[
                 'nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(300px,82vw)] flex-col justify-center border-l border-[var(--color-gold)]/15 bg-[var(--color-purple-night)] px-10 py-20',
                 b2b ? 'lg:hidden' : '',
@@ -255,7 +254,7 @@ export function SiteNav() {
                     key={item.href + item.label}
                     initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + i * 0.05, duration: 0.4 }}
+                    transition={{ delay: 0.08 + i * 0.04, duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
                     {item.href.includes('#') ? (
                       <a

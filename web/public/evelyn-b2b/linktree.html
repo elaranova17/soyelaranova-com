@@ -26,147 +26,110 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/elara-ritual.css">
 
 <style>
-/* ═══════════════════════════════════════════════════════
-   ELARA · LINK HUB · v4 ornamental · Pixar/Encanto grade
-   ═══════════════════════════════════════════════════════ */
 :root {
   --purple-deep: #2D1B69;
-  --purple-mid:  #3D2580;
-  --purple:      #4A2D9C;
-  --purple-night:#1A0F3D;
-  --lavender:    #9B6BC4;
-  --pale-lav:    #E5DBF0;
-  --mist:        #F5F0F9;
-  --gold:        #D4AF37;
-  --gold-soft:   #E5C770;
+  --purple-mid: #3D2580;
+  --purple-night: #1A0F3D;
+  --void: #0E0726;
+  --lavender: #9B6BC4;
+  --pale-lav: #E5DBF0;
+  --gold: #D4AF37;
+  --gold-soft: #E5C770;
   --gold-bright: #F2D578;
-  --gold-dark:   #B8941F;
-  --cream:       #F5F0E1;
-  --cream-warm:  #FAF4E2;
-  --ink:         #1A0F3D;
-  --grey:        #6B6680;
-
+  --gold-dark: #B8941F;
   --display: 'Playfair Display', 'Times New Roman', serif;
-  --serif:   'Cormorant Garamond', 'Georgia', serif;
-  --sans:    'Lato', system-ui, -apple-system, sans-serif;
+  --serif: 'Cormorant Garamond', 'Georgia', serif;
+  --sans: 'Lato', system-ui, -apple-system, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
 body {
-  font-family: var(--sans);
-  font-weight: 400;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 18% 8%, rgba(212,175,55,0.16), transparent 45%),
-    radial-gradient(ellipse at 82% 92%, rgba(155,107,196,0.22), transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(74,45,156,0.4), transparent 70%),
-    linear-gradient(165deg, #2D1B69 0%, #3D2580 35%, #1A0F3D 100%);
+  color: #fff;
+  font-family: var(--sans);
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  padding: 3rem 1.25rem 3rem;
+  padding: 1.1rem 0.95rem 1.6rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(61,37,128,0.8), transparent 52%),
+    radial-gradient(ellipse at 0% 100%, rgba(155,107,196,0.2), transparent 46%),
+    radial-gradient(ellipse at 100% 70%, rgba(212,175,55,0.12), transparent 41%),
+    linear-gradient(180deg, var(--purple-night) 0%, var(--purple-deep) 32%, var(--void) 100%);
   position: relative;
   overflow-x: hidden;
 }
-
-/* ─── Texture overlay (paper grain + stars) ─── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
+  pointer-events: none;
+  opacity: 0.65;
+  z-index: 0;
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.5) 0.5px, transparent 1.5px),
-    radial-gradient(circle at 87% 22%, rgba(212,175,55,0.6) 0.6px, transparent 1.8px),
-    radial-gradient(circle at 33% 67%, rgba(255,255,255,0.4) 0.4px, transparent 1.3px),
-    radial-gradient(circle at 71% 81%, rgba(212,175,55,0.5) 0.5px, transparent 1.6px),
-    radial-gradient(circle at 51% 35%, rgba(255,255,255,0.3) 0.3px, transparent 1px),
-    radial-gradient(circle at 8% 52%, rgba(229,219,240,0.4) 0.4px, transparent 1.2px),
-    radial-gradient(circle at 92% 50%, rgba(255,255,255,0.3) 0.3px, transparent 1px),
-    radial-gradient(circle at 24% 88%, rgba(212,175,55,0.4) 0.4px, transparent 1.4px);
-  background-size: 100% 100%;
-  pointer-events: none;
-  opacity: 0.7;
-  z-index: 0;
-  animation: twinkle 7s ease-in-out infinite;
-}
-@keyframes twinkle {
-  0%,100% { opacity: 0.7; }
-  50%     { opacity: 1; }
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,0.36) 0.5px, transparent 1.6px),
+    radial-gradient(circle at 84% 26%, rgba(212,175,55,0.55) 0.6px, transparent 1.7px),
+    radial-gradient(circle at 72% 80%, rgba(255,255,255,0.33) 0.5px, transparent 1.6px),
+    radial-gradient(circle at 25% 72%, rgba(212,175,55,0.4) 0.6px, transparent 1.8px);
 }
 
-/* ─── Ornamental drop letters (background) ─── */
-.ornament {
-  position: fixed;
-  font-family: var(--display);
-  font-style: italic;
-  color: rgba(212,175,55,0.07);
-  font-weight: 800;
-  pointer-events: none;
-  letter-spacing: -0.04em;
-  user-select: none;
-  z-index: 0;
-  text-shadow: 0 0 80px rgba(212,175,55,0.15);
-}
-.ornament--tl { top: -3rem; left: -2rem; font-size: 16rem; }
-.ornament--br { bottom: -5rem; right: -2rem; font-size: 18rem; transform: rotate(8deg); }
-
-/* ─── Floating moon (top-left badge) ─── */
-.moon {
-  position: fixed;
-  top: 24px; left: 24px;
-  width: 28px; height: 28px;
-  z-index: 2;
-  opacity: 0.55;
-  filter: drop-shadow(0 0 8px rgba(212,175,55,0.4));
-  animation: float-moon 8s ease-in-out infinite;
-}
-@keyframes float-moon {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-6px); }
-}
-.signature-corner {
-  position: fixed;
-  top: 28px; right: 24px;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold-soft);
-  opacity: 0.6;
-  z-index: 2;
-  white-space: nowrap;
-}
-@media (max-width: 540px) {
-  .signature-corner { display: none; }   /* en mobile se quita para no chocar con la luna */
-}
-
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-
-/* ─── Container ─── */
-.hub {
-  width: 100%;
-  max-width: 30rem;
+.fusion {
+  width: min(100%, 31rem);
   position: relative;
   z-index: 1;
-  text-align: center;
 }
 
-/* ─── Avatar with rotating golden ring ─── */
+.motes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.motes span {
+  position: absolute;
+  bottom: -16px;
+  width: 4px; height: 4px; border-radius: 999px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 8px var(--gold-bright), 0 0 20px var(--gold);
+  opacity: 0.34;
+  animation: rise-mote linear infinite;
+}
+.motes span:nth-child(1) { left: 14%; animation-duration: 16s; animation-delay: 0s; }
+.motes span:nth-child(2) { left: 29%; animation-duration: 20s; animation-delay: 2s; }
+.motes span:nth-child(3) { left: 42%; animation-duration: 18s; animation-delay: 4.5s; }
+.motes span:nth-child(4) { left: 56%; animation-duration: 22s; animation-delay: 1s; }
+.motes span:nth-child(5) { left: 72%; animation-duration: 17s; animation-delay: 5.5s; }
+.motes span:nth-child(6) { left: 86%; animation-duration: 21s; animation-delay: 7s; }
+@keyframes rise-mote {
+  0% { transform: translateY(0); opacity: 0; }
+  8%, 86% { opacity: 0.34; }
+  100% { transform: translateY(-115vh); opacity: 0; }
+}
+
+.masthead {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 0.68rem; margin-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+.masthead__left {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: var(--gold-soft);
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+.masthead__right {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--gold-soft);
+  opacity: 0.84;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+}
+
+.hero { text-align: center; padding: 0.45rem 0 0.25rem; }
 .avatar-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 1.75rem;
-  /* Espacio para que el anillo + sparks no se corten */
-  padding: 0;
+  width: 120px; height: 120px;
+  margin: 0 auto;
 }
 .avatar-wrap::before {
   content: '';
@@ -176,684 +139,472 @@ a { color: inherit; text-decoration: none; }
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    var(--gold) 60deg,
-    var(--gold-bright) 120deg,
-    transparent 180deg,
-    transparent 240deg,
-    var(--gold-soft) 300deg,
+    var(--gold) 70deg,
+    var(--gold-bright) 130deg,
+    transparent 190deg,
+    transparent 250deg,
+    var(--gold-soft) 315deg,
     transparent 360deg
   );
   -webkit-mask: radial-gradient(circle, transparent 62%, #000 64%);
-          mask: radial-gradient(circle, transparent 62%, #000 64%);
-  animation: spin 14s linear infinite;
-  opacity: 0.65;
-  pointer-events: none;
+  mask: radial-gradient(circle, transparent 62%, #000 64%);
+  animation: spin 13s linear infinite;
+  opacity: 0.62;
 }
 .avatar-wrap::after {
   content: '';
-  position: absolute;
-  inset: -2px;
+  position: absolute; inset: -3px;
+  border: 1px dashed rgba(212,175,55,0.36);
   border-radius: 50%;
-  border: 1px dashed rgba(212,175,55,0.4);
-  animation: spin 32s linear infinite reverse;
-  pointer-events: none;
+  animation: spin 30s linear infinite reverse;
 }
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .avatar {
-  position: absolute;
-  inset: 0;
+  width: 100%; height: 100%;
   border-radius: 50%;
   border: 3px solid var(--gold);
-  background: linear-gradient(135deg, var(--pale-lav), var(--mist));
-  box-shadow:
-    inset 0 0 20px rgba(45, 27, 105, 0.3),
-    0 0 0 6px rgba(212,175,55,0.10),
-    0 16px 48px -12px rgba(0,0,0,0.55);
+  background: linear-gradient(135deg, #f4edf9, #ffffff);
+  box-shadow: inset 0 0 18px rgba(45,27,105,0.28), 0 16px 42px -16px rgba(0,0,0,0.56);
   overflow: hidden;
-  z-index: 2;
 }
-.avatar img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: contrast(1.06) saturate(0.95);
-}
-.avatar-fallback {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--purple-deep);
-  z-index: -1;
-}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Twinkle stars around avatar — adentro del wrap para no cortarse */
-.avatar-spark {
-  position: absolute;
-  width: 14px; height: 14px;
-  z-index: 3;
-  animation: spark 3s ease-in-out infinite;
-  pointer-events: none;
-}
-.avatar-spark--1 { top: -4px; right: 4px; animation-delay: 0s; }
-.avatar-spark--2 { bottom: 6px; left: -2px; animation-delay: 1.2s; }
-.avatar-spark--3 { top: 50%; right: -8px; animation-delay: 2.1s; }
-@keyframes spark {
-  0%,100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
-  50%     { opacity: 1;   transform: scale(1.15) rotate(180deg); }
-}
-
-/* ─── Eyebrow ─── */
 .eyebrow {
-  font-family: var(--sans);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
+  margin-top: 0.9rem;
   color: var(--gold-soft);
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 1rem;
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
 }
-.eyebrow::before, .eyebrow::after {
-  content: ''; width: 22px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
-}
-
-/* ─── Name + role ─── */
 .name {
+  margin-top: 0.5rem;
   font-family: var(--display);
   font-style: italic;
+  font-size: clamp(2.3rem, 8.3vw, 3rem);
   font-weight: 800;
-  font-size: 3rem;
-  line-height: 1.05;            /* descender espacio para que no se corte la "y" */
-  padding: 0.05em 0.1em;        /* espacio extra para sombra/cursivas */
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #fff 0%, var(--gold-bright) 60%, var(--gold) 100%);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-  margin-bottom: 0.4rem;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #fff, var(--gold-bright) 62%, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+}
+.filigree {
+  margin: 0.25rem auto 0.35rem;
+  width: 9.6rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .last {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: 0.95rem;
-  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--gold-soft);
-  margin-bottom: 1.25rem;
 }
-
-/* ─── Diamond ornament with double rule ─── */
-.diamond {
-  display: flex; justify-content: center; align-items: center;
-  gap: 0.5rem; margin: 1rem 0 1.25rem;
-  position: relative;
-}
-.diamond::before, .diamond::after {
-  content: '';
-  width: 50px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.diamond span {
-  position: relative;
-  width: 8px; height: 8px;
-  background: var(--gold);
-  transform: rotate(45deg);
-  box-shadow: 0 0 12px rgba(212,175,55,0.7);
-}
-.diamond span::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border: 1px solid rgba(212,175,55,0.5);
-  transform: rotate(0deg);
-}
-
 .role {
+  margin-top: 0.55rem;
   font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 0.3rem;
-  line-height: 1.3;
+  font-size: 0.86rem;
 }
-.role em { color: var(--gold-soft); font-style: italic; font-weight: 600; }
+.role em { color: var(--gold-soft); }
 .sub {
+  margin-top: 0.16rem;
   font-family: var(--serif);
+  font-size: 0.84rem;
   font-style: italic;
-  font-size: 0.95rem;
   color: var(--pale-lav);
-  margin-bottom: 1.6rem;
 }
 
-/* ─── Tagline (frame ornament) ─── */
-.tagline {
+.manifesto {
+  margin: 0.95rem 0 0.84rem;
+  text-align: center;
+  position: relative;
+}
+.manifesto::before {
+  content: '';
+  position: absolute; top: 0.55rem; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.34), transparent);
+}
+.manifesto__chip {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.8rem;
+  background: var(--purple-night);
+  color: var(--gold-soft);
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+.manifesto h2 {
+  margin-top: 0.48rem;
   font-family: var(--display);
   font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.45;
-  color: #fff;
-  margin: 0 auto 2rem;
-  max-width: min(22rem, 100%);   /* nunca sobrepasa el contenedor */
-  padding: 1.4rem 2rem;
+  font-size: 1.38rem;
+  line-height: 1.16;
+}
+.manifesto strong {
+  background: linear-gradient(110deg, var(--gold-dark), var(--gold-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.locations {
+  margin-top: 0.58rem;
+  display: inline-flex; gap: 0.46rem; align-items: center;
+  color: var(--pale-lav);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+.locations .dot { color: var(--gold); font-size: 0.44rem; }
+.status {
+  margin-top: 0.58rem;
+  display: inline-flex; align-items: center; gap: 0.48rem;
+  border-radius: 999px;
+  border: 1px solid rgba(74,222,128,0.34);
+  background: linear-gradient(135deg, rgba(74,222,128,0.12), rgba(212,175,55,0.08));
+  color: #bdeece;
+  padding: 0.36rem 0.9rem;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.status__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 8px #4ADE80;
+}
+
+.bento {
+  margin-top: 0.92rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.52rem;
+}
+.tile {
   position: relative;
-  background: linear-gradient(135deg, rgba(212,175,55,0.06), rgba(155,107,196,0.06));
-  border-radius: 16px;
-  border: 1px solid rgba(212,175,55,0.18);
+  overflow: hidden;
+  /* ritual motion (ver /elara-ritual.css) */
+  border-radius: 14px;
+  border: 1px solid rgba(212,175,55,0.24);
+  background: linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-position 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
-.tagline::before, .tagline::after {
-  content: '"';
-  font-family: var(--display);
-  font-size: 2.4rem;
-  color: var(--gold);
+.tile::before {
+  content: '';
   position: absolute;
-  top: 6px;
-  line-height: 0.8;
-  font-weight: 700;
+  top: 0; left: -120%; width: 120%; height: 100%;
+  background: linear-gradient(110deg, transparent 20%, rgba(212,175,55,0.16) 50%, transparent 80%);
+  transition: left 650ms ease;
 }
-.tagline::before { left: 12px; }
-.tagline::after  { right: 12px; transform: scaleX(-1); }
-.tagline strong {
-  background: linear-gradient(110deg, var(--gold-dark), var(--gold), var(--gold-soft));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-  font-weight: 700;
-}
-
-/* Corner ornaments on tagline */
-.tagline-corner {
+.tile::after {
+  content: '';
   position: absolute;
-  width: 16px; height: 16px;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(201,169,110,0.18) 0%, rgba(201,169,110,0) 72%);
+  opacity: 0;
+  transition: opacity 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
 }
-.tagline-corner--tl { top: 6px; left: 6px;
-  border-top: 1px solid var(--gold); border-left: 1px solid var(--gold);
-  border-top-left-radius: 6px; }
-.tagline-corner--br { bottom: 6px; right: 6px;
-  border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold);
-  border-bottom-right-radius: 6px; }
-
-/* ─── Locations ─── */
-.locations {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold-soft);
-  display: flex; justify-content: center; align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
-}
-.locations .sep { color: var(--gold); font-size: 0.55rem; opacity: 0.8; }
-
-/* Status pill — "available now" */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2.2rem;
-  padding: 0.45rem 1rem;
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.12), rgba(212, 175, 55, 0.06));
-  border: 1px solid rgba(74, 222, 128, 0.35);
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #B7F2CC;
-  max-width: 100%;
-  white-space: nowrap;
-}
-@media (max-width: 380px) {
-  .status { font-size: 0.6rem; letter-spacing: 0.1em; }
-}
-.status__dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 8px #4ADE80;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50%     { opacity: 0.6; transform: scale(1.25); }
-}
-
-/* ─── Section divider ─── */
-.section-divider {
-  display: flex; justify-content: center; align-items: center;
-  gap: 0.7rem;
-  margin: 0 0 1.5rem;
-  position: relative;
-}
-.section-divider::before, .section-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
-}
-.section-divider svg {
-  width: 28px; height: 28px;
-  color: var(--gold);
-  filter: drop-shadow(0 0 6px rgba(212,175,55,0.5));
-}
-
-/* ─── Links ─── */
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  margin-bottom: 2rem;
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 1.25rem;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(212,175,55,0.32);
-  border-radius: 16px;
-  color: #fff;
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 4px 14px -8px rgba(0,0,0,0.4);
-}
-
-/* Top gold accent line on each link */
-.link::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 16px; right: 16px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
-  opacity: 0.4;
-  transition: opacity 0.4s ease;
-}
-
-/* Shimmer hover sweep */
-.link::before {
-  content: '';
-  position: absolute; top: 0; left: -100%; right: 0; bottom: 0;
-  background: linear-gradient(110deg, transparent 30%, rgba(212,175,55,0.15) 50%, transparent 70%);
-  transition: left 0.7s ease;
-}
-
-.link:hover {
-  background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(155,107,196,0.06));
-  border-color: var(--gold);
+.tile:hover {
   transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    0 16px 36px -14px rgba(212,175,55,0.4);
+  border-color: rgba(212,175,55,0.52);
+  box-shadow: 0 10px 22px -15px rgba(212,175,55,0.38);
+  background-position: 100% 50%;
 }
-.link:hover::before { left: 100%; }
-.link:hover::after { opacity: 1; }
-.link:hover .link__arrow { transform: translateX(6px); color: var(--gold); }
-.link:hover .link__icon { transform: scale(1.06); border-color: var(--gold); }
-
-.link__icon {
-  width: 42px; height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(212,175,55,0.22), rgba(212,175,55,0.04));
-  border: 1px solid rgba(212,175,55,0.4);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  color: var(--gold-soft);
-  transition: all 0.4s ease;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+.tile:hover::before { left: 110%; }
+.tile:hover::after { opacity: 1; }
+.tile--hero { grid-column: 1 / -1; padding: 0.92rem 0.92rem 0.88rem; min-height: 8rem; }
+.tile--banner { grid-column: 1 / -1; padding: 0.84rem 0.92rem; min-height: 6.4rem; }
+.tile--square { padding: 0.82rem 0.78rem; min-height: 7.5rem; }
+.tile__top {
+  display: flex; justify-content: space-between; align-items: center;
 }
-.link__icon svg { width: 19px; height: 19px; stroke-width: 2; }
-
-.link__body { flex: 1; text-align: left; line-height: 1.2; }
-.link__label { font-size: 0.96rem; }
-.link__hint {
-  display: block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: var(--pale-lav);
-  letter-spacing: 0.01em;
-  margin-top: 3px;
-  opacity: 0.85;
-}
-.link__arrow {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--pale-lav);
-  transition: all 0.4s ease;
-  flex-shrink: 0;
-}
-
-/* Featured (Portfolio — botón principal) */
-.link--featured {
-  background:
-    linear-gradient(135deg, rgba(212,175,55,0.22) 0%, rgba(212,175,55,0.06) 100%);
-  border: 1px solid var(--gold);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.15),
-    0 12px 32px -12px rgba(212,175,55,0.4);
-}
-.link--featured::after { opacity: 1; }
-.link--featured .link__icon {
-  background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-dark) 100%);
-  color: var(--purple-deep);
-  border-color: var(--gold);
-  box-shadow: 0 4px 12px rgba(212,175,55,0.4);
-}
-.link--featured .link__hint { color: var(--gold-soft); }
-.link--featured .link__arrow { color: var(--gold); }
-
-/* Tag badge "★ Principal" — DENTRO del borde para que no se corte con overflow:hidden */
-.link__badge {
-  position: absolute;
-  top: 10px; right: 14px;
+.tile__badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.22rem 0.46rem;
   background: linear-gradient(135deg, var(--gold-bright), var(--gold));
   color: var(--purple-deep);
-  font-family: var(--sans);
   font-size: 0.5rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(212,175,55,0.4);
-  z-index: 3;
-  pointer-events: none;
+  font-weight: 900;
+}
+.tile__icon {
+  width: 1.95rem; height: 1.95rem;
+  border-radius: 10px;
+  border: 1px solid rgba(212,175,55,0.44);
+  background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.05));
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--gold-soft);
+}
+.tile__icon svg { width: 1rem; height: 1rem; }
+.tile--wa .tile__icon {
+  border-color: rgba(74,222,128,0.45);
+  background: linear-gradient(135deg, rgba(74,222,128,0.24), rgba(74,222,128,0.05));
+  color: #7bf2ac;
+}
+.tile h3 {
+  margin-top: 0.48rem;
+  font-family: var(--display);
+  font-size: 0.96rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: letter-spacing 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.tile:hover h3 {
+  letter-spacing: 0.05em;
+}
+.tile p {
+  margin-top: 0.2rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.74rem;
+  color: var(--pale-lav);
+  opacity: 0.84;
+  line-height: 1.25;
+}
+.tile__arrow {
+  display: inline-flex;
+  margin-top: 0.42rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--gold-soft);
+  transition: transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* WhatsApp accent */
-.link--wa .link__icon {
-  background: linear-gradient(135deg, rgba(37, 211, 102, 0.28), rgba(37, 211, 102, 0.06));
-  border-color: rgba(37, 211, 102, 0.5);
-  color: #5DE693;
+.tile--hero h3,
+.tile--banner h3 {
+  font-size: 1.04rem;
 }
 
-/* ─── Tech ribbon (subtle marquee) ─── */
-.tech-ribbon {
-  margin: 1.5rem 0 2rem;
-  padding: 0.7rem 0;
+.tile:hover h3,
+.tile:hover .btn-explorar__label {
+  letter-spacing: 0.05em;
+}
+
+.tile:hover .tile__arrow {
+  transform: translateX(5px);
+}
+
+.tile:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.tile:active::after {
+  animation: ritual-ripple 620ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes ritual-ripple {
+  0% { opacity: 0.45; transform: scale(0.2); }
+  100% { opacity: 0; transform: scale(1.45); }
+}
+
+.tech {
+  margin: 0.9rem 0 0.72rem;
+  padding: 0.56rem 0;
   border-top: 1px solid rgba(212,175,55,0.18);
   border-bottom: 1px solid rgba(212,175,55,0.18);
   overflow: hidden;
-  position: relative;
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
 }
-.tech-ribbon__track {
-  display: flex; gap: 2rem;
+.tech__track {
+  display: flex;
+  gap: 1.4rem;
+  width: max-content;
   white-space: nowrap;
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  animation: marquee 26s linear infinite;
   color: var(--pale-lav);
-  animation: scroll 24s linear infinite;
-}
-.tech-ribbon__track span { display: inline-flex; align-items: center; gap: 1.6rem; }
-.tech-ribbon__track .gem { color: var(--gold); font-size: 0.6rem; }
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ─── Footer ─── */
-.footer {
-  margin-top: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212,175,55,0.20);
-  font-family: var(--sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: rgba(229,219,240,0.65);
+  font-size: 0.55rem;
   font-weight: 700;
+  letter-spacing: 0.27em;
+  text-transform: uppercase;
 }
-.footer .sep { color: var(--gold); margin: 0 0.5rem; }
-.footer__brand {
-  margin-top: 0.7rem;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
-  color: var(--gold-soft);
-  text-transform: none;
+.tech__track .gem { color: var(--gold); font-size: 0.48rem; margin-left: 0.66rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.footer {
+  text-align: center;
+  color: rgba(229,219,240,0.72);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.29em;
+  text-transform: uppercase;
 }
+.footer .sep { color: var(--gold); margin: 0 0.42rem; }
 .footer__sig {
-  display: block;
-  margin-top: 0.4rem;
+  margin-top: 0.46rem;
+  color: rgba(229,219,240,0.58);
   font-family: var(--display);
   font-style: italic;
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: none;
-  color: rgba(229,219,240,0.5);
+  font-size: 0.72rem;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 480px) {
-  body { padding: 2.5rem 1rem 2rem; }
-  .name { font-size: 2.4rem; }
-  .tagline { font-size: 1rem; padding: 1.2rem 1.6rem; }
-  .tagline::before, .tagline::after { font-size: 2rem; }
-  .avatar-wrap { width: 130px; height: 130px; }
-  .link { padding: 0.95rem 1rem; font-size: 0.9rem; }
-  .link__icon { width: 38px; height: 38px; }
-  .link__icon svg { width: 17px; height: 17px; }
-  .link__badge { top: 8px; right: 10px; font-size: 0.45rem; padding: 2px 6px; }
-  .locations { gap: 0.5rem; font-size: 0.62rem; }
-  .moon { width: 24px; height: 24px; }
-  .last { font-size: 0.85rem; letter-spacing: 0.28em; }
-  .footer__brand { font-size: 0.85rem; }
-}
-@media (max-width: 340px) {
-  .name { font-size: 2rem; }
-  .tagline { font-size: 0.92rem; padding: 1rem 1.3rem; }
-  .link__hint { font-size: 0.72rem; }
-}
-
-/* ─── Reveal anim ─── */
-@media (prefers-reduced-motion: no-preference) {
-  .hub > * {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: rise .8s cubic-bezier(.2,.8,.2,1) forwards;
-  }
-  .hub > *:nth-child(1) { animation-delay: .05s; }
-  .hub > *:nth-child(2) { animation-delay: .12s; }
-  .hub > *:nth-child(3) { animation-delay: .19s; }
-  .hub > *:nth-child(4) { animation-delay: .26s; }
-  .hub > *:nth-child(5) { animation-delay: .33s; }
-  .hub > *:nth-child(6) { animation-delay: .40s; }
-  .hub > *:nth-child(7) { animation-delay: .47s; }
-  .hub > *:nth-child(8) { animation-delay: .54s; }
-  .hub > *:nth-child(9) { animation-delay: .61s; }
-  .hub > *:nth-child(10) { animation-delay: .68s; }
-  .hub > *:nth-child(11) { animation-delay: .75s; }
-  .links .link { opacity: 0; animation: rise .65s cubic-bezier(.2,.8,.2,1) forwards; }
-  .links .link:nth-child(1) { animation-delay: .65s; }
-  .links .link:nth-child(2) { animation-delay: .73s; }
-  .links .link:nth-child(3) { animation-delay: .81s; }
-  .links .link:nth-child(4) { animation-delay: .89s; }
-  .links .link:nth-child(5) { animation-delay: .97s; }
-  .links .link:nth-child(6) { animation-delay: 1.05s; }
-}
-@keyframes rise {
-  to { opacity: 1; transform: none; }
+@media (max-width: 420px) {
+  .fusion { width: min(100%, 30rem); }
+  .tile--square { min-height: 7.8rem; }
+  .tile--banner { min-height: 6.7rem; }
+  .tile h3 { font-size: 0.9rem; }
+  .tile p { font-size: 0.72rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- moon ornament top-left -->
-<svg class="moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="url(#moonGrad)" stroke="#D4AF37" stroke-width="1"/>
-  <defs>
-    <linearGradient id="moonGrad" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#F2D578"/>
-      <stop offset="100%" stop-color="#D4AF37"/>
-    </linearGradient>
-  </defs>
-</svg>
+<main class="fusion">
+  <div class="motes" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
 
-<span class="signature-corner">— EVELYN ·  2026 —</span>
-
-<span class="ornament ornament--tl">E</span>
-<span class="ornament ornament--br">P</span>
-
-<main class="hub">
-
-  <div class="avatar-wrap">
-    <!-- twinkling stars -->
-    <svg class="avatar-spark avatar-spark--1" viewBox="0 0 24 24" fill="#F2D578" aria-hidden="true"><path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z"/></svg>
-    <svg class="avatar-spark avatar-spark--2" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z"/></svg>
-    <svg class="avatar-spark avatar-spark--3" viewBox="0 0 24 24" fill="#E5C770" aria-hidden="true"><path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z"/></svg>
-
-    <div class="avatar">
-      <span class="avatar-fallback">EP</span>
-      <img src="/_assets/photos/evelyn_pro_perfil.jpg" alt="Evelyn Patiño Laverde" onerror="this.style.display='none'" />
+  <header class="masthead">
+    <div class="masthead__left">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="#D4AF37" stroke="#E5C770" stroke-width="1"/>
+      </svg>
+      <span>Vol. I — MMXXVI</span>
     </div>
-  </div>
+    <span class="masthead__right">soyelaranova.com</span>
+  </header>
 
-  <p class="eyebrow">Servicios Freelance · 2026</p>
+  <section class="hero">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <img src="/_assets/photos/evelyn_pro_perfil.jpg" alt="Evelyn Patiño Laverde" onerror="this.style.display='none'" />
+      </div>
+    </div>
 
-  <h1 class="name">Evelyn</h1>
-  <div class="last">Patiño Laverde</div>
+    <p class="eyebrow">Ingeniera · Freelance · 2026</p>
+    <h1 class="name">Evelyn</h1>
+    <div class="filigree" aria-hidden="true"></div>
+    <p class="last">Patiño Laverde</p>
+    <p class="role">Ingeniera de Software · <em>Especialista Angular</em></p>
+    <p class="sub">6 años · Sophos · Bancolombia</p>
+  </section>
 
-  <div class="diamond"><span></span></div>
+  <section class="manifesto">
+    <span class="manifesto__chip">Manifiesto</span>
+    <h2>Pienso como <strong>diseñadora</strong>,<br>construyo como <strong>ingeniera</strong>.</h2>
+    <div class="locations">
+      <span>Suiza</span><span class="dot">◆</span>
+      <span>España</span><span class="dot">◆</span>
+      <span>Latam</span>
+    </div>
+    <span class="status"><span class="status__dot"></span>Disponible ahora</span>
+  </section>
 
-  <p class="role">Ingeniera de Software · <em>Especialista Angular</em></p>
-  <p class="sub">6 años en software financiero · Sophos · Bancolombia</p>
-
-  <div class="tagline">
-    <span class="tagline-corner tagline-corner--tl"></span>
-    Pienso como <strong>diseñadora</strong>, construyo como <strong>ingeniera</strong>.
-    <span class="tagline-corner tagline-corner--br"></span>
-  </div>
-
-  <div class="locations">
-    <span>Suiza</span><span class="sep">◆</span>
-    <span>España</span><span class="sep">◆</span>
-    <span>LATAM</span>
-  </div>
-
-  <span class="status">
-    <span class="status__dot"></span>
-    Disponible para nuevos proyectos
-  </span>
-
-  <div class="section-divider" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/>
-    </svg>
-  </div>
-
-  <nav class="links" aria-label="Enlaces principales">
-
-    <a class="link link--featured" href="/portfolio">
-      <span class="link__badge">★ Principal</span>
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 4v6"/></svg>
-      </span>
-      <span class="link__body">
-        <span class="link__label">Portfolio completo</span>
-        <span class="link__hint">Sitios · apps · IA · análisis técnico</span>
-      </span>
-      <span class="link__arrow">→</span>
+  <nav class="bento" aria-label="Enlaces principales B2B">
+    <a class="tile tile--hero btn-ritual btn-ritual--ghost" href="/portfolio">
+      <div class="tile__top">
+        <span class="tile__badge">Principal</span>
+        <span class="tile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5 13.8 8.2 19.5 10 13.8 11.8 12 17.5 10.2 11.8 4.5 10 10.2 8.2Z"/>
+            <circle cx="18.5" cy="5.5" r="1"/>
+          </svg>
+        </span>
+      </div>
+      <h3 class="btn-explorar__label">Portfolio completo</h3>
+      <p>Sitios · apps · IA · análisis técnico</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
 
-    <a class="link" href="/cv">
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+    <a class="tile tile--square btn-ritual btn-ritual--ghost" href="/cv">
+      <span class="tile__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 3h8l4 4v14H7z"/>
+          <path d="M15 3v5h4"/>
+          <path d="M10 12h6M10 15h6"/>
+        </svg>
       </span>
-      <span class="link__body">
-        <span class="link__label">Currículum</span>
-        <span class="link__hint">Experiencia · stack · idiomas</span>
-      </span>
-      <span class="link__arrow">→</span>
+      <h3>CV</h3>
+      <p>Experiencia · stack · idiomas</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
 
-    <a class="link" href="https://www.linkedin.com/in/evelyn-patino-laverde/" target="_blank" rel="noopener">
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    <a class="tile tile--square btn-ritual btn-ritual--ghost" href="https://www.linkedin.com/in/evelyn-patino-laverde/" target="_blank" rel="noopener">
+      <span class="tile__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9h4v9H6zM8 6v.01"/>
+          <path d="M14 9h4a3 3 0 0 1 3 3v6h-4v-5a1.5 1.5 0 0 0-3 0v5h-4z"/>
+        </svg>
       </span>
-      <span class="link__body">
-        <span class="link__label">LinkedIn</span>
-        <span class="link__hint">Conectar profesionalmente</span>
-      </span>
-      <span class="link__arrow">→</span>
+      <h3>LinkedIn</h3>
+      <p>Conectar profesionalmente</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
 
-    <a class="link link--wa" href="https://wa.me/41783480550?text=Hola%20Evelyn%2C%20te%20escribo%20por%20tu%20portfolio." target="_blank" rel="noopener">
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <a class="tile tile--square tile--wa btn-ritual btn-ritual--ghost" href="https://wa.me/41783480550?text=Hola%20Evelyn%2C%20te%20escribo%20por%20tu%20portfolio." target="_blank" rel="noopener">
+      <span class="tile__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20a8 8 0 1 1 6.8-3.8L20 21l-4.8-1.2A8 8 0 0 1 12 20z"/>
+          <path d="M9.3 11.3c1.2 2 2.2 3 4.2 4.2"/>
+        </svg>
       </span>
-      <span class="link__body">
-        <span class="link__label">WhatsApp</span>
-        <span class="link__hint">+41 78 348 0550 · respuesta directa</span>
-      </span>
-      <span class="link__arrow">→</span>
+      <h3>WhatsApp</h3>
+      <p>+41 78 348 0550</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
 
-    <a class="link" href="mailto:evelynpatildr@gmail.com?subject=Proyecto%20freelance">
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <a class="tile tile--square btn-ritual btn-ritual--ghost" href="mailto:evelynpatildr@gmail.com?subject=Proyecto%20freelance">
+      <span class="tile__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="M3 7.5 12 13l9-5.5"/>
+          <path d="M19 5 17.8 3.6"/>
+        </svg>
       </span>
-      <span class="link__body">
-        <span class="link__label">Email</span>
-        <span class="link__hint">evelynpatildr@gmail.com</span>
-      </span>
-      <span class="link__arrow">→</span>
+      <h3>Email</h3>
+      <p>Contacto directo</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
 
-    <a class="link" href="/descubrimiento">
-      <span class="link__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <a class="tile tile--banner btn-ritual btn-ritual--ghost" href="/descubrimiento">
+      <span class="tile__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 5h16v10a2 2 0 0 1-2 2H9l-5 4z"/>
+          <path d="M8 10h8M8 13h6"/>
+        </svg>
       </span>
-      <span class="link__body">
-        <span class="link__label">¿Tienes un proyecto?</span>
-        <span class="link__hint">Cuéntame — formulario de descubrimiento</span>
-      </span>
-      <span class="link__arrow">→</span>
+      <h3>¿Tienes un proyecto?</h3>
+      <p>Cuéntame y te respondo con ruta clara</p>
+      <span class="tile__arrow btn-arrow__icon">→</span>
     </a>
-
   </nav>
 
-  <!-- Tech ribbon -->
-  <div class="tech-ribbon" aria-hidden="true">
-    <div class="tech-ribbon__track">
+  <section class="tech" aria-hidden="true">
+    <div class="tech__track">
       <span>Angular <span class="gem">◆</span> TypeScript <span class="gem">◆</span> Java <span class="gem">◆</span> .NET <span class="gem">◆</span> SQL <span class="gem">◆</span> WordPress <span class="gem">◆</span> IA aplicada <span class="gem">◆</span> Tailwind <span class="gem">◆</span> APIs <span class="gem">◆</span></span>
       <span>Angular <span class="gem">◆</span> TypeScript <span class="gem">◆</span> Java <span class="gem">◆</span> .NET <span class="gem">◆</span> SQL <span class="gem">◆</span> WordPress <span class="gem">◆</span> IA aplicada <span class="gem">◆</span> Tailwind <span class="gem">◆</span> APIs <span class="gem">◆</span></span>
     </div>
-  </div>
+  </section>
 
-  <p class="footer">
-    Construido a mano <span class="sep">◆</span> Angular · HTML · CSS · café
-    <span class="footer__brand">soyelaranova.com</span>
-    <span class="footer__sig">— hecho con cuidado, en Lausana —</span>
-  </p>
-
+  <footer class="footer">
+    Construido a mano <span class="sep">◆</span> Angular · Next · café
+    <div class="footer__sig">— hecho con cuidado, en Lausana —</div>
+  </footer>
 </main>
 
 </body>
