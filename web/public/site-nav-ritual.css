@@ -1,0 +1,346 @@
+/**
+ * Nav ritual unificado · Next (SiteNav) + HTML estático B2B
+ * Mantener en sync con web/components/site-nav.tsx
+ */
+:root {
+  --site-nav-h: 72px;
+  --ease-ritual: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --color-void: #0a0010;
+  --color-purple-night: #1a0f3d;
+  --color-gold: #d4af37;
+  --color-gold-bright: #f2d578;
+  --color-gold-soft: #e5c770;
+  --color-cream: #faf4e2;
+  --shadow-glow-purple: 0 0 40px rgba(155, 107, 196, 0.4);
+}
+
+body.has-site-nav {
+  padding-top: var(--site-nav-h);
+}
+
+[id] {
+  scroll-margin-top: calc(var(--site-nav-h) + 12px);
+}
+
+/* ─── Barra fija ─── */
+.site-nav-ritual {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: var(--site-nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  transition:
+    background 500ms var(--ease-ritual),
+    border-color 500ms var(--ease-ritual),
+    box-shadow 500ms var(--ease-ritual),
+    backdrop-filter 500ms var(--ease-ritual);
+  background: linear-gradient(to bottom, rgb(26 15 61 / 0.72), transparent);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.site-nav-ritual.is-scrolled {
+  border-bottom: 1px solid rgb(212 175 55 / 0.18);
+  background: rgb(26 15 61 / 0.9);
+  box-shadow: 0 10px 44px rgb(0 0 0 / 0.48);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.site-nav-ritual__logo {
+  min-width: 0;
+  flex-shrink: 1;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--color-gold-bright);
+  text-decoration: none;
+  line-height: 1;
+  filter: drop-shadow(0 0 20px rgb(242 213 120 / 0.25));
+  transition: opacity 200ms var(--ease-ritual);
+}
+
+.site-nav-ritual__logo:hover {
+  opacity: 0.9;
+}
+
+.site-nav-ritual__logo--elara {
+  font-size: 1.35rem;
+}
+
+@media (min-width: 768px) {
+  .site-nav-ritual__logo--elara {
+    font-size: 1.65rem;
+  }
+}
+
+.site-nav-ritual__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .site-nav-ritual__actions {
+    gap: 0.75rem;
+  }
+}
+
+/* ─── Links escritorio (solo B2B opcional — oculto: todo en drawer) ─── */
+.site-nav-ritual__desktop {
+  display: none;
+}
+
+/* ─── CTA ─── */
+.nav-cta-ritual {
+  position: relative;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 420ms var(--ease-ritual),
+    box-shadow 420ms var(--ease-ritual);
+}
+
+@media (min-width: 640px) {
+  .nav-cta-ritual {
+    display: inline-flex;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+.nav-cta-ritual--gold {
+  color: var(--color-purple-night);
+  background: linear-gradient(135deg, #f2d578, #d4af37 50%, #b8941f);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  box-shadow: 0 0 24px rgb(212 175 55 / 0.22);
+}
+
+.nav-cta-ritual--gold:hover {
+  background-position: 100% 50%;
+}
+
+.nav-cta-ritual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgb(201 169 110 / 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 380ms var(--ease-ritual);
+  pointer-events: none;
+}
+
+.nav-cta-ritual:hover::before {
+  opacity: 1;
+}
+
+/* ─── Hamburguesa ─── */
+.site-nav-ritual__menu-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(212 175 55 / 0.25);
+  background: rgb(26 15 61 / 0.55);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  cursor: pointer;
+  transition: border-color 200ms var(--ease-ritual);
+}
+
+.site-nav-ritual__menu-btn:hover {
+  border-color: rgb(212 175 55 / 0.55);
+}
+
+.site-nav-ritual__menu-btn span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-cream);
+  transition: all 300ms var(--ease-ritual);
+  transform-origin: center;
+}
+
+.site-nav-ritual__menu-btn[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-nav-ritual__menu-btn[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.site-nav-ritual__menu-btn[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ─── Overlay + panel ─── */
+.site-nav-ritual__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  border: 0;
+  padding: 0;
+  cursor: default;
+  background: rgb(10 0 16 / 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms var(--ease-ritual);
+}
+
+.site-nav-ritual__overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.site-nav-ritual__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 75;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(360px, 88vw);
+  height: 100%;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  border-left: 1px solid rgb(212 175 55 / 0.2);
+  background: var(--color-purple-night);
+  box-shadow: var(--shadow-glow-purple);
+  transform: translateX(100%);
+  transition: transform 300ms var(--ease-ritual);
+}
+
+.site-nav-ritual__panel.is-open {
+  transform: translateX(0);
+}
+
+.site-nav-ritual__panel-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: url('/images/hero-elara-noche.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.site-nav-ritual__panel-veil {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-purple-night),
+    rgb(26 15 61 / 0.92),
+    var(--color-void)
+  );
+}
+
+.site-nav-ritual__panel-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.site-nav-ritual__panel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(250 244 226 / 0.08);
+  background: rgb(250 244 226 / 0.03);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: rgb(250 244 226 / 0.85);
+  text-decoration: none;
+  transition:
+    border-color 200ms var(--ease-ritual),
+    color 200ms var(--ease-ritual),
+    background 200ms var(--ease-ritual);
+}
+
+.site-nav-ritual__panel-item:hover {
+  border-color: rgb(212 175 55 / 0.35);
+  color: var(--color-gold-bright);
+}
+
+.site-nav-ritual__panel-item.is-active {
+  border-color: rgb(212 175 55 / 0.35);
+  background: rgb(212 175 55 / 0.08);
+  color: var(--color-gold-bright);
+}
+
+.site-nav-ritual__panel-num {
+  font-family: 'Lato', system-ui, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  color: rgb(229 199 112 / 0.55);
+}
+
+.site-nav-ritual__panel-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.site-nav-ritual__panel-tagline {
+  pointer-events: none;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  z-index: 1;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  color: rgb(229 199 112 / 0.55);
+  text-align: left;
+}
+
+/* Legacy alias */
+body.has-b2b-nav {
+  padding-top: var(--site-nav-h);
+}
+
+.en-b2b-nav {
+  display: none !important;
+}
+
+.lang-bar {
+  display: none !important;
+}

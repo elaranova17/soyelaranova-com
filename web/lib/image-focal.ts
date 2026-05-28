@@ -1,35 +1,40 @@
 /**
- * Punto focal por asset — evita recortes raros con object-cover.
- * Valores CSS object-position (ej. "center 28%").
+ * Punto focal por asset Pixar — prioriza rostro visible (object-position).
  */
 export const IMAGE_FOCAL: Record<string, string> = {
-  '/images/curso-astrologia.png': 'center 22%',
-  '/images/meditacion-lunar.png': 'center 30%',
-  '/images/herramienta-oraculo.png': 'center 35%',
-  '/images/herramienta-chakras.png': 'center 40%',
-  '/images/herramienta-rituales.png': 'center 35%',
-  '/images/herramienta-proposito.png': 'center 30%',
-  '/images/herramienta-sinastria.png': 'center 32%',
-  '/images/herramienta-calendario-lunar.png': 'center 28%',
-  '/images/herramienta-carta-natal.png': 'center 25%',
-  '/images/herramienta-ciclos-lunares.png': 'center 30%',
-  '/images/herramienta-astrologia.png': 'center 28%',
-  '/images/oraculo-maestra.png': 'center 40%',
-  '/images/ciclos-lunares-rituales.png': 'center 32%',
-  '/images/circulo-juntas.png': 'center 35%',
-  '/images/circulo-ritual-lunar.png': 'center 38%',
-  '/images/circulo-ritual-inclusion.png': 'center 40%',
-  '/images/circulo-oraculo.png': 'center 42%',
-  '/images/circulo-estudio.png': 'center 38%',
-  '/images/circulo-carta-natal.png': 'center 35%',
-  '/images/elara-durmiendo.png': 'center 20%',
-  '/images/elara-meditando.png': 'center 18%',
-  '/images/elara-cocinando.png': 'center 22%',
-  '/images/elara-yoga.png': 'center 30%',
-  '/images/elara-pintando.png': 'center 20%',
-  '/images/hero-elara-noche.png': 'center 15%',
+  '/images/hero-elara-noche.png': '50% 18%',
+  '/images/oraculo-maestra.png': '50% 28%',
+  '/images/herramienta-oraculo.png': '50% 30%',
+  '/images/herramienta-carta-natal.png': '50% 25%',
+  '/images/herramienta-ciclos-lunares.png': '50% 28%',
+  '/images/herramienta-astrologia.png': '50% 26%',
+  '/images/herramienta-chakras.png': '50% 30%',
+  '/images/herramienta-rituales.png': '50% 28%',
+  '/images/herramienta-proposito.png': '50% 26%',
+  '/images/herramienta-sinastria.png': '50% 28%',
+  '/images/herramienta-calendario-lunar.png': '50% 24%',
+  '/images/herramienta-lectura-tarot.png': '50% 30%',
+  '/images/curso-astrologia.png': '50% 22%',
+  '/images/meditacion-lunar.png': '50% 28%',
+  '/images/ciclos-lunares-rituales.png': '50% 30%',
+  '/images/circulo-juntas.png': '50% 32%',
+  '/images/circulo-ritual-lunar.png': '50% 30%',
+  '/images/circulo-ritual-inclusion.png': '50% 32%',
+  '/images/circulo-oraculo.png': '50% 30%',
+  '/images/circulo-estudio.png': '50% 28%',
+  '/images/circulo-carta-natal.png': '50% 30%',
+  '/images/elara-durmiendo.png': '50% 20%',
+  '/images/elara-meditando.png': '50% 18%',
+  '/images/elara-cocinando.png': '50% 22%',
+  '/images/elara-yoga.png': '50% 26%',
+  '/images/elara-pintando.png': '50% 20%',
+  '/images/elara-aprendiendo.png': '50% 22%',
+  '/images/elara-journal.png': '50% 24%',
+  '/images/elara-cursos.png': '50% 26%',
+  '/images/chakras-v2.png': '50% 30%',
+  '/images/carta-natal-v2.png': '50% 25%',
 }
 
 export function imageFocal(src: string): string {
-  return IMAGE_FOCAL[src] ?? 'center center'
+  return IMAGE_FOCAL[src] ?? '50% 28%'
 }

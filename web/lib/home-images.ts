@@ -1,7 +1,7 @@
 /**
- * Mapa de imágenes del home · una sola fuente, sin repetir entre secciones.
- * Si falta asset: null → slot vacío (placeholder).
+ * Mapa de imágenes del home · Pixar only + slots morados para generar.
  */
+import { generate, pixar, type MediaRef } from '@/lib/media'
 import { siteImages } from '@/lib/site-images'
 
 export const homeImages = {
@@ -23,33 +23,33 @@ export const homeImages = {
     siteImages.circulo.cartaNatal,
   ] as const,
   circuloStrip: [
-    siteImages.circulo.oraculo,
+    siteImages.circulo.ritualLunar,
     siteImages.circulo.estudio,
-    siteImages.circulo.ritualInclusion,
+    siteImages.circulo.cartaNatal,
   ] as const,
   sobrePortrait: siteImages.sobre.journal,
   contacto: siteImages.circulo.juntas,
   herramientas: [
-    siteImages.herramientas.cartaNatal,
-    siteImages.herramientas.ciclosLunares,
-    siteImages.herramientas.oraculo,
-    siteImages.herramientas.chakras,
-    siteImages.herramientas.rituales,
-    siteImages.herramientas.proposito,
-    siteImages.herramientas.sinastria,
-    siteImages.herramientas.calendarioLunar,
-    '/images/chakras-v2.png',
+    pixar(siteImages.herramientas.cartaNatal),
+    pixar(siteImages.herramientas.ciclosLunares),
+    pixar(siteImages.herramientas.oraculo),
+    pixar(siteImages.herramientas.chakras),
+    pixar(siteImages.herramientas.rituales),
+    pixar(siteImages.herramientas.proposito),
+    pixar(siteImages.herramientas.sinastria),
+    pixar(siteImages.herramientas.calendarioLunar),
+    generate('herramienta-cristales', 'Cristales & energía'),
   ] as const,
   cursos: [
-    siteImages.cursos.astrologia,
-    siteImages.herramientas.oraculo,
-    siteImages.cursos.estudiante,
+    pixar(siteImages.cursos.astrologia),
+    generate('curso-oraculo-cover', 'Curso · Oráculo intuitivo'),
+    pixar(siteImages.cursos.estudiante),
   ] as const,
   productos: [
-    siteImages.cursos.astrologia,
-    siteImages.tienda.planificadorLunar,
-    '/images/herramienta-lectura-tarot.png',
-    siteImages.tienda.kitRituales,
-    siteImages.herramientas.calendarioLunar,
+    pixar(siteImages.cursos.astrologia),
+    generate('producto-ebook-ciclo-nova', 'Ebook · Ciclo Nova del Regreso'),
+    generate('producto-oraculo-pack', 'Pack · Oráculo intuitivo'),
+    pixar(siteImages.tienda.kitRituales),
+    generate('producto-planificador-lunar', 'Planificador lunar · PDF'),
   ] as const,
-} as const
+} as const satisfies Record<string, string | readonly string[] | readonly MediaRef[]>

@@ -1,0 +1,1228 @@
+/* ============================================
+   ELARA NOVA — REDISEÑO COMPLETO 2026
+   Todos los cambios aplicados
+   ============================================ */
+
+/* --- VARIABLES GLOBALES --- */
+:root {
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0f0f24;
+  --bg-card: rgba(255,255,255,0.03);
+  --text-primary: #E8DCC8;
+  --text-secondary: rgba(232, 220, 200, 0.6);
+  --text-muted: rgba(232, 220, 200, 0.4);
+  --gold: #C9A96E;
+  --gold-light: rgba(201, 169, 110, 0.15);
+  --gold-medium: rgba(201, 169, 110, 0.3);
+  --gold-dark: rgba(201, 169, 110, 0.5);
+  --purple: #6B4E9F;
+  --purple-light: #8B6BBE;
+  --timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --radius: 16px;
+  --radius-lg: 20px;
+}
+
+/* Reset scoped — el sitio Next usa globals.css para body */
+.elara-tools *,
+.elara-cursos *,
+.elara-productos *,
+.elara-process *,
+.elara-bio *,
+.elara-clients * {
+  box-sizing: border-box;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   SISTEMA DE ICONOS UNIVERSAL
+   Aplicar a TODOS los iconos del sitio
+   ============================================ */
+
+.elara-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  color: rgba(201, 169, 110, 0.5);
+  font-size: 1.2rem;
+  transition: all 0.4s var(--timing);
+  cursor: pointer;
+  position: relative;
+}
+
+.elara-icon:hover {
+  background: rgba(201, 169, 110, 0.2);
+  border-color: var(--gold-medium);
+  color: var(--gold);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.2);
+}
+
+.elara-icon:active { transform: scale(0.95); }
+
+.elara-icon.active {
+  background: rgba(201, 169, 110, 0.25);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 24px rgba(201, 169, 110, 0.3);
+}
+
+/* ============================================
+   SECCIÓN 1: HERRAMIENTAS DE ALMA
+   ============================================ */
+
+.elara-tools {
+  background: var(--bg-primary);
+  padding: 60px 24px;
+}
+
+.tools-label {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.tools-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* --- Cajones superiores (4 items) --- */
+.cajones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.4s var(--timing);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(201,169,110,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tool-card:hover {
+  background: rgba(201, 169, 110, 0.05);
+  border-color: var(--gold-medium);
+  transform: translateY(-4px);
+}
+
+.tool-card:hover::before { opacity: 1; }
+
+/* Icono SIN círculo contenedor */
+.tool-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  display: block;
+  color: rgba(201, 169, 110, 0.4);
+  transition: all 0.4s ease;
+  line-height: 1;
+}
+
+.tool-card[data-tool="vivas"] .tool-icon::before { content: '✦'; }
+.tool-card[data-tool="rituales"] .tool-icon::before { content: '🌙'; }
+.tool-card[data-tool="material"] .tool-icon::before { content: '📖'; }
+.tool-card[data-tool="acompanamiento"] .tool-icon::before { content: '🤝'; }
+
+.tool-card:hover .tool-icon {
+  color: var(--gold);
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(201, 169, 110, 0.4));
+}
+
+.tool-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-title {
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.tool-card p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.tool-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  color: var(--gold);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.tool-card:hover .tool-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Timeline inferior (4 pasos) --- */
+.ritual-timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 40px;
+}
+
+.ritual-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(201, 169, 110, 0.2) 15%,
+    rgba(201, 169, 110, 0.2) 85%,
+    transparent 100%
+  );
+}
+
+.ritual-step {
+  position: relative;
+  padding: 16px 0;
+  opacity: 0.45;
+  transition: all 0.5s ease;
+  cursor: default;
+}
+
+.ritual-step::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(201, 169, 110, 0.3);
+  transition: all 0.4s var(--timing);
+}
+
+.ritual-step:hover {
+  opacity: 1;
+  padding-left: 12px;
+}
+
+.ritual-step:hover::before {
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.5);
+  transform: scale(1.4);
+}
+
+.ritual-step h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.ritual-step p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.ritual-step:hover p {
+  color: rgba(232, 220, 200, 0.85);
+}
+
+/* --- Botón Unite al Círculo --- */
+.btn-circulo {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+  color: var(--text-primary);
+  padding: 18px 48px;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--timing);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-circulo::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(107,78,159,0.5), rgba(139,107,190,0.5));
+  filter: blur(15px);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.btn-circulo:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(107, 78, 159, 0.5);
+}
+
+.btn-circulo:hover::before {
+  opacity: 0.8;
+  filter: blur(25px);
+}
+
+.btn-circulo:active { transform: scale(0.97); }
+
+.btn-circulo .star {
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+
+.btn-circulo:hover .star {
+  transform: rotate(90deg) scale(1.3);
+  filter: drop-shadow(0 0 10px rgba(201, 169, 110, 0.8));
+}
+
+/* ============================================
+   SECCIÓN 2: CURSOS (Experiencias en vivo)
+   ============================================ */
+
+.elara-cursos {
+  background: var(--bg-primary);
+  padding: 60px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-label {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 400;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.curso-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.5s var(--timing);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-medium);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.curso-imagen {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.curso-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.curso-card:hover .curso-imagen img { transform: scale(1.08); }
+
+.curso-content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-titulo {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.curso-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.curso-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.curso-meta-tag {
+  font-size: 0.7rem;
+  color: rgba(201, 169, 110, 0.8);
+  background: var(--gold-light);
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.05em;
+}
+
+.curso-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.curso-precio {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.curso-btn {
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.curso-btn:hover {
+  background: var(--gold-medium);
+  transform: scale(1.05);
+}
+
+/* ============================================
+   DIVISOR ENTRE SECCIONES
+   ============================================ */
+
+.elara-divider {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.elara-divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.3));
+}
+
+.elara-divider-text {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* ============================================
+   SECCIÓN 3: PRODUCTOS (Artefactos digitales)
+   ============================================ */
+
+.elara-productos {
+  background: var(--bg-secondary);
+  padding: 60px 24px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.producto-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.5s var(--timing);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+}
+
+.producto-card:hover {
+  border-color: rgba(201, 169, 110, 0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.producto-imagen {
+  height: 100%;
+  min-height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.producto-content {
+  padding: 24px;
+}
+
+.producto-titulo {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.producto-specs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.producto-spec {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.producto-spec::before {
+  content: '·';
+  margin-right: 6px;
+  color: var(--gold-dark);
+}
+
+.producto-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.producto-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.producto-precio {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.producto-btn {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.producto-btn:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-dark);
+}
+
+/* ============================================
+   SECCIÓN 4: TIMELINE "ASÍ CREA EVELYN"
+   ============================================ */
+
+.elara-process {
+  background: var(--bg-primary);
+  padding: 60px 24px 80px;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.process-label {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.process-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.process-subtitle {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 12px;
+}
+
+.process-timeline {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(201, 169, 110, 0.1);
+}
+
+.timeline-track-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--gold) 0%,
+    rgba(201, 169, 110, 0.3) 100%
+  );
+  height: 0%;
+  transition: height 0.3s ease;
+}
+
+.timeline-step {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  opacity: 0.3;
+  transition: all 0.6s var(--timing);
+  position: relative;
+}
+
+.timeline-step:last-child { margin-bottom: 0; }
+
+/* Pasos impares: texto izquierda */
+.timeline-step:nth-child(odd) .step-content {
+  grid-column: 1;
+  text-align: right;
+}
+
+.timeline-step:nth-child(odd) .step-icon-wrap { grid-column: 2; }
+.timeline-step:nth-child(odd) .step-spacer { grid-column: 3; }
+
+/* Pasos pares: texto derecha */
+.timeline-step:nth-child(even) .step-content {
+  grid-column: 3;
+  text-align: left;
+}
+
+.timeline-step:nth-child(even) .step-icon-wrap { grid-column: 2; }
+.timeline-step:nth-child(even) .step-spacer { grid-column: 1; }
+
+.step-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  border: 2px solid rgba(201, 169, 110, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: rgba(201, 169, 110, 0.4);
+  transition: all 0.5s ease;
+}
+
+.step-number {
+  position: absolute;
+  bottom: -20px;
+  font-size: 0.65rem;
+  color: rgba(201, 169, 110, 0.3);
+  letter-spacing: 0.1em;
+}
+
+.step-content h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.step-content p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Estado activo */
+.timeline-step.is-active {
+  opacity: 1;
+}
+
+.timeline-step.is-active .step-icon {
+  background: rgba(201, 169, 110, 0.2);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
+  transform: scale(1.1);
+}
+
+.timeline-step.is-active .step-number {
+  color: var(--gold);
+}
+
+/* ============================================
+   SECCIÓN 5: BIO "LA MUJER DETRÁS"
+   ============================================ */
+
+.elara-bio {
+  background: var(--bg-secondary);
+  padding: 80px 24px;
+}
+
+.bio-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bio-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 32px;
+  border: 2px solid var(--gold-medium);
+  padding: 4px;
+  position: relative;
+}
+
+.bio-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  animation: bioPulse 3s ease-in-out infinite;
+}
+
+@keyframes bioPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.bio-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bio-label {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.bio-lead {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.bio-lead em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.bio-body {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bio-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s var(--timing);
+  position: relative;
+  overflow: hidden;
+}
+
+.bio-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.bio-cta:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.bio-cta:hover::before {
+  transform: scaleX(1);
+}
+
+.bio-cta .arrow {
+  transition: transform 0.3s ease;
+}
+
+.bio-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   SECCIÓN 6: CLIENTES / CASOS DE ÉXITO
+   ============================================ */
+
+.elara-clients {
+  background: #F5F0E8;
+  padding: 100px 24px;
+}
+
+.elara-clients-title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #1a1a2e;
+  margin-bottom: 64px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.elara-clients-title::before,
+.elara-clients-title::after {
+  content: '✦';
+  color: var(--gold);
+  margin: 0 16px;
+  font-size: 1.2rem;
+}
+
+.elara-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.client-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(26, 26, 46, 0.08);
+  transition: all 0.5s var(--timing);
+  cursor: pointer;
+}
+
+.client-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(26, 26, 46, 0.15);
+}
+
+.client-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.client-preview {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.client-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.client-card:hover .client-preview img {
+  transform: scale(1.05);
+}
+
+/* Vista previa sin screenshot (gradiente + mock UI) */
+.client-preview--ofelia {
+  background: linear-gradient(145deg, #1a1a2e 0%, #2d2d44 40%, #3d2580 100%);
+}
+
+.client-preview--sama {
+  background: linear-gradient(145deg, #1a2e1a 0%, #2d4438 45%, #1a1a2e 100%);
+}
+
+.client-preview__mock {
+  position: absolute;
+  inset: 12% 10% 8%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  transition: transform 0.6s ease;
+}
+
+.client-card:hover .client-preview__mock {
+  transform: scale(1.03);
+}
+
+.client-preview__bar {
+  height: 6px;
+  width: 40%;
+  border-radius: 4px;
+  background: rgba(201, 169, 110, 0.5);
+}
+
+.client-preview__line {
+  height: 4px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.client-preview__line--short {
+  width: 55%;
+}
+
+.client-preview__line--mid {
+  width: 72%;
+}
+
+.client-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,46,0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.client-card:hover .client-preview::after {
+  opacity: 1;
+}
+
+.client-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.client-card:hover .client-overlay {
+  opacity: 1;
+}
+
+.client-overlay-text {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.client-overlay-arrow {
+  color: var(--gold);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.client-card:hover .client-overlay-arrow {
+  transform: translateX(4px);
+}
+
+.client-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  z-index: 3;
+}
+
+.badge-active {
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1px solid var(--gold-medium);
+}
+
+.badge-happy {
+  background: rgba(46, 139, 87, 0.1);
+  color: #2E8B57;
+  border: 1px solid rgba(46, 139, 87, 0.2);
+}
+
+.client-info {
+  padding: 28px;
+}
+
+.client-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.client-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8a9a;
+  margin-bottom: 12px;
+}
+
+.client-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #5a5a6a;
+  margin-bottom: 20px;
+}
+
+.client-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: gap 0.3s ease;
+}
+
+.client-card:hover .client-view {
+  gap: 12px;
+}
+
+.client-view::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.client-card:hover .client-view::after {
+  transform: translateX(4px);
+}
+
+/* CTA Final */
+.client-cta {
+  max-width: 800px;
+  margin: 64px auto 0;
+  padding: 32px;
+  background: var(--gold-light);
+  border-radius: var(--radius);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  text-align: center;
+}
+
+.client-cta p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #4a4a5a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.client-cta a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-medium);
+  transition: border-color 0.3s ease;
+}
+
+.client-cta a:hover {
+  border-color: var(--gold);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .tools-layout,
+  .cursos-grid,
+  .productos-grid,
+  .elara-clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cajones-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-card {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-imagen {
+    height: 180px;
+  }
+
+  .timeline-step {
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+  }
+
+  .timeline-step:nth-child(odd) .step-content,
+  .timeline-step:nth-child(even) .step-content {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .timeline-step:nth-child(odd) .step-icon-wrap,
+  .timeline-step:nth-child(even) .step-icon-wrap {
+    grid-column: 1;
+  }
+
+  .step-spacer {
+    display: none;
+  }
+
+  .timeline-track {
+    left: 25px;
+  }
+
+  .client-preview {
+    height: 200px;
+  }
+}

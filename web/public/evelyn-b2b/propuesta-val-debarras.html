@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/evelyn-b2b/b2b-nav.css" />
+<link rel="stylesheet" href="/site-nav-ritual.css" />
+<link rel="stylesheet" href="/elara-ritual.css" />
 
 <style>
 /* ═══════════════════════════════════════════════════════
@@ -926,17 +927,13 @@ img { max-width: 100%; display: block; }
 }
 </style>
 </head>
-<body class="has-b2b-nav">
+<body>
+<div id="site-nav-root" data-active-path="/propuesta-val-debarras"></div>
+<script src="/site-nav-ritual.js" defer></script>
 
-<nav class="lang-bar" aria-label="Idioma / Langue">
+<nav class="lang-bar" aria-label="Idioma / Langue" hidden>
   <button type="button" class="lang-btn" data-lang-btn="fr" data-active="true">FR</button>
   <button type="button" class="lang-btn" data-lang-btn="es">ES</button>
-</nav>
-<nav class="en-b2b-nav" aria-label="Navegación Evelyn">
-  <a href="/linktree">← Enlaces</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/cv">CV</a>
-  <a href="/" class="en-b2b-nav__cta">Conoce a Elara</a>
 </nav>
 
 <!-- COVER -->

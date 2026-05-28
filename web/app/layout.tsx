@@ -58,7 +58,7 @@ export const metadata: Metadata = {
       'Herramientas de autoconocimiento para mujeres: astrología, oráculo, rituales y ciclos lunares.',
     images: [
       {
-        url: '/images/hero-portal-lago.png',
+        url: '/images/hero-elara-noche.png',
         width: 1200,
         height: 630,
         alt: 'Elara Nova',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: 'Elara Nova — Autoconocimiento para mujeres',
     description:
       'Herramientas de autoconocimiento para mujeres: astrología, oráculo, rituales y ciclos lunares.',
-    images: ['/images/hero-portal-lago.png'],
+    images: ['/images/hero-elara-noche.png'],
   },
   robots: {
     index: true,
