@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import type { ReactNode } from 'react'
-import { imageFocal } from '@/lib/image-focal'
 
 type SectionBannerProps = {
   src: string
@@ -10,7 +9,7 @@ type SectionBannerProps = {
   priority?: boolean
 }
 
-/** Banner full-bleed · imagen Pixar visible + velo suave (no corta rostros). */
+/** Banner con imagen de fondo visible + velo suave (evita colapso de fill en grid). */
 export function SectionBanner({
   src,
   alt,
@@ -18,8 +17,6 @@ export function SectionBanner({
   heightClass = 'h-[min(52vh,500px)] min-h-[280px]',
   priority = false,
 }: SectionBannerProps) {
-  const objectPosition = imageFocal(src)
-
   return (
     <div className={`relative w-full overflow-hidden ${heightClass}`}>
       <Image
@@ -28,16 +25,15 @@ export function SectionBanner({
         fill
         priority={priority}
         sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition }}
+        className="object-cover object-center"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0E0726]/78 via-[#0E0726]/25 to-[#0E0726]/55"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0E0726]/85 via-[#0E0726]/35 to-[#0E0726]/70"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0E0726]/65 via-transparent to-[#0E0726]/35"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0E0726]/75 via-[#0E0726]/15 to-[#0E0726]/40"
       />
       <div className="relative z-10 flex h-full min-h-[inherit] flex-col items-center justify-center px-6">
         {children}

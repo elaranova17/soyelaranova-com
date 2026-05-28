@@ -4,14 +4,10 @@ type ElaraLogoProps = {
   size?: 'sm' | 'md'
   href?: string
   className?: string
-  linkClassName?: string
 }
 
 /** Wordmark tipográfico — sin imagen ni fondo (estilo editorial). */
-export function ElaraLogo({ size = 'md', href = '/', className = '', linkClassName = '' }: ElaraLogoProps) {
-  const linkCls = ['inline-flex shrink-0 transition-opacity hover:opacity-90', linkClassName]
-    .filter(Boolean)
-    .join(' ')
+export function ElaraLogo({ size = 'md', href = '/', className = '' }: ElaraLogoProps) {
   const wordmark = (
     <span
       className={[
@@ -37,14 +33,14 @@ export function ElaraLogo({ size = 'md', href = '/', className = '', linkClassNa
 
   if (href.startsWith('#')) {
     return (
-      <a href={href} aria-label={label} className={linkCls}>
+      <a href={href} aria-label={label} className="inline-flex shrink-0 transition-opacity hover:opacity-90">
         {wordmark}
       </a>
     )
   }
 
   return (
-    <Link href={href} prefetch aria-label={label} className={linkCls}>
+    <Link href={href} prefetch aria-label={label} className="inline-flex shrink-0 transition-opacity hover:opacity-90">
       {wordmark}
     </Link>
   )
