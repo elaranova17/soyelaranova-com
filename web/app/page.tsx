@@ -4,9 +4,10 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, type FormEvent } from 'react'
+import { ElaraButton } from '@/components/elara-button'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
-import { ELARA_SECTIONS } from '@/lib/navigation'
+import { OracleRitualPanel } from '@/components/oracle-ritual-panel'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -44,12 +45,6 @@ type CreationStep = {
   icon: IconKey
   title: string
   text: string
-}
-
-type ServiceTrustItem = {
-  icon: IconKey
-  label: string
-  description: string
 }
 
 const fadeUp = {
@@ -277,13 +272,6 @@ const creationSteps: readonly CreationStep[] = [
   },
 ] as const
 
-const serviceTrustItems: readonly ServiceTrustItem[] = [
-  { icon: 'Correo',    label: 'Envíos con cuidado',  description: 'Empaques realizados con intención.' },
-  { icon: 'Proteccion', label: 'Compra segura',       description: 'Tus datos y pagos protegidos.' },
-  { icon: 'Comunidad', label: 'Atención real',        description: 'Siempre estamos para vos.' },
-  { icon: 'Corazon',   label: 'Cambios con respeto',  description: '14 días para devoluciones sin drama.' },
-] as const
-
 const toolCardStyles = {
   herramienta: {
     label: 'Herramienta',
@@ -453,6 +441,7 @@ export default function HomePage() {
   const [birthDate, setBirthDate] = useState('')
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
+  const [drawSignal, setDrawSignal] = useState(0)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -552,16 +541,16 @@ export default function HomePage() {
                 {ElaraIcons.Estrellas.render(11)}
               </motion.span>
               <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/75 uppercase">
-                Lo que siempre pudiste hacer ✦
+                Oráculo diario · universo Elara Nova
               </span>
             </motion.div>
 
             {/* H1 */}
-            <h1 className="font-display mb-6 text-[2.6rem] leading-[1.04] tracking-[-0.022em] text-[#F5EEF8] sm:text-[3.2rem] lg:text-[4.1rem]">
+            <h1 className="font-display mb-6 text-[2.65rem] leading-[1.04] text-[#F5EEF8] sm:text-[3.25rem] lg:text-[4.15rem]">
               {[
-                { content: 'Tu alma ya sabe.' },
-                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">Vos solo aprendés</em> },
-                { content: 'a escucharla.' },
+                { content: 'Mira todo lo que' },
+                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">siempre fuiste</em> },
+                { content: 'capaz de ser.' },
               ].map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <motion.div
@@ -580,9 +569,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif-italic mb-10 max-w-[380px] text-[1.05rem] leading-[1.8] text-[#C49AD4]/60 italic"
+              className="font-serif-italic mb-8 max-w-[430px] text-[1.08rem] leading-[1.8] text-[#E5DBF0]/72 italic"
             >
-              Herramientas de autoconocimiento para mujeres que eligen vivirse desde adentro.
+              Sacá tu carta del día y recibí una guía íntima para volver a vos. Una experiencia digital creada para sentirse como ritual, y funcionar como estrategia.
             </motion.p>
 
             {/* CTAs */}
@@ -590,25 +579,38 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-3.5 sm:flex-row"
+              className="flex flex-col gap-3.5 sm:flex-row sm:items-center"
             >
-              <motion.a
-                href="#herramientas"
-                whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(123,79,181,0.55)' }}
-                whileTap={{ scale: 0.97 }}
-                className="group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[#7B4FB5] px-8 py-4 text-[10px] font-semibold tracking-[0.32em] text-[#F5EEF8] uppercase"
+              <ElaraButton
+                type="button"
+                onClick={() => setDrawSignal((value) => value + 1)}
+                className="w-full sm:w-auto"
               >
-                <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.12] to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                Descubrí tu camino
-              </motion.a>
-              <motion.a
-                href="#circulo"
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center justify-center gap-2.5 rounded-2xl border border-[#7B4FB5]/40 px-8 py-4 text-[10px] tracking-[0.32em] text-[#C49AD4] uppercase transition-all duration-300 hover:border-[#D4AF37]/55 hover:bg-[#D4AF37]/[0.04] hover:text-[#D4AF37]"
-              >
-                Entrar al Círculo
-              </motion.a>
+                Sacá tu carta del día
+              </ElaraButton>
+              <ElaraButton href="/universo" variant="secondary" className="w-full sm:w-auto">
+                Ver universo
+              </ElaraButton>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.58, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 max-w-[360px] rounded-2xl border border-[#D4AF37]/18 bg-[#1A0F3D]/48 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl"
+            >
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <p className="text-[9px] font-semibold tracking-[0.32em] text-[#D4AF37]/80 uppercase">
+                  Ritual del día
+                </p>
+                <Link
+                  href="/portfolio"
+                  className="text-[9px] tracking-[0.24em] text-[#E5DBF0]/55 uppercase transition-colors hover:text-[#D4AF37]"
+                >
+                  Work by Evelyn
+                </Link>
+              </div>
+              <OracleRitualPanel drawSignal={drawSignal} />
             </motion.div>
           </div>
 
