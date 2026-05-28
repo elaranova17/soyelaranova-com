@@ -252,7 +252,7 @@ export function SiteNav() {
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.08]"
                 style={{
-                  backgroundImage: 'url(/images/hero-elara-noche.png)',
+                  backgroundImage: 'url(/images/hero-portal-lago.png)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}

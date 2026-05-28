@@ -7,7 +7,6 @@ import { useState, type FormEvent } from 'react'
 import { ElaraButton } from '@/components/elara-button'
 import { ElaraIcons } from '@/components/elara-icons'
 import { MagicParticles } from '@/components/magic-particles'
-import { OracleRitualPanel } from '@/components/oracle-ritual-panel'
 
 type IconKey = keyof typeof ElaraIcons
 
@@ -441,7 +440,6 @@ export default function HomePage() {
   const [birthDate, setBirthDate] = useState('')
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
-  const [drawSignal, setDrawSignal] = useState(0)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -470,12 +468,18 @@ export default function HomePage() {
 
       <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
         {/* ── BACKGROUND full-bleed ────────────────────────────── */}
-        <div className="absolute inset-0 linktree-page" aria-hidden>
-          <div className="linktree-stars absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/95 to-[#1A0F3D]/80" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0726]/70 via-transparent to-[#0E0726]/95" />
-          <div className="pointer-events-none absolute top-1/4 left-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.12] blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 right-0 h-[400px] w-[400px] translate-x-1/4 rounded-full bg-[#D4AF37]/[0.06] blur-[100px]" />
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src="/images/hero-portal-lago.png"
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0010] via-[#0E0726]/88 to-[#0E0726]/24" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0010]/35 via-transparent to-[#0E0726]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(212,175,55,0.10),transparent_38%)]" />
         </div>
 
         {/* Hero particles — más densas y grandes en el hero */}
@@ -501,32 +505,10 @@ export default function HomePage() {
           </motion.span>
         ))}
 
-        {/* ── IMAGEN HERO — derecha, solo lg+ ─────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-none absolute top-0 right-0 hidden h-full w-[48%] lg:block"
-          aria-hidden
-        >
-          <Image
-            src="/images/hero-elara-noche.png"
-            alt=""
-            fill
-            sizes="48vw"
-            priority
-            className="object-cover object-top"
-          />
-          {/* Velo izquierdo — funde con contenido */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0726] via-[#0E0726]/30 to-transparent" />
-          {/* Velo inferior */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0E0726]/90 via-transparent to-transparent" />
-        </motion.div>
-
         {/* ── CONTENIDO ─────────────────────────────────────────── */}
         <div className="relative z-10 flex min-h-[100svh] flex-col pt-[88px]">
           {/* Área principal — izquierda */}
-          <div className="flex flex-1 flex-col justify-center px-8 py-16 md:px-16 lg:max-w-[58%] xl:max-w-[52%]">
+          <div className="flex flex-1 flex-col justify-center px-8 py-16 md:px-16 lg:max-w-[58%] xl:max-w-[50%]">
             {/* Chip badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -571,7 +553,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif-italic mb-8 max-w-[430px] text-[1.08rem] leading-[1.8] text-[#E5DBF0]/72 italic"
             >
-              Sacá tu carta del día y recibí una guía íntima para volver a vos. Una experiencia digital creada para sentirse como ritual, y funcionar como estrategia.
+              Un portal de autoconocimiento creado para sentirse como ritual, convertir como estrategia y mostrar lo que una web premium puede hacer por una marca.
             </motion.p>
 
             {/* CTAs */}
@@ -581,12 +563,8 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.56, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col gap-3.5 sm:flex-row sm:items-center"
             >
-              <ElaraButton
-                type="button"
-                onClick={() => setDrawSignal((value) => value + 1)}
-                className="w-full sm:w-auto"
-              >
-                Sacá tu carta del día
+              <ElaraButton href="/oraculo" className="w-full sm:w-auto">
+                Entrar al portal
               </ElaraButton>
               <ElaraButton href="/universo" variant="secondary" className="w-full sm:w-auto">
                 Ver universo
@@ -597,20 +575,17 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.58, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 max-w-[360px] rounded-2xl border border-[#D4AF37]/18 bg-[#1A0F3D]/48 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl"
+              className="mt-8 flex max-w-[480px] flex-col gap-3 rounded-2xl border border-[#D4AF37]/18 bg-[#1A0F3D]/45 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between"
             >
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <p className="text-[9px] font-semibold tracking-[0.32em] text-[#D4AF37]/80 uppercase">
-                  Ritual del día
-                </p>
-                <Link
-                  href="/portfolio"
-                  className="text-[9px] tracking-[0.24em] text-[#E5DBF0]/55 uppercase transition-colors hover:text-[#D4AF37]"
-                >
-                  Work by Evelyn
-                </Link>
-              </div>
-              <OracleRitualPanel drawSignal={drawSignal} />
+              <p className="max-w-[260px] text-[11px] leading-relaxed tracking-[0.12em] text-[#E5DBF0]/65 uppercase">
+                También es un caso real de diseño, estrategia y desarrollo web.
+              </p>
+              <Link
+                href="/portfolio"
+                className="text-[10px] font-semibold tracking-[0.24em] text-[#D4AF37] uppercase transition-colors hover:text-[#F2D578]"
+              >
+                Work by Evelyn →
+              </Link>
             </motion.div>
           </div>
 
