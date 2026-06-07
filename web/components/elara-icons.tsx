@@ -58,7 +58,7 @@ function Defs() {
       </linearGradient>
       <radialGradient id="gPurpleShine" cx="35%" cy="25%" r="55%">
         <stop offset="0%" stopColor="#B48FE0" stopOpacity="0.55" />
-        <stop offset="100%" stopColor="#7B4FB5" stopOpacity="0" />
+        <stop offset="100%" stopColor="#5A2E8C" stopOpacity="0" />
       </radialGradient>
 
       {/* Gold metálico — bordes, detalles */}
@@ -127,7 +127,7 @@ function Defs() {
       </radialGradient>
       <radialGradient id="gPurpleGlow" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stopColor="#9B6EC8" stopOpacity="0.5" />
-        <stop offset="100%" stopColor="#7B4FB5" stopOpacity="0" />
+        <stop offset="100%" stopColor="#5A2E8C" stopOpacity="0" />
       </radialGradient>
 
       {/* Filtros */}
@@ -1002,7 +1002,7 @@ export function IconCard({
   variant?: 'default' | 'gold' | 'rose'
 }) {
   const glowColor =
-    variant === 'gold' ? '#D4AF37' : variant === 'rose' ? '#C49AD4' : '#7B4FB5'
+    variant === 'gold' ? '#D4AF37' : variant === 'rose' ? '#E5DBF0' : '#5A2E8C'
 
   return (
     <motion.div
@@ -1021,7 +1021,7 @@ export function IconCard({
         {icon}
       </motion.div>
       {label && (
-        <span className="font-sans text-[10px] tracking-widest text-[#C49AD4] uppercase">
+        <span className="font-sans text-[10px] tracking-widest text-[var(--color-pale-lav)] uppercase">
           {label}
         </span>
       )}
