@@ -203,10 +203,10 @@ const creationSteps: readonly CreationStep[] = [
 const toolCardStyles = {
   herramienta: {
     label: 'Herramienta',
-    card: 'border-[#7B4FB5]/20 bg-[#1A0F3D]',
+    card: 'border-[var(--color-purple-amethyst)]/20 bg-[#1A0F3D]',
     labelText: 'text-[#D4AF37]/50',
     title: 'text-[#F5EEF8]',
-    description: 'text-[#C49AD4]/60',
+    description: 'text-[var(--color-pale-lav)]/60',
     cta: 'border-white/10 text-[#F5EEF8]/70 hover:text-[#D4AF37]',
   },
   oraculo: {
@@ -214,15 +214,15 @@ const toolCardStyles = {
     card: 'border-[#D4AF37]/35 bg-[#1A0A40]',
     labelText: 'text-[#D4AF37]/60',
     title: 'text-[#F5EEF8]',
-    description: 'text-[#C49AD4]/70',
+    description: 'text-[var(--color-pale-lav)]/70',
     cta: 'border-[#D4AF37]/25 text-[#D4AF37]/75 hover:text-[#D4AF37]',
   },
   recurso: {
     label: 'Recurso',
-    card: 'border-[#7B4FB5]/30 bg-[#2D1870]',
-    labelText: 'text-[#C49AD4]/60',
+    card: 'border-[var(--color-purple-amethyst)]/30 bg-[#2D1870]',
+    labelText: 'text-[var(--color-pale-lav)]/60',
     title: 'text-[#F5EEF8]',
-    description: 'text-[#C49AD4]/70',
+    description: 'text-[var(--color-pale-lav)]/70',
     cta: 'border-[#D4AF37]/20 text-[#D4AF37]/70 hover:text-[#D4AF37]',
   },
 } satisfies Record<
@@ -314,7 +314,7 @@ function ToolProductCard({
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
       variants={fadeUp}
-      className={`elara-card group relative flex flex-col rounded-3xl border border-[#7B4FB5]/15 ${styles.card}`}
+      className={`elara-card group relative flex flex-col rounded-3xl border border-[var(--color-purple-amethyst)]/15 ${styles.card}`}
     >
       <div className="relative">
         <ElaraFramedImage
@@ -472,7 +472,7 @@ export default function HomePage() {
             <h1 className="font-display mb-6 text-[2.65rem] leading-[1.04] text-[#F5EEF8] sm:text-[3.25rem] lg:text-[4.15rem]">
               {[
                 { content: 'Mira todo lo que' },
-                { content: <em key="em" className="font-serif-italic font-light text-[#C49AD4] italic">siempre fuiste</em> },
+                { content: <em key="em" className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">siempre fuiste</em> },
                 { content: 'capaz de hacer.' },
               ].map((line, index) => (
                 <div key={index} className="overflow-hidden">
@@ -545,7 +545,7 @@ export default function HomePage() {
             className="px-4 pb-6 md:px-8"
           >
             <div className="soul-feature-strip overflow-hidden rounded-2xl border border-[#D4AF37]/10 bg-[#0a0a1a]/95 backdrop-blur-md">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:divide-x lg:divide-[#7B4FB5]/10">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:divide-x lg:divide-[var(--color-purple-amethyst)]/10">
                 {HERO_FEATURES_ICON.map(({ icon, href, label, description }, i) => (
                   <motion.a
                     key={label}
@@ -554,15 +554,15 @@ export default function HomePage() {
                     initial="hidden"
                     animate="show"
                     variants={fadeUp}
-                    className="soul-feature soul-feature--icon group flex cursor-pointer flex-col items-center gap-3 border-b border-[#7B4FB5]/10 px-4 py-6 text-center lg:border-b-0"
+                    className="soul-feature soul-feature--icon group flex cursor-pointer flex-col items-center gap-3 border-b border-[var(--color-purple-amethyst)]/10 px-4 py-6 text-center lg:border-b-0"
                   >
-                    <div className="soul-feature__icon-wrap flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[#7B4FB5]/30 bg-[#1A0F3D]/90">
+                    <div className="soul-feature__icon-wrap flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-[var(--color-purple-amethyst)]/30 bg-[#1A0F3D]/90">
                       {ElaraIcons[icon].render(36)}
                     </div>
-                    <p className="soul-feature__label text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/75 uppercase">
+                    <p className="soul-feature__label text-[10px] font-semibold leading-snug tracking-[0.18em] text-[var(--color-pale-lav)]/75 uppercase">
                       {label}
                     </p>
-                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/45">{description}</p>
+                    <p className="text-[10px] leading-relaxed text-[var(--color-pale-lav)]/45">{description}</p>
                     <span className="soul-feature__arrow btn-arrow__icon text-[11px] text-[#C9A96E]/40">→</span>
                   </motion.a>
                 ))}
@@ -574,12 +574,12 @@ export default function HomePage() {
                     initial="hidden"
                     animate="show"
                     variants={fadeUp}
-                    className="soul-feature soul-feature--text group flex cursor-pointer flex-col items-center justify-center gap-2 border-b border-[#7B4FB5]/10 px-4 py-6 text-center lg:border-b-0"
+                    className="soul-feature soul-feature--text group flex cursor-pointer flex-col items-center justify-center gap-2 border-b border-[var(--color-purple-amethyst)]/10 px-4 py-6 text-center lg:border-b-0"
                   >
-                    <p className="soul-feature__label mt-2 text-[10px] font-semibold leading-snug tracking-[0.18em] text-[#C49AD4]/65 uppercase">
+                    <p className="soul-feature__label mt-2 text-[10px] font-semibold leading-snug tracking-[0.18em] text-[var(--color-pale-lav)]/65 uppercase">
                       {label}
                     </p>
-                    <p className="text-[10px] leading-relaxed text-[#C49AD4]/40">{description}</p>
+                    <p className="text-[10px] leading-relaxed text-[var(--color-pale-lav)]/40">{description}</p>
                     <span className="soul-feature__arrow btn-arrow__icon text-[11px] text-[#C9A96E]/35">→</span>
                   </motion.a>
                 ))}
@@ -606,9 +606,9 @@ export default function HomePage() {
             <h2 className="font-display text-[2.8rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
               Lo que siempre pudiste
               <br />
-              <em className="font-serif-italic font-light text-[#C49AD4] italic">hacer.</em>
+              <em className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">hacer.</em>
             </h2>
-            <p className="font-serif-italic mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#C49AD4]/60 italic">
+            <p className="font-serif-italic mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[var(--color-pale-lav)]/60 italic">
               Nueve formas de volverte a encontrar. Sin afán, sin drama. Con precisión.
             </p>
           </motion.div>
@@ -642,7 +642,7 @@ export default function HomePage() {
             <blockquote className="font-display max-w-3xl text-[2rem] leading-[1.08] tracking-tight text-[#F5EEF8] italic sm:text-[2.8rem] lg:text-[3.4rem]">
               &quot;Rituales de lujo silencioso.
               <br />
-              <em className="font-serif-italic font-light text-[#C49AD4] italic">Lo que siempre pudiste hacer.</em>&quot;
+              <em className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">Lo que siempre pudiste hacer.</em>&quot;
             </blockquote>
           </motion.div>
         </SectionBanner>
@@ -702,7 +702,7 @@ export default function HomePage() {
             <h2 className="font-display text-[2.8rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
               No caminás sola
             </h2>
-            <p className="font-serif-italic mx-auto mt-5 max-w-xl text-xl leading-relaxed text-[#C49AD4]/65 italic">
+            <p className="font-serif-italic mx-auto mt-5 max-w-xl text-xl leading-relaxed text-[var(--color-pale-lav)]/65 italic">
               Un espacio real. Mujeres que estudian, ritualizan y se sostienen. De verdad.
             </p>
           </motion.div>
@@ -763,14 +763,14 @@ export default function HomePage() {
                   <a
                     key={label}
                     href="#contacto"
-                    className="elara-chip flex items-start gap-3 rounded-2xl border border-[#7B4FB5]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
+                    className="elara-chip flex items-start gap-3 rounded-2xl border border-[var(--color-purple-amethyst)]/20 bg-[#1A0F3D]/60 p-4 backdrop-blur-sm"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#D4AF37]/35 bg-gradient-to-br from-[#2D1870] to-[#1A0F3D] shadow-[0_0_14px_rgba(212,175,55,0.12)]">
                       {ElaraIcons[icon].render(26)}
                     </div>
                     <div>
-                      <p className="elara-chip__label text-[10px] font-semibold tracking-[0.2em] text-[#C49AD4]/80 uppercase">{label}</p>
-                      <p className="mt-1 text-[11px] leading-relaxed text-[#C49AD4]/50">{description}</p>
+                      <p className="elara-chip__label text-[10px] font-semibold tracking-[0.2em] text-[var(--color-pale-lav)]/80 uppercase">{label}</p>
+                      <p className="mt-1 text-[11px] leading-relaxed text-[var(--color-pale-lav)]/50">{description}</p>
                     </div>
                   </a>
                 ))}
@@ -791,7 +791,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="font-display text-[15px] text-[#F5EEF8]">{title}</p>
-                    <p className="font-serif-italic mt-0.5 text-sm leading-relaxed text-[#C49AD4]/60 italic">
+                    <p className="font-serif-italic mt-0.5 text-sm leading-relaxed text-[var(--color-pale-lav)]/60 italic">
                       {text}
                     </p>
                   </div>
@@ -827,14 +827,14 @@ export default function HomePage() {
           </div>
 
           {/* Trust bar */}
-          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[#7B4FB5]/15 pt-8 md:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--color-purple-amethyst)]/15 pt-8 md:grid-cols-4">
             {CIRCULO_TRUST.map(({ icon, label, description }) => (
               <div key={label} className="flex flex-col items-center gap-3 text-center">
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF37]/30 bg-gradient-to-br from-[#2D1870]/80 to-[#1A0F3D] shadow-[0_0_12px_rgba(212,175,55,0.10)]">
                   {ElaraIcons[icon].render(28)}
                 </div>
-                <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/55 uppercase">{label}</p>
-                <p className="text-[11px] leading-relaxed text-[#C49AD4]/38">{description}</p>
+                <p className="text-[9px] font-semibold tracking-[0.22em] text-[var(--color-pale-lav)]/55 uppercase">{label}</p>
+                <p className="text-[11px] leading-relaxed text-[var(--color-pale-lav)]/38">{description}</p>
               </div>
             ))}
           </div>
@@ -852,7 +852,7 @@ export default function HomePage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#1A0F3D]/40" />
         <ElaraSectionBridge position="top" />
         <ElaraSectionBridge position="bottom" />
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-[#7B4FB5]/[0.07] blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-[var(--color-purple-amethyst)]/[0.07] blur-[120px]" />
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <MagicParticles density="low" zone="full" scope="section" />
         </div>
@@ -876,15 +876,15 @@ export default function HomePage() {
 
               <h2 className="font-display text-[2.6rem] leading-[1.06] tracking-tight text-[#F5EEF8] lg:text-[3.4rem]">
                 Hola, soy<br />
-                <em className="font-serif-italic font-light text-[#C49AD4] italic">Elara Nova.</em>
+                <em className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">Elara Nova.</em>
               </h2>
 
-              <p className="font-serif-italic text-xl leading-[1.75] text-[#C49AD4]/70 italic">
+              <p className="font-serif-italic text-xl leading-[1.75] text-[var(--color-pale-lav)]/70 italic">
                 Empecé estudiando astrología para entenderme a mí misma.
                 No porque todo estuviera mal — sino porque sentía que había algo
                 más profundo esperando adentro. Y lo había.
               </p>
-              <p className="font-serif-italic text-lg leading-[1.75] text-[#C49AD4]/55 italic">
+              <p className="font-serif-italic text-lg leading-[1.75] text-[var(--color-pale-lav)]/55 italic">
                 Todo lo que creé nació de esa pregunta: ¿qué hubiera necesitado
                 yo al principio? Eso es lo que encontrás acá. Sin vueltas.
               </p>
@@ -944,7 +944,7 @@ export default function HomePage() {
                     {ElaraIcons.Estrellas.render(16)}
                     <span className="text-[8px] tracking-[0.38em] text-[#D4AF37]/50 uppercase">Elara Nova</span>
                   </div>
-                  <p className="font-serif-italic text-[11.5px] leading-relaxed text-[#C49AD4]/82 italic">
+                  <p className="font-serif-italic text-[11.5px] leading-relaxed text-[var(--color-pale-lav)]/82 italic">
                     Mi propósito es recordarte todo lo que siempre fuiste capaz de hacer.
                   </p>
                   <div className="mt-3 flex items-center gap-2">
@@ -960,10 +960,10 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.9 }}
-                  className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-[#7B4FB5]/40 bg-[#0E0726]/75 px-3 py-1.5 backdrop-blur-sm"
+                  className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-[var(--color-purple-amethyst)]/40 bg-[#0E0726]/75 px-3 py-1.5 backdrop-blur-sm"
                 >
                   {ElaraIcons.Luna.render(14)}
-                  <span className="text-[8px] tracking-[0.28em] text-[#C49AD4]/65 uppercase">Ciclos · Rituales</span>
+                  <span className="text-[8px] tracking-[0.28em] text-[var(--color-pale-lav)]/65 uppercase">Ciclos · Rituales</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -972,7 +972,7 @@ export default function HomePage() {
           {/* ── Timeline: así crea Evelyn ── */}
           <div id="atelier" className="mt-24 scroll-mt-[5.5rem]">
             <div aria-hidden className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-            <div aria-hidden className="pointer-events-none my-4 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-[#7B4FB5]/[0.05] blur-[80px]" />
+            <div aria-hidden className="pointer-events-none my-4 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--color-purple-amethyst)]/[0.05] blur-[80px]" />
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -986,7 +986,7 @@ export default function HomePage() {
             <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.6rem]">
               De la intención a tus manos
             </h2>
-            <p className="font-serif-italic mt-3 text-base text-[#C49AD4]/60 italic">
+            <p className="font-serif-italic mt-3 text-base text-[var(--color-pale-lav)]/60 italic">
               Cada pieza que creamos nace de una intención real.
             </p>
           </motion.div>
@@ -1001,7 +1001,7 @@ export default function HomePage() {
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mt-16 rounded-3xl border border-[#7B4FB5]/25 bg-[#1A0F3D]/50 p-8 backdrop-blur-sm lg:p-10"
+            className="mt-16 rounded-3xl border border-[var(--color-purple-amethyst)]/25 bg-[#1A0F3D]/50 p-8 backdrop-blur-sm lg:p-10"
           >
             <div className="mb-5 flex items-center gap-3">
               <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
@@ -1009,19 +1009,19 @@ export default function HomePage() {
               <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
             </div>
 
-            <p className="font-serif-italic mb-5 text-[1.1rem] leading-[1.8] text-[#C49AD4]/85 italic">
+            <p className="font-serif-italic mb-5 text-[1.1rem] leading-[1.8] text-[var(--color-pale-lav)]/85 italic">
               Detrás de mí hay una mujer real:{' '}
               <strong className="not-italic font-semibold text-[#F5EEF8]/90">Evelyn Patiño</strong>.
             </p>
 
             <div className="grid gap-5 lg:grid-cols-2">
-              <p className="text-[13px] leading-[1.9] text-[#C49AD4]/65">
+              <p className="text-[13px] leading-[1.9] text-[var(--color-pale-lav)]/65">
                 Una madre colombiana que vive en Suiza, que un día me encontró —
                 no como una marca, sino como su manera de tender la mano hacia otras mujeres.
                 Para caminar juntas. Para crecer juntas.{' '}
-                <em className="italic text-[#C49AD4]/80">Desde lo más íntimo hasta lo más profesional.</em>
+                <em className="italic text-[var(--color-pale-lav)]/80">Desde lo más íntimo hasta lo más profesional.</em>
               </p>
-              <p className="text-[13px] leading-[1.9] text-[#C49AD4]/55">
+              <p className="text-[13px] leading-[1.9] text-[var(--color-pale-lav)]/55">
                 Evelyn es ingeniera de software. Toda su vida adentro de fábricas de software —
                 construyendo soluciones, automatizando lo que parecía imposible, trabajando con datos
                 donde otros veían caos. Crea cada rincón de este espacio con amor y dedicación,
@@ -1043,7 +1043,7 @@ export default function HomePage() {
       <section id="contacto" className="relative overflow-hidden scroll-mt-[5.5rem] bg-[#08051A]">
         {/* Blooms */}
         <div aria-hidden className="pointer-events-none absolute top-0 left-0 h-[500px] w-[500px] -translate-x-1/4 rounded-full bg-[#D4AF37]/[0.05] blur-[100px]" />
-        <div aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/3 rounded-full bg-[#7B4FB5]/[0.07] blur-[80px]" />
+        <div aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/3 rounded-full bg-[var(--color-purple-amethyst)]/[0.07] blur-[80px]" />
 
         {/* 2-col grid */}
         <div className="relative grid min-h-[600px] lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_560px]">
@@ -1069,10 +1069,10 @@ export default function HomePage() {
               <h2 className="font-display text-[2.8rem] leading-[1.05] tracking-tight text-[#F5EEF8] lg:text-[3.4rem]">
                 Recibí tu guía
                 <br />
-                <em className="font-serif-italic font-light text-[#C49AD4] italic">cada luna nueva.</em>
+                <em className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">cada luna nueva.</em>
               </h2>
 
-              <p className="font-serif-italic text-lg leading-relaxed text-[#C49AD4]/65 italic">
+              <p className="font-serif-italic text-lg leading-relaxed text-[var(--color-pale-lav)]/65 italic">
                 Guía lunar mensual · Rituales de intención · Lo nuevo del Círculo.
               </p>
 
@@ -1088,7 +1088,7 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <p className="font-serif-italic text-2xl text-[#D4AF37] italic">✦ ¡Bienvenida al Círculo!</p>
-                  <p className="font-serif-italic text-sm text-[#C49AD4]/60 italic">
+                  <p className="font-serif-italic text-sm text-[var(--color-pale-lav)]/60 italic">
                     Revisá tu bandeja — llegó tu primera guía.
                   </p>
                 </motion.div>
@@ -1100,7 +1100,7 @@ export default function HomePage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="tu@email.com"
                     required
-                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[#C49AD4]/40 focus:border-[#D4AF37]/60 focus:outline-none"
+                    className="font-serif-italic w-full rounded-2xl border border-[#D4AF37]/25 bg-[#1A0F3D]/70 px-6 py-4 text-base text-[#F5EEF8] italic backdrop-blur-sm transition-colors placeholder:text-[var(--color-pale-lav)]/40 focus:border-[#D4AF37]/60 focus:outline-none"
                   />
                   <label className="sr-only" htmlFor="birth-date">
                     Fecha de nacimiento
@@ -1126,7 +1126,7 @@ export default function HomePage() {
                     <span className="opacity-70">{ElaraIcons.Correo.render(16)}</span>
                     {submitting ? 'Enviando…' : 'Quiero recibirlos'}
                   </button>
-                  <p className="text-center text-[9px] tracking-[0.2em] text-[#C49AD4]/30 uppercase">
+                  <p className="text-center text-[9px] tracking-[0.2em] text-[var(--color-pale-lav)]/30 uppercase">
                     Sin spam · Podés salir cuando quieras · Solo para el Círculo ✦
                   </p>
                 </form>
@@ -1145,13 +1145,13 @@ export default function HomePage() {
         </div>
 
         {/* Bottom features strip */}
-        <div className="relative border-t border-[#7B4FB5]/15 px-6 py-10 md:px-16">
+        <div className="relative border-t border-[var(--color-purple-amethyst)]/15 px-6 py-10 md:px-16">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 md:grid-cols-4">
             {EMAIL_FEATURES.map(({ icon, label, description }) => (
               <div key={label} className="flex flex-col items-center gap-3 text-center">
                 <div className="opacity-50">{ElaraIcons[icon].render(28)}</div>
-                <p className="text-[9px] font-semibold tracking-[0.22em] text-[#C49AD4]/60 uppercase">{label}</p>
-                <p className="text-[11px] leading-relaxed text-[#C49AD4]/40">{description}</p>
+                <p className="text-[9px] font-semibold tracking-[0.22em] text-[var(--color-pale-lav)]/60 uppercase">{label}</p>
+                <p className="text-[11px] leading-relaxed text-[var(--color-pale-lav)]/40">{description}</p>
               </div>
             ))}
           </div>
@@ -1174,17 +1174,17 @@ export default function HomePage() {
                   className="object-contain"
                 />
               </div>
-              <p className="font-serif-italic text-sm leading-relaxed text-[#C49AD4]/50 italic">
+              <p className="font-serif-italic text-sm leading-relaxed text-[var(--color-pale-lav)]/50 italic">
                 Inspira · Transforma · Conecta
               </p>
-              <p className="max-w-xs text-[10px] leading-relaxed tracking-[0.12em] text-[#C49AD4]/40 uppercase">
+              <p className="max-w-xs text-[10px] leading-relaxed tracking-[0.12em] text-[var(--color-pale-lav)]/40 uppercase">
                 Mira todo lo que siempre fuiste capaz de hacer.
               </p>
             </div>
 
             <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
               <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Empezá</p>
-              <p className="font-serif-italic text-base leading-relaxed text-[#C49AD4]/55 italic">
+              <p className="font-serif-italic text-base leading-relaxed text-[var(--color-pale-lav)]/55 italic">
                 Tu alma ya sabe.<br />
                 Solo necesita el espacio para recordar.
               </p>
@@ -1199,10 +1199,10 @@ export default function HomePage() {
 
           {/* Bottom: línea + copyright */}
           <div className="mt-14 flex flex-col items-center gap-3 border-t border-white/5 pt-8 md:flex-row md:justify-between">
-            <p className="text-[9px] tracking-[0.22em] text-[#C49AD4]/55 uppercase">
+            <p className="text-[9px] tracking-[0.22em] text-[var(--color-pale-lav)]/55 uppercase">
               © 2026 Elara Nova
             </p>
-            <p className="font-serif-italic text-[10px] text-[#C49AD4]/45 italic">
+            <p className="font-serif-italic text-[10px] text-[var(--color-pale-lav)]/45 italic">
               Hecho con alma ✦
             </p>
           </div>
