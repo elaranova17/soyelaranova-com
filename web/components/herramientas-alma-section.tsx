@@ -186,7 +186,7 @@ export function HerramientasExplorarSection() {
           <h2 className="sec-herramientas__title font-display text-[2.4rem] leading-[1.06] tracking-tight md:text-[3.2rem] lg:text-[3.6rem]">
             Lo que siempre fuiste
             <br />
-            <em className="font-serif-italic font-light text-[#C49AD4]/90 italic">capaz de hacer.</em>
+            <em className="font-serif-italic font-light text-[var(--color-pale-lav)]/90 italic">capaz de hacer.</em>
           </h2>
           <p className="sec-herramientas__lead font-serif-italic mx-auto mt-5 max-w-lg text-lg leading-relaxed italic">
             Nueve formas de volverte a encontrar. Sin afán, sin drama. Con precisión.

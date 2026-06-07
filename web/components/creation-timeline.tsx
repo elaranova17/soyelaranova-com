@@ -57,7 +57,7 @@ export function CreationTimeline({ steps }: { steps: readonly CreationStep[] }) 
               </span>
             </motion.div>
             <h3 className="font-display mt-8 text-xl text-[#F5EEF8]">{step.title}</h3>
-            <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[#C49AD4]/70 italic">
+            <p className="font-serif-italic mt-2 max-w-[10rem] text-sm leading-relaxed text-[var(--color-pale-lav)]/70 italic">
               {step.text}
             </p>
           </motion.div>
