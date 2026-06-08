@@ -469,7 +469,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* H1 */}
-            <h1 className="font-display mb-6 text-[2.65rem] leading-[1.04] text-[#F5EEF8] sm:text-[3.25rem] lg:text-[4.15rem]">
+            <h1 className="font-display mb-6 text-[3rem] leading-[1.02] text-[#F5EEF8] sm:text-[4rem] lg:text-[5.2rem]">
               {[
                 { content: 'Mira todo lo que' },
                 { content: <em key="em" className="font-serif-italic font-light text-[var(--color-pale-lav)] italic">siempre fuiste</em> },
@@ -492,7 +492,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif-italic mb-8 max-w-[430px] text-[1.08rem] leading-[1.8] text-[#E5DBF0]/72 italic"
+              className="font-serif-italic mb-8 max-w-[430px] text-[1.18rem] leading-[1.85] text-[#E5DBF0]/88 italic"
             >
               Portal de autoconocimiento, oráculo y rituales. Sin afán, con precisión — como una hermana que te acompaña en el camino de volver a vos.
             </motion.p>
@@ -995,47 +995,100 @@ export default function HomePage() {
 
           </div>{/* close #atelier */}
 
-          {/* ── La mujer detrás: cajoncito Evelyn ── */}
+          {/* ── La mujer detrás: panel Evelyn ── */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mt-16 rounded-3xl border border-[var(--color-purple-amethyst)]/25 bg-[#1A0F3D]/50 p-8 backdrop-blur-sm lg:p-10"
+            className="mt-16 overflow-hidden rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#1A0F3D]/80 via-[#0E0726]/70 to-[#1A0F3D]/80 backdrop-blur-sm"
+            style={{ boxShadow: '0 0 80px rgba(212,175,55,0.06), 0 40px 80px rgba(14,7,38,0.6)' }}
           >
-            <div className="mb-5 flex items-center gap-3">
-              <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
-              <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/60 uppercase">✦ La mujer detrás</span>
-              <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
+            {/* Banda dorada superior */}
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
+
+            <div className="grid gap-0 lg:grid-cols-[280px_1fr]">
+              {/* Foto Evelyn */}
+              <div className="relative hidden lg:block">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0E0726]/60 z-[1]" />
+                <Image
+                  src="/_assets/photos/evelyn_pro_perfil.jpg"
+                  alt="Evelyn Patiño Laverde — Ingeniera de software"
+                  fill
+                  sizes="280px"
+                  className="object-cover object-top grayscale-[0.15] contrast-[1.04]"
+                />
+                {/* Badge sobre la foto */}
+                <div className="absolute bottom-5 left-4 z-[2] flex items-center gap-1.5 rounded-full border border-[#D4AF37]/40 bg-[#0E0726]/85 px-3 py-1.5 backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+                  <span className="text-[8px] tracking-[0.25em] text-[#D4AF37]/80 uppercase">Disponible</span>
+                </div>
+              </div>
+
+              {/* Contenido */}
+              <div className="p-8 lg:p-10">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="h-px w-8 bg-gradient-to-r from-[#D4AF37]/60 to-transparent" />
+                  <span className="text-[9px] tracking-[0.42em] text-[#D4AF37]/60 uppercase">✦ La creadora</span>
+                </div>
+
+                <h3 className="font-display mb-1 text-[2rem] leading-[1.05] text-[#F5EEF8] lg:text-[2.6rem]">
+                  Evelyn Patiño
+                </h3>
+                <p className="font-serif-italic mb-5 text-base text-[#D4AF37]/80 italic">
+                  Ingeniera de Software · Automatización &amp; Datos · Suiza
+                </p>
+
+                {/* Stats */}
+                <div className="mb-6 grid grid-cols-3 gap-3 sm:grid-cols-3">
+                  {[
+                    { num: '14+', label: 'años en software' },
+                    { num: '3',   label: 'países activos' },
+                    { num: '50+', label: 'proyectos' },
+                  ].map(({ num, label }) => (
+                    <div key={label} className="rounded-2xl border border-[#D4AF37]/15 bg-[#D4AF37]/[0.04] px-3 py-3 text-center">
+                      <p className="font-display text-[1.5rem] leading-none text-[#D4AF37]">{num}</p>
+                      <p className="mt-1 text-[9px] leading-snug tracking-[0.18em] text-[var(--color-pale-lav)]/50 uppercase">{label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mb-3 text-[13.5px] leading-[1.9] text-[var(--color-pale-lav)]/75">
+                  Colombiana viviendo en Suiza. Toda una vida adentro de fábricas de software —
+                  construyendo soluciones reales, automatizando lo complejo, trabajando con datos
+                  donde otros veían caos.{' '}
+                  <em className="italic text-[var(--color-pale-lav)]/90">Elara Nova nació de su propia búsqueda.</em>
+                </p>
+
+                <div className="mb-6 flex flex-wrap gap-1.5">
+                  {['Angular', 'TypeScript', 'Java', '.NET', 'SQL', 'IA aplicada', 'Next.js'].map(tag => (
+                    <span key={tag} className="rounded-full border border-[var(--color-purple-amethyst)]/30 bg-[var(--color-purple-amethyst)]/[0.08] px-2.5 py-0.5 text-[9px] tracking-[0.18em] text-[var(--color-pale-lav)]/60 uppercase">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/linktree"
+                    className="btn-ritual btn-ritual--gold inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[10px] font-semibold tracking-[0.28em] uppercase"
+                  >
+                    <span className="opacity-80">{ElaraIcons.Vision.render(14)}</span>
+                    Ver portfolio <span className="btn-arrow__icon" aria-hidden>→</span>
+                  </Link>
+                  <a
+                    href="https://www.linkedin.com/in/evelyn-patino-laverde/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ritual btn-ritual--ghost inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-[10px] tracking-[0.28em] text-[var(--color-pale-lav)]/60 uppercase hover:text-[#D4AF37]"
+                  >
+                    LinkedIn →
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <p className="font-serif-italic mb-5 text-[1.1rem] leading-[1.8] text-[var(--color-pale-lav)]/85 italic">
-              Detrás de mí hay una mujer real:{' '}
-              <strong className="not-italic font-semibold text-[#F5EEF8]/90">Evelyn Patiño</strong>.
-            </p>
-
-            <div className="grid gap-5 lg:grid-cols-2">
-              <p className="text-[13px] leading-[1.9] text-[var(--color-pale-lav)]/65">
-                Una madre colombiana que vive en Suiza, que un día me encontró —
-                no como una marca, sino como su manera de tender la mano hacia otras mujeres.
-                Para caminar juntas. Para crecer juntas.{' '}
-                <em className="italic text-[var(--color-pale-lav)]/80">Desde lo más íntimo hasta lo más profesional.</em>
-              </p>
-              <p className="text-[13px] leading-[1.9] text-[var(--color-pale-lav)]/55">
-                Evelyn es ingeniera de software. Toda su vida adentro de fábricas de software —
-                construyendo soluciones, automatizando lo que parecía imposible, trabajando con datos
-                donde otros veían caos. Crea cada rincón de este espacio con amor y dedicación,
-                porque sabe que lo que vos traés acá es real.
-              </p>
-            </div>
-
-            <Link
-              href="/linktree"
-              className="btn-ritual btn-ritual--ghost btn-arrow mt-7 inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase hover:text-[#D4AF37]"
-            >
-              <span className="opacity-70">{ElaraIcons.Guia.render(14)}</span>
-              Conoce más de Evelyn <span className="btn-arrow__icon" aria-hidden>→</span>
-            </Link>
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
           </motion.div>
         </div>{/* close mx-auto */}
       </section>
@@ -1159,52 +1212,84 @@ export default function HomePage() {
       </section>
 
       <footer className="relative overflow-hidden border-t border-white/5 bg-[#08051A]">
-        {/* Bloom dorado fondo */}
-        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[80px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.04] blur-[100px]" />
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[300px] w-[400px] rounded-full bg-[var(--color-purple-amethyst)]/[0.05] blur-[80px]" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-16">
-          <div className="grid gap-12 md:grid-cols-2 md:gap-10 lg:gap-20">
-            <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
-              <div className="relative h-[110px] w-[110px] shrink-0">
-                <Image
-                  src="/images/sello-elara-nova-oscuro.png"
-                  alt="Sello Elara Nova"
-                  fill
-                  sizes="110px"
-                  className="object-contain"
-                />
+        <div className="relative mx-auto max-w-6xl px-6 pt-20 pb-10">
+          {/* Grid principal 4 columnas */}
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Col 1: Brand */}
+            <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
+              <div className="relative h-[90px] w-[90px] shrink-0">
+                <Image src="/images/sello-elara-nova-oscuro.png" alt="Sello Elara Nova" fill sizes="90px" className="object-contain" />
               </div>
-              <p className="font-serif-italic text-sm leading-relaxed text-[var(--color-pale-lav)]/50 italic">
-                Inspira · Transforma · Conecta
-              </p>
-              <p className="max-w-xs text-[10px] leading-relaxed tracking-[0.12em] text-[var(--color-pale-lav)]/40 uppercase">
+              <div>
+                <p className="font-display text-lg leading-snug text-[#F5EEF8]/90">Elara Nova</p>
+                <p className="font-serif-italic mt-1 text-sm text-[var(--color-pale-lav)]/50 italic">Autoconocimiento · Rituales · Círculo</p>
+              </div>
+              <p className="max-w-[220px] text-[11px] leading-relaxed text-[var(--color-pale-lav)]/38">
                 Mira todo lo que siempre fuiste capaz de hacer.
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left">
-              <p className="text-[9px] font-semibold tracking-[0.35em] text-[#D4AF37]/50 uppercase">Empezá</p>
-              <p className="font-serif-italic text-base leading-relaxed text-[var(--color-pale-lav)]/55 italic">
-                Tu alma ya sabe.<br />
-                Solo necesita el espacio para recordar.
+            {/* Col 2: Portal */}
+            <div className="flex flex-col gap-3">
+              <p className="text-[9px] font-semibold tracking-[0.38em] text-[#D4AF37]/55 uppercase">Portal</p>
+              {[
+                { href: '#herramientas', label: 'Herramientas del alma' },
+                { href: '#oraculo',      label: 'Oráculo de Elara' },
+                { href: '#circulo',      label: 'El Círculo' },
+                { href: '#cursos',       label: 'Cursos' },
+                { href: '#contacto',     label: 'Guía lunar gratis' },
+              ].map(l => (
+                <a key={l.href} href={l.href} className="text-[12px] text-[var(--color-pale-lav)]/50 transition-colors hover:text-[#D4AF37]/80">{l.label}</a>
+              ))}
+            </div>
+
+            {/* Col 3: Evelyn */}
+            <div className="flex flex-col gap-3">
+              <p className="text-[9px] font-semibold tracking-[0.38em] text-[#D4AF37]/55 uppercase">Evelyn</p>
+              {[
+                { href: '/linktree',   label: 'Portfolio & CV' },
+                { href: '/sobre-elara', label: 'Sobre Elara Nova' },
+                { href: 'https://www.linkedin.com/in/evelyn-patino-laverde/', label: 'LinkedIn', external: true },
+                { href: 'https://wa.me/41783480550', label: 'WhatsApp directo', external: true },
+              ].map(l => (
+                <a key={l.href} href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener noreferrer' : undefined} className="text-[12px] text-[var(--color-pale-lav)]/50 transition-colors hover:text-[#D4AF37]/80">
+                  {l.label}{l.external ? ' ↗' : ''}
+                </a>
+              ))}
+            </div>
+
+            {/* Col 4: CTA */}
+            <div className="flex flex-col gap-5">
+              <p className="text-[9px] font-semibold tracking-[0.38em] text-[#D4AF37]/55 uppercase">Empezá hoy</p>
+              <p className="font-serif-italic text-sm leading-relaxed text-[var(--color-pale-lav)]/55 italic">
+                Tu alma ya sabe.<br />Solo necesita el espacio para recordar.
               </p>
-              <a
-                href="#contacto"
-                className="btn-ritual btn-ritual--ghost inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase hover:text-[#D4AF37]"
-              >
+              <a href="#contacto" className="btn-ritual btn-ritual--ghost inline-flex items-center gap-2 self-start rounded-full px-5 py-2.5 text-[10px] tracking-[0.28em] text-[#D4AF37]/75 uppercase hover:text-[#D4AF37]">
                 <span aria-hidden>✦</span> Unite al Círculo
               </a>
+              {/* Stats pequeños */}
+              <div className="mt-2 flex gap-4">
+                {[{ n: '2010', l: 'desde' }, { n: 'CH · CO · ES', l: 'países' }].map(({ n, l }) => (
+                  <div key={l}>
+                    <p className="font-display text-sm text-[#D4AF37]/70">{n}</p>
+                    <p className="text-[8px] tracking-[0.2em] text-[var(--color-pale-lav)]/35 uppercase">{l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Bottom: línea + copyright */}
-          <div className="mt-14 flex flex-col items-center gap-3 border-t border-white/5 pt-8 md:flex-row md:justify-between">
-            <p className="text-[9px] tracking-[0.22em] text-[var(--color-pale-lav)]/55 uppercase">
-              © 2026 Elara Nova
+          {/* Bottom bar */}
+          <div className="mt-16 flex flex-col items-center gap-3 border-t border-white/5 pt-8 md:flex-row md:justify-between">
+            <p className="text-[9px] tracking-[0.22em] text-[var(--color-pale-lav)]/40 uppercase">
+              © 2026 Elara Nova · Evelyn Patiño Laverde
             </p>
-            <p className="font-serif-italic text-[10px] text-[var(--color-pale-lav)]/45 italic">
-              Hecho con alma ✦
-            </p>
+            <div className="flex items-center gap-4">
+              <p className="font-serif-italic text-[10px] text-[var(--color-pale-lav)]/35 italic">Hecho con alma y código ✦</p>
+            </div>
           </div>
         </div>
       </footer>
