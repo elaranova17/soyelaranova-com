@@ -726,53 +726,129 @@ section { padding: 7rem 0; position: relative; }
 .exp-tag:hover { background: var(--gold); color: var(--purple-deep); border-color: var(--gold); }
 
 /* ═══════════════════════════════════════════════════════
-   STACK
+   STACK — badge grid (no progress bars)
    ═══════════════════════════════════════════════════════ */
-.stack-grid {
+.tech-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 3rem 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   margin-top: 3rem;
-  counter-reset: stackcol;
+  counter-reset: techcat;
 }
 
-.stack-col h4 {
+.tech-cat {}
+
+.tech-cat__head {
   font-family: var(--display);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.45rem;
+  font-weight: 600;
   color: var(--purple-deep);
+  margin-bottom: 1.25rem;
   display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--pale-lav);
 }
-.stack-col h4::before {
-  content: counter(stackcol, decimal-leading-zero);
+.tech-cat__head::before {
+  content: counter(techcat, decimal-leading-zero);
+  counter-increment: techcat;
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
   font-size: 0.85rem;
   color: var(--gold-dark);
-  counter-increment: stackcol;
+  flex-shrink: 0;
 }
 
-.skill { margin-bottom: 1.2rem; }
-.skill__head { display: flex; justify-content: space-between; font-size: 0.92rem; margin-bottom: 0.45rem; align-items: baseline; }
-.skill__name { font-family: var(--sans); font-weight: 700; color: var(--purple-deep); }
-.skill__years { font-family: var(--display); font-style: italic; font-size: 0.8rem; color: var(--gold-dark); letter-spacing: 0.05em; font-weight: 400; }
+.tech-badges { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
-.skill__bar { height: 5px; background: var(--pale-lav); border-radius: 999px; overflow: hidden; position: relative; box-shadow: inset 0 1px 2px rgba(45, 27, 105, 0.08); }
-.skill__fill { height: 100%; background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-soft) 100%); border-radius: 999px; position: relative; transition: width 1.5s cubic-bezier(.2,.8,.2,1); }
-.skill__fill::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  background: var(--gold-soft);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+.tech-badge {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid rgba(155, 107, 196, 0.2);
+  box-shadow: 0 2px 8px -4px rgba(45, 27, 105, 0.12);
+  transition: all 0.25s cubic-bezier(.2,.8,.2,1);
+  cursor: default;
+}
+.tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+.tech-badge__name {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  line-height: 1;
+}
+.tech-badge__years {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.68rem;
+  color: var(--gold-dark);
+  margin-top: 0.3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.tech-badge--expert {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, white 0%, rgba(212,175,55,0.04) 100%);
+}
+.tech-badge--featured {
+  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 100%);
+  border-color: transparent;
+}
+.tech-badge--featured .tech-badge__name { color: var(--cream); }
+.tech-badge--featured .tech-badge__years { color: var(--gold); }
+
+/* services strip */
+.services-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--pale-lav);
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  padding: 2rem;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid var(--pale-lav);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-medium); border-color: rgba(212,175,55,0.4); }
+
+.service-card__icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 100%);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.3rem;
+}
+
+.service-card__title {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  color: var(--purple-deep);
+  margin-bottom: 0.6rem;
+  line-height: 1.1;
+}
+
+.service-card__desc {
+  font-size: 0.88rem;
+  color: var(--grey);
+  line-height: 1.6;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -988,6 +1064,11 @@ section { padding: 7rem 0; position: relative; }
   .lang-bar { bottom: 1rem; right: 50%; transform: translateX(50%); }
 }
 
+@media (max-width: 900px) {
+  .tech-categories { grid-template-columns: 1fr 1fr; }
+  .services-strip   { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .about__grid, .split { grid-template-columns: 1fr; gap: 3rem; }
   .about__photo-frame { right: -0.75rem; bottom: -0.75rem; }
@@ -998,6 +1079,7 @@ section { padding: 7rem 0; position: relative; }
   .exp-item::after  { left: -1.85rem; }
   .timeline::before { left: 0.45rem; }
   .about__likes-grid { grid-template-columns: 1fr; }
+  .tech-categories { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1073,7 +1155,7 @@ section { padding: 7rem 0; position: relative; }
     <p class="hero__role" data-i18n="hero.role">
       Ingeniera de Software <span class="dot"></span> Automatización de Procesos <span class="dot"></span> Datos
     </p>
-    <p class="hero__sub" data-i18n="hero.sub">6 años en software financiero — ahora construyendo proyectos web<br />desde Suiza para clientes en España y LATAM.</p>
+    <p class="hero__sub" data-i18n="hero.sub">Ingeniera full-stack con 6+ años en banca core. Freelance desde Lausana<br />para clientes en España y LATAM.</p>
 
     <dl class="hero__contact">
       <dt data-i18n="contact.email">Email</dt>          <dd>evelynpatildr@gmail.com</dd>
@@ -1225,31 +1307,61 @@ section { padding: 7rem 0; position: relative; }
       <div class="gold-rule-fancy"></div>
     </div>
 
-    <div class="stack-grid">
-      <div class="stack-col">
-        <h4 data-i18n="stack.col.frontend">Frontend</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Angular</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 95%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">JavaScript</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">TypeScript</span><span class="skill__years">5+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">HTML / CSS / SCSS</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 92%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Tailwind CSS</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 75%"></div></div></div>
+    <div class="tech-categories">
+      <div class="tech-cat">
+        <h4 class="tech-cat__head" data-i18n="stack.col.frontend">Frontend</h4>
+        <div class="tech-badges">
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">Angular</span><span class="tech-badge__years">6+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">JavaScript</span><span class="tech-badge__years">6+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">TypeScript</span><span class="tech-badge__years">5+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">HTML · CSS · SCSS</span><span class="tech-badge__years">6+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">Next.js</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">Tailwind CSS</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">React</span><span class="tech-badge__years">1+ año</span></div>
+        </div>
       </div>
 
-      <div class="stack-col">
-        <h4 data-i18n="stack.col.backend">Backend &amp; datos</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Java</span><span class="skill__years">6 años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 85%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">.NET / C#</span><span class="skill__years">4+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 78%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">SQL · PostgreSQL</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">DB2 · RPG ILE · CL</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 70%"></div></div></div>
+      <div class="tech-cat">
+        <h4 class="tech-cat__head" data-i18n="stack.col.backend">Backend &amp; datos</h4>
+        <div class="tech-badges">
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">Java</span><span class="tech-badge__years">6 años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">SQL · PostgreSQL</span><span class="tech-badge__years">6+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">.NET · C#</span><span class="tech-badge__years">4+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">DB2</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">RPG ILE · CL</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">Supabase</span><span class="tech-badge__years">1+ año</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">REST APIs</span><span class="tech-badge__years">6+ años</span></div>
+        </div>
       </div>
 
-      <div class="stack-col">
-        <h4 data-i18n="stack.col.platforms">Plataformas &amp; IA</h4>
-        <div class="skill"><div class="skill__head"><span class="skill__name" data-i18n="skill.ai">IA aplicada · Prompt Engineering</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 88%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">WordPress · Elementor</span><span class="skill__years">3+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 80%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Git · GitHub</span><span class="skill__years">6+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 90%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Scrum · Agile</span><span class="skill__years">5+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 85%"></div></div></div>
-        <div class="skill"><div class="skill__head"><span class="skill__name">Netlify · Vercel</span><span class="skill__years">2+ años</span></div><div class="skill__bar"><div class="skill__fill" style="width: 72%"></div></div></div>
+      <div class="tech-cat">
+        <h4 class="tech-cat__head" data-i18n="stack.col.platforms">Plataformas &amp; IA</h4>
+        <div class="tech-badges">
+          <div class="tech-badge tech-badge--featured"><span class="tech-badge__name" data-i18n="skill.ai">IA aplicada</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">Git · GitHub</span><span class="tech-badge__years">6+ años</span></div>
+          <div class="tech-badge tech-badge--expert"><span class="tech-badge__name">Scrum · Agile</span><span class="tech-badge__years">5+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">WordPress</span><span class="tech-badge__years">3+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">Vercel · Netlify</span><span class="tech-badge__years">2+ años</span></div>
+          <div class="tech-badge"><span class="tech-badge__name">Prompt Engineering</span><span class="tech-badge__years">2+ años</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-strip">
+      <div class="service-card">
+        <div class="service-card__icon">⚙️</div>
+        <h4 class="service-card__title" data-i18n="svc.auto.title">Automatización de Procesos</h4>
+        <p class="service-card__desc" data-i18n="svc.auto.desc">Flujos de trabajo, integraciones entre plataformas y scripts que eliminan trabajo repetitivo — probados en banca real.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">🌐</div>
+        <h4 class="service-card__title" data-i18n="svc.web.title">Aplicaciones Web</h4>
+        <p class="service-card__desc" data-i18n="svc.web.desc">Sitios y apps con Next.js, Angular y Tailwind. Desde landing pages de alto impacto hasta sistemas full-stack con datos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">📊</div>
+        <h4 class="service-card__title" data-i18n="svc.data.title">Datos &amp; Reportes</h4>
+        <p class="service-card__desc" data-i18n="svc.data.desc">Consultas SQL, dashboards y pipelines de datos. Seis años convirtiendo datos bancarios en decisiones.</p>
       </div>
     </div>
   </div>
@@ -1390,7 +1502,7 @@ const i18n = {
     "eyebrow.cv": "Curriculum Vitae",
     "hero.year": "— Edición 2026 —",
     "hero.role": 'Ingeniera de Software <span class="dot"></span> Automatización de Procesos <span class="dot"></span> Datos',
-    "hero.sub":  "Toda una vida en fábricas de software — construyendo soluciones con amor y dedicación<br />desde Suiza para clientes en España y LATAM.",
+    "hero.sub":  "Ingeniera full-stack con 6+ años en banca core. Freelance desde Lausana<br />para clientes en España y LATAM.",
 
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
@@ -1448,7 +1560,13 @@ const i18n = {
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & datos",
     "stack.col.platforms": "Plataformas & IA",
-    "skill.ai": "IA aplicada · Prompt Engineering",
+    "skill.ai": "IA aplicada",
+    "svc.auto.title": "Automatización de Procesos",
+    "svc.auto.desc": "Flujos de trabajo, integraciones entre plataformas y scripts que eliminan trabajo repetitivo — probados en banca real.",
+    "svc.web.title": "Aplicaciones Web",
+    "svc.web.desc": "Sitios y apps con Next.js, Angular y Tailwind. Desde landing pages de alto impacto hasta sistemas full-stack con datos.",
+    "svc.data.title": "Datos & Reportes",
+    "svc.data.desc": "Consultas SQL, dashboards y pipelines de datos. Seis años convirtiendo datos bancarios en decisiones.",
 
     "edu.eyebrow": "— 04 — Formación & idiomas",
     "edu.title": 'Lo aprendido. <em><span class="gradient-gold">Lo hablado</span></em>.',
@@ -1486,7 +1604,7 @@ const i18n = {
     "eyebrow.cv": "Curriculum Vitae",
     "hero.year": "— 2026 Edition —",
     "hero.role": 'Software Engineer <span class="dot"></span> Process Automation <span class="dot"></span> Data',
-    "hero.sub":  "A lifetime in software factories — building solutions with love and dedication<br />from Switzerland for clients in Spain and LATAM.",
+    "hero.sub":  "Full-stack engineer with 6+ years in core banking. Freelance from Lausanne<br />for clients in Spain and LATAM.",
 
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
@@ -1544,7 +1662,13 @@ const i18n = {
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & data",
     "stack.col.platforms": "Platforms & AI",
-    "skill.ai": "Applied AI · Prompt Engineering",
+    "skill.ai": "Applied AI",
+    "svc.auto.title": "Process Automation",
+    "svc.auto.desc": "Workflows, platform integrations and scripts that eliminate repetitive work — battle-tested in real banking environments.",
+    "svc.web.title": "Web Applications",
+    "svc.web.desc": "Sites and apps with Next.js, Angular and Tailwind. From high-impact landing pages to full-stack data systems.",
+    "svc.data.title": "Data & Reporting",
+    "svc.data.desc": "SQL queries, dashboards and data pipelines. Six years turning banking data into decisions.",
 
     "edu.eyebrow": "— 04 — Education & languages",
     "edu.title": 'What I learned. <em><span class="gradient-gold">What I speak</span></em>.',
@@ -1582,7 +1706,7 @@ const i18n = {
     "eyebrow.cv": "Curriculum Vitae",
     "hero.year": "— Édition 2026 —",
     "hero.role": 'Ingénieure logiciel <span class="dot"></span> Automatisation de processus <span class="dot"></span> Données',
-    "hero.sub":  "Une vie entière dans des usines logicielles — je construis des solutions avec amour et dévouement<br />depuis la Suisse pour des clients en Espagne et en Amérique latine.",
+    "hero.sub":  "Ingénieure full-stack avec 6+ ans en core banking. Freelance depuis Lausanne<br />pour des clients en Espagne et en Amérique latine.",
 
     "contact.email": "Email",
     "contact.whatsapp": "WhatsApp",
@@ -1636,6 +1760,13 @@ const i18n = {
 
     "stack.eyebrow": "— 03 — Stack technique",
     "stack.title": 'Les <em><span class="gradient-gold">outils</span></em>.',
+    "skill.ai": "IA appliquée",
+    "svc.auto.title": "Automatisation des processus",
+    "svc.auto.desc": "Flux de travail, intégrations entre plateformes et scripts qui éliminent le travail répétitif — testés en production bancaire réelle.",
+    "svc.web.title": "Applications Web",
+    "svc.web.desc": "Sites et apps avec Next.js, Angular et Tailwind. Des landing pages à fort impact aux systèmes full-stack avec données.",
+    "svc.data.title": "Données & Rapports",
+    "svc.data.desc": "Requêtes SQL, tableaux de bord et pipelines de données. Six ans à transformer des données bancaires en décisions.",
     "stack.sub": "Technologies avec une expérience professionnelle réelle, pas apprises dans des tutoriels.",
     "stack.col.frontend": "Frontend",
     "stack.col.backend": "Backend & données",
