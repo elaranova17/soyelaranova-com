@@ -26,10 +26,9 @@ const nextConfig: NextConfig = {
       // Rutas legacy → secciones de la landing fusionada
       { source: '/comunidad', destination: '/#productos', permanent: false },
       { source: '/circulo', destination: '/#productos', permanent: false },
-      { source: '/cursos', destination: '/#productos', permanent: false },
-      { source: '/herramientas', destination: '/#servicios', permanent: false },
+      { source: '/herramientas', destination: '/#oraculo', permanent: false },
       { source: '/contacto', destination: '/#contacto', permanent: false },
-      { source: '/atelier', destination: '/#portfolio', permanent: false },
+      { source: '/atelier', destination: '/trabaja-conmigo', permanent: false },
       { source: '/recursos', destination: '/#productos', permanent: false },
       { source: '/amazon', destination: '/universo', permanent: false },
       { source: '/login', destination: '/', permanent: false },
@@ -48,7 +47,7 @@ const nextConfig: NextConfig = {
       { source: '/evelyn-b2b/portfolio-print.html', destination: '/portfolio-print', permanent: true },
       { source: '/evelyn-b2b/factura-template.html', destination: '/factura', permanent: true },
       { source: '/evelyn-b2b/propuesta-val-debarras.html', destination: '/propuesta-val-debarras', permanent: true },
-      { source: '/work', destination: '/portfolio', permanent: false },
+      { source: '/work', destination: '/trabaja-conmigo', permanent: false },
     ]
   },
 }

@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Gracias',
   description:
-    'Gracias por contactar a La Aranoa Studio. Estos son los siguientes pasos para preparar tu diagnostico digital.',
+    'Gracias por contactar a Evelyn Patino desde Elara Nova. Estos son los siguientes pasos para preparar tu diagnostico digital.',
 }
 
 export default function GraciasPage() {
@@ -49,10 +49,10 @@ export default function GraciasPage() {
 
         <div className="mx-auto mt-12 flex max-w-5xl flex-col justify-center gap-3 sm:flex-row">
           <Link
-            href="/servicios"
+            href="/trabaja-conmigo"
             className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-[var(--studio-gold)] px-6 py-3 text-[0.78rem] font-black tracking-[0.22em] text-[var(--studio-ink)] uppercase"
           >
-            Ver servicios
+            Trabaja conmigo
           </Link>
           <Link
             href="/"

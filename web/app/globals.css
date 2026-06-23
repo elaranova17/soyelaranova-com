@@ -32,16 +32,27 @@
   --color-cream:          #FAF4E2;
   --color-white-rose:     #F5EEF8;
 
-  /* La Aranoa Studio — puente profesional/editorial */
-  --studio-ink:           #0B1020;
-  --studio-night:         #10131D;
-  --studio-paper:         #F7F2EA;
-  --studio-mist:          #E7E1D7;
-  --studio-text:          #1E293B;
-  --studio-muted:         #8A8194;
-  --studio-gold:          #C8A24A;
-  --studio-indigo:        #5B5FE8;
-  --studio-green:         #0FAF7A;
+  /* Elara editorial — ciruela + cacao */
+  --editorial-smoke:      #E7E1DC;
+  --editorial-ivory:      #F8F3EA;
+  --editorial-ink:        #18131A;
+  --editorial-plum:       #4A2D57;
+  --editorial-aubergine:  #2B1735;
+  --editorial-lavender:   #B9A1C8;
+  --editorial-cacao:      #6B5147;
+  --editorial-stone:      #B8AEA7;
+  --editorial-gold:       #B89A58;
+
+  /* Legacy studio tokens kept for existing forms/pages */
+  --studio-ink:           var(--editorial-ink);
+  --studio-night:         var(--editorial-aubergine);
+  --studio-paper:         var(--editorial-ivory);
+  --studio-mist:          var(--editorial-smoke);
+  --studio-text:          var(--editorial-ink);
+  --studio-muted:         var(--editorial-cacao);
+  --studio-gold:          var(--editorial-gold);
+  --studio-indigo:        var(--editorial-plum);
+  --studio-green:         #516B5B;
 
   /* Tipografía */
   --font-display: var(--font-playfair);
@@ -54,8 +65,8 @@
 }
 
 html, body {
-  background: var(--color-void);
-  color: var(--color-cream);
+  background: var(--editorial-smoke);
+  color: var(--editorial-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }

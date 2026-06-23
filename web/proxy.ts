@@ -18,7 +18,7 @@ export async function proxy(request: NextRequest) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>La Aranoa Studio | En construccion</title>
+    <title>Elara Nova | En construccion</title>
     <style>
       :root {
         color-scheme: light;
@@ -76,9 +76,9 @@ export async function proxy(request: NextRequest) {
   </head>
   <body>
     <main>
-      <p class="eyebrow">La Aranoa Studio</p>
+      <p class="eyebrow">Elara Nova</p>
       <h1>Sitio en construccion.</h1>
-      <p>Estamos reorganizando la casa antes de volver a abrir. Para proyectos, automatizaciones o Google Ads, escribe a <a href="mailto:elaranova.17@gmail.com">elaranova.17@gmail.com</a>.</p>
+      <p>Estamos reorganizando la casa antes de volver a abrir. Para e-books, cursos o proyectos digitales, escribe a <a href="mailto:elaranova.17@gmail.com">elaranova.17@gmail.com</a>.</p>
       <div class="line" aria-hidden="true"></div>
     </main>
   </body>

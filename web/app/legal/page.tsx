@@ -4,13 +4,13 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Legal',
   description:
-    'Politica de privacidad, terminos de uso y datos de contacto de La Aranoa Studio.',
+    'Politica de privacidad, terminos de uso y datos de contacto de Elara Nova.',
 }
 
 const sections = [
   {
     title: 'Responsable',
-    text: 'Este sitio es gestionado por Evelyn Patino / La Aranoa Studio. Para consultas sobre privacidad, servicios o contenido, puedes escribir a evelynpatildr@gmail.com.',
+    text: 'Este sitio es gestionado por Evelyn Patino / Elara Nova. Para consultas sobre privacidad, servicios o contenido, puedes escribir a elaranova.17@gmail.com.',
   },
   {
     title: 'Datos que puedes compartir',
@@ -34,7 +34,7 @@ const sections = [
   },
   {
     title: 'Tus derechos',
-    text: 'Puedes solicitar acceso, correccion o eliminacion de tus datos escribiendo a evelynpatildr@gmail.com. Si existe una obligacion legal de conservar cierta informacion, se explicara en la respuesta.',
+    text: 'Puedes solicitar acceso, correccion o eliminacion de tus datos escribiendo a elaranova.17@gmail.com. Si existe una obligacion legal de conservar cierta informacion, se explicara en la respuesta.',
   },
   {
     title: 'Terminos de uso',
@@ -64,7 +64,7 @@ export default function LegalPage() {
             Privacidad y terminos de uso.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--studio-text)]/68">
-            Esta pagina resume como se gestiona la informacion compartida a traves de este sitio y las condiciones generales de uso de La Aranoa Studio.
+            Esta pagina resume como se gestiona la informacion compartida a traves de este sitio y las condiciones generales de uso de Elara Nova.
           </p>
           <p className="mt-4 text-sm leading-7 text-[var(--studio-text)]/55">
             Ultima actualizacion: 23 de junio de 2026.
