@@ -115,7 +115,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: process.env.RESEND_FROM ?? 'La Aranoa Studio <onboarding@resend.dev>',
-        to: process.env.DISCOVERY_NOTIFY_TO ?? process.env.RESEND_NOTIFY_TO ?? 'evelynpatildr@gmail.com',
+        to: process.env.DISCOVERY_NOTIFY_TO ?? process.env.RESEND_NOTIFY_TO ?? 'elaranova.17@gmail.com',
         reply_to: payload.email,
         subject: `Nuevo lead · ${payload.service} · ${payload.name}`,
         text: discoveryText(payload),
