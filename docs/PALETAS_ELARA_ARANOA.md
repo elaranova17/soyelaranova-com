@@ -2,6 +2,8 @@
 
 Objetivo: mantener el ADN morado de Elara, pero subirlo a una casa editorial-profesional. No queremos una agencia SaaS generica ni una web infantil de fantasia. Queremos que el sitio se sienta propio: mistico, serio, femenino, premium y util para vender productos digitales y servicios.
 
+Direccion activa: ver `docs/REDISENO_EDITORIAL_ELARA.md`.
+
 ## Arquitectura de marca
 
 El sitio no debe partirse en dos marcas que compiten. La estructura recomendada:
