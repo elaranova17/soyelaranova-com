@@ -2,6 +2,8 @@
 
 Documento de orden para reconstruir `soyelaranova.com` sin perder Elara y sin convertirlo en una landing generica de agencia.
 
+Plan operativo completo: `docs/PLAN_MAESTRO_REDISENO_ELARA.md`.
+
 ## Norte
 
 El sitio debe sentirse como una casa editorial-profesional: mistica, femenina, seria y vendible. Elara sigue siendo la marca principal. La parte profesional de Evelyn vive dentro de esa casa como una linea clara: "Trabaja conmigo".
