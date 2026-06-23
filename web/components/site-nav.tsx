@@ -140,8 +140,11 @@ export function SiteNav() {
   const pathname = usePathname() ?? '/'
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
+  const onPreview = pathname === '/preview'
   const studio =
     onHome ||
+    onPreview ||
+    pathname.startsWith('/preview/') ||
     pathname === '/cursos' ||
     pathname === '/trabaja-conmigo' ||
     pathname === '/descubrimiento' ||
@@ -150,14 +153,14 @@ export function SiteNav() {
 
   const sectionLinks = elaraSectionNav(pathname)
   const links: readonly NavItem[] = b2b
-    ? B2B_NAV
-    : studio
-      ? onHome
+      ? B2B_NAV
+      : studio
+      ? onHome || onPreview
         ? elaraLandingNav()
         : [...sectionLinks, ...ELARA_ROUTE_NAV]
       : [...sectionLinks, ...ELARA_ROUTE_NAV]
 
-  const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
+  const logoHref = b2b ? '/linktree' : onHome || onPreview ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
     : studio
