@@ -5,6 +5,8 @@ export async function proxy(request: NextRequest) {
 
   if (
     path.startsWith('/_next/') ||
+    path === '/preview' ||
+    path.startsWith('/preview/') ||
     path === '/favicon.ico' ||
     /\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|txt|xml)$/.test(path)
   ) {
