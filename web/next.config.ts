@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
       { source: '/casos-exito',       destination: '/evelyn-b2b/propuesta.html' },
       { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
-      { source: '/descubrimiento',    destination: '/evelyn-b2b/descubrimiento.html' },
       { source: '/propuesta-val-debarras', destination: '/evelyn-b2b/propuesta-val-debarras.html' },
     ]
   },
@@ -25,12 +24,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Rutas legacy → secciones de la landing fusionada
-      { source: '/comunidad', destination: '/#circulo', permanent: false },
-      { source: '/circulo', destination: '/#circulo', permanent: false },
-      { source: '/cursos', destination: '/#cursos', permanent: false },
-      { source: '/herramientas', destination: '/#herramientas', permanent: false },
+      { source: '/comunidad', destination: '/#productos', permanent: false },
+      { source: '/circulo', destination: '/#productos', permanent: false },
+      { source: '/cursos', destination: '/#productos', permanent: false },
+      { source: '/herramientas', destination: '/#servicios', permanent: false },
       { source: '/contacto', destination: '/#contacto', permanent: false },
-      { source: '/atelier', destination: '/#atelier', permanent: false },
+      { source: '/atelier', destination: '/#portfolio', permanent: false },
       { source: '/recursos', destination: '/#productos', permanent: false },
       { source: '/amazon', destination: '/universo', permanent: false },
       { source: '/login', destination: '/', permanent: false },

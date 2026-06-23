@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ElaraLogo } from '@/components/elara-logo'
 import {
   B2B_NAV,
   ELARA_ROUTE_NAV,
@@ -69,17 +68,40 @@ function NavCta({
   onClick?: () => void
   className?: string
 }) {
+  const trackClick = () => {
+    const win = window as Window & {
+      dataLayer?: Array<Record<string, unknown>>
+      gtag?: (command: 'event', eventName: string, params?: Record<string, unknown>) => void
+      plausible?: (eventName: string, options?: { props?: Record<string, unknown> }) => void
+    }
+    const payload = {
+      event: 'cta_click',
+      event_category: 'lead',
+      event_label: 'site_nav_cta',
+      href,
+    }
+
+    win.dataLayer?.push(payload)
+    win.gtag?.('event', 'cta_click', payload)
+    win.plausible?.('cta_click', { props: { category: 'lead', label: 'site_nav_cta', href } })
+  }
+
+  const handleClick = () => {
+    trackClick()
+    onClick?.()
+  }
+
   const cls = [
     'nav-cta-ritual btn-ritual btn-ritual--gold inline-flex min-h-10 items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] uppercase sm:px-5',
     className,
   ].join(' ')
 
   if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
-    return <a href={href} onClick={onClick} className={cls}><span aria-hidden>✦</span>{label}</a>
+    return <a href={href} onClick={handleClick} className={cls}><span aria-hidden>✦</span>{label}</a>
   }
 
   return (
-    <Link href={href} prefetch onClick={onClick} className={cls}>
+    <Link href={href} prefetch onClick={handleClick} className={cls}>
       <span aria-hidden>✦</span>{label}
     </Link>
   )
@@ -118,18 +140,29 @@ export function SiteNav() {
   const pathname = usePathname() ?? '/'
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
+  const studio =
+    onHome ||
+    pathname === '/servicios' ||
+    pathname.startsWith('/servicios/') ||
+    pathname === '/descubrimiento' ||
+    pathname === '/gracias' ||
+    pathname === '/legal'
 
   const sectionLinks = elaraSectionNav(pathname)
   const links: readonly NavItem[] = b2b
     ? B2B_NAV
-    : onHome
-      ? elaraLandingNav()
+    : studio
+      ? onHome
+        ? elaraLandingNav()
+        : sectionLinks
       : [...sectionLinks, ...ELARA_ROUTE_NAV]
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
-    : { href: '/portfolio', label: 'Work by Evelyn' }
+    : studio
+      ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
+      : { href: '/portfolio', label: 'Work by Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -148,13 +181,14 @@ export function SiteNav() {
 
   useEffect(() => {
     if (!open) return
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenForPath(null) }
+    window.dispatchEvent(new Event('lenis:stop'))
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenForPath(null)
+    }
     window.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = prev
       window.removeEventListener('keydown', onKey)
+      window.dispatchEvent(new Event('lenis:start'))
     }
   }, [open])
 
@@ -175,16 +209,12 @@ export function SiteNav() {
         ].join(' ')}
       >
         {/* Logo */}
-        {b2b ? (
-          <Link
-            href="/linktree"
-            className="min-w-0 shrink font-display text-lg italic tracking-tight text-[var(--color-cream)] transition-opacity hover:opacity-90 md:text-xl"
-          >
-            Evelyn Patiño
-          </Link>
-        ) : (
-          <ElaraLogo size="md" href={logoHref} className="min-w-0 shrink" />
-        )}
+        <Link
+          href={logoHref}
+          className="min-w-0 shrink font-display text-lg italic tracking-tight text-[var(--color-cream)] transition-opacity hover:opacity-90 md:text-xl"
+        >
+          {b2b ? 'Evelyn Patiño' : studio ? 'La Aranoa' : 'Elara Nova'}
+        </Link>
 
         <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
           {/* Desktop nav — solo B2B; Elara siempre hamburguesa */}
@@ -270,7 +300,10 @@ export function SiteNav() {
                     {item.href.includes('#') ? (
                       <a
                         href={item.href}
-                        onClick={close}
+                        onClick={() => {
+                          close()
+                          window.dispatchEvent(new Event('lenis:start'))
+                        }}
                         className="group flex items-center justify-between rounded-xl border border-[var(--color-cream)]/8 bg-[var(--color-cream)]/[0.03] px-4 py-3.5 font-display text-xl italic text-[var(--color-cream)] transition-colors hover:border-[var(--color-gold)]/35 hover:text-[var(--color-gold-bright)]"
                       >
                         <span>{item.label}</span>
@@ -282,7 +315,10 @@ export function SiteNav() {
                       <Link
                         href={item.href}
                         prefetch
-                        onClick={close}
+                        onClick={() => {
+                          close()
+                          window.dispatchEvent(new Event('lenis:start'))
+                        }}
                         aria-current={isActive(pathname, item) ? 'page' : undefined}
                         className={[
                           'group flex items-center justify-between rounded-xl border px-4 py-3.5 font-display text-xl italic transition-colors',

@@ -9,13 +9,14 @@ export type NavItem = {
   match?: readonly string[]
 }
 
-/** Secciones del index — footer Explorar + nav Elara */
+/** Secciones del index — home La Aranoa Studio */
 export const ELARA_SECTIONS = [
-  { id: 'herramientas', label: 'Herramientas' },
-  { id: 'circulo', label: 'El Círculo' },
-  { id: 'cursos', label: 'Cursos' },
+  { id: 'servicios', label: 'Servicios' },
+  { id: 'metodo', label: 'Metodo' },
+  { id: 'portfolio', label: 'Portfolio' },
   { id: 'productos', label: 'Productos' },
-  { id: 'sobre', label: 'Sobre Elara' },
+  { id: 'sobre', label: 'Sobre mi' },
+  { id: 'contacto', label: 'Contacto' },
 ] as const
 
 export type ElaraSectionId = (typeof ELARA_SECTIONS)[number]['id']
@@ -40,16 +41,15 @@ export const ELARA_ROUTE_NAV: readonly NavItem[] = [
   { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
 ]
 
-/** Nav header landing = secciones clave + rutas */
+/** Nav header landing = secciones clave del estudio */
 export function elaraLandingNav(): readonly NavItem[] {
   return [
-    { href: '#herramientas', label: 'Herramientas' },
-    { href: '#circulo',      label: 'El Círculo'   },
-    { href: '#cursos',       label: 'Cursos'       },
-    { href: '#productos',    label: 'Productos'    },
-    { href: '#sobre',        label: 'Sobre Elara'  },
-    { href: '/oraculo',      label: 'Oráculo',     match: ['/oraculo'] },
-    { href: '/universo',     label: 'Universo',    match: ['/universo'] },
+    { href: '#servicios', label: 'Servicios' },
+    { href: '#metodo', label: 'Metodo' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#productos', label: 'Productos' },
+    { href: '#sobre', label: 'Sobre mi' },
+    { href: '#contacto', label: 'Contacto' },
   ]
 }
 
@@ -58,7 +58,6 @@ export const B2B_ROUTES = [
   '/linktree',
   '/portfolio',
   '/cv',
-  '/descubrimiento',
   '/casos-exito',
   '/portfolio-print',
   '/factura',
