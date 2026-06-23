@@ -20,6 +20,7 @@ type Course = {
 type Service = {
   title: string
   description: string
+  outcome: string
 }
 
 const products: readonly Product[] = [
@@ -66,16 +67,26 @@ const services: readonly Service[] = [
   {
     title: 'Sitios web profesionales',
     description: 'Casas digitales para marcas que necesitan verse solidas, explicar su oferta y vender confianza.',
+    outcome: 'Presencia',
   },
   {
     title: 'Automatizaciones',
     description: 'Formularios, emails, hojas, notificaciones y flujos para dejar de sostenerlo todo manualmente.',
+    outcome: 'Sistema',
   },
   {
     title: 'Google Ads y redes',
     description: 'Campanas y contenidos conectados a paginas, medicion y una promesa clara.',
+    outcome: 'Traccion',
   },
 ]
+
+const funnel = [
+  ['Mirar', 'Entra por belleza y reconoce que hay una casa completa.'],
+  ['Quedarse', 'Encuentra productos, cursos y oraculo sin perderse.'],
+  ['Confiar', 'Ve criterio profesional sin romper la magia de Elara.'],
+  ['Actuar', 'Descarga, compra, escribe o solicita diagnostico.'],
+] as const
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
@@ -159,6 +170,39 @@ export default function HomePage() {
                   Productos, rituales y sistemas digitales bajo una misma sensibilidad.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Camino de conversion" className="relative -mt-8 px-5 pb-20 md:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[22px] border border-[var(--editorial-gold)]/28 bg-[var(--editorial-aubergine)] text-[var(--editorial-ivory)] shadow-[0_28px_80px_rgba(43,23,53,0.24)]">
+          <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="relative p-7 md:p-9">
+              <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(circle_at_26%_22%,var(--editorial-lavender),transparent_26%),radial-gradient(circle_at_88%_82%,var(--editorial-gold),transparent_24%)]" />
+              <div className="relative">
+                <p className="text-[0.66rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
+                  Embudo Elara
+                </p>
+                <h2 className="mt-4 font-display text-[2.35rem] leading-[0.98] md:text-[3.6rem]">
+                  Que la mirada no se escape.
+                </h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[var(--editorial-lavender)]">
+                  La pagina debe llevar a una decision sin gritar: primero enamora, luego ordena, despues invita.
+                </p>
+              </div>
+            </div>
+            <div className="grid divide-y divide-[var(--editorial-ivory)]/10 border-t border-[var(--editorial-ivory)]/10 lg:grid-cols-4 lg:divide-x lg:divide-y-0 lg:border-t-0 lg:border-l">
+              {funnel.map(([title, text], index) => (
+                <article key={title} className="relative min-h-44 p-6">
+                  <span className="font-display text-5xl text-[var(--editorial-gold)]/45">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="mt-5 font-display text-2xl leading-none">{title}</h3>
+                  <p className="mt-4 text-xs leading-6 text-[var(--editorial-lavender)]">{text}</p>
+                  <div className="absolute right-5 top-6 h-2 w-2 rounded-full bg-[var(--editorial-gold)] shadow-[0_0_26px_rgba(184,154,88,0.75)]" />
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -259,29 +303,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="trabaja" className="px-5 py-24 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <SectionHeader
-              eyebrow="Trabaja conmigo"
-              title="La parte profesional no reemplaza a Elara. La sostiene."
-              text="Construyo sistemas digitales para marcas que necesitan verse mejor, vender con mas claridad y dejar de hacer todo manual."
-            />
+      <section id="trabaja" className="relative overflow-hidden bg-[var(--editorial-ink)] px-5 py-24 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
+        <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_18%_16%,var(--editorial-plum),transparent_30%),radial-gradient(circle_at_80%_76%,var(--editorial-cacao),transparent_28%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--editorial-gold),transparent)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
+            <div>
+              <p className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
+                Trabaja conmigo
+              </p>
+              <h2 className="mt-4 font-display text-[3rem] leading-[0.92] md:text-[5.6rem]">
+                La magia tambien necesita una maquina.
+              </h2>
+            </div>
+            <div className="rounded-[18px] border border-[var(--editorial-ivory)]/12 bg-[var(--editorial-ivory)]/[0.06] p-6 backdrop-blur-xl">
+              <p className="text-lg leading-8 text-[var(--editorial-lavender)]">
+                La parte profesional no reemplaza a Elara. La sostiene: convierte belleza en una ruta clara para vender, capturar leads, medir y responder sin hacerlo todo a mano.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative mt-14 grid gap-5 lg:grid-cols-[0.9fr_1fr_1.1fr]">
+            <div className="pointer-events-none absolute left-[12%] right-[12%] top-1/2 hidden h-px bg-[linear-gradient(90deg,var(--editorial-gold),var(--editorial-lavender),var(--editorial-gold))] opacity-55 lg:block" />
+            {services.map((service, index) => (
+              <article
+                key={service.title}
+                className={[
+                  'relative rounded-[22px] border border-[var(--editorial-ivory)]/14 bg-[var(--editorial-ivory)] p-6 text-[var(--editorial-ink)] shadow-[0_30px_80px_rgba(0,0,0,0.2)]',
+                  index === 1 ? 'lg:mt-12' : '',
+                  index === 2 ? 'lg:mt-24' : '',
+                ].join(' ')}
+              >
+                <div className="absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--editorial-gold)]/60 bg-[var(--editorial-aubergine)] font-display text-xl text-[var(--editorial-gold)] shadow-[0_0_32px_rgba(184,154,88,0.35)]">
+                  {index + 1}
+                </div>
+                <p className="mt-5 text-[0.62rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
+                  {service.outcome}
+                </p>
+                <h3 className="mt-3 font-display text-[2.15rem] leading-[0.92] text-[var(--editorial-plum)]">
+                  {service.title}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-[var(--editorial-cacao)]">{service.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+            <p className="max-w-2xl font-serif text-2xl italic leading-9 text-[var(--editorial-lavender)]">
+              Si una marca ya tiene deseo, oferta o contenido, el siguiente paso es convertirlo en un sistema que no dependa de improvisar cada dia.
+            </p>
             <TrackedLink
               href="/descubrimiento"
               tracking={{ event: 'cta_click', category: 'lead', label: 'home_trabaja_diagnostico' }}
-              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-cacao)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-gold)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-aubergine)] uppercase shadow-[0_18px_42px_rgba(184,154,88,0.24)]"
             >
               Solicitar diagnostico
             </TrackedLink>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {services.map((service) => (
-              <article key={service.title} className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6">
-                <h3 className="font-display text-2xl leading-none text-[var(--editorial-plum)]">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{service.description}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>
