@@ -40,9 +40,10 @@ Configurar en Vercel → Settings → Environment Variables (Production + Previe
 | `NEXT_PUBLIC_SUPABASE_URL` | Sí (auth) | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Sí (auth) | Supabase anon key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Opcional | Server-side admin (no exponer al client) |
-| `RESEND_API_KEY` | Sí (email oráculo) | API Resend |
-| `RESEND_FROM` | Recomendado | Ej: `Elara Nova <hola@soyelaranova.com>` |
+| `RESEND_API_KEY` | Sí (emails) | API Resend para oráculo y diagnósticos |
+| `RESEND_FROM` | Recomendado | Ej: `La Aranoa Studio <hola@soyelaranova.com>` |
 | `RESEND_NOTIFY_TO` | Opcional | Email interno al recibir suscripción |
+| `DISCOVERY_NOTIFY_TO` | Recomendado | Email interno para leads de `/descubrimiento`; fallback: `RESEND_NOTIFY_TO` |
 | `NEXT_PUBLIC_SITE_URL` | Recomendado | `https://soyelaranova.com` |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Si hay captcha | Cloudflare Turnstile |
 | `TURNSTILE_SECRET_KEY` | Si hay captcha | Server-side Turnstile |
@@ -93,6 +94,8 @@ Existe `netlify.toml` en la raíz con `base = "web"`. **No es el deploy activo.*
 Rutas: `/portfolio`, `/cv`, `/linktree`, `/casos-exito`, `/descubrimiento`, `/propuesta-{cliente}` (ej. `/propuesta-val-debarras`). La plantilla genérica **no** es pública (`/propuesta` → `/descubrimiento`).  
 Archivos en `web/public/evelyn-b2b/` — enlaces e imágenes deben ser **absolutos** (`/portfolio`, `/_assets/photos/...`). Ver `web/public/evelyn-b2b/README.md`.
 
+`/descubrimiento` ya es una ruta Next activa con `POST /api/discovery`; el HTML viejo redirige a la nueva ruta.
+
 ---
 
 ## Checklist post-deploy
@@ -100,6 +103,7 @@ Archivos en `web/public/evelyn-b2b/` — enlaces e imágenes deben ser **absolut
 - [ ] `https://soyelaranova.com` carga home
 - [ ] `/oraculo`, `/universo`, `/sobre-elara` responden 200
 - [ ] Form email oráculo (`POST /api/oracle/subscribe`) con Resend configurado
+- [ ] Form diagnóstico (`POST /api/discovery`) envía email interno y redirige a `/gracias`
 - [ ] Lighthouse mobile > 85 perf (objetivo CONTEXT)
 
 ---

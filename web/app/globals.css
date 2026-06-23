@@ -32,6 +32,17 @@
   --color-cream:          #FAF4E2;
   --color-white-rose:     #F5EEF8;
 
+  /* La Aranoa Studio — puente profesional/editorial */
+  --studio-ink:           #0B1020;
+  --studio-night:         #10131D;
+  --studio-paper:         #F7F2EA;
+  --studio-mist:          #E7E1D7;
+  --studio-text:          #1E293B;
+  --studio-muted:         #8A8194;
+  --studio-gold:          #C8A24A;
+  --studio-indigo:        #5B5FE8;
+  --studio-green:         #0FAF7A;
+
   /* Tipografía */
   --font-display: var(--font-playfair);
   --font-serif:   var(--font-cormorant);
@@ -49,6 +60,19 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Lenis · scroll suave sin bloquear la página */
+html.lenis {
+  height: auto;
+}
+
+html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
 [id] {
   scroll-margin-top: 80px;
 }
@@ -56,6 +80,37 @@ html, body {
 ::selection {
   background: var(--color-gold);
   color: var(--color-purple-night);
+}
+
+.studio-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--studio-paper) 14%, transparent);
+  background: color-mix(in srgb, var(--studio-paper) 6%, transparent);
+  padding: 0.95rem 1rem;
+  color: var(--studio-paper);
+  font: inherit;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.studio-input::placeholder {
+  color: color-mix(in srgb, var(--studio-paper) 38%, transparent);
+}
+
+.studio-input:focus {
+  border-color: color-mix(in srgb, var(--studio-gold) 70%, transparent);
+  background: color-mix(in srgb, var(--studio-paper) 9%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--studio-gold) 14%, transparent);
+}
+
+.studio-input option {
+  background: var(--studio-night);
+  color: var(--studio-paper);
 }
 
 .section-fade-edge {
