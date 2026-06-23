@@ -65,7 +65,7 @@ function validate(payload: DiscoveryPayload): string | null {
 
 function discoveryText(payload: DiscoveryPayload) {
   return [
-    'Nuevo diagnostico de proyecto · La Aranoa Studio',
+    'Nuevo diagnostico de proyecto · Elara Nova',
     '',
     `Nombre: ${payload.name}`,
     `Email: ${payload.email}`,
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM ?? 'La Aranoa Studio <onboarding@resend.dev>',
+        from: process.env.RESEND_FROM ?? 'Elara Nova <onboarding@resend.dev>',
         to: process.env.DISCOVERY_NOTIFY_TO ?? process.env.RESEND_NOTIFY_TO ?? 'elaranova.17@gmail.com',
         reply_to: payload.email,
         subject: `Nuevo lead · ${payload.service} · ${payload.name}`,

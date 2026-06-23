@@ -6,7 +6,7 @@ import { studioServices } from '@/lib/studio-services'
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Servicios de La Aranoa Studio: sitios web profesionales, landing pages, automatizaciones y Google Ads con medicion.',
+    'Servicios profesionales de Evelyn Patino dentro de Elara Nova: sitios web, landing pages, automatizaciones y Google Ads con medicion.',
 }
 
 export default function ServicesPage() {
@@ -23,7 +23,7 @@ export default function ServicesPage() {
             href="/"
             className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--studio-gold)] uppercase hover:text-[var(--studio-paper)]"
           >
-            ← Volver al estudio
+            ← Volver a Elara
           </Link>
 
           <div className="mt-12 max-w-4xl">

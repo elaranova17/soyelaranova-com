@@ -5,7 +5,7 @@ import { DiscoveryForm } from '@/components/discovery-form'
 export const metadata: Metadata = {
   title: 'Descubrimiento',
   description:
-    'Cuestionario de descubrimiento para proyectos digitales con La Aranoa Studio: web, automatizaciones, landing pages y Google Ads.',
+    'Cuestionario de descubrimiento para trabajar con Evelyn Patino en web, automatizaciones, landing pages y Google Ads.',
 }
 
 export default function DiscoveryPage() {
@@ -22,7 +22,7 @@ export default function DiscoveryPage() {
             href="/"
             className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--studio-gold)] uppercase hover:text-[var(--studio-paper)]"
           >
-            ← Volver al estudio
+            ← Volver a Elara
           </Link>
           <p className="mt-12 mb-4 text-[0.7rem] font-black tracking-[0.34em] text-[var(--studio-gold)] uppercase">
             Diagnostico inicial
@@ -68,7 +68,7 @@ export default function DiscoveryPage() {
       <footer className="px-5 pb-10 text-sm text-[var(--studio-paper)]/48 md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl justify-center gap-4 border-t border-[var(--studio-paper)]/10 pt-6">
           <Link href="/legal" className="hover:text-[var(--studio-gold)]">Privacidad y terminos</Link>
-          <Link href="/servicios" className="hover:text-[var(--studio-gold)]">Servicios</Link>
+          <Link href="/trabaja-conmigo" className="hover:text-[var(--studio-gold)]">Trabaja conmigo</Link>
         </div>
       </footer>
     </main>

@@ -30,11 +30,11 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL('https://soyelaranova.com'),
   title: {
-    default: 'La Aranoa Studio — Web, automatizacion y anuncios',
-    template: '%s | La Aranoa Studio',
+    default: 'Elara Nova — E-books, cursos y trabaja conmigo',
+    template: '%s | Elara Nova',
   },
   description:
-    'Estudio digital de Evelyn Patino: sitios web profesionales, landing pages, automatizaciones, Google Ads y productos digitales para marcas que quieren vender mejor.',
+    'Casa digital de Elara Nova: e-books, cursos, oraculo, recursos y servicios profesionales de Evelyn Patino para marcas que quieren crecer con belleza y sistema.',
   keywords: [
     'sitios web profesionales',
     'landing pages',
@@ -42,9 +42,12 @@ export const metadata: Metadata = {
     'Google Ads',
     'marketing digital',
     'productos digitales',
+    'ebooks',
+    'cursos',
+    'oraculo',
     'emprendedores',
     'Evelyn Patino',
-    'La Aranoa Studio',
+    'Elara Nova',
   ],
   authors: [{ name: 'Evelyn Patino', url: 'https://soyelaranova.com' }],
   creator: 'Evelyn Patino',
@@ -52,24 +55,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
     url: 'https://soyelaranova.com',
-    siteName: 'La Aranoa Studio',
-    title: 'La Aranoa Studio — Web, automatizacion y anuncios',
+    siteName: 'Elara Nova',
+    title: 'Elara Nova — E-books, cursos y trabaja conmigo',
     description:
-      'Sitios web, automatizaciones, landing pages y Google Ads para marcas que quieren vender mejor en digital.',
+      'E-books, cursos, oraculo y servicios profesionales dentro de una casa digital editorial creada por Evelyn Patino.',
     images: [
       {
         url: '/_assets/photos/og-portfolio.jpg',
         width: 1200,
         height: 630,
-        alt: 'La Aranoa Studio por Evelyn Patino',
+        alt: 'Elara Nova por Evelyn Patino',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'La Aranoa Studio — Web, automatizacion y anuncios',
+    title: 'Elara Nova — E-books, cursos y trabaja conmigo',
     description:
-      'Sitios web, automatizaciones, landing pages y Google Ads para marcas que quieren vender mejor en digital.',
+      'E-books, cursos, oraculo y servicios profesionales dentro de una casa digital editorial creada por Evelyn Patino.',
     images: ['/_assets/photos/og-portfolio.jpg'],
   },
   robots: {

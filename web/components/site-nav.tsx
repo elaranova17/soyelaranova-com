@@ -142,8 +142,8 @@ export function SiteNav() {
   const onHome = pathname === '/'
   const studio =
     onHome ||
-    pathname === '/servicios' ||
-    pathname.startsWith('/servicios/') ||
+    pathname === '/cursos' ||
+    pathname === '/trabaja-conmigo' ||
     pathname === '/descubrimiento' ||
     pathname === '/gracias' ||
     pathname === '/legal'
@@ -154,14 +154,14 @@ export function SiteNav() {
     : studio
       ? onHome
         ? elaraLandingNav()
-        : sectionLinks
+        : [...sectionLinks, ...ELARA_ROUTE_NAV]
       : [...sectionLinks, ...ELARA_ROUTE_NAV]
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
     : studio
-      ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
+      ? { href: '/trabaja-conmigo', label: 'Trabaja conmigo' }
       : { href: '/portfolio', label: 'Work by Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)
@@ -213,7 +213,7 @@ export function SiteNav() {
           href={logoHref}
           className="min-w-0 shrink font-display text-lg italic tracking-tight text-[var(--color-cream)] transition-opacity hover:opacity-90 md:text-xl"
         >
-          {b2b ? 'Evelyn Patiño' : studio ? 'La Aranoa' : 'Elara Nova'}
+          {b2b ? 'Evelyn Patiño' : 'Elara Nova'}
         </Link>
 
         <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
