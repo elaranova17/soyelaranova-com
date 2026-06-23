@@ -8,7 +8,7 @@
 06_ARCHIVO
 assets
 ebooks
-api
+/api
 docs
 CONTEXT_CURSOR.md
 README.md
