@@ -2,118 +2,129 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
 
-type Product = {
+type Step = {
+  number: string
   title: string
-  label: string
-  description: string
+  text: string
+}
+
+type Offer = {
+  title: string
+  eyebrow: string
   cta: string
   href: string
-  image: string
 }
 
-type Course = {
-  title: string
-  description: string
-  image: string
+type Proof = {
+  quote: string
+  label: string
 }
 
-type Service = {
-  title: string
-  description: string
-  outcome: string
-}
-
-const products: readonly Product[] = [
+const steps: readonly Step[] = [
   {
-    title: '7 Dias de Elara',
-    label: 'Entrada gratuita',
-    description: 'Un lead magnet suave para iniciar el regreso a ti con rituales simples, escritura y presencia.',
-    cta: 'Descargar',
-    href: '/lead-magnet/7-cartas.pdf',
-    image: '/images/elara-journal.png',
+    number: '01',
+    title: 'Descubrir',
+    text: 'Auditoria de tu idea, oferta o modelo de negocio.',
   },
   {
-    title: 'Ciclo Nova del Regreso',
-    label: 'E-book principal',
-    description: 'El primer libro pago de Elara: cuatro estaciones para volver a sostenerte sin ruido ni formulas vacias.',
-    cta: 'Ver universo',
+    number: '02',
+    title: 'Crear',
+    text: 'Sitio web, producto digital o pagina de venta con estructura.',
+  },
+  {
+    number: '03',
+    title: 'Automatizar',
+    text: 'Procesos, formularios, emails y medicion conectados.',
+  },
+  {
+    number: '04',
+    title: 'Monetizar',
+    text: 'Cursos, libros, servicios digitales y campanas con direccion.',
+  },
+]
+
+const offers: readonly Offer[] = [
+  {
+    title: 'Sitios web empresariales',
+    eyebrow: 'Presencia',
+    cta: 'Ver servicio',
+    href: '/trabaja-conmigo',
+  },
+  {
+    title: 'Paginas de venta',
+    eyebrow: 'Conversion',
+    cta: 'Ver servicio',
+    href: '/trabaja-conmigo',
+  },
+  {
+    title: 'Automatizacion de procesos',
+    eyebrow: 'Sistema',
+    cta: 'Consultar',
+    href: '/descubrimiento',
+  },
+  {
+    title: 'Google Ads + analitica',
+    eyebrow: 'Traccion',
+    cta: 'Ver servicio',
+    href: '/trabaja-conmigo',
+  },
+  {
+    title: 'Crecimiento en redes sociales',
+    eyebrow: 'Contenido',
+    cta: 'Paquetes',
+    href: '/descubrimiento',
+  },
+  {
+    title: 'Cursos y libros digitales',
+    eyebrow: 'Elara',
+    cta: 'Ver catalogo',
     href: '/universo',
-    image: '/images/ciclos-lunares-rituales.png',
-  },
-  {
-    title: 'Workbook y audios',
-    label: 'En preparacion',
-    description: 'Material imprimible y acompanamiento en audio para convertir el libro en practica semanal.',
-    cta: 'Recibir novedades',
-    href: '#contacto',
-    image: '/images/elara-aprendiendo.png',
   },
 ]
 
-const courses: readonly Course[] = [
+const proof: readonly Proof[] = [
   {
-    title: 'Cursos de autoconocimiento',
-    description: 'Experiencias digitales cortas, visuales y accionables para acompanarte sin volverse otra tarea pesada.',
-    image: '/images/elara-cursos.png',
+    quote: 'Ahora mi oferta se entiende sin tener que explicarlo todo por mensaje.',
+    label: 'Claridad',
   },
   {
-    title: 'Rituales y herramientas',
-    description: 'Plantillas, audios, ejercicios y objetos digitales pensados como biblioteca viva de Elara.',
-    image: '/images/herramienta-oraculo.png',
-  },
-]
-
-const services: readonly Service[] = [
-  {
-    title: 'Sitios web profesionales',
-    description: 'Casas digitales para marcas que necesitan verse solidas, explicar su oferta y vender confianza.',
-    outcome: 'Presencia',
+    quote: 'Pase de improvisar contenido a tener una ruta para captar y responder.',
+    label: 'Sistema',
   },
   {
-    title: 'Automatizaciones',
-    description: 'Formularios, emails, hojas, notificaciones y flujos para dejar de sostenerlo todo manualmente.',
-    outcome: 'Sistema',
-  },
-  {
-    title: 'Google Ads y redes',
-    description: 'Campanas y contenidos conectados a paginas, medicion y una promesa clara.',
-    outcome: 'Traccion',
+    quote: 'La marca se siente mas mia, pero tambien mas lista para vender.',
+    label: 'Presencia',
   },
 ]
 
-const funnel = [
-  ['Mirar', 'Entra por belleza y reconoce que hay una casa completa.'],
-  ['Quedarse', 'Encuentra productos, cursos y oraculo sin perderse.'],
-  ['Confiar', 'Ve criterio profesional sin romper la magia de Elara.'],
-  ['Actuar', 'Descarga, compra, escribe o solicita diagnostico.'],
-] as const
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
+    <p
+      className={[
+        'text-[0.68rem] font-black tracking-[0.28em] uppercase',
+        light ? 'text-[var(--editorial-gold)]' : 'text-[var(--editorial-cacao)]',
+      ].join(' ')}
+    >
       {children}
     </p>
   )
 }
 
-function SectionHeader({
-  eyebrow,
-  title,
-  text,
+function EditorialFrame({
+  children,
+  className = '',
 }: {
-  eyebrow: string
-  title: string
-  text: string
+  children: React.ReactNode
+  className?: string
 }) {
   return (
-    <div className="max-w-3xl">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-4 font-display text-[2.35rem] leading-[1.02] text-[var(--editorial-ink)] md:text-[4.25rem]">
-        {title}
-      </h2>
-      <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--editorial-cacao)] md:text-lg">
-        {text}
-      </p>
+    <div
+      className={[
+        'relative overflow-hidden rounded-[30px] border border-[var(--editorial-gold)]/65 bg-[var(--editorial-ivory)] shadow-[0_30px_90px_rgba(43,23,53,0.16)]',
+        className,
+      ].join(' ')}
+    >
+      {children}
     </div>
   )
 }
@@ -121,291 +132,256 @@ function SectionHeader({
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section id="inicio" className="relative isolate px-5 pt-28 pb-16 md:px-8 lg:px-12">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,var(--editorial-smoke)_0%,var(--editorial-ivory)_46%,#D8D0C8_100%)]" />
-        <div className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_24%_14%,rgba(74,45,87,0.22),transparent_32%),radial-gradient(circle_at_74%_18%,rgba(107,81,71,0.2),transparent_30%)]" />
+      <section id="inicio" className="relative isolate px-5 pt-28 pb-20 md:px-8 lg:px-12">
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(135deg,#F4EEE5_0%,#E7E1DC_44%,#D8D0C8_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-[46rem] bg-[radial-gradient(circle_at_12%_18%,rgba(74,45,87,0.18),transparent_28%),radial-gradient(circle_at_88%_22%,rgba(184,154,88,0.28),transparent_24%),radial-gradient(circle_at_50%_72%,rgba(107,81,71,0.16),transparent_32%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background-image:radial-gradient(circle,rgba(184,154,88,0.42)_0_2px,transparent_3px)] [background-size:86px_86px]" />
 
-        <div className="mx-auto grid min-h-[calc(100svh-7rem)] max-w-7xl items-center gap-12 lg:grid-cols-[0.98fr_1.02fr]">
-          <div>
+        <div className="mx-auto grid min-h-[calc(100svh-8rem)] max-w-7xl items-center gap-8 lg:grid-cols-[0.84fr_1.02fr_0.84fr]">
+          <EditorialFrame className="order-2 aspect-[4/5] lg:order-1">
+            <Image
+              src="/_assets/photos/evelyn_pro_hero.jpg"
+              alt="Evelyn Patino"
+              fill
+              priority
+              sizes="(max-width: 1024px) 92vw, 28vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,243,234,0.08),rgba(43,23,53,0.58))]" />
+            <div className="absolute right-5 bottom-5 left-5 rounded-[18px] border border-[var(--editorial-ivory)]/20 bg-[var(--editorial-aubergine)]/78 p-5 text-[var(--editorial-ivory)] backdrop-blur-xl">
+              <p className="text-[0.62rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
+                Evelyn
+              </p>
+              <p className="mt-2 font-serif text-xl italic leading-7">
+                Ingenieria, criterio visual y estrategia para construir con calma.
+              </p>
+            </div>
+          </EditorialFrame>
+
+          <div className="order-1 text-center lg:order-2">
             <Eyebrow>Elara Nova</Eyebrow>
-            <h1 className="mt-5 max-w-4xl font-display text-[3.45rem] leading-[0.92] text-[var(--editorial-ink)] md:text-[5.7rem] xl:text-[6.8rem]">
+            <h1 className="mx-auto mt-5 max-w-4xl font-display text-[3.2rem] leading-[0.9] md:text-[5.4rem] xl:text-[6.2rem]">
               Mira todo lo que siempre fuiste capaz de ser.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)] md:text-xl">
-              Una casa digital para volver a ti: e-books, cursos, oraculo y herramientas creadas con belleza, estrategia y una obsesion suave por los detalles.
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[var(--editorial-cacao)] md:text-lg">
+              E-books, cursos, oraculo y sistemas digitales para convertir una idea bonita en una casa que vende, acompana y trabaja contigo.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="#productos"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-plum)] px-6 py-3 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[var(--editorial-gold)]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-plum)] px-6 py-3 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase shadow-[0_18px_42px_rgba(74,45,87,0.24)] transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[var(--editorial-gold)]"
               >
                 Entrar al universo
               </Link>
               <Link
                 href="#trabaja"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-plum)]/25 bg-[var(--editorial-ivory)] px-6 py-3 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-plum)] uppercase transition-colors hover:border-[var(--editorial-plum)]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-cacao)]/28 bg-[var(--editorial-ivory)]/80 px-6 py-3 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-cacao)] uppercase backdrop-blur transition-colors hover:border-[var(--editorial-plum)] hover:text-[var(--editorial-plum)]"
               >
                 Trabaja conmigo
               </Link>
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[35rem]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-gold)]/35 bg-[var(--editorial-aubergine)] shadow-[0_34px_90px_rgba(43,23,53,0.28)]">
-              <Image
-                src="/elara/avatar/elara.jpg"
-                alt="Elara Nova en una composicion editorial"
-                fill
-                priority
-                sizes="(max-width: 1024px) 92vw, 35rem"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(43,23,53,0.08)_0%,rgba(43,23,53,0.78)_100%)]" />
-              <div className="absolute right-5 bottom-5 left-5 rounded-[14px] border border-[var(--editorial-ivory)]/18 bg-[var(--editorial-aubergine)]/82 p-5 text-[var(--editorial-ivory)] backdrop-blur-xl">
-                <p className="text-[0.62rem] font-bold tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
-                  Casa editorial viva
-                </p>
-                <p className="mt-2 font-serif text-xl italic leading-7">
-                  Productos, rituales y sistemas digitales bajo una misma sensibilidad.
-                </p>
-              </div>
+          <EditorialFrame className="order-3 aspect-[4/5] bg-[var(--editorial-aubergine)]">
+            <Image
+              src="/elara/avatar/elara.jpg"
+              alt="Elara Nova"
+              fill
+              priority
+              sizes="(max-width: 1024px) 92vw, 28vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,243,234,0.02),rgba(43,23,53,0.7))]" />
+            <div className="absolute right-5 bottom-5 left-5 rounded-[18px] border border-[var(--editorial-ivory)]/20 bg-[var(--editorial-aubergine)]/78 p-5 text-[var(--editorial-ivory)] backdrop-blur-xl">
+              <p className="text-[0.62rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
+                Elara
+              </p>
+              <p className="mt-2 font-serif text-xl italic leading-7">
+                La voz, el universo y la sensibilidad que vuelven memorable la marca.
+              </p>
             </div>
-          </div>
+          </EditorialFrame>
         </div>
       </section>
 
-      <section aria-label="Camino de conversion" className="relative -mt-8 px-5 pb-20 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[22px] border border-[var(--editorial-gold)]/28 bg-[var(--editorial-aubergine)] text-[var(--editorial-ivory)] shadow-[0_28px_80px_rgba(43,23,53,0.24)]">
-          <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
-            <div className="relative p-7 md:p-9">
-              <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(circle_at_26%_22%,var(--editorial-lavender),transparent_26%),radial-gradient(circle_at_88%_82%,var(--editorial-gold),transparent_24%)]" />
-              <div className="relative">
-                <p className="text-[0.66rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
-                  Embudo Elara
-                </p>
-                <h2 className="mt-4 font-display text-[2.35rem] leading-[0.98] md:text-[3.6rem]">
-                  Que la mirada no se escape.
-                </h2>
-                <p className="mt-5 max-w-md text-sm leading-7 text-[var(--editorial-lavender)]">
-                  La pagina debe llevar a una decision sin gritar: primero enamora, luego ordena, despues invita.
-                </p>
-              </div>
-            </div>
-            <div className="grid divide-y divide-[var(--editorial-ivory)]/10 border-t border-[var(--editorial-ivory)]/10 lg:grid-cols-4 lg:divide-x lg:divide-y-0 lg:border-t-0 lg:border-l">
-              {funnel.map(([title, text], index) => (
-                <article key={title} className="relative min-h-44 p-6">
-                  <span className="font-display text-5xl text-[var(--editorial-gold)]/45">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="mt-5 font-display text-2xl leading-none">{title}</h3>
-                  <p className="mt-4 text-xs leading-6 text-[var(--editorial-lavender)]">{text}</p>
-                  <div className="absolute right-5 top-6 h-2 w-2 rounded-full bg-[var(--editorial-gold)] shadow-[0_0_26px_rgba(184,154,88,0.75)]" />
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="productos" className="px-5 py-24 md:px-8 lg:px-12">
+      <section aria-label="De la idea al ingreso" className="px-5 pb-24 md:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Productos digitales"
-            title="E-books y recursos que no son relleno: son la biblioteca de Elara."
-            text="La linea editorial vuelve al centro. Cada producto debe sentirse coleccionable, util y conectado al camino de la marca."
-          />
+          <div className="text-center">
+            <Eyebrow>De la idea al ingreso</Eyebrow>
+            <h2 className="mt-4 font-display text-[2.4rem] leading-[1] md:text-[4.5rem]">
+              Un camino de cuatro pasos.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--editorial-cacao)]">
+              El mismo ritual aplicado a tu negocio: descubrir, crear, automatizar y monetizar.
+            </p>
+          </div>
 
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {products.map((product) => (
-              <article
-                key={product.title}
-                className="group overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] shadow-[0_24px_70px_rgba(24,19,26,0.08)]"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[var(--editorial-aubergine)]">
-                  <Image
-                    src={product.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 1024px) 92vw, 30vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(43,23,53,0.62)_100%)]" />
+          <div className="relative mt-14 grid gap-5 lg:grid-cols-4">
+            <div className="pointer-events-none absolute left-[8%] right-[8%] top-[4.25rem] hidden h-px bg-[linear-gradient(90deg,transparent,var(--editorial-gold),var(--editorial-cacao),var(--editorial-gold),transparent)] lg:block" />
+            {steps.map((step) => (
+              <article key={step.number} className="relative text-center">
+                <div className="mx-auto flex h-28 w-48 items-center justify-center rounded-[50%] border border-[var(--editorial-gold)]/70 bg-[var(--editorial-ivory)]/68 shadow-[0_20px_60px_rgba(43,23,53,0.08)] backdrop-blur">
+                  <span className="font-display text-3xl text-[var(--editorial-gold)]">{step.number}</span>
                 </div>
-                <div className="p-6">
-                  <p className="text-[0.62rem] font-black tracking-[0.22em] text-[var(--editorial-gold)] uppercase">
-                    {product.label}
-                  </p>
-                  <h3 className="mt-3 font-display text-3xl leading-none text-[var(--editorial-plum)]">
-                    {product.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">
-                    {product.description}
-                  </p>
-                  <Link
-                    href={product.href}
-                    className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[var(--editorial-plum)]/25 px-4 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-plum)] uppercase transition-colors hover:bg-[var(--editorial-plum)] hover:text-[var(--editorial-ivory)]"
-                  >
-                    {product.cta}
-                  </Link>
-                </div>
+                <h3 className="mt-7 font-display text-3xl leading-none text-[var(--editorial-plum)]">{step.title}</h3>
+                <p className="mx-auto mt-4 max-w-48 text-sm leading-6 text-[var(--editorial-cacao)]">{step.text}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="productos" className="relative overflow-hidden bg-[var(--editorial-aubergine)] px-5 py-24 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_15%_20%,rgba(185,161,200,0.38),transparent_26%),radial-gradient(circle_at_82%_75%,rgba(184,154,88,0.36),transparent_28%)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <Eyebrow light>Lo que construyo para ti</Eyebrow>
+              <h2 className="mt-4 font-display text-[2.8rem] leading-[0.95] md:text-[5rem]">
+                Todo tu universo digital, en una misma mesa.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-[var(--editorial-lavender)]">
+              Servicios, e-books, cursos y recursos no viven separados. Se disenan como un sistema para atraer, sostener y convertir.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {offers.map((offer, index) => (
+              <Link
+                key={offer.title}
+                href={offer.href}
+                className={[
+                  'group relative min-h-52 overflow-hidden rounded-[22px] border border-[var(--editorial-ivory)]/12 bg-[var(--editorial-ivory)]/[0.08] p-6 backdrop-blur-xl transition-transform hover:-translate-y-1',
+                  index === 0 || index === 5 ? 'xl:min-h-64' : '',
+                ].join(' ')}
+              >
+                <div className="absolute -right-8 -top-10 h-32 w-44 rounded-[50%] bg-[var(--editorial-gold)]/14 transition-transform group-hover:scale-110" />
+                <p className="relative text-[0.62rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
+                  {offer.eyebrow}
+                </p>
+                <h3 className="relative mt-7 max-w-xs font-display text-[2.15rem] leading-[0.95]">
+                  {offer.title}
+                </h3>
+                <p className="relative mt-8 text-[0.68rem] font-black tracking-[0.2em] text-[var(--editorial-gold)] uppercase">
+                  {offer.cta} →
+                </p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       <section id="cursos" className="bg-[var(--editorial-ivory)] px-5 py-24 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeader
-            eyebrow="Cursos y experiencias"
-            title="Aprender tambien puede sentirse como entrar a una habitacion bonita."
-            text="Esta seccion queda preparada para cursos, workshops, audios y experiencias. No se esconde: se ordena como una linea futura de productos."
-          />
-          <div className="grid gap-5 md:grid-cols-2">
-            {courses.map((course) => (
-              <article key={course.title} className="overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-smoke)]">
-                <div className="relative aspect-[5/4]">
-                  <Image src={course.image} alt="" fill sizes="(max-width: 1024px) 92vw, 28vw" className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-3xl text-[var(--editorial-plum)]">{course.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]">{course.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="oraculo" className="relative overflow-hidden bg-[var(--editorial-aubergine)] px-5 py-24 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
-        <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_20%_20%,var(--editorial-lavender),transparent_28%),radial-gradient(circle_at_80%_30%,var(--editorial-gold),transparent_24%)]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[18px] border border-[var(--editorial-gold)]/35">
-            <Image src="/images/oraculo-maestra.png" alt="" fill sizes="(max-width: 1024px) 92vw, 44vw" className="object-cover" />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(43,23,53,0.72),rgba(43,23,53,0.12))]" />
-          </div>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
-            <Eyebrow>Oraculo</Eyebrow>
-            <h2 className="mt-4 font-display text-[2.7rem] leading-[1] md:text-[4.6rem]">
-              Una senal pequena para volver a escucharte.
+            <Eyebrow>Cursos y productos</Eyebrow>
+            <h2 className="mt-4 font-display text-[2.6rem] leading-[1] md:text-[4.9rem]">
+              E-books, cursos y oraculo para que Elara tambien venda.
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--editorial-lavender)]">
-              El oraculo sigue siendo un gesto de marca, pero ahora acompana a los productos y a la comunidad en vez de ocuparlo todo.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
+              La linea editorial tiene que sentirse coleccionable: una biblioteca bonita, util y lista para crecer a cursos, audios y experiencias.
             </p>
             <Link
-              href="/oraculo"
-              className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[var(--editorial-gold)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-aubergine)] uppercase"
+              href="/universo"
+              className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[var(--editorial-plum)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
             >
-              Abrir oraculo
+              Ver catalogo
             </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <EditorialFrame className="aspect-[4/5]">
+              <Image src="/images/ciclos-lunares-rituales.png" alt="" fill sizes="(max-width: 1024px) 92vw, 32vw" className="object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(43,23,53,0.72))]" />
+              <p className="absolute bottom-6 left-6 right-6 font-display text-3xl leading-none text-[var(--editorial-ivory)]">
+                Ciclo Nova del Regreso
+              </p>
+            </EditorialFrame>
+            <div className="grid gap-5">
+              <EditorialFrame className="aspect-[4/3]">
+                <Image src="/images/elara-journal.png" alt="" fill sizes="(max-width: 1024px) 92vw, 28vw" className="object-cover" />
+              </EditorialFrame>
+              <EditorialFrame className="aspect-[4/3]">
+                <Image src="/images/oraculo-maestra.png" alt="" fill sizes="(max-width: 1024px) 92vw, 28vw" className="object-cover" />
+              </EditorialFrame>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="trabaja" className="relative overflow-hidden bg-[var(--editorial-ink)] px-5 py-24 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
-        <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_18%_16%,var(--editorial-plum),transparent_30%),radial-gradient(circle_at_80%_76%,var(--editorial-cacao),transparent_28%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--editorial-gold),transparent)]" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <div>
-              <p className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
-                Trabaja conmigo
-              </p>
-              <h2 className="mt-4 font-display text-[3rem] leading-[0.92] md:text-[5.6rem]">
-                La magia tambien necesita una maquina.
-              </h2>
-            </div>
-            <div className="rounded-[18px] border border-[var(--editorial-ivory)]/12 bg-[var(--editorial-ivory)]/[0.06] p-6 backdrop-blur-xl">
-              <p className="text-lg leading-8 text-[var(--editorial-lavender)]">
-                La parte profesional no reemplaza a Elara. La sostiene: convierte belleza en una ruta clara para vender, capturar leads, medir y responder sin hacerlo todo a mano.
-              </p>
-            </div>
-          </div>
-
-          <div className="relative mt-14 grid gap-5 lg:grid-cols-[0.9fr_1fr_1.1fr]">
-            <div className="pointer-events-none absolute left-[12%] right-[12%] top-1/2 hidden h-px bg-[linear-gradient(90deg,var(--editorial-gold),var(--editorial-lavender),var(--editorial-gold))] opacity-55 lg:block" />
-            {services.map((service, index) => (
-              <article
-                key={service.title}
-                className={[
-                  'relative rounded-[22px] border border-[var(--editorial-ivory)]/14 bg-[var(--editorial-ivory)] p-6 text-[var(--editorial-ink)] shadow-[0_30px_80px_rgba(0,0,0,0.2)]',
-                  index === 1 ? 'lg:mt-12' : '',
-                  index === 2 ? 'lg:mt-24' : '',
-                ].join(' ')}
-              >
-                <div className="absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--editorial-gold)]/60 bg-[var(--editorial-aubergine)] font-display text-xl text-[var(--editorial-gold)] shadow-[0_0_32px_rgba(184,154,88,0.35)]">
-                  {index + 1}
-                </div>
-                <p className="mt-5 text-[0.62rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
-                  {service.outcome}
-                </p>
-                <h3 className="mt-3 font-display text-[2.15rem] leading-[0.92] text-[var(--editorial-plum)]">
-                  {service.title}
-                </h3>
-                <p className="mt-5 text-sm leading-7 text-[var(--editorial-cacao)]">{service.description}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-14 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
-            <p className="max-w-2xl font-serif text-2xl italic leading-9 text-[var(--editorial-lavender)]">
-              Si una marca ya tiene deseo, oferta o contenido, el siguiente paso es convertirlo en un sistema que no dependa de improvisar cada dia.
+      <section id="trabaja" className="px-5 py-24 md:px-8 lg:px-12">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <EditorialFrame className="aspect-[16/10]">
+            <Image
+              src="/_assets/photos/evelyn_pro_perfil.jpg"
+              alt="Evelyn Patino"
+              fill
+              sizes="(max-width: 1024px) 92vw, 40vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(43,23,53,0.66),transparent_58%)]" />
+          </EditorialFrame>
+          <div>
+            <Eyebrow>Soy Evelyn. Y tambien soy Elara.</Eyebrow>
+            <h2 className="mt-4 font-display text-[2.8rem] leading-[0.95] md:text-[5.2rem]">
+              La intuicion que imagina. La ingenieria que lo vuelve sistema.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
+              Empece creando contenido espiritual. Hoy ayudo a emprendedoras a construir negocios digitales que funcionan sin perder la sensibilidad que los hizo nacer.
             </p>
             <TrackedLink
               href="/descubrimiento"
               tracking={{ event: 'cta_click', category: 'lead', label: 'home_trabaja_diagnostico' }}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-gold)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-aubergine)] uppercase shadow-[0_18px_42px_rgba(184,154,88,0.24)]"
+              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-cacao)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
             >
-              Solicitar diagnostico
+              Trabaja conmigo →
             </TrackedLink>
           </div>
         </div>
       </section>
 
-      <section id="sobre" className="bg-[var(--editorial-ivory)] px-5 py-24 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-stone)]">
-            <Image src="/_assets/photos/evelyn_pro_hero.jpg" alt="Evelyn Patino" fill sizes="(max-width: 1024px) 92vw, 34vw" className="object-cover" />
-          </div>
-          <div>
-            <Eyebrow>Evelyn + Elara</Eyebrow>
-            <h2 className="mt-4 font-display text-[2.6rem] leading-[1] text-[var(--editorial-ink)] md:text-[4.8rem]">
-              Belleza, tecnica y negocio en una misma mesa.
+      <section id="oraculo" className="bg-[var(--editorial-ivory)] px-5 py-24 md:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <Eyebrow>Confianza</Eyebrow>
+            <h2 className="mt-4 font-display text-[2.5rem] leading-[1] md:text-[4.4rem]">
+              Lo que debe sentir quien entra.
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-              Elara es la casa creativa. Evelyn es la ingeniera que la construye y tambien acompana a otras marcas a ordenar su presencia digital con criterio visual, automatizacion y medicion.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/sobre-elara" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-plum)]/25 px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-plum)] uppercase">
-                Sobre Elara
-              </Link>
-              <Link href="/trabaja-conmigo" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-cacao)]/25 px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-cacao)] uppercase">
-                Servicios
-              </Link>
-            </div>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {proof.map((item) => (
+              <article key={item.label} className="rounded-[22px] border border-[var(--editorial-stone)] bg-[var(--editorial-smoke)] p-7 text-center shadow-[0_20px_60px_rgba(43,23,53,0.06)]">
+                <p className="font-serif text-2xl italic leading-8 text-[var(--editorial-plum)]">"{item.quote}"</p>
+                <p className="mt-6 text-[0.68rem] font-black tracking-[0.22em] text-[var(--editorial-gold)] uppercase">{item.label}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="contacto" className="px-5 py-24 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-4xl text-center">
-          <Eyebrow>Proxima apertura</Eyebrow>
-          <h2 className="mt-4 font-display text-[2.8rem] leading-[1] md:text-[5rem]">
-            Primero ordenamos la casa. Luego volvemos a abrir.
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[42px] border border-[var(--editorial-gold)]/30 bg-[var(--editorial-aubergine)] px-6 py-16 text-center text-[var(--editorial-ivory)] shadow-[0_34px_90px_rgba(43,23,53,0.24)] md:px-12">
+          <Eyebrow light>Consulta gratuita</Eyebrow>
+          <h2 className="mx-auto mt-4 max-w-4xl font-display text-[2.7rem] leading-[0.96] md:text-[5rem]">
+            Lista para que tu universo digital empiece a trabajar por ti?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-            El sitio seguira en construccion hasta que esta estructura editorial este lista. Para proyectos, escribe o solicita diagnostico.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-lavender)]">
+            Entramos por la belleza, pero salimos con una ruta: que construir, que automatizar y que vender primero.
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <TrackedLink
               href="/descubrimiento"
               tracking={{ event: 'cta_click', category: 'lead', label: 'home_footer_diagnostico' }}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-plum)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-gold)] px-7 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-aubergine)] uppercase"
             >
-              Solicitar diagnostico
+              Agenda tu diagnostico →
             </TrackedLink>
-            <a href="mailto:elaranova.17@gmail.com" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-stone)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-cacao)] uppercase">
+            <a
+              href="mailto:elaranova.17@gmail.com"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-ivory)]/20 px-7 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
+            >
               Escribir por email
             </a>
           </div>
