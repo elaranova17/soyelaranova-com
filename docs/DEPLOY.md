@@ -20,7 +20,7 @@
 
 Config actual: Root Directory `web` en dashboard + `web/vercel.json` solo con reglas git.
 
-**Assets:** en `web/public/images/` no dejar symlinks a `../hero/` — Vercel falla el build. Los JPG deben ser archivos reales (carpeta `public/hero/` incluida en el repo).
+**Assets:** en `web/public/images/` no dejar symlinks a `../hero/` — Vercel falla el build. La carpeta `web/public/hero/` no debe existir; esos fondos viejos están archivados fuera del deploy.
 
 ### Dashboard Vercel (verificar manualmente)
 
@@ -43,7 +43,7 @@ Configurar en Vercel → Settings → Environment Variables (Production + Previe
 | `RESEND_API_KEY` | Sí (emails) | API Resend para oráculo y diagnósticos |
 | `RESEND_FROM` | Recomendado | Ej: `La Aranoa Studio <hola@soyelaranova.com>` |
 | `RESEND_NOTIFY_TO` | Opcional | Email interno al recibir suscripción |
-| `DISCOVERY_NOTIFY_TO` | Recomendado | Email interno para leads de `/descubrimiento`; fallback: `RESEND_NOTIFY_TO` |
+| `DISCOVERY_NOTIFY_TO` | Recomendado | Email interno para leads de `/descubrimiento`; fallback: `RESEND_NOTIFY_TO` y luego `elaranova.17@gmail.com` |
 | `NEXT_PUBLIC_SITE_URL` | Recomendado | `https://soyelaranova.com` |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Si hay captcha | Cloudflare Turnstile |
 | `TURNSTILE_SECRET_KEY` | Si hay captcha | Server-side Turnstile |
@@ -51,6 +51,8 @@ Configurar en Vercel → Settings → Environment Variables (Production + Previe
 **Local dev:** crear `web/.env.local` (gitignored). No commitear secrets.
 
 El build de Next.js pasa sin env vars; runtime de auth/email fallará hasta configurar valores reales.
+
+Nota Resend: mientras la cuenta esté en modo testing, solo puede enviar a `elaranova.17@gmail.com`. Para enviar a otro correo, verificar `soyelaranova.com` en Resend Domains y cambiar `RESEND_FROM` a un remitente del dominio.
 
 ---
 
