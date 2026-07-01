@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Cormorant_Garamond, Lato } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { MagicCursor } from '@/components/magic-cursor'
@@ -99,6 +100,7 @@ export default function RootLayout({
           <SiteNav />
           {children}
         </LenisProvider>
+        <Analytics />
       </body>
     </html>
   )
