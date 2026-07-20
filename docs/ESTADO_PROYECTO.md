@@ -1,164 +1,142 @@
 # Estado del proyecto · soyelaranova.com
 
-**Actualizado:** 20 julio 2026 (refleja el código a fecha del último commit, 24 junio 2026)
-**Fuente de verdad estratégica:** [`../CONTEXT_CURSOR.md`](../CONTEXT_CURSOR.md)
-**Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main`
-**Deploy:** [`DEPLOY.md`](DEPLOY.md) · mapa repo: [`REPO_STRUCTURE.md`](REPO_STRUCTURE.md)
+**Actualizado:** 20 julio 2026 (verificado contra el código, último commit 24 junio 2026)
+**Dirección estratégica actual:** [`PLAN_MAESTRO_REDISENO_ELARA.md`](PLAN_MAESTRO_REDISENO_ELARA.md) ← manda
+**Brief original (parcialmente superado):** [`../CONTEXT_CURSOR.md`](../CONTEXT_CURSOR.md)
+**Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main` · **Deploy:** Vercel ([`DEPLOY.md`](DEPLOY.md)) · mapa: [`REPO_STRUCTURE.md`](REPO_STRUCTURE.md)
 
-> Este archivo es el **estado vivo verificado contra el código**. Si algo aquí choca con
-> lo que ves en `web/`, gana el código y hay que actualizar este archivo. La estrategia
-> (visión, voces, reglas) vive en `CONTEXT_CURSOR.md`.
-
----
-
-## Resumen en una línea
-
-Sitio con **dos capas ya construidas**: portal Elara (home con frase ancla + sección oráculo + tienda/cursos)
-y **estudio B2B "La Aranoa"** (servicios + formulario de descubrimiento). El corazón v1 del portal
-—carta del oráculo interactiva y captura email + **fecha de nacimiento**— sigue siendo la brecha principal.
+> **Lee esto primero.** El sitio pasó por una **reestructuración comercial** (mayo–junio 2026): dejó de ser
+> un "portal sagrado con el oráculo como objetivo único" y se convirtió en una **casa editorial-profesional
+> que vende**. La estrategia vigente vive en `PLAN_MAESTRO_REDISENO_ELARA.md`. Donde el `CONTEXT_CURSOR.md`
+> original contradiga esa dirección (oráculo como KPI único, paleta "sagrada" como ley, `/work`), **manda el plan de rediseño**.
 
 ---
 
-## Stack instalado vs. lockeado (verificado en `web/package.json`)
+## Qué es el sitio ahora (dirección comercial)
 
-| Dependencia (CONTEXT) | Estado real |
-|----------------------|-------------|
-| Next.js 15+ App Router | ✅ Next **16.2.6** (el brief dice 15; divergencia aceptada) |
-| React 19 | ✅ 19.2.4 |
-| TypeScript strict | ✅ (`^5`) |
-| Tailwind v4 + tokens | ✅ `web/app/globals.css` |
-| Fonts Playfair / Cormorant / Lato | ✅ |
-| framer-motion | ✅ `^12` |
-| lenis (smooth scroll) | ✅ instalado + `components/lenis-provider.tsx` |
-| gsap | ❌ **no instalado** (animación va con framer-motion + CSS) |
-| three + R3F + drei + postprocessing | ❌ no instalado — el "3D" del hero es **2D custom** (`magic-cursor`, `magic-particles`) |
-| tone.js | ❌ |
-| Resend | ❌ no instalado (la API de captura existe pero sin envío real) |
-| ElevenLabs / Sanity / Hotmart SDK | ❌ no integrados |
+Una **casa editorial-profesional** que monetiza **tres líneas**:
 
-**Build:** `cd web && npm run verify:assets && npm run build`. **Deploy:** Vercel, Root Directory `web`,
-config en `web/vercel.json`, CI `.github/workflows/web.yml`.
+1. **Productos Elara** — ebooks, lead magnet, workbook, audios, cursos (`/universo`, `/cursos`).
+2. **Experiencia Elara** — oráculo, rituales, universo visual (`/oraculo`, sección `#oraculo` del home).
+3. **Servicios Evelyn** — sitios web, automatizaciones, Google Ads, redes (`/trabaja-conmigo`, `/servicios`, `/descubrimiento`).
+
+**Principio rector:** *"Elara enamora. Evelyn ordena. El sistema convierte."*
+**Embudo (cada sección cumple una función):** Mirar → Quedarse → Confiar → Actuar.
+**Debe sentirse:** editorial, místico pero adulto, profesional con alma. **No** debe parecer Canva, plantilla
+de agencia, landing genérica de IA, ni portal infantil de fantasía.
+
+> El oráculo **ya no domina** la web: es un gesto memorable, una sección del embudo, no el objetivo único.
+> "La Aranoa" **no** es la marca principal (solo aparece como etiqueta interna del formulario de descubrimiento).
 
 ---
 
 ## Rutas reales (verificadas en `web/app/`)
 
-**12 páginas + 2 API.**
+**12 páginas públicas + 5 en el namespace `/preview` + 2 API.**
 
-### Portal Elara (voz Elara)
+### Home = landing comercial fusionada
 
-| Ruta | Estado |
-|------|--------|
-| `/` | Home completa: hero, frase ancla ✅, sección oráculo con CTA "Sacar mi carta", cursos, tienda, email |
-| `/oraculo` | Página existe (falta verificar si la carta ya es interactiva o sigue siendo landing) |
-| `/universo` | Tienda / moodboard de productos digitales |
-| `/sobre-elara` | Manifiesto + identidad |
-| `/cursos` | Cursos |
+`/` está **en vivo con el rediseño** (ya no en construcción). Es una landing única con secciones-ancla:
+hero (`Entrar al universo` + `Trabaja conmigo`), `#productos`, `#oraculo` (`Sacar mi carta`), `#contacto`.
+Frase ancla presente: *"Mira todo lo que siempre fuiste capaz de ser."*
 
-### Estudio B2B "La Aranoa" (voz Evelyn)
+### Públicas
 
-| Ruta | Estado |
-|------|--------|
-| `/servicios` | Servicios del estudio (`lib/studio-services`) |
-| `/descubrimiento` | Formulario de descubrimiento → `POST /api/discovery` |
-| `/trabaja-conmigo` | Cierre B2B (esto **reemplaza** el `/work` que planeaba el CONTEXT) |
+| Ruta | Rol en el embudo |
+|------|------------------|
+| `/` | Landing comercial (hero + embudo Elara + productos + oráculo + contacto) |
+| `/universo` | Productos digitales (ebooks) — falta checkout Hotmart real |
+| `/cursos` | Cursos / experiencias (base inicial) |
+| `/oraculo` | Ritual / carta (por refinar; carta interactiva pendiente) |
+| `/sobre-elara` | Historia, manifiesto, confianza (voz Elara + credenciales Evelyn) |
+| `/trabaja-conmigo` | Servicios profesionales (voz Evelyn) |
+| `/servicios` · `/servicios/[slug]` | Detalle de servicios del estudio (`lib/studio-services`) |
+| `/descubrimiento` | Formulario de diagnóstico → `POST /api/discovery` |
+| `/gracias` · `/legal` · `/linktree` | Cierre / legal / linktree Evelyn |
 
-### Utilitarias
+### Preview (staging del rediseño)
 
-`/gracias` · `/legal` · `/linktree` (Evelyn) · `/preview` (borrador de rediseño)
+`/preview` + `/preview/{cursos,oraculo,trabaja-conmigo,universo}` — revisión privada de iteraciones.
 
 ### API
 
-| Endpoint | Qué hace |
-|----------|----------|
-| `POST /api/oracle/subscribe` | Captura email del portal (Resend cuando haya env) |
-| `POST /api/discovery` | Recibe el formulario B2B de `/descubrimiento` |
+`POST /api/oracle/subscribe` (email portal) · `POST /api/discovery` (formulario B2B).
+
+> Nota: `next.config.ts` redirige rutas legacy (`/comunidad`, `/work`, `/manifiesto`, `/atelier`, `/amazon`…)
+> a las secciones fusionadas o a sus equivalentes. Algunos destinos de redirect (`/portfolio`, `/cv`,
+> `/casos-exito`, `/factura`, `/portfolio-print`, `/propuesta-val-debarras`) **aún no existen como página** → revisar.
 
 ---
 
-## Divergencias con el CONTEXT (para que Evelyn decida)
+## Stack real (verificado en `web/package.json`)
 
-El código evolucionó más allá del brief lockeado. Estas diferencias **no están reflejadas en
-`CONTEXT_CURSOR.md`** todavía; requieren tu visto bueno antes de tocar el brief:
+| Dependencia | Estado |
+|-------------|--------|
+| Next.js | ✅ **16.2.6** (el brief decía 15) |
+| React 19 · TypeScript strict · Tailwind v4 | ✅ |
+| framer-motion · lenis | ✅ instalados |
+| gsap · three / R3F / drei · tone · resend | ❌ **no instalados** |
 
-1. **`/work` → `/trabaja-conmigo`** + estudio "La Aranoa" con `/servicios` y `/descubrimiento`.
-   El CONTEXT sigue diciendo `/work` como ruta única B2B desde el footer.
-2. **Next 16** en vez de 15 (ya en producción, sin problemas).
-3. **Sin stack 3D real** (three/R3F): el brief planeaba hero R3F; se resolvió con 2D custom.
-   Cumple el objetivo visual sin el peso de Three.js en mobile.
-4. Rutas que el CONTEXT/ESTADO viejo listaba (`/login`, `/amazon`, `/atelier`, `/comunidad`,
-   `/cuenta`, `/manifiesto`, `/portal`) **ya no existen** — limpiadas del árbol de rutas.
-
----
-
-## Brechas críticas vs. objetivo home (CONTEXT §7)
-
-| # | Brecha | Estado |
-|---|--------|--------|
-| 1 | Frase ancla *"Mira todo lo que siempre fuiste capaz de ser."* | ✅ presente en `/` |
-| 2 | CTA para sacar carta | ✅ "Sacar mi carta" en la sección oráculo del home |
-| 3 | Carta del oráculo **interactiva** (voltear + mensaje) | ⚠️ pendiente de verificar/construir |
-| 4 | Captura email **+ fecha de nacimiento** | ⚠️ falta el campo fecha y el envío real (Resend) |
-| 5 | 5 mensajes hardcoded del oráculo | ⚠️ pendiente |
-
-**El KPI del sitio sigue siendo la brecha 3–4:** sacar carta → dejar email + fecha de nacimiento.
+El "3D/inmersión" es **2D custom** (`magic-cursor`, `magic-particles`); no hay Three.js.
+**Build:** `cd web && npm run verify:assets && npm run build`. **Deploy:** Vercel, Root Directory `web`.
 
 ---
 
-## Fases CONTEXT vs. realidad
+## Paleta (en transición)
 
-| Fase | Plan CONTEXT | Realidad julio 2026 |
-|------|--------------|---------------------|
-| **1** Setup + tokens | Base mínima | ✅ tokens, fonts, Next 16, Tailwind v4 |
-| **2** Hero + estela + CTA carta | Escena R3F | ✅ Hero 2D custom (magic-cursor/particles) + frase ancla + CTA carta |
-| **3** Carta interactiva + 5 mensajes + captura | Core producto | ⚠️ sección existe; falta carta interactiva + fecha nacimiento + Resend |
-| **4** Sound + ElevenLabs | | ❌ no iniciado |
-| **5** Tienda + B2B + polish | | ✅ B2B (estudio La Aranoa) construido; ⚠️ tienda `/universo` sin checkout Hotmart real |
+Tokens en `web/app/globals.css` (1985 líneas). Conviven dos sistemas:
 
-**Conclusión:** el eje visual y el eje B2B están **muy avanzados**. Lo que falta para cerrar v1 del
-portal es el **eje conversión del oráculo** (fase 3): carta interactiva + captura email/fecha → Resend.
+- **Editorial (dirección actual):** ciruela `#4A2D57`, berenjena `#2B1735`, cacao `#6B5147`, oro antiguo `#B89A58`, marfil `#F8F3EA`, humo `#E7E1DC`, tinta `#18131A`. → `--editorial-*` / `--studio-*`.
+- **Sagrada (legado, en retirada):** `--color-purple-deep #2D1B69`, `--color-gold #D4AF37`. Aún referenciada en ~6 archivos.
+
+**Regla del plan:** el morado como profundidad (no saturación), el dorado como detalle (no lujo falso).
+Meta: migrar todo a la paleta editorial y retirar la sagrada.
 
 ---
 
-## Qué hacer ahora (orden recomendado)
+## Estado del embudo (plan de rediseño vs. realidad)
 
-1. **Verificar `/oraculo` y la sección oráculo del home**: ¿la carta ya voltea? ¿hay mensajes?
-   (una sesión de auditoría antes de construir, para no duplicar).
-2. **Cerrar la captura** (KPI): añadir campo **fecha de nacimiento** al form + integrar **Resend**
-   (instalar `resend`, env `RESEND_API_KEY`). Es el dato que la plataforma 2028 necesita desde el día uno.
-3. **5 mensajes hardcoded** del oráculo + interacción de voltear la carta (framer-motion, sin R3F).
-4. **Reflejar en el CONTEXT** las divergencias aprobadas (rutas B2B, Next 16) para que el brief
-   deje de contradecir el código.
-5. **Tienda `/universo`**: enlazar checkout real (Hotmart) cuando los productos estén listos.
-
----
-
-## Sistema de diseño
-
-- `docs/brand.md` — marca web (Pixar + Encanto, no Amazon)
-- `docs/DISENO_MAESTRO.md` — sprints A–D + checklist
-- `docs/PALETAS_ELARA_ARANOA.md` — paletas Elara (portal) + Aranoa (estudio B2B)
-- `.claude/skills/` — `elara-designer`, `elara-copywriter`, `elara-ui-master` (+ marketing, growth, fba, ebooks, ads-analyst, market-research)
+| Sección | Objetivo | Estado |
+|---------|----------|--------|
+| Hero editorial | Impacto inmediato | ✅ en vivo; ⚠️ imagen hero es placeholder (falta una más exclusiva) |
+| Embudo Elara (Mirar→Actuar) | Explicar sin parecer explicación | ⚠️ existe; refinar copy + hacerlo más visual |
+| Productos digitales | Vender cosas reales | ⚠️ falta covers reales, precio/CTA por producto, checkout Hotmart |
+| Cursos | Abrir línea futura | ⚠️ base; falta definir 2–3 cursos + lista de espera |
+| Oráculo | Gesto mágico | ⚠️ carta interactiva simple pendiente; captura email/fecha opcional |
+| Trabaja conmigo | Convertir clientes pro | ⚠️ falta autoridad, proceso, mini-casos |
+| Sobre / confianza | Por qué Evelyn puede | ⚠️ integrar foto pro + credenciales |
+| Contacto / diagnóstico | Cierre claro | ✅ `/descubrimiento` funcional; ⚠️ confirmar Resend + dominio verificado |
 
 ---
 
-## Regla para agentes
+## Qué hacer ahora (sprint recomendado por el plan)
 
-- Antes de codear: leer `CONTEXT_CURSOR.md` (estrategia) + este archivo (estado real).
-- Si el **código** y el **CONTEXT** chocan en un hecho técnico (ruta, dep, versión): manda el código,
-  y se anota la divergencia aquí. Si chocan en **estrategia/visión**: manda el CONTEXT salvo que Evelyn apruebe el cambio.
+**Sprint inmediato: Hero + primera pantalla + embudo** (es lo que más afecta la percepción).
+Entregables: hero con más tensión visual · mejor composición de imagen Elara · CTA más claro ·
+embudo más visual y menos literal · revisión mobile. Luego → productos/covers → trabaja-conmigo → oráculo funcional → QA.
+
+**Deudas técnicas transversales:** integrar **Resend** (instalar dep + `RESEND_API_KEY`); migrar paleta a editorial;
+crear las páginas destino de los redirects o corregir los redirects.
+
+---
+
+## Reglas para agentes
+
+- Leer **primero** `PLAN_MAESTRO_REDISENO_ELARA.md` (estrategia comercial vigente) + este archivo (estado real).
+- Si el plan de rediseño y el `CONTEXT_CURSOR.md` original chocan en estrategia → **manda el rediseño**.
+- Si el código y un doc chocan en un hecho técnico (ruta, dep, versión) → manda el código; anótalo aquí.
 - **Una fase / un objetivo por sesión.** Parar y confirmar con Evelyn entre fases (TDAH: no saturar).
-- No mezclar voz Elara y voz Evelyn en la misma página.
-- Nunca la palabra **"tarot"** — solo **oráculo**.
+- No mezclar **voz Elara** (portal) y **voz Evelyn** (servicios) en la misma sección.
+- Nunca la palabra **"tarot"** en UI — solo **oráculo**.
+- **"La Aranoa" no es la marca principal**; no ponerla como headline.
 
 ---
 
-## Otros repos / carpetas (no confundir)
+## Sistema de diseño y contenido
 
-| Ruta | Qué es |
-|------|--------|
-| `01_LANZAMIENTO/` … `06_ARCHIVO/` | Ops, contenido, visual, reels, estrategia, archivo (no despliegan) |
-| `assets/b2b/` | PDFs portfolio Evelyn |
-| `ebooks/` | Manuscritos fuente (Ciclo Nova) |
+- `PLAN_MAESTRO_REDISENO_ELARA.md` — plan comercial (embudo, rutas, paleta, componentes UI, copy, assets)
+- `docs/brand.md` · `docs/DISENO_MAESTRO.md` · `docs/PALETAS_ELARA_ARANOA.md`
+- `docs/REDISENO_EDITORIAL_ELARA.md` · `docs/REDISENO_ARANOA_STUDIO.md`
+- `.claude/skills/` — designer, copywriter, ui-master (+ marketing, growth, fba, ebooks, ads-analyst, market-research)
 
 **Único deploy = este repo, carpeta `web/`.**

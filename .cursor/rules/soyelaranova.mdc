@@ -5,21 +5,22 @@ alwaysApply: true
 
 # soyelaranova.com · Elara Nova
 
-**Lee primero:** `CONTEXT_CURSOR.md` (estrategia) + `docs/ESTADO_PROYECTO.md` (estado técnico real, verificado). En estrategia gana el doc; en hechos técnicos (ruta, dep) gana el código y se anota en ESTADO.
+**Lee primero (en orden):** `docs/PLAN_MAESTRO_REDISENO_ELARA.md` (estrategia comercial vigente) + `docs/ESTADO_PROYECTO.md` (estado real) + `CONTEXT_CURSOR.md` (visión/voces; parcialmente superado). Si el rediseño choca con el brief → manda el rediseño. En hechos técnicos (ruta, dep) → manda el código.
 
-**Julio 2026:** portal Elara y estudio B2B "La Aranoa" ya construidos. Home con frase ancla + sección oráculo. **Falta cerrar el KPI:** carta interactiva + captura email + fecha de nacimiento (Resend). Ver `docs/DISENO_MAESTRO.md`.
+**Reestructuración comercial (jul 2026):** casa editorial-profesional que vende **3 líneas** — Productos Elara (`/universo`, `/cursos`) · Experiencia/Oráculo (`/oraculo`) · Servicios Evelyn (`/trabaja-conmigo`, `/servicios`, `/descubrimiento`). Principio: *"Elara enamora. Evelyn ordena. El sistema convierte."* Embudo: Mirar → Quedarse → Confiar → Actuar. El **oráculo es una sección, no el KPI único**.
 
 **Skills diseño:** `.claude/skills/elara-designer` · `elara-copywriter` · `elara-ui-master` · `docs/brand.md`
 
-**Stack real:** Next 16 · framer-motion + lenis + cursor/partículas 2D custom. **No** hay three/R3F/gsap/tone/Resend instalados.
+**Stack real:** Next 16 · framer-motion + lenis + cursor/partículas 2D. **No** hay three/R3F/gsap/tone/Resend. **Paleta:** editorial ciruela/cacao (`--editorial-*`); la "sagrada" se retira.
 
 ## Proyecto
 
-Portal sagrado Elara Nova + portfolio B2B discreto (Evelyn). Frase ancla: *"Mira todo lo que siempre fuiste capaz de ser."*
+Casa editorial-profesional Elara Nova (marca Elara) + servicios profesionales de Evelyn, en un mismo sitio con embudo comercial. Frase ancla: *"Mira todo lo que siempre fuiste capaz de ser."* "La Aranoa" **no** es marca principal.
 
-## Stack (no cambiar sin permiso)
+## Stack real (no cambiar sin permiso)
 
-Next.js 15 App Router · React 19 · TS strict · Tailwind v4 · R3F + drei + postprocessing · GSAP · Lenis · Framer Motion · Tone.js · ElevenLabs · Resend · Hotmart externo · Vercel. Budget ≤ €10/mes.
+Next.js **16** App Router · React 19 · TS strict · Tailwind v4 · Framer Motion · Lenis · cursor/partículas 2D custom · Vercel. Budget ≤ €10/mes.
+**No instalado** (el brief los planeaba, no se usan): three/R3F, GSAP, Tone.js, ElevenLabs, Resend, Sanity. Instalar solo con permiso de Evelyn.
 
 ## Rutas reales (voz Elara salvo estudio B2B)
 
@@ -30,19 +31,20 @@ Next.js 15 App Router · React 19 · TS strict · Tailwind v4 · R3F + drei + po
 | `/universo` | Tienda productos digitales → Hotmart (checkout pendiente) |
 | `/sobre-elara` | Manifiesto |
 | `/cursos` | Cursos |
-| `/servicios` · `/descubrimiento` · `/trabaja-conmigo` | **Estudio B2B "La Aranoa"** · voz Evelyn (reemplaza el `/work` del brief) |
-| `/gracias` · `/legal` · `/linktree` · `/preview` | Utilitarias |
+| `/servicios` (`/[slug]`) · `/descubrimiento` · `/trabaja-conmigo` | Servicios Evelyn · voz Evelyn (reemplaza el `/work` del brief) |
+| `/gracias` · `/legal` · `/linktree` | Utilitarias |
+| `/preview` (+ subrutas) | Staging del rediseño |
 
 **No construir en 2026:** `/luna`, login/miembros, carta natal, Sanity 40 cartas, SaaS $9/mes, app móvil, stack 3D (three/R3F).
 
 ## Voces (nunca mezclar en la misma sección)
 
-- **Elara:** `/`, `/oraculo`, `/universo`, `/sobre-elara` — mística, hermana mayor paisa. **Oráculo, nunca "tarot".**
-- **Evelyn:** solo `/work` — ingeniera, directa.
+- **Elara:** `/`, `/oraculo`, `/universo`, `/cursos`, `/sobre-elara` — mística, hermana mayor paisa. **Oráculo, nunca "tarot".**
+- **Evelyn:** `/trabaja-conmigo`, `/servicios`, `/descubrimiento` — ingeniera, directa.
 
-## Objetivo home
+## Objetivo home (embudo comercial)
 
-En 3s sentir el universo → sacar carta → email + **fecha de nacimiento** (Resend) para volver mañana.
+Mirar (hero + frase ancla) → Quedarse (productos, cursos, oráculo) → Confiar (sobre, prueba visual) → Actuar (diagnóstico, descarga, email, compra). El oráculo es un gesto, no el objetivo único.
 
 ## Reglas de código
 
