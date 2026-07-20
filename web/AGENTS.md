@@ -1,13 +1,17 @@
 # soyelaranova.com · Agent instructions
 
-**Fuente de verdad:** [`../CONTEXT_CURSOR.md`](../CONTEXT_CURSOR.md)
+**Estrategia vigente (rediseño comercial):** [`../docs/PLAN_MAESTRO_REDISENO_ELARA.md`](../docs/PLAN_MAESTRO_REDISENO_ELARA.md)
 **Estado vivo (verificado):** [`../docs/ESTADO_PROYECTO.md`](../docs/ESTADO_PROYECTO.md)
-**Diseño maestro:** [`../docs/DISENO_MAESTRO.md`](../docs/DISENO_MAESTRO.md) · [`../docs/brand.md`](../docs/brand.md)
+**Brief original (parcialmente superado):** [`../CONTEXT_CURSOR.md`](../CONTEXT_CURSOR.md)
+**Diseño:** [`../docs/DISENO_MAESTRO.md`](../docs/DISENO_MAESTRO.md) · [`../docs/brand.md`](../docs/brand.md)
 
 **Skills:** `elara-designer` · `elara-copywriter` · `elara-ui-master` (en `.claude/skills/`)
 
-Si el código contradice el CONTEXT en **estrategia**, gana el doc (salvo aprobación de Evelyn).
-Si lo contradice en un **hecho técnico** (ruta, dep), gana el código y se anota en `ESTADO_PROYECTO.md`.
+**Reestructuración comercial (jul 2026):** el sitio es una **casa editorial-profesional que vende 3 líneas**
+(Productos Elara · Experiencia/Oráculo · Servicios Evelyn). Principio: *"Elara enamora. Evelyn ordena. El
+sistema convierte."* Embudo: Mirar → Quedarse → Confiar → Actuar. El oráculo es **una** sección, no el KPI único.
+
+Prioridad de docs: **rediseño > estado real > brief original**. En hechos técnicos (ruta, dep) gana el código.
 
 ## Repo layout
 
@@ -21,19 +25,16 @@ soyelaranova-com/
 
 ## Estado actual (20 julio 2026 · verificado en el código)
 
-| Área | Hecho | Falta (v1) |
-|------|-------|------------|
-| Portal Elara | Home (frase ancla + sección oráculo + CTA carta), `/universo`, `/sobre-elara`, `/cursos` | Carta interactiva, captura email + **fecha de nacimiento** |
-| Estudio B2B "La Aranoa" | `/servicios`, `/descubrimiento` (+ `api/discovery`), `/trabaja-conmigo` | — |
-| Stack visual | framer-motion, lenis, cursor/partículas 2D custom | (three/R3F **no** se usa) |
-| Monetización | `/universo` moodboard, `/cursos` | Checkout Hotmart real |
-| Captura | `api/oracle/subscribe` (email) | Campo fecha nacimiento + Resend |
+| Línea | Rutas | Estado |
+|-------|-------|--------|
+| Productos Elara | `/universo`, `/cursos` | ⚠️ falta covers, precio/CTA, checkout Hotmart |
+| Experiencia (oráculo) | `/oraculo`, sección `#oraculo` del home | ⚠️ carta interactiva + captura email/fecha pendiente |
+| Servicios Evelyn | `/trabaja-conmigo`, `/servicios` (+ `[slug]`), `/descubrimiento` (+ `api/discovery`) | ⚠️ falta autoridad, proceso, mini-casos |
+| Home comercial | `/` landing fusionada (hero + embudo + productos + oráculo + contacto) | ✅ en vivo; ⚠️ hero placeholder |
 
-**Rutas reales (12):** `/` · `/oraculo` · `/universo` · `/sobre-elara` · `/cursos` · `/servicios` · `/descubrimiento` · `/trabaja-conmigo` · `/gracias` · `/legal` · `/linktree` · `/preview`
-**API (2):** `POST /api/oracle/subscribe` · `POST /api/discovery`
-
-> Nota: el CONTEXT aún dice `/work` (ruta B2B única). El código lo implementó como el estudio
-> "La Aranoa" (`/servicios` + `/descubrimiento` + `/trabaja-conmigo`). Divergencia pendiente de reflejar en el brief.
+**Rutas reales:** 12 públicas — `/` · `/universo` · `/cursos` · `/oraculo` · `/sobre-elara` · `/trabaja-conmigo` · `/servicios` (`/servicios/[slug]`) · `/descubrimiento` · `/gracias` · `/legal` · `/linktree` — + 5 en `/preview` (staging) + 2 API.
+**Stack:** Next 16 · framer-motion + lenis + cursor/partículas 2D. **Sin** three/R3F/gsap/tone/resend.
+**Paleta:** en transición a **editorial ciruela/cacao** (`--editorial-*`); la "sagrada" (`--color-purple/gold`) se retira.
 
 **Build:** `cd web && npm run verify:assets && npm run build` ✅
 **Deploy:** Vercel Root Directory = `web` · config en `web/vercel.json` · ver `docs/DEPLOY.md`
@@ -47,10 +48,11 @@ soyelaranova-com/
 - `discovery-form.tsx` — formulario B2B de `/descubrimiento`
 - `elara-*` — sistema de UI custom (button, logo, icons, divider, framed-image, secciones bio/clients/cursos/process/productos/tools…)
 
-## Próximo paso sugerido (KPI del sitio)
+## Próximo paso sugerido (sprint del rediseño)
 
-**Cerrar la captura del oráculo:** carta interactiva + campo **fecha de nacimiento** + integrar **Resend**.
-Ver checklist en `docs/ESTADO_PROYECTO.md` § "Qué hacer ahora".
+**Hero + primera pantalla + embudo:** más tensión visual, mejor imagen Elara, CTA claro, embudo más visual.
+Es lo que más afecta la percepción. Luego → productos/covers → trabaja-conmigo → oráculo funcional → QA.
+Ver `docs/PLAN_MAESTRO_REDISENO_ELARA.md` § "Fases de trabajo" y `docs/ESTADO_PROYECTO.md` § "Qué hacer ahora".
 
 ## Referencias (más contexto)
 

@@ -2,9 +2,21 @@
 **Brief consolidado para agente AI (Cursor / Claude Code / Copilot)**
 v1 · 9 mayo 2026 · lockeado por Evelyn Patino
 
-> **Este es el documento canónico** (raíz del repo). No lo dupliques en subcarpetas.
-> Edítalo aquí cuando cambies stack, rutas o fases. Cursor lo carga vía `.cursor/rules/soyelaranova.mdc`.
-> Estado técnico vivo (rutas y deps reales de hoy): [`docs/ESTADO_PROYECTO.md`](docs/ESTADO_PROYECTO.md).
+> ⚠️ **DIRECCIÓN ACTUALIZADA (jul 2026) — leer antes de seguir este brief.**
+> El sitio pasó por una **reestructuración comercial**: dejó de ser un "portal sagrado con el oráculo
+> como objetivo único" y ahora es una **casa editorial-profesional que vende 3 líneas** (Productos Elara,
+> Experiencia/Oráculo, Servicios Evelyn). La estrategia vigente vive en
+> [`docs/PLAN_MAESTRO_REDISENO_ELARA.md`](docs/PLAN_MAESTRO_REDISENO_ELARA.md) y el estado real en
+> [`docs/ESTADO_PROYECTO.md`](docs/ESTADO_PROYECTO.md).
+>
+> Este documento conserva la **visión y las voces** de la marca (siguen válidas), pero algunas partes
+> quedaron **superadas por el rediseño**. Donde choquen, **manda el plan de rediseño**:
+> - §7 "objetivo único = oráculo" → ahora el oráculo es **una** sección del embudo, no el KPI único.
+> - §3 paleta "sagrada" como ley → la paleta actual es **editorial ciruela/cacao** (ver plan y `globals.css`).
+> - §4 `/work` → implementado como `/trabaja-conmigo` (+ `/servicios`, `/descubrimiento`).
+> - §2 "Next.js 15" → el código corre en **Next 16**; no se usa Three.js/R3F (inmersión 2D custom).
+>
+> **Canónico** (raíz del repo). No lo dupliques en subcarpetas. Cursor lo carga vía `.cursor/rules/soyelaranova.mdc`.
 
 ---
 

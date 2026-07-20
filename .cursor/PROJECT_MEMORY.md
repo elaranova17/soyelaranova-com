@@ -10,32 +10,37 @@ Monorepo `soyelaranova-com`; app desplegable en `web/` (Next.js 16). Único depl
 
 Ingeniera (Angular/Next), Suiza, mercado hispano. TDAH — un objetivo por sesión, confirmar entre fases.
 
-## Qué es el sitio
+## Qué es el sitio (dirección comercial · jul 2026)
 
-Doble función: portal Elara Nova (mujeres latinas, oráculo, ebooks/cursos) + estudio B2B "La Aranoa"
-(voz Evelyn, `/servicios` + `/descubrimiento` + `/trabaja-conmigo`).
+**Casa editorial-profesional que vende 3 líneas** (tras la reestructuración comercial):
 
-## Prioridad de negocio (CONTEXT)
+1. **Productos Elara** — ebooks, lead magnet, cursos (`/universo`, `/cursos`)
+2. **Experiencia Elara** — oráculo, rituales, universo visual (`/oraculo`)
+3. **Servicios Evelyn** — web, automatizaciones, Google Ads, redes (`/trabaja-conmigo`, `/servicios`, `/descubrimiento`)
 
-Home debe lograr: sentir universo → **sacar carta** → email + **fecha de nacimiento** (Resend).
-Frase ancla y CTA de carta ya están en el home; falta cerrar la carta interactiva + la captura de fecha.
+Principio: *"Elara enamora. Evelyn ordena. El sistema convierte."* Embudo: Mirar → Quedarse → Confiar → Actuar.
+Debe sentirse editorial, místico pero adulto, profesional con alma. Nunca Canva ni plantilla de agencia.
+El oráculo **no domina** la web. "La Aranoa" **no** es la marca principal.
+
+## Archivos que leer siempre (en orden)
+
+1. `docs/PLAN_MAESTRO_REDISENO_ELARA.md` — estrategia comercial vigente
+2. `docs/ESTADO_PROYECTO.md` — estado técnico real (verificado)
+3. `CONTEXT_CURSOR.md` — visión/voces de marca (parcialmente superado por el rediseño)
 
 ## No hacer ahora
 
-Más páginas inmersivas nuevas, Sanity 40 cartas, `/luna`, login real, SaaS, stack 3D (three/R3F).
-
-## Archivos que leer siempre
-
-1. `CONTEXT_CURSOR.md` (estrategia lockeada)
-2. `docs/ESTADO_PROYECTO.md` (estado técnico real, verificado)
+Stack 3D (three/R3F), Sanity 40 cartas, `/luna`, login real, carta natal, SaaS, app móvil.
+No poner "La Aranoa" como headline. No usar "tarot" en UI.
 
 ## Diseño
 
-- **Docs:** `docs/DISENO_MAESTRO.md` · `docs/brand.md` · `docs/PALETAS_ELARA_ARANOA.md`
+- **Docs:** `docs/PLAN_MAESTRO_REDISENO_ELARA.md` · `docs/DISENO_MAESTRO.md` · `docs/brand.md` · `docs/PALETAS_ELARA_ARANOA.md`
+- **Paleta actual:** editorial ciruela/cacao (`--editorial-*`); la "sagrada" (morado/oro) se retira.
 - **Skills:** elara-designer, elara-copywriter, elara-ui-master
-- Sprint A (home ritual) ya implementado. El home tiene frase ancla + sección oráculo.
 
 ## Siguiente tarea sugerida
 
-Cerrar el KPI: carta del oráculo interactiva + campo **fecha de nacimiento** en el form + integrar **Resend**.
-(Ver `docs/ESTADO_PROYECTO.md` § "Qué hacer ahora".)
+Sprint del plan: **Hero + primera pantalla + embudo** (más tensión visual, mejor imagen Elara, CTA claro,
+embudo más visual). Luego → productos/covers → trabaja-conmigo → oráculo funcional → QA.
+(Ver `docs/PLAN_MAESTRO_REDISENO_ELARA.md` § "Fases de trabajo".)
