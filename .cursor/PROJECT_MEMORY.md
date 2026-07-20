@@ -1,12 +1,10 @@
 # Memoria del proyecto · Cursor
 
-**Última revisión:** 16 mayo 2026
+**Última revisión:** 20 julio 2026
 
 ## Repo activo
 
-`/Users/evelynpatino/Documents/Claude/Projects/Elara nova -- Fullest/soyelaranova-com`
-
-Workspace: raíz del monorepo; app en `web/`.
+Monorepo `soyelaranova-com`; app desplegable en `web/` (Next.js 16). Único deploy: Vercel, Root Directory `web`.
 
 ## Evelyn
 
@@ -14,28 +12,30 @@ Ingeniera (Angular/Next), Suiza, mercado hispano. TDAH — un objetivo por sesi�
 
 ## Qué es el sitio
 
-Doble función: portal Elara Nova (mujeres latinas, oráculo, ebooks) + portfolio B2B discreto (`/work`, footer).
+Doble función: portal Elara Nova (mujeres latinas, oráculo, ebooks/cursos) + estudio B2B "La Aranoa"
+(voz Evelyn, `/servicios` + `/descubrimiento` + `/trabaja-conmigo`).
 
 ## Prioridad de negocio (CONTEXT)
 
 Home debe lograr: sentir universo → **sacar carta** → email + **fecha de nacimiento** (Resend).
+Frase ancla y CTA de carta ya están en el home; falta cerrar la carta interactiva + la captura de fecha.
 
 ## No hacer ahora
 
-Más páginas inmersivas, Sanity 40 cartas, `/luna`, login real, SaaS.
+Más páginas inmersivas nuevas, Sanity 40 cartas, `/luna`, login real, SaaS, stack 3D (three/R3F).
 
 ## Archivos que leer siempre
 
-1. `CONTEXT_CURSOR.md`
-2. `docs/ESTADO_PROYECTO.md`
+1. `CONTEXT_CURSOR.md` (estrategia lockeada)
+2. `docs/ESTADO_PROYECTO.md` (estado técnico real, verificado)
 
-## Diseño (16 mayo 2026)
+## Diseño
 
-- **Problema:** mucha atmósfera, poco ritual (carta, frase ancla, captura).
-- **Docs:** `docs/DISENO_MAESTRO.md` · `docs/brand.md`
+- **Docs:** `docs/DISENO_MAESTRO.md` · `docs/brand.md` · `docs/PALETAS_ELARA_ARANOA.md`
 - **Skills:** elara-designer, elara-copywriter, elara-ui-master
-- **Sprint activo:** A (home rediseñada) — ver canvas `diseno-roadmap`
+- Sprint A (home ritual) ya implementado. El home tiene frase ancla + sección oráculo.
 
 ## Siguiente tarea sugerida
 
-Sprint A: home con frase ancla + CTA carta + OracleCard + form email/fecha.
+Cerrar el KPI: carta del oráculo interactiva + campo **fecha de nacimiento** en el form + integrar **Resend**.
+(Ver `docs/ESTADO_PROYECTO.md` § "Qué hacer ahora".)

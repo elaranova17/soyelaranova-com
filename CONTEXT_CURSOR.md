@@ -2,8 +2,9 @@
 **Brief consolidado para agente AI (Cursor / Claude Code / Copilot)**
 v1 · 9 mayo 2026 · lockeado por Evelyn Patino
 
-> **Copia canónica para desarrollo:** `../../soyelaranova-com/CONTEXT_CURSOR.md`  
-> Edita allí cuando cambies stack, rutas o fases; Cursor lee `.cursor/rules/soyelaranova.mdc` en ese repo.
+> **Este es el documento canónico** (raíz del repo). No lo dupliques en subcarpetas.
+> Edítalo aquí cuando cambies stack, rutas o fases. Cursor lo carga vía `.cursor/rules/soyelaranova.mdc`.
+> Estado técnico vivo (rutas y deps reales de hoy): [`docs/ESTADO_PROYECTO.md`](docs/ESTADO_PROYECTO.md).
 
 ---
 

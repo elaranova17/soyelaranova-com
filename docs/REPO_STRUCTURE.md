@@ -1,6 +1,6 @@
 # Mapa del repositorio · soyelaranova.com
 
-**Actualizado:** 26 mayo 2026
+**Actualizado:** 20 julio 2026
 
 ## Propósito de cada carpeta
 
@@ -32,11 +32,11 @@
 
 Ver pasos completos en [`DEPLOY.md`](DEPLOY.md).
 
-## Duplicados consolidados (26 mayo 2026)
+## Duplicados consolidados
 
 | Acción | Paths |
 |--------|-------|
-| **Eliminado** (copia exacta del brief) | `web/CONTEXT_CURSOR.md`, `05_DOCS_ESTRATEGIA/CONTEXT_CURSOR.md` → canónico: raíz `CONTEXT_CURSOR.md` |
+| **Eliminado** (copias del brief) | `web/CONTEXT_CURSOR.md` (may 2026), `05_DOCS_ESTRATEGIA/CONTEXT_CURSOR.md` (jul 2026) → canónico único: raíz `CONTEXT_CURSOR.md` |
 | **Restaurado en producción** | `web/public/hero/` — requerido para deploy (copia en `06_ARCHIVO/web-public-hero-unused/hero/` es solo backup) |
 | **Corregido** | Symlinks rotos en `web/public/images/` → archivos reales |
 | **Eliminado** | `vercel.json` en raíz del repo (conflictuaba con Root Directory `web`) |
