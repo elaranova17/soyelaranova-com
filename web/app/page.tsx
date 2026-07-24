@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ImmersiveStory } from '@/components/immersive-story'
 import { TrackedLink } from '@/components/tracked-link'
+import { serviceScenes } from '@/components/service-scenes'
 
 type Service = {
   number: string
@@ -213,13 +214,13 @@ export default function HomePage() {
         </header>
 
         <div className="home-products__rail">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const Scene = serviceScenes[index]
+            return (
             <article key={service.title} className={`home-product home-product--${index + 1}`}>
-              <PosterTile
-                kicker={service.type}
-                title={service.title}
-                className="home-product__media"
-              />
+              <div className="home-product__media">
+                <Scene />
+              </div>
               <div className="home-product__copy">
                 <span>{service.number}</span>
                 <p>{service.type}</p>
@@ -230,7 +231,8 @@ export default function HomePage() {
                 </Link>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
       </section>
 

@@ -418,16 +418,67 @@ html, body {
   overflow: hidden;
 }
 
+.immersive-story__scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--editorial-aubergine);
+}
+
+.immersive-story__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.immersive-story__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay alineado a la pantalla del laptop (coordenadas del marco 16:9) */
+.immersive-story__screen {
+  position: absolute;
+  left: 35%;
+  top: 28%;
+  width: 32.3%;
+  height: 40.4%;
+}
+
+.immersive-story__screen-state {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.immersive-story__screen-state.is-active {
+  opacity: 1;
+}
+
+.immersive-story__screen .immersive-screen {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .immersive-story__media {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.035);
+  transform: scale(1.09);
   background:
-    radial-gradient(70% 55% at 82% 88%, color-mix(in srgb, var(--editorial-gold) 22%, transparent), transparent 70%),
+    radial-gradient(70% 55% at 82% 88%, color-mix(in srgb, var(--editorial-gold) 30%, transparent), transparent 72%),
     radial-gradient(120% 90% at 12% 0%, color-mix(in srgb, var(--editorial-plum) 55%, transparent), transparent 62%),
     linear-gradient(145deg, #513d4c, var(--editorial-aubergine));
-  transition: opacity .7s ease, transform 1.2s ease;
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 2.1s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .immersive-story__media.is-active {
@@ -454,20 +505,41 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
+.immersive-story__viz::before {
+  content: '';
+  position: absolute;
+  inset: -22%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgb(212 175 55 / .22), transparent 70%);
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.immersive-story__media.is-active .immersive-story__viz::before {
+  opacity: 1;
+}
+
 .immersive-story__viz .immersive-viz {
   display: block;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 34px 70px rgb(10 0 16 / .5));
+  filter:
+    drop-shadow(0 34px 70px rgb(10 0 16 / .5))
+    drop-shadow(0 0 26px rgb(212 175 55 / .14));
+}
+
+.eln-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 @keyframes eln-pulse {
-  0%, 100% { opacity: .5; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: .45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.18); }
 }
 
 .immersive-story__media.is-active .eln-pulse {
-  animation: eln-pulse 2.6s ease-in-out infinite;
+  animation: eln-pulse 2.4s ease-in-out infinite;
 }
 
 .immersive-story__progress {
@@ -589,6 +661,127 @@ html, body {
 
 .home-product--3 .home-product__media {
   aspect-ratio: 4 / 3;
+}
+
+/* Escenas animadas de servicios — foto real + overlay SVG vivo */
+.service-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.service-scene img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* velo ciruela: unifica los recortes y deja brillar la animación dorada */
+.service-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(190deg, rgb(26 15 61 / .38) 0%, rgb(43 23 53 / .62) 78%),
+    radial-gradient(90% 70% at 50% 42%, transparent 40%, rgb(10 0 16 / .35));
+  transition: opacity .6s ease;
+}
+
+.home-product:hover .service-scene::after {
+  opacity: .72;
+}
+
+.service-scene__overlay {
+  z-index: 1;
+}
+
+.service-scene__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  filter: drop-shadow(0 0 10px rgb(212 175 55 / .35));
+  transition: opacity .6s ease;
+}
+
+.home-product:hover .service-scene__overlay {
+  opacity: 1;
+}
+
+/* interacción entre tarjetas: la activa brilla, las otras se calman */
+.home-products__rail:has(.home-product:hover) .home-product:not(:hover) {
+  opacity: .55;
+  filter: saturate(.85);
+}
+
+.home-products__rail .home-product {
+  transition: opacity .5s ease, filter .5s ease;
+}
+
+/* 01 · hilo que fluye */
+.scene-flow {
+  stroke-dasharray: 10 14;
+  animation: scene-flow 2.8s linear infinite;
+}
+
+.home-product:hover .scene-flow {
+  animation-duration: 1.1s;
+}
+
+@keyframes scene-flow {
+  to { stroke-dashoffset: -96; }
+}
+
+/* nodos que pulsan */
+.scene-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: eln-pulse 2.4s ease-in-out infinite;
+}
+
+.scene-node--d2 { animation-delay: .5s; }
+.scene-node--d3 { animation-delay: 1s; }
+
+/* 02 · página que se construye */
+.scene-block {
+  opacity: 0;
+  animation: scene-build 4.2s ease-in-out infinite;
+}
+
+.scene-block--d2 { animation-delay: .35s; }
+.scene-block--d3 { animation-delay: .7s; }
+.scene-block--d4 { animation-delay: 1.05s; }
+
+.home-product:hover .scene-block {
+  animation-duration: 2.4s;
+}
+
+@keyframes scene-build {
+  0% { opacity: 0; transform: translateY(6px); }
+  18%, 78% { opacity: 1; transform: translateY(0); }
+  95%, 100% { opacity: 0; transform: translateY(6px); }
+}
+
+/* 03 · gráfica que se dibuja */
+.scene-chart {
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  animation: scene-chart 3.6s ease-in-out infinite;
+}
+
+.home-product:hover .scene-chart {
+  animation-duration: 1.8s;
+}
+
+@keyframes scene-chart {
+  0% { stroke-dashoffset: 340; }
+  45%, 82% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 340; }
 }
 
 .home-product__copy {
@@ -929,12 +1122,28 @@ html, body {
   .immersive-story__media,
   .immersive-story__progress span,
   .immersive-story__chapters article,
+  .immersive-story__viz::before,
   .home-button {
     transition: none;
   }
 
   .immersive-story__media.is-active .eln-pulse {
     animation: none;
+  }
+
+  .scene-flow,
+  .scene-node,
+  .scene-block,
+  .scene-chart {
+    animation: none;
+  }
+
+  .scene-block {
+    opacity: 1;
+  }
+
+  .scene-chart {
+    stroke-dashoffset: 0;
   }
 }
 
