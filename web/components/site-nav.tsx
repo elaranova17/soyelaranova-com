@@ -31,14 +31,12 @@ function NavLink({
   className?: string
 }) {
   const active = isActive(pathname, item)
-  const shared =
-    'nav-link-ritual font-sans text-[10px] tracking-[0.26em] uppercase transition-colors duration-200 underline-offset-4'
-  const activeCls = 'text-[var(--color-gold-bright)]'
-  const idleCls = 'text-[var(--color-cream)]/70 hover:text-[var(--color-gold-soft)]'
+  const shared = 'site-nav__link'
+  const state = active ? 'is-active' : ''
 
   if (item.href.includes('#')) {
     return (
-      <a href={item.href} onClick={onNavigate} className={`${shared} ${idleCls} ${className}`}>
+      <a href={item.href} onClick={onNavigate} className={`${shared} ${className}`}>
         {item.label}
       </a>
     )
@@ -50,7 +48,7 @@ function NavLink({
       prefetch
       onClick={onNavigate}
       aria-current={active ? 'page' : undefined}
-      className={`${shared} ${active ? activeCls : idleCls} ${className}`}
+      className={`${shared} ${state} ${className}`}
     >
       {item.label}
     </Link>
@@ -91,18 +89,21 @@ function NavCta({
     onClick?.()
   }
 
-  const cls = [
-    'nav-cta-ritual btn-ritual btn-ritual--gold inline-flex min-h-10 items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[10px] font-bold tracking-[0.24em] uppercase sm:px-5',
-    className,
-  ].join(' ')
+  const cls = ['site-nav__cta', className].filter(Boolean).join(' ')
 
   if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
-    return <a href={href} onClick={handleClick} className={cls}><span aria-hidden>✦</span>{label}</a>
+    return (
+      <a href={href} onClick={handleClick} className={cls}>
+        <span aria-hidden>+</span>
+        {label}
+      </a>
+    )
   }
 
   return (
     <Link href={href} prefetch onClick={handleClick} className={cls}>
-      <span aria-hidden>✦</span>{label}
+      <span aria-hidden>+</span>
+      {label}
     </Link>
   )
 }
@@ -124,14 +125,13 @@ function MenuButton({
       aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
       aria-expanded={open}
       aria-controls="site-nav-panel"
-      className={[
-        'menu-btn flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-[var(--color-gold)]/25 bg-[var(--color-purple-night)]/55 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-md transition-colors hover:border-[var(--color-gold)]/55',
-        alwaysVisible ? '' : 'lg:hidden',
-      ].join(' ')}
+      className={['site-nav__burger', alwaysVisible ? '' : 'site-nav__burger--mobile-only', open ? 'is-open' : '']
+        .filter(Boolean)
+        .join(' ')}
     >
-      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center', open ? 'translate-y-[6px] rotate-45' : ''].join(' ')} />
-      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300', open ? 'opacity-0 scale-x-0' : ''].join(' ')} />
-      <span className={['block h-px w-[22px] bg-[var(--color-cream)] transition-all duration-300 origin-center', open ? '-translate-y-[6px] -rotate-45' : ''].join(' ')} />
+      <span />
+      <span />
+      <span />
     </button>
   )
 }
@@ -153,8 +153,8 @@ export function SiteNav() {
 
   const sectionLinks = elaraSectionNav(pathname)
   const links: readonly NavItem[] = b2b
-      ? B2B_NAV
-      : studio
+    ? B2B_NAV
+    : studio
       ? onHome || onPreview
         ? elaraLandingNav()
         : [...sectionLinks, ...ELARA_ROUTE_NAV]
@@ -198,59 +198,48 @@ export function SiteNav() {
   const close = () => setOpenForPath(null)
   const toggle = () => setOpenForPath(open ? null : pathname)
 
-  // Landings de campaña (/lp/*): sin navegación para evitar fugas (Quality Score).
-  // Va DESPUÉS de todos los hooks para respetar rules-of-hooks.
+  // Landings de Ads (/lp/*): sin navegación para evitar fugas (Quality Score).
   if (pathname.startsWith('/lp/')) return null
 
   return (
     <>
+      {/* 1 · BARRA */}
       <motion.header
-        initial={{ opacity: 0, y: -12 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-        className={[
-          'fixed inset-x-0 top-0 z-[60] mx-auto flex h-[72px] items-center justify-between gap-4 px-5 md:px-8 transition-all duration-500',
-          scrolled
-            ? 'border-b border-[var(--color-gold)]/18 bg-[var(--color-purple-night)]/90 shadow-[0_10px_44px_rgba(0,0,0,0.48)] backdrop-blur-2xl'
-            : 'bg-gradient-to-b from-[var(--color-purple-night)]/72 to-transparent backdrop-blur-[2px]',
-        ].join(' ')}
+        transition={{ duration: 0.55, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
+        className={['site-nav', scrolled ? 'is-scrolled' : '', open ? 'is-menu-open' : '']
+          .filter(Boolean)
+          .join(' ')}
       >
-        {/* Logo */}
-        <Link
-          href={logoHref}
-          className="min-w-0 shrink font-display text-lg italic tracking-tight text-[var(--color-cream)] transition-opacity hover:opacity-90 md:text-xl"
-        >
+        <Link href={logoHref} className="site-nav__logo">
           {b2b ? 'Evelyn Patiño' : 'Elara Nova'}
         </Link>
 
-        <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
-          {/* Desktop nav — solo B2B; Elara siempre hamburguesa */}
+        <div className="site-nav__actions">
           {b2b && (
-            <nav
-              className="hidden items-center gap-1 lg:flex xl:gap-2"
-              aria-label="Navegación Evelyn B2B"
-            >
-              {/* "← Enlaces" separado visualmente del resto */}
+            <nav className="site-nav__desktop" aria-label="Navegación Evelyn B2B">
               <NavLink
                 key={B2B_NAV[0].href}
                 item={B2B_NAV[0]}
                 pathname={pathname}
-                className="mr-3 opacity-60 hover:opacity-100"
+                className="site-nav__link--muted"
               />
-              <div className="h-3.5 w-px bg-[var(--color-cream)]/15" aria-hidden />
+              <span className="site-nav__divider" aria-hidden />
               {B2B_NAV.slice(1).map((item) => (
-                <NavLink key={item.href + item.label} item={item} pathname={pathname} className="ml-1" />
+                <NavLink key={item.href + item.label} item={item} pathname={pathname} />
               ))}
             </nav>
           )}
 
-          <NavCta href={cta.href} label={cta.label} className="hidden sm:inline-flex" />
+          <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
 
-          {/* Hamburguesa: siempre en Elara, solo mobile en B2B */}
+          {/* 2 · HAMBURGUESA */}
           <MenuButton open={open} onClick={toggle} alwaysVisible={!b2b} />
         </div>
       </motion.header>
 
+      {/* 3 · PANEL */}
       <AnimatePresence>
         {open && (
           <>
@@ -260,12 +249,11 @@ export function SiteNav() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
               aria-label="Cerrar menú"
-              className={[
-                'nav-overlay fixed inset-0 z-[70] cursor-default bg-[var(--color-void)]/55 backdrop-blur-[2px]',
-                b2b ? 'lg:hidden' : '',
-              ].join(' ')}
+              className={['site-nav__overlay', b2b ? 'site-nav__overlay--mobile-only' : '']
+                .filter(Boolean)
+                .join(' ')}
               onClick={close}
             />
 
@@ -278,81 +266,85 @@ export function SiteNav() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className={[
-                'nav-panel fixed top-0 right-0 z-[75] flex h-full w-[min(360px,88vw)] flex-col justify-center overflow-hidden border-l border-[var(--color-gold)]/20 bg-[var(--color-purple-night)] px-8 py-20',
-                b2b ? 'lg:hidden' : '',
-              ].join(' ')}
-              style={{ boxShadow: 'var(--shadow-glow-purple)' }}
+              transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
+              className={['site-nav__panel', b2b ? 'site-nav__panel--mobile-only' : '']
+                .filter(Boolean)
+                .join(' ')}
             >
-              <div
-                className="pointer-events-none absolute inset-0 opacity-[0.08]"
-                style={{
-                  backgroundImage: 'url(/images/hero-portal-lago.png)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-                aria-hidden
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--color-purple-night)] via-[var(--color-purple-night)]/92 to-[var(--color-void)]" aria-hidden />
+              <div className="site-nav__panel-top">
+                <p className="site-nav__panel-eyebrow">Menú</p>
+                <button
+                  type="button"
+                  className="site-nav__panel-close"
+                  onClick={close}
+                  aria-label="Cerrar menú"
+                >
+                  <span aria-hidden>×</span>
+                </button>
+              </div>
 
-              <nav className="relative z-10 flex flex-col gap-2" aria-label="Menú">
-                {links.map((item, i) => (
-                  <motion.div
-                    key={item.href + item.label}
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + i * 0.04, duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    {item.href.includes('#') ? (
-                      <a
-                        href={item.href}
-                        onClick={() => {
-                          close()
-                          window.dispatchEvent(new Event('lenis:start'))
-                        }}
-                        className="group flex items-center justify-between rounded-xl border border-[var(--color-cream)]/8 bg-[var(--color-cream)]/[0.03] px-4 py-3.5 font-display text-xl italic text-[var(--color-cream)] transition-colors hover:border-[var(--color-gold)]/35 hover:text-[var(--color-gold-bright)]"
-                      >
-                        <span>{item.label}</span>
-                        <span className="font-sans text-[10px] not-italic text-[var(--color-gold-soft)]/55 transition-transform group-hover:translate-x-1">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                      </a>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        prefetch
-                        onClick={() => {
-                          close()
-                          window.dispatchEvent(new Event('lenis:start'))
-                        }}
-                        aria-current={isActive(pathname, item) ? 'page' : undefined}
-                        className={[
-                          'group flex items-center justify-between rounded-xl border px-4 py-3.5 font-display text-xl italic transition-colors',
-                          isActive(pathname, item)
-                            ? 'border-[var(--color-gold)]/35 bg-[var(--color-gold)]/[0.08] text-[var(--color-gold-bright)]'
-                            : 'border-[var(--color-cream)]/8 bg-[var(--color-cream)]/[0.03] text-[var(--color-cream)]/85 hover:border-[var(--color-gold)]/35 hover:text-[var(--color-gold-bright)]',
-                        ].join(' ')}
-                      >
-                        <span>{item.label}</span>
-                        <span className="font-sans text-[10px] not-italic text-[var(--color-gold-soft)]/55 transition-transform group-hover:translate-x-1">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                      </Link>
-                    )}
-                  </motion.div>
-                ))}
+              <nav className="site-nav__panel-nav" aria-label="Menú">
+                {links.map((item, i) => {
+                  const active = isActive(pathname, item)
+                  const num = String(i + 1).padStart(2, '0')
+                  const itemCls = ['site-nav__panel-item', active ? 'is-active' : '']
+                    .filter(Boolean)
+                    .join(' ')
+
+                  return (
+                    <motion.div
+                      key={item.href + item.label}
+                      initial={{ opacity: 0, x: 18 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: 0.06 + i * 0.045,
+                        duration: 0.35,
+                        ease: [0.22, 0.61, 0.36, 1],
+                      }}
+                    >
+                      {item.href.includes('#') ? (
+                        <a
+                          href={item.href}
+                          onClick={() => {
+                            close()
+                            window.dispatchEvent(new Event('lenis:start'))
+                          }}
+                          className={itemCls}
+                        >
+                          <span className="site-nav__panel-num">{num}</span>
+                          <span className="site-nav__panel-label">{item.label}</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          prefetch
+                          onClick={() => {
+                            close()
+                            window.dispatchEvent(new Event('lenis:start'))
+                          }}
+                          aria-current={active ? 'page' : undefined}
+                          className={itemCls}
+                        >
+                          <span className="site-nav__panel-num">{num}</span>
+                          <span className="site-nav__panel-label">{item.label}</span>
+                        </Link>
+                      )}
+                    </motion.div>
+                  )
+                })}
               </nav>
 
-              <NavCta href={cta.href} label={cta.label} onClick={close} className="relative z-10 mt-8 w-full justify-center" />
+              <NavCta
+                href={cta.href}
+                label={cta.label}
+                onClick={close}
+                className="site-nav__cta--panel"
+              />
 
-              <p
-                className="pointer-events-none absolute bottom-8 left-8 right-8 z-10 font-serif text-[10px] italic tracking-[0.18em] text-[var(--color-gold-soft)]/55"
-                aria-hidden
-              >
+              <p className="site-nav__panel-tagline" aria-hidden>
                 {b2b
                   ? 'Ingeniera de software · Suiza'
-                  : 'Mira todo lo que siempre fuiste capaz de hacer.'}
+                  : 'Mira todo lo que siempre fuiste capaz de ser.'}
               </p>
             </motion.aside>
           </>
