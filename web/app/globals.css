@@ -448,13 +448,13 @@ h1, h2, h3,
   object-position: center;
 }
 
-/* Overlay alineado a la pantalla del laptop (coordenadas del marco 16:9) */
+/* Overlay alineado a la pantalla del laptop (bbox del chroma, master v2) */
 .immersive-story__screen {
   position: absolute;
-  left: 35%;
-  top: 28%;
-  width: 32.3%;
-  height: 40.4%;
+  left: 3.4%;
+  top: 40.6%;
+  width: 19.2%;
+  height: 25.4%;
 }
 
 .immersive-story__screen-state {
@@ -472,8 +472,8 @@ h1, h2, h3,
 .immersive-story__word {
   position: absolute;
   z-index: 4;
-  left: clamp(1.2rem, 4vw, 4rem);
-  bottom: clamp(4.5rem, 10vh, 8rem);
+  right: clamp(1.4rem, 5vw, 5rem);
+  bottom: clamp(4.5rem, 12vh, 9rem);
   display: flex;
   overflow: hidden;
   margin: 0;
@@ -500,12 +500,12 @@ h1, h2, h3,
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* velo sutil para que la palabra respire sobre la foto */
+/* velo sutil para que la palabra respire sobre la foto (lado derecho) */
 .immersive-story__frame::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(12deg, rgb(26 15 61 / .55) 0%, transparent 45%);
+  background: linear-gradient(348deg, rgb(26 15 61 / .5) 0%, transparent 48%);
   pointer-events: none;
 }
 
