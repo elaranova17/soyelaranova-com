@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Fraunces, Cormorant_Garamond, Manrope } from 'next/font/google'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
-import { MagicCursor } from '@/components/magic-cursor'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -123,7 +122,6 @@ export default function RootLayout({
           }}
         />
         <LenisProvider>
-          <MagicCursor />
           <SiteNav />
           {children}
         </LenisProvider>
