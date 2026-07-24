@@ -50,33 +50,6 @@ const services: readonly Service[] = [
   },
 ]
 
-type Client = {
-  href: string
-  name: string
-  category: string
-  description: string
-  badge: string
-}
-
-const clients: readonly Client[] = [
-  {
-    href: 'https://ofeliavallejo.com',
-    name: 'Ofelia Vallejo',
-    category: 'Leather House · Medellin',
-    description:
-      'Tienda virtual y ecosistema de marca para una casa de marroquineria. Identidad editorial, navegacion clara y experiencia premium lista para vender.',
-    badge: 'Cliente activo',
-  },
-  {
-    href: 'https://southamericanmetalaliance.com',
-    name: 'SAMA',
-    category: 'South American Metal Alliance',
-    description:
-      'Sitio y flujo digital alineados con la voz de la marca. Estructura pensada para convertir y una base tecnica lista para crecer.',
-    badge: 'Cliente feliz',
-  },
-]
-
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p className={`home-eyebrow ${light ? 'home-eyebrow--light' : ''}`}>
@@ -260,28 +233,23 @@ export default function HomePage() {
         />
       </section>
 
-      <section id="clientes" className="home-clients">
-        <header className="home-clients__header">
-          <Eyebrow>Negocios que ya confian</Eyebrow>
-          <h2>No es teoria. Ya construyo para clientes reales.</h2>
-        </header>
-        <div className="home-clients__grid">
-          {clients.map((client) => (
-            <a
-              key={client.name}
-              href={client.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="home-client"
-            >
-              <span className="home-client__badge">{client.badge}</span>
-              <h3>{client.name}</h3>
-              <p className="home-client__category">{client.category}</p>
-              <p className="home-client__desc">{client.description}</p>
-              <span className="home-client__link">Ver sitio en vivo →</span>
-            </a>
-          ))}
-        </div>
+      <section id="diagnostico" className="home-impact">
+        <div className="home-impact__glow" aria-hidden="true" />
+        <Eyebrow light>Diagnostico gratis · 20 minutos</Eyebrow>
+        <h2>
+          ¿Tu negocio todavia depende de que <em>vos</em> hagas todo a mano?
+        </h2>
+        <p>
+          Contame como trabajas hoy y te muestro exactamente que automatizaria primero, que web
+          necesitas y donde se te estan escapando clientes. Sin compromiso y sin humo.
+        </p>
+        <TrackedLink
+          href="/descubrimiento"
+          tracking={{ event: 'cta_click', category: 'lead', label: 'home_impact_diagnostico' }}
+          className="home-button home-button--gold"
+        >
+          Pedir mi diagnostico gratis
+        </TrackedLink>
       </section>
 
       <section id="trabaja" className="home-work">
