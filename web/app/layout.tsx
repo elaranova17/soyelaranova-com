@@ -50,9 +50,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Evelyn Patino', url: 'https://soyelaranova.com' }],
   creator: 'Evelyn Patino',
+  alternates: { canonical: './' },
   openGraph: {
     type: 'website',
-    locale: 'es_AR',
+    locale: 'es_ES',
     url: 'https://soyelaranova.com',
     siteName: 'Elara Nova',
     title: 'Elara Nova — Automatizacion y desarrollo web que vende',
@@ -93,6 +94,34 @@ export default function RootLayout({
       className={`${fraunces.variable} ${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              name: 'Elara Nova',
+              url: 'https://soyelaranova.com',
+              image: 'https://soyelaranova.com/_assets/photos/og-portfolio.jpg',
+              description:
+                'Estudio de automatización y desarrollo web: automatizaciones de procesos, landing pages y sitios que venden, campañas de Google Ads medibles.',
+              founder: {
+                '@type': 'Person',
+                name: 'Evelyn Patiño Laverde',
+                jobTitle: 'Ingeniera de software',
+              },
+              areaServed: ['ES', 'CH', 'CO'],
+              priceRange: 'Desde 450 €',
+              email: 'elaranova.17@gmail.com',
+              knowsAbout: [
+                'Automatización de procesos',
+                'Landing pages',
+                'Desarrollo web',
+                'Google Ads',
+              ],
+            }),
+          }}
+        />
         <LenisProvider>
           <MagicCursor />
           <SiteNav />
