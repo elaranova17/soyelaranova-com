@@ -50,7 +50,7 @@ export default function SobreElaraPage() {
                 alt="Evelyn Patiño Laverde"
                 fill
                 sizes="(max-width: 768px) 160px, 176px"
-                className="object-cover object-center"
+                className="object-cover object-[50%_20%]"
               />
             </div>
           </div>

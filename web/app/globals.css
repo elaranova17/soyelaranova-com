@@ -295,6 +295,14 @@ html, body {
   border-radius: .5rem;
 }
 
+.home-hero__visual img {
+  object-position: 58% 24%;
+}
+
+.home-work__visual img {
+  object-position: 50% 20%;
+}
+
 .home-hero__caption {
   position: absolute;
   right: 1.5rem;
@@ -397,7 +405,7 @@ html, body {
 .immersive-story {
   position: relative;
   display: grid;
-  min-height: 260vh;
+  min-height: 340vh;
   grid-template-columns: minmax(0, 1.32fr) minmax(22rem, .68fr);
   background: var(--editorial-aubergine);
   color: var(--editorial-ivory);
@@ -436,6 +444,30 @@ html, body {
   transform: translate(-50%, -50%);
   gap: .6rem;
   text-align: center;
+}
+
+.immersive-story__viz {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 2;
+  width: min(72%, 40rem);
+  transform: translate(-50%, -50%);
+}
+
+.immersive-story__viz .immersive-viz {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 34px 70px rgb(10 0 16 / .5));
+}
+
+@keyframes eln-pulse {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+.immersive-story__media.is-active .eln-pulse {
+  animation: eln-pulse 2.6s ease-in-out infinite;
 }
 
 .immersive-story__progress {
@@ -899,6 +931,10 @@ html, body {
   .immersive-story__chapters article,
   .home-button {
     transition: none;
+  }
+
+  .immersive-story__media.is-active .eln-pulse {
+    animation: none;
   }
 }
 

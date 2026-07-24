@@ -211,7 +211,7 @@ export default function LinktreePage() {
                 alt="Evelyn Patiño Laverde"
                 fill
                 sizes="150px"
-                className="object-cover object-center contrast-[1.06] saturate-[0.95]"
+                className="object-cover object-[50%_20%] contrast-[1.06] saturate-[0.95]"
                 priority
               />
             </div>
