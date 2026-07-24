@@ -138,8 +138,6 @@ function MenuButton({
 
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
-  // Landings de campaña (/lp/*): sin navegación para evitar fugas (Quality Score)
-  if (pathname.startsWith('/lp/')) return null
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
   const onPreview = pathname === '/preview'
@@ -199,6 +197,10 @@ export function SiteNav() {
 
   const close = () => setOpenForPath(null)
   const toggle = () => setOpenForPath(open ? null : pathname)
+
+  // Landings de campaña (/lp/*): sin navegación para evitar fugas (Quality Score).
+  // Va DESPUÉS de todos los hooks para respetar rules-of-hooks.
+  if (pathname.startsWith('/lp/')) return null
 
   return (
     <>
