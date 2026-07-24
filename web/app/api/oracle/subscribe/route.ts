@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { rateLimit, getClientIp } from '@/lib/rate-limit'
 
 type Body = {
   email?: string
@@ -16,6 +17,14 @@ function isValidBirthDate(value: string): boolean {
 }
 
 export async function POST(request: Request) {
+  const limit = rateLimit(`oracle:${getClientIp(request)}`, { limit: 5, windowMs: 10 * 60_000 })
+  if (!limit.ok) {
+    return NextResponse.json(
+      { ok: false, error: 'Demasiados intentos. Probá de nuevo en un rato.' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } },
+    )
+  }
+
   let body: Body
   try {
     body = (await request.json()) as Body
