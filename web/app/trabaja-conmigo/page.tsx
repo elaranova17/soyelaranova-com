@@ -48,7 +48,7 @@ export default function TrabajaConmigoPage() {
               fill
               priority
               sizes="(max-width: 1024px) 92vw, 36rem"
-              className="object-cover"
+              className="object-cover object-[58%_22%]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(24,19,26,0.62)_100%)]" />
           </div>
