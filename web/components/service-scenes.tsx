@@ -40,20 +40,20 @@ export function AutomationScene() {
   return (
     <SceneFrame
       src="/media/servicios/servicio-01-automatizaciones.webp"
-      screen={{ left: '23.9%', top: '57.6%', width: '54.6%', height: '22.3%' }}
-      viewBox="0 0 400 205"
+      screen={{ left: '54.1%', top: '28.7%', width: '18.8%', height: '33.8%' }}
+      viewBox="0 0 300 675"
     >
       <path
         className="scene-flow"
-        d="M40 130 C 90 80, 130 150, 200 105 S 320 80, 360 110"
+        d="M150 610 C 60 520, 240 430, 150 340 S 70 190, 150 90"
         fill="none"
         stroke="#D4AF37"
-        strokeWidth={4}
+        strokeWidth={7}
         strokeLinecap="round"
       />
-      <circle cx={40} cy={130} r={11} fill="#D4AF37" className="scene-node" />
-      <circle cx={200} cy={105} r={11} fill="#D4AF37" className="scene-node scene-node--d2" />
-      <circle cx={360} cy={110} r={11} fill="#D4AF37" className="scene-node scene-node--d3" />
+      <circle cx={150} cy={610} r={17} fill="#D4AF37" className="scene-node" />
+      <circle cx={150} cy={340} r={17} fill="#D4AF37" className="scene-node scene-node--d2" />
+      <circle cx={150} cy={90} r={17} fill="#D4AF37" className="scene-node scene-node--d3" />
     </SceneFrame>
   )
 }
@@ -63,8 +63,8 @@ export function WebScene() {
   return (
     <SceneFrame
       src="/media/servicios/servicio-02-webs.webp"
-      screen={{ left: '7.2%', top: '12.8%', width: '79.2%', height: '66.5%' }}
-      viewBox="0 0 400 420"
+      screen={{ left: '25%', top: '39.4%', width: '47.6%', height: '46.1%' }}
+      viewBox="0 0 400 484"
     >
       <rect x={36} y={34} width={328} height={26} rx={8} fill="rgba(248,243,234,0.14)" className="scene-block" />
       <rect x={36} y={76} width={200} height={128} rx={12} fill="url(#eln-hero)" className="scene-block scene-block--d2" />
@@ -87,19 +87,19 @@ export function AdsScene() {
   return (
     <SceneFrame
       src="/media/servicios/servicio-03-google-ads.webp"
-      screen={{ left: '22%', top: '19%', width: '55%', height: '50%' }}
-      viewBox="0 0 400 300"
+      screen={{ left: '27.6%', top: '1.7%', width: '55.5%', height: '86.7%' }}
+      viewBox="0 0 300 351"
     >
       <path
         className="scene-chart"
-        d="M40 250 L 110 210 L 170 226 L 235 160 L 300 120 L 356 60"
+        d="M40 300 L 95 262 L 140 276 L 185 216 L 230 176 L 264 110"
         fill="none"
         stroke="#D4AF37"
         strokeWidth={5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx={356} cy={60} r={11} fill="#D4AF37" className="scene-node" />
+      <circle cx={264} cy={110} r={10} fill="#D4AF37" className="scene-node" />
     </SceneFrame>
   )
 }
