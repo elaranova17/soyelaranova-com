@@ -46,7 +46,7 @@ export function AutomationScene() {
   return (
     <SceneFrame
       src="/media/servicios/servicio-01-automatizaciones.webp"
-      screen={{ left: '27.6%', top: '13%', width: '55.5%', height: '52%' }}
+      screen={{ left: '31%', top: '16.5%', width: '48.7%', height: '45%' }}
       viewBox="0 0 300 351"
     >
       <path
