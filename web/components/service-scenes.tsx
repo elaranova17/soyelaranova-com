@@ -29,15 +29,15 @@ export function AutomationScene() {
     <SceneFrame src="/media/servicios/servicio-01-automatizaciones.webp">
       <path
         className="scene-flow"
-        d="M50 300 C 90 260, 110 220, 150 190 S 230 130, 250 84"
+        d="M55 252 C 95 208, 140 256, 190 238 S 250 224, 264 246"
         fill="none"
         stroke="#D4AF37"
         strokeWidth={2}
         strokeLinecap="round"
       />
-      <circle cx={50} cy={300} r={6} fill="#D4AF37" className="scene-node" />
-      <circle cx={150} cy={190} r={6} fill="#D4AF37" className="scene-node scene-node--d2" />
-      <circle cx={250} cy={84} r={6} fill="#D4AF37" className="scene-node scene-node--d3" />
+      <circle cx={55} cy={252} r={6} fill="#D4AF37" className="scene-node" />
+      <circle cx={190} cy={238} r={6} fill="#D4AF37" className="scene-node scene-node--d2" />
+      <circle cx={264} cy={246} r={6} fill="#D4AF37" className="scene-node scene-node--d3" />
     </SceneFrame>
   )
 }
@@ -62,14 +62,14 @@ export function AdsScene() {
     <SceneFrame src="/media/servicios/servicio-03-google-ads.webp" viewBox="0 0 300 225">
       <path
         className="scene-chart"
-        d="M40 180 L 95 158 L 140 166 L 190 130 L 235 108 L 268 74"
+        d="M78 148 L 112 130 L 142 138 L 172 112 L 200 96 L 222 68"
         fill="none"
         stroke="#D4AF37"
         strokeWidth={2.4}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx={268} cy={74} r={6} fill="#D4AF37" className="scene-node" />
+      <circle cx={222} cy={68} r={6} fill="#D4AF37" className="scene-node" />
     </SceneFrame>
   )
 }
