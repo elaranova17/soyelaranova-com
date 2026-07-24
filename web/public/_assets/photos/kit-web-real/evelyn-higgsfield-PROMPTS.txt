@@ -1,0 +1,23 @@
+=== HIGGSFIELD — WHAT TO UPLOAD (in order) ===
+1) evelyn-face-ref-frontal-natural.jpg  << PRIMARY face lock
+2) evelyn-face-ref-freckles-closeup.jpg
+3) evelyn-face-ref-long-hair-pro.jpg
+4) evelyn-face-ref-smile.jpg (optional)
+
+Model: Soul V2 + Reference / Character / Face lock
+Aspect: 16:9 for hero + action | 3:4 for bio
+
+=== MASTER PROMPT ===
+Professional fashion editorial photograph of the SAME woman as in the reference images, exact facial likeness. Oval-to-heart face tapering to a small soft chin (NOT round/ball-shaped). Fair warm-olive skin with MANY visible freckles across nose and cheeks. Hazel-green eyes with amber center, thick dark brows, long wispy voluminous lashes. Straight refined nose with small gold hoop on her left nostril. Naturally full balanced lips — plump but NOT oversized. Soft friendly fashionista smile. Very long jet-black hair, middle part, slight wave, below chest. Soft-glam professional makeup with luminous skin (freckles remain visible), champagne-bronze eyeshadow, peach blush, nude-rose satin lips. Structured taupe/cocoa blazer over cream silk blouse. Soft afternoon window light and brass lamp. High-end brand photography, natural believable skin, 85mm look. No logos, no legible text, no plastic airbrush.
+
+=== NEGATIVE ===
+round ball face, chubby inflated cheeks, oversized lips, duck lips, different person, wrong identity, plastic skin, airbrushed porcelain, missing freckles, flat brown eyes, thin eyebrows, short hair, pixie cut, cartoon, illustration, 3d render, neon purple galaxy, stock corporate pose, watermark, logo, readable screen text
+
+=== PROMPT 01 HERO 16:9 ===
+Professional fashion editorial photograph, 16:9 landscape. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop left nostril, naturally full balanced lips, soft friendly smile. Long jet-black middle-part hair. Soft-glam makeup, taupe/cocoa blazer, cream silk blouse. She sits at a desk in the RIGHT third of frame working on a plain laptop with no logos; LEFT two thirds are clean warm smoke wall (#E7E1DC) negative space for a website headline. Brass lamp, leather notebook, ceramic mug, deep aubergine accent wall, blurred monstera. Soft afternoon light. Photoreal editorial. No logos, no text.
+
+=== PROMPT 02 BIO 3:4 ===
+Professional fashion editorial portrait, 3:4 vertical. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop, naturally full balanced lips, warm friendly soft smile to camera. Long jet-black middle-part hair. Soft-glam makeup. Structured taupe/cocoa blazer over cream silk blouse, delicate necklace. Half-body, three-quarter seated at desk, air above head. Blurred purple dashboard on monitor (no legible text), ivory wall, plum accent, brass lamp. Photoreal fashion headshot. No logos, no text.
+
+=== PROMPT 03 ACTION 16:9 ===
+Professional fashion editorial photograph, 16:9 landscape. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop, naturally full balanced lips, engaged friendly smile. Long jet-black middle-part hair. Soft-glam makeup. Taupe/cocoa blazer, cream blouse, soft trousers. Standing three-quarter, pointing at large wall screen with blurred purple automation flowchart (illegible labels only). Warm stone/ivory studio, plum accent wall, brass floor lamp, dried flowers. Soft cinematic light. Photoreal. No logos, no readable text.

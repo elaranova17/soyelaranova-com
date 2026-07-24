@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { rateLimit, getClientIp } from '@/lib/rate-limit'
 
 type DiscoveryBody = {
   name?: string
@@ -28,9 +29,12 @@ const MAX_LENGTHS = {
   notes: 1600,
 } satisfies Record<keyof DiscoveryPayload, number>
 
-function normalize(value: unknown, maxLength: number): string {
+function normalize(value: unknown, maxLength: number, singleLine = true): string {
   if (typeof value !== 'string') return ''
-  return value.trim().slice(0, maxLength)
+  const stripped = singleLine
+    ? value.replace(/[\u0000-\u001F\u007F]/g, ' ')
+    : value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '')
+  return stripped.trim().slice(0, maxLength)
 }
 
 function isValidEmail(value: string): boolean {
@@ -44,11 +48,11 @@ function buildPayload(body: DiscoveryBody): DiscoveryPayload {
     business: normalize(body.business, MAX_LENGTHS.business),
     website: normalize(body.website, MAX_LENGTHS.website),
     service: normalize(body.service, MAX_LENGTHS.service),
-    goal: normalize(body.goal, MAX_LENGTHS.goal),
-    problem: normalize(body.problem, MAX_LENGTHS.problem),
+    goal: normalize(body.goal, MAX_LENGTHS.goal, false),
+    problem: normalize(body.problem, MAX_LENGTHS.problem, false),
     timeline: normalize(body.timeline, MAX_LENGTHS.timeline),
     budget: normalize(body.budget, MAX_LENGTHS.budget),
-    notes: normalize(body.notes, MAX_LENGTHS.notes),
+    notes: normalize(body.notes, MAX_LENGTHS.notes, false),
   }
 }
 
@@ -87,6 +91,14 @@ function discoveryText(payload: DiscoveryPayload) {
 }
 
 export async function POST(request: Request) {
+  const limit = rateLimit(`discovery:${getClientIp(request)}`, { limit: 5, windowMs: 10 * 60_000 })
+  if (!limit.ok) {
+    return NextResponse.json(
+      { ok: false, error: 'Demasiados intentos. Probá de nuevo en un rato.' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } },
+    )
+  }
+
   let body: DiscoveryBody
   try {
     body = (await request.json()) as DiscoveryBody

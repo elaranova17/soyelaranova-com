@@ -1,0 +1,20 @@
+ESTRATEGIA REAL-PHOTO (sin IA de cara)
+=====================================
+
+REGLA: tu cara solo sale de fotos reales. La IA no inventa tu rostro.
+
+YA EN LA WEB:
+- Hero / Trabaja conmigo → /_assets/photos/evelyn_pro_hero.jpg
+- Bio / Sobre / Linktree → /_assets/photos/evelyn_pro_perfil.jpg
+
+KIT (esta carpeta):
+- 01-hero-evelyn.webp     → hero + trabaja-conmigo (WebP listo)
+- 02-bio-evelyn.webp      → bio / sobre mí
+- 00-identidad-*.webp     → refs de rasgos (frontal, pecas, sonrisa)
+- bg-editorial-humo.webp  → fondo de marca sin persona
+
+FALTA (foto real con el móvil, 2 min):
+1) En acción horizontal: laptop/pantalla, blazer cacao/taupe, luz de ventana
+2) Opcional: hero horizontal con aire a la izquierda del titular
+
+NO HACER: generar cara con Midjourney / DALL·E / Cursor / Flux genérico

@@ -66,10 +66,12 @@ export function ImmersiveStory() {
             key={chapter.asset}
             className={`immersive-story__media ${index === active ? 'is-active' : ''}`}
           >
-            <div className="asset-slot__grid" />
+            <span className="asset-slot__mark" aria-hidden="true">
+              e<i>✦</i>
+            </span>
             <div className="immersive-story__asset">
-              <span>{chapter.asset}</span>
-              <small>2400 × 1350 px · 16:9</small>
+              <small>{chapter.eyebrow}</small>
+              <span>{chapter.title}</span>
             </div>
           </div>
         ))}

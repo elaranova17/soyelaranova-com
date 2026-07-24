@@ -164,7 +164,7 @@ export function SiteNav() {
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
     : studio
-      ? { href: '/trabaja-conmigo', label: 'Trabaja conmigo' }
+      ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
       : { href: '/portfolio', label: 'Work by Evelyn' }
 
   const [scrolled, setScrolled] = useState(false)

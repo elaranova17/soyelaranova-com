@@ -43,13 +43,13 @@ export const ELARA_ROUTE_NAV: readonly NavItem[] = [
   { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
 ]
 
-/** Nav header landing = secciones clave de la casa editorial */
+/** Nav header landing = secciones clave del estudio (agencia-primero) */
 export function elaraLandingNav(): readonly NavItem[] {
   return [
-    { href: '#productos', label: 'Productos' },
-    { href: '#cursos', label: 'Cursos' },
-    { href: '#oraculo', label: 'Oraculo' },
-    { href: '#trabaja', label: 'Trabaja conmigo' },
+    { href: '#servicios', label: 'Servicios' },
+    { href: '#oferta', label: 'Precios' },
+    { href: '#caso', label: 'Caso real' },
+    { href: '#trabaja', label: 'Sobre mi' },
     { href: '#contacto', label: 'Contacto' },
   ]
 }

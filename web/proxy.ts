@@ -3,7 +3,12 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname
 
+  // Gate de mantenimiento: SOLO activo si MAINTENANCE_MODE=1.
+  // Por defecto (sin variable) el sitio está ABIERTO al público.
+  const maintenance = process.env.MAINTENANCE_MODE === '1'
+
   if (
+    !maintenance ||
     path.startsWith('/_next/') ||
     path === '/preview' ||
     path.startsWith('/preview/') ||
@@ -20,7 +25,7 @@ export async function proxy(request: NextRequest) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Elara Nova | En construccion</title>
+    <title>Elara Nova | Automatizacion y desarrollo web</title>
     <style>
       :root {
         color-scheme: light;
@@ -78,9 +83,9 @@ export async function proxy(request: NextRequest) {
   </head>
   <body>
     <main>
-      <p class="eyebrow">Elara Nova</p>
-      <h1>Sitio en construccion.</h1>
-      <p>Estamos reorganizando la casa antes de volver a abrir. Para e-books, cursos o proyectos digitales, escribe a <a href="mailto:elaranova.17@gmail.com">elaranova.17@gmail.com</a>.</p>
+      <p class="eyebrow">Elara Nova · Evelyn Patino</p>
+      <h1>Estamos afinando el sistema.</h1>
+      <p>Automatizo procesos y construyo webs que venden. El sitio vuelve muy pronto. Para automatizaciones, landing pages o Google Ads, escribe a <a href="mailto:elaranova.17@gmail.com">elaranova.17@gmail.com</a>.</p>
       <div class="line" aria-hidden="true"></div>
     </main>
   </body>

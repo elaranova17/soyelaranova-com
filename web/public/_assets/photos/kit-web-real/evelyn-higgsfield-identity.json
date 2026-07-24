@@ -1,0 +1,118 @@
+{
+  "platform": "Higgsfield",
+  "model_recommendation": "Higgsfield Soul 2.0 (ultra-realistic fashion) — use while free/unlimited promo is active. Fallback: Nano Banana 2. Always upload face refs + Soul ID / Reference if available."
+  "purpose": "Professional editorial photos for soyelaranova.com (Evelyn brand)",
+  "upload_priority": [
+    {
+      "file": "evelyn-face-ref-frontal-natural.jpg",
+      "use": "PRIMARY face lock — exact proportions, lips, nose, freckles"
+    },
+    {
+      "file": "evelyn-face-ref-freckles-closeup.jpg",
+      "use": "SECONDARY — freckle density and eye color"
+    },
+    {
+      "file": "evelyn-face-ref-long-hair-pro.jpg",
+      "use": "HAIR + STYLE lock — long jet-black hair, professional fashion look"
+    },
+    {
+      "file": "evelyn-face-ref-smile.jpg",
+      "use": "OPTIONAL — friendly soft smile expression"
+    }
+  ],
+  "identity": {
+    "gender": "woman",
+    "apparent_age": "22-27",
+    "ethnicity_appearance": "Latina / Mediterranean, fair skin with warm olive undertone",
+    "face_shape": "oval-to-heart, gently tapering to a small soft chin — NOT round, NOT ball-shaped, NOT chubby inflated cheeks",
+    "cheekbones": "softly defined, natural fullness without round balloon cheeks",
+    "jawline": "soft, lightly tapered",
+    "chin": "small, soft, slightly recessed in profile"
+  },
+  "skin": {
+    "tone": "fair to light-medium, warm olive/golden undertone",
+    "texture": "natural photographic skin, visible pores, believable — no plastic airbrush",
+    "freckles": "many natural freckles across the nose bridge and upper cheeks (must remain visible through makeup)",
+    "moles": "small beauty marks on cheeks and near jaw as in reference",
+    "under_eyes": "very light natural shadow, not heavy"
+  },
+  "eyes": {
+    "color": "hazel-green with amber/gold center around the pupil — never flat dark brown",
+    "shape": "almond, medium-large, slight natural asymmetry ok",
+    "lashes": "long, curled, wispy voluminous lashes (soft glam extensions look)",
+    "brows": "thick, dark, dense, soft high arch, well groomed"
+  },
+  "nose": {
+    "shape": "straight refined bridge, soft rounded tip, medium-small",
+    "piercing": "small thin gold hoop in the left nostril (her left)"
+  },
+  "lips": {
+    "size": "naturally full but NOT oversized, NOT inflated, NOT duck lips",
+    "shape": "compact mouth width, lower lip slightly fuller than upper, soft rounded cupid's bow, strong but realistic forward projection",
+    "color": "nude-rose / peachy-mauve satin or soft gloss"
+  },
+  "hair": {
+    "style_for_website": "very long jet-black hair, straight with slight wave, middle part, below chest (matching evelyn-face-ref-long-hair-pro.jpg)",
+    "do_not_use_for_finals": "short pixie natural hair unless explicitly requested"
+  },
+  "makeup": {
+    "level": "soft glam professional — polished fashionista, still photographic and believable",
+    "base": "luminous dewy skin, freckles still visible",
+    "eyes": "champagne-bronze soft shadow, subtle soft liner, long wispy lashes",
+    "cheeks": "warm peach-bronze blush",
+    "lips": "nude-rose satin/gloss, natural fullness only",
+    "avoid": "heavy contour, plastic doll skin, extreme fillers look, raw no-makeup look for finals"
+  },
+  "expression": {
+    "default": "warm, friendly, approachable soft smile, relaxed eyes",
+    "vibe": "fashionista, confident, kind, professional creative"
+  },
+  "body": {
+    "build": "curvy, soft rounded shoulders — keep true proportions, do not slim face or body"
+  },
+  "wardrobe": {
+    "look": "chic fashionista business-casual",
+    "pieces": "structured taupe/cocoa blazer, cream silk blouse, soft tailored trousers optional",
+    "jewelry": "delicate thin gold or silver necklace, gold nose hoop"
+  },
+  "brand_palette_environment": {
+    "walls": "warm smoke #E7E1DC, ivory #F8F3EA",
+    "accents": "deep plum/aubergine #2B1735, cocoa #6B5147, antique brass/gold #B89A58",
+    "lighting": "soft afternoon window light + warm brass lamp, editorial fashion photography"
+  },
+  "shots_to_generate": [
+    {
+      "id": "01_hero_horizontal",
+      "aspect": "16:9",
+      "composition": "Subject in RIGHT third; LEFT two thirds clean negative space for website headline",
+      "action": "working at plain laptop with no logos, looking to camera with friendly soft smile"
+    },
+    {
+      "id": "02_bio_portrait",
+      "aspect": "3:4 or 4:5",
+      "composition": "half-body portrait, three-quarter turn, air above head",
+      "action": "seated at desk, friendly soft smile to camera, blurred purple dashboard on monitor with no legible text"
+    },
+    {
+      "id": "03_in_action",
+      "aspect": "16:9",
+      "composition": "medium three-quarter standing",
+      "action": "pointing at large screen with blurred automation flowchart, engaged friendly smile"
+    }
+  ],
+  "hard_rules": [
+    "Keep exact facial identity from uploaded references — do not beautify into a different person",
+    "Face must be oval-to-heart tapering to chin — never a round ball face",
+    "Keep freckles visible",
+    "Lips naturally full only — never exaggerated",
+    "Hazel-green amber eyes — never plain brown",
+    "Long jet-black middle-part hair for website finals",
+    "No logos, no readable UI text, no watermarks",
+    "Photoreal editorial fashion photography — not illustration, not 3D, not Pixar"
+  ],
+  "master_prompt_english": "Professional fashion editorial photograph of the SAME woman as in the reference images, exact facial likeness. Oval-to-heart face tapering to a small soft chin (NOT round/ball-shaped). Fair warm-olive skin with MANY visible freckles across nose and cheeks. Hazel-green eyes with amber center, thick dark brows, long wispy voluminous lashes. Straight refined nose with small gold hoop on her left nostril. Naturally full balanced lips — plump but NOT oversized. Soft friendly fashionista smile. Very long jet-black hair, middle part, slight wave, below chest. Soft-glam professional makeup with luminous skin (freckles remain visible), champagne-bronze eyeshadow, peach blush, nude-rose satin lips. Structured taupe/cocoa blazer over cream silk blouse. Soft afternoon window light and brass lamp. High-end brand photography, natural believable skin, 85mm look. No logos, no legible text, no plastic airbrush.",
+  "negative_prompt_english": "round ball face, chubby inflated cheeks, oversized lips, duck lips, different person, wrong identity, plastic skin, airbrushed porcelain, missing freckles, flat brown eyes, thin eyebrows, short hair, pixie cut, cartoon, illustration, 3d render, neon purple galaxy, stock corporate pose, watermark, logo, readable screen text",
+  "prompt_01_hero": "Professional fashion editorial photograph, 16:9 landscape. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop left nostril, naturally full balanced lips, soft friendly smile. Long jet-black middle-part hair. Soft-glam makeup, taupe/cocoa blazer, cream silk blouse. She sits at a desk in the RIGHT third of frame working on a plain laptop with no logos; LEFT two thirds are clean warm smoke wall (#E7E1DC) negative space for a website headline. Brass lamp, leather notebook, ceramic mug, deep aubergine accent wall, blurred monstera. Soft afternoon light. Photoreal editorial. No logos, no text.",
+  "prompt_02_bio": "Professional fashion editorial portrait, 3:4 vertical. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop, naturally full balanced lips, warm friendly soft smile to camera. Long jet-black middle-part hair. Soft-glam makeup. Structured taupe/cocoa blazer over cream silk blouse, delicate necklace. Half-body, three-quarter seated at desk, air above head. Blurred purple dashboard on monitor (no legible text), ivory wall, plum accent, brass lamp. Photoreal fashion headshot. No logos, no text.",
+  "prompt_03_action": "Professional fashion editorial photograph, 16:9 landscape. SAME woman as reference, exact face. Oval-to-heart face (NOT round), many freckles, hazel-green amber eyes, thick brows, long wispy lashes, gold nose hoop, naturally full balanced lips, engaged friendly smile. Long jet-black middle-part hair. Soft-glam makeup. Taupe/cocoa blazer, cream blouse, soft trousers. Standing three-quarter, pointing at large wall screen with blurred purple automation flowchart (illegible labels only). Warm stone/ivory studio, plum accent wall, brass floor lamp, dried flowers. Soft cinematic light. Photoreal. No logos, no readable text."
+}

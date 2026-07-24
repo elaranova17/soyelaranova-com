@@ -30,22 +30,21 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL('https://soyelaranova.com'),
   title: {
-    default: 'Elara Nova — E-books, cursos y trabaja conmigo',
+    default: 'Elara Nova — Automatizacion y desarrollo web que vende',
     template: '%s | Elara Nova',
   },
   description:
-    'Casa digital de Elara Nova: e-books, cursos, oraculo, recursos y servicios profesionales de Evelyn Patino para marcas que quieren crecer con belleza y sistema.',
+    'Estudio de Evelyn Patino, ingeniera de software: automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas de Google Ads. Menos trabajo manual, mas clientes.',
   keywords: [
+    'automatizacion de procesos',
+    'automatizaciones para negocios',
+    'landing pages que venden',
     'sitios web profesionales',
-    'landing pages',
-    'automatizacion',
+    'desarrollo web',
     'Google Ads',
-    'marketing digital',
-    'productos digitales',
-    'ebooks',
-    'cursos',
-    'oraculo',
-    'emprendedores',
+    'medicion y analitica',
+    'ingeniera de software',
+    'estudio digital',
     'Evelyn Patino',
     'Elara Nova',
   ],
@@ -56,9 +55,9 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://soyelaranova.com',
     siteName: 'Elara Nova',
-    title: 'Elara Nova — E-books, cursos y trabaja conmigo',
+    title: 'Elara Nova — Automatizacion y desarrollo web que vende',
     description:
-      'E-books, cursos, oraculo y servicios profesionales dentro de una casa digital editorial creada por Evelyn Patino.',
+      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patino, ingeniera de software.',
     images: [
       {
         url: '/_assets/photos/og-portfolio.jpg',
@@ -70,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elara Nova — E-books, cursos y trabaja conmigo',
+    title: 'Elara Nova — Automatizacion y desarrollo web que vende',
     description:
-      'E-books, cursos, oraculo y servicios profesionales dentro de una casa digital editorial creada por Evelyn Patino.',
+      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patino, ingeniera de software.',
     images: ['/_assets/photos/og-portfolio.jpg'],
   },
   robots: {
