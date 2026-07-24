@@ -2610,24 +2610,23 @@ a.elara-chip:hover .elara-chip__label {
   gap: 1rem;
   height: var(--nav-h);
   padding: 0 clamp(1.1rem, 3vw, 2rem);
+  /* Siempre legible sobre el home claro: barra aubergine sólida */
+  background: rgb(43 23 53 / .92);
+  border-bottom: 1px solid rgb(184 154 88 / .18);
+  box-shadow: 0 8px 28px rgb(10 0 16 / .22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition:
     background .45s cubic-bezier(0.22, 0.61, 0.36, 1),
     border-color .45s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow .45s cubic-bezier(0.22, 0.61, 0.36, 1),
-    backdrop-filter .45s cubic-bezier(0.22, 0.61, 0.36, 1);
-  background: linear-gradient(180deg, rgb(43 23 53 / .78) 0%, rgb(43 23 53 / .28) 70%, transparent 100%);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-bottom: 1px solid transparent;
+    box-shadow .45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .site-nav.is-scrolled,
 .site-nav.is-menu-open {
-  background: rgb(43 23 53 / .94);
-  border-bottom-color: rgb(184 154 88 / .22);
-  box-shadow: 0 12px 40px rgb(10 0 16 / .35);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgb(43 23 53 / .97);
+  border-bottom-color: rgb(184 154 88 / .28);
+  box-shadow: 0 12px 40px rgb(10 0 16 / .38);
 }
 
 .site-nav__logo {
