@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Cormorant_Garamond, Lato } from 'next/font/google'
+import { Fraunces, Cormorant_Garamond, Manrope } from 'next/font/google'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { MagicCursor } from '@/components/magic-cursor'
 import './globals.css'
 
-const playfair = Playfair_Display({
-  variable: '--font-playfair',
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
   style: ['normal', 'italic'],
+  axes: ['opsz', 'SOFT', 'WONK'],
   display: 'swap',
 })
 
@@ -20,10 +21,9 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 })
 
-const lato = Lato({
-  variable: '--font-lato',
+const manrope = Manrope({
+  variable: '--font-manrope',
   subsets: ['latin'],
-  weight: ['300', '400', '700'],
   display: 'swap',
 })
 
@@ -90,7 +90,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${playfair.variable} ${cormorant.variable} ${lato.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${cormorant.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <LenisProvider>

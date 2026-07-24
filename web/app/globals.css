@@ -55,9 +55,9 @@
   --studio-green:         #516B5B;
 
   /* Tipografía */
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-fraunces);
   --font-serif:   var(--font-cormorant);
-  --font-sans:    var(--font-lato);
+  --font-sans:    var(--font-manrope);
 
   /* Sombras mágicas (CONTEXT §3) */
   --shadow-glow-gold:   0 0 60px rgba(212, 175, 55, 0.5);
@@ -69,6 +69,13 @@ html, body {
   color: var(--editorial-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Fraunces con carácter: óptica grande + formas "wonky" solo en titulares */
+h1, h2, h3,
+.font-display {
+  font-variation-settings: 'opsz' 120, 'SOFT' 0, 'WONK' 1;
+  letter-spacing: -0.015em;
 }
 
 /* Home 2026 · estructura audiovisual */
