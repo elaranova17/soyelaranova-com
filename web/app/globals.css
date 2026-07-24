@@ -634,11 +634,28 @@ h1, h2, h3,
   min-height: 68vh;
   align-content: center;
   opacity: .28;
-  transition: opacity .45s ease;
+  transition: opacity .6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .immersive-story__chapters article.is-active {
   opacity: 1;
+}
+
+/* transición de texto lateral: el bloque entra deslizando con stagger */
+.immersive-story__chapters article > p,
+.immersive-story__chapters article h3,
+.immersive-story__chapters article small {
+  transform: translateY(16px);
+  transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.immersive-story__chapters article h3 { transition-delay: .07s; }
+.immersive-story__chapters article small { transition-delay: .14s; }
+
+.immersive-story__chapters article.is-active > p,
+.immersive-story__chapters article.is-active h3,
+.immersive-story__chapters article.is-active small {
+  transform: translateY(0);
 }
 
 .immersive-story__chapters article > span {
@@ -801,15 +818,8 @@ h1, h2, h3,
   box-shadow: 0 30px 60px rgb(26 15 61 / .35), 0 0 40px rgb(212 175 55 / .12);
 }
 
-/* interacción entre tarjetas: la activa brilla, las otras se calman */
-.home-products__rail:has(.home-product:hover) .home-product:not(:hover) {
-  opacity: .55;
-  filter: saturate(.85);
-}
-
-.home-products__rail .home-product {
-  transition: opacity .5s ease, filter .5s ease;
-}
+/* (el atenuado de las tarjetas no-activas se retiró a pedido de Evelyn:
+   la interacción vive en el lift + glow de la tarjeta activa) */
 
 /* 01 · hilo que fluye */
 .scene-flow {
@@ -1270,6 +1280,13 @@ h1, h2, h3,
     animation: none;
     transform: none;
     opacity: 1;
+  }
+
+  .immersive-story__chapters article > p,
+  .immersive-story__chapters article h3,
+  .immersive-story__chapters article small {
+    transform: none;
+    transition: none;
   }
 }
 
