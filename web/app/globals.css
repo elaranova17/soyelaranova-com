@@ -1769,6 +1769,32 @@ h1, h2, h3,
   object-fit: cover;
 }
 
+.home-recurso__media--slot {
+  display: grid;
+  place-content: center;
+  gap: .35rem;
+  background:
+    radial-gradient(70% 80% at 50% 20%, rgb(184 154 88 / .18), transparent 70%),
+    linear-gradient(165deg, #3a2244, var(--editorial-aubergine) 80%);
+}
+
+.home-recurso__media--slot span {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: 0.08em;
+  color: var(--editorial-ivory);
+  text-shadow: var(--text-glow-gold);
+  text-align: center;
+}
+
+.home-recurso__media--slot em {
+  font-family: var(--font-script);
+  font-size: 1.35rem;
+  font-style: normal;
+  color: color-mix(in srgb, var(--editorial-gold) 45%, var(--editorial-ivory));
+  text-align: center;
+}
+
 .home-recurso > p {
   margin: .35rem 0 0;
   color: var(--editorial-gold);

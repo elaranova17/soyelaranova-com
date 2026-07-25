@@ -216,8 +216,9 @@ export default function HomePage() {
 
         <div className="home-recursos__rail">
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <img src="/media/servicios/servicio-02-webs.webp" alt="" loading="lazy" />
+            <div className="home-recurso__media home-recurso__media--slot" aria-hidden="true">
+              <span>01</span>
+              <em>ebook</em>
             </div>
             <p>01 · Ebook</p>
             <h3>Guías y lecturas cortas</h3>
@@ -230,8 +231,9 @@ export default function HomePage() {
           </article>
 
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <img src="/media/servicios/servicio-01-automatizaciones.webp" alt="" loading="lazy" />
+            <div className="home-recurso__media home-recurso__media--slot" aria-hidden="true">
+              <span>02</span>
+              <em>pantallas</em>
             </div>
             <p>02 · Pantallas</p>
             <h3>Cómo se ve el sistema</h3>
@@ -245,8 +247,9 @@ export default function HomePage() {
           </article>
 
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <img src="/media/servicios/servicio-03-google-ads.webp" alt="" loading="lazy" />
+            <div className="home-recurso__media home-recurso__media--slot" aria-hidden="true">
+              <span>03</span>
+              <em>valor</em>
             </div>
             <p>03 · Valor</p>
             <h3>Checklists y plantillas</h3>

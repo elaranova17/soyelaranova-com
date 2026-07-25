@@ -4,7 +4,7 @@
  * El SVG se posiciona EXACTO sobre cada pantalla (bbox del chroma, en %),
  * por lo que escala responsive junto con la foto.
  *
- * Mapa: 01 automatizaciones = marco+podio · 02 webs = tablet
+ * Mapa: 01 automatizaciones = tablet (misma foto quiet-luxury) · 02 webs = tablet
  * · 03 google ads = dominó+teléfono.
  */
 
@@ -46,7 +46,7 @@ export function AutomationScene() {
   return (
     <SceneFrame
       src="/media/servicios/servicio-01-automatizaciones.webp"
-      screen={{ left: '26%', top: '10%', width: '46%', height: '46%' }}
+      screen={{ left: '25%', top: '18.2%', width: '47.6%', height: '46.1%' }}
       viewBox="0 0 300 360"
     >
       {/* Banner de estado — eco del word-banner del slide */}

@@ -53,7 +53,6 @@ const bannedPaths = [
   '_assets/photos/kit-web-real/evelyn-higgsfield-identity.json',
   '_assets/photos/slide-proceso-chroma-raw.webp',
   '_assets/photos/evelyn_me_portrait.webp', // no era del lote 24 jul de Evelyn
-  'media/recursos',
   'media/cursos',
 ]
 

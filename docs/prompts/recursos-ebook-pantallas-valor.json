@@ -1,0 +1,48 @@
+{
+  "brand": "Elara Nova · CapCut glow chic",
+  "palette": {
+    "ivory": "#F8F3EA",
+    "smoke": "#E7E1DC",
+    "ink": "#18131A",
+    "plum": "#4A2D57",
+    "aubergine": "#2B1735",
+    "gold": "#B89A58",
+    "cacao": "#6B5147"
+  },
+  "output": {
+    "format": "webp",
+    "folder": "web/public/media/recursos/",
+    "aspect": "4:5 vertical preferred (also ok 3:4)",
+    "min_px": "1600 × 2000"
+  },
+  "negative_prompt_common": "no people, no faces, no hands, no text logos, no watermarks, no neon, no purple-pink gradient AI look, no stock corporate handshake, no clutter, no plastic shine",
+  "shots": [
+    {
+      "id": "recurso-ebook",
+      "file": "recurso-ebook.webp",
+      "slot": "Home · Recursos · 01 Guías y lecturas cortas",
+      "style": "quiet luxury flat lay, CapCut glow chic, cream aubergine gold",
+      "prompt": "Overhead flat-lay product photo on light beige stone surface. Center: thick hardcover book with cream linen cover and gold-gilded page edges, closed, no title text on cover. Beside it: slim gold pen, cream stationery card with thin double-line border (empty, no writing), small gold bookmark with tassel. Top-left: soft fold of deep aubergine velvet fabric. Top-right: tiny gold vase with dark plum dried flowers and a shallow gold dish with lavender sprigs. Soft natural window light, elegant shadows, high-end editorial still life, photorealistic, 85mm lens look. Color palette cream #F8F3EA, aubergine #2B1735, gold #B89A58. Vertical 4:5 composition with generous breathing room."
+    },
+    {
+      "id": "recurso-pantallas",
+      "file": "recurso-pantallas.webp",
+      "slot": "Home · Recursos · 02 Cómo se ve el sistema",
+      "style": "moody desk mockup with blank chroma screen for UI overlay",
+      "prompt": "Cinematic product photo of a sleek monitor or large tablet with thin brass/gold frame on dark walnut desk, screen completely solid matte black (empty chroma placeholder, no UI, no reflection of room). Background: textured deep aubergine plum wall with soft dappled light. Left: stack of two muted hardcover books and a small gold cylindrical vase with dark dried foliage. Right: amethyst crystal cluster and shallow gold tray in foreground. Low-key directional light, quiet luxury, CapCut glow chic, photorealistic. No people. Vertical 4:5, screen centered upper half for later overlay."
+    },
+    {
+      "id": "recurso-valor",
+      "file": "recurso-valor.webp",
+      "slot": "Home · Recursos · 03 Checklists y plantillas",
+      "style": "checklist stationery still life, cream + gold on dark wood",
+      "prompt": "High-angle still life on dark textured walnut wood. Two cream paper pads with blank checklist layout (empty squares and lines, no readable words). One pad on a small gold clipboard, the other held with a gold binder clip. Slim gold pen diagonal in lower left. Soft burgundy fabric fold lower right, tiny brass dish and plum glass in soft background blur. Warm elegant light, organized productivity aesthetic, CapCut glow chic cream/aubergine/gold, photorealistic, no people, no logos. Vertical 4:5."
+    }
+  ],
+  "after_generate": [
+    "Export WebP quality ~82, strip EXIF",
+    "Save as web/public/media/recursos/recurso-{ebook,pantallas,valor}.webp",
+    "Wire in web/app/page.tsx home-recursos__media img src",
+    "Remove .home-recurso__media--slot placeholders"
+  ]
+}
