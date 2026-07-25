@@ -43,12 +43,11 @@ usar `--editorial-*` directamente. **No inventar colores.**
 
 ### Tipografía
 
-- **Display:** Bodoni Moda (`--font-display` / `--font-bodoni`) — titulares imponentes, peso 400, `opsz` alto.
-- **Caligrafía:** Pinyon Script (`--font-script` / `--font-serif`) — marca, logo, `em` cortos que venden.
-- **Sans:** Manrope (`--font-sans`) — cuerpo, labels, CTAs, tracking amplio en uppercase.
+- **Impact:** Archivo Black (`--font-display`) — titulares imponentes, tracking cerrado (estilo CapCut “MODERN / Inter-Blk”).
+- **Caligrafía:** Sansita Swashed (`--font-script`) — marca, logo y línea script que **solapa** el impact.
+- **Sans UI:** Manrope (`--font-sans`) — cuerpo, labels, CTAs.
 
-Usar la caligrafía solo en acentos cortos (nombre de marca, una frase em). Nunca párrafos largos en script.
-(Playfair Display, Fraunces y Lato quedan fuera del look canónico actual.)
+**Presentación:** usar `.type-lockup` + `.type-lockup__impact` + `.type-lockup__script` en heroes y cierres (script con `margin-top` negativo). No párrafos largos en script.
 
 ### Componentes/clases canónicos
 

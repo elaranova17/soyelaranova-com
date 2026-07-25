@@ -53,10 +53,10 @@
   --studio-indigo:        var(--editorial-plum);
   --studio-green:         #516B5B;
 
-  /* Tipografía · personalidad comercial 2026 */
-  --font-display: var(--font-bodoni);
-  --font-serif:   var(--font-pinyon);
-  --font-script:  var(--font-pinyon);
+  /* Tipografía · lockup CapCut (impact + script solapado) */
+  --font-display: var(--font-archivo-black);
+  --font-serif:   var(--font-sansita);
+  --font-script:  var(--font-sansita);
   --font-sans:    var(--font-manrope);
 
   /* Sombras mágicas (CONTEXT §3) */
@@ -71,28 +71,84 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Bodoni Moda: óptica grande en titulares = más imponente */
+/* Impact: sans negra, tracking cerrado, presencia */
 h1, h2, h3,
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144;
-  letter-spacing: -0.03em;
+  font-variation-settings: normal;
+  letter-spacing: -0.035em;
   font-weight: 400;
 }
 
-/* Caligrafía: solo acentos cortos que venden (marca + em de hero) */
-.font-script,
-.lp-hero__brand,
-.lp-hero h1 em,
-.home-hero h1 em,
-.home-impact h2 em,
-.home-close h2 em,
-.home-intro h2 em {
+/* Caligrafía con swash */
+.font-script {
   font-family: var(--font-script);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.01em;
   font-variation-settings: normal;
+}
+
+/*
+ * Lockup CapCut: línea impact + script que cruza por debajo.
+ * No cambia layout de secciones — solo presentación del texto.
+ */
+.type-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.type-lockup__impact {
+  position: relative;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  text-wrap: balance;
+}
+
+.type-lockup__script {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: -0.28em;
+  margin-left: 0.06em;
+  padding-left: 0.05em;
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  font-variation-settings: normal;
+}
+
+.type-lockup--center {
+  align-items: center;
+  text-align: center;
+}
+
+.type-lockup--center .type-lockup__script {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.type-lockup--cream .type-lockup__impact,
+.type-lockup--cream .type-lockup__script {
+  color: var(--editorial-ivory);
+}
+
+.type-lockup--cream .type-lockup__script {
+  color: color-mix(in srgb, var(--editorial-gold) 55%, var(--editorial-ivory));
+}
+
+@media (max-width: 640px) {
+  .type-lockup__script {
+    margin-top: -0.18em;
+    font-size: 0.62em;
+  }
 }
 
 /* Home 2026 · estructura audiovisual */
@@ -147,26 +203,21 @@ h1, h2, h3,
   z-index: 2;
 }
 
-.home-hero h1 {
-  max-width: 11ch;
+.home-hero h1.type-lockup {
+  max-width: 14ch;
   margin-top: 2rem;
-  font-family: var(--font-display);
-  font-size: clamp(4.15rem, 7.2vw, 8.4rem);
-  font-weight: 400;
-  line-height: .84;
-  font-variation-settings: 'opsz' 144;
+  font-size: clamp(3.6rem, 6.8vw, 7.6rem);
 }
 
-.home-hero h1 em {
-  display: block;
-  margin-top: .12em;
+.home-hero h1 .type-lockup__impact {
+  font-size: 1em;
+  color: var(--editorial-ink);
+}
+
+.home-hero h1 .type-lockup__script {
+  max-width: 16ch;
   color: var(--editorial-plum);
-  font-family: var(--font-script);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.72em;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
+  font-size: 0.58em;
 }
 
 .home-hero__copy > p {
@@ -360,9 +411,11 @@ h1, h2, h3,
   bottom: 1.6rem;
   color: var(--editorial-cacao);
   font-family: var(--font-script);
-  font-size: 1.35rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
   font-style: normal;
+  font-weight: 500;
   text-align: right;
+  line-height: 1.25;
 }
 
 .home-thesis {
@@ -376,8 +429,9 @@ h1, h2, h3,
   padding: 1.5rem;
   border-right: 1px solid var(--editorial-stone);
   font-family: var(--font-script);
-  font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
   font-style: normal;
+  font-weight: 500;
   line-height: 1.25;
   text-align: center;
 }
@@ -1129,21 +1183,19 @@ h1, h2, h3,
   pointer-events: none;
 }
 
-.home-impact h2 {
+.home-impact h2.type-lockup {
   position: relative;
-  max-width: 21ch;
-  font-family: var(--font-display);
-  font-size: clamp(2.85rem, 5.6vw, 5.5rem);
-  font-weight: 400;
-  line-height: 1;
-  font-variation-settings: 'opsz' 144;
+  max-width: 18ch;
+  font-size: clamp(2.6rem, 5.4vw, 5rem);
 }
 
-.home-impact h2 em {
+.home-impact h2 .type-lockup__impact {
+  color: var(--editorial-ivory);
+}
+
+.home-impact h2 .type-lockup__script {
   color: var(--color-gold-bright, #F2D578);
-  font-family: var(--font-script);
-  font-style: normal;
-  font-size: 1.08em;
+  font-size: 0.62em;
 }
 
 .home-impact > p {
@@ -1481,18 +1533,24 @@ h1, h2, h3,
 .home-close > p {
   color: var(--editorial-gold);
   font-family: var(--font-script);
-  font-size: clamp(1.75rem, 3vw, 2.7rem);
+  font-size: clamp(1.65rem, 2.8vw, 2.5rem);
   font-style: normal;
+  font-weight: 500;
 }
 
-.home-close h2 {
-  max-width: 15ch;
-  margin-top: 1.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 7vw, 7.6rem);
-  font-weight: 400;
-  line-height: .88;
-  font-variation-settings: 'opsz' 144;
+.home-close h2.type-lockup {
+  max-width: 16ch;
+  margin-top: 1.1rem;
+  font-size: clamp(3rem, 6.5vw, 6.8rem);
+}
+
+.home-close h2 .type-lockup__impact {
+  color: var(--editorial-ivory);
+}
+
+.home-close h2 .type-lockup__script {
+  color: color-mix(in srgb, var(--editorial-gold) 70%, var(--editorial-ivory));
+  font-size: 0.55em;
 }
 
 .home-close .home-actions {
@@ -2967,9 +3025,9 @@ a.elara-chip:hover .elara-chip__label {
 .site-nav__logo {
   min-width: 0;
   font-family: var(--font-script);
-  font-size: clamp(1.55rem, 2.8vw, 2.05rem);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1;
   color: var(--editorial-ivory);
@@ -3376,12 +3434,12 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-hero__brand {
   font-family: var(--font-script);
-  font-size: clamp(3.1rem, 7.5vw, 5.2rem);
+  font-size: clamp(2.8rem, 6.8vw, 4.6rem);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: .95;
   letter-spacing: 0.01em;
-  color: var(--editorial-ivory);
+  color: color-mix(in srgb, var(--editorial-gold) 45%, var(--editorial-ivory));
   animation: lp-hero-rise .9s cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -3395,23 +3453,44 @@ a.elara-chip:hover .elara-chip__label {
   animation: lp-hero-rise .9s .08s cubic-bezier(.22, 1, .36, 1) both;
 }
 
-.lp-hero h1 {
+.lp-hero h1.type-lockup {
   max-width: 16ch;
-  margin-top: 1.1rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.55rem, 5.6vw, 4.75rem);
-  font-weight: 400;
-  line-height: .94;
-  font-variation-settings: 'opsz' 144;
+  margin-top: 0.35rem;
+  font-size: clamp(2.4rem, 5.4vw, 4.5rem);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
 }
 
-.lp-hero h1 em {
-  color: color-mix(in srgb, var(--editorial-gold) 82%, var(--editorial-ivory));
+.lp-hero h1 .type-lockup__impact {
+  color: var(--editorial-ivory);
+}
+
+.lp-hero h1 .type-lockup__script {
+  color: color-mix(in srgb, var(--editorial-gold) 75%, var(--editorial-ivory));
+  font-size: 0.56em;
+  max-width: 18ch;
+}
+
+/* Fallback si un h1 LP aún no usa lockup */
+.lp-hero h1:not(.type-lockup) {
+  max-width: 16ch;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.4vw, 4.5rem);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -0.04em;
+  color: var(--editorial-ivory);
+  animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.lp-hero h1:not(.type-lockup) em {
+  display: block;
+  margin-top: -0.22em;
+  color: color-mix(in srgb, var(--editorial-gold) 75%, var(--editorial-ivory));
   font-family: var(--font-script);
   font-style: normal;
-  font-weight: 400;
-  font-size: 0.92em;
+  font-weight: 500;
+  font-size: 0.56em;
 }
 
 .lp-hero__sub {
