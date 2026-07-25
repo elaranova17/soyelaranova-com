@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { LpOfferPage } from '@/components/lp-offer-page'
-import { getLpPack, listLpPackParams } from '@/lib/lp-offers'
+import { getLpPack, listLpPackParams, lpOfferMetadata } from '@/lib/lp-offers'
 
 type Props = {
   params: Promise<{ service: string; pack: string }>
@@ -15,11 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { service, pack } = await params
   const offer = getLpPack(service, pack)
   if (!offer) return { title: 'Oferta no encontrada' }
-  return {
-    title: offer.titlePlain,
-    description: offer.description,
-    robots: { index: false, follow: false },
-  }
+  return lpOfferMetadata(offer)
 }
 
 export default async function LpPackPage({ params }: Props) {

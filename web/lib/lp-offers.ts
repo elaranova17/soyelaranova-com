@@ -4,7 +4,16 @@
  * Embudo: LP → pre-análisis → sesión 25 CHF → proyecto.
  */
 
+import type { Metadata } from 'next'
+
 export type LpPain = { dolor: string; solucion: string }
+
+export type LpVisual = {
+  heroImage: string
+  heroAlt: string
+  /** CSS object-position */
+  heroPosition: string
+}
 
 export type LpOffer = {
   /** slug de servicio madre: automatizaciones | paginas-web | landing-pages | google-ads */
@@ -29,6 +38,116 @@ export type LpOffer = {
   discoveryDefaults?: {
     service: string
     pack?: string
+  }
+}
+
+/** Hero full-bleed por servicio madre (producto real / foto Evelyn). */
+const SERVICE_VISUALS: Record<string, LpVisual> = {
+  automatizaciones: {
+    heroImage: '/media/servicios/servicio-01-automatizaciones.webp',
+    heroAlt: 'Sistema de automatizaciones conectando formularios, CRM y mensajes',
+    heroPosition: 'center 42%',
+  },
+  'paginas-web': {
+    heroImage: '/media/servicios/servicio-02-webs.webp',
+    heroAlt: 'Sitio web profesional pensado para convertir',
+    heroPosition: 'center 38%',
+  },
+  'landing-pages': {
+    heroImage: '/media/recursos/recurso-pantallas.webp',
+    heroAlt: 'Pantallas de landing page lista para campaña',
+    heroPosition: 'center 35%',
+  },
+  'google-ads': {
+    heroImage: '/media/servicios/servicio-03-google-ads.webp',
+    heroAlt: 'Campañas de Google Ads con medición clara',
+    heroPosition: 'center 40%',
+  },
+}
+
+/** Overrides por paquete hija — evita la misma foto en todas las LPs. */
+const PACK_VISUALS: Record<string, LpVisual> = {
+  'automatizaciones/arranque': {
+    heroImage: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
+    heroAlt: 'Evelyn Patiño en estudio, lista para armar tu primera automatización',
+    heroPosition: '58% 22%',
+  },
+  'automatizaciones/pro': {
+    heroImage: '/_assets/photos/kit-web-real/01-hero-evelyn.webp',
+    heroAlt: 'Evelyn Patiño, ingeniera de software — sistemas Pro',
+    heroPosition: '55% 20%',
+  },
+  'automatizaciones/a-medida': {
+    heroImage: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
+    heroAlt: 'Evelyn Patiño — automatizaciones a medida',
+    heroPosition: '50% 18%',
+  },
+  'paginas-web/landing-unica': {
+    heroImage: '/media/recursos/recurso-pantallas.webp',
+    heroAlt: 'Landing única lista para Ads',
+    heroPosition: 'center 32%',
+  },
+  'paginas-web/sitio-negocio': {
+    heroImage: '/media/servicios/servicio-02-webs.webp',
+    heroAlt: 'Sitio de negocio con arquitectura de conversión',
+    heroPosition: '62% 40%',
+  },
+  'paginas-web/sitio-ads': {
+    heroImage: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
+    heroAlt: 'Evelyn Patiño — sitio + Ads como sistema',
+    heroPosition: '48% 24%',
+  },
+  'google-ads/setup': {
+    heroImage: '/_assets/photos/kit-web-real/00-identidad-frontal.webp',
+    heroAlt: 'Evelyn Patiño — setup de Google Ads medible',
+    heroPosition: '50% 18%',
+  },
+  'google-ads/gestion': {
+    heroImage: '/media/servicios/servicio-03-google-ads.webp',
+    heroAlt: 'Gestión continua de Google Ads con lectura de datos',
+    heroPosition: '70% 45%',
+  },
+}
+
+const FALLBACK_VISUAL: LpVisual = {
+  heroImage: '/_assets/photos/evelyn_pro_hero.jpg',
+  heroAlt: 'Evelyn Patiño, ingeniera de software',
+  heroPosition: '58% 22%',
+}
+
+export function getLpVisual(offer: LpOffer): LpVisual {
+  if (offer.pack) {
+    const packKey = `${offer.service}/${offer.pack}`
+    const packVisual = PACK_VISUALS[packKey]
+    if (packVisual) return packVisual
+  }
+  return SERVICE_VISUALS[offer.service] ?? FALLBACK_VISUAL
+}
+
+export function lpOfferMetadata(offer: LpOffer): Metadata {
+  const visual = getLpVisual(offer)
+  return {
+    title: offer.titlePlain,
+    description: offer.description,
+    robots: { index: false, follow: false },
+    openGraph: {
+      title: offer.titlePlain,
+      description: offer.description,
+      images: [
+        {
+          url: visual.heroImage,
+          width: 1200,
+          height: 630,
+          alt: visual.heroAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: offer.titlePlain,
+      description: offer.description,
+      images: [visual.heroImage],
+    },
   }
 }
 
