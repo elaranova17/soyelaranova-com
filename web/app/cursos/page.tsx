@@ -11,17 +11,17 @@ const courses = [
   {
     title: 'Cursos de autoconocimiento',
     text: 'Experiencias cortas para volver a ti sin convertir el bienestar en otra lista de pendientes.',
-    image: '/images/elara-cursos.png',
+    image: '/media/cursos/curso-autoconocimiento.webp',
   },
   {
     title: 'Rituales guiados',
     text: 'Audios, ejercicios y plantillas para acompanar semanas concretas del Ciclo Nova.',
-    image: '/images/elara-meditando.png',
+    image: '/media/cursos/curso-rituales.webp',
   },
   {
     title: 'Herramientas digitales',
     text: 'Recursos descargables para journaling, oraculo, planificacion suave y seguimiento personal.',
-    image: '/images/elara-aprendiendo.png',
+    image: '/media/cursos/curso-herramientas.webp',
   },
 ] as const
 
