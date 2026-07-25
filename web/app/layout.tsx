@@ -1,28 +1,39 @@
 import type { Metadata } from 'next'
-import { Archivo_Black, Sansita_Swashed, Manrope } from 'next/font/google'
+import { Bodoni_Moda, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import './globals.css'
 
-/** Impacto CapCut — sans negra imponente (estilo Inter-Blk / MODERN) */
-const archivoBlack = Archivo_Black({
-  variable: '--font-archivo-black',
+/** Display fashion — Didone imponente pero glam (Marilyn / Vogue) */
+const bodoni = Bodoni_Moda({
+  variable: '--font-bodoni',
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+  display: 'swap',
+})
+
+/** Caligrafía glow chic — firma que solapa el display */
+const greatVibes = Great_Vibes({
+  variable: '--font-great-vibes',
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
 })
 
-/** Caligrafía con swash — solapa el impact y vende personalidad */
-const sansita = Sansita_Swashed({
-  variable: '--font-sansita',
+/** Serif suave — notas, tesis, textos editoriales cortos */
+const cormorant = Cormorant_Garamond({
+  variable: '--font-cormorant',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
   display: 'swap',
 })
 
-const manrope = Manrope({
-  variable: '--font-manrope',
+/** Sans cuerpo / UI — chic, legible, alineada al cream-aubergine */
+const outfit = Outfit({
+  variable: '--font-outfit',
   subsets: ['latin'],
   display: 'swap',
 })
@@ -91,7 +102,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${archivoBlack.variable} ${sansita.variable} ${manrope.variable} h-full antialiased`}
+      className={`${bodoni.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <script

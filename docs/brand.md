@@ -41,13 +41,16 @@ de `web/app/globals.css` es **ley para todas las páginas**:
 Los alias `--studio-*` existen solo para formularios/páginas ya construidas; para código nuevo
 usar `--editorial-*` directamente. **No inventar colores.**
 
-### Tipografía
+### Tipografía · Marilyn glow chic fashion
 
-- **Impact:** Archivo Black (`--font-display`) — titulares imponentes, tracking cerrado (estilo CapCut “MODERN / Inter-Blk”).
-- **Caligrafía:** Sansita Swashed (`--font-script`) — marca, logo y línea script que **solapa** el impact.
-- **Sans UI:** Manrope (`--font-sans`) — cuerpo, labels, CTAs.
+Misma idea de lockup (línea imponente + firma que solapa), tono glam suave alineado a cream / aubergine / gold.
 
-**Presentación:** usar `.type-lockup` + `.type-lockup__impact` + `.type-lockup__script` en heroes y cierres (script con `margin-top` negativo). No párrafos largos en script.
+- **Display:** Bodoni Moda (`--font-display` / `--font-bodoni`) — titulares fashion Didone, `opsz` alto.
+- **Caligrafía:** Great Vibes (`--font-script`) — marca, logo y script del lockup.
+- **Serif editorial:** Cormorant Garamond (`--font-serif`) — notas, tesis, frases suaves (no script largo).
+- **Sans cuerpo/UI:** Outfit (`--font-sans`) — párrafos, labels, CTAs.
+
+**Presentación:** `.type-lockup` + `__impact` + `__script` en heroes/cierres. Script solo en acentos cortos.
 
 ### Componentes/clases canónicos
 
