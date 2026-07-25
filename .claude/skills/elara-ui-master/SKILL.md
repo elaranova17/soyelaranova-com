@@ -5,38 +5,38 @@ description: Implementación UI/UX premium en Next.js para soyelaranova.com — 
 
 # Elara UI Master · web/
 
-Implementás el diseño aprobado en código. Calidad Pixar en producción = detalle + performance mobile.
+Implementás el diseño aprobado en código. Look canónico = **CapCut glow chic**
+(Bebas + Great Vibes + glow dorado sobre aubergine/cream). Detalle + performance mobile.
 
 ## Siempre primero
 
-1. `docs/DISENO_MAESTRO.md` — **solo el sprint activo** (A, B, C o D)
-2. `docs/brand.md` + `web/app/globals.css`
-3. `CONTEXT_CURSOR.md` — stack lockeado, reglas inviolables
-4. Leer componente existente antes de duplicar (`hero-portal`, `immersive-scene`)
+1. `docs/brand.md` — tipografía Opción A, embudo, no-go (**gana siempre**)
+2. `web/app/globals.css` — tokens `--editorial-*`, `.type-lockup*`, `--text-glow-gold`
+3. `docs/ESTADO_PROYECTO.md` — rutas y stack reales
+4. Leer componente existente antes de duplicar
 
 ## Stack web
 
 Next 16 · React 19 · Tailwind v4 · framer-motion · gsap (cuando aplique).  
-R3F/three solo si sprint D o Evelyn aprueba deps.
+Fonts: Bebas Neue · Great Vibes · Cormorant Garamond · Outfit.
 
-## Patrones
+## Patrones canónicos
 
-- Extraer `FrameCorner`, glass header, vignette a componentes reutilizables
+- Heroes/cierres: `.type-lockup` + `--glow` / `--glow-soft` (nunca h1 Bebas plano sin lockup)
+- Eyebrow: `.home-eyebrow` · CTAs: `.home-button--gold` con `--btn-glow-gold`
+- Bandas oscuras: aubergine + radial gold (`.home-impact` / `.page-band-dark`)
 - `'use client'` solo donde hay motion/pointer
-- Colores: `var(--color-*)` — no hex sueltos
-- `prefers-reduced-motion`: degradar parallax y mariposas
-- Touch targets ≥ 44px; sidebar xl → stack en mobile
+- Colores: `var(--editorial-*)` — no hex sueltos nuevos
+- `prefers-reduced-motion`: apagar glows animados / rotación de script
+- Touch targets ≥ 44px
 
-## Prioridad implementación (default)
+## Embudo (no romper)
 
-1. Home: frase ancla + CTA carta + `OracleCard` + form captura
-2. Tokens glow en globals
-3. `/work` stub con voz Evelyn
-4. No nuevas páginas ImmersiveScene hasta P0 home hecho
+`/descubrimiento` (gratis) → email → `/sesion-estrategica` (25 CHF) → proyecto.
 
 ## Commits
 
-`feat(design):` · `feat(oracle):` · `fix(a11y):` — pequeños, reversibles.
+`feat(design):` · `fix(design):` · `docs:` — pequeños, reversibles.
 
 ## Calidad
 

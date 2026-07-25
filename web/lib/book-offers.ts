@@ -10,6 +10,10 @@ export type BookOffer = {
   slug: string
   eyebrow: string
   title: string
+  /** Línea Bebas del lockup CapCut */
+  titleImpact: string
+  /** Firma Great Vibes solapada (corta) */
+  titleScript: string
   description: string
   subtitle: string
   priceLabel: string
@@ -27,6 +31,8 @@ export const bookOffers: readonly BookOffer[] = [
     slug: '7-dias-de-elara',
     eyebrow: 'Lead magnet · gratis',
     title: '7 Días de Elara',
+    titleImpact: '7 Días',
+    titleScript: 'de Elara',
     description:
       'Ebook gratuito: 7 días suaves para volver a vos. Opt-in y primer paso del universo Elara.',
     subtitle:
@@ -53,6 +59,8 @@ export const bookOffers: readonly BookOffer[] = [
     slug: 'ciclo-nova-del-regreso',
     eyebrow: 'Ebook · en producción',
     title: 'Ciclo Nova del Regreso',
+    titleImpact: 'Ciclo Nova',
+    titleScript: 'del Regreso',
     description:
       'Ebook pago (27–37 €): framework de 4 estaciones para un retorno semanal a vos. Waitlist abierta.',
     subtitle:

@@ -1,7 +1,7 @@
 # Elara Nova · Marca estudio 2026 (sitio web)
 
 > **Fuente de verdad visual y de voz para `soyelaranova.com`.**
-> Actualizado: julio 2026. Este documento reemplaza la versión "portal sagrado" de mayo 2026.
+> Actualizado: julio 2026 (tipografía Opción A CapCut glow chic lockeada).
 > Si `CONTEXT_CURSOR.md` u otro brief antiguo contradice este archivo, **gana este archivo**.
 
 ---
@@ -19,47 +19,62 @@ automatizaciones de procesos, webs y landing pages que venden, y Google Ads con 
 
 ---
 
-## Look canónico = home editorial
+## Look canónico = CapCut glow chic editorial
 
-El estilo "quiet luxury editorial" implementado en `web/app/page.tsx` + tokens `--editorial-*`
-de `web/app/globals.css` es **ley para todas las páginas**:
+Referencia visual aprobada: lockup **sans condensada cream + script solapado + glow dorado**
+sobre aubergine (sección pre-análisis / banda impact). Ese look se replica en **toda** la web
+con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 
 ### Paleta (tokens `--editorial-*` en `web/app/globals.css`)
 
 | Token | HEX | Uso |
 |-------|-----|-----|
 | `--editorial-smoke` | `#E7E1DC` | Fondo base claro (body) |
-| `--editorial-ivory` | `#F8F3EA` | Fondos de secciones/cards claras |
-| `--editorial-ink` | `#18131A` | Texto principal |
-| `--editorial-plum` | `#4A2D57` | Acentos, botones primarios, títulos em |
-| `--editorial-aubergine` | `#2B1735` | Secciones oscuras, navbar `.site-nav` |
+| `--editorial-ivory` | `#F8F3EA` | Fondos claros / texto cream en oscuro |
+| `--editorial-ink` | `#18131A` | Texto principal en claro |
+| `--editorial-plum` | `#4A2D57` | Acentos, botones primary, script en claro |
+| `--editorial-aubergine` | `#2B1735` | Secciones oscuras, navbar, LP heroes |
 | `--editorial-lavender` | `#B9A1C8` | Texto secundario sobre oscuro |
 | `--editorial-cacao` | `#6B5147` | Texto secundario sobre claro, eyebrows |
 | `--editorial-stone` | `#B8AEA7` | Bordes hairline |
-| `--editorial-gold` | `#B89A58` | Detalles, líneas, CTA gold |
+| `--editorial-gold` | `#B89A58` | Líneas, CTA gold, glow |
 
-Los alias `--studio-*` existen solo para formularios/páginas ya construidas; para código nuevo
-usar `--editorial-*` directamente. **No inventar colores.**
+Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
-### Tipografía · Opción A CapCut glow chic (lockeada)
+### Tipografía (lockeada · Opción A)
 
-Lockup: sans condensada imponente + script que cruza + **glow dorado** (cream sobre foto/oscuro).
+| Rol | Fuente | Variable | Uso |
+|-----|--------|----------|-----|
+| Impact | **Bebas Neue** | `--font-display` | Titulares caps, línea superior del lockup |
+| Script | **Great Vibes** | `--font-script` | Firma solapada, logo nav, nombre Evelyn |
+| Serif | **Cormorant Garamond** | `--font-serif` | Notas, tesis auxiliares, case titles |
+| Sans UI | **Outfit** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
 
-- **Impact:** Bebas Neue (`--font-display` / `--font-bebas`) — caps, tracking abierto.
-- **Caligrafía:** Great Vibes (`--font-script`) — logo, firma del lockup.
-- **Serif editorial:** Cormorant Garamond (`--font-serif`) — notas / tesis.
-- **Sans cuerpo/UI:** Outfit (`--font-sans`) — párrafos, labels, CTAs.
+**Lockup obligatorio en heroes y cierres de sección:**
 
-**Presentación:** `.type-lockup` + `--glow` / `--glow-soft`. Script solo en acentos cortos.
+```html
+<h2 class="type-lockup type-lockup--glow"> <!-- o --glow-soft en claro -->
+  <span class="type-lockup__impact">Tu negocio</span>
+  <em class="type-lockup__script">todavía a mano?</em>
+</h2>
+```
 
-### Componentes/clases canónicos
+**Reglas de presentación**
+- Impact: caps, tracking ~0.06em, Bebas.
+- Script: ~0.52em del impact, `margin-top: -0.4em`, leve rotación (−1.4°), **nunca** párrafos largos.
+- Oscuro: clase `--glow` → cream + `--text-glow-gold`.
+- Claro: clase `--glow-soft` → ink/plum + glow suave.
+- CTA gold: `home-button--gold` con `--btn-glow-gold`.
+- Eyebrow: Outfit uppercase + línea gold (`.home-eyebrow`).
 
-- `.home-eyebrow` (+ `--light` sobre oscuro) — labels de sección.
-- `.home-button` con variantes `--primary` (plum), `--gold`, `--quiet`, `--light`.
-- Secciones claras smoke/ivory alternadas con bandas oscuras aubergine
-  (patrón `home-impact` / `home-oracle` / `home-close`).
-- Navbar única: `.site-nav` aubergine (componente `site-nav.tsx`) en **todas** las páginas.
-- Fotos reales de Evelyn (`/_assets/photos/`) con velo aubergine (`.asset-photo`).
+### Componentes canónicos
+
+- `.type-lockup` / `__impact` / `__script` / `--glow` / `--glow-soft` / `--center`
+- `.home-eyebrow` (+ `--light`)
+- `.home-button` (`--primary` · `--gold` · `--quiet` · `--light`)
+- Secciones claras smoke/ivory ↔ bandas aubergine con radial gold
+- Navbar única `.site-nav` aubergine en **todas** las páginas
+- Fotos reales Evelyn + velo aubergine (`.asset-photo`)
 
 ---
 
@@ -67,30 +82,41 @@ Lockup: sans condensada imponente + script que cruza + **glow dorado** (cream so
 
 - **Voz Evelyn** (directa, ingeniera, Medellín/Suiza, 6 años banca):
   home, `/servicios`, `/servicios/[slug]`, `/trabaja-conmigo`, `/descubrimiento`,
-  `/gracias`, `/legal`, `/lp/*`, `/linktree`, todo lo B2B.
-- **Voz Elara** (mística, hermana mayor paisa): **solo** en rutas espirituales que sigan vivas
+  `/gracias`, `/legal`, `/lp/*`, `/sesion-estrategica`, `/linktree`, todo lo B2B.
+- **Voz Elara** (mística, hermana mayor paisa): **solo** rutas espirituales
   (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`). Nunca "tarot", siempre **oráculo**.
 - Nunca mezclar las dos voces en la misma página.
 
 ---
 
-## Prohibido (no-go 2026)
+## Embudo comercial (orden de negocio)
 
-- **Menús distintos por página** — una sola navbar `.site-nav` para todo el sitio.
-- **Muñequitos / avatar Elara / stickers como UI del estudio** — las ilustraciones
-  Pixar/Encanto no representan al estudio; solo fotos reales de Evelyn.
-- **Heroes Midjourney fantasy** — nada de fondos de lagos, portales, noches estrelladas
-  como chrome de página (archivados en `06_ARCHIVO/`).
-- **Purple-night ritual como chrome principal** — la paleta morado-profundo/void
-  (`--color-purple-*`, `--color-void`) y las clases `btn-ritual`, `elara-card`, etc.
-  quedan limitadas a las rutas espirituales legacy; no usarlas en páginas del estudio.
-- CSS/JS suelto en `public/` que duplique estilos del app (ya eliminado; no reintroducir).
-- `#000`/`#FFF` puros, neón, gradientes arcoíris, shadcn/MUI/Chakra, estética coach/TikTok.
-- Stock corporativo genérico.
+1. **LP / home CTA** → “Hacer mi pre-análisis”
+2. **Wizard** `/descubrimiento` (gratis, didáctico)
+3. **Lectura por email** (`docs/EMAIL_PREANALISIS.md`)
+4. **Sesión estratégica** 20 min · **25 CHF** (`/sesion-estrategica`)
+5. **Proyecto** Arranque / Pro / A medida / packs web-ads (`docs/OFERTA_SERVICIOS.md`)
+
+Go-live ops: `docs/GO_LIVE.md` (Stripe, Calendly, GA4, Hotmart).  
+Outreach: `docs/KIT_OUTREACH.md`.
 
 ---
 
-## Reglas de código (sin cambios)
+## Prohibido (no-go 2026)
+
+- Menús distintos por página.
+- Muñequitos / avatar Elara como UI del estudio.
+- Heroes Midjourney fantasy como chrome.
+- Purple-night ritual (`--color-purple-*`, `btn-ritual`) fuera de rutas espirituales.
+- Sans negra brutal tipo Inter Black / Archivo Black como display (reemplazada por Bebas + glow).
+- Playfair/Fraunces/Manrope como sistema tipográfico actual.
+- `#000`/`#FFF` puros, neón, arcoíris, shadcn/MUI/Chakra.
+- Stock corporativo genérico.
+- Call gratis larga como promesa (reemplazada por pre-análisis + sesión 25 CHF).
+
+---
+
+## Reglas de código
 
 - TypeScript estricto, sin `any`. UI custom, mobile-first.
 - Design tokens solo en `web/app/globals.css`.
@@ -101,10 +127,8 @@ Lockup: sans condensada imponente + script que cruza + **glow dorado** (cream so
 
 ## Assets
 
-- **Fotos reales Evelyn:** `web/public/_assets/photos/` — corazón visual del estudio.
-- **Escenas servicios:** `web/public/media/servicios/`.
-- **Firma:** `web/public/brand/firma-elara*.png`.
-- **Lead magnet:** `web/public/lead-magnet/7-cartas.pdf`.
-- **B2B estático:** `web/public/evelyn-b2b/` (+ `elara-ritual.css` que esos HTML aún cargan).
-- **Ilustraciones espirituales restantes:** solo las que usan `/cursos`, `/oraculo`, `/universo`.
-- Verificación automática: `web/scripts/verify-public-assets.mjs` (`npm run verify:assets`).
+- Fotos Evelyn: `web/public/_assets/photos/`
+- Escenas servicios: `web/public/media/servicios/`
+- Recursos: `web/public/media/recursos/`
+- Firma: `web/public/brand/firma-elara*.png`
+- Verify: `npm run verify:assets` en `web/`

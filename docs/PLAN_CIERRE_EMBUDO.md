@@ -224,6 +224,9 @@ Checklist de done:
 - [x] LPs libros full-bleed + Hotmart env-ready  
 - [x] GA4 component + beacons conversión + auto-reply pre-análisis  
 - [x] Docs GO_LIVE + EMAIL_PREANALISIS + bios Malt/Upwork  
+- [x] Tipografía Opción A CapCut glow (Bebas + Great Vibes + Outfit) en home + LPs  
+- [x] Lockups/glows/solapes unificados en home, LPs, libros, descubrimiento, sesión, servicios  
+- [x] `docs/brand.md` + embudo de negocio actualizados (fuente de verdad)  
 - [ ] Stripe Payment Link + Calendly en Vercel (acción tuya → `docs/GO_LIVE.md`)  
 - [ ] `NEXT_PUBLIC_GA_MEASUREMENT_ID` en Vercel (acción tuya)  
 - [ ] Hotmart Ciclo Nova URL en Vercel (cuando el ebook esté listo)  

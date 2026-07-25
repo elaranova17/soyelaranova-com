@@ -24,8 +24,9 @@ export default function DiscoveryPage() {
             <span aria-hidden="true" />
             Pre-análisis didáctico · gratis
           </p>
-          <h1 className="mt-5 font-display text-[3.05rem] font-normal leading-[0.94] md:text-[5.4rem]">
-            Contame cómo trabajás hoy.
+          <h1 className="type-lockup type-lockup--glow-soft page-lockup">
+            <span className="type-lockup__impact">Contame</span>
+            <em className="type-lockup__script">cómo trabajás</em>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             No es una call larga gratis. Es un cuestionario guiado para que yo prepare una lectura
@@ -35,7 +36,7 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--editorial-aubergine)] px-5 py-16 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
+      <section className="page-band-dark px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <aside className="h-fit rounded-[18px] border border-[var(--editorial-gold)]/30 bg-[var(--editorial-ivory)]/[0.05] p-6">
             <p className="text-[0.62rem] font-bold tracking-[0.24em] text-[var(--editorial-gold)] uppercase">

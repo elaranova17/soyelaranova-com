@@ -126,15 +126,27 @@ export default function HomePage() {
       </section>
 
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
-        <p>Automatizo tus procesos.</p>
-        <p>Construyo tu web que vende.</p>
-        <p>Mido lo que trae clientes.</p>
+        <p>
+          <span className="home-thesis__impact">Automatizo</span>
+          <em className="home-thesis__script">tus procesos</em>
+        </p>
+        <p>
+          <span className="home-thesis__impact">Construyo</span>
+          <em className="home-thesis__script">webs que venden</em>
+        </p>
+        <p>
+          <span className="home-thesis__impact">Mido</span>
+          <em className="home-thesis__script">lo que convierte</em>
+        </p>
       </section>
 
       <section id="servicios" className="home-intro">
         <div>
           <Eyebrow>Lo que hago por tu negocio</Eyebrow>
-          <h2>Menos trabajo manual. Mas clientes que llegan solos.</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Menos manual</span>
+            <em className="type-lockup__script">más clientes</em>
+          </h2>
         </div>
         <div className="home-intro__body">
           <p>
@@ -156,7 +168,10 @@ export default function HomePage() {
         <header className="home-products__header">
           <div>
             <Eyebrow>Servicios · desde 450 €</Eyebrow>
-            <h2>Elige por donde empezar.</h2>
+            <h2 className="type-lockup type-lockup--glow-soft">
+              <span className="type-lockup__impact">Empezá</span>
+              <em className="type-lockup__script">por aquí</em>
+            </h2>
           </div>
           <Link href="/servicios">Ver todos los servicios</Link>
         </header>
@@ -165,20 +180,20 @@ export default function HomePage() {
           {services.map((service, index) => {
             const Scene = serviceScenes[index]
             return (
-            <article key={service.title} className={`home-product home-product--${index + 1}`}>
-              <div className="home-product__media">
-                <Scene />
-              </div>
-              <div className="home-product__copy">
-                <span>{service.number}</span>
-                <p>{service.type}</p>
-                <h3>{service.title}</h3>
-                <small>{service.description}</small>
-                <Link href={service.href} className="home-product__price">
-                  {service.price}
-                </Link>
-              </div>
-            </article>
+              <article key={service.title} className={`home-product home-product--${index + 1}`}>
+                <div className="home-product__media">
+                  <Scene />
+                </div>
+                <div className="home-product__copy">
+                  <span>{service.number}</span>
+                  <p>{service.type}</p>
+                  <h3>{service.title}</h3>
+                  <small>{service.description}</small>
+                  <Link href={service.href} className="home-product__price">
+                    {service.price}
+                  </Link>
+                </div>
+              </article>
             )
           })}
         </div>
@@ -187,7 +202,10 @@ export default function HomePage() {
       <section id="recursos" className="home-recursos">
         <div className="home-recursos__intro">
           <Eyebrow light>Material de valor</Eyebrow>
-          <h2>Ebooks, pantallas y recursos para tu negocio.</h2>
+          <h2 className="type-lockup type-lockup--glow">
+            <span className="type-lockup__impact">Recursos</span>
+            <em className="type-lockup__script">para tu negocio</em>
+          </h2>
           <p>
             Sin casos de clientes en vitrina. Acá encontrás material útil: guías descargables,
             capturas de sistemas reales y piezas listas para que veas cómo se ve el trabajo —
@@ -274,7 +292,10 @@ export default function HomePage() {
         </div>
         <div className="home-work__copy">
           <Eyebrow>Sobre mí</Eyebrow>
-          <h2>Pienso como diseñadora. Construyo como ingeniera.</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Diseñadora</span>
+            <em className="type-lockup__script">e ingeniera</em>
+          </h2>
           <p>
             Soy Evelyn — no un equipo detrás de una marca. Seis años construyendo tecnologia para
             banca, donde un detalle mal hecho cuesta dinero real. Ahora ayudo a negocios pequeños a

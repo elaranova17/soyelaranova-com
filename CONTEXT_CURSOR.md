@@ -4,8 +4,9 @@ v1 · 9 mayo 2026 · lockeado por Evelyn Patino
 
 > ⚠️ **SUPERADO (julio 2026):** el producto y el look de este brief ("portal sagrado",
 > paleta purple-night, Playfair/Lato) fueron reemplazados. El sitio es hoy el **estudio
-> Evelyn Patiño / Elara Nova** (automatizaciones, webs/landings, Google Ads) con el look
-> editorial de la home (tokens `--editorial-*`, Fraunces + Manrope).
+> Evelyn Patiño / Elara Nova** (automatizaciones, webs/landings, Google Ads) con look
+> **CapCut glow chic** (tokens `--editorial-*`, Bebas Neue + Great Vibes + Cormorant + Outfit).
+> Embudo: pre-análisis gratis → sesión 25 CHF → proyecto.
 > **Fuente de verdad actual: `docs/brand.md` + `docs/ESTADO_PROYECTO.md`.**
 > Este documento se conserva como historia y contexto de las rutas espirituales.
 

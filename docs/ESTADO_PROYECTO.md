@@ -10,8 +10,8 @@
 ## Resumen en una línea
 
 El sitio es el **estudio de Evelyn Patiño / Elara Nova** (automatizaciones, webs/landings,
-Google Ads). La home editorial (cream/aubergine/gold, Fraunces+Manrope) es el look canónico
-y todas las páginas del estudio están unificadas a ese sistema.
+Google Ads). Look canónico: **CapCut glow chic** (cream/aubergine/gold + Bebas + Great Vibes
+con glow dorado). Embudo: pre-análisis → sesión 25 CHF → proyecto.
 
 > Nota: `CONTEXT_CURSOR.md` (mayo 2026, "portal sagrado") quedó **superado** en lo visual y
 > de producto por `docs/brand.md`. Sigue siendo útil como historia y para las rutas espirituales.
@@ -21,7 +21,8 @@ y todas las páginas del estudio están unificadas a ese sistema.
 ## Stack real
 
 - Next.js 16 App Router · React 19 · TS strict · Tailwind v4
-- Fonts: **Fraunces** (display) · Cormorant Garamond (serif/citas) · **Manrope** (sans)
+- Fonts: **Bebas Neue** (impact) · **Great Vibes** (script) · Cormorant Garamond (serif) · **Outfit** (sans)
+- Lockups: `.type-lockup` + `--glow` / `--glow-soft` en `web/app/globals.css`
 - framer-motion, gsap, lenis (`lenis-provider.tsx`)
 - Resend opcional vía `POST /api/discovery` y `POST /api/oracle/subscribe`
 - three/R3F, tone.js, ElevenLabs, Sanity: **no instalados**
@@ -32,18 +33,20 @@ y todas las páginas del estudio están unificadas a ese sistema.
 
 ## Rutas
 
-### Estudio (voz Evelyn · look editorial canónico)
+### Estudio (voz Evelyn · CapCut glow chic)
 
 | Ruta | Uso |
 |------|-----|
-| `/` | Home editorial — hero, tesis, scroll inmersivo, servicios, recursos, diagnóstico |
+| `/` | Home — hero, tesis, scroll inmersivo, servicios, recursos, pre-análisis |
 | `/servicios` | Índice de servicios |
 | `/servicios/[slug]` | Detalle (automatizaciones, landing-pages, google-ads, …) |
 | `/trabaja-conmigo` | Presentación B2B |
-| `/descubrimiento` | Formulario de diagnóstico (lead) |
-| `/gracias` | Confirmación post-formulario |
+| `/descubrimiento` | Wizard pre-análisis (lead gratis) |
+| `/gracias` | Confirmación post pre-análisis |
+| `/sesion-estrategica` | Producto de entrada 20 min · 25 CHF |
+| `/sesion-estrategica/gracias` | Post-pago → agenda |
 | `/legal` | Privacidad y términos |
-| `/lp/automatizaciones` | Landing de campaña (sin nav) — no tocar estilo desde fuera |
+| `/lp/*` | LPs madre/hija + libros (mismo look CapCut) |
 | `/linktree` | Hub de enlaces |
 
 ### Espirituales legacy (voz Elara · no definen el chrome)

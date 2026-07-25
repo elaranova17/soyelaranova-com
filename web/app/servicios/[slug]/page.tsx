@@ -39,6 +39,14 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
   const lpMap = studioToLp[service.slug]
   const motherHref = lpMap?.mother ?? '/lp/automatizaciones'
+  const lockupScript =
+    service.slug === 'sitios-web'
+      ? 'profesionales'
+      : service.slug === 'landing-pages'
+        ? 'para campañas'
+        : service.slug === 'automatizaciones'
+          ? 'de negocio'
+          : 'y medición'
 
   return (
     <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
@@ -55,8 +63,9 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               <span aria-hidden="true" />
               {service.eyebrow}
             </p>
-            <h1 className="mt-5 max-w-5xl font-display text-[3.1rem] font-normal leading-[0.94] md:text-[5.6rem]">
-              {service.title}
+            <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
+              <span className="type-lockup__impact">{service.shortTitle}</span>
+              <em className="type-lockup__script">{lockupScript}</em>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
               {service.promise}
@@ -129,8 +138,9 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               <span aria-hidden="true" />
               Preguntas
             </p>
-            <h2 className="mt-6 font-display text-[2.45rem] font-normal leading-[1.02] md:text-[3.7rem]">
-              Antes de invertir, despejemos lo importante.
+            <h2 className="type-lockup type-lockup--glow-soft page-lockup">
+              <span className="type-lockup__impact">Antes</span>
+              <em className="type-lockup__script">de invertir</em>
             </h2>
           </div>
           <div className="grid gap-4">
@@ -149,14 +159,15 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
         </div>
       </section>
 
-      <section className="bg-[var(--editorial-aubergine)] px-5 py-20 text-center text-[var(--editorial-ivory)] md:px-8 lg:px-12">
+      <section className="page-band-dark px-5 py-20 text-center md:px-8 lg:px-12">
         <div className="mx-auto max-w-3xl">
           <p className="home-eyebrow home-eyebrow--light justify-center">
             <span aria-hidden="true" />
             Siguiente paso
           </p>
-          <h2 className="mt-6 font-display text-[2.45rem] font-normal leading-[1.02] md:text-[3.8rem]">
-            Empezá por el pre-análisis.
+          <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
+            <span className="type-lockup__impact">Empezá</span>
+            <em className="type-lockup__script">por el pre-análisis</em>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--editorial-lavender)]">
             Cuestionario didáctico gratis → te mando una lectura. Si querés profundizar: sesión
