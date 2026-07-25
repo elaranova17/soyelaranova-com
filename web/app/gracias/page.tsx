@@ -18,8 +18,9 @@ export default function GraciasPage() {
             <span aria-hidden="true" />
             Pre-análisis recibido
           </p>
-          <h1 className="mt-6 font-display text-[3.1rem] font-normal leading-[0.94] md:text-[5.6rem]">
-            Gracias. Ya puedo preparar tu lectura.
+          <h1 className="type-lockup type-lockup--center type-lockup--glow-soft page-lockup page-lockup--center">
+            <span className="type-lockup__impact">Gracias</span>
+            <em className="type-lockup__script">ya preparo tu lectura</em>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             Voy a revisar lo que compartiste (negocio, presencia y fugas). Te escribo con un

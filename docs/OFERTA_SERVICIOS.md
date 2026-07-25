@@ -3,6 +3,20 @@
 > Documento de trabajo para pitch de clientes. Voz **Evelyn** (ingeniera, directa, orientada a resultados).
 > Precios en **EUR**, calibrados al mercado **España** 2025–2026 (estrategia de precio: ver §6).
 > Última actualización: julio 2026.
+> Marca visual / embudo: `docs/brand.md` (CapCut glow chic · Bebas + Great Vibes + Outfit).
+
+---
+
+## 0. Embudo de entrada (antes del proyecto)
+
+No se vende call gratis larga. El orden comercial es:
+
+1. **Pre-análisis didáctico gratis** → `/descubrimiento` (wizard 5 pasos, 2–4 min)
+2. **Lectura por email** → `docs/EMAIL_PREANALISIS.md`
+3. **Sesión estratégica** 20 min · **25 CHF** → `/sesion-estrategica` (pago + agenda)
+4. **Proyecto** → packs de este documento (Arranque / Pro / A medida / web / Ads)
+
+CTA canónico en sitio y outreach: **“Hacer mi pre-análisis”**.
 
 ---
 

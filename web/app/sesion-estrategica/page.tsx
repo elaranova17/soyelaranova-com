@@ -35,10 +35,11 @@ export default function SesionEstrategicaPage() {
           </Link>
           <p className="home-eyebrow mt-10">
             <span aria-hidden="true" />
-            Producto de entrada · {booking.durationMin} min
+            Producto de entrada · {booking.durationMin} min · {booking.priceChf} CHF
           </p>
-          <h1 className="mt-5 font-display text-[3rem] font-normal leading-[0.94] md:text-[5.2rem]">
-            Sesión estratégica · {booking.priceChf} CHF
+          <h1 className="type-lockup type-lockup--glow-soft page-lockup">
+            <span className="type-lockup__impact">Sesión</span>
+            <em className="type-lockup__script">estratégica</em>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             No es una call gratis. Es una sesión corta donde te comparto lo que analicé de tu
@@ -49,7 +50,10 @@ export default function SesionEstrategicaPage() {
 
       <section className="lp-steps">
         <div className="lp-section-inner">
-          <h2>Así funciona.</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Así</span>
+            <em className="type-lockup__script">funciona</em>
+          </h2>
           <ol className="lp-steps__list">
             {[
               ['01', 'Pre-análisis', 'Cuestionario didáctico gratis. Yo preparo tu lectura.'],
@@ -79,7 +83,10 @@ export default function SesionEstrategicaPage() {
               <span aria-hidden="true" />
               Inversión
             </p>
-            <h2>{booking.priceChf} CHF</h2>
+            <h2 className="type-lockup type-lockup--glow">
+              <span className="type-lockup__impact">{booking.priceChf} CHF</span>
+              <em className="type-lockup__script">que abren camino</em>
+            </h2>
             <p>
               ~25 € si estás en ES/LATAM. Incluye revisión de tu pre-análisis + mini-ruta. No incluye
               implementación del proyecto.

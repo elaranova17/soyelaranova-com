@@ -29,7 +29,8 @@ export function LpBookPage({ book }: { book: BookOffer }) {
           <p className="lp-hero__brand">Elara Nova</p>
           <p className="lp-hero__eyebrow">{book.eyebrow}</p>
           <h1 className="type-lockup type-lockup--glow">
-            <span className="type-lockup__impact">{book.title}</span>
+            <span className="type-lockup__impact">{book.titleImpact}</span>
+            <em className="type-lockup__script">{book.titleScript}</em>
           </h1>
           <p className="lp-hero__sub">{book.subtitle}</p>
           <div className="lp-hero__cta">
@@ -55,7 +56,10 @@ export function LpBookPage({ book }: { book: BookOffer }) {
               <span aria-hidden="true" />
               Qué incluye
             </p>
-            <h2>Lo esencial, sin ruido.</h2>
+            <h2 className="type-lockup type-lockup--glow-soft">
+              <span className="type-lockup__impact">Lo esencial</span>
+              <em className="type-lockup__script">sin ruido</em>
+            </h2>
           </div>
           <ul className="lp-book-inside__list">
             {book.bullets.map((bullet) => (
@@ -86,7 +90,10 @@ export function LpBookPage({ book }: { book: BookOffer }) {
             <span aria-hidden="true" />
             Estudio Evelyn
           </p>
-          <h2>También puedo construir el sistema alrededor.</h2>
+          <h2 className="type-lockup type-lockup--glow">
+            <span className="type-lockup__impact">También el</span>
+            <em className="type-lockup__script">sistema alrededor</em>
+          </h2>
           <p>
             Si además del libro necesitás landing, automatización de entregas o Ads, el mismo
             pre-análisis sirve para cotizar el estudio.

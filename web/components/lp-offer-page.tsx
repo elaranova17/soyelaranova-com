@@ -96,7 +96,10 @@ export function LpOfferPage({
 
       <section className="lp-pains">
         <div className="lp-section-inner">
-          <h2>¿Te suena alguna de estas?</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">¿Te suena</span>
+            <em className="type-lockup__script">alguna?</em>
+          </h2>
           <div className="lp-pains__grid">
             {offer.dolores.map(({ dolor, solucion }, index) => (
               <article key={dolor} className="lp-pain" style={{ ['--lp-i' as string]: index }}>
@@ -110,7 +113,10 @@ export function LpOfferPage({
 
       <section className="lp-steps">
         <div className="lp-section-inner">
-          <h2>Así de simple.</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Así</span>
+            <em className="type-lockup__script">de simple</em>
+          </h2>
           <ol className="lp-steps__list">
             {offer.pasos.map(([n, titulo, texto]) => (
               <li key={n}>
@@ -132,7 +138,11 @@ export function LpOfferPage({
               <span aria-hidden="true" />
               Caso real
             </p>
-            <h2>{offer.caseTitle}</h2>
+            <h2 className="type-lockup type-lockup--glow">
+              <span className="type-lockup__impact">Caso real</span>
+              <em className="type-lockup__script">que vende</em>
+            </h2>
+            <p className="lp-case__title">{offer.caseTitle}</p>
             <p>{offer.caseBody}</p>
           </div>
           <div className="lp-invest">
@@ -160,7 +170,10 @@ export function LpOfferPage({
 
       <section className="lp-faq">
         <div className="lp-section-inner lp-faq__inner">
-          <h2>Preguntas de siempre</h2>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Preguntas</span>
+            <em className="type-lockup__script">de siempre</em>
+          </h2>
           <div className="lp-faq__list">
             {offer.faq.map(([q, a]) => (
               <details key={q}>
@@ -181,9 +194,13 @@ export function LpOfferPage({
             <span aria-hidden="true" />
             Pre-análisis didáctico · gratis
           </p>
-          <h2>Contame cómo trabajás hoy. Yo te preparo una lectura antes de cualquier reunión.</h2>
+          <h2 className="type-lockup type-lockup--glow">
+            <span className="type-lockup__impact">Contame</span>
+            <em className="type-lockup__script">cómo trabajás</em>
+          </h2>
           <p className="lp-form__lead">
-            Después, si querés profundizar, la sesión estratégica dura 20 min y cuesta 25 CHF.
+            Yo te preparo una lectura antes de cualquier reunión. Después, si querés profundizar,
+            la sesión estratégica dura 20 min y cuesta 25 CHF.
           </p>
           <div className="lp-form__wrap">
             <Suspense
