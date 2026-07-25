@@ -40,49 +40,49 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://soyelaranova.com'),
   title: {
-    default: 'Elara Nova — Automatizacion y desarrollo web que vende',
+    default: 'Elara Nova — Automatización y desarrollo web que vende',
     template: '%s | Elara Nova',
   },
   description:
-    'Estudio de Evelyn Patino, ingeniera de software: automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas de Google Ads. Menos trabajo manual, mas clientes.',
+    'Estudio de Evelyn Patiño, ingeniera de software: automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas de Google Ads. Menos trabajo manual, más clientes.',
   keywords: [
-    'automatizacion de procesos',
+    'automatización de procesos',
     'automatizaciones para negocios',
     'landing pages que venden',
     'sitios web profesionales',
     'desarrollo web',
     'Google Ads',
-    'medicion y analitica',
+    'medición y analítica',
     'ingeniera de software',
     'estudio digital',
-    'Evelyn Patino',
+    'Evelyn Patiño',
     'Elara Nova',
   ],
-  authors: [{ name: 'Evelyn Patino', url: 'https://soyelaranova.com' }],
-  creator: 'Evelyn Patino',
+  authors: [{ name: 'Evelyn Patiño', url: 'https://soyelaranova.com' }],
+  creator: 'Evelyn Patiño',
   alternates: { canonical: './' },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
     url: 'https://soyelaranova.com',
     siteName: 'Elara Nova',
-    title: 'Elara Nova — Automatizacion y desarrollo web que vende',
+    title: 'Elara Nova — Automatización y desarrollo web que vende',
     description:
-      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patino, ingeniera de software.',
+      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patiño, ingeniera de software.',
     images: [
       {
         url: '/_assets/photos/og-portfolio.jpg',
         width: 1200,
         height: 630,
-        alt: 'Elara Nova por Evelyn Patino',
+        alt: 'Elara Nova por Evelyn Patiño',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elara Nova — Automatizacion y desarrollo web que vende',
+    title: 'Elara Nova — Automatización y desarrollo web que vende',
     description:
-      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patino, ingeniera de software.',
+      'Automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas. Estudio de Evelyn Patiño, ingeniera de software.',
     images: ['/_assets/photos/og-portfolio.jpg'],
   },
   robots: {

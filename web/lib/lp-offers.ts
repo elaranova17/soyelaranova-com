@@ -404,7 +404,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
         'Pre-análisis → te digo si estás listo para Ads o qué arreglar antes → sesión 25 CHF si querés la ruta en vivo.',
       ],
     ],
-    discoveryDefaults: { service: 'Google Ads y medicion' },
+    discoveryDefaults: { service: 'Google Ads y medición' },
   },
 ]
 
@@ -669,7 +669,7 @@ export const lpPackOffers: readonly LpOffer[] = [
       ['¿Cuánto tarda el setup?', 'Según acceso a cuentas y landing; suele cerrarse en días.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → setup.'],
     ],
-    discoveryDefaults: { service: 'Google Ads y medicion', pack: 'Setup 450€' },
+    discoveryDefaults: { service: 'Google Ads y medición', pack: 'Setup 450€' },
   },
   {
     service: 'google-ads',
@@ -701,7 +701,7 @@ export const lpPackOffers: readonly LpOffer[] = [
       ['¿Incluye creatividades infinitas?', 'Iteraciones de anuncios texto; creatividades grandes se cotizan aparte.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → gestión.'],
     ],
-    discoveryDefaults: { service: 'Google Ads y medicion', pack: 'Gestión 350€/mes' },
+    discoveryDefaults: { service: 'Google Ads y medición', pack: 'Gestión 350€/mes' },
   },
 ]
 

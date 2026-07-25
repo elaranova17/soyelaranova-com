@@ -22,7 +22,7 @@ const services: readonly Service[] = [
     type: 'Producto estrella',
     title: 'Automatizaciones',
     description:
-      'Conecto formularios, emails, WhatsApp, hojas y CRM para que cada lead tenga seguimiento automatico. Menos trabajo manual, cero oportunidades perdidas.',
+      'Conecto formularios, emails, WhatsApp, hojas y CRM para que cada lead tenga seguimiento automático. Menos trabajo manual, cero oportunidades perdidas.',
     price: 'Desde 450 €',
     asset: 'servicio-01-automatizaciones.webp',
     format: '1600 × 2000 px',
@@ -42,7 +42,7 @@ const services: readonly Service[] = [
   {
     number: '03',
     type: 'Crecimiento',
-    title: 'Google Ads y medicion',
+    title: 'Google Ads y medición',
     description:
       'Campañas conectadas a landing y eventos que sí se pueden medir. Sabes qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
     price: 'Setup 450 € · gestion 350 €/mes',
@@ -85,7 +85,7 @@ export default function HomePage() {
     <main className="home-shell">
       <section id="inicio" className="home-hero">
         <div className="home-hero__copy">
-          <Eyebrow>Elara Nova · estudio de automatizacion y desarrollo web</Eyebrow>
+          <Eyebrow>Elara Nova · estudio de automatización y desarrollo web</Eyebrow>
           <h1 className="type-lockup type-lockup--glow-soft">
             <span className="type-lockup__impact">Automatizo</span>
             <em className="type-lockup__script">tu negocio</em>
@@ -114,14 +114,14 @@ export default function HomePage() {
           className="home-hero__visual"
         >
           <figcaption className="home-hero__caption">
-            <span>Ingenieria real</span>
+            <span>Ingeniería real</span>
             <i aria-hidden="true" />
             <span>Ojo de diseñadora</span>
           </figcaption>
         </Photo>
 
         <p className="home-hero__note">
-          6 años construyendo tecnologia para banca.
+          6 años construyendo tecnología para banca.
           <br />
           Ahora, para tu negocio.
         </p>
@@ -153,12 +153,12 @@ export default function HomePage() {
         <div className="home-intro__body">
           <p>
             Diseño y programo los sistemas que sostienen un negocio: automatizaciones que responden
-            por ti, paginas que convierten y campañas que puedes medir. Sin humo, con ingenieria.
+            por vos, páginas que convierten y campañas que podés medir. Sin humo, con ingeniería.
           </p>
           <div className="home-intro__services" aria-label="Servicios principales">
             <span>Automatizaciones</span>
             <span>Landing pages y sitios web</span>
-            <span>Google Ads y medicion</span>
+            <span>Google Ads y medición</span>
             <span>Productos digitales</span>
           </div>
         </div>
@@ -320,14 +320,14 @@ export default function HomePage() {
             <em className="type-lockup__script">e ingeniera</em>
           </h2>
           <p>
-            Soy Evelyn — no un equipo detrás de una marca. Seis años construyendo tecnologia para
+            Soy Evelyn — no un equipo detrás de una marca. Seis años construyendo tecnología para
             banca, donde un detalle mal hecho cuesta dinero real. Ahora ayudo a negocios pequeños a
             vender mejor y dejar de sostener cada proceso a mano.
           </p>
           <div className="home-work__proof">
-            <span>6 años en tecnologia y banca</span>
-            <span>Medellin · Suiza</span>
-            <span className="home-work__proof-pulse">Automatizacion + desarrollo + Ads</span>
+            <span>6 años en tecnología y banca</span>
+            <span>Medellín · Suiza</span>
+            <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
           </div>
           <div className="home-work__me">
             <p>¿Querés ver cómo trabajo yo?</p>

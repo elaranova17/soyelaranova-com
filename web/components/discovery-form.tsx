@@ -64,7 +64,7 @@ const initialForm: FormState = {
   business: '',
   sellsWhat: '',
   website: '',
-  service: 'No estoy segura todavia',
+  service: 'No estoy segura todavía',
   pack: '',
   channel: '',
   leadVolume: '',
@@ -83,9 +83,9 @@ const serviceOptions = [
   'Sitio web profesional',
   'Landing page para campaña',
   'Automatizaciones',
-  'Google Ads y medicion',
+  'Google Ads y medición',
   'Productos digitales / ebook',
-  'No estoy segura todavia',
+  'No estoy segura todavía',
 ]
 
 const channelOptions = [

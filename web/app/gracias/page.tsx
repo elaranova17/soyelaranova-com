@@ -68,7 +68,7 @@ export default function GraciasPage() {
       </section>
 
       <footer className="lp-footer">
-        <Link href="/legal">Privacidad y terminos</Link>
+        <Link href="/legal">Privacidad y términos</Link>
         <span aria-hidden="true">·</span>
         <Link href="/descubrimiento">Nuevo pre-análisis</Link>
       </footer>
