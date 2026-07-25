@@ -110,6 +110,7 @@ Outreach: `docs/KIT_OUTREACH.md`.
 - Purple-night ritual (`--color-purple-*`, `btn-ritual`) fuera de rutas espirituales.
 - Sans negra brutal tipo Inter Black / Archivo Black como display (reemplazada por Bebas + glow).
 - Playfair/Fraunces/Manrope como sistema tipográfico actual.
+- Hex prohibidos `#7B4FB5` / `#C49AD4` — usar `--color-purple-amethyst` / `--color-pale-lav` (SVG: `#5A2E8C` / `#E5DBF0`).
 - `#000`/`#FFF` puros, neón, arcoíris, shadcn/MUI/Chakra.
 - Stock corporativo genérico.
 - Call gratis larga como promesa (reemplazada por pre-análisis + sesión 25 CHF).
