@@ -125,7 +125,7 @@ export function StudioStickyCta({ label = 'cv_sticky' }: { label?: string }) {
           Empezar
         </TrackedLink>
         <a
-          href="https://wa.me/41783480550"
+          href="https://wa.me/34613308585"
           className="home-button home-button--light"
           target="_blank"
           rel="noopener noreferrer"

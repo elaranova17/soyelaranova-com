@@ -39,5 +39,5 @@ export function sessionWhatsappHref(message?: string) {
   const text =
     message ??
     'Hola Evelyn, completé el pre-análisis y quiero pagar/agendar la sesión estratégica de 25 CHF.'
-  return `https://wa.me/41783480550?text=${encodeURIComponent(text)}`
+  return `https://wa.me/34613308585?text=${encodeURIComponent(text)}`
 }

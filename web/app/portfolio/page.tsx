@@ -336,7 +336,7 @@ export default function PortfolioPage() {
             >
               Hacer mi pre-análisis
             </TrackedLink>
-            <a href="https://wa.me/41783480550" className="home-button home-button--light">
+            <a href="https://wa.me/34613308585" className="home-button home-button--light">
               WhatsApp
             </a>
           </div>

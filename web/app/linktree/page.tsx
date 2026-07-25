@@ -55,9 +55,9 @@ const LINKS: readonly HubLink[] = [
     external: true,
   },
   {
-    href: 'https://wa.me/41783480550?text=Hola%20Evelyn%2C%20te%20escribo%20desde%20tu%20linktree.',
+    href: 'https://wa.me/34613308585?text=Hola%20Evelyn%2C%20te%20escribo%20desde%20tu%20linktree.',
     label: 'WhatsApp',
-    hint: '+41 78 348 0550',
+    hint: '+34 613 30 85 85',
     external: true,
   },
   {

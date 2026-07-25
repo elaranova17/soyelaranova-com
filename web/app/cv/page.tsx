@@ -190,7 +190,7 @@ export default function CvPage() {
                 <div>
                   <dt>WhatsApp</dt>
                   <dd>
-                    <a href="https://wa.me/41783480550">+41 78 348 0550</a>
+                    <a href="https://wa.me/34613308585">+34 613 30 85 85</a>
                   </dd>
                 </div>
                 <div>
@@ -212,7 +212,7 @@ export default function CvPage() {
               </dl>
               <div className="studio-b2b__contact-tools">
                 <CopyEmailButton />
-                <a href="https://wa.me/41783480550" className="studio-copy-btn studio-copy-btn--ghost">
+                <a href="https://wa.me/34613308585" className="studio-copy-btn studio-copy-btn--ghost">
                   WhatsApp
                 </a>
               </div>

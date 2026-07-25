@@ -304,7 +304,7 @@ export function DiscoveryForm({
 
   const whatsappHref = useMemo(() => {
     const text = `Hola Evelyn, completé el pre-análisis. Soy ${form.name || '[tu nombre]'} y necesito ayuda con: ${form.service}.`
-    return `https://wa.me/41783480550?text=${encodeURIComponent(text)}`
+    return `https://wa.me/34613308585?text=${encodeURIComponent(text)}`
   }, [form.name, form.service])
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
