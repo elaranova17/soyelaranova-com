@@ -1,55 +1,51 @@
----
-description: Fuente de verdad soyelaranova.com — stack lockeado, rutas v1, voces, fases
-alwaysApply: true
----
+# soyelaranova.com · Elara Nova (estudio 2026)
 
-# soyelaranova.com · Elara Nova
-
-**Lee primero:** `CONTEXT_CURSOR.md` + `docs/ESTADO_PROYECTO.md` (estado técnico actual). Si el código contradice el brief, **gana el doc**.
-
-**Mayo 2026:** inmersión visual avanzada; **falta diseño producto** (carta, frase ancla, captura). Ver `docs/DISENO_MAESTRO.md`.
-
-**Skills diseño:** `.claude/skills/elara-designer` · `elara-copywriter` · `elara-ui-master` · `docs/brand.md`
-
-**Sprint activo:** A (home ritual) — no más páginas ImmersiveScene hasta completar A.
+**Lee primero:** `docs/brand.md` (marca estudio 2026) + `docs/ESTADO_PROYECTO.md`.
+`CONTEXT_CURSOR.md` es el brief histórico ("portal sagrado", mayo 2026) — quedó **superado**
+en producto y look por `docs/brand.md`. Si chocan, gana `docs/brand.md`.
 
 ## Proyecto
 
-Portal sagrado Elara Nova + portfolio B2B discreto (Evelyn). Frase ancla: *"Mira todo lo que siempre fuiste capaz de ser."*
+**Producto principal del sitio público:** estudio **Evelyn Patiño / Elara Nova** —
+automatizaciones de procesos, webs/landings que venden, Google Ads con medición.
+La capa espiritual de Elara vive solo en rutas secundarias (`/oraculo`, `/universo`,
+`/cursos`, `/sobre-elara`).
+
+## Look canónico (ley)
+
+- Home editorial `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css`:
+  cream/smoke + aubergine + gold, quiet luxury.
+- Tipografías: **Fraunces** (display) · **Manrope** (sans) · Cormorant (citas).
+- Navbar única `.site-nav` aubergine (`components/site-nav.tsx` + `lib/navigation.ts`).
+- Reutilizar `.home-eyebrow`, `.home-button--{primary,gold,quiet,light}`, bandas aubergine.
+- No inventar colores ni estilos por página.
+
+## Prohibido
+
+- Menús distintos por página.
+- Muñequitos / avatar Elara / stickers como UI del estudio.
+- Heroes Midjourney fantasy como chrome de página.
+- Purple-night ritual (`--color-purple-*`, `btn-ritual`, `elara-card`) como chrome principal —
+  solo en rutas espirituales legacy.
+- CSS/JS suelto en `public/` que estile el app.
+
+## Voces (nunca mezclar en la misma página)
+
+- **Evelyn** (directa, ingeniera): `/`, `/servicios`, `/trabaja-conmigo`, `/descubrimiento`,
+  `/gracias`, `/legal`, `/lp/*`, `/linktree`, B2B.
+- **Elara** (mística, hermana mayor paisa): solo `/oraculo`, `/universo`, `/cursos`,
+  `/sobre-elara`. **Oráculo, nunca "tarot".**
 
 ## Stack (no cambiar sin permiso)
 
-Next.js 15 App Router · React 19 · TS strict · Tailwind v4 · R3F + drei + postprocessing · GSAP · Lenis · Framer Motion · Tone.js · ElevenLabs · Resend · Hotmart externo · Vercel. Budget ≤ €10/mes.
-
-## Rutas v1
-
-| Ruta | Uso |
-|------|-----|
-| `/` | Hero R3F · CTA carta del día |
-| `/oraculo` | 5 cartas hardcoded (no Sanity aún) |
-| `/universo` | Tienda ebooks → Hotmart |
-| `/sobre-elara` | Manifiesto |
-| `/work` | B2B Evelyn · solo desde footer |
-
-**No construir en 2026:** `/luna`, login/miembros, carta natal, Sanity 40 cartas, SaaS $9/mes, app móvil.
-
-## Voces (nunca mezclar en la misma sección)
-
-- **Elara:** `/`, `/oraculo`, `/universo`, `/sobre-elara` — mística, hermana mayor paisa. **Oráculo, nunca "tarot".**
-- **Evelyn:** solo `/work` — ingeniera, directa.
-
-## Objetivo home
-
-En 3s sentir el universo → sacar carta → email + **fecha de nacimiento** (Resend) para volver mañana.
+Next.js 16 App Router · React 19 · TS strict · Tailwind v4 · framer-motion · gsap · lenis ·
+Resend (opcional) · Hotmart externo · Vercel. Budget ≤ €10/mes.
 
 ## Reglas de código
 
-- Sin `any`. Sin shadcn/MUI/Chakra. Custom UI.
-- Design tokens en `web/app/globals.css` — no inventar colores.
-- Mobile-first · 60fps hero · Lighthouse >85 perf / >95 a11y.
-- Commits: `feat:`, `fix:`, `chore:`, `refactor:`.
-- **Una fase a la vez** (ver §10 del CONTEXT) — parar y confirmar con Evelyn entre fases.
-
-## Docs extra
-
-`05_DOCS_ESTRATEGIA/ELARA_WEB_FAIRY_WORLD_BRIEF.md`, `02_CONTENIDO_MAESTRO/LANDING_SOYELARANOVA_COM.md` (ruta relativa desde carpeta Fullest).
+- Sin `any`. Sin shadcn/MUI/Chakra. Custom UI. Mobile-first.
+- Design tokens solo en `web/app/globals.css`.
+- Lighthouse >85 perf / >95 a11y.
+- Commits: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`.
+- `cd web && npm run build` debe pasar antes de push.
+- `/lp/*` son landings de campaña autónomas — no tocar su estilo desde fuera.

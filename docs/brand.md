@@ -1,102 +1,107 @@
-# Elara Nova · Brand (sitio web)
+# Elara Nova · Marca estudio 2026 (sitio web)
 
-> Fuente de verdad visual y de voz para **soyelaranova.com**.  
-> Alineado con `CONTEXT_CURSOR.md` y `ELARA_WEB_FAIRY_WORLD_BRIEF.md`.  
-> **No** usar `elara-nova/docs/brand.md` (marca Amazon luxury) para este sitio.
-
----
-
-## Qué es
-
-Portal sagrado + portfolio B2B discreto. Mujeres latinas 25–38 en reinvención.
-
-**Frase ancla:** *Mira todo lo que siempre fuiste capaz de ser.*
-
-**Sensación:** Pixar 3D + Encanto + esoterismo paisa. Cruzar un umbral, no visitar una web.
+> **Fuente de verdad visual y de voz para `soyelaranova.com`.**
+> Actualizado: julio 2026. Este documento reemplaza la versión "portal sagrado" de mayo 2026.
+> Si `CONTEXT_CURSOR.md` u otro brief antiguo contradice este archivo, **gana este archivo**.
 
 ---
 
-## Paleta (tokens en `web/app/globals.css`)
+## Qué es el sitio (realidad 2026)
+
+**Producto principal del sitio público:** el estudio **Evelyn Patiño / Elara Nova** —
+automatizaciones de procesos, webs y landing pages que venden, y Google Ads con medición.
+
+- La home (`web/app/page.tsx`) es el escaparate del estudio y **el look canónico de toda la web**.
+- La capa espiritual de Elara (oráculo, ebooks, cursos) queda como rutas secundarias
+  (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`) mientras existan; no definen el chrome del sitio.
+
+**Tagline Evelyn:** *Pienso como diseñadora, construyo como ingeniera.*
+
+---
+
+## Look canónico = home editorial
+
+El estilo "quiet luxury editorial" implementado en `web/app/page.tsx` + tokens `--editorial-*`
+de `web/app/globals.css` es **ley para todas las páginas**:
+
+### Paleta (tokens `--editorial-*` en `web/app/globals.css`)
 
 | Token | HEX | Uso |
 |-------|-----|-----|
-| void / purple-deepest | `#0A0010` | Fondo base |
-| purple-night | `#1A0F3D` | Paneles, header glass |
-| purple-deep | `#2D1B69` | Gradientes fondo |
-| purple-mid | `#3D2580` | Acentos profundos |
-| lavender | `#9B6BC4` | Luz secundaria |
-| pale-lav | `#E5DBF0` | Subtítulos |
-| white-rose | `#F5EEF8` | Texto suave (añadir si falta) |
-| gold | `#D4AF37` | Marco, iconos |
-| gold-bright | `#F2D578` | Títulos hero |
-| gold-soft | `#E5C770` | Eyebrows |
-| gold-dark | `#B8941F` | Bordes activos |
-| cream | `#FAF4E2` | Cuerpo |
+| `--editorial-smoke` | `#E7E1DC` | Fondo base claro (body) |
+| `--editorial-ivory` | `#F8F3EA` | Fondos de secciones/cards claras |
+| `--editorial-ink` | `#18131A` | Texto principal |
+| `--editorial-plum` | `#4A2D57` | Acentos, botones primarios, títulos em |
+| `--editorial-aubergine` | `#2B1735` | Secciones oscuras, navbar `.site-nav` |
+| `--editorial-lavender` | `#B9A1C8` | Texto secundario sobre oscuro |
+| `--editorial-cacao` | `#6B5147` | Texto secundario sobre claro, eyebrows |
+| `--editorial-stone` | `#B8AEA7` | Bordes hairline |
+| `--editorial-gold` | `#B89A58` | Detalles, líneas, CTA gold |
 
-**Acentos narrativos** (sidebar / universo): coral, crystal-pink, crystal-cyan, violet-flower — solo en mapa del universo, no en hero principal.
+Los alias `--studio-*` existen solo para formularios/páginas ya construidas; para código nuevo
+usar `--editorial-*` directamente. **No inventar colores.**
 
-**Prohibido:** `#000`, `#FFF` puros, neón, gradientes arcoíris, estética coach/TikTok.
+### Tipografía
 
----
+- **Display:** Fraunces (`--font-display`) — titulares, peso 400, `opsz` alto, WONK.
+- **Serif:** Cormorant Garamond itálica (`--font-serif`) — citas, frases em.
+- **Sans:** Manrope (`--font-sans`) — cuerpo, labels, tracking amplio en uppercase.
 
-## Tipografía
+(Playfair Display y Lato pertenecen a la era anterior — no reintroducir.)
 
-- **Display:** Playfair Display — títulos, wordmark
-- **Serif:** Cormorant Garamond Italic — citas, taglines
-- **Sans:** Lato — UI, labels, tracking amplio en mayúsculas
+### Componentes/clases canónicos
 
-**Tracking:** labels UI `0.22em–0.4em` uppercase.
-
----
-
-## Voz Elara (/, /oraculo, /universo, /sobre-elara)
-
-- Mística, íntima, hermana mayor paisa
-- Frases cortas; sin cliché New Age
-- **Oráculo** siempre; **nunca** "tarot"
-- Puede: "hermana", "mi amor" — no "mija"
-- Evitar: girlboss, mindset, manifestar, vibes, diosa, universo (como cliché), abundancia
-
-## Voz Evelyn (solo /work)
-
-- Ingeniera, directa, Suiza/Medellín, 6 años banca
-- Tagline: *Pienso como diseñadora, construyo como ingeniera.*
+- `.home-eyebrow` (+ `--light` sobre oscuro) — labels de sección.
+- `.home-button` con variantes `--primary` (plum), `--gold`, `--quiet`, `--light`.
+- Secciones claras smoke/ivory alternadas con bandas oscuras aubergine
+  (patrón `home-impact` / `home-oracle` / `home-close`).
+- Navbar única: `.site-nav` aubergine (componente `site-nav.tsx`) en **todas** las páginas.
+- Fotos reales de Evelyn (`/_assets/photos/`) con velo aubergine (`.asset-photo`).
 
 ---
 
-## DNA visual (no negociable)
+## Voces
 
-1. **Ornamental** — frame dorado, esquineros, glass pills, nunca flat corporate
-2. **Profundidad** — parallax, mouse-tilt, capas Midjourney + vignette
-3. **Vida** — mariposas, partículas, respiración (luna), estrellas reactivas
-4. **Cero gap** — avatar Elara y UI mismo nivel de detalle Encanto
-5. **Mobile-first** — 90% tráfico móvil
-
----
-
-## No-go list diseño
-
-- Stock corporate, poses de modelo genérico
-- shadcn / MUI / Chakra (UI custom)
-- Login prominente en hero v1
-- Mezclar voz Evelyn en páginas Elara
-- Páginas "próximamente" sin al menos un gesto mágico (partícula, sonido, micro-animación)
-- Más secciones inmersivas sin carta/oráculo funcional en home
+- **Voz Evelyn** (directa, ingeniera, Medellín/Suiza, 6 años banca):
+  home, `/servicios`, `/servicios/[slug]`, `/trabaja-conmigo`, `/descubrimiento`,
+  `/gracias`, `/legal`, `/lp/*`, `/linktree`, todo lo B2B.
+- **Voz Elara** (mística, hermana mayor paisa): **solo** en rutas espirituales que sigan vivas
+  (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`). Nunca "tarot", siempre **oráculo**.
+- Nunca mezclar las dos voces en la misma página.
 
 ---
 
-## Referencias visuales
+## Prohibido (no-go 2026)
 
-- `03_VISUAL_KIT/Imagenes/` — avatar, personajes objeto, logos
-- `web/public/hero/` — fondos Midjourney aprobados
-- `HERO_PORTAL_ALGORITHMIC_PHILOSOPHY.md` — shaders y partículas
+- **Menús distintos por página** — una sola navbar `.site-nav` para todo el sitio.
+- **Muñequitos / avatar Elara / stickers como UI del estudio** — las ilustraciones
+  Pixar/Encanto no representan al estudio; solo fotos reales de Evelyn.
+- **Heroes Midjourney fantasy** — nada de fondos de lagos, portales, noches estrelladas
+  como chrome de página (archivados en `06_ARCHIVO/`).
+- **Purple-night ritual como chrome principal** — la paleta morado-profundo/void
+  (`--color-purple-*`, `--color-void`) y las clases `btn-ritual`, `elara-card`, etc.
+  quedan limitadas a las rutas espirituales legacy; no usarlas en páginas del estudio.
+- CSS/JS suelto en `public/` que duplique estilos del app (ya eliminado; no reintroducir).
+- `#000`/`#FFF` puros, neón, gradientes arcoíris, shadcn/MUI/Chakra, estética coach/TikTok.
+- Stock corporativo genérico.
 
 ---
 
-## Herramientas imagen (orden)
+## Reglas de código (sin cambios)
 
-1. Gemini Imagen (Evelyn tiene Pro)
-2. Ideogram — texto en imagen
-3. Midjourney v7 — atmósfera artística
+- TypeScript estricto, sin `any`. UI custom, mobile-first.
+- Design tokens solo en `web/app/globals.css`.
+- Lighthouse >85 perf / >95 a11y.
+- Commits: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`.
 
-Cada brief: estilo, HEX, composición, ratio, negative prompt, **3 variantes**.
+---
+
+## Assets
+
+- **Fotos reales Evelyn:** `web/public/_assets/photos/` — corazón visual del estudio.
+- **Escenas servicios:** `web/public/media/servicios/`.
+- **Firma:** `web/public/brand/firma-elara*.png`.
+- **Lead magnet:** `web/public/lead-magnet/7-cartas.pdf`.
+- **B2B estático:** `web/public/evelyn-b2b/` (+ `elara-ritual.css` que esos HTML aún cargan).
+- **Ilustraciones espirituales restantes:** solo las que usan `/cursos`, `/oraculo`, `/universo`.
+- Verificación automática: `web/scripts/verify-public-assets.mjs` (`npm run verify:assets`).

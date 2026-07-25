@@ -2,6 +2,13 @@
 **Brief consolidado para agente AI (Cursor / Claude Code / Copilot)**
 v1 · 9 mayo 2026 · lockeado por Evelyn Patino
 
+> ⚠️ **SUPERADO (julio 2026):** el producto y el look de este brief ("portal sagrado",
+> paleta purple-night, Playfair/Lato) fueron reemplazados. El sitio es hoy el **estudio
+> Evelyn Patiño / Elara Nova** (automatizaciones, webs/landings, Google Ads) con el look
+> editorial de la home (tokens `--editorial-*`, Fraunces + Manrope).
+> **Fuente de verdad actual: `docs/brand.md` + `docs/ESTADO_PROYECTO.md`.**
+> Este documento se conserva como historia y contexto de las rutas espirituales.
+
 > **Copia canónica para desarrollo:** `../../soyelaranova-com/CONTEXT_CURSOR.md`  
 > Edita allí cuando cambies stack, rutas o fases; Cursor lee `.cursor/rules/soyelaranova.mdc` en ese repo.
 
