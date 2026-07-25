@@ -19,8 +19,9 @@ export default function TrabajaConmigoPage() {
               <span aria-hidden="true" />
               Trabaja conmigo
             </p>
-            <h1 className="mt-5 max-w-4xl font-display text-[3.2rem] font-normal leading-[0.94] md:text-[5.8rem]">
-              Sistemas digitales para marcas que necesitan orden y presencia.
+            <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
+              <span className="type-lockup__impact">Sistemas</span>
+              <em className="type-lockup__script">con presencia</em>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
               Sitios web, automatizaciones, Google Ads e impulsamiento de redes con una mezcla rara pero util: criterio visual, pensamiento tecnico y cuidado por el negocio real.

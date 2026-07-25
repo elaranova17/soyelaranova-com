@@ -19,8 +19,9 @@ export default function ServicesPage() {
               <span aria-hidden="true" />
               Servicios · desde 450 €
             </p>
-            <h1 className="mt-6 font-display text-[3rem] font-normal leading-[0.94] md:text-[5.5rem]">
-              Sistemas digitales para vender con mas orden.
+            <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
+              <span className="type-lockup__impact">Sistemas</span>
+              <em className="type-lockup__script">con más orden</em>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
               Cada servicio puede funcionar solo, pero el valor real aparece cuando la web, la
@@ -58,15 +59,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--editorial-aubergine)] px-5 py-20 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
+      <section className="page-band-dark px-5 py-20 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
             <p className="home-eyebrow home-eyebrow--light">
               <span aria-hidden="true" />
               Como elegir
             </p>
-            <h2 className="mt-6 font-display text-[2.45rem] font-normal leading-[1.02] md:text-[3.7rem]">
-              Si no sabes por donde empezar, empezamos por el pre-análisis.
+            <h2 className="type-lockup type-lockup--glow page-lockup">
+              <span className="type-lockup__impact">Empezá</span>
+              <em className="type-lockup__script">por el pre-análisis</em>
             </h2>
           </div>
           <div>
@@ -89,7 +91,7 @@ export default function ServicesPage() {
       <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl justify-center gap-5">
           <Link href="/legal" className="hover:text-[var(--editorial-plum)]">Privacidad y terminos</Link>
-          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">Diagnostico</Link>
+          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">Pre-análisis</Link>
         </div>
       </footer>
     </main>

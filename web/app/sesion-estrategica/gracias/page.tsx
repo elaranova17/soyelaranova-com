@@ -32,8 +32,9 @@ export default function SesionGraciasPage() {
             <span aria-hidden="true" />
             Pago recibido
           </p>
-          <h1 className="mt-6 font-display text-[3rem] leading-[0.94] md:text-[5rem]">
-            Ahora elegí tu horario.
+          <h1 className="type-lockup type-lockup--center type-lockup--glow-soft page-lockup page-lockup--center">
+            <span className="type-lockup__impact">Ahora</span>
+            <em className="type-lockup__script">elegí tu horario</em>
           </h1>
           <p className="mx-auto mt-7 max-w-xl text-lg leading-8 text-[var(--editorial-cacao)]">
             Gracias. El siguiente paso es agendar los {booking.durationMin} minutos. Llegá con tu
