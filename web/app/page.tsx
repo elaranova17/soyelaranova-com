@@ -107,8 +107,8 @@ export default function HomePage() {
         </div>
 
         <Photo
-          src="/media/servicios/servicio-02-webs.webp"
-          alt="Webs y landings de conversión — Elara Nova"
+          src="/_assets/photos/evelyn_pro_hero.jpg"
+          alt="Evelyn Patiño, ingeniera de software, en su estudio"
           className="home-hero__visual"
         >
           <figcaption className="home-hero__caption">
@@ -284,8 +284,8 @@ export default function HomePage() {
           <span className="home-work__glow" aria-hidden="true" />
           <span className="home-work__frame" aria-hidden="true" />
           <Photo
-            src="/media/servicios/servicio-01-automatizaciones.webp"
-            alt="Automatizaciones para negocios reales"
+            src="/_assets/photos/kit-web-real/00-identidad-sonrisa.webp"
+            alt="Evelyn Patiño sonriendo"
             className="home-work__visual"
           />
           <p className="home-work__name">Evelyn Patiño</p>

@@ -46,11 +46,11 @@ export default function SobreElaraPage() {
           <div className="linktree-avatar-ring relative mx-auto mt-6 h-40 w-40 md:h-44 md:w-44">
             <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--color-gold-bright)] shadow-[0_0_32px_rgba(242,213,120,0.4)]">
               <Image
-                src="/brand/firma-elara.png"
-                alt="Firma Elara Nova"
+                src="/_assets/photos/evelyn_pro_perfil.jpg"
+                alt="Evelyn Patiño Laverde"
                 fill
                 sizes="(max-width: 768px) 160px, 176px"
-                className="object-contain object-center bg-[var(--color-purple-deep)] p-4"
+                className="object-cover object-[50%_18%]"
               />
             </div>
           </div>

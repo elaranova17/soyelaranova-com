@@ -47,11 +47,11 @@ export default function CvPage() {
         <div className="studio-b2b__hero-media">
           <Image
             src={evelynPhotos.cvHero}
-            alt="Trabajo de ingeniería y automatización — Elara Nova"
+            alt="Evelyn Patiño — retrato profesional"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 42vw"
-            className="object-cover object-center"
+            className="object-cover object-[50%_18%]"
           />
           <div className="studio-b2b__hero-veil" aria-hidden />
         </div>
@@ -106,10 +106,10 @@ export default function CvPage() {
           <figure className="studio-b2b__photo asset-photo">
             <Image
               src={evelynPhotos.cvAbout}
-              alt="Sistemas y automatización — Elara Nova"
+              alt="Evelyn Patiño — perfil"
               fill
               sizes="(max-width: 900px) 92vw, 28rem"
-              className="object-cover object-center"
+              className="object-cover object-[50%_12%]"
             />
           </figure>
           <div>

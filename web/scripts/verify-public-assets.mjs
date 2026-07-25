@@ -43,14 +43,17 @@ const bannedPaths = [
   'elara-nova-rediseno.css',
   'elara-nova-animations.js',
   'elara-cursos-productos.css',
-  '_assets/photos/kit-web-real', // kit IA / Higgs — purgado jul 2026
-  '_assets/photos/evelyn-real', // selfies phone — también prohibidas
-  '_assets/photos/atmosphere', // humo del kit IA
+  '_assets/photos/evelyn-real', // selfies phone (solo eran base) — prohibidas
+  '_assets/photos/kit-web-real/evelyn-face-ref-freckles-closeup.jpg',
+  '_assets/photos/kit-web-real/evelyn-face-ref-frontal-natural.jpg',
+  '_assets/photos/kit-web-real/evelyn-face-ref-long-hair-pro.jpg',
+  '_assets/photos/kit-web-real/evelyn-face-ref-smile.jpg',
+  '_assets/photos/kit-web-real/higgs-out',
+  '_assets/photos/kit-web-real/evelyn-higgsfield-PROMPTS.txt',
+  '_assets/photos/kit-web-real/evelyn-higgsfield-identity.json',
   '_assets/photos/slide-proceso-chroma-raw.webp',
-  '_assets/photos/evelyn_pro_hero.jpg',
-  '_assets/photos/evelyn_pro_perfil.jpg',
-  '_assets/photos/evelyn_me_portrait.webp',
-  'media/recursos', // no eran el lote final de Evelyn
+  '_assets/photos/evelyn_me_portrait.webp', // no era del lote 24 jul de Evelyn
+  'media/recursos',
   'media/cursos',
 ]
 

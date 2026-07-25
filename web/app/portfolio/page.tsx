@@ -55,11 +55,11 @@ export default function PortfolioPage() {
         <div className="studio-b2b__hero-media">
           <Image
             src={evelynPhotos.portfolioHero}
-            alt="Webs y landings — Elara Nova"
+            alt="Evelyn Patiño en estudio"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 48vw"
-            className="object-cover object-center"
+            className="object-cover object-[50%_20%]"
           />
           <div className="studio-b2b__hero-veil" aria-hidden />
         </div>
@@ -96,10 +96,10 @@ export default function PortfolioPage() {
           <figure className="studio-b2b__photo asset-photo">
             <Image
               src={evelynPhotos.portfolioAbout}
-              alt="Google Ads y medición — Elara Nova"
+              alt="Evelyn Patiño — bio editorial"
               fill
               sizes="(max-width: 900px) 92vw, 28rem"
-              className="object-cover object-center"
+              className="object-cover object-[50%_15%]"
             />
           </figure>
           <div>

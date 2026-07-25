@@ -43,9 +43,9 @@ npm run build    # verify:assets + build (debe pasar)
 
 ## Fotos en producción
 
-Solo el lote Evelyn (24 jul):
+Lote Evelyn 24 jul:
 
-- `web/public/media/servicios/servicio-{01,02,03}-*.webp`
-- `web/public/_assets/photos/slide-proceso-fondo.webp`
+- IA estudio: `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg` / `evelyn_pro_perfil.jpg`
+- Producto: `web/public/media/servicios/` + `slide-proceso-fondo.webp`
 
-Sin caras IA, sin selfies, sin `media/recursos/` ni `media/cursos/`.
+Prohibido: selfies `face-ref` (eran solo base), higgs-out, `media/recursos/`, `media/cursos/`.
