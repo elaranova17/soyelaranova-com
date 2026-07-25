@@ -3,6 +3,8 @@ export type StudioService = {
   eyebrow: string
   title: string
   shortTitle: string
+  /** Explicación simple: qué es este servicio (para quien no conoce el término). */
+  whatIs: string
   summary: string
   deliverable: string
   promise: string
@@ -21,6 +23,8 @@ export const studioServices: readonly StudioService[] = [
     eyebrow: 'Presencia',
     title: 'Sitios web profesionales',
     shortTitle: 'Sitios web',
+    whatIs:
+      'Un sitio web es la casa digital de tu marca: varias páginas (inicio, servicios, sobre ti, contacto) donde alguien puede entender qué haces, confiar en ti y contactarte — sin depender solo de Instagram o WhatsApp.',
     summary:
       'Para marcas que ya no quieren verse improvisadas. Diseño, estructura, copy y desarrollo en una experiencia lista para vender confianza.',
     deliverable: 'Web comercial, portfolio, pagina de servicio o sitio institucional.',
@@ -62,6 +66,8 @@ export const studioServices: readonly StudioService[] = [
     eyebrow: 'Conversion',
     title: 'Landing pages para campañas',
     shortTitle: 'Landing pages',
+    whatIs:
+      'Una landing page es una página web con un solo objetivo: que la persona haga una acción (pedir presupuesto, dejar el email, reservar). No es un sitio completo — es una página enfocada para campañas de anuncios o lanzamientos.',
     summary:
       'Paginas enfocadas en una accion: cotizar, reservar, comprar o dejar datos. Ideales para Google Ads, Meta Ads y lanzamientos.',
     deliverable: 'Landing + CTA + tracking base + pagina de gracias.',
@@ -103,6 +109,8 @@ export const studioServices: readonly StudioService[] = [
     eyebrow: 'Operacion',
     title: 'Automatizaciones de negocio',
     shortTitle: 'Automatizaciones',
+    whatIs:
+      'Una automatización es un flujo que hace solo lo que hoy haces a mano: cuando alguien llena un formulario, el sistema guarda el dato, te avisa, manda un email de bienvenida y agenda el seguimiento — sin que copies y pegues en WhatsApp o Excel.',
     summary:
       'Conecto formularios, emails, hojas, CRMs y notificaciones para que cada lead tenga seguimiento sin hacerlo todo a mano.',
     deliverable: 'Flujos de captura, seguimiento, post-compra y recordatorios.',
@@ -144,6 +152,8 @@ export const studioServices: readonly StudioService[] = [
     eyebrow: 'Crecimiento',
     title: 'Google Ads y medicion',
     shortTitle: 'Google Ads',
+    whatIs:
+      'Google Ads son anuncios que aparecen cuando alguien busca en Google algo que tú ofreces. La medición conecta esos clics con tu página y te dice qué búsquedas traen clientes reales — y dónde estás gastando sin resultado.',
     summary:
       'Antes de subir presupuesto, ordenamos la promesa, la landing y los eventos. Menos adivinanza, mas sistema medible.',
     deliverable: 'Estructura de campaña, conversiones y landings por intencion.',

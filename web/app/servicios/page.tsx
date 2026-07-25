@@ -52,7 +52,8 @@ export default function ServicesPage() {
                 {service.eyebrow}
               </p>
               <h2 className="mt-5 font-display text-4xl leading-tight">{service.title}</h2>
-              <p className="mt-5 text-sm leading-7 text-[var(--studio-paper)]/65">{service.summary}</p>
+              <p className="mt-5 text-sm leading-7 text-[var(--studio-paper)]/75">{service.whatIs}</p>
+              <p className="mt-3 text-sm leading-7 text-[var(--studio-paper)]/55">{service.summary}</p>
               <div className="mt-7 border-t border-[var(--studio-paper)]/10 pt-5">
                 <p className="text-xs font-bold leading-6 text-[var(--studio-paper)]/80">{service.deliverable}</p>
                 <p className="mt-4 text-[0.66rem] font-black tracking-[0.24em] text-[var(--studio-gold)] uppercase">
