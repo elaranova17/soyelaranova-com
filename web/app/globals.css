@@ -53,11 +53,21 @@
   --studio-indigo:        var(--editorial-plum);
   --studio-green:         #516B5B;
 
-  /* Tipografía · Marilyn glow chic fashion */
-  --font-display: var(--font-bodoni);
+  /* Tipografía · Opción A CapCut glow chic */
+  --font-display: var(--font-bebas);
   --font-script:  var(--font-great-vibes);
   --font-serif:   var(--font-cormorant);
   --font-sans:    var(--font-outfit);
+
+  /* Glow CapCut (cream + oro) */
+  --text-glow-gold:
+    0 0 10px rgb(184 154 88 / .55),
+    0 0 28px rgb(212 175 55 / .38),
+    0 0 48px rgb(184 154 88 / .22),
+    0 2px 10px rgb(24 19 26 / .35);
+  --text-glow-soft:
+    0 0 14px rgb(184 154 88 / .28),
+    0 1px 2px rgb(24 19 26 / .1);
 
   /* Sombras mágicas (CONTEXT §3) */
   --shadow-glow-gold:   0 0 60px rgba(212, 175, 55, 0.5);
@@ -72,13 +82,14 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display fashion: Bodoni óptica grande, elegante no brusca */
+/* Bebas: titulares de impacto (caps naturales de la fuente) */
 h1, h2, h3,
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 96;
-  letter-spacing: -0.02em;
+  font-variation-settings: normal;
+  letter-spacing: 0.02em;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .font-script {
@@ -86,6 +97,7 @@ h1, h2, h3,
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02em;
+  text-transform: none;
   font-variation-settings: normal;
 }
 
@@ -93,11 +105,11 @@ h1, h2, h3,
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
+  text-transform: none;
 }
 
 /*
- * Lockup glow chic: Didone + firma script suave (mismo concepto CapCut,
- * tono Marilyn / fashion — sin sans negra ni inclinación fuerte).
+ * Lockup Opción A: sans condensada + script cruzando + glow dorado CapCut.
  */
 .type-lockup {
   display: flex;
@@ -111,9 +123,9 @@ h1, h2, h3,
   z-index: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-variation-settings: 'opsz' 120;
-  letter-spacing: -0.022em;
-  line-height: 0.92;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
@@ -123,16 +135,17 @@ h1, h2, h3,
   display: block;
   width: max-content;
   max-width: 100%;
-  margin-top: -0.3em;
-  margin-left: 0.08em;
-  padding: 0 0.04em;
+  margin-top: -0.34em;
+  margin-left: 0.1em;
+  padding: 0 0.06em;
   font-family: var(--font-script);
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.05;
+  text-transform: none;
   font-variation-settings: normal;
-  transform: rotate(-1deg);
+  transform: rotate(-1.2deg);
   transform-origin: left center;
 }
 
@@ -147,20 +160,33 @@ h1, h2, h3,
   transform-origin: center;
 }
 
-.type-lockup--cream .type-lockup__impact,
-.type-lockup--cream .type-lockup__script {
+/* Glow cream sobre oscuro (impact sections / LP heroes) */
+.type-lockup--glow .type-lockup__impact,
+.type-lockup--glow .type-lockup__script {
   color: var(--editorial-ivory);
+  text-shadow: var(--text-glow-gold);
 }
 
-.type-lockup--cream .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 48%, var(--editorial-ivory));
+.type-lockup--glow .type-lockup__script {
+  color: color-mix(in srgb, var(--editorial-gold) 40%, var(--editorial-ivory));
+}
+
+/* Glow suave sobre fondos claros */
+.type-lockup--glow-soft .type-lockup__impact {
+  color: var(--editorial-ink);
+  text-shadow: var(--text-glow-soft);
+}
+
+.type-lockup--glow-soft .type-lockup__script {
+  color: var(--editorial-plum);
+  text-shadow: 0 0 18px rgb(184 154 88 / .35);
 }
 
 @media (max-width: 640px) {
   .type-lockup__script {
-    margin-top: -0.22em;
-    margin-left: 0.04em;
-    transform: rotate(-0.6deg);
+    margin-top: -0.26em;
+    margin-left: 0.05em;
+    transform: rotate(-0.8deg);
   }
 }
 
@@ -223,20 +249,18 @@ h1, h2, h3,
 }
 
 .home-hero h1.type-lockup {
-  max-width: 12ch;
-  margin-top: 2rem;
-  font-size: clamp(3.5rem, 6.6vw, 7.2rem);
+  max-width: 11ch;
+  margin-top: 1.75rem;
+  font-size: clamp(4.2rem, 8vw, 8.4rem);
 }
 
 .home-hero h1 .type-lockup__impact {
   font-size: 1em;
-  color: var(--editorial-ink);
 }
 
 .home-hero h1 .type-lockup__script {
-  max-width: 18ch;
-  color: var(--editorial-plum);
-  font-size: 0.72em;
+  max-width: 14ch;
+  font-size: 0.55em;
 }
 
 .home-hero__copy > p {
@@ -1205,19 +1229,13 @@ h1, h2, h3,
 
 .home-impact h2.type-lockup {
   position: relative;
-  max-width: 18ch;
+  max-width: 12ch;
   margin-inline: auto;
-  font-size: clamp(2.55rem, 5.1vw, 4.8rem);
-}
-
-.home-impact h2 .type-lockup__impact {
-  color: var(--editorial-ivory);
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
 }
 
 .home-impact h2 .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 70%, var(--editorial-ivory));
-  font-size: 0.78em;
-  text-shadow: 0 2px 28px rgb(184 154 88 / .35);
+  font-size: 0.52em;
 }
 
 .home-impact > p {
@@ -1563,19 +1581,13 @@ h1, h2, h3,
 }
 
 .home-close h2.type-lockup {
-  max-width: 14ch;
+  max-width: 12ch;
   margin: 1.1rem auto 0;
-  font-size: clamp(2.9rem, 6.2vw, 6.4rem);
-}
-
-.home-close h2 .type-lockup__impact {
-  color: var(--editorial-ivory);
+  font-size: clamp(3.3rem, 7.2vw, 6.8rem);
 }
 
 .home-close h2 .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 65%, var(--editorial-ivory));
-  font-size: 0.72em;
-  text-shadow: 0 2px 24px rgb(184 154 88 / .28);
+  font-size: 0.5em;
 }
 
 .home-close .home-actions {
@@ -3050,14 +3062,15 @@ a.elara-chip:hover .elara-chip__label {
 .site-nav__logo {
   min-width: 0;
   font-family: var(--font-script);
-  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-size: clamp(1.9rem, 3.3vw, 2.4rem);
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1;
+  text-transform: none;
   color: var(--editorial-ivory);
   text-decoration: none;
-  text-shadow: 0 0 32px rgb(184 154 88 / .4);
+  text-shadow: var(--text-glow-gold);
   transition: color .25s ease, opacity .25s ease;
 }
 
@@ -3377,10 +3390,12 @@ a.elara-chip:hover .elara-chip__label {
 
 .site-nav__panel-label {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3.5vw, 1.65rem);
-  font-style: italic;
+  font-size: clamp(1.45rem, 3.6vw, 1.85rem);
+  font-style: normal;
   font-weight: 400;
+  letter-spacing: 0.06em;
   line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .site-nav__panel-tagline {
@@ -3460,13 +3475,14 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-hero__brand {
   font-family: var(--font-script);
-  font-size: clamp(3rem, 7.2vw, 5rem);
+  font-size: clamp(3.1rem, 7.4vw, 5.1rem);
   font-style: normal;
   font-weight: 400;
   line-height: .95;
   letter-spacing: 0.02em;
-  color: color-mix(in srgb, var(--editorial-gold) 42%, var(--editorial-ivory));
-  text-shadow: 0 4px 28px rgb(184 154 88 / .35);
+  text-transform: none;
+  color: color-mix(in srgb, var(--editorial-gold) 35%, var(--editorial-ivory));
+  text-shadow: var(--text-glow-gold);
   animation: lp-hero-rise .9s cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -3481,48 +3497,54 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .lp-hero h1.type-lockup {
-  max-width: 15ch;
+  max-width: 14ch;
   margin-top: 0.55rem;
-  font-size: clamp(2.45rem, 5.2vw, 4.4rem);
+  font-size: clamp(3rem, 6.4vw, 5.4rem);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.lp-hero h1.type-lockup .type-lockup__impact,
+.lp-hero h1.type-lockup .type-lockup__script {
+  text-shadow: var(--text-glow-gold);
 }
 
 .lp-hero h1 .type-lockup__impact {
   color: var(--editorial-ivory);
-  text-shadow: 0 2px 28px rgb(10 0 16 / .28);
 }
 
 .lp-hero h1 .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 62%, var(--editorial-ivory));
-  font-size: 0.74em;
-  max-width: 18ch;
-  text-shadow: 0 2px 22px rgb(184 154 88 / .3);
+  color: color-mix(in srgb, var(--editorial-gold) 38%, var(--editorial-ivory));
+  font-size: 0.48em;
+  max-width: 16ch;
 }
 
 /* Fallback si un h1 LP aún no usa lockup */
 .lp-hero h1:not(.type-lockup) {
-  max-width: 15ch;
+  max-width: 14ch;
   margin-top: 0.55rem;
   font-family: var(--font-display);
-  font-size: clamp(2.45rem, 5.2vw, 4.4rem);
+  font-size: clamp(3rem, 6.4vw, 5.4rem);
   font-weight: 400;
-  line-height: .92;
-  letter-spacing: -0.022em;
-  font-variation-settings: 'opsz' 120;
+  line-height: .9;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--editorial-ivory);
+  text-shadow: var(--text-glow-gold);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .lp-hero h1:not(.type-lockup) em {
   display: block;
-  margin-top: -0.28em;
-  margin-left: 0.08em;
-  color: color-mix(in srgb, var(--editorial-gold) 62%, var(--editorial-ivory));
+  margin-top: -0.32em;
+  margin-left: 0.1em;
+  color: color-mix(in srgb, var(--editorial-gold) 38%, var(--editorial-ivory));
   font-family: var(--font-script);
   font-style: normal;
   font-weight: 400;
-  font-size: 0.74em;
-  transform: rotate(-1deg);
+  font-size: 0.48em;
+  text-transform: none;
+  text-shadow: var(--text-glow-gold);
+  transform: rotate(-1.2deg);
   transform-origin: left center;
 }
 

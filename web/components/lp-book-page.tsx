@@ -28,7 +28,7 @@ export function LpBookPage({ book }: { book: BookOffer }) {
         <div className="lp-hero__content">
           <p className="lp-hero__brand">Elara Nova</p>
           <p className="lp-hero__eyebrow">{book.eyebrow}</p>
-          <h1 className="type-lockup">
+          <h1 className="type-lockup type-lockup--glow">
             <span className="type-lockup__impact">{book.title}</span>
           </h1>
           <p className="lp-hero__sub">{book.subtitle}</p>

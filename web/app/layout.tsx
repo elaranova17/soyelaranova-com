@@ -1,20 +1,19 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
+import { Bebas_Neue, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import './globals.css'
 
-/** Display fashion — Didone imponente pero glam (Marilyn / Vogue) */
-const bodoni = Bodoni_Moda({
-  variable: '--font-bodoni',
+/** Impact CapCut Opción A — sans condensada imponente (estilo AUTOMATIZO) */
+const bebas = Bebas_Neue({
+  variable: '--font-bebas',
+  weight: '400',
   subsets: ['latin'],
-  style: ['normal', 'italic'],
-  axes: ['opsz'],
   display: 'swap',
 })
 
-/** Caligrafía glow chic — firma que solapa el display */
+/** Caligrafía que solapa el impact + glow chic */
 const greatVibes = Great_Vibes({
   variable: '--font-great-vibes',
   weight: '400',
@@ -22,7 +21,7 @@ const greatVibes = Great_Vibes({
   display: 'swap',
 })
 
-/** Serif suave — notas, tesis, textos editoriales cortos */
+/** Serif suave — notas / tesis editoriales */
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
   subsets: ['latin'],
@@ -31,7 +30,7 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 })
 
-/** Sans cuerpo / UI — chic, legible, alineada al cream-aubergine */
+/** Sans cuerpo / UI / labels de marca */
 const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
@@ -102,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${bodoni.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${bebas.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <script
