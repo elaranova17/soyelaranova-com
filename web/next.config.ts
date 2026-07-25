@@ -11,9 +11,8 @@ const nextConfig: NextConfig = {
     return [
       // /linktree → app/linktree/page.tsx (Next.js + iconografía Elara)
 
-      // Páginas B2B de Evelyn — HTML estático en evelyn-b2b/
-      { source: '/cv',                destination: '/evelyn-b2b/cv.html' },
-      { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
+      // /cv y /portfolio son App Router (look CapCut editorial).
+      // HTML estático restante (print / factura / propuestas):
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
       { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
       { source: '/propuesta-val-debarras', destination: '/evelyn-b2b/propuesta-val-debarras.html' },

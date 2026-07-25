@@ -5,19 +5,13 @@ HTML estático servido vía `next.config.ts` rewrites. Tipografía CapCut:
 
 **Usar siempre rutas absolutas** en `href` e `img src`.
 
-| URL pública | Archivo |
-|-------------|---------|
-| `/portfolio` | `portfolio.html` |
-| `/cv` | `cv.html` |
+| URL pública | Fuente |
+|-------------|--------|
+| `/portfolio` | App Next `web/app/portfolio` (CapCut editorial) |
+| `/cv` | App Next `web/app/cv` (CapCut editorial) |
 | `/linktree` | App Next `web/app/linktree` (CapCut) |
-| `/portfolio-print` | `portfolio-print.html` |
+| `/portfolio-print` | `portfolio-print.html` (print) |
 | `/factura` | `factura-template.html` |
-| `/propuesta-val-debarras` | `propuesta-val-debarras.html` (Val-Débarras · ES/FR) |
+| `/propuesta-val-debarras` | `propuesta-val-debarras.html` |
 
-`/casos-exito` y `propuesta.html` redirigen a `/portfolio` (retirado del hub).
-
-## Nav B2B
-
-`← Enlaces` · Portfolio · CV · **Pre-análisis** (→ `/descubrimiento`)
-
-Fotos: `/_assets/photos/`. No usar paths relativos.
+Fotos por página (sin repetir): `web/lib/evelyn-photos.ts`.

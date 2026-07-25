@@ -74,11 +74,11 @@ export function elaraLandingNav(): readonly NavItem[] {
   return STUDIO_NAV
 }
 
-/** Rutas Next / rewrites que usan nav B2B (Evelyn) — sin “clientes felices” */
+/**
+ * Solo HTML estático restante (factura / propuestas).
+ * /linktree, /portfolio y /cv usan el chrome del estudio (STUDIO_NAV + CapCut).
+ */
 export const B2B_ROUTES = [
-  '/linktree',
-  '/portfolio',
-  '/cv',
   '/portfolio-print',
   '/factura',
   '/propuesta-val-debarras',
@@ -90,9 +90,10 @@ export function isB2bPath(pathname: string): boolean {
   return B2B_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`))
 }
 
+/** @deprecated Hub Evelyn ya usa STUDIO_NAV; se mantiene por imports legacy */
 export const B2B_NAV: readonly NavItem[] = [
-  { href: '/', label: '← Inicio', hard: true },
+  { href: '/', label: '← Inicio' },
   { href: '/linktree', label: 'Enlaces', match: ['/linktree'] },
-  { href: '/portfolio', label: 'Portfolio', match: ['/portfolio', '/work'], hard: true },
-  { href: '/cv', label: 'CV', match: ['/cv'], hard: true },
+  { href: '/portfolio', label: 'Portfolio', match: ['/portfolio', '/work'] },
+  { href: '/cv', label: 'CV', match: ['/cv'] },
 ]

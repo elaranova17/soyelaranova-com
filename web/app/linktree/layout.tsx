@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Evelyn Patiño Laverde — Ingeniera de Software',
     description: 'Pienso como diseñadora, construyo como ingeniera. Portfolio, CV y pre-análisis.',
     url: 'https://soyelaranova.com/linktree',
-    images: [{ url: '/_assets/photos/og-portfolio.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/_assets/photos/kit-web-real/00-identidad-sonrisa.webp', width: 1200, height: 630 }],
   },
 }
 

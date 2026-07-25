@@ -42,7 +42,7 @@ export default function TrabajaConmigoPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)]">
             <Image
-              src="/_assets/photos/evelyn_pro_hero.jpg"
+              src="/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg"
               alt="Evelyn Patino"
               fill
               priority

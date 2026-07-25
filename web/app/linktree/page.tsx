@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { evelynPhotos } from '@/lib/evelyn-photos'
 
 type HubLink = {
   href: string
@@ -19,13 +20,11 @@ const LINKS: readonly HubLink[] = [
     label: 'Portfolio',
     hint: 'Sitios · automatizaciones · Ads',
     featured: true,
-    hard: true,
   },
   {
     href: '/cv',
     label: 'Currículum',
     hint: 'Experiencia · stack · idiomas',
-    hard: true,
   },
   {
     href: '/descubrimiento',
@@ -131,7 +130,7 @@ export default function LinktreePage() {
         >
           <div className="linktree-avatar">
             <Image
-              src="/_assets/photos/evelyn_pro_perfil.jpg"
+              src={evelynPhotos.linktreeAvatar}
               alt="Evelyn Patiño Laverde"
               fill
               sizes="140px"
