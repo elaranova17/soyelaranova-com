@@ -2,6 +2,13 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
+import {
+  CopyEmailButton,
+  StudioReveal,
+  StudioRevealItem,
+  StudioStagger,
+  StudioStickyCta,
+} from '@/components/studio-reveal'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
 export const metadata: Metadata = {
@@ -51,7 +58,7 @@ const stack = [
 
 export default function CvPage() {
   return (
-    <main className="studio-b2b">
+    <main className="studio-b2b studio-b2b--live">
       <section className="studio-b2b__hero studio-b2b__hero--bleed">
         <div className="studio-b2b__hero-bg" aria-hidden>
           <Image
@@ -66,136 +73,160 @@ export default function CvPage() {
           <span className="studio-b2b__hero-glow" />
         </div>
         <div className="studio-b2b__hero-copy studio-b2b__hero-copy--on-dark">
-          <p className="home-eyebrow home-eyebrow--light">
-            <span aria-hidden="true" />
-            Curriculum · Evelyn Patiño · 2026
-          </p>
-          <h1 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
-            <span className="type-lockup__impact">Ingeniera</span>
-            <em className="type-lockup__script">con criterio</em>
-          </h1>
-          <p className="studio-b2b__lead studio-b2b__lead--light">
-            6 años en software financiero. Hoy freelance desde Lausana: automatización, webs que
-            venden y Ads con medición — la misma disciplina de banca, aplicada a tu negocio.
-          </p>
-          <div className="studio-b2b__actions">
-            <TrackedLink
-              href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'cv_hero_preanalisis' }}
-              className="home-button home-button--gold"
-            >
-              Hacer mi pre-análisis
-            </TrackedLink>
-            <Link href="/portfolio" className="home-button home-button--light">
-              Ver portfolio
-            </Link>
-            <a href="mailto:evelynpatildr@gmail.com" className="home-button home-button--light">
-              Escribirme
-            </a>
-          </div>
+          <StudioReveal>
+            <p className="home-eyebrow home-eyebrow--light studio-accent">
+              <span aria-hidden="true" />
+              Curriculum · Evelyn Patiño · 2026
+            </p>
+          </StudioReveal>
+          <StudioReveal delay={0.08}>
+            <h1 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
+              <span className="type-lockup__impact">Ingeniera</span>
+              <em className="type-lockup__script">con criterio</em>
+            </h1>
+          </StudioReveal>
+          <StudioReveal delay={0.16}>
+            <p className="studio-b2b__lead studio-b2b__lead--light">
+              6 años en software financiero. Hoy freelance desde Lausana: automatización, webs que
+              venden y Ads con medición — la misma disciplina de banca, aplicada a tu negocio.
+            </p>
+          </StudioReveal>
+          <StudioReveal delay={0.24}>
+            <div className="studio-b2b__actions">
+              <TrackedLink
+                href="/descubrimiento"
+                tracking={{ event: 'cta_click', category: 'lead', label: 'cv_hero_preanalisis' }}
+                className="home-button home-button--gold"
+              >
+                Hacer mi pre-análisis
+              </TrackedLink>
+              <Link href="/portfolio" className="home-button home-button--light">
+                Ver portfolio
+              </Link>
+              <a href="mailto:evelynpatildr@gmail.com" className="home-button home-button--light">
+                Escribirme
+              </a>
+            </div>
+          </StudioReveal>
         </div>
       </section>
 
-      <section className="studio-b2b__proof" aria-label="Resumen">
+      <StudioStagger className="studio-b2b__proof">
         {proof.map((item) => (
-          <div key={item.label} className="studio-b2b__proof-item">
-            <strong>{item.value}</strong>
+          <StudioRevealItem key={item.label} className="studio-b2b__proof-item">
+            <strong className="font-display">{item.value}</strong>
             <span>{item.label}</span>
-          </div>
+          </StudioRevealItem>
         ))}
-      </section>
+      </StudioStagger>
 
       <section className="studio-b2b__section">
         <div className="studio-b2b__split">
-          <figure className="studio-b2b__photo asset-photo">
-            <Image
-              src={evelynPhotos.cvAbout}
-              alt="Evelyn Patiño — perfil"
-              fill
-              sizes="(max-width: 900px) 92vw, 28rem"
-              className="object-cover object-[50%_12%]"
-            />
-          </figure>
+          <StudioReveal>
+            <figure className="studio-b2b__photo asset-photo">
+              <Image
+                src={evelynPhotos.cvAbout}
+                alt="Evelyn Patiño — perfil"
+                fill
+                sizes="(max-width: 900px) 92vw, 28rem"
+                className="object-cover object-[50%_12%]"
+              />
+            </figure>
+          </StudioReveal>
           <div>
-            <p className="home-eyebrow">
-              <span aria-hidden="true" />
-              Perfil
-            </p>
-            <h2 className="type-lockup type-lockup--glow-soft page-lockup">
-              <span className="type-lockup__impact">De la banca</span>
-              <em className="type-lockup__script">a tu embudo</em>
-            </h2>
-            <p className="studio-b2b__body">
-              Estudié ingeniería mientras trabajaba. Sophos y Bancolombia me enseñaron que el error
-              no es una opción cuando el proceso mueve dinero. Esa misma disciplina la aplico a
-              webs, automatizaciones y Ads de negocios reales.
-            </p>
-            <p className="studio-b2b__pitch">Si te respondo, soy yo. No un equipo detrás de una marca.</p>
-            <ul className="studio-b2b__chips">
-              <li>Ingeniería de Sistemas</li>
-              <li>Scrum / entrega</li>
-              <li>ES · EN · FR (en curso)</li>
-            </ul>
-            <dl className="studio-b2b__contact studio-b2b__contact--compact">
-              <div>
-                <dt>Email</dt>
-                <dd>
-                  <a href="mailto:evelynpatildr@gmail.com">evelynpatildr@gmail.com</a>
-                </dd>
+            <StudioReveal>
+              <p className="home-eyebrow studio-accent">
+                <span aria-hidden="true" />
+                Perfil
+              </p>
+              <h2 className="type-lockup type-lockup--glow-soft page-lockup">
+                <span className="type-lockup__impact">De la banca</span>
+                <em className="type-lockup__script">a tu embudo</em>
+              </h2>
+            </StudioReveal>
+            <StudioReveal delay={0.08}>
+              <p className="studio-b2b__body">
+                Estudié ingeniería mientras trabajaba. Sophos y Bancolombia me enseñaron que el error
+                no es una opción cuando el proceso mueve dinero. Esa misma disciplina la aplico a
+                webs, automatizaciones y Ads de negocios reales.
+              </p>
+              <p className="studio-b2b__pitch font-serif">
+                Si te respondo, soy yo. No un equipo detrás de una marca.
+              </p>
+              <ul className="studio-b2b__chips">
+                <li>Ingeniería de Sistemas</li>
+                <li>Scrum / entrega</li>
+                <li>ES · EN · FR (en curso)</li>
+              </ul>
+              <dl className="studio-b2b__contact studio-b2b__contact--compact">
+                <div>
+                  <dt>Email</dt>
+                  <dd>
+                    <a href="mailto:evelynpatildr@gmail.com">evelynpatildr@gmail.com</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>WhatsApp</dt>
+                  <dd>
+                    <a href="https://wa.me/41783480550">+41 78 348 0550</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>LinkedIn</dt>
+                  <dd>
+                    <a
+                      href="https://www.linkedin.com/in/evelyn-patino-laverde/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      /in/evelyn-patino-laverde
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+              <div className="studio-b2b__contact-tools">
+                <CopyEmailButton />
+                <a href="https://wa.me/41783480550" className="studio-copy-btn studio-copy-btn--ghost">
+                  Abrir WhatsApp
+                </a>
               </div>
-              <div>
-                <dt>WhatsApp</dt>
-                <dd>
-                  <a href="https://wa.me/41783480550">+41 78 348 0550</a>
-                </dd>
-              </div>
-              <div>
-                <dt>LinkedIn</dt>
-                <dd>
-                  <a
-                    href="https://www.linkedin.com/in/evelyn-patino-laverde/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    /in/evelyn-patino-laverde
-                  </a>
-                </dd>
-              </div>
-            </dl>
+            </StudioReveal>
           </div>
         </div>
       </section>
 
       <section className="page-band-dark studio-b2b__band">
-        <p className="home-eyebrow home-eyebrow--light">
-          <span aria-hidden="true" />
-          Trayectoria
-        </p>
-        <h2 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
-          <span className="type-lockup__impact">Seis años</span>
-          <em className="type-lockup__script">donde importa</em>
-        </h2>
-        <div className="studio-b2b__timeline">
+        <StudioReveal>
+          <p className="home-eyebrow home-eyebrow--light studio-accent">
+            <span aria-hidden="true" />
+            Trayectoria
+          </p>
+          <h2 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
+            <span className="type-lockup__impact">Seis años</span>
+            <em className="type-lockup__script">donde importa</em>
+          </h2>
+        </StudioReveal>
+        <StudioStagger className="studio-b2b__timeline">
           {experience.map((job) => (
-            <article key={job.role + job.period} className="studio-b2b__timeline-card">
+            <StudioRevealItem key={job.role + job.period} as="article" className="studio-b2b__timeline-card">
               <p className="studio-b2b__period">{job.period}</p>
-              <h3>{job.role}</h3>
-              <p className="studio-b2b__company">{job.company}</p>
+              <h3 className="font-display">{job.role}</h3>
+              <p className="studio-b2b__company font-serif">{job.company}</p>
               <p>{job.text}</p>
               <ul className="studio-b2b__chips studio-b2b__chips--on-dark">
                 {job.wins.map((w) => (
                   <li key={w}>{w}</li>
                 ))}
               </ul>
-            </article>
+            </StudioRevealItem>
           ))}
-        </div>
+        </StudioStagger>
       </section>
 
       <section className="studio-b2b__section studio-b2b__section--smoke">
-        <div className="studio-b2b__section-head">
+        <StudioReveal className="studio-b2b__section-head">
           <div>
-            <p className="home-eyebrow">
+            <p className="home-eyebrow studio-accent">
               <span aria-hidden="true" />
               Stack
             </p>
@@ -207,41 +238,49 @@ export default function CvPage() {
           <p className="studio-b2b__section-note">
             Del core bancario al embudo comercial: elijo el stack que sostiene el proceso, no la moda.
           </p>
-        </div>
-        <ul className="studio-b2b__stack">
+        </StudioReveal>
+        <StudioStagger className="studio-b2b__stack" as="div">
           {stack.map((item) => (
-            <li key={item}>{item}</li>
+            <StudioRevealItem key={item} as="div">
+              <span className="studio-b2b__stack-chip font-display">{item}</span>
+            </StudioRevealItem>
           ))}
-        </ul>
+        </StudioStagger>
       </section>
 
       <section className="studio-b2b__offer">
         <div className="studio-b2b__offer-glow" aria-hidden />
-        <p className="home-eyebrow home-eyebrow--light">
-          <span aria-hidden="true" />
-          Siguiente paso
-        </p>
-        <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
-          <span className="type-lockup__impact">Trabajemos</span>
-          <em className="type-lockup__script">juntos</em>
-        </h2>
-        <p className="studio-b2b__offer-copy">
-          Pre-análisis gratis para ver si tiene sentido. Si sí: sesión 20 min · 25 CHF y propuesta
-          concreta.
-        </p>
-        <div className="studio-b2b__actions studio-b2b__actions--center">
-          <TrackedLink
-            href="/descubrimiento"
-            tracking={{ event: 'cta_click', category: 'lead', label: 'cv_close' }}
-            className="home-button home-button--gold"
-          >
-            Hacer mi pre-análisis
-          </TrackedLink>
-          <Link href="/portfolio" className="home-button home-button--light">
-            Ver portfolio
-          </Link>
-        </div>
+        <StudioReveal>
+          <p className="home-eyebrow home-eyebrow--light studio-accent">
+            <span aria-hidden="true" />
+            Siguiente paso
+          </p>
+          <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
+            <span className="type-lockup__impact">Trabajemos</span>
+            <em className="type-lockup__script">juntos</em>
+          </h2>
+        </StudioReveal>
+        <StudioReveal delay={0.08}>
+          <p className="studio-b2b__offer-copy">
+            Pre-análisis gratis para ver si tiene sentido. Si sí: sesión 20 min · 25 CHF y propuesta
+            concreta.
+          </p>
+          <div className="studio-b2b__actions studio-b2b__actions--center">
+            <TrackedLink
+              href="/descubrimiento"
+              tracking={{ event: 'cta_click', category: 'lead', label: 'cv_close' }}
+              className="home-button home-button--gold"
+            >
+              Hacer mi pre-análisis
+            </TrackedLink>
+            <Link href="/portfolio" className="home-button home-button--light">
+              Ver portfolio
+            </Link>
+          </div>
+        </StudioReveal>
       </section>
+
+      <StudioStickyCta label="cv_sticky" />
     </main>
   )
 }
