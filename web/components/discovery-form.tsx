@@ -299,7 +299,7 @@ export function DiscoveryForm({
 
   const emailHref = useMemo(() => {
     const subject = `Pre-análisis de proyecto - ${form.name || 'Elara Nova'}`
-    return `mailto:evelynpatildr@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildEmailBody(form))}`
+    return `mailto:elaranova.17@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildEmailBody(form))}`
   }, [form])
 
   const whatsappHref = useMemo(() => {
