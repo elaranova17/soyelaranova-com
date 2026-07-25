@@ -45,7 +45,7 @@ npm run build    # verify:assets + build (debe pasar)
 
 Lote Evelyn 24 jul:
 
-- IA estudio: `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg` / `evelyn_pro_perfil.jpg`
+- IA estudio: `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg`
 - Producto: `web/public/media/servicios/` + `slide-proceso-fondo.webp`
 
 Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, face-ref, buso blanco sin peluca), higgs-out, `media/recursos/`, `media/cursos/`.
