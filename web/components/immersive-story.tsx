@@ -344,26 +344,27 @@ export function ImmersiveStory() {
         </div>
 
         <aside className="immersive-story__panel" aria-live="polite">
-          <header className="immersive-story__intro">
-            <p className="home-eyebrow home-eyebrow--light">
-              <span aria-hidden="true" />
-              Mi método · 4 movimientos
-            </p>
-            <h2 id="immersive-title" className="type-lockup type-lockup--glow">
-              <span className="type-lockup__impact">Cuatro</span>
-              <em className="type-lockup__script">pasos · un sistema</em>
-            </h2>
-          </header>
+          <h2 id="immersive-title" className="immersive-story__sr">
+            Método Elara Nova · Ver, Analizar, Crear, Lanzar
+          </h2>
+
+          <p className="home-eyebrow home-eyebrow--light immersive-story__eyebrow">
+            <span aria-hidden="true" />
+            Mi método · {step.number} / 04
+          </p>
 
           <div key={panelKey} className="immersive-story__card">
+            {/* Misma palabra que el banner de la foto → correlación UX */}
             <div className="immersive-story__card-meta">
-              <span className="immersive-story__chapter-n">{step.number}</span>
+              <span className="immersive-story__chapter-word font-display">{step.word}</span>
               <span className="immersive-story__outcome">{step.outcome}</span>
             </div>
-            <h3 className="type-lockup type-lockup--glow">
+
+            <h3 className="type-lockup type-lockup--glow immersive-story__step-title">
               <span className="type-lockup__impact">{step.titleImpact}</span>
               <em className="type-lockup__script">{step.titleScript}</em>
             </h3>
+
             <p className="immersive-story__chapter-body">{step.text}</p>
 
             <div className="immersive-story__card-actions">
@@ -375,33 +376,39 @@ export function ImmersiveStory() {
                 <span />
               )}
               {!isLast ? (
-                <button type="button" className="immersive-story__nav-btn immersive-story__nav-btn--next" onClick={() => goToStep(active + 1)}>
-                  Siguiente →
-                </button>
-              ) : (
-                <TrackedLink
-                  href="/descubrimiento"
-                  tracking={{ event: 'cta_click', category: 'lead', label: 'home_method_lanzar' }}
-                  className="home-button home-button--gold"
-                >
-                  Hacer mi pre-análisis
-                </TrackedLink>
-              )}
-            </div>
-          </div>
-
-          <ol className="immersive-story__dots" aria-label="Progreso">
-            {steps.map((s, index) => (
-              <li key={s.number}>
                 <button
                   type="button"
-                  className={index === active ? 'is-active' : ''}
-                  aria-label={`Ir a ${s.word}`}
-                  onClick={() => goToStep(index)}
-                />
-              </li>
-            ))}
-          </ol>
+                  className="immersive-story__nav-btn immersive-story__nav-btn--next"
+                  onClick={() => goToStep(active + 1)}
+                >
+                  Siguiente →
+                </button>
+              ) : null}
+            </div>
+
+            {isLast ? (
+              <TrackedLink
+                href="/descubrimiento"
+                tracking={{ event: 'cta_click', category: 'lead', label: 'home_method_lanzar' }}
+                className="home-button home-button--gold immersive-story__cta"
+              >
+                Hacer mi pre-análisis
+              </TrackedLink>
+            ) : null}
+
+            <ol className="immersive-story__dots" aria-label="Progreso">
+              {steps.map((s, index) => (
+                <li key={s.number}>
+                  <button
+                    type="button"
+                    className={index === active ? 'is-active' : ''}
+                    aria-label={`Ir a ${s.word}`}
+                    onClick={() => goToStep(index)}
+                  />
+                </li>
+              ))}
+            </ol>
+          </div>
         </aside>
       </div>
 
