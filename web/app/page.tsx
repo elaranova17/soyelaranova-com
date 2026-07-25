@@ -78,31 +78,6 @@ function Photo({
   )
 }
 
-function PosterTile({
-  kicker,
-  title,
-  className = '',
-  children,
-}: {
-  kicker: string
-  title: string
-  className?: string
-  children?: React.ReactNode
-}) {
-  return (
-    <div className={`asset-slot ${className}`}>
-      <span className="asset-slot__mark" aria-hidden="true">
-        e<i>✦</i>
-      </span>
-      <div className="asset-slot__label">
-        <small>{kicker}</small>
-        <span>{title}</span>
-      </div>
-      {children}
-    </div>
-  )
-}
-
 export default function HomePage() {
   return (
     <main className="home-shell">
@@ -209,28 +184,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="caso" className="home-oracle">
-        <div className="home-oracle__copy">
-          <Eyebrow light>Caso real</Eyebrow>
-          <h2>val-débarras: un sistema que trae clientes cada dia.</h2>
+      <section id="recursos" className="home-recursos">
+        <div className="home-recursos__intro">
+          <Eyebrow light>Material de valor</Eyebrow>
+          <h2>Ebooks, pantallas y recursos para tu negocio.</h2>
           <p>
-            Construi el sitio completo de una empresa suiza de vaciado de viviendas: landing pages
-            por canton, formularios que capturan cada solicitud y campañas de Google Ads. No una
-            pagina bonita — un sistema que genera pedidos reales.
+            Sin casos de clientes en vitrina. Acá encontrás material útil: guías descargables,
+            capturas de sistemas reales y piezas listas para que veas cómo se ve el trabajo —
+            y te lleves algo concreto hoy.
           </p>
-          <TrackedLink
-            href="/descubrimiento"
-            tracking={{ event: 'cta_click', category: 'lead', label: 'home_caso_diagnostico' }}
-            className="home-button home-button--gold"
-          >
-            Quiero un sistema asi
-          </TrackedLink>
         </div>
-        <PosterTile
-          kicker="Suiza · débarras"
-          title="val-débarras"
-          className="home-oracle__visual"
-        />
+
+        <div className="home-recursos__rail">
+          <article className="home-recurso">
+            <div className="home-recurso__media">
+              <img
+                src="/media/servicios/servicio-02-webs.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <p>01 · Ebook</p>
+            <h3>Guías y lecturas cortas</h3>
+            <small>
+              Material descargable para ordenar procesos, mensajes y siguientes pasos — sin humo.
+            </small>
+            <Link href="/universo" className="home-recurso__link">
+              Ver ebooks
+            </Link>
+          </article>
+
+          <article className="home-recurso">
+            <div className="home-recurso__media">
+              <img
+                src="/media/servicios/servicio-01-automatizaciones.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <p>02 · Pantallas</p>
+            <h3>Cómo se ve el sistema</h3>
+            <small>
+              Capturas de flujos, dashboards y pantallas: la forma del producto, no el nombre del
+              cliente.
+            </small>
+            <Link href="#servicios" className="home-recurso__link">
+              Ver pantallas
+            </Link>
+          </article>
+
+          <article className="home-recurso">
+            <div className="home-recurso__media">
+              <img
+                src="/media/servicios/servicio-03-google-ads.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <p>03 · Valor</p>
+            <h3>Checklists y plantillas</h3>
+            <small>
+              Piezas prácticas para diagnosticar fugas, priorizar automatizaciones y preparar tu web.
+            </small>
+            <Link href="/descubrimiento" className="home-recurso__link">
+              Pedir material
+            </Link>
+          </article>
+        </div>
       </section>
 
       <section id="diagnostico" className="home-impact">
