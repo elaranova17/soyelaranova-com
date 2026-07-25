@@ -1,19 +1,19 @@
 /**
- * Fotos IA Evelyn — lote 24 jul.
- * Una foto distinta por superficie (no repetir entre páginas clave).
- * Prohibido: face-ref (base), higgs-out.
+ * Fotos IA Evelyn — lote 24 jul (estudio).
+ * Una foto distinta por superficie cuando hay stock.
+ * Prohibido: selfies privadas (identidad/face-ref buso blanco sin peluca), higgs-out.
  */
 export const evelynPhotos = {
   /** Home hero — workspace landscape */
   homeHero: '/_assets/photos/evelyn_pro_hero.jpg',
   /** Home Sobre mí */
-  homeAbout: '/_assets/photos/kit-web-real/00-identidad-sonrisa.webp',
+  homeAbout: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
   /** /sobre-elara avatar */
-  sobreElara: '/_assets/photos/evelyn_pro_perfil.jpg',
+  sobreElara: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
   /** /trabaja-conmigo hero */
   trabajaConmigo: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
   /** /linktree avatar */
-  linktreeAvatar: '/_assets/photos/kit-web-real/00-identidad-pecas.webp',
+  linktreeAvatar: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
   /** /portfolio hero */
   portfolioHero: '/_assets/photos/kit-web-real/01-hero-evelyn.webp',
   /** /portfolio about */
@@ -21,7 +21,7 @@ export const evelynPhotos = {
   /** /cv hero */
   cvHero: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
   /** /cv perfil */
-  cvAbout: '/_assets/photos/kit-web-real/00-identidad-frontal.webp',
+  cvAbout: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
   /** LPs / packs estudio */
   estudio: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
   atmosphere: '/_assets/photos/kit-web-real/bg-editorial-humo.webp',

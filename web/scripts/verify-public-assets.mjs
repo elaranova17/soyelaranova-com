@@ -48,6 +48,14 @@ const bannedPaths = [
   '_assets/photos/kit-web-real/evelyn-face-ref-frontal-natural.jpg',
   '_assets/photos/kit-web-real/evelyn-face-ref-long-hair-pro.jpg',
   '_assets/photos/kit-web-real/evelyn-face-ref-smile.jpg',
+  // Selfies privadas buso blanco / sin peluca — nunca reintroducir
+  '_assets/photos/kit-web-real/00-identidad-frontal.jpg',
+  '_assets/photos/kit-web-real/00-identidad-frontal.webp',
+  '_assets/photos/kit-web-real/00-identidad-pecas.jpg',
+  '_assets/photos/kit-web-real/00-identidad-pecas.webp',
+  '_assets/photos/kit-web-real/00-identidad-sonrisa.jpg',
+  '_assets/photos/kit-web-real/00-identidad-sonrisa.webp',
+  '_assets/photos/evelyn_pro_perfil.jpg', // selfie privada buso blanco
   '_assets/photos/kit-web-real/higgs-out',
   '_assets/photos/kit-web-real/evelyn-higgsfield-PROMPTS.txt',
   '_assets/photos/kit-web-real/evelyn-higgsfield-identity.json',

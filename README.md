@@ -48,4 +48,4 @@ Lote Evelyn 24 jul:
 - IA estudio: `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg` / `evelyn_pro_perfil.jpg`
 - Producto: `web/public/media/servicios/` + `slide-proceso-fondo.webp`
 
-Prohibido: selfies `face-ref` (eran solo base), higgs-out, `media/recursos/`, `media/cursos/`.
+Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, face-ref, buso blanco sin peluca), higgs-out, `media/recursos/`, `media/cursos/`.

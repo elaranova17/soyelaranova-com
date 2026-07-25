@@ -18,7 +18,7 @@
 | `/linktree`, `/gracias`, `/legal` | Utilitarias | — |
 
 ### Assets visuales
-**Tenemos:** hero wide Evelyn ✅ · perfil ✅ · OG 1200×630 ✅ · místico ✅ · estudio ✅ · de-pie blazer ✅ · identidad ✅ · slide atelier (pantalla limpia) ✅ · tarjetas 01/02 chroma ✅
+**Tenemos:** hero wide Evelyn ✅ · OG 1200×630 ✅ · místico ✅ · estudio ✅ · de-pie blazer ✅ · slide atelier (pantalla limpia) ✅ · tarjetas 01/02 chroma ✅ · (sin selfies privadas identidad/perfil)
 **Falta:** tarjeta 03 caballete chroma · foto candid café (V2) · covers de productos · escenas Evelyn+Elara (fase productos)
 
 ### Tracking ya montado

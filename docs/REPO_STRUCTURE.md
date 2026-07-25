@@ -45,6 +45,6 @@ Carpetas de contenido/producción de abr–may 2026 que **no** alimentaban el de
 ## Regla para agentes
 
 1. Marca / tipografía / embudo → `docs/brand.md`.
-2. Fotos Evelyn IA (lote 24 jul) → `web/public/_assets/photos/` (sin face-ref/higgs).
+2. Fotos Evelyn IA (lote 24 jul) → `web/public/_assets/photos/` (sin selfies privadas identidad/face-ref/higgs).
 3. Material freelance PDF → `ops/b2b/`.
 4. Antes de push a `main`: `cd web && npm run verify:assets && npm run build`.

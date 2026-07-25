@@ -128,8 +128,8 @@ Outreach: `docs/KIT_OUTREACH.md`.
 
 ## Assets
 
-- Fotos Evelyn IA (lote 24 jul): `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg` / `evelyn_pro_perfil.jpg`.
-- Prohibido: selfies `face-ref` (solo eran base), `higgs-out`, `media/recursos/`, `media/cursos/`.
+- Fotos Evelyn IA (lote 24 jul): `web/public/_assets/photos/kit-web-real/` + `evelyn_pro_hero.jpg`.
+- Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, `face-ref`, buso blanco sin peluca), `higgs-out`, `media/recursos/`, `media/cursos/`.
 - Producto/servicios: `web/public/media/servicios/` + `slide-proceso-fondo.webp`.
 - Firma: `web/public/brand/firma-elara*.png`
 - Verify: `npm run verify:assets` en `web/`
