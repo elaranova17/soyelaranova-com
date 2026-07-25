@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useMemo, useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -284,27 +284,18 @@ export function DiscoveryForm({
 } = {}) {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const servicioParam = searchParams.get('servicio') ?? ''
+  const paqueteParam = searchParams.get('paquete') ?? ''
   const [step, setStep] = useState(0)
   const [form, setForm] = useState<FormState>(() => ({
     ...initialForm,
-    service: initialService || initialForm.service,
-    pack: initialPack || '',
+    service: initialService || servicioParam || initialForm.service,
+    pack: initialPack || paqueteParam || '',
   }))
   const [stepError, setStepError] = useState<string | null>(null)
   const [needsManualSend, setNeedsManualSend] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
-
-  useEffect(() => {
-    const servicio = searchParams.get('servicio')
-    const paquete = searchParams.get('paquete')
-    if (!servicio && !paquete) return
-    setForm((current) => ({
-      ...current,
-      service: servicio || current.service,
-      pack: paquete || current.pack,
-    }))
-  }, [searchParams])
 
   const emailHref = useMemo(() => {
     const subject = `Pre-análisis de proyecto - ${form.name || 'Elara Nova'}`
