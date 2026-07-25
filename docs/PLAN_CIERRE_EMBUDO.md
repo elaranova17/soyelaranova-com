@@ -185,11 +185,11 @@ No es un calendario: es el orden en que el código desbloquea el embudo.
 - Rutas dinámicas `/lp/[service]/[pack]` o páginas estáticas por paquete
 - CTA → `/descubrimiento?servicio=&paquete=`
 
-### Bloque 3 — Wizard pre-análisis (P0)
-- Rehacer `discovery-form` como pasos didácticos
-- Actualizar copy home/nav/LP: “Hacer mi pre-análisis”
-- `/gracias` con siguiente paso → sesión 25 CHF
-- Landing `/sesion-estrategica` (pago + agenda)
+### Bloque 3 — Wizard pre-análisis (P0) ✅
+- Rehacer `discovery-form` como pasos didácticos ✅ (5 pasos)
+- Actualizar copy home/nav/LP: “Hacer mi pre-análisis” ✅
+- `/gracias` con siguiente paso → sesión 25 CHF ✅
+- Landing `/sesion-estrategica` (pago + agenda) ✅ (pago Stripe pendiente)
 
 ### Bloque 4 — Libros (P1)
 - `/lp/libros/7-dias-de-elara` (opt-in)

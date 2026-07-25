@@ -25,10 +25,10 @@ const MAX_LENGTHS = {
   service: 120,
   pack: 160,
   goal: 1600,
-  problem: 1600,
+  problem: 2400,
   timeline: 80,
   budget: 80,
-  notes: 1600,
+  notes: 2400,
 } satisfies Record<keyof DiscoveryPayload, number>
 
 function normalize(value: unknown, maxLength: number, singleLine = true): string {
@@ -72,7 +72,7 @@ function validate(payload: DiscoveryPayload): string | null {
 
 function discoveryText(payload: DiscoveryPayload) {
   return [
-    'Nuevo diagnostico de proyecto · Elara Nova',
+    'Nuevo pre-análisis de proyecto · Elara Nova',
     '',
     `Nombre: ${payload.name}`,
     `Email: ${payload.email}`,
@@ -83,13 +83,13 @@ function discoveryText(payload: DiscoveryPayload) {
     `Tiempo ideal: ${payload.timeline}`,
     `Presupuesto aproximado: ${payload.budget || 'Por definir'}`,
     '',
-    'Objetivo principal:',
+    'Objetivo (90 días):',
     payload.goal,
     '',
-    'Problema actual:',
+    'Operación / fugas (wizard):',
     payload.problem,
     '',
-    'Notas extra:',
+    'Notas / qué vende / paquete:',
     payload.notes || 'Sin notas extra',
   ].join('\n')
 }
