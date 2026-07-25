@@ -4,17 +4,14 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  B2B_NAV,
-  ELARA_ROUTE_NAV,
-  elaraSectionNav,
-  elaraLandingNav,
-  isB2bPath,
-  type NavItem,
-} from '@/lib/navigation'
+import { B2B_NAV, STUDIO_NAV, isB2bPath, type NavItem } from '@/lib/navigation'
 
 function isActive(pathname: string, item: NavItem): boolean {
-  if (item.match) return item.match.includes(pathname)
+  if (item.match) {
+    return item.match.some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`),
+    )
+  }
   if (item.href.includes('#')) return false
   return pathname === item.href
 }
@@ -136,36 +133,72 @@ function MenuButton({
   )
 }
 
+function PanelLink({
+  item,
+  pathname,
+  index,
+  onClose,
+  nested = false,
+}: {
+  item: NavItem
+  pathname: string
+  index: number
+  onClose: () => void
+  nested?: boolean
+}) {
+  const active = isActive(pathname, item)
+  const num = nested ? '' : String(index + 1).padStart(2, '0')
+  const itemCls = [
+    'site-nav__panel-item',
+    nested ? 'site-nav__panel-item--nested' : '',
+    active ? 'is-active' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  const handleClick = () => {
+    onClose()
+    window.dispatchEvent(new Event('lenis:start'))
+  }
+
+  const content = (
+    <>
+      {!nested && <span className="site-nav__panel-num">{num}</span>}
+      <span className="site-nav__panel-label">{item.label}</span>
+    </>
+  )
+
+  if (item.href.includes('#')) {
+    return (
+      <a href={item.href} onClick={handleClick} className={itemCls}>
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <Link
+      href={item.href}
+      prefetch
+      onClick={handleClick}
+      aria-current={active ? 'page' : undefined}
+      className={itemCls}
+    >
+      {content}
+    </Link>
+  )
+}
+
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
-  const onPreview = pathname === '/preview'
-  const studio =
-    onHome ||
-    onPreview ||
-    pathname.startsWith('/preview/') ||
-    pathname === '/cursos' ||
-    pathname === '/trabaja-conmigo' ||
-    pathname === '/descubrimiento' ||
-    pathname === '/gracias' ||
-    pathname === '/legal'
 
-  const sectionLinks = elaraSectionNav(pathname)
-  const links: readonly NavItem[] = b2b
-    ? B2B_NAV
-    : studio
-      ? onHome || onPreview
-        ? elaraLandingNav()
-        : [...sectionLinks, ...ELARA_ROUTE_NAV]
-      : [...sectionLinks, ...ELARA_ROUTE_NAV]
+  // Menú canónico único en todo el sitio Elara; B2B conserva el suyo.
+  const links: readonly NavItem[] = b2b ? B2B_NAV : STUDIO_NAV
 
-  const logoHref = b2b ? '/linktree' : onHome || onPreview ? '#inicio' : '/'
-  const cta = b2b
-    ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
-    : studio
-      ? { href: '/descubrimiento', label: 'Cotizar proyecto' }
-      : { href: '/portfolio', label: 'Work by Evelyn' }
+  const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
+  const cta = { href: '/descubrimiento', label: 'Cotizar proyecto' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -284,54 +317,31 @@ export function SiteNav() {
               </div>
 
               <nav className="site-nav__panel-nav" aria-label="Menú">
-                {links.map((item, i) => {
-                  const active = isActive(pathname, item)
-                  const num = String(i + 1).padStart(2, '0')
-                  const itemCls = ['site-nav__panel-item', active ? 'is-active' : '']
-                    .filter(Boolean)
-                    .join(' ')
-
-                  return (
-                    <motion.div
-                      key={item.href + item.label}
-                      initial={{ opacity: 0, x: 18 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: 0.06 + i * 0.045,
-                        duration: 0.35,
-                        ease: [0.22, 0.61, 0.36, 1],
-                      }}
-                    >
-                      {item.href.includes('#') ? (
-                        <a
-                          href={item.href}
-                          onClick={() => {
-                            close()
-                            window.dispatchEvent(new Event('lenis:start'))
-                          }}
-                          className={itemCls}
-                        >
-                          <span className="site-nav__panel-num">{num}</span>
-                          <span className="site-nav__panel-label">{item.label}</span>
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          prefetch
-                          onClick={() => {
-                            close()
-                            window.dispatchEvent(new Event('lenis:start'))
-                          }}
-                          aria-current={active ? 'page' : undefined}
-                          className={itemCls}
-                        >
-                          <span className="site-nav__panel-num">{num}</span>
-                          <span className="site-nav__panel-label">{item.label}</span>
-                        </Link>
-                      )}
-                    </motion.div>
-                  )
-                })}
+                {links.map((item, i) => (
+                  <motion.div
+                    key={item.href + item.label}
+                    initial={{ opacity: 0, x: 18 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: 0.06 + i * 0.045,
+                      duration: 0.35,
+                      ease: [0.22, 0.61, 0.36, 1],
+                    }}
+                    className={item.children?.length ? 'site-nav__panel-group' : undefined}
+                  >
+                    <PanelLink item={item} pathname={pathname} index={i} onClose={close} />
+                    {item.children?.map((child) => (
+                      <PanelLink
+                        key={child.href + child.label}
+                        item={child}
+                        pathname={pathname}
+                        index={i}
+                        onClose={close}
+                        nested
+                      />
+                    ))}
+                  </motion.div>
+                ))}
               </nav>
 
               <NavCta
