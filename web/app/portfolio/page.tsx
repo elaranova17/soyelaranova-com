@@ -181,31 +181,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="page-band-dark studio-b2b__band studio-b2b__case">
-        <div className="studio-b2b__case-inner">
-          <p className="home-eyebrow home-eyebrow--light">
-            <span aria-hidden="true" />
-            Caso real
-          </p>
-          <h2 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
-            <span className="type-lockup__impact">Val-Débarras</span>
-            <em className="type-lockup__script">en producción</em>
-          </h2>
-          <p className="studio-b2b__lead studio-b2b__lead--light">
-            Empresa suiza de vaciado de viviendas. Landings por cantón + formularios conectados +
-            Google Ads capturando solicitudes de presupuesto. Sitio vivo, campañas corriendo —
-            eso es lo que entrego.
-          </p>
-          <TrackedLink
-            href="/descubrimiento"
-            tracking={{ event: 'cta_click', category: 'lead', label: 'portfolio_case_preanalisis' }}
-            className="home-button home-button--gold"
-          >
-            Quiero algo así para mi negocio
-          </TrackedLink>
-        </div>
-      </section>
-
       <section className="studio-b2b__section">
         <p className="home-eyebrow">
           <span aria-hidden="true" />
