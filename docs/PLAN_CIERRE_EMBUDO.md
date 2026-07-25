@@ -203,7 +203,7 @@ No es un calendario: es el orden en que el código desbloquea el embudo.
 
 ### Bloque 6 — Pulido (P2)
 - Fotos LP únicas (sin repetir hero) ✅ hero full-bleed + visual por servicio/paquete
-- Covers libros
+- Covers libros ✅ LPs libros full-bleed + visual/OG por slug
 - Stripe/Calendly live
 
 ---
