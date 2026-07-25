@@ -27,9 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/oraculo', 0.5],
     ['/cursos', 0.5],
     ['/legal', 0.3],
-    ['/linktree', 0.4],
-    ['/portfolio', 0.4],
-    ['/cv', 0.4],
+    ['/linktree', 0.5],
+    ['/portfolio', 0.5],
+    ['/cv', 0.45],
   ]
 
   return routes.map(([path, priority]) => ({

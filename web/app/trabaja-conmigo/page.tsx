@@ -87,18 +87,18 @@ export default function TrabajaConmigoPage() {
             ¿Querés ver cómo trabajo? Portfolio y CV de Evelyn, ingeniera detrás de Elara Nova.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link
+            <a
               href="/portfolio"
               className="inline-flex min-h-11 items-center rounded-full bg-[var(--editorial-cacao)] px-5 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-ivory)] uppercase"
             >
               Portfolio
-            </Link>
-            <Link
+            </a>
+            <a
               href="/cv"
               className="inline-flex min-h-11 items-center rounded-full border border-[var(--editorial-plum)]/25 px-5 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-plum)] uppercase"
             >
               CV
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -89,6 +89,8 @@ export function ElaraButton(props: Props) {
   if ('href' in props && props.href) {
     const href = props.href
     const isExternal = external || /^https?:\/\//.test(href)
+    // Rewrites HTML estático: full document load (evita client nav rota)
+    const hardNav = href === '/portfolio' || href === '/cv' || href.startsWith('/portfolio-print')
 
     if (variant === 'primary') {
       const content = <PrimaryShell className={className}>{children}</PrimaryShell>
@@ -96,6 +98,8 @@ export function ElaraButton(props: Props) {
         <a href={href} target="_blank" rel="noopener noreferrer">
           {content}
         </a>
+      ) : hardNav ? (
+        <a href={href}>{content}</a>
       ) : (
         <Link href={href} prefetch>
           {content}
@@ -139,6 +143,8 @@ export function ElaraButton(props: Props) {
         <a href={href} target="_blank" rel="noopener noreferrer">
           {content}
         </a>
+      ) : hardNav ? (
+        <a href={href}>{content}</a>
       ) : (
         <Link href={href} prefetch>
           {content}

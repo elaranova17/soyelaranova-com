@@ -11,6 +11,8 @@ export type NavItem = {
   label: string
   match?: readonly string[]
   children?: readonly NavItem[]
+  /** Full document navigation (rewrites HTML estático: /portfolio, /cv) */
+  hard?: boolean
 }
 
 /**
@@ -72,15 +74,13 @@ export function elaraLandingNav(): readonly NavItem[] {
   return STUDIO_NAV
 }
 
-/** Rutas Next / rewrites que usan nav B2B (Evelyn) */
+/** Rutas Next / rewrites que usan nav B2B (Evelyn) — sin “clientes felices” */
 export const B2B_ROUTES = [
   '/linktree',
   '/portfolio',
   '/cv',
-  '/casos-exito',
   '/portfolio-print',
   '/factura',
-  '/work',
   '/propuesta-val-debarras',
 ] as const
 
@@ -92,7 +92,6 @@ export function isB2bPath(pathname: string): boolean {
 
 export const B2B_NAV: readonly NavItem[] = [
   { href: '/linktree', label: '← Enlaces', match: ['/linktree'] },
-  { href: '/portfolio', label: 'Portfolio', match: ['/portfolio', '/work'] },
-  { href: '/cv', label: 'CV', match: ['/cv'] },
-  { href: '/casos-exito', label: 'Clientes felices', match: ['/casos-exito'] },
+  { href: '/portfolio', label: 'Portfolio', match: ['/portfolio', '/work'], hard: true },
+  { href: '/cv', label: 'CV', match: ['/cv'], hard: true },
 ]

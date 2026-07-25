@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
       { source: '/cv',                destination: '/evelyn-b2b/cv.html' },
       { source: '/portfolio',         destination: '/evelyn-b2b/portfolio.html' },
       { source: '/portfolio-print',   destination: '/evelyn-b2b/portfolio-print.html' },
-      { source: '/casos-exito',       destination: '/evelyn-b2b/propuesta.html' },
       { source: '/factura',           destination: '/evelyn-b2b/factura-template.html' },
       { source: '/propuesta-val-debarras', destination: '/evelyn-b2b/propuesta-val-debarras.html' },
     ]
@@ -36,13 +35,15 @@ const nextConfig: NextConfig = {
       { source: '/cuenta', destination: '/descubrimiento', permanent: false },
       { source: '/manifiesto', destination: '/sobre-elara', permanent: false },
       { source: '/lecturas', destination: '/oraculo', permanent: false },
+      // “Clientes felices” retirado del hub — redirige a portfolio
+      { source: '/casos-exito', destination: '/portfolio', permanent: true },
       // B2B Evelyn — URLs legacy (carpeta evelyn-b2b o GitHub Pages)
       { source: '/evelyn-b2b/portfolio.html', destination: '/portfolio', permanent: true },
       { source: '/evelyn-b2b/cv.html', destination: '/cv', permanent: true },
       { source: '/evelyn-b2b/linktree.html', destination: '/linktree', permanent: true },
       { source: '/propuesta', destination: '/descubrimiento', permanent: true },
       { source: '/evelyn-b2b/propuesta-template.html', destination: '/descubrimiento', permanent: true },
-      { source: '/evelyn-b2b/propuesta.html', destination: '/casos-exito', permanent: true },
+      { source: '/evelyn-b2b/propuesta.html', destination: '/portfolio', permanent: true },
       { source: '/evelyn-b2b/descubrimiento.html', destination: '/descubrimiento', permanent: true },
       { source: '/evelyn-b2b/portfolio-print.html', destination: '/portfolio-print', permanent: true },
       { source: '/evelyn-b2b/factura-template.html', destination: '/factura', permanent: true },

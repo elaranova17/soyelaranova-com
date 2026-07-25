@@ -31,9 +31,15 @@ function NavLink({
   const shared = 'site-nav__link'
   const state = active ? 'is-active' : ''
 
-  if (item.href.includes('#')) {
+  // Anchors y rewrites HTML estáticos (/portfolio, /cv): full load, no client nav.
+  if (item.href.includes('#') || item.hard) {
     return (
-      <a href={item.href} onClick={onNavigate} className={`${shared} ${className}`}>
+      <a
+        href={item.href}
+        onClick={onNavigate}
+        aria-current={active ? 'page' : undefined}
+        className={`${shared} ${state} ${className}`}
+      >
         {item.label}
       </a>
     )
@@ -168,9 +174,14 @@ function PanelLink({
     </>
   )
 
-  if (item.href.includes('#')) {
+  if (item.href.includes('#') || item.hard) {
     return (
-      <a href={item.href} onClick={handleClick} className={itemCls}>
+      <a
+        href={item.href}
+        onClick={handleClick}
+        aria-current={active ? 'page' : undefined}
+        className={itemCls}
+      >
         {content}
       </a>
     )
