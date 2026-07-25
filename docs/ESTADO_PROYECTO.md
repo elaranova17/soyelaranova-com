@@ -89,12 +89,13 @@ Fuente: [`PLAN_CIERRE_EMBUDO.md`](PLAN_CIERRE_EMBUDO.md)
 
 ## Pendientes / siguiente
 
-1. Pegar en Vercel `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (hasta entonces WhatsApp fallback)
-2. Hotmart live para Ciclo Nova
-3. Decidir el futuro de las rutas espirituales (`/oraculo`, `/universo`, `/cursos`,
-   `/sobre-elara`): rediseñarlas al sistema editorial o retirarlas.
-2. Hotmart links reales en productos digitales.
-3. Resend en producción (env vars) para `/api/discovery`.
+**Plan vivo tipografía + estado:** [`PLAN_TIPOGRAFIA_Y_ESTADO.md`](PLAN_TIPOGRAFIA_Y_ESTADO.md)
+
+1. **P0 tipografía:** tokens `--type-*` + recalibrar home/mobile (títulos que no caben)
+2. **P0 fotos:** generar `home-hero-evelyn` + `home-about-evelyn` (`docs/prompts/evelyn-home-hero-about.json` — cara Evelyn)
+3. Pegar en Vercel `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (hasta entonces WhatsApp fallback)
+4. Recursos home + Resend prod + Hotmart Ciclo Nova
+5. Decidir futuro de rutas espirituales (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`)
 
 ---
 

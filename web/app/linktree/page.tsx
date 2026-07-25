@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
@@ -108,9 +109,9 @@ function HubLinkCard({
           {inner}
         </a>
       ) : (
-        <a href={href} className={className}>
+        <Link href={href} className={className}>
           {inner}
-        </a>
+        </Link>
       )}
     </motion.div>
   )
@@ -169,11 +170,11 @@ export default function LinktreePage() {
         </nav>
 
         <p className="linktree-foot">
-          <a href="/">← Volver al inicio</a>
+          <Link href="/">← Volver al inicio</Link>
           <span aria-hidden>·</span>
-          <a href="/sesion-estrategica">Sesión 25 CHF</a>
+          <Link href="/sesion-estrategica">Sesión 25 CHF</Link>
           <span aria-hidden>·</span>
-          <a href="/servicios">Servicios</a>
+          <Link href="/servicios">Servicios</Link>
         </p>
       </div>
     </main>
