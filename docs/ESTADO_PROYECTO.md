@@ -75,9 +75,20 @@ y todas las páginas del estudio están unificadas a ese sistema.
 
 ---
 
+## Embudo comercial (julio 2026)
+
+Fuente: [`PLAN_CIERRE_EMBUDO.md`](PLAN_CIERRE_EMBUDO.md)
+
+- LPs madre: `/lp/automatizaciones|paginas-web|landing-pages|google-ads`
+- LPs hija (paquetes): `/lp/[service]/[pack]` (Arranque, Pro, Sitio+Ads, etc.)
+- Pre-análisis: `/descubrimiento` → lectura async → sesión `/sesion-estrategica` (25 CHF)
+- CTA canónico: **Hacer mi pre-análisis** (ya no “diagnóstico gratis 20 min” como call)
+
 ## Pendientes / siguiente
 
-1. Decidir el futuro de las rutas espirituales (`/oraculo`, `/universo`, `/cursos`,
+1. Wizard didáctico multi-paso en `/descubrimiento` + Stripe/Calendly live
+2. LPs de libros (`/lp/libros/*`) + kit FL con UTMs
+3. Decidir el futuro de las rutas espirituales (`/oraculo`, `/universo`, `/cursos`,
    `/sobre-elara`): rediseñarlas al sistema editorial o retirarlas.
 2. Hotmart links reales en productos digitales.
 3. Resend en producción (env vars) para `/api/discovery`.
