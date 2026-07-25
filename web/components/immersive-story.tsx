@@ -1,11 +1,17 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
 function ScreenBase({ children }: { children: React.ReactNode }) {
   return (
-    <svg viewBox="0 0 400 290" role="img" aria-hidden="true" className="immersive-screen" preserveAspectRatio="none">
+    <svg
+      viewBox="0 0 400 290"
+      role="img"
+      aria-hidden="true"
+      className="immersive-screen"
+      preserveAspectRatio="none"
+    >
       {children}
     </svg>
   )
@@ -23,8 +29,24 @@ function VerScreen() {
         <circle cx={350} cy={110} r={5} />
         <circle cx={100} cy={140} r={4} />
       </g>
-      <circle cx={200} cy={150} r={70} fill="none" stroke="rgba(212,175,55,0.18)" strokeWidth={1.5} className="scene-node scene-node--d3" />
-      <circle cx={200} cy={150} r={42} fill="none" stroke="rgba(212,175,55,0.45)" strokeWidth={2} className="scene-node scene-node--d2" />
+      <circle
+        cx={200}
+        cy={150}
+        r={70}
+        fill="none"
+        stroke="rgba(212,175,55,0.18)"
+        strokeWidth={1.5}
+        className="scene-node scene-node--d3"
+      />
+      <circle
+        cx={200}
+        cy={150}
+        r={42}
+        fill="none"
+        stroke="rgba(212,175,55,0.45)"
+        strokeWidth={2}
+        className="scene-node scene-node--d2"
+      />
       <circle cx={200} cy={150} r={18} fill="none" stroke="#F2D578" strokeWidth={3} className="scene-node" />
       <circle cx={200} cy={150} r={7} fill="#D4AF37" className="scene-node" />
       <g fill="#F2D578">
@@ -150,14 +172,23 @@ function LanzarScreen() {
         <circle cx={215} cy={145} r={6.5} className="scene-pop scene-pop--d2" />
       </g>
       <circle cx={320} cy={78} r={10} fill="#D4AF37" className="scene-node" />
-      <circle cx={320} cy={78} r={20} fill="none" stroke="rgba(242,213,120,0.65)" strokeWidth={2} className="scene-node scene-node--d2" />
+      <circle
+        cx={320}
+        cy={78}
+        r={20}
+        fill="none"
+        stroke="rgba(242,213,120,0.65)"
+        strokeWidth={2}
+        className="scene-node scene-node--d2"
+      />
     </ScreenBase>
   )
 }
 
 type Step = {
   number: string
-  eyebrow: string
+  /** Palabra del banner / rail (única vez) */
+  word: string
   titleImpact: string
   titleScript: string
   text: string
@@ -167,41 +198,47 @@ type Step = {
 const steps: readonly Step[] = [
   {
     number: '01',
-    eyebrow: 'Ver',
+    word: 'Ver',
     titleImpact: 'Miro tu',
-    titleScript: 'negocio de verdad',
-    text: 'Entiendo el problema real: qué te frena, qué se pierde y dónde estás gastando de más.',
+    titleScript: 'negocio real',
+    text: 'Qué te frena, qué se pierde y dónde estás gastando de más — sin adornos.',
     Screen: VerScreen,
   },
   {
     number: '02',
-    eyebrow: 'Analizar',
-    titleImpact: 'Encuentro',
-    titleScript: 'el patrón',
-    text: 'Ordeno el caos en una estructura clara: qué automatizar, qué construir y en qué orden.',
+    word: 'Analizar',
+    titleImpact: 'Ordeno',
+    titleScript: 'el caos',
+    text: 'Qué automatizar, qué construir y en qué orden. Una ruta, no una lista de deseos.',
     Screen: AnalizarScreen,
   },
   {
     number: '03',
-    eyebrow: 'Crear',
+    word: 'Crear',
     titleImpact: 'Le doy forma',
     titleScript: 'que vende',
-    text: 'Diseño y construyo la web, la automatización o el sistema — pensado para convertir.',
+    text: 'Web, automatización o sistema — pensado para convertir, no para decorar.',
     Screen: CrearScreen,
   },
   {
     number: '04',
-    eyebrow: 'Lanzar',
+    word: 'Lanzar',
     titleImpact: 'El sistema',
     titleScript: 'se mueve solo',
-    text: 'Automatización, medición y campañas conectadas. Tu negocio trabaja aunque vos no estés.',
+    text: 'Medición y flujos conectados. Tu negocio sigue aunque vos no estés.',
     Screen: LanzarScreen,
   },
-]
+] as const
 
 export function ImmersiveStory() {
   const [active, setActive] = useState(0)
   const chapterRefs = useRef<(HTMLElement | null)[]>([])
+  const stageRef = useRef<HTMLDivElement | null>(null)
+  const reduceMotion = useRef(false)
+
+  useEffect(() => {
+    reduceMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  }, [])
 
   useEffect(() => {
     const nodes = chapterRefs.current.filter((node): node is HTMLElement => node !== null)
@@ -216,20 +253,43 @@ export function ImmersiveStory() {
           setActive(index)
         }
       },
-      { rootMargin: '-30% 0px -30% 0px', threshold: [0.2, 0.5, 0.8] },
+      { rootMargin: '-28% 0px -28% 0px', threshold: [0.25, 0.55, 0.8] },
     )
 
     nodes.forEach((node) => observer.observe(node))
     return () => observer.disconnect()
   }, [])
 
-  const word = steps[active].eyebrow.toUpperCase()
+  const goToStep = useCallback((index: number) => {
+    const node = chapterRefs.current[index]
+    if (!node) return
+    node.scrollIntoView({
+      behavior: reduceMotion.current ? 'auto' : 'smooth',
+      block: 'center',
+    })
+    setActive(index)
+  }, [])
+
+  const onStagePointer = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    const stage = stageRef.current
+    if (!stage || reduceMotion.current) return
+    const rect = stage.getBoundingClientRect()
+    const x = ((event.clientX - rect.left) / rect.width) * 100
+    const y = ((event.clientY - rect.top) / rect.height) * 100
+    stage.style.setProperty('--imm-x', `${x}%`)
+    stage.style.setProperty('--imm-y', `${y}%`)
+  }, [])
+
+  const word = steps[active].word.toUpperCase()
 
   return (
     <section className="immersive-story" aria-labelledby="immersive-title">
-      <div className="immersive-story__stage" aria-hidden="true">
-        <div className="immersive-story__scene">
-          {/* photo-box 16:9 cubre el stage; % de pantalla = % de la imagen */}
+      <div
+        ref={stageRef}
+        className="immersive-story__stage"
+        onPointerMove={onStagePointer}
+      >
+        <div className="immersive-story__scene" aria-hidden="true">
           <div className="immersive-story__photo">
             <img
               className="immersive-story__bg"
@@ -249,29 +309,53 @@ export function ImmersiveStory() {
             </div>
           </div>
           <div className="immersive-story__veil" />
+          <div className="immersive-story__cursor-glow" />
         </div>
 
-        <p key={word} className="immersive-story__word">
+        <p key={word} className="immersive-story__word" aria-hidden="true">
           {word.split('').map((letter, i) => (
-            <span key={`${letter}-${i}`} style={{ animationDelay: `${i * 70}ms` }}>
+            <span key={`${letter}-${i}`} style={{ animationDelay: `${i * 55}ms` }}>
               {letter}
             </span>
           ))}
         </p>
 
-        <div className="immersive-story__progress">
+        <nav className="immersive-story__rail" aria-label="Pasos del método">
+          {steps.map((step, index) => (
+            <button
+              key={step.number}
+              type="button"
+              className={index === active ? 'is-active' : ''}
+              aria-current={index === active ? 'step' : undefined}
+              onClick={() => goToStep(index)}
+            >
+              <span className="immersive-story__rail-n">{step.number}</span>
+              <span className="immersive-story__rail-w">{step.word}</span>
+            </button>
+          ))}
+        </nav>
+
+        <div className="immersive-story__progress" aria-hidden="true">
           <span style={{ transform: `scaleX(${(active + 1) / steps.length})` }} />
         </div>
       </div>
 
       <div className="immersive-story__chapters">
-        <header>
-          <EyebrowForClient>Mi proceso</EyebrowForClient>
+        <header className="immersive-story__intro">
+          <p className="home-eyebrow home-eyebrow--light">
+            <span aria-hidden="true" />
+            Mi método · 4 movimientos
+          </p>
           <h2 id="immersive-title" className="type-lockup type-lockup--glow">
-            <span className="type-lockup__impact">Ver · Analizar</span>
-            <em className="type-lockup__script">Crear · Lanzar</em>
+            <span className="type-lockup__impact">Así</span>
+            <em className="type-lockup__script">te trabajo</em>
           </h2>
+          <p className="immersive-story__intro-lead">
+            Scroll o tocá el rail: la laptop cambia con cada paso. Eso es lo que construyo para vos —
+            sistemas que se ven y se sienten vivos.
+          </p>
         </header>
+
         {steps.map((step, index) => (
           <article
             key={step.number}
@@ -281,25 +365,24 @@ export function ImmersiveStory() {
             data-chapter={index}
             className={index === active ? 'is-active' : ''}
           >
-            <span>{step.number}</span>
-            <p>{step.eyebrow}</p>
+            <div className="immersive-story__chapter-top">
+              <span className="immersive-story__chapter-n">{step.number}</span>
+              <button
+                type="button"
+                className="immersive-story__chapter-jump"
+                onClick={() => goToStep(index)}
+              >
+                Paso {step.word}
+              </button>
+            </div>
             <h3 className="type-lockup type-lockup--glow">
               <span className="type-lockup__impact">{step.titleImpact}</span>
               <em className="type-lockup__script">{step.titleScript}</em>
             </h3>
-            <small>{step.text}</small>
+            <p className="immersive-story__chapter-body">{step.text}</p>
           </article>
         ))}
       </div>
     </section>
-  )
-}
-
-function EyebrowForClient({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="home-eyebrow home-eyebrow--light">
-      <span aria-hidden="true" />
-      {children}
-    </p>
   )
 }

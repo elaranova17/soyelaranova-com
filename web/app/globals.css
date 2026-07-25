@@ -1773,10 +1773,12 @@ h1, h2, h3,
 }
 
 .immersive-story {
+  --imm-x: 42%;
+  --imm-y: 48%;
   position: relative;
   display: grid;
-  min-height: 340vh;
-  grid-template-columns: minmax(0, 1.32fr) minmax(22rem, .68fr);
+  min-height: 240vh;
+  grid-template-columns: minmax(0, 1.28fr) minmax(20rem, 0.72fr);
   background: var(--editorial-aubergine);
   color: var(--editorial-ivory);
 }
@@ -1796,7 +1798,7 @@ h1, h2, h3,
   background: var(--editorial-aubergine);
 }
 
-/* Caja 16:9 que hace cover del stage; sesgo a la izquierda (laptop) */
+/* Caja 16:9 cover; laptop a la izquierda */
 .immersive-story__photo {
   position: absolute;
   top: 50%;
@@ -1804,29 +1806,46 @@ h1, h2, h3,
   z-index: 0;
   width: max(100cqw, calc(100cqh * 16 / 9));
   height: max(100cqh, calc(100cqw * 9 / 16));
-  /* laptop ya vive a la izquierda en la foto nueva; sesgo leve */
-  transform: translate(-46%, -50%);
+  transform: translate(-46%, -50%) scale(1.02);
+  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* Foto full-bleed, leve difuminado atmosférico */
+/* Foto nítida — sin blur que ensucia el desk */
 .immersive-story__bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  filter: blur(1.1px) saturate(1.06);
+  object-fit: cover;
+  object-position: 38% 45%;
+  filter: saturate(1.08) contrast(1.04);
 }
 
-/* velo: aire derecho para la palabra; laptop queda legible */
+/* velo: aire para tipografía; laptop legible */
 .immersive-story__veil {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, transparent 0%, transparent 38%, rgb(26 15 61 / .35) 68%, rgb(26 15 61 / .7) 100%),
-    linear-gradient(180deg, rgb(10 0 16 / .15) 0%, transparent 30%, rgb(10 0 16 / .28) 100%);
+    linear-gradient(100deg, transparent 0%, transparent 42%, rgb(26 15 61 / .28) 72%, rgb(26 15 61 / .78) 100%),
+    linear-gradient(180deg, rgb(10 0 16 / .22) 0%, transparent 28%, rgb(10 0 16 / .45) 100%);
   pointer-events: none;
+}
+
+/* Glow que sigue el puntero — sensación “vivo” */
+.immersive-story__cursor-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    28rem 22rem at var(--imm-x) var(--imm-y),
+    rgb(184 154 88 / 0.22),
+    transparent 62%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  transition: background-position 0.15s linear;
 }
 
 /* Pantalla del laptop — bbox exacto del chroma (slide frontal 2026-07) */
@@ -1900,19 +1919,19 @@ h1, h2, h3,
 .immersive-story__word {
   position: absolute;
   z-index: 4;
-  right: clamp(1rem, 4vw, 3.5rem);
-  bottom: clamp(3.5rem, 10vh, 7rem);
-  max-width: min(92vw, 18ch);
+  right: clamp(1rem, 3.5vw, 2.75rem);
+  bottom: clamp(5.5rem, 12vh, 8rem);
+  max-width: min(88vw, 11ch);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   overflow: hidden;
   margin: 0;
   font-family: var(--font-display);
-  font-size: var(--type-word);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
   font-weight: 400;
-  letter-spacing: 0.06em;
-  line-height: 0.9;
+  letter-spacing: 0.07em;
+  line-height: 0.88;
   text-transform: uppercase;
   color: var(--editorial-ivory);
   text-shadow: var(--text-glow-gold);
@@ -1921,15 +1940,74 @@ h1, h2, h3,
 
 .immersive-story__word span {
   display: inline-block;
-  transform: translateY(-110%);
+  transform: translateY(-110%) rotate(-4deg);
   opacity: 0;
-  animation: eln-letter .65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: eln-letter 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 @keyframes eln-letter {
-  0% { transform: translateY(-110%); opacity: 0; }
-  60% { opacity: 1; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(-110%) rotate(-4deg); opacity: 0; }
+  55% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+/* Rail interactivo — clic = salto de capítulo */
+.immersive-story__rail {
+  position: absolute;
+  z-index: 5;
+  left: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.immersive-story__rail button {
+  display: grid;
+  gap: 0.15rem;
+  align-content: center;
+  min-height: 3.1rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgb(248 243 234 / 0.18);
+  background: rgb(24 19 26 / 0.45);
+  backdrop-filter: blur(8px);
+  color: var(--editorial-lavender);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.immersive-story__rail button:hover {
+  border-color: rgb(184 154 88 / 0.55);
+  color: var(--editorial-ivory);
+  transform: translateY(-2px);
+}
+
+.immersive-story__rail button.is-active {
+  border-color: var(--editorial-gold);
+  background: color-mix(in srgb, var(--editorial-gold) 16%, rgb(24 19 26 / 0.55));
+  color: var(--editorial-ivory);
+  box-shadow: 0 0 24px rgb(184 154 88 / 0.22);
+}
+
+.immersive-story__rail-n {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--editorial-gold);
+}
+
+.immersive-story__rail-w {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .immersive-story__media {
@@ -2010,11 +2088,11 @@ h1, h2, h3,
 .immersive-story__progress {
   position: absolute;
   z-index: 3;
-  right: 2rem;
-  bottom: 2rem;
-  left: 2rem;
-  height: 1px;
-  background: rgb(248 243 234 / .18);
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: 0.55rem;
+  left: clamp(1rem, 3vw, 2rem);
+  height: 2px;
+  background: rgb(248 243 234 / 0.14);
 }
 
 .immersive-story__progress span {
@@ -2022,99 +2100,133 @@ h1, h2, h3,
   width: 100%;
   height: 100%;
   transform-origin: left;
-  background: var(--editorial-gold);
-  transition: transform .5s ease;
+  background: linear-gradient(90deg, var(--editorial-gold), #F2D578);
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 0 16px rgb(184 154 88 / 0.45);
 }
 
 .immersive-story__chapters {
   position: relative;
   z-index: 5;
-  padding: 7rem clamp(1.5rem, 4vw, 5rem);
-  background: linear-gradient(90deg, rgb(43 23 53 / .72), var(--editorial-aubergine));
+  padding: clamp(3.5rem, 7vh, 5rem) clamp(1.25rem, 3.5vw, 3.5rem) clamp(4rem, 8vh, 6rem);
+  background: linear-gradient(105deg, rgb(43 23 53 / 0.88), var(--editorial-aubergine) 55%);
 }
 
-.immersive-story__chapters > header {
-  min-height: 52vh;
+/* Intro compacta — ya NO repite VER · ANALIZAR */
+.immersive-story__intro {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(184 154 88 / 0.28);
 }
 
-.immersive-story__chapters > header h2.type-lockup {
-  max-width: min(14ch, 100%);
-  margin-top: 1.35rem;
+.immersive-story__intro h2.type-lockup {
+  max-width: min(12ch, 100%);
   font-size: var(--type-section);
 }
 
-.immersive-story__chapters > header h2 .type-lockup__script {
-  font-size: var(--type-script-ratio);
+.immersive-story__intro-lead {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--editorial-lavender);
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .immersive-story__chapters article {
   display: grid;
-  min-height: 68vh;
+  gap: 0.65rem;
+  min-height: 48vh;
   align-content: center;
-  opacity: .28;
-  transition: opacity .6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  padding: 1.25rem 0;
+  opacity: 0.3;
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateY(10px);
 }
 
 .immersive-story__chapters article.is-active {
   opacity: 1;
-}
-
-/* transición de texto lateral: el bloque entra deslizando con stagger */
-.immersive-story__chapters article > p,
-.immersive-story__chapters article h3,
-.immersive-story__chapters article small {
-  transform: translateY(16px);
-  transition: transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.immersive-story__chapters article h3 { transition-delay: .07s; }
-.immersive-story__chapters article small { transition-delay: .14s; }
-
-.immersive-story__chapters article.is-active > p,
-.immersive-story__chapters article.is-active h3,
-.immersive-story__chapters article.is-active small {
   transform: translateY(0);
 }
 
-.immersive-story__chapters article > span {
-  color: var(--editorial-gold);
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+.immersive-story__chapter-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
-.immersive-story__chapters article > p {
-  margin-top: 2rem;
+.immersive-story__chapter-n {
   color: var(--editorial-gold);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.immersive-story__chapter-jump {
+  border: 0;
+  background: transparent;
+  color: var(--editorial-lavender);
   font-family: var(--font-sans);
-  font-size: .68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: .22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.immersive-story__chapter-jump:hover,
+.immersive-story__chapters article.is-active .immersive-story__chapter-jump {
+  color: var(--editorial-gold);
+  border-bottom-color: rgb(184 154 88 / 0.55);
 }
 
 .immersive-story__chapters article h3.type-lockup {
-  max-width: min(14ch, 100%);
-  margin-top: 0.85rem;
+  max-width: min(13ch, 100%);
+  margin: 0;
   font-size: var(--type-immersive);
 }
 
 .immersive-story__chapters article h3 .type-lockup__script {
   font-size: 0.5em;
-  max-width: 14ch;
+  max-width: 13ch;
 }
 
-.immersive-story__chapters article small {
-  max-width: 28rem;
-  margin-top: 1.5rem;
+.immersive-story__chapter-body {
+  max-width: 26rem;
+  margin: 0.35rem 0 0;
   color: var(--editorial-lavender);
   font-family: var(--font-sans);
-  font-size: .95rem;
+  font-size: 0.98rem;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
-  line-height: 1.75;
+  line-height: 1.7;
+}
+
+.immersive-story__chapters article h3,
+.immersive-story__chapter-body {
+  transform: translateY(12px);
+  transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.immersive-story__chapters article h3 {
+  transition-delay: 0.05s;
+}
+
+.immersive-story__chapter-body {
+  transition-delay: 0.1s;
+}
+
+.immersive-story__chapters article.is-active h3,
+.immersive-story__chapters article.is-active .immersive-story__chapter-body {
+  transform: translateY(0);
 }
 
 .home-products__header {
@@ -2976,24 +3088,39 @@ h1, h2, h3,
     top: 4.5rem;
   }
 
-  /* word-banner del slide: cabe en viewport sin comer el stage */
   .immersive-story__word {
     right: 0.85rem;
-    bottom: 3rem;
-    max-width: min(90vw, 12ch);
-    font-size: var(--type-word);
+    bottom: 5.25rem;
+    max-width: min(88vw, 10ch);
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .immersive-story__rail {
+    gap: 0.3rem;
+    bottom: 1rem;
+  }
+
+  .immersive-story__rail button {
+    min-height: 2.75rem;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .immersive-story__rail-w {
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
   }
 
   .immersive-story__chapters {
-    padding: 4rem 1.25rem;
+    padding: 2.75rem 1.25rem 3.5rem;
   }
 
-  .immersive-story__chapters > header {
-    min-height: 48vh;
+  .immersive-story__intro {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.1rem;
   }
 
   .immersive-story__chapters article {
-    min-height: 72vh;
+    min-height: 42vh;
   }
 }
 
@@ -3052,11 +3179,18 @@ h1, h2, h3,
     transform: none;
   }
 
-  .immersive-story__chapters article > p,
   .immersive-story__chapters article h3,
-  .immersive-story__chapters article small {
+  .immersive-story__chapter-body {
     transform: none;
     transition: none;
+  }
+
+  .immersive-story__cursor-glow {
+    display: none;
+  }
+
+  .immersive-story__rail button:hover {
+    transform: none;
   }
 }
 
