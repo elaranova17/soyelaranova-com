@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "brand": "Elara Nova · CapCut glow chic",
+    "created": "2026-07-25",
+    "purpose": "Reemplazar las 2 fotos del HOME que Evelyn pidió borrar para siempre (hero + Sobre mí). Eran la serie desk blusa crema + lámpara dorada + monstera.",
+    "model_default": "Gemini image / Ideogram (photoreal) · face lock con referencia editorial permitida",
+    "face_reference_allowed": [
+      "web/public/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg",
+      "web/public/_assets/photos/kit-web-real/evelyn-de-pie.jpg"
+    ],
+    "face_reference_FORBIDDEN": [
+      "cualquier 00-identidad-*",
+      "evelyn_pro_perfil",
+      "evelyn_pro_hero",
+      "01-hero-evelyn",
+      "02-bio-evelyn",
+      "evelyn-estudio-profesional",
+      "selfies buso blanco / pelo corto sin peluca / Mickey"
+    ]
+  },
+  "palette": {
+    "ivory": "#F8F3EA",
+    "smoke": "#E7E1DC",
+    "ink": "#18131A",
+    "plum": "#4A2D57",
+    "aubergine": "#2B1735",
+    "gold": "#B89A58",
+    "cacao": "#6B5147"
+  },
+  "identity_lock_EVELYN": {
+    "es_mia": true,
+    "nota": "ESTAS DOS FOTOS TIENEN QUE SER DE EVELYN PATIÑO (su cara). No stock. No otra modelo.",
+    "must_match": [
+      "mujer latina ~28–32 años, piel medium-light con pecas visibles en nariz y mejillas",
+      "ojos café-avellana claros",
+      "cejas densas definidas",
+      "aro pequeño dorado/plateado en fosa nasal derecha",
+      "labios naturales, no overfilled",
+      "cabello largo oscuro con ondas suaves (look peluca/studio Elara — NO pelo corto pixie natural)"
+    ],
+    "wardrobe_NEW_not_deleted_series": [
+      "NO blusa seda crema abotonada del lote borrado",
+      "NO lámpara dorada de escritorio + monstera + pared aubergine partida (esa composición está prohibida)",
+      "SÍ: blazer camel/taupe O top aubergine profundo O satén ivory con blazer chocolate",
+      "accesorios mínimos: aro nariz + posible aro fino oro"
+    ]
+  },
+  "negative_prompt_common": "short pixie hair, buzz cut, white Mickey Mouse sweatshirt, plain phone selfie, bathroom mirror, messy bedroom, plastic AI skin, extra fingers, warped hands, neon purple-pink gradient, Inter font UI, stock handshake, watermark, logo text, celebrity lookalike, different ethnicity, heavy makeup glam, fish-eye, harsh phone flash, the exact deleted desk scene with gold lamp and monstera and cream silk blouse",
+  "shots": [
+    {
+      "id": "home-hero-evelyn",
+      "es_mia": true,
+      "prioridad": "P0 — HOME hero izquierda (la que circulaste arriba)",
+      "file": "home-hero-evelyn.webp",
+      "save_to": "web/public/_assets/photos/kit-web-real/home-hero-evelyn.webp",
+      "wire_to": "evelynPhotos.homeHero en web/lib/evelyn-photos.ts",
+      "aspect_ratio": "4:5 vertical (también sirve 3:4)",
+      "min_px": "1600 × 2000",
+      "composition": {
+        "framing": "medio-cuerpo a 3/4, Evelyn a la IZQUIERDA del frame con espacio negativo a la derecha para tipografía del hero",
+        "gaze": "mira a cámara con media sonrisa segura (ingeniera, no influencer)",
+        "camera": "85mm equivalent, aperture f/2.0, shallow DOF, eye-level",
+        "crop_safe": "ojos en tercio superior; no cortar coronilla ni hombros"
+      },
+      "set_design": {
+        "location": "rincón de estudio editorial en Lausana — NO la escena desk lamp+monstera borrada",
+        "background": "pared texturizada aubergine #2B1735 a un lado + panel ivory #F8F3EA al otro, sin monstera gigante, sin lámpara dorada de escritorio encendida como protagonista",
+        "props_allowed": "silla velvet taupe, borde de mesa nogal muy al frente (opcional), un libro linen cerrado sin título, pen gold fino — props mínimos",
+        "light": "luz ventana suave lateral izquierda + fill cálido; glow dorado sutil en highlight de pelo (CapCut glow chic)"
+      },
+      "wardrobe": "blazer camel estructurado sobre top ivory de cuello limpio (NO seda crema abotonada del lote viejo); sin logos",
+      "prompt": "Photoreal editorial portrait of Evelyn Patiño, Latina woman late 20s, medium-light skin with natural freckles across nose and cheeks, hazel-brown eyes, defined dark brows, small gold hoop nose ring on right nostril, long dark wavy hair (studio wig length past shoulders, center part). She wears a tailored camel blazer over a clean ivory crew top — NOT a shiny cream silk button-down. Medium-close 4:5 vertical, body angled 20° left, face to camera, calm confident half-smile. Background: split wall deep aubergine #2B1735 and warm ivory #F8F3EA, soft textured plaster, NO monstera plant, NO gold desk lamp, NO laptop typing scene. Soft window light from camera-left, subtle gold rim light in hair, CapCut glow chic cream/aubergine/gold palette, 85mm, f/2, shallow depth of field, high-end personal brand photo for soyelaranova.com home hero. Leave clean negative space on the right side of frame for typography overlay.",
+      "variants": [
+        "A: blazer camel + top ivory (preferida)",
+        "B: blazer chocolate + top aubergine",
+        "C: satén ivory + blazer taupe, misma pose"
+      ],
+      "acceptance": [
+        "Se reconoce como Evelyn (misma cara que evelyn-editorial-mistico / evelyn-de-pie)",
+        "NO parece la foto vieja del laptop + lámpara dorada + monstera",
+        "Funciona a la izquierda del hero con texto a la derecha en desktop",
+        "Mobile crop centrado en cara sigue legible"
+      ]
+    },
+    {
+      "id": "home-about-evelyn",
+      "es_mia": true,
+      "prioridad": "P0 — HOME Sobre mí (la que circulaste abajo)",
+      "file": "home-about-evelyn.webp",
+      "save_to": "web/public/_assets/photos/kit-web-real/home-about-evelyn.webp",
+      "wire_to": "evelynPhotos.homeAbout en web/lib/evelyn-photos.ts",
+      "aspect_ratio": "3:4 vertical",
+      "min_px": "1400 × 1860",
+      "composition": {
+        "framing": "retrato vertical 3/4 o head-and-shoulders, Evelyn centrada o leve izquierda",
+        "gaze": "mira ligeramente fuera de cámara (derecha) O a cámara — sonrisa cálida auténtica, no risa exagerada",
+        "camera": "85mm, f/2.2, soft focus background",
+        "mood": "cercana, humana, 'soy yo Evelyn' — sección Sobre mí"
+      },
+      "set_design": {
+        "location": "fondo editorial limpio, distinto al hero",
+        "background": "aubergine sólido suave #2B1735 con gradiente a plum #4A2D57 O ivory con sombra suave — SIN escritorio, SIN laptop, SIN lámpara dorada, SIN monstera",
+        "props_allowed": "ninguno en primer plano; máximo un blur de planta seca o tela linen fuera de foco",
+        "light": " Rembrandt suave / butterfly light, highlight dorado tenue en pómulos"
+      },
+      "wardrobe": "top aubergine profundo o blazer camel (distinto color que el hero para no clonar); sin logos; cuello limpio",
+      "prompt": "Photoreal warm portrait of Evelyn Patiño for About section: Latina woman late 20s, freckles, hazel-brown eyes, small right-nostril gold hoop, long dark wavy hair past shoulders. Friendly genuine smile, chin slightly tilted, looking toward camera. Wearing a deep aubergine #2B1735 soft structured top (NOT cream silk blouse). Vertical 3:4, head-and-shoulders with breathing room above hair. Background: smooth deep aubergine to plum gradient, no desk, no laptop, no gold lamp, no monstera, no office clutter. Soft flattering light, CapCut glow chic, natural skin texture (not plastic), personal brand photo for soyelaranova.com Sobre mí. Photorealistic, 85mm lens look.",
+      "variants": [
+        "A: top aubergine, fondo ivory suave (preferida para sección clara)",
+        "B: blazer camel, fondo aubergine (más contraste)",
+        "C: misma A con mirada 15° off-camera"
+      ],
+      "acceptance": [
+        "Cara claramente Evelyn (es mía)",
+        "Cero parecido a la foto perfil-laptop borrada",
+        "Encaja en el frame home-work__visual con nombre 'Evelyn Patiño' debajo",
+        "Se ve bien en mobile (~320px de ancho)"
+      ]
+    }
+  ],
+  "optional_followups_also_es_mia": [
+    {
+      "id": "portfolio-hero-evelyn",
+      "es_mia": true,
+      "nota": "También borramos 01-hero-evelyn (misma serie). Cuando tengas home listo, genera esta para /portfolio.",
+      "file": "portfolio-hero-evelyn.webp",
+      "aspect_ratio": "16:9 o 3:2 landscape",
+      "prompt_short": "Evelyn en estudio CapCut (blazer camel), landscape wide, mirando cámara, fondo aubergine/ivory, SIN laptop typing scene ni lámpara dorada+monstera."
+    },
+    {
+      "id": "portfolio-about-evelyn",
+      "es_mia": true,
+      "file": "portfolio-about-evelyn.webp",
+      "aspect_ratio": "4:5",
+      "prompt_short": "Evelyn 3/4 en perfil suave (no typing), blazer chocolate, fondo ivory, CapCut glow."
+    }
+  ],
+  "after_generate": [
+    "Export WebP quality ~82–85, strip EXIF/GPS",
+    "Guardar exactamente en save_to de cada shot",
+    "Actualizar web/lib/evelyn-photos.ts: homeHero y homeAbout a las rutas nuevas",
+    "Correr: cd web && npm run verify:assets && npm run build",
+    "NO volver a subir evelyn_pro_hero / 01-hero / 02-bio / evelyn-estudio-profesional (verify falla)"
+  ]
+}

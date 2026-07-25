@@ -56,6 +56,13 @@ const bannedPaths = [
   '_assets/photos/kit-web-real/00-identidad-sonrisa.jpg',
   '_assets/photos/kit-web-real/00-identidad-sonrisa.webp',
   '_assets/photos/evelyn_pro_perfil.jpg', // selfie privada buso blanco
+  // Serie desk blusa crema + lámpara dorada + monstera — prohibida para siempre
+  '_assets/photos/evelyn_pro_hero.jpg',
+  '_assets/photos/kit-web-real/01-hero-evelyn.jpg',
+  '_assets/photos/kit-web-real/01-hero-evelyn.webp',
+  '_assets/photos/kit-web-real/02-bio-evelyn.jpg',
+  '_assets/photos/kit-web-real/02-bio-evelyn.webp',
+  '_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
   '_assets/photos/kit-web-real/higgs-out',
   '_assets/photos/kit-web-real/evelyn-higgsfield-PROMPTS.txt',
   '_assets/photos/kit-web-real/evelyn-higgsfield-identity.json',
