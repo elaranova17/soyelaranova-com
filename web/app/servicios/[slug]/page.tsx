@@ -58,7 +58,13 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             <h1 className="mt-4 max-w-5xl font-display text-[3.1rem] leading-[0.98] md:text-[5.6rem]">
               {service.title}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--studio-paper)]/70">
+            <p className="mt-7 max-w-2xl text-base leading-8 text-[var(--studio-paper)]/78">
+              <span className="mb-2 block text-[0.64rem] font-black tracking-[0.28em] text-[var(--studio-gold)] uppercase">
+                Qué es esto
+              </span>
+              {service.whatIs}
+            </p>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--studio-paper)]/70">
               {service.promise}
             </p>
           </div>
