@@ -43,11 +43,12 @@ usar `--editorial-*` directamente. **No inventar colores.**
 
 ### Tipografía
 
-- **Display:** Fraunces (`--font-display`) — titulares, peso 400, `opsz` alto, WONK.
-- **Serif:** Cormorant Garamond itálica (`--font-serif`) — citas, frases em.
-- **Sans:** Manrope (`--font-sans`) — cuerpo, labels, tracking amplio en uppercase.
+- **Display:** Bodoni Moda (`--font-display` / `--font-bodoni`) — titulares imponentes, peso 400, `opsz` alto.
+- **Caligrafía:** Pinyon Script (`--font-script` / `--font-serif`) — marca, logo, `em` cortos que venden.
+- **Sans:** Manrope (`--font-sans`) — cuerpo, labels, CTAs, tracking amplio en uppercase.
 
-(Playfair Display y Lato pertenecen a la era anterior — no reintroducir.)
+Usar la caligrafía solo en acentos cortos (nombre de marca, una frase em). Nunca párrafos largos en script.
+(Playfair Display, Fraunces y Lato quedan fuera del look canónico actual.)
 
 ### Componentes/clases canónicos
 
