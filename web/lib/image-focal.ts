@@ -3,6 +3,13 @@
  * Valores CSS object-position (ej. "center 28%").
  */
 export const IMAGE_FOCAL: Record<string, string> = {
+  '/_assets/photos/evelyn_pro_perfil.jpg': 'center 28%',
+  '/_assets/photos/evelyn_pro_hero.jpg': '58% 24%',
+  '/_assets/photos/kit-web-real/02-bio-evelyn.jpg': '70% 18%',
+  '/_assets/photos/kit-web-real/02-bio-evelyn.webp': '70% 18%',
+  '/_assets/photos/kit-web-real/01-hero-evelyn.jpg': 'center 22%',
+  '/_assets/photos/kit-web-real/01-hero-evelyn.webp': 'center 22%',
+  '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg': '28% 18%',
   '/images/curso-astrologia.png': 'center 22%',
   '/images/meditacion-lunar.png': 'center 30%',
   '/images/herramienta-oraculo.png': 'center 35%',
