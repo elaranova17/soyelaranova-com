@@ -1,6 +1,6 @@
 ---
 name: elara-ui-master
-description: Implementación UI/UX premium en Next.js para soyelaranova.com — tokens, componentes ornamentales, carta oráculo, forms, motion. Lee docs/DISENO_MAESTRO sprint activo, docs/brand.md, CONTEXT_CURSOR.md. TypeScript strict, sin component libraries.
+description: Implementación UI/UX premium en Next.js para soyelaranova.com — tokens CapCut, forms, motion. Lee docs/brand.md y docs/ESTADO_PROYECTO.md. TypeScript strict, sin component libraries.
 ---
 
 # Elara UI Master · web/

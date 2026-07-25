@@ -98,12 +98,6 @@ Vercel despliega automáticamente al push en `main`. No force-push a `main`.
 
 ---
 
-## Netlify (legacy)
-
-Existe `netlify.toml` en la raíz con `base = "web"`. **No es el deploy activo.** Mantener solo como referencia histórica.
-
----
-
 ## Portfolio Evelyn (B2B)
 
 Rutas: `/portfolio`, `/cv`, `/linktree`, `/casos-exito`, `/descubrimiento`, `/propuesta-{cliente}` (ej. `/propuesta-val-debarras`). La plantilla genérica **no** es pública (`/propuesta` → `/descubrimiento`).  

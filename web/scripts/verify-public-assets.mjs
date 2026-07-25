@@ -70,7 +70,7 @@ async function checkNoFantasyJpgInImages() {
   const jpgs = files.filter((f) => f.toLowerCase().endsWith('.jpg') || f.toLowerCase().endsWith('.jpeg'))
   for (const name of jpgs) {
     errors.push(
-      `JPG prohibido en public/images/: ${name} — archivar en 06_ARCHIVO/ y usar .png ilustrado`,
+      `JPG prohibido en public/images/: ${name} — usar solo .png ilustrado en rutas espirituales`,
     )
   }
 }
@@ -85,7 +85,7 @@ async function main() {
   for (const entry of publicEntries) {
     if (entry.isDirectory() && entry.name.toLowerCase().startsWith('hero')) {
       errors.push(
-        `web/public/${entry.name}/ no debe existir (fondos Midjourney archivados en 06_ARCHIVO/).`,
+        `web/public/${entry.name}/ no debe existir (fondos Midjourney fantasy prohibidos).`,
       )
     }
   }

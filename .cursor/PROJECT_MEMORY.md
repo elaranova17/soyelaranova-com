@@ -27,10 +27,10 @@ Rutas espirituales (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`) son secu
 
 ## Archivos que leer siempre (en orden)
 
-1. `docs/brand.md` — marca + tipografía Opción A + embudo (**gana siempre**)
+1. `docs/brand.md` — marca + tipografía CapCut + embudo (**gana siempre**)
 2. `docs/ESTADO_PROYECTO.md` — estado técnico real
 3. `docs/OFERTA_SERVICIOS.md` / `docs/PLAN_CIERRE_EMBUDO.md` — negocio
-4. `CONTEXT_CURSOR.md` — solo historia / rutas espirituales (parcialmente superado)
+4. `docs/REPO_STRUCTURE.md` — mapa del repo limpio
 
 ## No hacer ahora
 

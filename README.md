@@ -1,69 +1,51 @@
-# soyelaranova.com · Monorepo
+# soyelaranova.com
 
-Portal Elara Nova + assets de marca + docs de lanzamiento. **Deploy activo:** app Next.js en `web/`.
+Sitio del estudio **Evelyn Patiño / Elara Nova** — automatizaciones, webs/landings y Google Ads.
 
-## Estructura (mayo 2026)
+**Deploy:** Vercel · Root Directory = `web` · rama `main`.
+
+## Arquitectura
 
 ```
 soyelaranova-com/
-├── web/                    ← 🚀 App Next.js 16 (Vercel root)
-├── api/                    ← Hono API opcional (no en deploy Vercel)
-├── docs/                   ← Docs técnicos, marca, deploy
-├── assets/b2b/             ← PDFs y plantillas Evelyn B2B
-├── 01_LANZAMIENTO/         ← Checklists y planes de lanzamiento
-├── 02_CONTENIDO_MAESTRO/     ← Copy, ebooks, lead magnets (fuente)
-├── 03_VISUAL_KIT/          ← Imágenes, logos, stickers (canónico)
-├── 04_PRODUCCION_REEL/     ← Assets CapCut / reels
-├── 05_DOCS_ESTRATEGIA/     ← Briefs estratégicos largos
-├── 06_ARCHIVO/             ← Legacy / copias no usadas en código
-├── ebooks/                 ← Manuscritos ebook (Ciclo Nova)
-├── CONTEXT_CURSOR.md       ← Brief lockeado (fuente de verdad)
-├── web/vercel.json         ← Config Vercel (dentro de Root Directory)
-└── README.md               ← Este archivo
+├── web/                 ← App Next.js (única fuente de código desplegable)
+│   ├── app/             ← Rutas App Router + API routes
+│   ├── components/      ← UI
+│   ├── lib/             ← Datos, ofertas, navegación
+│   ├── public/          ← Assets de producción
+│   ├── templates/       ← HTML B2B internos (no deploy)
+│   └── scripts/         ← verify:assets, etc.
+├── docs/                ← Marca, estado, oferta, deploy, embudo
+├── ops/b2b/             ← PDFs/plantillas freelance (fuera de Vercel)
+├── .claude/skills/      ← Skills de agentes Elara
+├── .cursor/             ← Reglas Cursor
+└── .github/workflows/   ← CI build de web/
 ```
 
-## Desarrollo rápido
+## Desarrollo
 
 ```bash
 cd web
-npm ci          # o: pnpm install
-npm run dev     # http://localhost:3000
-npm run build   # debe pasar antes de deploy
-npm run lint
+npm ci
+npm run dev      # http://localhost:3000
+npm run build    # verify:assets + build (debe pasar)
 ```
 
 ## Fuentes de verdad
 
 | Qué | Dónde |
 |-----|-------|
-| Brief producto + stack | `CONTEXT_CURSOR.md` |
-| Estado técnico vivo | `docs/ESTADO_PROYECTO.md` |
-| Deploy + env vars | `docs/DEPLOY.md` |
+| Marca / look CapCut | `docs/brand.md` |
+| Estado del producto | `docs/ESTADO_PROYECTO.md` |
+| Oferta y embudo | `docs/OFERTA_SERVICIOS.md` |
+| Deploy + env | `docs/DEPLOY.md` |
 | Mapa del repo | `docs/REPO_STRUCTURE.md` |
-| Copy landing | `02_CONTENIDO_MAESTRO/LANDING_SOYELARANOVA_COM.md` |
-| Assets visuales | `03_VISUAL_KIT/` → copiados a `web/public/` al deploy |
 
-## Deploy
+## Fotos en producción
 
-| Qué | Dónde |
-|-----|-------|
-| App | `web/` — Root Directory en Vercel |
-| Config | `web/vercel.json` (sin `builds` legacy) |
-| Check assets | `cd web && npm run verify:assets` |
-| Docs | `docs/DEPLOY.md` |
+Solo el lote Evelyn (24 jul):
 
-Solo `main` → producción. GitHub Actions valida build en cada push a `web/`.
+- `web/public/media/servicios/servicio-{01,02,03}-*.webp`
+- `web/public/_assets/photos/slide-proceso-fondo.webp`
 
-## Duplicados intencionales
-
-- **`03_VISUAL_KIT/` → `web/public/`:** el visual kit es la fuente; `public/` son copias de producción (avatar, firma, lead magnet PDF).
-- **`Los_7_Dias_de_Elara.pdf`** (1.1 MB) ≠ **`web/public/lead-magnet/7-cartas.pdf`** (58 KB) — son versiones distintas; no deduplicar.
-
-## Qué NO es este repo
-
-- `Documents/elara-nova/` — ops Amazon / ebooks (otro monorepo)
-- Rutas v2 (`/luna`, login miembros, Sanity 40 cartas) — ver CONTEXT §9
-
----
-
-*"Mira todo lo que siempre fuiste capaz de ser." — Elara Nova*
+Sin caras IA, sin selfies, sin `media/recursos/` ni `media/cursos/`.

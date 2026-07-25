@@ -5,9 +5,8 @@ alwaysApply: true
 
 # soyelaranova.com · Elara Nova (estudio 2026)
 
-**Lee primero:** `docs/brand.md` (marca estudio 2026) + `docs/ESTADO_PROYECTO.md`.
-`CONTEXT_CURSOR.md` es el brief histórico ("portal sagrado", mayo 2026) — quedó **superado**
-en producto y look por `docs/brand.md`. Si chocan, gana `docs/brand.md`.
+**Lee primero:** `docs/brand.md` + `docs/ESTADO_PROYECTO.md` + `docs/REPO_STRUCTURE.md`.
+Si chocan con skills o memoria antigua, gana `docs/brand.md`.
 
 ## Proyecto
 

@@ -2,7 +2,7 @@
 
 > **Fuente de verdad visual y de voz para `soyelaranova.com`.**
 > Actualizado: julio 2026 (tipografía Opción A CapCut glow chic lockeada).
-> Si `CONTEXT_CURSOR.md` u otro brief antiguo contradice este archivo, **gana este archivo**.
+> Si otro brief o skill antiguo contradice este archivo, **gana este archivo**.
 
 ---
 

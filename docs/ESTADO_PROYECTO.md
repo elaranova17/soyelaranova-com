@@ -13,8 +13,7 @@ El sitio es el **estudio de Evelyn Patiño / Elara Nova** (automatizaciones, web
 Google Ads). Look canónico: **CapCut glow chic** (cream/aubergine/gold + Bebas + Great Vibes
 con glow dorado). Embudo: pre-análisis → sesión 25 CHF → proyecto.
 
-> Nota: `CONTEXT_CURSOR.md` (mayo 2026, "portal sagrado") quedó **superado** en lo visual y
-> de producto por `docs/brand.md`. Sigue siendo útil como historia y para las rutas espirituales.
+> Repo limpio julio 2026: solo `web/` + `docs/` + `ops/b2b/` (sin carpetas 01–06 ni kit CapCut legacy).
 
 ---
 

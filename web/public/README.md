@@ -3,7 +3,7 @@
 **Reglas (no romper deploy · ver `docs/brand.md` marca estudio 2026):**
 
 1. **No symlinks** salvo que el destino exista dentro de `public/`.
-2. **No `public/hero/`** — fondos Midjourney prohibidos (`06_ARCHIVO/web-public-hero-fantasy-deprecated/`).
+2. **No `public/hero/`** — fondos Midjourney fantasy prohibidos.
 3. **No `.jpg` en `public/images/`** — solo las ilustraciones `.png` que usan las rutas espirituales (`/cursos`, `/oraculo`, `/universo`).
 4. **No reintroducir legacy eliminado en julio 2026:** `elara/` (avatar+stickers), `site-nav-ritual.css/js`, `elara-nova-rediseno.css`, `elara-nova-animations.js`, `elara-cursos-productos.css`. El verify falla si reaparecen.
 5. **No CSS/JS suelto que estile el app** — los estilos viven en `web/app/globals.css`. Excepción: `elara-ritual.css` y `evelyn-b2b/b2b-nav.css`, que cargan los HTML estáticos de `evelyn-b2b/`.

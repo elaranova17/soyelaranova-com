@@ -4,8 +4,7 @@
 **Estado vivo:** [`../docs/ESTADO_PROYECTO.md`](../docs/ESTADO_PROYECTO.md)
 **Oferta / embudo:** [`../docs/OFERTA_SERVICIOS.md`](../docs/OFERTA_SERVICIOS.md) · [`../docs/PLAN_CIERRE_EMBUDO.md`](../docs/PLAN_CIERRE_EMBUDO.md)
 
-> `CONTEXT_CURSOR.md` (mayo 2026, "portal sagrado") quedó superado en producto y look.
-> Si chocan, **gana `docs/brand.md`**.
+> Si chocan skills o memoria antigua, **gana `docs/brand.md`**.
 
 ## Qué es el sitio (2026)
 
@@ -36,11 +35,11 @@ Cormorant + Outfit**, lockups `.type-lockup`, navbar `.site-nav` aubergine únic
 
 ```
 soyelaranova-com/
-├── docs/brand.md           ← marca estudio 2026 (fuente de verdad)
-├── docs/ESTADO_PROYECTO.md ← snapshot técnico actual
-├── CONTEXT_CURSOR.md       ← brief histórico (superado en look/producto)
+├── docs/                   ← brand, estado, oferta, deploy
+├── ops/b2b/                ← PDFs freelance (no deploy)
+├── .claude/skills/         ← skills agentes
 ├── .cursor/rules/          ← reglas Cursor always-on
-└── web/                    ← Next.js 16 app (único deploy Vercel)
+└── web/                    ← Next.js 16 (único deploy Vercel)
 ```
 
 ## Stack real (verificado)
