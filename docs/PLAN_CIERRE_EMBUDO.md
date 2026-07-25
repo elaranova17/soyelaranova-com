@@ -212,14 +212,16 @@ No es un calendario: es el orden en que el código desbloquea el embudo.
 
 Checklist de done:
 
-- [ ] 4 LPs madre live  
-- [ ] 8 LPs hija (paquetes) live  
-- [ ] Wizard pre-análisis didáctico live  
-- [ ] `/sesion-estrategica` con precio 25 CHF y CTA de agenda/pago  
-- [ ] Home + nav + LPs apuntan al nuevo embudo (ya no “diagnóstico gratis 20 min” como promesa de call)  
-- [ ] 2 LPs de libros (aunque sea waitlist)  
-- [ ] Kit FL con links UTM  
-- [ ] Build verde + deploy main  
+- [x] 4 LPs madre live  
+- [x] 8 LPs hija (paquetes) live  
+- [x] Wizard pre-análisis didáctico live  
+- [x] `/sesion-estrategica` con precio 25 CHF y CTA de agenda/pago  
+- [x] Home + nav + LPs apuntan al nuevo embudo (ya no “diagnóstico gratis 20 min” como promesa de call)  
+- [x] 2 LPs de libros (aunque sea waitlist)  
+- [x] Kit FL con links UTM + propuestas Upwork/Malt  
+- [x] Build verde + deploy main  
+- [ ] Stripe Payment Link + Calendly en Vercel (acción tuya)  
+- [ ] Hotmart Ciclo Nova (cuando el ebook esté listo)  
 
 ---
 

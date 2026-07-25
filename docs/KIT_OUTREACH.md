@@ -69,7 +69,7 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 
 ## 3 · Mensajes en frío listos
 
-> Personaliza `[corchetes]`. Corto siempre. Un solo CTA: llamada de 15 min.
+> Personaliza `[corchetes]`. Corto siempre. **CTA único: completar el pre-análisis** (no call gratis).
 
 ### 3.1 · Emails en frío (3 plantillas)
 
@@ -78,13 +78,12 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 
 > Hola `[Nombre]`,
 >
-> Vi que en `[negocio]` recibís consultas por `[web / Instagram / teléfono]`. Suele pasar que algunos leads se enfrían porque no se responden al instante, y cada uno es una venta que se escapa.
+> Vi que en `[negocio]` recibís consultas por `[web / Instagram / teléfono]`. Suele pasar que algunos leads se enfrían porque no se responden al instante.
 >
-> Soy Evelyn, ingeniera de sistemas (6 años en banca). Ahora automatizo justo eso: que cada lead entre solo a tu sistema y reciba respuesta automática al segundo. Hace poco monté algo así para una empresa suiza (val-débarras): captura sus solicitudes en piloto automático.
+> Soy Evelyn, ingeniera (6 años en banca). Automatizo justo eso. Caso real: val-débarras (Suiza) — captura de solicitudes en piloto automático.
 >
-> ¿Te viene bien una llamada de 15 min esta semana para ver si aplica a `[negocio]`? Sin compromiso.
+> Si te interesa, el siguiente paso no es una call larga: completás un **pre-análisis corto** (2–4 min) y yo te mando una lectura concreta. Link: `https://soyelaranova.com/lp/automatizaciones?utm_source=email&utm_medium=cold&utm_campaign=outreach`
 >
-> Un saludo,
 > Evelyn Patiño · Elara Nova
 
 **Email B — Landing / Web (dolor: web que no vende)**
@@ -92,11 +91,9 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 
 > Hola `[Nombre]`,
 >
-> Entré en la web de `[negocio]` y se ve bien, pero noté un par de cosas que probablemente os están costando clientes: `[ej: no hay un botón claro de contacto / no está pensada para móvil / no se mide de dónde vienen los clientes]`.
+> Entré en la web de `[negocio]` y noté `[ej: CTA flojo / no mobile / no se mide]`. Diseño webs para convertir, con criterio de ingeniera.
 >
-> Diseño y construyo webs pensadas para **convertir visitas en clientes**, no solo para "estar en internet". Vengo de la banca, así que lo hago con criterio de ingeniera y ojo de diseño.
->
-> ¿15 min esta semana para enseñarte qué cambiaría y cuánto tráfico se podría recuperar? Te lo digo claro, sin humo.
+> Si querés, hacé el pre-análisis y te mando qué cambiaría primero: `https://soyelaranova.com/lp/paginas-web?utm_source=email&utm_medium=cold&utm_campaign=outreach`
 >
 > Evelyn Patiño · Elara Nova
 
@@ -105,11 +102,9 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 
 > Hola `[Nombre]`,
 >
-> Trabajo con negocios de `[vaciado de viviendas / reformas / mudanzas]` para que reciban más solicitudes de presupuesto sin depender del boca a boca.
+> Monté para val-débarras (Suiza) Ads → landings por zona → aviso automático de cada solicitud. Puedo montar lo mismo para `[negocio]` en `[ciudad]`.
 >
-> Le monté a una empresa suiza (val-débarras) un sistema completo: anuncios en Google → páginas por zona que convierten → aviso automático de cada solicitud. Está en producción y captando clientes.
->
-> Puedo montarte lo mismo para `[negocio]` en `[ciudad/zona]`. ¿Hablamos 15 min esta semana y te enseño cómo funciona?
+> Empezamos con un pre-análisis (gratis, escrito). Si hay fit, sesión 20 min (25 CHF): `https://soyelaranova.com/lp/paginas-web/sitio-ads?utm_source=email&utm_medium=cold&utm_campaign=outreach`
 >
 > Evelyn Patiño · Elara Nova
 
@@ -117,20 +112,42 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 
 ### 3.2 · DM / WhatsApp (3 plantillas, ultra-cortas)
 
-**DM 1 — Instagram (clínica / estética / restaurante)**
-> Hola `[Nombre]` 👋 Vi que gestionáis `[reservas / citas]` por DM. Automatizo eso para negocios como el vuestro: la reserva entra sola, se confirma y se manda recordatorio, sin que nadie esté pendiente del móvil. ¿Te interesa que te cuente en una llamada corta (15 min) cómo quedaría en `[negocio]`?
+**DM 1 — Instagram**
+> Hola `[Nombre]` — vi que gestionáis `[reservas/citas]` por DM. Automatizo eso (entra sola + confirmación + recordatorio). Si te interesa, el primer paso es un pre-análisis corto: soyelaranova.com/descubrimiento
 
-**DM 2 — LinkedIn (gestoría / inmobiliaria / consultor)**
-> Hola `[Nombre]`, soy Evelyn, ingeniera de sistemas (ex-banca). Ayudo a negocios como `[negocio]` a automatizar el trabajo manual (pasar leads, pedir datos, responder lo mismo mil veces). Monté un sistema así para un cliente suizo y le ahorra horas cada semana. ¿Te iría bien una llamada de 15 min para ver si te encaja?
+**DM 2 — LinkedIn**
+> Hola `[Nombre]`, soy Evelyn (ex-banca). Ayudo a negocios como `[negocio]` a dejar de pasar leads a mano. Antes de una call larga: pre-análisis escrito → si hay fit, sesión 20 min (25 CHF). Link: soyelaranova.com/lp/automatizaciones
 
-**DM 3 — WhatsApp (referido / contacto tibio)**
-> Hola `[Nombre]`, `[nombre del que refiere]` me pasó tu contacto 🙌 Monto automatizaciones y webs que ayudan a los negocios a captar más clientes y perder menos tiempo en tareas manuales. ¿Tienes 15 min esta semana para que te cuente si algo de esto te sirve? Sin compromiso, y si no te encaja te lo digo de una.
+**DM 3 — WhatsApp (referido)**
+> Hola `[Nombre]`, `[quién refiere]` me pasó tu contacto. Monto automatizaciones y webs que convierten. Empezamos con un pre-análisis (2–4 min), sin call gratis eterna: soyelaranova.com/descubrimiento
 
 ---
 
-## 4 · Guion de la llamada de descubrimiento (15 min)
+## 3.3 · Propuestas FL (copiar/pegar)
 
-**Objetivo:** entender su dolor, cuantificarlo, y cerrar el siguiente paso (propuesta). NO improvisar precio a lo loco.
+**Upwork (EN)**
+> Hi `[Name]` — I build lead-capture systems and conversion pages (ex-banking engineer). Relevant case: val-débarras (CH) — Google Ads → local landings → automatic lead alerts.
+>
+> Before a long call: please complete this short pre-analysis → I send a written read → optional 20‑min strategy session (25 CHF).
+> `https://soyelaranova.com/lp/automatizaciones?utm_source=upwork&utm_medium=fl&utm_campaign=[jobid]`
+>
+> Portfolio: https://soyelaranova.com/portfolio
+
+**Malt (ES)**
+> Hola `[Nombre]`, soy Evelyn Patiño — automatizaciones + webs que venden (ex-banca). Caso: val-débarras (Suiza).
+>
+> Flujo: pre-análisis didáctico (gratis) → lectura por email → sesión estratégica 20 min (25 CHF) si querés profundizar.
+> `https://soyelaranova.com/lp/automatizaciones?utm_source=malt&utm_medium=fl&utm_campaign=perfil`
+>
+> Portfolio: https://soyelaranova.com/portfolio · CV: https://soyelaranova.com/cv
+
+---
+
+## 4 · Guion de la sesión estratégica (20 min · 25 CHF)
+
+**Antes:** el lead ya completó el wizard y vos mandaste el pre-análisis escrito.
+
+**Objetivo:** revisar la lectura, priorizar 2–3 movimientos, cerrar paquete o next step. NO improvisar precio a lo loco.
 
 **0-2 min · Apertura (romper el hielo + marco)**
 > "Gracias por el tiempo, `[Nombre]`. La idea de estos 15 min es simple: que me cuentes cómo funciona hoy `[la parte del negocio]`, yo te digo con honestidad si puedo ayudarte y cómo. Si no encaja, te lo digo de una y no te hago perder tiempo. ¿Te parece?"

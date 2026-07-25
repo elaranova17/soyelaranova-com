@@ -98,10 +98,10 @@ export default function HomePage() {
             </Link>
             <TrackedLink
               href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'home_hero_diagnostico' }}
+              tracking={{ event: 'cta_click', category: 'lead', label: 'home_hero_preanalisis' }}
               className="home-button home-button--quiet"
             >
-              Contarme tu proyecto
+              Hacer mi pre-análisis
             </TrackedLink>
           </div>
         </div>
@@ -297,7 +297,7 @@ export default function HomePage() {
           </div>
           <TrackedLink
             href="/descubrimiento"
-            tracking={{ event: 'cta_click', category: 'lead', label: 'home_work_diagnostico' }}
+            tracking={{ event: 'cta_click', category: 'lead', label: 'home_work_preanalisis' }}
             className="home-button home-button--primary"
           >
             Hacer mi pre-análisis

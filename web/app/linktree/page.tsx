@@ -63,8 +63,8 @@ const LINKS: readonly HubLink[] = [
   },
   {
     href: '/descubrimiento',
-    label: 'Cotizar mi proyecto',
-    hint: 'Cuéntame qué necesitás — respondo en 24h',
+    label: 'Hacer mi pre-análisis',
+    hint: 'Cuestionario guiado → lectura → sesión 25 CHF',
     icon: 'Buscar',
     featured: true,
   },
