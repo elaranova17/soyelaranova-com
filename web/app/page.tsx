@@ -335,7 +335,7 @@ export default function HomePage() {
           </p>
           <div className="home-work__proof">
             <span>6 años en tecnología y banca</span>
-            <span>Medellín · Suiza</span>
+            <span>Medellín · Europa</span>
             <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
           </div>
           <div className="home-work__me">

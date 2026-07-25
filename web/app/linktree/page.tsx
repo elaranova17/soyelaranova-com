@@ -157,7 +157,7 @@ export default function LinktreePage() {
 
           <p className="home-eyebrow home-eyebrow--light">
             <span aria-hidden="true" />
-            Freelance · Suiza · ES · LATAM
+            Freelance · Europa · LATAM
           </p>
 
           <h1 className="type-lockup type-lockup--center type-lockup--glow linktree-lockup">

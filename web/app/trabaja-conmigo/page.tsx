@@ -33,7 +33,7 @@ export default function TrabajaConmigoPage() {
           <StudioReveal>
             <p className="home-eyebrow home-eyebrow--light studio-accent">
               <span aria-hidden="true" />
-              Evelyn Patiño · Elara Nova · Lausana
+              Evelyn Patiño · Elara Nova · Europa
             </p>
           </StudioReveal>
           <StudioReveal delay={0.08}>

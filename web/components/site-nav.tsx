@@ -372,7 +372,7 @@ export function SiteNav() {
 
               <p className="site-nav__panel-tagline" aria-hidden>
                 {b2b
-                  ? 'Ingeniera de software · Suiza'
+                  ? 'Ingeniera de software · Europa'
                   : 'Mira todo lo que siempre fuiste capaz de ser.'}
               </p>
             </motion.aside>

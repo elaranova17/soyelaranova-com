@@ -19,7 +19,7 @@ import { evelynPhotos } from '@/lib/evelyn-photos'
 export const metadata: Metadata = {
   title: 'CV · Evelyn Patiño',
   description:
-    'CV comercial de Evelyn Patiño Laverde — ingeniera (Sophos · Bancolombia), automatización, webs y Ads desde Suiza.',
+    'CV comercial de Evelyn Patiño Laverde — ingeniera (Sophos · Bancolombia), automatización, webs y Ads desde Europa.',
   openGraph: {
     title: 'CV · Evelyn Patiño',
     images: [{ url: evelynPhotos.cvHero }],
@@ -105,7 +105,7 @@ export default function CvPage() {
           <StudioReveal>
             <p className="home-eyebrow home-eyebrow--light studio-accent">
               <span aria-hidden="true" />
-              CV · Evelyn Patiño Laverde · Lausana
+              CV · Evelyn Patiño Laverde · Europa
             </p>
           </StudioReveal>
           <StudioReveal delay={0.08}>
@@ -207,7 +207,7 @@ export default function CvPage() {
                 </div>
                 <div>
                   <dt>Base</dt>
-                  <dd>Lausana · Suiza · ES / LATAM</dd>
+                  <dd>Europa · ES / LATAM</dd>
                 </div>
               </dl>
               <div className="studio-b2b__contact-tools">

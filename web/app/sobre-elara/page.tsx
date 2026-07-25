@@ -67,7 +67,7 @@ export default function SobreElaraPage() {
 
           <p className="mx-auto mt-5 max-w-md font-serif text-base leading-relaxed text-[var(--color-cream)]/80">
             Elara Nova es mi voz mística; yo soy quien diseña y programa este portal. Paisa,
-            ingeniera con 6 años en banca (Sophos, Bancolombia). Vivo en Suiza y trabajo con clientes
+            ingeniera con 6 años en banca (Sophos, Bancolombia). Vivo en Europa y trabajo con clientes
             en España y LATAM.
           </p>
           <p className="mx-auto mt-3 max-w-md font-serif text-sm leading-relaxed text-[var(--color-cream)]/55">

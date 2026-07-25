@@ -633,7 +633,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     pasos: FUNNEL_STEPS,
     faq: [
       ['¿La pauta está incluida?', 'No. La inversión en Google la pagás vos (recomiendo 300–500 €/mes al inicio).'],
-      ['¿Sirve fuera de Suiza?', 'Sí: misma lógica por ciudad/servicio en ES o LATAM.'],
+      ['¿Trabajás con clientes de otros países?', 'Sí: misma lógica por ciudad/servicio en Europa o LATAM.'],
       ['¿Puedo empezar más chico?', 'Sí: Landing + setup Ads, o Sitio Negocio solo.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → propuesta Sitio + Ads.'],
     ],

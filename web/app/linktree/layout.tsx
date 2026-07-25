@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Evelyn Patiño · Enlaces',
   description:
-    'Portfolio, CV, WhatsApp y pre-análisis de Evelyn Patiño Laverde — ingeniera de software freelance desde Suiza.',
+    'Portfolio, CV, WhatsApp y pre-análisis de Evelyn Patiño Laverde — ingeniera de software freelance desde Europa.',
   openGraph: {
     title: 'Evelyn Patiño Laverde — Ingeniera de Software',
     description: 'Pienso como diseñadora, construyo como ingeniera. Portfolio, CV y pre-análisis.',
