@@ -47,14 +47,19 @@ Configurar en Vercel → Settings → Environment Variables (Production + Previe
 | `NEXT_PUBLIC_SITE_URL` | Recomendado | `https://soyelaranova.com` |
 | `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` | Sesión 25 CHF | Payment Link Stripe (after_completion → `/sesion-estrategica/gracias`) |
 | `NEXT_PUBLIC_CALENDLY_URL_SESION` | Sesión 25 CHF | URL pública Calendly 20 min |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Analytics | GA4 Measurement ID `G-XXXXXXXX` |
+| `NEXT_PUBLIC_HOTMART_CICLO_NOVA_URL` | Ebook | Checkout Hotmart Ciclo Nova (opcional) |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Si hay captcha | Cloudflare Turnstile |
 | `TURNSTILE_SECRET_KEY` | Si hay captcha | Server-side Turnstile |
+
+**Checklist go-live completo:** `docs/GO_LIVE.md`
 
 **Sesión estratégica (setup 5 min):**
 1. Stripe → Payment Link → producto “Sesión estratégica” **25 CHF** → redirect a `https://soyelaranova.com/sesion-estrategica/gracias`
 2. Calendly → evento 20 min → copiar link
 3. Pegar ambos en Vercel env (Production + Preview) y redeploy
 4. Hasta que existan, la página usa WhatsApp como fallback
+5. GA4: `NEXT_PUBLIC_GA_MEASUREMENT_ID` + conversiones `generate_lead` / `purchase` / `sesion_pago`
 
 **Local dev:** crear `web/.env.local` (gitignored). No commitear secrets.
 
@@ -113,7 +118,9 @@ Archivos en `web/public/evelyn-b2b/` — enlaces e imágenes deben ser **absolut
 - [ ] `https://soyelaranova.com` carga home
 - [ ] `/oraculo`, `/universo`, `/sobre-elara` responden 200
 - [ ] Form email oráculo (`POST /api/oracle/subscribe`) con Resend configurado
-- [ ] Form diagnóstico (`POST /api/discovery`) envía email interno y redirige a `/gracias`
+- [ ] Form pre-análisis (`POST /api/discovery`) envía email interno + auto-reply al lead y redirige a `/gracias`
+- [ ] `/sesion-estrategica` con Stripe/Calendly live (no WhatsApp fallback)
+- [ ] GA4 Realtime recibe `page_view`
 - [ ] Lighthouse mobile > 85 perf (objetivo CONTEXT)
 
 ---

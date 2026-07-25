@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: 'Para que se usan',
-    text: 'Uso esos datos para responder tu solicitud, preparar diagnosticos o propuestas, coordinar reuniones, entregar servicios contratados y mejorar la comunicacion comercial del estudio.',
+    text: 'Uso esos datos para responder tu solicitud, preparar pre-analisis o propuestas, coordinar reuniones, entregar servicios contratados y mejorar la comunicacion comercial del estudio.',
   },
   {
     title: 'Medicion y publicidad',
@@ -38,7 +38,7 @@ const sections = [
   },
   {
     title: 'Terminos de uso',
-    text: 'El contenido de este sitio es informativo. Solicitar un diagnostico o enviar informacion no crea automaticamente una relacion contractual. Cada proyecto se confirma mediante alcance, tiempos, precio y condiciones aceptadas por ambas partes.',
+    text: 'El contenido de este sitio es informativo. Solicitar un pre-analisis o enviar informacion no crea automaticamente una relacion contractual. Cada proyecto se confirma mediante alcance, tiempos, precio y condiciones aceptadas por ambas partes.',
   },
   {
     title: 'Propiedad intelectual',

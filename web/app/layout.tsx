@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Cormorant_Garamond, Manrope } from 'next/font/google'
+import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import './globals.css'
@@ -124,6 +125,7 @@ export default function RootLayout({
         <LenisProvider>
           <SiteNav />
           {children}
+          <Analytics />
         </LenisProvider>
       </body>
     </html>

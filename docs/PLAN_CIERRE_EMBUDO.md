@@ -221,8 +221,12 @@ Checklist de done:
 - [x] Kit FL con links UTM + propuestas Upwork/Malt  
 - [x] Build verde + deploy main  
 - [x] Heroes LP full-bleed + imagen única por oferta + OG  
-- [ ] Stripe Payment Link + Calendly en Vercel (acción tuya)  
-- [ ] Hotmart Ciclo Nova (cuando el ebook esté listo)  
+- [x] LPs libros full-bleed + Hotmart env-ready  
+- [x] GA4 component + beacons conversión + auto-reply pre-análisis  
+- [x] Docs GO_LIVE + EMAIL_PREANALISIS + bios Malt/Upwork  
+- [ ] Stripe Payment Link + Calendly en Vercel (acción tuya → `docs/GO_LIVE.md`)  
+- [ ] `NEXT_PUBLIC_GA_MEASUREMENT_ID` en Vercel (acción tuya)  
+- [ ] Hotmart Ciclo Nova URL en Vercel (cuando el ebook esté listo)  
 
 ---
 

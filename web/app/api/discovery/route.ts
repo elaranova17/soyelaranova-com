@@ -91,7 +91,50 @@ function discoveryText(payload: DiscoveryPayload) {
     '',
     'Notas / qué vende / paquete:',
     payload.notes || 'Sin notas extra',
+    '',
+    '→ Responder con plantilla: docs/EMAIL_PREANALISIS.md',
+    '→ Sesión: https://soyelaranova.com/sesion-estrategica',
   ].join('\n')
+}
+
+function leadAutoReplyText(payload: DiscoveryPayload) {
+  const firstName = payload.name.split(/\s+/)[0] || payload.name
+  return [
+    `Hola ${firstName},`,
+    '',
+    `Recibí tu pre-análisis de ${payload.business}. Gracias.`,
+    '',
+    'Voy a revisar lo que compartiste (negocio, presencia y fugas) y te escribo con una lectura concreta: lo que veo + 2–3 movimientos.',
+    '',
+    'Si querés profundizar en vivo mientras tanto, la sesión estratégica dura 20 min y cuesta 25 CHF:',
+    'https://soyelaranova.com/sesion-estrategica',
+    '',
+    'Un abrazo,',
+    'Evelyn Patiño · Elara Nova',
+    'https://soyelaranova.com',
+  ].join('\n')
+}
+
+async function sendResendEmail(
+  resendKey: string,
+  body: Record<string, unknown>,
+): Promise<{ ok: boolean; detail?: string }> {
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+    if (!res.ok) {
+      return { ok: false, detail: await res.text() }
+    }
+    return { ok: true }
+  } catch (err) {
+    return { ok: false, detail: err instanceof Error ? err.message : 'fetch failed' }
+  }
 }
 
 export async function POST(request: Request) {
@@ -122,36 +165,44 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, emailSent: false })
   }
 
-  try {
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: process.env.RESEND_FROM ?? 'Elara Nova <onboarding@resend.dev>',
-        to: process.env.DISCOVERY_NOTIFY_TO ?? process.env.RESEND_NOTIFY_TO ?? 'elaranova.17@gmail.com',
-        reply_to: payload.email,
-        subject: `Nuevo lead · ${payload.service} · ${payload.name}`,
-        text: discoveryText(payload),
-      }),
-    })
+  const from = process.env.RESEND_FROM ?? 'Elara Nova <onboarding@resend.dev>'
+  const notifyTo =
+    process.env.DISCOVERY_NOTIFY_TO ?? process.env.RESEND_NOTIFY_TO ?? 'elaranova.17@gmail.com'
 
-    if (!res.ok) {
-      console.error('[discovery] Resend error', await res.text())
-      return NextResponse.json(
-        { ok: true, emailSent: false, warning: 'Lead recibido, pero el email interno no pudo enviarse.' },
-        { status: 202 },
-      )
-    }
-  } catch (err) {
-    console.error('[discovery] Resend fetch failed', err)
+  const internal = await sendResendEmail(resendKey, {
+    from,
+    to: notifyTo,
+    reply_to: payload.email,
+    subject: `Nuevo lead · ${payload.service} · ${payload.name}`,
+    text: discoveryText(payload),
+  })
+
+  if (!internal.ok) {
+    console.error('[discovery] Resend internal error', internal.detail)
+  }
+
+  const autoReply = await sendResendEmail(resendKey, {
+    from,
+    to: payload.email,
+    reply_to: notifyTo,
+    subject: `Recibí tu pre-análisis · ${payload.business}`,
+    text: leadAutoReplyText(payload),
+  })
+
+  if (!autoReply.ok) {
+    console.error('[discovery] Resend auto-reply error', autoReply.detail)
+  }
+
+  if (!internal.ok && !autoReply.ok) {
     return NextResponse.json(
-      { ok: true, emailSent: false, warning: 'Lead recibido, pero el email interno no pudo enviarse.' },
+      { ok: true, emailSent: false, warning: 'Lead recibido, pero los emails no pudieron enviarse.' },
       { status: 202 },
     )
   }
 
-  return NextResponse.json({ ok: true, emailSent: true })
+  return NextResponse.json({
+    ok: true,
+    emailSent: internal.ok,
+    autoReplySent: autoReply.ok,
+  })
 }

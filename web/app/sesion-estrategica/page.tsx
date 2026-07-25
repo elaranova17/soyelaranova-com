@@ -21,11 +21,12 @@ export default function SesionEstrategicaPage() {
     : sessionWhatsappHref(
         'Hola Evelyn, ya pagué / quiero agendar la sesión estratégica de 20 min. ¿Me pasás el calendario?',
       )
+  const live = booking.configured.stripe && booking.configured.calendly
 
   return (
-    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-4xl">
+    <main className="lp-page">
+      <section className="lp-book-inside" style={{ paddingTop: '8.5rem' }}>
+        <div className="lp-section-inner" style={{ maxWidth: '48rem' }}>
           <Link
             href="/descubrimiento"
             className="text-[0.66rem] font-bold tracking-[0.24em] text-[var(--editorial-cacao)] uppercase hover:text-[var(--editorial-plum)]"
@@ -46,35 +47,40 @@ export default function SesionEstrategicaPage() {
         </div>
       </section>
 
-      <section className="px-5 py-16 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-          {[
-            ['01', 'Pre-análisis', 'Cuestionario didáctico gratis. Yo preparo tu lectura.'],
-            ['02', `Pago ${booking.priceChf} CHF`, 'Stripe seguro. Filtra curiosidad y reserva mi tiempo.'],
-            ['03', 'Agenda 20 min', 'Elegís el hueco en Calendly y vemos la mini-estrategia en vivo.'],
-          ].map(([n, t, d]) => (
-            <article
-              key={n}
-              className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6"
-            >
-              <p className="font-display text-2xl text-[var(--editorial-gold)]">{n}</p>
-              <h2 className="mt-3 font-display text-2xl text-[var(--editorial-plum)]">{t}</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]">{d}</p>
-            </article>
-          ))}
+      <section className="lp-steps">
+        <div className="lp-section-inner">
+          <h2>Así funciona.</h2>
+          <ol className="lp-steps__list">
+            {[
+              ['01', 'Pre-análisis', 'Cuestionario didáctico gratis. Yo preparo tu lectura.'],
+              [
+                '02',
+                `Pago ${booking.priceChf} CHF`,
+                'Stripe seguro. Filtra curiosidad y reserva mi tiempo.',
+              ],
+              ['03', 'Agenda 20 min', 'Elegís el hueco en Calendly y vemos la mini-estrategia.'],
+            ].map(([n, t, d]) => (
+              <li key={n}>
+                <span>{n}</span>
+                <div>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="bg-[var(--editorial-aubergine)] px-5 py-20 text-[var(--editorial-ivory)] md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <section className="lp-case">
+        <div className="lp-section-inner lp-case__grid">
           <div>
-            <p className="text-[0.68rem] font-black tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
+            <p className="home-eyebrow home-eyebrow--light">
+              <span aria-hidden="true" />
               Inversión
             </p>
-            <h2 className="mt-4 font-display text-[2.6rem] leading-none md:text-[4rem]">
-              {booking.priceChf} CHF
-            </h2>
-            <p className="mt-4 max-w-xl text-base leading-8 text-[var(--editorial-lavender)]">
+            <h2>{booking.priceChf} CHF</h2>
+            <p>
               ~25 € si estás en ES/LATAM. Incluye revisión de tu pre-análisis + mini-ruta. No incluye
               implementación del proyecto.
             </p>
@@ -85,10 +91,8 @@ export default function SesionEstrategicaPage() {
             </ul>
           </div>
 
-          <div className="rounded-[18px] border border-[var(--editorial-gold)]/35 bg-white/[0.04] p-7">
-            <p className="text-[0.68rem] font-black tracking-[0.2em] text-[var(--editorial-gold)] uppercase">
-              Reservar ahora
-            </p>
+          <div className="lp-invest">
+            <p className="lp-invest__label">Reservar ahora</p>
             <ol className="mt-5 space-y-3 text-sm leading-7 text-[var(--editorial-lavender)]">
               <li>
                 <strong className="text-[var(--editorial-ivory)]">1.</strong> Completá el
@@ -139,22 +143,18 @@ export default function SesionEstrategicaPage() {
             </div>
 
             <p className="mt-5 text-xs leading-6 text-[var(--editorial-lavender)]/70">
-              {booking.configured.stripe && booking.configured.calendly
-                ? 'Pago con Stripe. Después del pago, agendá en Calendly. Si el Payment Link tiene after_completion → /sesion-estrategica/gracias, ahí también está el calendario.'
-                : 'Stripe/Calendly aún no están en las variables de entorno de Vercel: los botones 2 y 3 abren WhatsApp como respaldo hasta que configures los links.'}
+              {live
+                ? 'Pago con Stripe. Después del pago, agendá en Calendly (también en /sesion-estrategica/gracias).'
+                : 'Falta configurar Stripe/Calendly en Vercel (docs/GO_LIVE.md). Mientras, los botones 2 y 3 abren WhatsApp.'}
             </p>
           </div>
         </div>
       </section>
 
-      <footer className="px-5 py-8 text-center text-xs text-[var(--editorial-cacao)]">
-        <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-          Privacidad y términos
-        </Link>
-        <span className="mx-2">·</span>
-        <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">
-          Pre-análisis
-        </Link>
+      <footer className="lp-footer">
+        <Link href="/legal">Privacidad y términos</Link>
+        <span aria-hidden="true">·</span>
+        <Link href="/descubrimiento">Pre-análisis</Link>
       </footer>
     </main>
   )
