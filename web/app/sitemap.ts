@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/servicios/google-ads', 0.9],
     ['/descubrimiento', 0.8],
     ['/sesion-estrategica', 0.75],
+    ['/lp/libros/7-dias-de-elara', 0.4],
+    ['/lp/libros/ciclo-nova-del-regreso', 0.4],
     ['/sobre-elara', 0.7],
     ['/trabaja-conmigo', 0.7],
     ['/universo', 0.5],

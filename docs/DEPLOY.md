@@ -45,8 +45,16 @@ Configurar en Vercel → Settings → Environment Variables (Production + Previe
 | `RESEND_NOTIFY_TO` | Opcional | Email interno al recibir suscripción |
 | `DISCOVERY_NOTIFY_TO` | Recomendado | Email interno para leads de `/descubrimiento`; fallback: `RESEND_NOTIFY_TO` y luego `elaranova.17@gmail.com` |
 | `NEXT_PUBLIC_SITE_URL` | Recomendado | `https://soyelaranova.com` |
+| `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` | Sesión 25 CHF | Payment Link Stripe (after_completion → `/sesion-estrategica/gracias`) |
+| `NEXT_PUBLIC_CALENDLY_URL_SESION` | Sesión 25 CHF | URL pública Calendly 20 min |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Si hay captcha | Cloudflare Turnstile |
 | `TURNSTILE_SECRET_KEY` | Si hay captcha | Server-side Turnstile |
+
+**Sesión estratégica (setup 5 min):**
+1. Stripe → Payment Link → producto “Sesión estratégica” **25 CHF** → redirect a `https://soyelaranova.com/sesion-estrategica/gracias`
+2. Calendly → evento 20 min → copiar link
+3. Pegar ambos en Vercel env (Production + Preview) y redeploy
+4. Hasta que existan, la página usa WhatsApp como fallback
 
 **Local dev:** crear `web/.env.local` (gitignored). No commitear secrets.
 

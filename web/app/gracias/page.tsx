@@ -49,7 +49,7 @@ export default function GraciasPage() {
 
         <div className="mx-auto mt-12 flex max-w-5xl flex-col justify-center gap-3 sm:flex-row">
           <Link href="/sesion-estrategica" className="home-button home-button--primary">
-            Ver sesión 25 CHF
+            Pagar / agendar sesión 25 CHF
           </Link>
           <Link href="/" className="home-button home-button--quiet">
             Volver al inicio
