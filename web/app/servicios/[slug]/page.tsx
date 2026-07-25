@@ -5,6 +5,7 @@ import { TrackedLink } from '@/components/tracked-link'
 import { StudioReveal, StudioRevealItem, StudioStagger } from '@/components/studio-reveal'
 import { StudioFunnelStrip } from '@/components/studio-funnel-strip'
 import { WebModelsGallery, WebVsLandingExplain } from '@/components/web-models-gallery'
+import { SystemModelsGallery } from '@/components/system-models-gallery'
 import { studioToLp } from '@/lib/lp-offers'
 import { getStudioService, studioServices } from '@/lib/studio-services'
 
@@ -137,6 +138,9 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           />
         </>
       ) : null}
+
+      {slug === 'automatizaciones' ? <SystemModelsGallery kind="auto" /> : null}
+      {slug === 'google-ads' ? <SystemModelsGallery kind="ads" /> : null}
 
       <section className="px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">

@@ -139,7 +139,7 @@ export default function SesionEstrategicaPage() {
               <TrackedLink
                 href={agendaHref}
                 tracking={{ event: 'cta_click', category: 'lead', label: 'sesion_calendly' }}
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-[var(--editorial-gold)] px-6 text-[0.72rem] font-black tracking-[0.18em] text-[var(--editorial-gold)] uppercase"
+                className="home-button home-button--light w-full"
                 target="_blank"
                 rel="noopener noreferrer"
               >

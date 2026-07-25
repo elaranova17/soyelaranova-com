@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { DiscoveryForm } from '@/components/discovery-form'
 import { TrackedLink } from '@/components/tracked-link'
 import { WebModelsGallery, WebVsLandingExplain } from '@/components/web-models-gallery'
+import { SystemModelsGallery } from '@/components/system-models-gallery'
 import {
   discoveryHref,
   getLpVisual,
@@ -143,6 +144,9 @@ export function LpOfferPage({
           />
         </>
       ) : null}
+
+      {offer.service === 'automatizaciones' ? <SystemModelsGallery kind="auto" /> : null}
+      {offer.service === 'google-ads' ? <SystemModelsGallery kind="ads" /> : null}
 
       <section className="lp-case">
         <div className="lp-section-inner lp-case__grid">
