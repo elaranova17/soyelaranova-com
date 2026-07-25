@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Falla el build si public/ tiene symlinks rotos, hero/ fantasy o JPG en images/.
- * El sitio activo usa solo ilustraciones .png (Pixar/Encanto) en /images/.
+ * Falla el build si public/ tiene symlinks rotos, hero/ fantasy, JPG en images/
+ * o archivos legacy eliminados en la limpieza de julio 2026 (CSS/JS ritual,
+ * avatar/stickers de Elara). Ver docs/brand.md (marca estudio 2026).
  */
 import { existsSync, readlinkSync } from 'node:fs'
 import { readdir } from 'node:fs/promises'
@@ -34,6 +35,26 @@ async function walk(dir) {
   }
 }
 
+/** Archivos y carpetas legacy que no deben volver a public/ (limpieza julio 2026). */
+const bannedPaths = [
+  'elara', // avatar + stickers Elara (muñequitos prohibidos como UI del estudio)
+  'site-nav-ritual.css',
+  'site-nav-ritual.js',
+  'elara-nova-rediseno.css',
+  'elara-nova-animations.js',
+  'elara-cursos-productos.css',
+]
+
+function checkNoLegacyFiles() {
+  for (const name of bannedPaths) {
+    if (existsSync(join(publicDir, name))) {
+      errors.push(
+        `Legacy prohibido en public/: ${name} — eliminado en julio 2026, no reintroducir (ver docs/brand.md).`,
+      )
+    }
+  }
+}
+
 async function checkNoFantasyJpgInImages() {
   if (!existsSync(imagesDir)) return
   const files = await readdir(imagesDir)
@@ -60,6 +81,7 @@ async function main() {
     }
   }
 
+  checkNoLegacyFiles()
   await checkNoFantasyJpgInImages()
   await walk(publicDir)
 
