@@ -65,3 +65,9 @@ body.has-b2b-nav {
 [id] {
   scroll-margin-top: 5.5rem;
 }
+
+
+.en-b2b-nav a[href="/"] {
+  color: #f8f3ea;
+  border-color: rgba(248, 243, 234, 0.22);
+}

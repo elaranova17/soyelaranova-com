@@ -208,7 +208,9 @@ export function SiteNav() {
   // Menú canónico único en todo el sitio Elara; B2B conserva el suyo.
   const links: readonly NavItem[] = b2b ? B2B_NAV : STUDIO_NAV
 
+  // En B2B el logo vuelve al hub Evelyn; “← Inicio” del menú regresa al sitio.
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
+  const logoHard = b2b
   const cta = { href: '/descubrimiento', label: 'Pre-análisis' }
 
   const [scrolled, setScrolled] = useState(false)
@@ -256,9 +258,15 @@ export function SiteNav() {
           .filter(Boolean)
           .join(' ')}
       >
-        <Link href={logoHref} className="site-nav__logo">
-          {b2b ? 'Evelyn Patiño' : 'Elara Nova'}
-        </Link>
+        {logoHard ? (
+          <a href={logoHref} className="site-nav__logo">
+            Evelyn Patiño
+          </a>
+        ) : (
+          <Link href={logoHref} className="site-nav__logo">
+            Elara Nova
+          </Link>
+        )}
 
         <div className="site-nav__actions">
           {b2b && (

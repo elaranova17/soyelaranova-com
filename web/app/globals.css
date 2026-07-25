@@ -709,7 +709,7 @@ h1, h2, h3,
   animation-duration: 1.6s;
 }
 
-/* palabra-banner: cae letra a letra sobre el lado vacío derecho */
+/* palabra-banner: Bebas + glow CapCut, cae letra a letra */
 .immersive-story__word {
   position: absolute;
   z-index: 4;
@@ -720,14 +720,12 @@ h1, h2, h3,
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(3.2rem, 9vw, 8.5rem);
-  font-weight: 500;
-  letter-spacing: .02em;
-  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.9;
+  text-transform: uppercase;
   color: var(--editorial-ivory);
-  text-shadow:
-    0 8px 40px rgb(10 0 16 / .75),
-    0 0 60px rgb(212 175 55 / .35),
-    0 0 2px rgb(248 243 234 / .35);
+  text-shadow: var(--text-glow-gold);
   pointer-events: none;
 }
 
@@ -849,13 +847,14 @@ h1, h2, h3,
   min-height: 52vh;
 }
 
-.immersive-story__chapters > header h2 {
-  max-width: 8ch;
+.immersive-story__chapters > header h2.type-lockup {
+  max-width: 12ch;
   margin-top: 1.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 5vw, 6rem);
-  font-weight: 400;
-  line-height: .9;
+  font-size: clamp(3.2rem, 5.2vw, 5.6rem);
+}
+
+.immersive-story__chapters > header h2 .type-lockup__script {
+  font-size: 0.48em;
 }
 
 .immersive-story__chapters article {
@@ -890,32 +889,41 @@ h1, h2, h3,
 .immersive-story__chapters article > span {
   color: var(--editorial-gold);
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
 }
 
 .immersive-story__chapters article > p {
   margin-top: 2rem;
   color: var(--editorial-gold);
+  font-family: var(--font-sans);
   font-size: .68rem;
   font-weight: 700;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   text-transform: uppercase;
 }
 
-.immersive-story__chapters article h3 {
-  max-width: 11ch;
+.immersive-story__chapters article h3.type-lockup {
+  max-width: 12ch;
   margin-top: 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.7rem, 4vw, 4.6rem);
-  font-weight: 400;
-  line-height: .95;
+  font-size: clamp(2.6rem, 4vw, 4.2rem);
+}
+
+.immersive-story__chapters article h3 .type-lockup__script {
+  font-size: 0.5em;
+  max-width: 14ch;
 }
 
 .immersive-story__chapters article small {
   max-width: 28rem;
   margin-top: 1.5rem;
   color: var(--editorial-lavender);
+  font-family: var(--font-sans);
   font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
   line-height: 1.75;
 }
 

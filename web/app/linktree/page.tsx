@@ -170,7 +170,9 @@ export default function LinktreePage() {
         </nav>
 
         <p className="linktree-foot">
-          <a href="/sesion-estrategica">Sesión estratégica · 25 CHF</a>
+          <a href="/">← Volver al inicio</a>
+          <span aria-hidden>·</span>
+          <a href="/sesion-estrategica">Sesión 25 CHF</a>
           <span aria-hidden>·</span>
           <a href="/servicios">Servicios</a>
         </p>

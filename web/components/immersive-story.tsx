@@ -2,14 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-type Step = {
-  number: string
-  eyebrow: string
-  title: string
-  text: string
-  Screen: () => React.ReactElement
-}
-
 function ScreenBase({ children }: { children: React.ReactNode }) {
   return (
     <svg viewBox="0 0 400 290" role="img" aria-hidden="true" className="immersive-screen" preserveAspectRatio="none">
@@ -162,32 +154,45 @@ function LanzarScreen() {
   )
 }
 
+type Step = {
+  number: string
+  eyebrow: string
+  titleImpact: string
+  titleScript: string
+  text: string
+  Screen: () => React.ReactElement
+}
+
 const steps: readonly Step[] = [
   {
     number: '01',
     eyebrow: 'Ver',
-    title: 'Miro tu negocio de verdad.',
+    titleImpact: 'Miro tu',
+    titleScript: 'negocio de verdad',
     text: 'Entiendo el problema real: qué te frena, qué se pierde y dónde estás gastando de más.',
     Screen: VerScreen,
   },
   {
     number: '02',
     eyebrow: 'Analizar',
-    title: 'Encuentro el patrón que importa.',
+    titleImpact: 'Encuentro',
+    titleScript: 'el patrón',
     text: 'Ordeno el caos en una estructura clara: qué automatizar, qué construir y en qué orden.',
     Screen: AnalizarScreen,
   },
   {
     number: '03',
     eyebrow: 'Crear',
-    title: 'Le doy forma que vende.',
+    titleImpact: 'Le doy forma',
+    titleScript: 'que vende',
     text: 'Diseño y construyo la web, la automatización o el sistema — pensado para convertir.',
     Screen: CrearScreen,
   },
   {
     number: '04',
     eyebrow: 'Lanzar',
-    title: 'El sistema se mueve solo.',
+    titleImpact: 'El sistema',
+    titleScript: 'se mueve solo',
     text: 'Automatización, medición y campañas conectadas. Tu negocio trabaja aunque vos no estés.',
     Screen: LanzarScreen,
   },
@@ -261,7 +266,10 @@ export function ImmersiveStory() {
       <div className="immersive-story__chapters">
         <header>
           <EyebrowForClient>Mi proceso</EyebrowForClient>
-          <h2 id="immersive-title">Ver. Analizar. Crear. Lanzar.</h2>
+          <h2 id="immersive-title" className="type-lockup type-lockup--glow">
+            <span className="type-lockup__impact">Ver · Analizar</span>
+            <em className="type-lockup__script">Crear · Lanzar</em>
+          </h2>
         </header>
         {steps.map((step, index) => (
           <article
@@ -274,7 +282,10 @@ export function ImmersiveStory() {
           >
             <span>{step.number}</span>
             <p>{step.eyebrow}</p>
-            <h3>{step.title}</h3>
+            <h3 className="type-lockup type-lockup--glow">
+              <span className="type-lockup__impact">{step.titleImpact}</span>
+              <em className="type-lockup__script">{step.titleScript}</em>
+            </h3>
             <small>{step.text}</small>
           </article>
         ))}
