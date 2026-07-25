@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ConversionBeacon } from '@/components/conversion-beacon'
 import { TrackedLink } from '@/components/tracked-link'
 import { getSessionBookingConfig, sessionWhatsappHref } from '@/lib/session-booking'
 
@@ -18,10 +19,16 @@ export default function SesionGraciasPage() {
       )
 
   return (
-    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="home-eyebrow justify-center">
+    <main className="lp-page">
+      <ConversionBeacon
+        event="purchase"
+        label="sesion_estrategica_25chf"
+        value={booking.priceChf}
+        currency="CHF"
+      />
+      <section className="lp-book-inside" style={{ paddingTop: '8.5rem', textAlign: 'center' }}>
+        <div className="lp-section-inner" style={{ maxWidth: '40rem' }}>
+          <p className="home-eyebrow" style={{ justifyContent: 'center' }}>
             <span aria-hidden="true" />
             Pago recibido
           </p>

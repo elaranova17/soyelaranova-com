@@ -505,7 +505,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     subtitle:
       'Para procesos propios, APIs, agentes o complejidad que no cabe en un paquete cerrado.',
     ctaLabel: 'Hacer mi pre-análisis',
-    ctaNote: 'Diagnóstico de alcance antes de presupuesto cerrado',
+    ctaNote: 'Pre-análisis de alcance antes de presupuesto cerrado',
     priceAnchor: 'Desde 3.200 €',
     priceBullets: [
       'Arquitectura a medida + flujos del alcance acordado',
@@ -531,7 +531,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     ],
     pasos: FUNNEL_STEPS,
     faq: [
-      ['¿Por qué “desde”?', 'El alcance define horas e integraciones. Cerramos número tras diagnóstico.'],
+      ['¿Por qué “desde”?', 'El alcance define horas e integraciones. Cerramos número tras el pre-análisis.'],
       ['¿Cuánto tarda?', '4–6 semanas típico según complejidad.'],
       ['¿Hay alternativas más chicas?', 'Arranque y Pro existen para no sobre-ingenierizar.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → propuesta A medida.'],

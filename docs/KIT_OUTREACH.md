@@ -141,6 +141,44 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 >
 > Portfolio: https://soyelaranova.com/portfolio · CV: https://soyelaranova.com/cv
 
+### 3.4 · Bios de perfil (pegar tal cual)
+
+**Malt · Título**
+`Automatización de procesos + webs/landings que convierten | Ex-banca`
+
+**Malt · Presentación (ES)**
+> Ingeniera de software (6 años banca: Bancolombia/Sophos). Ayudo a negocios pequeños a dejar de perder leads y horas en tareas manuales.
+>
+> Qué hago:
+> • Automatizaciones (formularios → CRM → email/WhatsApp)
+> • Landing pages y sitios orientados a conversión
+> • Google Ads con medición real
+>
+> Caso: val-débarras (Suiza) — Ads + landings por zona + captura automática.
+>
+> Cómo trabajamos: pre-análisis escrito (gratis) → sesión estratégica 20 min (25 CHF) → proyecto con precio cerrado.
+> Empezá acá: https://soyelaranova.com/descubrimiento?utm_source=malt&utm_medium=fl&utm_campaign=perfil
+
+**Upwork · Title**
+`Lead capture automation (n8n/Make) + conversion landing pages | Ex-banking engineer`
+
+**Upwork · Overview (EN)**
+> I’m Evelyn — software engineer with 6 years in banking. I build systems that capture leads and convert them without manual chase.
+>
+> Services:
+> • Automation: form → CRM → WhatsApp/email follow-up
+> • Conversion landing pages & small business sites
+> • Google Ads setup with real conversion tracking
+>
+> Case: val-débarras (Switzerland) — local Ads → landings → automatic lead alerts.
+>
+> Process: short written pre-analysis (free) → optional 20‑min strategy session (25 CHF) → fixed-price project.
+> Start: https://soyelaranova.com/descubrimiento?utm_source=upwork&utm_medium=fl&utm_campaign=perfil
+> Portfolio: https://soyelaranova.com/portfolio
+
+**Upwork · Gig 1 title:** `I will automate lead capture with n8n Make or Zapier`
+**Upwork · Gig 2 title:** `I will build a high-converting landing page for your offer`
+
 ---
 
 ## 4 · Guion de la sesión estratégica (20 min · 25 CHF)

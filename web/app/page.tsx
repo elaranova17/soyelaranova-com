@@ -241,7 +241,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="diagnostico" className="home-impact">
+      <section id="preanalisis" className="home-impact">
         <div className="home-impact__glow" aria-hidden="true" />
         <Eyebrow light>Pre-análisis didáctico · gratis</Eyebrow>
         <h2>

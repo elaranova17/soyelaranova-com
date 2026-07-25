@@ -85,6 +85,25 @@ export function listBookSlugs() {
   return bookOffers.map((b) => ({ slug: b.slug }))
 }
 
+/** Si Hotmart está en env, el CTA de Ciclo Nova apunta al checkout. */
+export function resolveBookCta(book: BookOffer): { href: string; label: string; note: string } {
+  if (book.slug === 'ciclo-nova-del-regreso') {
+    const hotmart = (process.env.NEXT_PUBLIC_HOTMART_CICLO_NOVA_URL ?? '').trim()
+    if (/^https?:\/\//i.test(hotmart)) {
+      return {
+        href: hotmart,
+        label: 'Comprar en Hotmart',
+        note: 'Checkout Hotmart activo.',
+      }
+    }
+  }
+  return {
+    href: book.ctaHref,
+    label: book.ctaLabel,
+    note: book.statusNote,
+  }
+}
+
 export function bookOfferMetadata(book: BookOffer): Metadata {
   return {
     title: book.title,

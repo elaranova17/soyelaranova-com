@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ConversionBeacon } from '@/components/conversion-beacon'
 
 export const metadata: Metadata = {
   title: 'Pre-análisis recibido',
@@ -9,10 +10,11 @@ export const metadata: Metadata = {
 
 export default function GraciasPage() {
   return (
-    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="home-eyebrow justify-center">
+    <main className="lp-page">
+      <ConversionBeacon event="generate_lead" label="preanalisis_enviado" />
+      <section className="lp-book-inside" style={{ paddingTop: '8.5rem', textAlign: 'center' }}>
+        <div className="lp-section-inner" style={{ maxWidth: '48rem' }}>
+          <p className="home-eyebrow" style={{ justifyContent: 'center' }}>
             <span aria-hidden="true" />
             Pre-análisis recibido
           </p>
@@ -27,45 +29,47 @@ export default function GraciasPage() {
         </div>
       </section>
 
-      <section className="px-5 py-16 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
-          {[
-            ['01', 'Lectura', 'Analizo tu contexto y te mando lo que veo + 2–3 movimientos.'],
-            ['02', 'Sesión 25 CHF', 'Si querés, agendamos 20 min para verlo en vivo y afinar la ruta.'],
-            ['03', 'Proyecto', 'Si hay fit, cotizamos Arranque / Pro / A medida con precio cerrado.'],
-          ].map(([number, title, text]) => (
-            <article
-              key={number}
-              className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6"
-            >
-              <p className="font-display text-3xl text-[var(--editorial-gold)]">{number}</p>
-              <h2 className="mt-5 font-display text-2xl font-normal text-[var(--editorial-plum)]">
-                {title}
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]">{text}</p>
-            </article>
-          ))}
-        </div>
+      <section className="lp-steps">
+        <div className="lp-section-inner">
+          <ol className="lp-steps__list">
+            {[
+              ['01', 'Lectura', 'Analizo tu contexto y te mando lo que veo + 2–3 movimientos.'],
+              [
+                '02',
+                'Sesión 25 CHF',
+                'Si querés, agendamos 20 min para verlo en vivo y afinar la ruta.',
+              ],
+              [
+                '03',
+                'Proyecto',
+                'Si hay fit, cotizamos Arranque / Pro / A medida con precio cerrado.',
+              ],
+            ].map(([number, title, text]) => (
+              <li key={number}>
+                <span>{number}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
 
-        <div className="mx-auto mt-12 flex max-w-5xl flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/sesion-estrategica" className="home-button home-button--primary">
-            Pagar / agendar sesión 25 CHF
-          </Link>
-          <Link href="/" className="home-button home-button--quiet">
-            Volver al inicio
-          </Link>
+          <div className="mt-12 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/sesion-estrategica" className="home-button home-button--primary">
+              Pagar / agendar sesión 25 CHF
+            </Link>
+            <Link href="/" className="home-button home-button--quiet">
+              Volver al inicio
+            </Link>
+          </div>
         </div>
       </section>
 
-      <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-5xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-            Privacidad y terminos
-          </Link>
-          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">
-            Nuevo pre-análisis
-          </Link>
-        </div>
+      <footer className="lp-footer">
+        <Link href="/legal">Privacidad y terminos</Link>
+        <span aria-hidden="true">·</span>
+        <Link href="/descubrimiento">Nuevo pre-análisis</Link>
       </footer>
     </main>
   )

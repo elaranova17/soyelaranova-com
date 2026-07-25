@@ -57,7 +57,7 @@ export const studioServices: readonly StudioService[] = [
       {
         question: 'Sirve si apenas estoy empezando?',
         answer:
-          'Si ya tienes una oferta clara o una idea validada, si. Si todavia no sabes que vendes, primero conviene hacer diagnostico y estrategia.',
+          'Si ya tienes una oferta clara o una idea validada, si. Si todavia no sabes que vendes, primero conviene hacer el pre-analisis y la sesion estrategica.',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const studioServices: readonly StudioService[] = [
     idealFor: [
       'Campañas de Google Ads o Meta Ads.',
       'Lanzamientos de productos digitales.',
-      'Servicios que necesitan cotizaciones o llamadas de diagnostico.',
+      'Servicios que necesitan cotizaciones o una sesion estrategica tras el pre-analisis.',
     ],
     includes: [
       'Headline y estructura de conversion.',

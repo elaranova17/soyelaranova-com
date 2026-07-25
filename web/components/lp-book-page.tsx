@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { TrackedLink } from '@/components/tracked-link'
-import type { BookOffer } from '@/lib/book-offers'
+import { resolveBookCta, type BookOffer } from '@/lib/book-offers'
 
 export function LpBookPage({ book }: { book: BookOffer }) {
   const tracking = `lp_libro_${book.slug}`
+  const cta = resolveBookCta(book)
+  const isExternal = /^https?:\/\//i.test(cta.href)
 
   return (
     <main className="lp-page">
@@ -30,11 +32,13 @@ export function LpBookPage({ book }: { book: BookOffer }) {
           <p className="lp-hero__sub">{book.subtitle}</p>
           <div className="lp-hero__cta">
             <TrackedLink
-              href={book.ctaHref}
+              href={cta.href}
               tracking={{ event: 'cta_click', category: 'lead', label: `${tracking}_hero` }}
               className="home-button home-button--gold"
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
             >
-              {book.ctaLabel}
+              {cta.label}
             </TrackedLink>
             <span className="lp-hero__note">{book.priceLabel}</span>
           </div>
@@ -57,14 +61,16 @@ export function LpBookPage({ book }: { book: BookOffer }) {
             ))}
           </ul>
         </div>
-        <p className="lp-section-inner lp-book-inside__note">{book.statusNote}</p>
+        <p className="lp-section-inner lp-book-inside__note">{cta.note}</p>
         <div className="lp-section-inner lp-book-inside__actions">
           <TrackedLink
-            href={book.ctaHref}
+            href={cta.href}
             tracking={{ event: 'cta_click', category: 'lead', label: `${tracking}_cta` }}
             className="home-button home-button--primary"
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
           >
-            {book.ctaLabel}
+            {cta.label}
           </TrackedLink>
           <Link href={book.secondaryHref} className="home-button home-button--quiet">
             {book.secondaryLabel}
