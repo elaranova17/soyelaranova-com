@@ -43,15 +43,17 @@ function SceneFrame({
  * (mensaje entra → proceso automático → hecho).
  */
 export function AutomationScene() {
+  // Marco interior ≈ left 24–76%, top 10–58%. Inset ~2.5% para que el pipeline
+  // quede centrado dentro de la ventana y la tarjeta superior no se corte.
   return (
     <SceneFrame
       src="/media/servicios/servicio-01-automatizaciones.webp"
-      screen={{ left: '24.1%', top: '10.1%', width: '51.6%', height: '47.9%' }}
-      viewBox="0 0 300 351"
+      screen={{ left: '26.5%', top: '12.5%', width: '47%', height: '43%' }}
+      viewBox="0 0 300 360"
     >
       <path
         className="scene-flow"
-        d="M150 330 V 268 M150 216 V 154 M150 102 V 40"
+        d="M150 318 V 262 M150 210 V 154 M150 102 V 58"
         fill="none"
         stroke="#D4AF37"
         strokeWidth={3.5}
@@ -60,23 +62,23 @@ export function AutomationScene() {
       />
 
       <g className="scene-pop">
-        <rect x={60} y={216} width={180} height={52} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <rect x={80} y={232} width={70} height={7} rx={3.5} fill="rgba(248,243,234,0.55)" />
-        <rect x={80} y={246} width={104} height={7} rx={3.5} fill="rgba(248,243,234,0.28)" />
-        <circle cx={214} cy={242} r={9} fill="#D4AF37" className="scene-node" />
+        <rect x={60} y={212} width={180} height={50} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
+        <rect x={80} y={227} width={70} height={7} rx={3.5} fill="rgba(248,243,234,0.55)" />
+        <rect x={80} y={241} width={104} height={7} rx={3.5} fill="rgba(248,243,234,0.28)" />
+        <circle cx={214} cy={237} r={9} fill="#D4AF37" className="scene-node" />
       </g>
 
       <g className="scene-pop scene-pop--d2">
-        <rect x={60} y={102} width={180} height={52} rx={14} fill="rgba(123,63,160,0.28)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <path d="M150 112 l -9 17 h 8 l -4 16 13 -20 h -8 l 5 -13 z" fill="#F2D578" />
+        <rect x={60} y={104} width={180} height={50} rx={14} fill="rgba(123,63,160,0.28)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
+        <path d="M150 114 l -9 17 h 8 l -4 16 13 -20 h -8 l 5 -13 z" fill="#F2D578" />
         <rect x={112} y={138} width={76} height={6} rx={3} fill="rgba(248,243,234,0.4)" />
       </g>
 
       <g className="scene-pop scene-pop--d3">
-        <rect x={60} y={0} width={180} height={40} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <circle cx={110} cy={20} r={11} fill="none" stroke="#D4AF37" strokeWidth={2} />
-        <path d="M104 20 l 4 5 9 -10" fill="none" stroke="#D4AF37" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
-        <rect x={132} y={16} width={76} height={7} rx={3.5} fill="rgba(248,243,234,0.4)" />
+        <rect x={60} y={18} width={180} height={40} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
+        <circle cx={110} cy={38} r={11} fill="none" stroke="#D4AF37" strokeWidth={2} />
+        <path d="M104 38 l 4 5 9 -10" fill="none" stroke="#D4AF37" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+        <rect x={132} y={34} width={76} height={7} rx={3.5} fill="rgba(248,243,234,0.4)" />
       </g>
     </SceneFrame>
   )

@@ -228,7 +228,7 @@ export default function HomePage() {
               Capturas de flujos, dashboards y pantallas: la forma del producto, no el nombre del
               cliente.
             </small>
-            <Link href="#servicios" className="home-recurso__link">
+            <Link href="/#servicios" className="home-recurso__link">
               Ver pantallas
             </Link>
           </article>
@@ -275,7 +275,7 @@ export default function HomePage() {
       <section id="trabaja" className="home-work">
         <Photo
           src="/_assets/photos/evelyn_pro_perfil.jpg"
-          alt="Evelyn Patino trabajando en su estudio, perfil"
+          alt="Evelyn Patino sonriendo, retrato profesional"
           className="home-work__visual"
         />
         <div className="home-work__copy">
