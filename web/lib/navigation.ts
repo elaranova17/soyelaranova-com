@@ -56,7 +56,8 @@ export function elaraSectionHref(sectionId: ElaraSectionId, pathname: string): s
 }
 
 /** @deprecated Use STUDIO_NAV */
-export function elaraSectionNav(_pathname: string): readonly NavItem[] {
+export function elaraSectionNav(_pathname?: string): readonly NavItem[] {
+  void _pathname
   return STUDIO_NAV
 }
 
