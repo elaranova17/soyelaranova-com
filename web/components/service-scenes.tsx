@@ -1,10 +1,10 @@
 /**
  * Escenas animadas de las tarjetas de servicios (home).
- * Fondo: fotos quiet-luxury con pantallas chroma ya oscurecidas (Python).
+ * Fondo: fotos quiet-luxury con pantallas chroma oscurecidas.
  * El SVG se posiciona EXACTO sobre cada pantalla (bbox del chroma, en %),
  * por lo que escala responsive junto con la foto.
  *
- * Mapa actual: 01 automatizaciones = marco+podio · 02 webs = tablet
+ * Mapa: 01 automatizaciones = marco+podio · 02 webs = tablet
  * · 03 google ads = dominó+teléfono.
  */
 
@@ -39,47 +39,73 @@ function SceneFrame({
 }
 
 /**
- * 01 · Automatizaciones — dentro del marco: pipeline que se enciende solo
- * (mensaje entra → proceso automático → hecho).
+ * 01 · Automatizaciones — pipeline vivo + banner de estado
+ * (mismo lenguaje de motion que el slide Ver/Analizar/Crear/Lanzar).
  */
 export function AutomationScene() {
-  // Marco interior ≈ left 24–76%, top 10–58%. Inset ~2.5% para que el pipeline
-  // quede centrado dentro de la ventana y la tarjeta superior no se corte.
   return (
     <SceneFrame
       src="/media/servicios/servicio-01-automatizaciones.webp"
-      screen={{ left: '26.5%', top: '12.5%', width: '47%', height: '43%' }}
+      screen={{ left: '26%', top: '10%', width: '46%', height: '46%' }}
       viewBox="0 0 300 360"
     >
+      {/* Banner de estado — eco del word-banner del slide */}
+      <g className="scene-banner">
+        <rect x={18} y={16} width={264} height={42} rx={12} fill="rgba(212,175,55,0.16)" stroke="rgba(212,175,55,0.55)" strokeWidth={1.4} />
+        <circle cx={42} cy={37} r={7} fill="#D4AF37" className="scene-node" />
+        <rect x={58} y={28} width={86} height={8} rx={4} fill="rgba(248,243,234,0.78)" />
+        <rect x={58} y={42} width={128} height={6} rx={3} fill="rgba(248,243,234,0.32)" />
+        <rect x={214} y={28} width={52} height={18} rx={9} fill="#D4AF37" />
+        <rect x={224} y={34} width={32} height={6} rx={3} fill="rgba(24,19,26,0.55)" />
+      </g>
+
+      {/* Hilo vertical del flujo */}
       <path
         className="scene-flow"
-        d="M150 318 V 262 M150 210 V 154 M150 102 V 58"
+        d="M150 318 V 262 M150 210 V 154 M150 140 V 78"
         fill="none"
         stroke="#D4AF37"
         strokeWidth={3.5}
         strokeLinecap="round"
-        opacity={0.85}
+        opacity={0.9}
       />
 
+      {/* Paquetes que viajan por el pipeline */}
+      <circle cx={150} cy={300} r={5} fill="#F2D578" className="scene-packet" />
+      <circle cx={150} cy={300} r={5} fill="#F2D578" className="scene-packet scene-packet--d2" />
+      <circle cx={150} cy={300} r={5} fill="#D4AF37" className="scene-packet scene-packet--d3" />
+
       <g className="scene-pop">
-        <rect x={60} y={212} width={180} height={50} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <rect x={80} y={227} width={70} height={7} rx={3.5} fill="rgba(248,243,234,0.55)" />
-        <rect x={80} y={241} width={104} height={7} rx={3.5} fill="rgba(248,243,234,0.28)" />
-        <circle cx={214} cy={237} r={9} fill="#D4AF37" className="scene-node" />
+        <rect x={52} y={248} width={196} height={54} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
+        <rect x={72} y={264} width={78} height={7} rx={3.5} fill="rgba(248,243,234,0.55)" />
+        <rect x={72} y={278} width={118} height={7} rx={3.5} fill="rgba(248,243,234,0.28)" />
+        <circle cx={222} cy={275} r={9} fill="#D4AF37" className="scene-node" />
       </g>
 
       <g className="scene-pop scene-pop--d2">
-        <rect x={60} y={104} width={180} height={50} rx={14} fill="rgba(123,63,160,0.28)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <path d="M150 114 l -9 17 h 8 l -4 16 13 -20 h -8 l 5 -13 z" fill="#F2D578" />
-        <rect x={112} y={138} width={76} height={6} rx={3} fill="rgba(248,243,234,0.4)" />
+        <rect x={52} y={156} width={196} height={54} rx={14} fill="rgba(123,63,160,0.32)" stroke="rgba(212,175,55,0.55)" strokeWidth={1.4} />
+        <path d="M150 168 l -10 18 h 9 l -5 18 15 -22 h -9 l 6 -14 z" fill="#F2D578" />
+        <rect x={108} y={192} width={84} height={6} rx={3} fill="rgba(248,243,234,0.42)" />
+        <circle cx={222} cy={183} r={8} fill="none" stroke="#F2D578" strokeWidth={2} className="scene-node scene-node--d2" />
       </g>
 
       <g className="scene-pop scene-pop--d3">
-        <rect x={60} y={18} width={180} height={40} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
-        <circle cx={110} cy={38} r={11} fill="none" stroke="#D4AF37" strokeWidth={2} />
-        <path d="M104 38 l 4 5 9 -10" fill="none" stroke="#D4AF37" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
-        <rect x={132} y={34} width={76} height={7} rx={3.5} fill="rgba(248,243,234,0.4)" />
+        <rect x={52} y={72} width={196} height={48} rx={14} fill="rgba(248,243,234,0.1)" stroke="rgba(212,175,55,0.5)" strokeWidth={1.4} />
+        <circle cx={96} cy={96} r={12} fill="none" stroke="#D4AF37" strokeWidth={2.2} />
+        <path d="M90 96 l 4.5 5.5 10 -12" fill="none" stroke="#D4AF37" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
+        <rect x={120} y={90} width={96} height={8} rx={4} fill="rgba(248,243,234,0.45)" />
       </g>
+
+      {/* Brillo final — mismo sweep del slide Crear */}
+      <rect x={-140} y={0} width={110} height={360} fill="url(#eln-auto-sweep)" className="scene-sweep" />
+
+      <defs>
+        <linearGradient id="eln-auto-sweep" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="rgba(248,243,234,0)" />
+          <stop offset="0.5" stopColor="rgba(248,243,234,0.18)" />
+          <stop offset="1" stopColor="rgba(248,243,234,0)" />
+        </linearGradient>
+      </defs>
     </SceneFrame>
   )
 }

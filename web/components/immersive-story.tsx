@@ -166,22 +166,22 @@ const steps: readonly Step[] = [
   {
     number: '01',
     eyebrow: 'Ver',
-    title: 'Miramos tu negocio de verdad.',
-    text: 'Entendemos el problema real: qué te frena, qué se pierde y dónde estás gastando de más.',
+    title: 'Miro tu negocio de verdad.',
+    text: 'Entiendo el problema real: qué te frena, qué se pierde y dónde estás gastando de más.',
     Screen: VerScreen,
   },
   {
     number: '02',
     eyebrow: 'Analizar',
-    title: 'Encontramos el patrón que importa.',
-    text: 'Ordenamos el caos en una estructura clara: qué automatizar, qué construir y en qué orden.',
+    title: 'Encuentro el patrón que importa.',
+    text: 'Ordeno el caos en una estructura clara: qué automatizar, qué construir y en qué orden.',
     Screen: AnalizarScreen,
   },
   {
     number: '03',
     eyebrow: 'Crear',
-    title: 'Le damos forma que vende.',
-    text: 'Diseñamos y construimos la web, la automatización o el sistema — pensado para convertir.',
+    title: 'Le doy forma que vende.',
+    text: 'Diseño y construyo la web, la automatización o el sistema — pensado para convertir.',
     Screen: CrearScreen,
   },
   {
@@ -260,7 +260,7 @@ export function ImmersiveStory() {
 
       <div className="immersive-story__chapters">
         <header>
-          <EyebrowForClient>Nuestro proceso</EyebrowForClient>
+          <EyebrowForClient>Mi proceso</EyebrowForClient>
           <h2 id="immersive-title">Ver. Analizar. Crear. Lanzar.</h2>
         </header>
         {steps.map((step, index) => (
