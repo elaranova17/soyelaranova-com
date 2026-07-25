@@ -89,10 +89,18 @@ export default function SobreElaraPage() {
             <ElaraButton href="/portfolio" className="w-full sm:w-auto">
               Ver portafolio de Evelyn
             </ElaraButton>
-            <ElaraButton href="/linktree" variant="secondary" className="w-full sm:w-auto">
-              CV · contacto · propuesta
+            <ElaraButton href="/cv" variant="secondary" className="w-full sm:w-auto">
+              Ver CV
             </ElaraButton>
           </div>
+          <p className="mt-4">
+            <a
+              href="/linktree"
+              className="font-sans text-[10px] tracking-[0.22em] text-[var(--color-gold-soft)]/70 uppercase underline-offset-4 hover:text-[var(--color-gold-bright)] hover:underline"
+            >
+              Más enlaces · linktree
+            </a>
+          </p>
         </div>
 
         <ElaraButton href="/" variant="secondary">

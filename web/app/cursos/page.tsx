@@ -54,10 +54,10 @@ export default function CursosPage() {
         </div>
 
         <Link
-          href="/#productos"
+          href="/#recursos"
           className="mt-10 inline-flex min-h-12 items-center rounded-full border border-[var(--editorial-plum)]/25 px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-plum)] uppercase"
         >
-          Ver productos actuales
+          Ver recursos
         </Link>
       </section>
     </main>
