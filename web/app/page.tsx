@@ -30,10 +30,10 @@ const services: readonly Service[] = [
   },
   {
     number: '02',
-    type: 'Conversion',
+    type: 'Conversión',
     title: 'Landing pages y sitios web',
     description:
-      'Paginas hechas para vender: mensaje claro, mobile-first y pensadas para que la persona correcta dé el siguiente paso. Ideales para Google Ads y lanzamientos.',
+      'Páginas hechas para vender: mensaje claro, mobile-first y pensadas para que la persona correcta dé el siguiente paso. Ideales para Google Ads y lanzamientos.',
     price: 'Desde 650 €',
     asset: 'servicio-02-webs.webp',
     format: '1600 × 2000 px',
@@ -44,8 +44,8 @@ const services: readonly Service[] = [
     type: 'Crecimiento',
     title: 'Google Ads y medición',
     description:
-      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabes qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
-    price: 'Setup 450 € · gestion 350 €/mes',
+      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabés qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
+    price: 'Setup 450 € · gestión 350 €/mes',
     asset: 'servicio-03-google-ads.webp',
     format: '1800 × 1350 px',
     href: '/servicios/google-ads',
@@ -65,16 +65,24 @@ function Photo({
   src,
   alt,
   className = '',
+  priority = false,
   children,
 }: {
   src: string
   alt: string
   className?: string
+  priority?: boolean
   children?: React.ReactNode
 }) {
   return (
     <figure className={`asset-photo ${className}`}>
-      <img src={src} alt={alt} loading="lazy" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="(max-width: 900px) 100vw, 55vw"
+      />
       {children}
     </figure>
   )
@@ -112,6 +120,7 @@ export default function HomePage() {
           src={evelynPhotos.homeHero}
           alt="Evelyn Patiño, ingeniera de software, en su estudio"
           className="home-hero__visual"
+          priority
         >
           <figcaption className="home-hero__caption">
             <span>Ingeniería real</span>

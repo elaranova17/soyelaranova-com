@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { TrackedLink } from '@/components/tracked-link'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
@@ -189,11 +190,12 @@ export function ImmersiveStory() {
       <div className="immersive-story__stage" aria-hidden="true">
         <div className="immersive-story__scene">
           <div className="immersive-story__photo">
-            <img
+            <Image
               className="immersive-story__bg"
               src={evelynPhotos.slideProceso}
               alt=""
-              loading="lazy"
+              fill
+              sizes="100vw"
             />
             <div className="immersive-story__screen">
               {steps.map((step, index) => (

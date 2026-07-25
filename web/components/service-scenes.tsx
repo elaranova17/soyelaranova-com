@@ -8,6 +8,8 @@
  * · 03 google ads = dominó+teléfono.
  */
 
+import Image from 'next/image'
+
 type ScreenBox = {
   left: string
   top: string
@@ -28,7 +30,7 @@ function SceneFrame({
 }) {
   return (
     <div className="service-scene">
-      <img src={src} alt="" loading="lazy" />
+      <Image src={src} alt="" fill sizes="(max-width: 900px) 50vw, 33vw" />
       <div className="service-scene__screen" style={screen}>
         <svg viewBox={viewBox} aria-hidden="true" className="service-scene__overlay" preserveAspectRatio="none">
           {children}
