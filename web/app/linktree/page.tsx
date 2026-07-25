@@ -131,10 +131,10 @@ export default function LinktreePage() {
           <div className="linktree-avatar">
             <Image
               src={evelynPhotos.linktreeAvatar}
-              alt="Evelyn Patiño Laverde"
+              alt="Firma Elara Nova"
               fill
               sizes="140px"
-              className="object-cover object-[50%_18%]"
+              className="object-contain object-center bg-[var(--color-purple-deep)] p-3"
               priority
             />
           </div>

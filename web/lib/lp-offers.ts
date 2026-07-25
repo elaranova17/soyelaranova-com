@@ -68,19 +68,19 @@ const SERVICE_VISUALS: Record<string, LpVisual> = {
 /** Overrides por paquete hija — evita la misma foto en todas las LPs. */
 const PACK_VISUALS: Record<string, LpVisual> = {
   'automatizaciones/arranque': {
-    heroImage: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
-    heroAlt: 'Evelyn Patiño en estudio, lista para armar tu primera automatización',
-    heroPosition: '58% 22%',
+    heroImage: '/media/servicios/servicio-01-automatizaciones.webp',
+    heroAlt: 'Automatizaciones listas para tu negocio',
+    heroPosition: 'center 40%',
   },
   'automatizaciones/pro': {
-    heroImage: '/_assets/photos/kit-web-real/01-hero-evelyn.webp',
-    heroAlt: 'Evelyn Patiño, ingeniera de software — sistemas Pro',
-    heroPosition: '55% 20%',
+    heroImage: '/media/recursos/recurso-valor.webp',
+    heroAlt: 'Sistemas Pro de automatización',
+    heroPosition: 'center 35%',
   },
   'automatizaciones/a-medida': {
-    heroImage: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-    heroAlt: 'Evelyn Patiño — automatizaciones a medida',
-    heroPosition: '50% 18%',
+    heroImage: '/media/servicios/servicio-01-automatizaciones.webp',
+    heroAlt: 'Automatizaciones a medida',
+    heroPosition: '62% 40%',
   },
   'paginas-web/landing-unica': {
     heroImage: '/media/recursos/recurso-pantallas.webp',
@@ -93,14 +93,14 @@ const PACK_VISUALS: Record<string, LpVisual> = {
     heroPosition: '62% 40%',
   },
   'paginas-web/sitio-ads': {
-    heroImage: '/_assets/photos/kit-web-real/evelyn-estudio-profesional.jpg',
-    heroAlt: 'Evelyn Patiño — sitio + Ads como sistema',
-    heroPosition: '48% 24%',
+    heroImage: '/media/recursos/recurso-ebook.webp',
+    heroAlt: 'Sitio + Ads como sistema',
+    heroPosition: 'center 40%',
   },
   'google-ads/setup': {
-    heroImage: '/_assets/photos/kit-web-real/00-identidad-frontal.webp',
-    heroAlt: 'Evelyn Patiño — setup de Google Ads medible',
-    heroPosition: '50% 18%',
+    heroImage: '/media/servicios/servicio-03-google-ads.webp',
+    heroAlt: 'Setup de Google Ads medible',
+    heroPosition: 'center 40%',
   },
   'google-ads/gestion': {
     heroImage: '/media/servicios/servicio-03-google-ads.webp',
@@ -110,9 +110,9 @@ const PACK_VISUALS: Record<string, LpVisual> = {
 }
 
 const FALLBACK_VISUAL: LpVisual = {
-  heroImage: '/_assets/photos/evelyn_pro_hero.jpg',
-  heroAlt: 'Evelyn Patiño, ingeniera de software',
-  heroPosition: '58% 22%',
+  heroImage: '/media/servicios/servicio-02-webs.webp',
+  heroAlt: 'Elara Nova — webs, automatizaciones y Ads',
+  heroPosition: 'center 40%',
 }
 
 export function getLpVisual(offer: LpOffer): LpVisual {

@@ -15,13 +15,10 @@
 
 ## 1 · Assets que YA existen (reutilizar, NO recrear)
 
-### Fotos reales de Evelyn — ✅ **ya las tiene**
-| Archivo | Ruta | Dimensiones | Uso propuesto |
-|---|---|---|---|
-| `evelyn_pro_hero.jpg` | `web/public/_assets/photos/` | 896 × 1200 (retrato) | Foto profesional de Evelyn — candidata a hero/about |
-| `evelyn_pro_perfil.jpg` | `web/public/_assets/photos/` | 896 × 1200 (retrato) | Retrato de perfil — bio / "sobre mí" |
+### Fotos de Evelyn — ❌ ninguna en producción (purgado jul 2026)
+Caras eliminadas del repo y de la web: kit IA (`kit-web-real/`, `evelyn_pro_*`, Higgs) **y** selfies phone (`evelyn-real/`).
 
-> ⚠️ Ambas son **retrato vertical**. El slot hero de la home (`hero-evelyn-elara.webp`) está diseñado horizontal (2400×1500) y el bloque "Trabaja conmigo" pide horizontal (2000×1600). Ver §2: puede que Evelyn necesite **una toma horizontal** o recomponer el layout. Revisar antes de decidir si hace falta foto nueva.
+Visuales actuales: `media/servicios/`, `media/recursos/`, `brand/firma-elara*.png`, OG tipográficos.
 
 ### Logos y marca — ✅ existen
 | Archivo | Ruta | Dimensiones | Notas |
@@ -55,21 +52,9 @@ Toda la carpeta `web/public/images/` con `hero-elara-noche.png`, `herramienta-*`
 
 > Se toman con el móvil. Luz natural de ventana, fondo limpio y ordenado. Ropa profesional pero cercana. Evitar filtros pesados.
 
-### ☐ FOTO-01 · Hero horizontal — Evelyn trabajando · **P0**
-- **Propósito:** protagonista del hero de la home. La cara de la agencia.
-- **Dónde se usa:** slot `hero-evelyn-elara.webp` en `web/app/page.tsx` (home-hero__visual).
-- **Encuadre/orientación:** **horizontal (landscape)**, plano medio. Evelyn frente al portátil, mirada a cámara o al trabajo, con espacio negativo a un lado para el texto del hero.
-- **Resolución:** exportar ≥ 2400 × 1500 px (ideal 3000 px de ancho para recortes).
-- **Cómo tomarla:** móvil en horizontal sobre libros/trípode a la altura de los ojos. Ventana a un lado (luz suave). Escritorio ordenado: portátil, libreta, café. Regla de tercios: Evelyn a un lado, deja el otro tercio "vacío" para el titular. Toma 15–20 fotos, elige la de postura más natural.
-- **Nota:** si `evelyn_pro_hero.jpg` (vertical) sirve recomponiendo el hero a dos columnas, esta foto baja a **P1**. Decisión de la sesión de código.
-
-### ☐ FOTO-02 · Retrato bio "Trabaja conmigo / Sobre mí" · **P0**
-- **Propósito:** dar cara y confianza en el bloque de autoridad ("pienso como diseñadora, construyo como ingeniera").
-- **Dónde se usa:** slot `evelyn-estudio-profesional.webp` (home-work) y página `sobre-elara` / `trabaja-conmigo`.
-- **Encuadre:** puede ser **vertical** (retrato editorial) — aquí **`evelyn_pro_perfil.jpg` ya sirve**. Solo tomar nueva si quiere una más "de ingeniera en acción" (frente a pantalla con código/diagrama).
-- **Resolución:** ≥ 1600 × 2000 px.
-- **Cómo tomarla:** medio cuerpo, manos visibles (transmite cercanía), sonrisa natural. Fondo neutro o escritorio de trabajo.
-- **Estado:** cubierta por asset existente → esta línea es **P1** (opcional mejorar).
+### ☐ FOTO-01 / FOTO-02 · Retratos Evelyn · **PAUSADO**
+- **Estado jul 2026:** sin fotos de Evelyn en producción (ni IA ni selfies). Home/CV/portfolio usan `media/servicios/` + `brand/`.
+- **Si se reactivan:** fotos nuevas profesionales acordadas — no reintroducir kit IA ni face-refs phone.
 
 ### ☐ FOTO-03 · Prueba de trabajo / "en acción" (opcional) · **P2**
 - **Propósito:** foto de contexto para reforzar autoridad (pantalla con un flujo n8n/Make, o diagrama de automatización real de fondo).
@@ -144,8 +129,7 @@ Toda la carpeta `web/public/images/` con `hero-elara-noche.png`, `herramienta-*`
 
 | Asset | Tipo | Dimensiones | Formato | Prioridad | Dónde se usa |
 |---|---|---|---|---|---|
-| `evelyn_pro_hero.jpg` | ya existe | 896 × 1200 | JPG | — | Home hero / bio (retrato) |
-| `evelyn_pro_perfil.jpg` | ya existe | 896 × 1200 | JPG | — | Bio / sobre mí |
+| _(sin fotos Evelyn)_ | purgado | — | — | — | Usar media/servicios + brand |
 | `logo-elara-nova.png` | ya existe | 512 × 512 | PNG | — | Nav / marca |
 | `sello-elara-nova.png` | ya existe | 1254 × 1254 | PNG | — | Sello / footer |
 | `elara.jpg` (avatar 3D) | ya existe | 1024 × 1024 | JPG | — | Acento Elara |

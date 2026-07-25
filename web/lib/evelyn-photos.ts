@@ -1,13 +1,18 @@
 /**
- * Fotos Evelyn · asignación única por superficie (no repetir entre páginas).
- * Home ya usa: evelyn_pro_hero, evelyn_me_portrait.
- * Sobre-elara: evelyn_pro_perfil.
+ * Visuales de estudio sin caras (fotos Evelyn purgadas: IA + selfies).
+ * Usa media de servicios/recursos + firma de marca.
  */
 export const evelynPhotos = {
-  linktreeAvatar: '/_assets/photos/kit-web-real/00-identidad-sonrisa.webp',
-  portfolioHero: '/_assets/photos/kit-web-real/01-hero-evelyn.webp',
-  portfolioAbout: '/_assets/photos/kit-web-real/02-bio-evelyn.webp',
-  cvHero: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-  cvAbout: '/_assets/photos/kit-web-real/00-identidad-frontal.webp',
-  atmosphere: '/_assets/photos/kit-web-real/bg-editorial-humo.webp',
+  homeHero: '/media/servicios/servicio-02-webs.webp',
+  homeAbout: '/media/servicios/servicio-01-automatizaciones.webp',
+  sobreElara: '/brand/firma-elara.png',
+  trabajaConmigo: '/media/recursos/recurso-pantallas.webp',
+  linktreeAvatar: '/brand/firma-elara.png',
+  portfolioHero: '/media/servicios/servicio-02-webs.webp',
+  portfolioAbout: '/media/servicios/servicio-03-google-ads.webp',
+  cvHero: '/media/recursos/recurso-valor.webp',
+  cvAbout: '/media/servicios/servicio-01-automatizaciones.webp',
+  atmosphere: '/_assets/photos/atmosphere/bg-editorial-humo.webp',
+  ogPortfolio: '/_assets/photos/og-portfolio.jpg',
+  ogCv: '/_assets/photos/og-cv.jpg',
 } as const

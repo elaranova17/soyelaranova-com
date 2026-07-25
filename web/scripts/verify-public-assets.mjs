@@ -43,6 +43,11 @@ const bannedPaths = [
   'elara-nova-rediseno.css',
   'elara-nova-animations.js',
   'elara-cursos-productos.css',
+  '_assets/photos/kit-web-real', // kit IA / Higgs — purgado jul 2026
+  '_assets/photos/evelyn-real', // selfies phone — también prohibidas
+  '_assets/photos/evelyn_pro_hero.jpg',
+  '_assets/photos/evelyn_pro_perfil.jpg',
+  '_assets/photos/evelyn_me_portrait.webp',
 ]
 
 function checkNoLegacyFiles() {

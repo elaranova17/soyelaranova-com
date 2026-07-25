@@ -42,12 +42,12 @@ export default function TrabajaConmigoPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)]">
             <Image
-              src="/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg"
-              alt="Evelyn Patino"
+              src="/media/recursos/recurso-pantallas.webp"
+              alt="Pantallas y sistemas Elara Nova"
               fill
               priority
               sizes="(max-width: 1024px) 92vw, 36rem"
-              className="object-cover object-[58%_22%]"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(24,19,26,0.62)_100%)]" />
           </div>

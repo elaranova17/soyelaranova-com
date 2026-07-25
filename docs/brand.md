@@ -128,7 +128,7 @@ Outreach: `docs/KIT_OUTREACH.md`.
 
 ## Assets
 
-- Fotos Evelyn: `web/public/_assets/photos/`
+- Sin fotos de Evelyn en web: prohibido kit IA / Higgs / `evelyn_pro_*` / selfies `evelyn-real/`. Usar `media/servicios/`, `media/recursos/`, `brand/`.
 - Escenas servicios: `web/public/media/servicios/`
 - Recursos: `web/public/media/recursos/`
 - Firma: `web/public/brand/firma-elara*.png`
