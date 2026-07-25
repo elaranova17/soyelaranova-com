@@ -11,7 +11,13 @@
 - Ten a mano **una frase de credibilidad**: *"ingeniera de sistemas, 6 años en banca (Bancolombia/Sophos), ahora automatizo y construyo webs que venden para negocios pequeños."*
 - Ten el **caso val-débarras** listo (link o captura): empresa suiza, landings por cantón + Google Ads + captura automática de leads.
 - Regla de personalización: **la primera línea siempre habla de ELLOS**, nunca de ti. Si no puedes decir algo concreto de su negocio, no envíes ese mensaje.
-- No mandes precios en el primer mensaje. El objetivo del frío es **una llamada de 15 min**, nada más.
+- **Gancho 2026 (no vendas call gratis):** invitá al **pre-análisis didáctico** → lectura → **sesión 25 CHF / 20 min**.
+- Links canónicos con UTM (copiá y cambiá `upwork` / `malt` / `linkedin`):
+  - Pre-análisis: `https://soyelaranova.com/descubrimiento?utm_source=upwork&utm_medium=fl&utm_campaign=outreach`
+  - Automatizaciones: `https://soyelaranova.com/lp/automatizaciones?utm_source=upwork&utm_medium=fl&utm_campaign=outreach`
+  - Sitio + Ads: `https://soyelaranova.com/lp/paginas-web/sitio-ads?utm_source=malt&utm_medium=fl&utm_campaign=outreach`
+  - Sesión: `https://soyelaranova.com/sesion-estrategica?utm_source=linkedin&utm_medium=social&utm_campaign=outreach`
+- No mandes precios de proyecto en el primer mensaje. Objetivo: **que completen el pre-análisis**.
 
 ---
 
@@ -50,10 +56,10 @@ Negocios que (a) pierden tiempo/leads de forma obvia y (b) tienen dinero para pa
 - LATAM: Google Maps por ciudad, directorios de cámaras de comercio, **Guía Local** / **Cylex**.
 
 **Marketplaces freelance (demanda entrante, cierras más fácil)**
-- **Malt** (España, buenos tickets, clientes serios) — perfil "Automatización + Landing pages, ex-banca".
-- **Workana** (LATAM, mucho volumen) — filtra proyectos de automatización/n8n/Zapier y web.
-- **Fiverr Pro / Upwork** — un par de gigs enfocados ("Automatizo tu captación de leads con n8n").
-- Usa val-débarras como pieza estrella del portfolio en todos.
+- **Malt** (ES/CH/FR) — perfil "Automatización + webs que venden, ex-banca". Link fijo a `/lp/automatizaciones?utm_source=malt&utm_medium=fl`.
+- **Upwork** — gigs: “Lead capture automation (n8n)” + “Landing page that converts”. En la propuesta: *“Before a long call, complete the pre-analysis → I send a short written read → optional 20‑min strategy session (25 CHF).”*
+- **Workana** (LATAM) — mismo gancho en español.
+- Portfolio estrella: val-débarras + `/portfolio`.
 
 **Referidos (el canal más rentable, no lo saltes)**
 - Escribe a **10-15 conocidos** (ex-colegas de banca, amigos con negocio, tu red en Suiza/Colombia): *"arranqué mi estudio de automatización y webs, ¿conoces algún negocio que pierda tiempo con tareas manuales o que necesite captar más clientes?"*

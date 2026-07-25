@@ -191,14 +191,15 @@ No es un calendario: es el orden en que el código desbloquea el embudo.
 - `/gracias` con siguiente paso → sesión 25 CHF ✅
 - Landing `/sesion-estrategica` (pago + agenda) ✅ (pago Stripe pendiente)
 
-### Bloque 4 — Libros (P1)
-- `/lp/libros/7-dias-de-elara` (opt-in)
-- `/lp/libros/ciclo-nova-del-regreso` (waitlist / Hotmart cuando exista)
+### Bloque 4 — Libros (P1) ✅ rutas
+- `/lp/libros/7-dias-de-elara` (opt-in vía pre-análisis) ✅
+- `/lp/libros/ciclo-nova-del-regreso` (waitlist) ✅
+- Hotmart live: pendiente
 
-### Bloque 5 — FL + medición (P1)
-- UTMs documentados
-- Eventos: `preanalisis_submit`, `sesion_click`, `sesion_paid`
-- Actualizar KIT_OUTREACH + ESTADO_PROYECTO
+### Bloque 5 — FL + medición (P1) ✅ docs
+- UTMs en KIT_OUTREACH ✅
+- Eventos CTA: `sesion_pago`, `sesion_calendly`, `preanalisis_step`
+- Stripe/Calendly: env vars + fallback WhatsApp ✅ (activar links en Vercel)
 
 ### Bloque 6 — Pulido (P2)
 - Fotos LP únicas (sin repetir hero)

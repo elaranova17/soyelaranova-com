@@ -86,8 +86,8 @@ Fuente: [`PLAN_CIERRE_EMBUDO.md`](PLAN_CIERRE_EMBUDO.md)
 
 ## Pendientes / siguiente
 
-1. Wizard didáctico multi-paso en `/descubrimiento` + Stripe/Calendly live
-2. LPs de libros (`/lp/libros/*`) + kit FL con UTMs
+1. Pegar en Vercel `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (hasta entonces WhatsApp fallback)
+2. Hotmart live para Ciclo Nova
 3. Decidir el futuro de las rutas espirituales (`/oraculo`, `/universo`, `/cursos`,
    `/sobre-elara`): rediseñarlas al sistema editorial o retirarlas.
 2. Hotmart links reales en productos digitales.
