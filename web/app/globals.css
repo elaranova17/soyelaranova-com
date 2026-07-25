@@ -1133,6 +1133,114 @@ h1, h2, h3,
   border-radius: 50% 50% .5rem .5rem;
 }
 
+/* Recursos · ebooks / pantallas / material (sin casos de clientes) */
+.home-recursos {
+  padding: clamp(5rem, 8vw, 8rem) max(1.25rem, calc((100vw - 90rem) / 2));
+  background: var(--editorial-aubergine);
+  color: var(--editorial-ivory);
+}
+
+.home-recursos__intro {
+  max-width: 40rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.home-recursos__intro h2 {
+  max-width: 16ch;
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.2vw, 5rem);
+  font-weight: 400;
+  line-height: .95;
+}
+
+.home-recursos__intro > p {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  color: var(--editorial-lavender);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.home-recursos__rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.home-recurso {
+  display: grid;
+  gap: .75rem;
+  align-content: start;
+}
+
+.home-recurso__media {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid color-mix(in srgb, var(--editorial-gold) 28%, transparent);
+  border-radius: .35rem;
+  background: rgb(10 0 16 / .35);
+}
+
+.home-recurso__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-recurso > p {
+  margin: .35rem 0 0;
+  color: var(--editorial-gold);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.home-recurso h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.home-recurso small {
+  color: var(--editorial-lavender);
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.home-recurso__link {
+  justify-self: start;
+  margin-top: .35rem;
+  color: var(--editorial-gold);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--editorial-gold) 45%, transparent);
+  padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.home-recurso__link:hover {
+  color: var(--color-gold-bright);
+  border-bottom-color: var(--color-gold-bright);
+}
+
+@media (max-width: 900px) {
+  .home-recursos__rail {
+    grid-template-columns: 1fr;
+  }
+
+  .home-recurso__media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
 .home-work {
   display: grid;
   grid-template-columns: 1.08fr .92fr;

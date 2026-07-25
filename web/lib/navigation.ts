@@ -48,7 +48,7 @@ export function elaraLandingNav(): readonly NavItem[] {
   return [
     { href: '#servicios', label: 'Servicios' },
     { href: '#oferta', label: 'Precios' },
-    { href: '#caso', label: 'Caso real' },
+    { href: '#recursos', label: 'Recursos' },
     { href: '#trabaja', label: 'Sobre mi' },
     { href: '#contacto', label: 'Contacto' },
   ]
