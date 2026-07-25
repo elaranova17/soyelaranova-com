@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { TrackedLink } from '@/components/tracked-link'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
 function ScreenBase({ children }: { children: React.ReactNode }) {
@@ -12,129 +13,117 @@ function ScreenBase({ children }: { children: React.ReactNode }) {
       className="immersive-screen"
       preserveAspectRatio="none"
     >
+      <rect width="400" height="290" fill="#120C16" />
       {children}
     </svg>
   )
 }
 
-/** VER — radar que encuentra el punto que importa */
+/** 01 VER — foco en el dolor del negocio */
 function VerScreen() {
   return (
     <ScreenBase>
+      <text x="28" y="36" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: 2 }}>
+        DIAGNÓSTICO
+      </text>
+      <text x="28" y="62" fill="#F8F3EA" style={{ fontFamily: 'var(--font-display)', fontSize: 22, letterSpacing: 2 }}>
+        ¿DÓNDE SE PIERDE?
+      </text>
+      <circle cx="210" cy="165" r="78" fill="none" stroke="rgba(184,154,88,0.2)" strokeWidth="1.5" className="scene-node scene-node--d3" />
+      <circle cx="210" cy="165" r="48" fill="none" stroke="rgba(184,154,88,0.45)" strokeWidth="2" className="scene-node scene-node--d2" />
+      <circle cx="210" cy="165" r="18" fill="none" stroke="#F2D578" strokeWidth="3" className="scene-node" />
+      <circle cx="210" cy="165" r="7" fill="#D4AF37" className="scene-node" />
       <g fill="rgba(248,243,234,0.35)">
-        <circle cx={60} cy={80} r={5} />
-        <circle cx={120} cy={210} r={4} />
-        <circle cx={255} cy={60} r={5} />
-        <circle cx={330} cy={220} r={4} />
-        <circle cx={350} cy={110} r={5} />
-        <circle cx={100} cy={140} r={4} />
+        <circle cx="70" cy="110" r="4" />
+        <circle cx="320" cy="100" r="4" />
+        <circle cx="90" cy="220" r="4" />
+        <circle cx="340" cy="210" r="4" />
       </g>
-      <circle
-        cx={200}
-        cy={150}
-        r={70}
-        fill="none"
-        stroke="rgba(212,175,55,0.18)"
-        strokeWidth={1.5}
-        className="scene-node scene-node--d3"
-      />
-      <circle
-        cx={200}
-        cy={150}
-        r={42}
-        fill="none"
-        stroke="rgba(212,175,55,0.45)"
-        strokeWidth={2}
-        className="scene-node scene-node--d2"
-      />
-      <circle cx={200} cy={150} r={18} fill="none" stroke="#F2D578" strokeWidth={3} className="scene-node" />
-      <circle cx={200} cy={150} r={7} fill="#D4AF37" className="scene-node" />
       <g fill="#F2D578">
-        <circle cx={305} cy={145} r={6} className="scene-pop" />
-        <circle cx={160} cy={95} r={6} className="scene-pop scene-pop--d2" />
-        <circle cx={245} cy={220} r={6} className="scene-pop scene-pop--d3" />
+        <circle cx="292" cy="140" r="5" className="scene-pop" />
+        <circle cx="150" cy="120" r="5" className="scene-pop scene-pop--d2" />
       </g>
+      <rect x="28" y="248" width="140" height="22" rx="11" fill="rgba(184,154,88,0.28)" />
+      <text x="48" y="263" fill="#F8F3EA" style={{ fontFamily: 'var(--font-sans)', fontSize: 10, fontWeight: 700 }}>
+        Lead sin seguimiento
+      </text>
     </ScreenBase>
   )
 }
 
-/** ANALIZAR — señales que se conectan en estructura */
+/** 02 ANALIZAR — mapa del sistema */
 function AnalizarScreen() {
   return (
     <ScreenBase>
-      <path
-        className="scene-chart"
-        pathLength={340}
-        d="M70 150 H 165 M165 150 L 265 85 M165 150 H 265 M165 150 L 265 210"
-        fill="none"
-        stroke="#D4AF37"
-        strokeWidth={3.4}
-        strokeLinecap="round"
-      />
-      <g fill="rgba(248,243,234,0.95)">
-        <circle cx={70} cy={150} r={8} />
-        <circle cx={165} cy={150} r={8} />
-      </g>
-      <g fill="#D4AF37">
-        <circle cx={265} cy={85} r={7} className="scene-pop" />
-        <circle cx={265} cy={210} r={7} className="scene-pop scene-pop--d2" />
-      </g>
-      <g fill="#F2D578">
-        <circle cx={340} cy={85} r={6} className="scene-pop scene-pop--d2" />
-        <circle cx={340} cy={150} r={6} className="scene-pop scene-pop--d3" />
-        <circle cx={340} cy={210} r={6} className="scene-pop scene-pop--d3" />
-      </g>
+      <text x="28" y="36" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: 2 }}>
+        MAPA
+      </text>
+      <text x="28" y="62" fill="#F8F3EA" style={{ fontFamily: 'var(--font-display)', fontSize: 22, letterSpacing: 2 }}>
+        ORDEN DE ATAQUE
+      </text>
+      {[
+        { x: 40, y: 100, t: 'WEB' },
+        { x: 160, y: 100, t: 'CRM' },
+        { x: 280, y: 100, t: 'ADS' },
+        { x: 100, y: 190, t: 'WA' },
+        { x: 220, y: 190, t: 'EMAIL' },
+      ].map((n, i) => (
+        <g key={n.t} className={i ? `scene-pop scene-pop--d${Math.min(i, 3)}` : 'scene-pop'}>
+          <rect x={n.x} y={n.y} width="72" height="36" rx="8" fill="rgba(248,243,234,0.08)" stroke="rgba(184,154,88,0.55)" />
+          <text
+            x={n.x + 36}
+            y={n.y + 23}
+            textAnchor="middle"
+            fill="#F8F3EA"
+            style={{ fontFamily: 'var(--font-display)', fontSize: 13, letterSpacing: 1 }}
+          >
+            {n.t}
+          </text>
+        </g>
+      ))}
       <path
         className="scene-flow"
-        d="M265 85 H 340 M265 210 H 340"
+        d="M112 118 H160 M232 118 H280 M136 136 L136 190 M256 136 L256 190"
         fill="none"
-        stroke="rgba(242,213,120,0.85)"
-        strokeWidth={2.4}
+        stroke="rgba(242,213,120,0.75)"
+        strokeWidth="2"
       />
     </ScreenBase>
   )
 }
 
-/** CREAR — la página se construye por capas + brillo */
+/** 03 CREAR — mockup landing CapCut realista */
 function CrearScreen() {
   return (
     <ScreenBase>
-      <g className="scene-block">
-        <rect x={24} y={22} width={352} height={26} rx={9} fill="rgba(248,243,234,0.14)" />
-        <circle cx={42} cy={35} r={4.5} fill="rgba(248,243,234,0.5)" />
-        <circle cx={56} cy={35} r={4.5} fill="rgba(248,243,234,0.3)" />
-        <circle cx={70} cy={35} r={4.5} fill="rgba(248,243,234,0.2)" />
-        <rect x={92} y={28} width={160} height={14} rx={7} fill="rgba(248,243,234,0.1)" />
-      </g>
-      <g className="scene-block scene-block--d2">
-        <rect x={24} y={58} width={210} height={110} rx={12} fill="url(#eln-hero-slide)" />
-        <rect x={42} y={78} width={110} height={13} rx={6.5} fill="rgba(248,243,234,0.85)" />
-        <rect x={42} y={98} width={150} height={9} rx={4.5} fill="rgba(248,243,234,0.4)" />
-        <rect x={42} y={130} width={78} height={24} rx={12} fill="#D4AF37" />
-      </g>
-      <g className="scene-block scene-block--d2">
-        <rect x={248} y={58} width={128} height={150} rx={12} fill="rgba(248,243,234,0.09)" />
-        <circle cx={312} cy={100} r={22} fill="rgba(212,175,55,0.42)" className="scene-node" />
-        <rect x={270} y={136} width={84} height={8} rx={4} fill="rgba(248,243,234,0.35)" />
-        <rect x={270} y={152} width={60} height={8} rx={4} fill="rgba(248,243,234,0.2)" />
-      </g>
-      <g className="scene-block scene-block--d3">
-        <rect x={24} y={182} width={168} height={9} rx={4.5} fill="rgba(248,243,234,0.32)" />
-        <rect x={24} y={200} width={124} height={9} rx={4.5} fill="rgba(248,243,234,0.18)" />
-      </g>
-      <g className="scene-block scene-block--d4">
-        <rect x={24} y={228} width={118} height={30} rx={15} fill="#D4AF37" />
-        <rect x={42} y={239} width={82} height={8} rx={4} fill="rgba(24,19,26,0.65)" />
-      </g>
-      <rect x={-140} y={0} width={110} height={290} fill="url(#eln-sweep-slide)" className="scene-sweep" />
+      <rect x="18" y="16" width="364" height="258" rx="10" fill="#2B1735" />
+      <rect x="18" y="16" width="364" height="38" rx="10" fill="#18131A" />
+      <rect x="18" y="44" width="364" height="10" fill="#18131A" />
+      <text x="36" y="40" fill="#F8F3EA" style={{ fontFamily: 'var(--font-script)', fontSize: 16 }}>
+        Elara Nova
+      </text>
+      <rect x="290" y="26" width="72" height="18" rx="9" fill="#B89A58" className="scene-pop" />
+      <text x="36" y="100" fill="#F8F3EA" style={{ fontFamily: 'var(--font-display)', fontSize: 28, letterSpacing: 2 }}>
+        TU NEGOCIO
+      </text>
+      <text x="36" y="128" fill="#B89A58" style={{ fontFamily: 'var(--font-script)', fontSize: 22 }}>
+        todavía a mano?
+      </text>
+      <rect x="36" y="148" width="180" height="8" rx="4" fill="rgba(248,243,234,0.35)" className="scene-block" />
+      <rect x="36" y="164" width="140" height="8" rx="4" fill="rgba(248,243,234,0.2)" className="scene-block scene-block--d2" />
+      <rect x="36" y="196" width="110" height="28" rx="14" fill="#B89A58" className="scene-block scene-block--d3" />
+      <text x="58" y="214" fill="#18131A" style={{ fontFamily: 'var(--font-sans)', fontSize: 10, fontWeight: 700 }}>
+        PRE-ANÁLISIS
+      </text>
+      <rect x="250" y="90" width="110" height="150" rx="10" fill="rgba(248,243,234,0.06)" stroke="rgba(184,154,88,0.35)" className="scene-block scene-block--d2" />
+      <circle cx="305" cy="130" r="22" fill="rgba(184,154,88,0.35)" className="scene-node" />
+      <rect x="268" y="168" width="74" height="7" rx="3" fill="rgba(248,243,234,0.3)" />
+      <rect x="268" y="184" width="54" height="7" rx="3" fill="rgba(248,243,234,0.18)" />
+      <rect x="-120" y="16" width="90" height="258" fill="url(#eln-crear-sweep)" className="scene-sweep" />
       <defs>
-        <linearGradient id="eln-hero-slide" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="rgba(123,63,160,0.72)" />
-          <stop offset="1" stopColor="rgba(212,175,55,0.5)" />
-        </linearGradient>
-        <linearGradient id="eln-sweep-slide" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id="eln-crear-sweep" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="rgba(248,243,234,0)" />
-          <stop offset="0.5" stopColor="rgba(248,243,234,0.22)" />
+          <stop offset="0.5" stopColor="rgba(248,243,234,0.18)" />
           <stop offset="1" stopColor="rgba(248,243,234,0)" />
         </linearGradient>
       </defs>
@@ -142,53 +131,60 @@ function CrearScreen() {
   )
 }
 
-/** LANZAR — dashboard vivo: barras + línea al pico */
+/** 04 LANZAR — dashboard con conversión */
 function LanzarScreen() {
   return (
     <ScreenBase>
-      <g stroke="rgba(248,243,234,0.12)" strokeWidth={1.2}>
-        <path d="M36 245 H 364" />
-        <path d="M36 190 H 364" />
-        <path d="M36 135 H 364" />
-        <path d="M36 80 H 364" />
+      <text x="28" y="36" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: 2 }}>
+        SISTEMA EN VIVO
+      </text>
+      <text x="28" y="62" fill="#F8F3EA" style={{ fontFamily: 'var(--font-display)', fontSize: 22, letterSpacing: 2 }}>
+        RESULTADO
+      </text>
+      <g>
+        <rect x="28" y="84" width="108" height="64" rx="10" fill="rgba(248,243,234,0.06)" stroke="rgba(184,154,88,0.4)" />
+        <text x="40" y="108" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 10 }}>LEADS</text>
+        <text x="40" y="132" fill="#F2D578" style={{ fontFamily: 'var(--font-display)', fontSize: 26 }} className="scene-pop">
+          +38%
+        </text>
       </g>
-      <g fill="rgba(212,175,55,0.5)">
-        <rect x={64} y={195} width={46} height={50} rx={6} className="scene-bar" />
-        <rect x={150} y={160} width={46} height={85} rx={6} className="scene-bar scene-bar--d2" />
-        <rect x={236} y={110} width={46} height={135} rx={6} className="scene-bar scene-bar--d3" />
+      <g>
+        <rect x="148" y="84" width="108" height="64" rx="10" fill="rgba(248,243,234,0.06)" stroke="rgba(184,154,88,0.4)" />
+        <text x="160" y="108" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 10 }}>HORAS</text>
+        <text x="160" y="132" fill="#F2D578" style={{ fontFamily: 'var(--font-display)', fontSize: 26 }} className="scene-pop scene-pop--d2">
+          −12h
+        </text>
+      </g>
+      <g>
+        <rect x="268" y="84" width="108" height="64" rx="10" fill="rgba(248,243,234,0.06)" stroke="rgba(184,154,88,0.4)" />
+        <text x="280" y="108" fill="#B9A1C8" style={{ fontFamily: 'var(--font-sans)', fontSize: 10 }}>CPL</text>
+        <text x="280" y="132" fill="#F2D578" style={{ fontFamily: 'var(--font-display)', fontSize: 26 }} className="scene-pop scene-pop--d3">
+          ↓
+        </text>
       </g>
       <path
         className="scene-chart"
         pathLength={340}
-        d="M48 230 L 125 195 L 215 145 L 320 78"
+        d="M40 240 L 120 220 L 200 180 L 280 150 L 360 110"
         fill="none"
         stroke="#F2D578"
-        strokeWidth={4}
+        strokeWidth="3.5"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
-      <g fill="#F2D578">
-        <circle cx={125} cy={195} r={6.5} className="scene-pop" />
-        <circle cx={215} cy={145} r={6.5} className="scene-pop scene-pop--d2" />
+      <g fill="#D4AF37">
+        <circle cx="120" cy="220" r="5" className="scene-pop" />
+        <circle cx="200" cy="180" r="5" className="scene-pop scene-pop--d2" />
+        <circle cx="280" cy="150" r="5" className="scene-pop scene-pop--d3" />
       </g>
-      <circle cx={320} cy={78} r={10} fill="#D4AF37" className="scene-node" />
-      <circle
-        cx={320}
-        cy={78}
-        r={20}
-        fill="none"
-        stroke="rgba(242,213,120,0.65)"
-        strokeWidth={2}
-        className="scene-node scene-node--d2"
-      />
     </ScreenBase>
   )
 }
 
 type Step = {
   number: string
-  /** Palabra del banner / rail (única vez) */
   word: string
+  /** Resultado de negocio (marketing) */
+  outcome: string
   titleImpact: string
   titleScript: string
   text: string
@@ -199,32 +195,36 @@ const steps: readonly Step[] = [
   {
     number: '01',
     word: 'Ver',
+    outcome: 'Claridad',
     titleImpact: 'Miro tu',
     titleScript: 'negocio real',
-    text: 'Qué te frena, qué se pierde y dónde estás gastando de más — sin adornos.',
+    text: 'Qué te frena, qué se pierde y dónde estás gastando de más. Sin adornos.',
     Screen: VerScreen,
   },
   {
     number: '02',
     word: 'Analizar',
+    outcome: 'Prioridad',
     titleImpact: 'Ordeno',
-    titleScript: 'el caos',
+    titleScript: 'el ataque',
     text: 'Qué automatizar, qué construir y en qué orden. Una ruta, no una lista de deseos.',
     Screen: AnalizarScreen,
   },
   {
     number: '03',
     word: 'Crear',
-    titleImpact: 'Le doy forma',
-    titleScript: 'que vende',
+    outcome: 'Activo',
+    titleImpact: 'Construyo',
+    titleScript: 'lo que vende',
     text: 'Web, automatización o sistema — pensado para convertir, no para decorar.',
     Screen: CrearScreen,
   },
   {
     number: '04',
     word: 'Lanzar',
-    titleImpact: 'El sistema',
-    titleScript: 'se mueve solo',
+    outcome: 'Sistema',
+    titleImpact: 'Lo dejo',
+    titleScript: 'corriendo',
     text: 'Medición y flujos conectados. Tu negocio sigue aunque vos no estés.',
     Screen: LanzarScreen,
   },
@@ -232,7 +232,8 @@ const steps: readonly Step[] = [
 
 export function ImmersiveStory() {
   const [active, setActive] = useState(0)
-  const chapterRefs = useRef<(HTMLElement | null)[]>([])
+  const [panelKey, setPanelKey] = useState(0)
+  const markerRefs = useRef<(HTMLDivElement | null)[]>([])
   const stageRef = useRef<HTMLDivElement | null>(null)
   const reduceMotion = useRef(false)
 
@@ -241,33 +242,36 @@ export function ImmersiveStory() {
   }, [])
 
   useEffect(() => {
-    const nodes = chapterRefs.current.filter((node): node is HTMLElement => node !== null)
+    const nodes = markerRefs.current.filter((n): n is HTMLDivElement => n !== null)
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((entry) => entry.isIntersecting)
+          .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-
-        if (visible) {
-          const index = Number((visible.target as HTMLElement).dataset.chapter)
-          setActive(index)
-        }
+        if (!visible) return
+        const index = Number((visible.target as HTMLElement).dataset.chapter)
+        setActive((prev) => {
+          if (prev === index) return prev
+          setPanelKey((k) => k + 1)
+          return index
+        })
       },
-      { rootMargin: '-28% 0px -28% 0px', threshold: [0.25, 0.55, 0.8] },
+      { rootMargin: '-35% 0px -35% 0px', threshold: [0.4, 0.7] },
     )
-
-    nodes.forEach((node) => observer.observe(node))
+    nodes.forEach((n) => observer.observe(n))
     return () => observer.disconnect()
   }, [])
 
   const goToStep = useCallback((index: number) => {
-    const node = chapterRefs.current[index]
-    if (!node) return
-    node.scrollIntoView({
-      behavior: reduceMotion.current ? 'auto' : 'smooth',
-      block: 'center',
-    })
+    const node = markerRefs.current[index]
+    if (node) {
+      node.scrollIntoView({
+        behavior: reduceMotion.current ? 'auto' : 'smooth',
+        block: 'center',
+      })
+    }
     setActive(index)
+    setPanelKey((k) => k + 1)
   }, [])
 
   const onStagePointer = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
@@ -280,107 +284,138 @@ export function ImmersiveStory() {
     stage.style.setProperty('--imm-y', `${y}%`)
   }, [])
 
-  const word = steps[active].word.toUpperCase()
+  const step = steps[active]
+  const word = step.word.toUpperCase()
+  const isLast = active === steps.length - 1
 
   return (
     <section className="immersive-story" aria-labelledby="immersive-title">
-      <div
-        ref={stageRef}
-        className="immersive-story__stage"
-        onPointerMove={onStagePointer}
-      >
-        <div className="immersive-story__scene" aria-hidden="true">
-          <div className="immersive-story__photo">
-            <img
-              className="immersive-story__bg"
-              src={evelynPhotos.slideProceso}
-              alt=""
-              loading="lazy"
-            />
-            <div className="immersive-story__screen">
-              {steps.map((step, index) => (
-                <div
-                  key={step.number}
-                  className={`immersive-story__screen-state ${index === active ? 'is-active' : ''}`}
-                >
-                  <step.Screen />
-                </div>
-              ))}
+      <div className="immersive-story__sticky">
+        <div ref={stageRef} className="immersive-story__stage" onPointerMove={onStagePointer}>
+          <div className="immersive-story__scene" aria-hidden="true">
+            <div className="immersive-story__photo">
+              <img
+                className="immersive-story__bg"
+                src={evelynPhotos.slideProceso}
+                alt=""
+                loading="lazy"
+              />
+              <div className="immersive-story__screen">
+                {steps.map((s, index) => (
+                  <div
+                    key={s.number}
+                    className={`immersive-story__screen-state ${index === active ? 'is-active' : ''}`}
+                  >
+                    <s.Screen />
+                  </div>
+                ))}
+              </div>
             </div>
+            <div className="immersive-story__veil" />
+            <div className="immersive-story__cursor-glow" />
           </div>
-          <div className="immersive-story__veil" />
-          <div className="immersive-story__cursor-glow" />
-        </div>
 
-        <p key={word} className="immersive-story__word" aria-hidden="true">
-          {word.split('').map((letter, i) => (
-            <span key={`${letter}-${i}`} style={{ animationDelay: `${i * 55}ms` }}>
-              {letter}
-            </span>
-          ))}
-        </p>
-
-        <nav className="immersive-story__rail" aria-label="Pasos del método">
-          {steps.map((step, index) => (
-            <button
-              key={step.number}
-              type="button"
-              className={index === active ? 'is-active' : ''}
-              aria-current={index === active ? 'step' : undefined}
-              onClick={() => goToStep(index)}
-            >
-              <span className="immersive-story__rail-n">{step.number}</span>
-              <span className="immersive-story__rail-w">{step.word}</span>
-            </button>
-          ))}
-        </nav>
-
-        <div className="immersive-story__progress" aria-hidden="true">
-          <span style={{ transform: `scaleX(${(active + 1) / steps.length})` }} />
-        </div>
-      </div>
-
-      <div className="immersive-story__chapters">
-        <header className="immersive-story__intro">
-          <p className="home-eyebrow home-eyebrow--light">
-            <span aria-hidden="true" />
-            Mi método · 4 movimientos
+          <p key={word} className="immersive-story__word" aria-hidden="true">
+            {word.split('').map((letter, i) => (
+              <span key={`${letter}-${i}`} style={{ animationDelay: `${i * 50}ms` }}>
+                {letter}
+              </span>
+            ))}
           </p>
-          <h2 id="immersive-title" className="type-lockup type-lockup--glow">
-            <span className="type-lockup__impact">Así</span>
-            <em className="type-lockup__script">te trabajo</em>
-          </h2>
-          <p className="immersive-story__intro-lead">
-            Scroll o tocá el rail: la laptop cambia con cada paso. Eso es lo que construyo para vos —
-            sistemas que se ven y se sienten vivos.
-          </p>
-        </header>
 
-        {steps.map((step, index) => (
-          <article
-            key={step.number}
-            ref={(node) => {
-              chapterRefs.current[index] = node
-            }}
-            data-chapter={index}
-            className={index === active ? 'is-active' : ''}
-          >
-            <div className="immersive-story__chapter-top">
-              <span className="immersive-story__chapter-n">{step.number}</span>
+          <nav className="immersive-story__rail" aria-label="Pasos del método">
+            {steps.map((s, index) => (
               <button
+                key={s.number}
                 type="button"
-                className="immersive-story__chapter-jump"
+                className={index === active ? 'is-active' : ''}
+                aria-current={index === active ? 'step' : undefined}
                 onClick={() => goToStep(index)}
               >
-                Paso {step.word}
+                <span className="immersive-story__rail-n">{s.number}</span>
+                <span className="immersive-story__rail-w">{s.word}</span>
               </button>
+            ))}
+          </nav>
+
+          <div className="immersive-story__progress" aria-hidden="true">
+            <span style={{ transform: `scaleX(${(active + 1) / steps.length})` }} />
+          </div>
+        </div>
+
+        <aside className="immersive-story__panel" aria-live="polite">
+          <header className="immersive-story__intro">
+            <p className="home-eyebrow home-eyebrow--light">
+              <span aria-hidden="true" />
+              Mi método · 4 movimientos
+            </p>
+            <h2 id="immersive-title" className="type-lockup type-lockup--glow">
+              <span className="type-lockup__impact">Cuatro</span>
+              <em className="type-lockup__script">pasos · un sistema</em>
+            </h2>
+          </header>
+
+          <div key={panelKey} className="immersive-story__card">
+            <div className="immersive-story__card-meta">
+              <span className="immersive-story__chapter-n">{step.number}</span>
+              <span className="immersive-story__outcome">{step.outcome}</span>
             </div>
             <h3 className="type-lockup type-lockup--glow">
               <span className="type-lockup__impact">{step.titleImpact}</span>
               <em className="type-lockup__script">{step.titleScript}</em>
             </h3>
             <p className="immersive-story__chapter-body">{step.text}</p>
-          </article>
+
+            <div className="immersive-story__card-actions">
+              {active > 0 ? (
+                <button type="button" className="immersive-story__nav-btn" onClick={() => goToStep(active - 1)}>
+                  ← Anterior
+                </button>
+              ) : (
+                <span />
+              )}
+              {!isLast ? (
+                <button type="button" className="immersive-story__nav-btn immersive-story__nav-btn--next" onClick={() => goToStep(active + 1)}>
+                  Siguiente →
+                </button>
+              ) : (
+                <TrackedLink
+                  href="/descubrimiento"
+                  tracking={{ event: 'cta_click', category: 'lead', label: 'home_method_lanzar' }}
+                  className="home-button home-button--gold"
+                >
+                  Hacer mi pre-análisis
+                </TrackedLink>
+              )}
+            </div>
+          </div>
+
+          <ol className="immersive-story__dots" aria-label="Progreso">
+            {steps.map((s, index) => (
+              <li key={s.number}>
+                <button
+                  type="button"
+                  className={index === active ? 'is-active' : ''}
+                  aria-label={`Ir a ${s.word}`}
+                  onClick={() => goToStep(index)}
+                />
+              </li>
+            ))}
+          </ol>
+        </aside>
+      </div>
+
+      {/* Markers de scroll: solo gatillan el paso activo — sin copy duplicado */}
+      <div className="immersive-story__markers" aria-hidden="true">
+        {steps.map((s, index) => (
+          <div
+            key={s.number}
+            ref={(node) => {
+              markerRefs.current[index] = node
+            }}
+            data-chapter={index}
+            className="immersive-story__marker"
+          />
         ))}
       </div>
     </section>
