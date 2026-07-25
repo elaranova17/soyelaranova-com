@@ -32,43 +32,43 @@ export const studioServices: readonly StudioService[] = [
       'Un sitio web es la casa digital de tu marca: varias páginas (inicio, servicios, sobre ti, contacto) donde alguien puede entender qué haces, confiar en ti y contactarte — sin depender solo de Instagram o WhatsApp.',
     summary:
       'Para marcas que ya no quieren verse improvisadas. Diseño, estructura, copy y desarrollo en una experiencia lista para vender confianza.',
-    deliverable: 'Web comercial, portfolio, pagina de servicio o sitio institucional.',
+    deliverable: 'Web comercial, portfolio, página de servicio o sitio institucional.',
     promise:
-      'Una web clara, elegante y facil de navegar que explique lo que haces, construya autoridad y lleve a la persona correcta al siguiente paso.',
+      'Una web clara, elegante y fácil de navegar que explique lo que haces, construya autoridad y lleve a la persona correcta al siguiente paso.',
     idealFor: [
       'Negocios que dependen demasiado de Instagram o WhatsApp.',
-      'Profesionales independientes que necesitan verse mas solidos.',
+      'Profesionales independientes que necesitan verse más sólidos.',
       'Marcas que tienen oferta, pero no una casa digital que la sostenga.',
     ],
     includes: [
-      'Arquitectura de secciones y ruta de conversion.',
+      'Arquitectura de secciones y ruta de conversión.',
       'Copy base para explicar oferta, proceso y autoridad.',
       'Diseño responsive mobile-first.',
       'Desarrollo en Next.js o stack acordado.',
-      'Integracion de formularios, links y analitica base.',
+      'Integración de formularios, links y analítica base.',
     ],
     process: [
-      'Diagnostico de oferta y publico.',
-      'Mapa de pagina y mensajes clave.',
+      'Diagnóstico de oferta y público.',
+      'Mapa de página y mensajes clave.',
       'Diseño visual alineado a la marca.',
-      'Implementacion, revision mobile y publicacion.',
+      'Implementación, revisión mobile y publicación.',
     ],
     faq: [
       {
-        question: 'Necesito tener todo el contenido listo?',
+        question: '¿Necesito tener todo el contenido listo?',
         answer:
           'No. Podemos empezar con tu oferta, referencias y materiales existentes. Yo te ayudo a ordenar el mensaje y detectar lo que falte.',
       },
       {
-        question: 'Sirve si apenas estoy empezando?',
+        question: '¿Sirve si apenas estoy empezando?',
         answer:
-          'Si ya tienes una oferta clara o una idea validada, si. Si todavia no sabes que vendes, primero conviene hacer el pre-analisis y la sesion estrategica.',
+          'Si ya tienes una oferta clara o una idea validada, sí. Si todavía no sabes qué vendes, primero conviene hacer el pre-análisis y la sesión estratégica.',
       },
     ],
   },
   {
     slug: 'landing-pages',
-    eyebrow: 'Conversion',
+    eyebrow: 'Conversión',
     title: 'Landing pages para campañas',
     shortTitle: 'Landing pages',
     lockupImpact: 'Landing pages',
@@ -76,44 +76,44 @@ export const studioServices: readonly StudioService[] = [
     whatIs:
       'Una landing page es una página web con un solo objetivo: que la persona haga una acción (pedir presupuesto, dejar el email, reservar). No es un sitio completo — es una página enfocada para campañas de anuncios o lanzamientos.',
     summary:
-      'Paginas enfocadas en una accion: cotizar, reservar, comprar o dejar datos. Ideales para Google Ads, Meta Ads y lanzamientos.',
-    deliverable: 'Landing + CTA + tracking base + pagina de gracias.',
+      'Páginas enfocadas en una acción: cotizar, reservar, comprar o dejar datos. Ideales para Google Ads, Meta Ads y lanzamientos.',
+    deliverable: 'Landing + CTA + tracking base + página de gracias.',
     promise:
-      'Una pagina diseñada para una sola intencion, con mensaje especifico, objeciones resueltas y una accion facil de medir.',
+      'Una página diseñada para una sola intención, con mensaje específico, objeciones resueltas y una acción fácil de medir.',
     idealFor: [
       'Campañas de Google Ads o Meta Ads.',
       'Lanzamientos de productos digitales.',
-      'Servicios que necesitan cotizaciones o una sesion estrategica tras el pre-analisis.',
+      'Servicios que necesitan cotizaciones o una sesión estratégica tras el pre-análisis.',
     ],
     includes: [
-      'Headline y estructura de conversion.',
-      'Secciones de problema, solucion, prueba, proceso y FAQ.',
+      'Headline y estructura de conversión.',
+      'Secciones de problema, solución, prueba, proceso y FAQ.',
       'CTA principal y secundario.',
-      'Pagina de gracias o siguiente paso.',
+      'Página de gracias o siguiente paso.',
       'Eventos base para medir clics y formularios.',
     ],
     process: [
-      'Definir una intencion de busqueda o campaña.',
+      'Definir una intención de búsqueda o campaña.',
       'Escribir promesa y objeciones principales.',
       'Diseñar landing enfocada en mobile.',
-      'Conectar CTA, formulario y medicion.',
+      'Conectar CTA, formulario y medición.',
     ],
     faq: [
       {
-        question: 'Puedo usar una landing para varios anuncios?',
+        question: '¿Puedo usar una landing para varios anuncios?',
         answer:
-          'Si los anuncios prometen lo mismo, si. Si cada anuncio habla de una necesidad distinta, conviene crear variantes por intencion.',
+          'Si los anuncios prometen lo mismo, sí. Si cada anuncio habla de una necesidad distinta, conviene crear variantes por intención.',
       },
       {
-        question: 'Incluye los anuncios?',
+        question: '¿Incluye los anuncios?',
         answer:
-          'Puedo ayudarte con estructura y copy base. La configuracion completa de campañas se trabaja como servicio separado o combinado.',
+          'Puedo ayudarte con estructura y copy base. La configuración completa de campañas se trabaja como servicio separado o combinado.',
       },
     ],
   },
   {
     slug: 'automatizaciones',
-    eyebrow: 'Operacion',
+    eyebrow: 'Operación',
     title: 'Automatizaciones de negocio',
     shortTitle: 'Automatizaciones',
     lockupImpact: 'Automatizaciones',
@@ -124,78 +124,78 @@ export const studioServices: readonly StudioService[] = [
       'Conecto formularios, emails, hojas, CRMs y notificaciones para que cada lead tenga seguimiento sin hacerlo todo a mano.',
     deliverable: 'Flujos de captura, seguimiento, post-compra y recordatorios.',
     promise:
-      'Un sistema que reduce tareas repetitivas, responde mas rapido y evita que oportunidades reales se pierdan en mensajes sueltos.',
+      'Un sistema que reduce tareas repetitivas, responde más rápido y evita que oportunidades reales se pierdan en mensajes sueltos.',
     idealFor: [
       'Negocios que reciben leads y los gestionan manualmente.',
       'Personas que venden servicios, cursos o productos digitales.',
-      'Equipos pequeños que necesitan orden sin contratar mas gente.',
+      'Equipos pequeños que necesitan orden sin contratar más gente.',
     ],
     includes: [
       'Mapa del flujo actual y cuellos de botella.',
       'Diseño del flujo ideal.',
-      'Conexion entre formulario, email, hoja, CRM o WhatsApp segun aplique.',
-      'Mensajes automaticos y notificaciones internas.',
+      'Conexión entre formulario, email, hoja, CRM o WhatsApp según aplique.',
+      'Mensajes automáticos y notificaciones internas.',
       'Prueba de escenarios antes de publicar.',
     ],
     process: [
-      'Auditar que pasa hoy con cada lead o compra.',
+      'Auditar qué pasa hoy con cada lead o compra.',
       'Definir disparadores, condiciones y destinos.',
-      'Construir automatizacion con herramientas livianas.',
+      'Construir automatización con herramientas livianas.',
       'Probar, documentar y entregar.',
     ],
     faq: [
       {
-        question: 'Necesito un CRM caro?',
+        question: '¿Necesito un CRM caro?',
         answer:
           'No necesariamente. Muchas veces una hoja bien conectada, email y formularios resuelven la primera fase sin subir costos.',
       },
       {
-        question: 'Puedes trabajar con herramientas que ya uso?',
+        question: '¿Puedes trabajar con herramientas que ya uso?',
         answer:
-          'Si. Primero reviso tu stack actual para aprovechar lo que ya pagas antes de proponer algo nuevo.',
+          'Sí. Primero reviso tu stack actual para aprovechar lo que ya pagas antes de proponer algo nuevo.',
       },
     ],
   },
   {
     slug: 'google-ads',
     eyebrow: 'Crecimiento',
-    title: 'Google Ads y medicion',
+    title: 'Google Ads y medición',
     shortTitle: 'Google Ads',
     lockupImpact: 'Google Ads',
     lockupScript: 'y medición',
     whatIs:
       'Google Ads son anuncios que aparecen cuando alguien busca en Google algo que tú ofreces. La medición conecta esos clics con tu página y te dice qué búsquedas traen clientes reales — y dónde estás gastando sin resultado.',
     summary:
-      'Antes de subir presupuesto, ordenamos la promesa, la landing y los eventos. Menos adivinanza, mas sistema medible.',
-    deliverable: 'Estructura de campaña, conversiones y landings por intencion.',
+      'Antes de subir presupuesto, ordenamos la promesa, la landing y los eventos. Menos adivinanza, más sistema medible.',
+    deliverable: 'Estructura de campaña, conversiones y landings por intención.',
     promise:
-      'Campañas conectadas a paginas y eventos que permiten saber que busquedas traen leads, que mensajes funcionan y donde se esta perdiendo presupuesto.',
+      'Campañas conectadas a páginas y eventos que permiten saber qué búsquedas traen leads, qué mensajes funcionan y dónde se está perdiendo presupuesto.',
     idealFor: [
       'Negocios listos para invertir en demanda activa.',
       'Servicios con ticket suficiente para justificar pauta.',
-      'Marcas que ya reciben trafico, pero no saben que convierte.',
+      'Marcas que ya reciben tráfico, pero no saben qué convierte.',
     ],
     includes: [
-      'Revision de oferta, mercado y palabras clave iniciales.',
+      'Revisión de oferta, mercado y palabras clave iniciales.',
       'Landing o ajustes de landing antes de invertir fuerte.',
-      'Eventos de conversion prioritarios.',
-      'Estructura base de campañas por intencion.',
+      'Eventos de conversión prioritarios.',
+      'Estructura base de campañas por intención.',
       'Lectura inicial de señales y siguientes mejoras.',
     ],
     process: [
-      'Validar oferta y objetivo de conversion.',
-      'Preparar landing y medicion.',
+      'Validar oferta y objetivo de conversión.',
+      'Preparar landing y medición.',
       'Configurar estructura base.',
       'Revisar datos iniciales y optimizar.',
     ],
     faq: [
       {
-        question: 'Cuanto presupuesto necesito?',
+        question: '¿Cuánto presupuesto necesito?',
         answer:
           'Depende del servicio y mercado. Prefiero empezar con una prueba controlada y landing bien medida antes de recomendar escalar.',
       },
       {
-        question: 'Puedo hacer Ads sin landing?',
+        question: '¿Puedo hacer Ads sin landing?',
         answer:
           'Se puede, pero suele quemar presupuesto. Para campañas serias, la landing y los eventos son parte del sistema.',
       },
