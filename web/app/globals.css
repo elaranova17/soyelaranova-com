@@ -75,6 +75,20 @@
     0 0 36px rgb(212 175 55 / .28),
     0 8px 24px rgb(43 23 53 / .18);
 
+  /*
+   * Escala tipográfica única (julio 2026).
+   * Las secciones eligen rol — no inventan otro clamp.
+   * Ver docs/PLAN_TIPOGRAFIA_Y_ESTADO.md
+   */
+  --type-hero: clamp(2.85rem, 6.2vw, 5.6rem);
+  --type-section: clamp(2.4rem, 4.4vw, 4.2rem);
+  --type-band: clamp(2.6rem, 5.2vw, 4.8rem);
+  --type-card: clamp(1.55rem, 2.2vw, 2.1rem);
+  --type-immersive: clamp(2.1rem, 3.4vw, 3.2rem);
+  --type-display-sm: clamp(1.15rem, 1.8vw, 1.5rem);
+  --type-word: clamp(2.35rem, 5.5vw, 5.2rem);
+  --type-script-ratio: 0.52em;
+
   /* Sombras mágicas (CONTEXT §3) */
   --shadow-glow-gold:   0 0 60px rgba(212, 175, 55, 0.5);
   --shadow-glow-purple: 0 0 40px rgba(155, 107, 196, 0.4);
@@ -139,20 +153,21 @@ h1, h2, h3,
   position: relative;
   z-index: 1;
   display: block;
-  width: max-content;
+  width: auto;
   max-width: 100%;
-  margin-top: -0.4em;
-  margin-left: 0.08em;
-  padding: 0 0.08em;
+  margin-top: -0.36em;
+  margin-left: 0.06em;
+  padding: 0 0.06em;
+  overflow-wrap: anywhere;
   font-family: var(--font-script);
-  font-size: 0.52em;
+  font-size: var(--type-script-ratio);
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02em;
-  line-height: 1.02;
+  line-height: 1.05;
   text-transform: none;
   font-variation-settings: normal;
-  transform: rotate(-1.4deg);
+  transform: rotate(-1.2deg);
   transform-origin: left center;
 }
 
@@ -220,19 +235,19 @@ h1, h2, h3,
 }
 
 .type-title--lg {
-  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  font-size: var(--type-card);
 }
 
 .type-title--xl {
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-size: var(--type-section);
 }
 
 @media (max-width: 640px) {
   .type-lockup__script {
-    margin-top: -0.32em;
-    margin-left: 0.04em;
-    font-size: 0.55em;
-    transform: rotate(-1deg);
+    margin-top: -0.26em;
+    margin-left: 0.02em;
+    font-size: 0.54em;
+    transform: rotate(-0.8deg);
   }
 }
 
@@ -295,13 +310,13 @@ h1, h2, h3,
 }
 
 .home-hero h1.type-lockup {
-  max-width: 10ch;
-  margin-top: 1.75rem;
-  font-size: clamp(4.4rem, 8.4vw, 8.6rem);
+  max-width: min(11ch, 100%);
+  margin-top: 1.5rem;
+  font-size: var(--type-hero);
 }
 
 .home-hero h1 .type-lockup__script {
-  max-width: 12ch;
+  max-width: min(14ch, 100%);
 }
 
 .home-hero__copy > p {
@@ -728,8 +743,8 @@ h1, h2, h3,
 
 .studio-b2b__card .type-lockup {
   margin-top: 0.65rem;
-  font-size: clamp(2rem, 3.2vw, 2.7rem);
-  max-width: 10ch;
+  font-size: var(--type-immersive);
+  max-width: min(12ch, 100%);
 }
 
 .studio-b2b__card p:last-child {
@@ -914,9 +929,9 @@ h1, h2, h3,
 .home-intro h2.type-lockup,
 .home-products h2.type-lockup,
 .home-work h2.type-lockup {
-  max-width: 11ch;
-  margin-top: 1.35rem;
-  font-size: clamp(3.1rem, 5.6vw, 5.4rem);
+  max-width: min(14ch, 100%);
+  margin-top: 1.25rem;
+  font-size: var(--type-section);
 }
 
 .home-intro__body > p,
@@ -1072,13 +1087,16 @@ h1, h2, h3,
 .immersive-story__word {
   position: absolute;
   z-index: 4;
-  right: clamp(1.4rem, 5vw, 5rem);
-  bottom: clamp(4.5rem, 12vh, 9rem);
+  right: clamp(1rem, 4vw, 3.5rem);
+  bottom: clamp(3.5rem, 10vh, 7rem);
+  max-width: min(92vw, 18ch);
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   overflow: hidden;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 9vw, 8.5rem);
+  font-size: var(--type-word);
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 0.9;
@@ -1207,13 +1225,13 @@ h1, h2, h3,
 }
 
 .immersive-story__chapters > header h2.type-lockup {
-  max-width: 12ch;
-  margin-top: 1.5rem;
-  font-size: clamp(3.2rem, 5.2vw, 5.6rem);
+  max-width: min(14ch, 100%);
+  margin-top: 1.35rem;
+  font-size: var(--type-section);
 }
 
 .immersive-story__chapters > header h2 .type-lockup__script {
-  font-size: 0.48em;
+  font-size: var(--type-script-ratio);
 }
 
 .immersive-story__chapters article {
@@ -1264,9 +1282,9 @@ h1, h2, h3,
 }
 
 .immersive-story__chapters article h3.type-lockup {
-  max-width: 12ch;
-  margin-top: 1rem;
-  font-size: clamp(2.6rem, 4vw, 4.2rem);
+  max-width: min(14ch, 100%);
+  margin-top: 0.85rem;
+  font-size: var(--type-immersive);
 }
 
 .immersive-story__chapters article h3 .type-lockup__script {
@@ -1595,10 +1613,10 @@ h1, h2, h3,
 
 .home-product__copy h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 2.8vw, 3rem);
+  font-size: var(--type-card);
   font-weight: 400;
   letter-spacing: 0.06em;
-  line-height: 0.92;
+  line-height: 0.95;
   text-transform: uppercase;
   color: var(--editorial-ink);
   text-shadow:
@@ -1657,9 +1675,9 @@ h1, h2, h3,
 
 .home-impact h2.type-lockup {
   position: relative;
-  max-width: 11ch;
+  max-width: min(14ch, 100%);
   margin-inline: auto;
-  font-size: clamp(3.4rem, 7.4vw, 6.5rem);
+  font-size: var(--type-band);
 }
 
 .home-impact > p {
@@ -1693,12 +1711,12 @@ h1, h2, h3,
 }
 
 .home-oracle__copy h2 {
-  max-width: 10ch;
-  margin-top: 1.5rem;
+  max-width: min(12ch, 100%);
+  margin-top: 1.35rem;
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 6.5vw, 7rem);
+  font-size: var(--type-band);
   font-weight: 400;
-  line-height: .9;
+  line-height: .92;
 }
 
 .home-oracle__copy > p {
@@ -1729,9 +1747,9 @@ h1, h2, h3,
 }
 
 .home-recursos__intro h2.type-lockup {
-  max-width: 12ch;
-  margin-top: 1.35rem;
-  font-size: clamp(3.2rem, 6.2vw, 5.6rem);
+  max-width: min(14ch, 100%);
+  margin-top: 1.25rem;
+  font-size: var(--type-section);
 }
 
 .home-recursos__intro > p {
@@ -1762,7 +1780,8 @@ h1, h2, h3,
   background: rgb(10 0 16 / .35);
 }
 
-.home-recurso__media img {
+.home-recurso__media img,
+.home-recurso__img {
   display: block;
   width: 100%;
   height: 100%;
@@ -1807,10 +1826,10 @@ h1, h2, h3,
 .home-recurso h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-size: var(--type-card);
   font-weight: 400;
   letter-spacing: 0.06em;
-  line-height: 0.95;
+  line-height: 0.98;
   text-transform: uppercase;
   color: var(--editorial-ivory);
   text-shadow: var(--text-glow-gold);
@@ -2034,9 +2053,9 @@ h1, h2, h3,
 }
 
 .home-close h2.type-lockup {
-  max-width: 11ch;
+  max-width: min(14ch, 100%);
   margin: 1.1rem auto 0;
-  font-size: clamp(3.4rem, 7.4vw, 6.8rem);
+  font-size: var(--type-band);
 }
 
 .home-close .home-actions {
@@ -2096,8 +2115,9 @@ h1, h2, h3,
 }
 
 @media (max-width: 600px) {
+  .home-hero h1.type-lockup,
   .home-hero h1 {
-    font-size: clamp(3.45rem, 17vw, 5rem);
+    font-size: var(--type-hero);
   }
 
   .home-thesis {
@@ -2111,8 +2131,11 @@ h1, h2, h3,
 
   .home-intro h2,
   .home-products h2,
-  .home-work h2 {
-    font-size: 3.2rem;
+  .home-work h2,
+  .home-intro h2.type-lockup,
+  .home-products h2.type-lockup,
+  .home-work h2.type-lockup {
+    font-size: var(--type-section);
   }
 
   .home-products__header {
@@ -2140,11 +2163,12 @@ h1, h2, h3,
     top: 4.5rem;
   }
 
-  /* word-banner del slide: visible aunque el stage sea más bajo */
+  /* word-banner del slide: cabe en viewport sin comer el stage */
   .immersive-story__word {
-    right: 1rem;
-    bottom: 3.4rem;
-    font-size: clamp(2.6rem, 14vw, 4.4rem);
+    right: 0.85rem;
+    bottom: 3rem;
+    max-width: min(90vw, 12ch);
+    font-size: var(--type-word);
   }
 
   .immersive-story__chapters {
@@ -2471,8 +2495,8 @@ html.lenis.lenis-smooth {
 
 .linktree-lockup {
   margin-top: 1rem;
-  font-size: clamp(3.4rem, 12vw, 4.8rem);
-  max-width: 10ch;
+  font-size: var(--type-hero);
+  max-width: min(12ch, 100%);
 }
 
 .linktree-role {
@@ -3566,9 +3590,9 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .lp-hero h1.type-lockup {
-  max-width: 14ch;
+  max-width: min(14ch, 100%);
   margin-top: 0.55rem;
-  font-size: clamp(3rem, 6.4vw, 5.4rem);
+  font-size: var(--type-hero);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -3583,16 +3607,16 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-hero h1 .type-lockup__script {
   color: color-mix(in srgb, var(--editorial-gold) 38%, var(--editorial-ivory));
-  font-size: 0.48em;
-  max-width: 16ch;
+  font-size: var(--type-script-ratio);
+  max-width: min(16ch, 100%);
 }
 
 /* Fallback si un h1 LP aún no usa lockup */
 .lp-hero h1:not(.type-lockup) {
-  max-width: 14ch;
+  max-width: min(14ch, 100%);
   margin-top: 0.55rem;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6.4vw, 5.4rem);
+  font-size: var(--type-hero);
   font-weight: 400;
   line-height: .9;
   letter-spacing: 0.04em;
@@ -3705,8 +3729,8 @@ a.elara-chip:hover .elara-chip__label {
 .lp-faq h2.type-lockup,
 .lp-form h2.type-lockup,
 .lp-book-inside h2.type-lockup {
-  max-width: 12ch;
-  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  max-width: min(14ch, 100%);
+  font-size: var(--type-section);
 }
 
 .lp-steps h2.type-lockup {
@@ -3739,7 +3763,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-pain h3 {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: var(--type-display-sm);
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3783,7 +3807,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-steps__list h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: var(--type-display-sm);
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;

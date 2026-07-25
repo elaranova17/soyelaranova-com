@@ -129,7 +129,9 @@ Outreach: `docs/KIT_OUTREACH.md`.
 ## Assets
 
 - Fotos Evelyn permitidas hoy: `kit-web-real/evelyn-editorial-mistico.jpg`, `evelyn-de-pie.jpg`. Nuevos renders: `docs/prompts/evelyn-home-hero-about.json`.
-- Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, `face-ref`, buso blanco sin peluca); serie desk blusa crema (`evelyn_pro_hero`, `01-hero-evelyn`, `02-bio-evelyn`, `evelyn-estudio-profesional`); `higgs-out`; `media/recursos/`; `media/cursos/`.
+- Producto home Recursos: `web/public/media/recursos/recurso-{ebook,pantallas,valor}.webp` (sin caras).
+- Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, `face-ref`, buso blanco sin peluca); serie desk blusa crema (`evelyn_pro_hero`, `01-hero-evelyn`, `02-bio-evelyn`, `evelyn-estudio-profesional`); `higgs-out`; `media/cursos/`.
 - Producto/servicios: `web/public/media/servicios/` + `slide-proceso-fondo.webp`.
+- Escala tipográfica: tokens `--type-hero|section|band|card|immersive|word` en `globals.css`.
 - Firma: `web/public/brand/firma-elara*.png`
 - Verify: `npm run verify:assets` en `web/`

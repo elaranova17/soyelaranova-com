@@ -48,4 +48,5 @@ Lote Evelyn 24 jul:
 - IA estudio permitidas: `kit-web-real/evelyn-editorial-mistico.jpg` + `evelyn-de-pie.jpg` (+ nuevos renders vía `docs/prompts/evelyn-home-hero-about.json`)
 - Producto: `web/public/media/servicios/` + `slide-proceso-fondo.webp`
 
-Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, face-ref, buso blanco sin peluca), serie desk blusa crema (`evelyn_pro_hero`, `01-hero`, `02-bio`, `estudio-profesional`), higgs-out, `media/recursos/`, `media/cursos/`.
+Prohibido: selfies privadas (`00-identidad-*`, `evelyn_pro_perfil`, face-ref, buso blanco sin peluca), serie desk blusa crema (`evelyn_pro_hero`, `01-hero`, `02-bio`, `estudio-profesional`), higgs-out, `media/cursos/`.
+Recursos producto (sin caras): `web/public/media/recursos/recurso-*.webp`.

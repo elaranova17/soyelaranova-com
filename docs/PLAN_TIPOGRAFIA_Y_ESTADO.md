@@ -11,10 +11,10 @@
 |------|--------|------|
 | `npm run build` | ✅ OK | Compila 45 rutas |
 | `verify:assets` | ✅ OK | Bloquea selfies + serie desk crema |
-| `npm run lint` (GitHub Actions) | 🔴 caía por `/linktree` `<a>` → `<Link>` | Fix en esta misma tanda |
+| `npm run lint` (GitHub Actions) | ✅ OK | Linktree ya usa `<Link>` |
 | Vercel Root Directory | ✅ `web` | Ver `docs/DEPLOY.md` |
-
-**Causa de los fallos recientes:** el workflow `.github/workflows/web.yml` corre `lint` antes del build. Dos `<a href="/…">` en `linktree/page.tsx` tumbaban CI. El build de Next en sí pasaba.
+| Escala tipográfica tokens | ✅ | `--type-hero|section|band|card|immersive|word` en home + LPs |
+| Recursos home 01/02/03 | ✅ | `media/recursos/recurso-*.webp` cableados |
 
 ---
 
@@ -97,14 +97,14 @@ Reglas:
 | Prioridad | Qué | Detalle |
 |-----------|-----|---------|
 | **P0** | Fotos home nuevas | Generar con `docs/prompts/evelyn-home-hero-about.json` (**son mías / cara Evelyn**) → `home-hero-evelyn.webp` + `home-about-evelyn.webp` |
-| **P0** | Escala tipográfica | Tokens + home mobile |
-| **P0** | Env Vercel sesión | `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` |
-| **P1** | Recursos home 01/02/03 | Generar con `docs/prompts/recursos-ebook-pantallas-valor.json` (producto, **no** cara) |
+| **P0** | Env Vercel sesión | `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (solo vos en el dashboard) |
+| ~~P0 tipografía~~ | ~~Escala tokens~~ | ✅ hecho |
+| ~~P1 recursos~~ | ~~01/02/03~~ | ✅ hecho (producto, sin cara) |
 | **P1** | Portfolio fotos | JSON follow-up en el mismo archivo Evelyn (también **cara mía**) |
-| **P1** | Resend prod | Emails de `/api/discovery` |
-| **P2** | Rutas espirituales | Rediseñar al CapCut o archivar (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`) |
-| **P2** | Hotmart Ciclo Nova | Links reales |
-| **P2** | OG / social | Regenerados sin selfies; revisar copy si cambia oferta |
+| **P1** | Resend prod | Emails de `/api/discovery` (API key en Vercel) |
+| **P2** | Rutas espirituales | Quedan secundarias; no definen chrome. Rediseño CapCut o archivo más adelante. |
+| **P2** | Hotmart Ciclo Nova | Links reales (cuenta Hotmart) |
+| **P2** | OG / social | Ya sin selfies; revisar si cambia oferta |
 
 ---
 

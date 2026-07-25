@@ -91,11 +91,12 @@ Fuente: [`PLAN_CIERRE_EMBUDO.md`](PLAN_CIERRE_EMBUDO.md)
 
 **Plan vivo tipografía + estado:** [`PLAN_TIPOGRAFIA_Y_ESTADO.md`](PLAN_TIPOGRAFIA_Y_ESTADO.md)
 
-1. **P0 tipografía:** tokens `--type-*` + recalibrar home/mobile (títulos que no caben)
-2. **P0 fotos:** generar `home-hero-evelyn` + `home-about-evelyn` (`docs/prompts/evelyn-home-hero-about.json` — cara Evelyn)
-3. Pegar en Vercel `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (hasta entonces WhatsApp fallback)
-4. Recursos home + Resend prod + Hotmart Ciclo Nova
-5. Decidir futuro de rutas espirituales (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`)
+1. **P0 fotos:** generar `home-hero-evelyn` + `home-about-evelyn` (`docs/prompts/evelyn-home-hero-about.json` — cara Evelyn)
+2. Pegar en Vercel `NEXT_PUBLIC_STRIPE_PAYMENT_LINK_SESION` + `NEXT_PUBLIC_CALENDLY_URL_SESION` (hasta entonces WhatsApp fallback)
+3. Resend prod + Hotmart Ciclo Nova (claves / links de tus cuentas)
+4. Rutas espirituales: quedan secundarias (no chrome); rediseño CapCut o archivo más adelante
+
+**Hecho 25 jul (tarde):** escala tipográfica `--type-*` en home/LPs + recursos home cableados.
 
 ---
 
