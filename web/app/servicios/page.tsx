@@ -80,7 +80,7 @@ export default function ServicesPage() {
               tracking={{ event: 'cta_click', category: 'lead', label: 'services_index_diagnostico' }}
               className="home-button home-button--gold mt-8"
             >
-              Pedir diagnostico gratis
+              Hacer mi pre-análisis
             </TrackedLink>
           </div>
         </div>
