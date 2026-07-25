@@ -198,7 +198,7 @@ export function SiteNav() {
   const links: readonly NavItem[] = b2b ? B2B_NAV : STUDIO_NAV
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
-  const cta = { href: '/descubrimiento', label: 'Cotizar proyecto' }
+  const cta = { href: '/descubrimiento', label: 'Pre-análisis' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)

@@ -1,8 +1,8 @@
 'use client'
 
-import { useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 type FormState = {
   name: string
@@ -10,6 +10,7 @@ type FormState = {
   business: string
   website: string
   service: string
+  pack: string
   goal: string
   problem: string
   timeline: string
@@ -23,6 +24,7 @@ const initialForm: FormState = {
   business: '',
   website: '',
   service: 'No estoy segura todavia',
+  pack: '',
   goal: '',
   problem: '',
   timeline: 'Este mes',
@@ -78,6 +80,7 @@ function buildEmailBody(form: FormState) {
     `Negocio / marca: ${form.business}`,
     `Web o redes: ${form.website || 'No aplica'}`,
     `Servicio que creo necesitar: ${form.service}`,
+    `Paquete de interes: ${form.pack || 'Sin paquete elegido'}`,
     `Objetivo principal: ${form.goal}`,
     `Problema actual: ${form.problem}`,
     `Tiempo ideal: ${form.timeline}`,
@@ -86,12 +89,34 @@ function buildEmailBody(form: FormState) {
   ].join('\n')
 }
 
-export function DiscoveryForm() {
+export function DiscoveryForm({
+  initialService,
+  initialPack,
+}: {
+  initialService?: string
+  initialPack?: string
+} = {}) {
   const router = useRouter()
-  const [form, setForm] = useState<FormState>(initialForm)
+  const searchParams = useSearchParams()
+  const [form, setForm] = useState<FormState>(() => ({
+    ...initialForm,
+    service: initialService || initialForm.service,
+    pack: initialPack || '',
+  }))
   const [needsManualSend, setNeedsManualSend] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
+
+  useEffect(() => {
+    const servicio = searchParams.get('servicio')
+    const paquete = searchParams.get('paquete')
+    if (!servicio && !paquete) return
+    setForm((current) => ({
+      ...current,
+      service: servicio || current.service,
+      pack: paquete || current.pack,
+    }))
+  }, [searchParams])
 
   const emailHref = useMemo(() => {
     const subject = `Descubrimiento de proyecto - ${form.name || 'La Aranoa'}`
@@ -253,6 +278,11 @@ export function DiscoveryForm() {
             ))}
           </select>
         </Field>
+        {form.pack ? (
+          <Field label="Paquete de interes">
+            <input value={form.pack} readOnly className="studio-input opacity-90" />
+          </Field>
+        ) : null}
         <Field label="Tiempo ideal" required>
           <select
             value={form.timeline}

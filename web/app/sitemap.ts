@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/servicios/sitios-web', 0.9],
     ['/servicios/google-ads', 0.9],
     ['/descubrimiento', 0.8],
+    ['/sesion-estrategica', 0.75],
     ['/sobre-elara', 0.7],
     ['/trabaja-conmigo', 0.7],
     ['/universo', 0.5],

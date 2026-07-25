@@ -7,6 +7,7 @@ type DiscoveryBody = {
   business?: string
   website?: string
   service?: string
+  pack?: string
   goal?: string
   problem?: string
   timeline?: string
@@ -22,6 +23,7 @@ const MAX_LENGTHS = {
   business: 160,
   website: 240,
   service: 120,
+  pack: 160,
   goal: 1600,
   problem: 1600,
   timeline: 80,
@@ -48,6 +50,7 @@ function buildPayload(body: DiscoveryBody): DiscoveryPayload {
     business: normalize(body.business, MAX_LENGTHS.business),
     website: normalize(body.website, MAX_LENGTHS.website),
     service: normalize(body.service, MAX_LENGTHS.service),
+    pack: normalize(body.pack, MAX_LENGTHS.pack),
     goal: normalize(body.goal, MAX_LENGTHS.goal, false),
     problem: normalize(body.problem, MAX_LENGTHS.problem, false),
     timeline: normalize(body.timeline, MAX_LENGTHS.timeline),
@@ -76,6 +79,7 @@ function discoveryText(payload: DiscoveryPayload) {
     `Negocio / marca: ${payload.business}`,
     `Web o redes: ${payload.website || 'No aplica'}`,
     `Servicio: ${payload.service}`,
+    `Paquete: ${payload.pack || 'Sin paquete elegido'}`,
     `Tiempo ideal: ${payload.timeline}`,
     `Presupuesto aproximado: ${payload.budget || 'Por definir'}`,
     '',
