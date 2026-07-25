@@ -1,3 +1,11 @@
+import type { Metadata } from 'next'
+
+export type BookVisual = {
+  heroImage: string
+  heroAlt: string
+  heroPosition: string
+}
+
 export type BookOffer = {
   slug: string
   eyebrow: string
@@ -11,6 +19,7 @@ export type BookOffer = {
   secondaryHref: string
   secondaryLabel: string
   statusNote: string
+  visual: BookVisual
 }
 
 export const bookOffers: readonly BookOffer[] = [
@@ -29,10 +38,16 @@ export const bookOffers: readonly BookOffer[] = [
       'Puente natural al ebook Ciclo Nova',
     ],
     ctaLabel: 'Quiero el ebook gratis',
-    ctaHref: '/descubrimiento?servicio=Productos%20digitales%20%2F%20ebook&paquete=7%20Días%20de%20Elara%20(gratis)',
+    ctaHref:
+      '/descubrimiento?servicio=Productos%20digitales%20%2F%20ebook&paquete=7%20Días%20de%20Elara%20(gratis)',
     secondaryHref: '/universo',
     secondaryLabel: 'Ver universo',
     statusNote: 'Entrega por email tras el pre-análisis / lista. PDF en lead-magnet.',
+    visual: {
+      heroImage: '/media/recursos/recurso-ebook.webp',
+      heroAlt: 'Ebook 7 Días de Elara — material digital del universo Elara Nova',
+      heroPosition: 'center 40%',
+    },
   },
   {
     slug: 'ciclo-nova-del-regreso',
@@ -54,6 +69,11 @@ export const bookOffers: readonly BookOffer[] = [
     secondaryHref: '/cursos',
     secondaryLabel: 'Ver escuela',
     statusNote: 'Pago Hotmart pendiente; meanwhile capturamos interés serio vía pre-análisis.',
+    visual: {
+      heroImage: '/media/cursos/curso-rituales.webp',
+      heroAlt: 'Ciclo Nova del Regreso — estaciones de retorno semanal',
+      heroPosition: 'center 35%',
+    },
   },
 ]
 
@@ -63,4 +83,30 @@ export function getBookOffer(slug: string) {
 
 export function listBookSlugs() {
   return bookOffers.map((b) => ({ slug: b.slug }))
+}
+
+export function bookOfferMetadata(book: BookOffer): Metadata {
+  return {
+    title: book.title,
+    description: book.description,
+    robots: { index: false, follow: false },
+    openGraph: {
+      title: book.title,
+      description: book.description,
+      images: [
+        {
+          url: book.visual.heroImage,
+          width: 1200,
+          height: 630,
+          alt: book.visual.heroAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: book.title,
+      description: book.description,
+      images: [book.visual.heroImage],
+    },
+  }
 }
