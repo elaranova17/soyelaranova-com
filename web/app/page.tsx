@@ -243,20 +243,20 @@ export default function HomePage() {
 
       <section id="diagnostico" className="home-impact">
         <div className="home-impact__glow" aria-hidden="true" />
-        <Eyebrow light>Diagnostico gratis · 20 minutos</Eyebrow>
+        <Eyebrow light>Pre-análisis didáctico · gratis</Eyebrow>
         <h2>
           ¿Tu negocio todavia depende de que <em>vos</em> hagas todo a mano?
         </h2>
         <p>
-          Contame como trabajas hoy y te muestro exactamente que automatizaria primero, que web
-          necesitas y donde se te estan escapando clientes. Sin compromiso y sin humo.
+          Completá el pre-análisis: yo preparo una lectura de tu negocio/web. Si querés profundizar,
+          la sesión estratégica dura 20 min y cuesta 25 CHF.
         </p>
         <TrackedLink
           href="/descubrimiento"
-          tracking={{ event: 'cta_click', category: 'lead', label: 'home_impact_diagnostico' }}
+          tracking={{ event: 'cta_click', category: 'lead', label: 'home_impact_preanalisis' }}
           className="home-button home-button--gold"
         >
-          Pedir mi diagnostico gratis
+          Hacer mi pre-análisis
         </TrackedLink>
       </section>
 
@@ -300,7 +300,7 @@ export default function HomePage() {
             tracking={{ event: 'cta_click', category: 'lead', label: 'home_work_diagnostico' }}
             className="home-button home-button--primary"
           >
-            Contarme tu proyecto
+            Hacer mi pre-análisis
           </TrackedLink>
         </div>
       </section>
@@ -311,10 +311,10 @@ export default function HomePage() {
         <div className="home-actions">
           <TrackedLink
             href="/descubrimiento"
-            tracking={{ event: 'cta_click', category: 'lead', label: 'home_footer_diagnostico' }}
+            tracking={{ event: 'cta_click', category: 'lead', label: 'home_footer_preanalisis' }}
             className="home-button home-button--gold"
           >
-            Solicitar diagnostico gratis
+            Hacer mi pre-análisis
           </TrackedLink>
           <a href="mailto:elaranova.17@gmail.com" className="home-button home-button--light">
             Escribir por email

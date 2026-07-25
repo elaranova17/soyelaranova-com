@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Gracias',
+  title: 'Pre-análisis recibido',
   description:
-    'Gracias por contactar a Evelyn Patino desde Elara Nova. Estos son los siguientes pasos para preparar tu diagnostico digital.',
+    'Gracias por completar el pre-análisis con Evelyn Patiño. Próximo paso: lectura por email y sesión estratégica opcional de 25 CHF.',
 }
 
 export default function GraciasPage() {
@@ -14,14 +14,15 @@ export default function GraciasPage() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="home-eyebrow justify-center">
             <span aria-hidden="true" />
-            Recibido
+            Pre-análisis recibido
           </p>
           <h1 className="mt-6 font-display text-[3.1rem] font-normal leading-[0.94] md:text-[5.6rem]">
-            Gracias. Ya dimos el primer paso.
+            Gracias. Ya puedo preparar tu lectura.
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-            Voy a revisar lo que compartiste para entender tu oferta, tu momento actual y el sistema
-            digital que mas sentido tiene construir primero.
+            Voy a revisar lo que compartiste (negocio, presencia y fugas). Te escribo con un
+            pre-análisis concreto. Si querés profundizar en vivo, el siguiente paso es la sesión
+            estratégica de 20 min · 25 CHF.
           </p>
         </div>
       </section>
@@ -29,9 +30,9 @@ export default function GraciasPage() {
       <section className="px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
           {[
-            ['01', 'Revision', 'Leo tu contexto y detecto oportunidades, fricciones y prioridades.'],
-            ['02', 'Respuesta', 'Te escribo con el siguiente paso o preguntas puntuales para afinar alcance.'],
-            ['03', 'Propuesta', 'Si encaja, preparo una ruta clara con entregables, tiempos e inversion.'],
+            ['01', 'Lectura', 'Analizo tu contexto y te mando lo que veo + 2–3 movimientos.'],
+            ['02', 'Sesión 25 CHF', 'Si querés, agendamos 20 min para verlo en vivo y afinar la ruta.'],
+            ['03', 'Proyecto', 'Si hay fit, cotizamos Arranque / Pro / A medida con precio cerrado.'],
           ].map(([number, title, text]) => (
             <article
               key={number}
@@ -47,8 +48,8 @@ export default function GraciasPage() {
         </div>
 
         <div className="mx-auto mt-12 flex max-w-5xl flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/trabaja-conmigo" className="home-button home-button--primary">
-            Trabaja conmigo
+          <Link href="/sesion-estrategica" className="home-button home-button--primary">
+            Ver sesión 25 CHF
           </Link>
           <Link href="/" className="home-button home-button--quiet">
             Volver al inicio
@@ -58,8 +59,12 @@ export default function GraciasPage() {
 
       <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-5xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">Privacidad y terminos</Link>
-          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">Nuevo diagnostico</Link>
+          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
+            Privacidad y terminos
+          </Link>
+          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">
+            Nuevo pre-análisis
+          </Link>
         </div>
       </footer>
     </main>
