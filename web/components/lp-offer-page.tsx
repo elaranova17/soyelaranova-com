@@ -55,7 +55,7 @@ export function LpOfferPage({
         <div className="lp-hero__content">
           <p className="lp-hero__brand">Elara Nova</p>
           <p className="lp-hero__eyebrow">{offer.eyebrow}</p>
-          <h1 className="type-lockup">{accentTitle}</h1>
+          <h1 className="type-lockup type-lockup--glow">{accentTitle}</h1>
           <p className="lp-hero__sub">{offer.subtitle}</p>
           <div className="lp-hero__cta">
             <TrackedLink
