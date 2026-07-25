@@ -1,21 +1,51 @@
 /**
- * Navegación compartida · Elara Nova (landing) vs Evelyn B2B (portfolio).
- * El nav superior y el footer «Explorar» usan la misma lista.
+ * Navegación compartida · menú canónico del estudio vs Evelyn B2B.
+ * El panel hamburguesa del sitio Elara usa SIEMPRE la misma lista (STUDIO_NAV),
+ * con URLs estables desde cualquier página. B2B conserva su propio menú.
  */
+
+import { studioServices } from '@/lib/studio-services'
 
 export type NavItem = {
   href: string
   label: string
   match?: readonly string[]
+  children?: readonly NavItem[]
 }
 
-/** Secciones del index — home editorial Elara */
+/**
+ * Menú único del estudio — idéntico en todas las páginas (excepto /lp/* sin nav).
+ * Cada label apunta siempre a la misma URL exacta (sin concatenar listas).
+ */
+export const STUDIO_NAV: readonly NavItem[] = [
+  {
+    href: '/servicios',
+    label: 'Servicios',
+    match: ['/servicios', ...studioServices.map((s) => `/servicios/${s.slug}`)],
+    children: studioServices.map((service) => ({
+      href: `/servicios/${service.slug}`,
+      label: service.shortTitle,
+      match: [`/servicios/${service.slug}`],
+    })),
+  },
+  { href: '/#recursos', label: 'Recursos' },
+  {
+    href: '/trabaja-conmigo',
+    label: 'Sobre nosotras',
+    match: ['/trabaja-conmigo', '/sobre-elara', '/manifiesto'],
+  },
+  {
+    href: '/descubrimiento',
+    label: 'Contacto',
+    match: ['/descubrimiento'],
+  },
+]
+
+/** @deprecated Prefer STUDIO_NAV — se mantiene por compatibilidad de imports legacy */
 export const ELARA_SECTIONS = [
-  { id: 'productos', label: 'Productos' },
-  { id: 'cursos', label: 'Cursos' },
-  { id: 'oraculo', label: 'Oraculo' },
-  { id: 'trabaja', label: 'Trabaja conmigo' },
-  { id: 'sobre', label: 'Sobre Elara' },
+  { id: 'recursos', label: 'Recursos' },
+  { id: 'servicios', label: 'Servicios' },
+  { id: 'trabaja', label: 'Sobre nosotras' },
   { id: 'contacto', label: 'Contacto' },
 ] as const
 
@@ -25,33 +55,20 @@ export function elaraSectionHref(sectionId: ElaraSectionId, pathname: string): s
   return pathname === '/' ? `#${sectionId}` : `/#${sectionId}`
 }
 
-export function elaraSectionNav(pathname: string): readonly NavItem[] {
-  return ELARA_SECTIONS.map(({ id, label }) => ({
-    href: elaraSectionHref(id, pathname),
-    label,
-  }))
+/** @deprecated Use STUDIO_NAV */
+export function elaraSectionNav(_pathname: string): readonly NavItem[] {
+  return STUDIO_NAV
 }
 
-/** @deprecated Use elaraSectionNav */
+/** @deprecated Use STUDIO_NAV */
 export const elaraExploreNav = elaraSectionNav
 
-export const ELARA_ROUTE_NAV: readonly NavItem[] = [
-  { href: '/oraculo',     label: 'Oráculo',     match: ['/oraculo'] },
-  { href: '/universo',    label: 'Universo',    match: ['/universo'] },
-  { href: '/cursos',      label: 'Cursos',      match: ['/cursos'] },
-  { href: '/trabaja-conmigo', label: 'Trabaja conmigo', match: ['/trabaja-conmigo'] },
-  { href: '/sobre-elara', label: 'Sobre Elara', match: ['/sobre-elara', '/manifiesto'] },
-]
+/** @deprecated Use STUDIO_NAV */
+export const ELARA_ROUTE_NAV: readonly NavItem[] = STUDIO_NAV
 
-/** Nav header landing = secciones clave del estudio (agencia-primero) */
+/** @deprecated Use STUDIO_NAV */
 export function elaraLandingNav(): readonly NavItem[] {
-  return [
-    { href: '#servicios', label: 'Servicios' },
-    { href: '#oferta', label: 'Precios' },
-    { href: '#recursos', label: 'Recursos' },
-    { href: '#trabaja', label: 'Sobre mi' },
-    { href: '#contacto', label: 'Contacto' },
-  ]
+  return STUDIO_NAV
 }
 
 /** Rutas Next / rewrites que usan nav B2B (Evelyn) */
@@ -73,8 +90,8 @@ export function isB2bPath(pathname: string): boolean {
 }
 
 export const B2B_NAV: readonly NavItem[] = [
-  { href: '/linktree',    label: '← Enlaces',       match: ['/linktree'] },
-  { href: '/portfolio',   label: 'Portfolio',        match: ['/portfolio', '/work'] },
-  { href: '/cv',          label: 'CV',               match: ['/cv'] },
+  { href: '/linktree', label: '← Enlaces', match: ['/linktree'] },
+  { href: '/portfolio', label: 'Portfolio', match: ['/portfolio', '/work'] },
+  { href: '/cv', label: 'CV', match: ['/cv'] },
   { href: '/casos-exito', label: 'Clientes felices', match: ['/casos-exito'] },
 ]
