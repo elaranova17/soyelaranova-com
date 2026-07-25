@@ -198,11 +198,7 @@ export default function HomePage() {
         <div className="home-recursos__rail">
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img
-                src="/media/servicios/servicio-02-webs.webp"
-                alt=""
-                loading="lazy"
-              />
+              <img src="/media/recursos/recurso-ebook.webp" alt="" loading="lazy" />
             </div>
             <p>01 · Ebook</p>
             <h3>Guías y lecturas cortas</h3>
@@ -216,11 +212,7 @@ export default function HomePage() {
 
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img
-                src="/media/servicios/servicio-01-automatizaciones.webp"
-                alt=""
-                loading="lazy"
-              />
+              <img src="/media/recursos/recurso-pantallas.webp" alt="" loading="lazy" />
             </div>
             <p>02 · Pantallas</p>
             <h3>Cómo se ve el sistema</h3>
@@ -235,11 +227,7 @@ export default function HomePage() {
 
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img
-                src="/media/servicios/servicio-03-google-ads.webp"
-                alt=""
-                loading="lazy"
-              />
+              <img src="/media/recursos/recurso-valor.webp" alt="" loading="lazy" />
             </div>
             <p>03 · Valor</p>
             <h3>Checklists y plantillas</h3>
@@ -273,23 +261,39 @@ export default function HomePage() {
       </section>
 
       <section id="trabaja" className="home-work">
-        <Photo
-          src="/_assets/photos/evelyn_pro_perfil.jpg"
-          alt="Evelyn Patino sonriendo, retrato profesional"
-          className="home-work__visual"
-        />
+        <div className="home-work__stage">
+          <span className="home-work__glow" aria-hidden="true" />
+          <span className="home-work__frame" aria-hidden="true" />
+          <Photo
+            src="/_assets/photos/evelyn_me_portrait.webp"
+            alt="Evelyn Patino sonriendo, retrato profesional"
+            className="home-work__visual"
+          />
+          <p className="home-work__name">Evelyn Patiño</p>
+        </div>
         <div className="home-work__copy">
-          <Eyebrow>Quien construye</Eyebrow>
+          <Eyebrow>Sobre mí</Eyebrow>
           <h2>Pienso como diseñadora. Construyo como ingeniera.</h2>
           <p>
-            Soy Evelyn. Vengo de seis años construyendo tecnologia para banca — donde un detalle mal
-            hecho cuesta dinero real — y ahora ayudo a negocios pequeños a vender mejor y dejar de
-            sostener cada proceso a mano.
+            Soy Evelyn — no un equipo detrás de una marca. Seis años construyendo tecnologia para
+            banca, donde un detalle mal hecho cuesta dinero real. Ahora ayudo a negocios pequeños a
+            vender mejor y dejar de sostener cada proceso a mano.
           </p>
           <div className="home-work__proof">
             <span>6 años en tecnologia y banca</span>
             <span>Medellin · Suiza</span>
-            <span>Automatizacion + desarrollo + Ads</span>
+            <span className="home-work__proof-pulse">Automatizacion + desarrollo + Ads</span>
+          </div>
+          <div className="home-work__me">
+            <p>¿Querés ver cómo trabajo yo?</p>
+            <div className="home-work__links">
+              <a href="/portfolio" className="home-work__link home-work__link--solid">
+                Portfolio
+              </a>
+              <a href="/cv" className="home-work__link home-work__link--ghost">
+                CV
+              </a>
+            </div>
           </div>
           <TrackedLink
             href="/descubrimiento"

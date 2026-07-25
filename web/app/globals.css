@@ -306,7 +306,7 @@ h1, h2, h3,
 }
 
 .home-work__visual img {
-  object-position: center 28%;
+  object-position: center 18%;
 }
 
 .home-hero__caption {
@@ -546,7 +546,10 @@ h1, h2, h3,
   letter-spacing: .02em;
   line-height: 1;
   color: var(--editorial-ivory);
-  text-shadow: 0 8px 40px rgb(10 0 16 / .65), 0 0 60px rgb(212 175 55 / .25);
+  text-shadow:
+    0 8px 40px rgb(10 0 16 / .75),
+    0 0 60px rgb(212 175 55 / .35),
+    0 0 2px rgb(248 243 234 / .35);
   pointer-events: none;
 }
 
@@ -816,14 +819,21 @@ h1, h2, h3,
 .service-scene__screen {
   position: absolute;
   z-index: 2;
+  overflow: hidden;
+  border-radius: 2px;
+  /* placa oscura tapa residuos de chroma / green fringe */
+  background: rgb(8 5 14 / .92);
+  box-shadow:
+    0 0 0 1px rgb(212 175 55 / .18),
+    inset 0 0 24px rgb(10 0 16 / .45);
 }
 
 .service-scene__screen::before {
   content: '';
   position: absolute;
   inset: -6%;
-  background: radial-gradient(60% 60% at 50% 50%, rgb(212 175 55 / .14), transparent 75%);
-  opacity: 0;
+  background: radial-gradient(60% 60% at 50% 50%, rgb(212 175 55 / .18), transparent 75%);
+  opacity: .55;
   transition: opacity .8s ease;
   pointer-events: none;
 }
@@ -837,16 +847,9 @@ h1, h2, h3,
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: .68;
+  opacity: .92;
   filter: drop-shadow(0 0 10px rgb(212 175 55 / .4));
   transition: opacity .7s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-/* en móvil no hay hover: las escenas viven a plena luz */
-@media (hover: none) {
-  .service-scene__overlay {
-    opacity: .92;
-  }
 }
 
 .home-product:hover .service-scene__overlay {
@@ -881,6 +884,43 @@ h1, h2, h3,
 
 @keyframes scene-flow {
   to { stroke-dashoffset: -96; }
+}
+
+/* 01 · banner de estado (eco del word-banner del slide) */
+.scene-banner {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: scene-banner 4.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+
+.home-product:hover .scene-banner {
+  animation-duration: 2.4s;
+}
+
+@keyframes scene-banner {
+  0% { opacity: 0; transform: translateY(-12px) scale(.97); }
+  12%, 78% { opacity: 1; transform: translateY(0) scale(1); }
+  92%, 100% { opacity: 0; transform: translateY(-8px) scale(.98); }
+}
+
+/* 01 · paquetes que suben por el pipeline */
+.scene-packet {
+  opacity: 0;
+  animation: scene-packet 3.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+
+.scene-packet--d2 { animation-delay: 1.05s; }
+.scene-packet--d3 { animation-delay: 2.1s; }
+
+.home-product:hover .scene-packet {
+  animation-duration: 1.7s;
+}
+
+@keyframes scene-packet {
+  0% { opacity: 0; transform: translateY(0); }
+  12% { opacity: 1; }
+  78% { opacity: 1; transform: translateY(-230px); }
+  100% { opacity: 0; transform: translateY(-250px); }
 }
 
 /* nodos que pulsan */
@@ -1242,19 +1282,162 @@ h1, h2, h3,
 
 .home-work {
   display: grid;
-  grid-template-columns: 1.08fr .92fr;
+  grid-template-columns: .95fr 1.05fr;
   align-items: center;
-  gap: clamp(3rem, 8vw, 8rem);
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.home-work__stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-work__glow {
+  position: absolute;
+  z-index: 0;
+  inset: 8% -6% -8% 12%;
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(60% 55% at 40% 40%, rgb(212 175 55 / .28), transparent 70%),
+    radial-gradient(50% 60% at 70% 70%, rgb(123 63 160 / .22), transparent 75%);
+  filter: blur(18px);
+  animation: home-work-glow 7s ease-in-out infinite;
+}
+
+.home-work__frame {
+  position: absolute;
+  z-index: 0;
+  inset: 1.4rem -1.1rem -1.1rem 1.6rem;
+  border: 1px solid var(--editorial-gold);
+  border-radius: .55rem;
+  opacity: .55;
+  transform: rotate(1.4deg);
 }
 
 .home-work__visual {
-  /* Foto sonrisa es landscape (~16:9); 5/4 la cortaba. */
-  aspect-ratio: 16 / 9;
-  border-radius: .4rem;
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  border-radius: .55rem;
+  overflow: hidden;
+  box-shadow:
+    0 28px 60px rgb(26 15 61 / .28),
+    0 0 0 1px rgb(26 15 61 / .08);
+  animation: home-work-float 8s ease-in-out infinite;
+}
+
+.home-work__name {
+  position: absolute;
+  z-index: 2;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  margin: 0;
+  padding: .55rem 1rem;
+  border: 1px solid rgb(212 175 55 / .45);
+  border-radius: 999px;
+  background: rgb(26 15 61 / .62);
+  color: var(--editorial-ivory);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
 }
 
 .home-work__copy .home-button {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
+}
+
+.home-work__proof-pulse {
+  position: relative;
+}
+
+.home-work__proof-pulse::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: var(--editorial-gold);
+  transform: translateY(-50%);
+  animation: eln-pulse 2s ease-in-out infinite;
+}
+
+.home-work__me {
+  margin-top: 2.25rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--editorial-stone);
+  border-radius: .65rem;
+  background:
+    linear-gradient(135deg, rgb(248 243 234 / .95), rgb(244 236 220 / .7)),
+    var(--editorial-ivory);
+  box-shadow: 0 18px 40px rgb(26 15 61 / .06);
+}
+
+.home-work__me > p {
+  margin: 0;
+  color: var(--editorial-plum);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.home-work__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.15rem;
+}
+
+.home-work__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.85rem;
+  padding: .7rem 1.35rem;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  transition: transform .35s ease, background .35s ease, color .35s ease, border-color .35s ease;
+}
+
+.home-work__link:hover {
+  transform: translateY(-2px);
+}
+
+.home-work__link--solid {
+  background: var(--editorial-aubergine);
+  color: var(--editorial-ivory);
+}
+
+.home-work__link--solid:hover {
+  background: var(--editorial-plum);
+}
+
+.home-work__link--ghost {
+  border: 1px solid var(--editorial-aubergine);
+  background: transparent;
+  color: var(--editorial-aubergine);
+}
+
+.home-work__link--ghost:hover {
+  border-color: var(--editorial-gold);
+  color: var(--editorial-plum);
+}
+
+@keyframes home-work-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes home-work-glow {
+  0%, 100% { opacity: .75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
 }
 
 .home-close {
@@ -1384,6 +1567,13 @@ h1, h2, h3,
     top: 4.5rem;
   }
 
+  /* word-banner del slide: visible aunque el stage sea más bajo */
+  .immersive-story__word {
+    right: 1rem;
+    bottom: 3.4rem;
+    font-size: clamp(2.6rem, 14vw, 4.4rem);
+  }
+
   .immersive-story__chapters {
     padding: 4rem 1.25rem;
   }
@@ -1416,15 +1606,23 @@ h1, h2, h3,
   .scene-chart,
   .scene-pop,
   .scene-bar,
-  .scene-sweep {
+  .scene-sweep,
+  .scene-banner,
+  .scene-packet,
+  .home-work__visual,
+  .home-work__glow,
+  .home-work__proof-pulse::after {
     animation: none;
   }
 
   .scene-block,
-  .scene-pop {
+  .scene-pop,
+  .scene-banner {
     opacity: 1;
+    transform: none;
   }
 
+  .scene-packet,
   .scene-sweep {
     opacity: 0;
   }
