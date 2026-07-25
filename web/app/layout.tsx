@@ -1,23 +1,24 @@
 import type { Metadata } from 'next'
-import { Fraunces, Cormorant_Garamond, Manrope } from 'next/font/google'
+import { Bodoni_Moda, Pinyon_Script, Manrope } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import './globals.css'
 
-const fraunces = Fraunces({
-  variable: '--font-fraunces',
+/** Display imponente — contraste alto, editorial de venta */
+const bodoni = Bodoni_Moda({
+  variable: '--font-bodoni',
   subsets: ['latin'],
   style: ['normal', 'italic'],
-  axes: ['opsz', 'SOFT', 'WONK'],
+  axes: ['opsz'],
   display: 'swap',
 })
 
-const cormorant = Cormorant_Garamond({
-  variable: '--font-cormorant',
+/** Caligrafía de marca — acentos, logo, em que venden */
+const pinyon = Pinyon_Script({
+  variable: '--font-pinyon',
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  style: ['normal', 'italic'],
+  weight: '400',
   display: 'swap',
 })
 
@@ -91,7 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${fraunces.variable} ${cormorant.variable} ${manrope.variable} h-full antialiased`}
+      className={`${bodoni.variable} ${pinyon.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <script
