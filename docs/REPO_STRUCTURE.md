@@ -1,14 +1,14 @@
 # Mapa del repositorio · soyelaranova.com
 
-**Actualizado:** 26 mayo 2026
+**Actualizado:** 25 julio 2026
 
 ## Propósito de cada carpeta
 
 | Carpeta | Rol | Fuente de verdad |
 |---------|-----|------------------|
 | `web/` | App Next.js desplegable en Vercel | ✅ Código activo |
-| `docs/` | Marca, finanzas, estado técnico, deploy | ✅ Docs agentes |
-| `CONTEXT_CURSOR.md` | Brief lockeado (stack, rutas v1, fases) | ✅ Raíz del repo |
+| `docs/` | Marca (`brand.md`), estado, oferta, deploy | ✅ Docs agentes |
+| `CONTEXT_CURSOR.md` | Brief histórico (superado en look/producto) | Raíz · gana `docs/brand.md` |
 | `01_LANZAMIENTO/` | Ops de lanzamiento (checklists, bios, calendario) | Marketing ops |
 | `02_CONTENIDO_MAESTRO/` | Copy, PDFs ebook, Codice Tierno, landing copy | Contenido |
 | `03_VISUAL_KIT/` | Logos, stickers, avatar, assets sociales | Diseño |
@@ -32,11 +32,11 @@
 
 Ver pasos completos en [`DEPLOY.md`](DEPLOY.md).
 
-## Duplicados consolidados (26 mayo 2026)
+## Duplicados consolidados
 
 | Acción | Paths |
 |--------|-------|
-| **Eliminado** (copia exacta del brief) | `web/CONTEXT_CURSOR.md`, `05_DOCS_ESTRATEGIA/CONTEXT_CURSOR.md` → canónico: raíz `CONTEXT_CURSOR.md` |
+| **Canónico** | `CONTEXT_CURSOR.md` en raíz. `05_DOCS_ESTRATEGIA/CONTEXT_CURSOR.md` es solo stub con puntero. |
 | **Restaurado en producción** | `web/public/hero/` — requerido para deploy (copia en `06_ARCHIVO/web-public-hero-unused/hero/` es solo backup) |
 | **Corregido** | Symlinks rotos en `web/public/images/` → archivos reales |
 | **Eliminado** | `vercel.json` en raíz del repo (conflictuaba con Root Directory `web`) |
@@ -69,7 +69,7 @@ Copias entre `03_VISUAL_KIT/` y `web/public/` — el kit es fuente; public es de
 
 ## Regla para agentes
 
-1. Editar brief solo en `CONTEXT_CURSOR.md` (raíz).
+1. Marca / tipografía / embudo → `docs/brand.md` (gana siempre). Brief histórico → `CONTEXT_CURSOR.md`.
 2. Assets nuevos → `03_VISUAL_KIT/` primero; copiar a `web/public/` solo lo que el sitio use.
 3. **Nunca** archivar `web/public/hero/` sin sustituir referencias en `/images/`.
 4. **Nunca** añadir `builds` en `vercel.json` si Root Directory = `web`.

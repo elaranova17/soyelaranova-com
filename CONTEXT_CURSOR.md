@@ -10,8 +10,8 @@ v1 · 9 mayo 2026 · lockeado por Evelyn Patino
 > **Fuente de verdad actual: `docs/brand.md` + `docs/ESTADO_PROYECTO.md`.**
 > Este documento se conserva como historia y contexto de las rutas espirituales.
 
-> **Copia canónica para desarrollo:** `../../soyelaranova-com/CONTEXT_CURSOR.md`  
-> Edita allí cuando cambies stack, rutas o fases; Cursor lee `.cursor/rules/soyelaranova.mdc` en ese repo.
+> **Este archivo es la copia canónica en la raíz del repo.**  
+> Editar aquí (no duplicar). Cursor lee `.cursor/rules/soyelaranova.mdc` + `docs/brand.md`.
 
 ---
 

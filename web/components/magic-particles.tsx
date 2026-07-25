@@ -36,7 +36,7 @@ function pickColor() {
   const roll = Math.random()
 
   if (roll < 0.7) return '#D4AF37'
-  if (roll < 0.9) return '#C49AD4'
+  if (roll < 0.9) return '#E5DBF0'
   return '#F5EEF8'
 }
 

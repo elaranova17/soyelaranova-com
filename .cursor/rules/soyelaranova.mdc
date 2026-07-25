@@ -1,3 +1,8 @@
+---
+description: Fuente de verdad soyelaranova.com — marca CapCut, embudo, stack real
+alwaysApply: true
+---
+
 # soyelaranova.com · Elara Nova (estudio 2026)
 
 **Lee primero:** `docs/brand.md` (marca estudio 2026) + `docs/ESTADO_PROYECTO.md`.
@@ -11,14 +16,18 @@ automatizaciones de procesos, webs/landings que venden, Google Ads con medición
 La capa espiritual de Elara vive solo en rutas secundarias (`/oraculo`, `/universo`,
 `/cursos`, `/sobre-elara`).
 
+**Embudo:** pre-análisis gratis (`/descubrimiento`) → sesión 25 CHF (`/sesion-estrategica`)
+→ proyecto (`docs/OFERTA_SERVICIOS.md`).
+
 ## Look canónico (ley)
 
-- Home editorial `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css`:
-  cream/smoke + aubergine + gold, quiet luxury.
-- Tipografías: **Fraunces** (display) · **Manrope** (sans) · Cormorant (citas).
+- Home CapCut glow chic `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css`.
+- Tipografías: **Bebas Neue** (impact) · **Great Vibes** (script) · Cormorant (serif) · **Outfit** (sans).
+- Lockups: `.type-lockup` + `__impact` / `__script` + `--glow` / `--glow-soft`.
 - Navbar única `.site-nav` aubergine (`components/site-nav.tsx` + `lib/navigation.ts`).
 - Reutilizar `.home-eyebrow`, `.home-button--{primary,gold,quiet,light}`, bandas aubergine.
 - No inventar colores ni estilos por página.
+- Hex prohibidos en UI: `#7B4FB5`, `#C49AD4` → tokens `--color-purple-amethyst` / `--color-pale-lav`.
 
 ## Prohibido
 
@@ -27,19 +36,22 @@ La capa espiritual de Elara vive solo en rutas secundarias (`/oraculo`, `/univer
 - Heroes Midjourney fantasy como chrome de página.
 - Purple-night ritual (`--color-purple-*`, `btn-ritual`, `elara-card`) como chrome principal —
   solo en rutas espirituales legacy.
+- Sans negra brutal (Inter Black / Archivo Black) o Playfair/Fraunces/Manrope como sistema actual.
 - CSS/JS suelto en `public/` que estile el app.
+- Call gratis larga como promesa (usar pre-análisis + sesión 25 CHF).
 
 ## Voces (nunca mezclar en la misma página)
 
 - **Evelyn** (directa, ingeniera): `/`, `/servicios`, `/trabaja-conmigo`, `/descubrimiento`,
-  `/gracias`, `/legal`, `/lp/*`, `/linktree`, B2B.
+  `/sesion-estrategica`, `/gracias`, `/legal`, `/lp/*`, `/linktree`, B2B.
 - **Elara** (mística, hermana mayor paisa): solo `/oraculo`, `/universo`, `/cursos`,
   `/sobre-elara`. **Oráculo, nunca "tarot".**
 
-## Stack (no cambiar sin permiso)
+## Stack real (no cambiar sin permiso)
 
-Next.js 16 App Router · React 19 · TS strict · Tailwind v4 · framer-motion · gsap · lenis ·
-Resend (opcional) · Hotmart externo · Vercel. Budget ≤ €10/mes.
+Next.js 16 App Router · React 19 · TS strict · Tailwind v4 · framer-motion · lenis ·
+`@vercel/analytics` · GA4 opcional · Resend vía fetch (env) · Hotmart externo · Vercel.
+**No instalados:** gsap, three/R3F, tone, Sanity. Budget ≤ €10/mes.
 
 ## Reglas de código
 

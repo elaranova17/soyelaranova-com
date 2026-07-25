@@ -23,9 +23,10 @@ con glow dorado). Embudo: pre-análisis → sesión 25 CHF → proyecto.
 - Next.js 16 App Router · React 19 · TS strict · Tailwind v4
 - Fonts: **Bebas Neue** (impact) · **Great Vibes** (script) · Cormorant Garamond (serif) · **Outfit** (sans)
 - Lockups: `.type-lockup` + `--glow` / `--glow-soft` en `web/app/globals.css`
-- framer-motion, gsap, lenis (`lenis-provider.tsx`)
-- Resend opcional vía `POST /api/discovery` y `POST /api/oracle/subscribe`
-- three/R3F, tone.js, ElevenLabs, Sanity: **no instalados**
+- framer-motion · lenis (`lenis-provider.tsx`)
+- Analytics: GA4 opcional (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) + `@vercel/analytics`
+- Resend opcional vía fetch en `POST /api/discovery` y `POST /api/oracle/subscribe` (sin paquete `resend`)
+- **No instalados:** gsap, three/R3F, tone.js, ElevenLabs, Sanity
 
 **Build:** `cd web && npm run build` (con `verify:assets` en prebuild).
 
