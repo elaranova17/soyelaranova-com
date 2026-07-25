@@ -43,7 +43,7 @@ export default function DiscoveryPage() {
             </p>
             <div className="mt-6 space-y-5">
               {[
-                ['01', 'Reviso tu contexto y tu web/redes'],
+                ['01', '5 pasos guiados (2–4 min)'],
                 ['02', 'Te mando el pre-análisis por email'],
                 ['03', 'Si querés, sesión estratégica 25 CHF'],
               ].map(([number, text]) => (
