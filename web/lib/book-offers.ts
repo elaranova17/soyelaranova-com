@@ -50,7 +50,7 @@ export const bookOffers: readonly BookOffer[] = [
     secondaryLabel: 'Ver universo',
     statusNote: 'Entrega por email tras el pre-análisis / lista. PDF en lead-magnet.',
     visual: {
-      heroImage: '/media/recursos/recurso-ebook.webp',
+      heroImage: '/media/servicios/servicio-02-webs.webp',
       heroAlt: 'Ebook 7 Días de Elara — material digital del universo Elara Nova',
       heroPosition: 'center 40%',
     },
@@ -78,7 +78,7 @@ export const bookOffers: readonly BookOffer[] = [
     secondaryLabel: 'Ver escuela',
     statusNote: 'Pago Hotmart pendiente; meanwhile capturamos interés serio vía pre-análisis.',
     visual: {
-      heroImage: '/media/cursos/curso-rituales.webp',
+      heroImage: '/images/ciclos-lunares-rituales.png',
       heroAlt: 'Ciclo Nova del Regreso — estaciones de retorno semanal',
       heroPosition: 'center 35%',
     },

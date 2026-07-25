@@ -54,8 +54,8 @@ const SERVICE_VISUALS: Record<string, LpVisual> = {
     heroPosition: 'center 38%',
   },
   'landing-pages': {
-    heroImage: '/media/recursos/recurso-pantallas.webp',
-    heroAlt: 'Pantallas de landing page lista para campaña',
+    heroImage: '/media/servicios/servicio-02-webs.webp',
+    heroAlt: 'Landing page lista para campaña',
     heroPosition: 'center 35%',
   },
   'google-ads': {
@@ -73,7 +73,7 @@ const PACK_VISUALS: Record<string, LpVisual> = {
     heroPosition: 'center 40%',
   },
   'automatizaciones/pro': {
-    heroImage: '/media/recursos/recurso-valor.webp',
+    heroImage: '/media/servicios/servicio-01-automatizaciones.webp',
     heroAlt: 'Sistemas Pro de automatización',
     heroPosition: 'center 35%',
   },
@@ -83,7 +83,7 @@ const PACK_VISUALS: Record<string, LpVisual> = {
     heroPosition: '62% 40%',
   },
   'paginas-web/landing-unica': {
-    heroImage: '/media/recursos/recurso-pantallas.webp',
+    heroImage: '/media/servicios/servicio-02-webs.webp',
     heroAlt: 'Landing única lista para Ads',
     heroPosition: 'center 32%',
   },
@@ -93,7 +93,7 @@ const PACK_VISUALS: Record<string, LpVisual> = {
     heroPosition: '62% 40%',
   },
   'paginas-web/sitio-ads': {
-    heroImage: '/media/recursos/recurso-ebook.webp',
+    heroImage: '/media/servicios/servicio-03-google-ads.webp',
     heroAlt: 'Sitio + Ads como sistema',
     heroPosition: 'center 40%',
   },

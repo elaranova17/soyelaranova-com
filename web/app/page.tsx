@@ -216,7 +216,7 @@ export default function HomePage() {
         <div className="home-recursos__rail">
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img src="/media/recursos/recurso-ebook.webp" alt="" loading="lazy" />
+              <img src="/media/servicios/servicio-02-webs.webp" alt="" loading="lazy" />
             </div>
             <p>01 · Ebook</p>
             <h3>Guías y lecturas cortas</h3>
@@ -230,7 +230,7 @@ export default function HomePage() {
 
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img src="/media/recursos/recurso-pantallas.webp" alt="" loading="lazy" />
+              <img src="/media/servicios/servicio-01-automatizaciones.webp" alt="" loading="lazy" />
             </div>
             <p>02 · Pantallas</p>
             <h3>Cómo se ve el sistema</h3>
@@ -245,7 +245,7 @@ export default function HomePage() {
 
           <article className="home-recurso">
             <div className="home-recurso__media">
-              <img src="/media/recursos/recurso-valor.webp" alt="" loading="lazy" />
+              <img src="/media/servicios/servicio-03-google-ads.webp" alt="" loading="lazy" />
             </div>
             <p>03 · Valor</p>
             <h3>Checklists y plantillas</h3>

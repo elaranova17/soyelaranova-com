@@ -15,10 +15,15 @@
 
 ## 1 · Assets que YA existen (reutilizar, NO recrear)
 
-### Fotos de Evelyn — ❌ ninguna en producción (purgado jul 2026)
-Caras eliminadas del repo y de la web: kit IA (`kit-web-real/`, `evelyn_pro_*`, Higgs) **y** selfies phone (`evelyn-real/`).
+### Fotos Evelyn — solo lote 24 jul (noche)
+| Archivo | Ruta |
+|---|---|
+| `slide-proceso-fondo.webp` | `web/public/_assets/photos/` |
+| `servicio-01-automatizaciones.webp` | `web/public/media/servicios/` |
+| `servicio-02-webs.webp` | `web/public/media/servicios/` |
+| `servicio-03-google-ads.webp` | `web/public/media/servicios/` |
 
-Visuales actuales: `media/servicios/`, `media/recursos/`, `brand/firma-elara*.png`, OG tipográficos.
+❌ Purgado: caras IA/selfies, `media/recursos/`, `media/cursos/`, atmósfera kit, chroma-raw.
 
 ### Logos y marca — ✅ existen
 | Archivo | Ruta | Dimensiones | Notas |

@@ -42,7 +42,7 @@ export default function TrabajaConmigoPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)]">
             <Image
-              src="/media/recursos/recurso-pantallas.webp"
+              src="/media/servicios/servicio-03-google-ads.webp"
               alt="Pantallas y sistemas Elara Nova"
               fill
               priority
