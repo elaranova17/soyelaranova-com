@@ -48,39 +48,42 @@ const sections = [
 
 export default function LegalPage() {
   return (
-    <main className="min-h-screen bg-[var(--studio-paper)] text-[var(--studio-text)]">
-      <section className="px-5 pt-32 pb-16 md:px-8 lg:px-12">
+    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
+      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
         <div className="mx-auto max-w-4xl">
           <Link
             href="/"
-            className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--studio-indigo)] uppercase hover:text-[var(--studio-text)]"
+            className="text-[0.66rem] font-bold tracking-[0.24em] text-[var(--editorial-cacao)] uppercase hover:text-[var(--editorial-plum)]"
           >
             ← Volver al inicio
           </Link>
-          <p className="mt-12 mb-4 text-[0.7rem] font-black tracking-[0.34em] text-[var(--studio-indigo)] uppercase">
+          <p className="home-eyebrow mt-10">
+            <span aria-hidden="true" />
             Legal
           </p>
-          <h1 className="font-display text-[3rem] leading-[0.98] md:text-[5.1rem]">
+          <h1 className="mt-5 font-display text-[3rem] font-normal leading-[0.94] md:text-[5.1rem]">
             Privacidad y terminos de uso.
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--studio-text)]/68">
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             Esta pagina resume como se gestiona la informacion compartida a traves de este sitio y las condiciones generales de uso de Elara Nova.
           </p>
-          <p className="mt-4 text-sm leading-7 text-[var(--studio-text)]/55">
+          <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]/75">
             Ultima actualizacion: 23 de junio de 2026.
           </p>
         </div>
       </section>
 
-      <section className="px-5 pb-24 md:px-8 lg:px-12">
+      <section className="px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-4xl gap-4">
           {sections.map((section) => (
             <article
               key={section.title}
-              className="rounded-[10px] border border-[var(--studio-text)]/10 bg-white/65 p-6 shadow-[0_16px_38px_rgba(11,16,32,0.06)]"
+              className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6"
             >
-              <h2 className="font-display text-3xl">{section.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--studio-text)]/68">{section.text}</p>
+              <h2 className="font-display text-3xl font-normal text-[var(--editorial-plum)]">
+                {section.title}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{section.text}</p>
             </article>
           ))}
         </div>

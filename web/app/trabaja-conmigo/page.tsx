@@ -15,10 +15,11 @@ export default function TrabajaConmigoPage() {
       <section className="px-5 pt-28 pb-20 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
+            <p className="home-eyebrow">
+              <span aria-hidden="true" />
               Trabaja conmigo
             </p>
-            <h1 className="mt-5 max-w-4xl font-display text-[3.2rem] leading-[0.94] md:text-[5.8rem]">
+            <h1 className="mt-5 max-w-4xl font-display text-[3.2rem] font-normal leading-[0.94] md:text-[5.8rem]">
               Sistemas digitales para marcas que necesitan orden y presencia.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
@@ -28,14 +29,11 @@ export default function TrabajaConmigoPage() {
               <TrackedLink
                 href="/descubrimiento"
                 tracking={{ event: 'cta_click', category: 'lead', label: 'trabaja_hero_diagnostico' }}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-cacao)] px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-ivory)] uppercase"
+                className="home-button home-button--primary"
               >
                 Solicitar diagnostico
               </TrackedLink>
-              <Link
-                href="/#recursos"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-plum)]/25 px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-plum)] uppercase"
-              >
+              <Link href="/#recursos" className="home-button home-button--quiet">
                 Ver recursos
               </Link>
             </div>
@@ -57,7 +55,8 @@ export default function TrabajaConmigoPage() {
 
       <section className="bg-[var(--editorial-ivory)] px-5 py-20 md:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <p className="text-[0.68rem] font-black tracking-[0.26em] text-[var(--editorial-gold)] uppercase">
+          <p className="home-eyebrow">
+            <span aria-hidden="true" />
             Servicios
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
