@@ -33,10 +33,10 @@ export default function TrabajaConmigoPage() {
                 Solicitar diagnostico
               </TrackedLink>
               <Link
-                href="/#productos"
+                href="/#recursos"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[var(--editorial-plum)]/25 px-6 text-[0.78rem] font-black tracking-[0.2em] text-[var(--editorial-plum)] uppercase"
               >
-                Ver Elara
+                Ver recursos
               </Link>
             </div>
           </div>
@@ -67,7 +67,8 @@ export default function TrabajaConmigoPage() {
                   {service.eyebrow}
                 </p>
                 <h2 className="mt-3 font-display text-3xl leading-none text-[var(--editorial-plum)]">{service.title}</h2>
-                <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{service.summary}</p>
+                <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{service.whatIs}</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]/80">{service.summary}</p>
                 <Link
                   href={`/servicios/${service.slug}`}
                   className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[var(--editorial-plum)]/25 px-4 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-plum)] uppercase"
@@ -76,6 +77,28 @@ export default function TrabajaConmigoPage() {
                 </Link>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-16 md:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-xl text-sm leading-7 text-[var(--editorial-cacao)]">
+            ¿Querés ver cómo trabajo? Portfolio y CV de Evelyn, ingeniera detrás de Elara Nova.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/portfolio"
+              className="inline-flex min-h-11 items-center rounded-full bg-[var(--editorial-cacao)] px-5 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-ivory)] uppercase"
+            >
+              Portfolio
+            </Link>
+            <Link
+              href="/cv"
+              className="inline-flex min-h-11 items-center rounded-full border border-[var(--editorial-plum)]/25 px-5 text-[0.68rem] font-black tracking-[0.18em] text-[var(--editorial-plum)] uppercase"
+            >
+              CV
+            </Link>
           </div>
         </div>
       </section>

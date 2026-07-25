@@ -34,10 +34,10 @@ export default function UniversoPage() {
             abriendo con calma, cuidado y dirección.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ElaraButton href="/#productos" className="w-full sm:w-auto">
-              Ver productos
+            <ElaraButton href="/#recursos" className="w-full sm:w-auto">
+              Ver recursos
             </ElaraButton>
-            <ElaraButton href="/#contacto" variant="secondary" className="w-full sm:w-auto">
+            <ElaraButton href="/descubrimiento" variant="secondary" className="w-full sm:w-auto">
               Recibir novedades
             </ElaraButton>
           </div>

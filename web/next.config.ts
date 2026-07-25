@@ -23,17 +23,17 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Rutas legacy → secciones de la landing fusionada
-      { source: '/comunidad', destination: '/#productos', permanent: false },
-      { source: '/circulo', destination: '/#productos', permanent: false },
-      { source: '/herramientas', destination: '/#oraculo', permanent: false },
-      { source: '/contacto', destination: '/#contacto', permanent: false },
+      // Rutas legacy → destinos canónicos actuales (sin anchors muertos)
+      { source: '/comunidad', destination: '/#recursos', permanent: false },
+      { source: '/circulo', destination: '/universo', permanent: false },
+      { source: '/herramientas', destination: '/servicios', permanent: false },
+      { source: '/contacto', destination: '/descubrimiento', permanent: false },
       { source: '/atelier', destination: '/trabaja-conmigo', permanent: false },
-      { source: '/recursos', destination: '/#productos', permanent: false },
+      { source: '/recursos', destination: '/#recursos', permanent: false },
       { source: '/amazon', destination: '/universo', permanent: false },
       { source: '/login', destination: '/', permanent: false },
-      { source: '/signup', destination: '/#contacto', permanent: false },
-      { source: '/cuenta', destination: '/#contacto', permanent: false },
+      { source: '/signup', destination: '/descubrimiento', permanent: false },
+      { source: '/cuenta', destination: '/descubrimiento', permanent: false },
       { source: '/manifiesto', destination: '/sobre-elara', permanent: false },
       { source: '/lecturas', destination: '/oraculo', permanent: false },
       // B2B Evelyn — URLs legacy (carpeta evelyn-b2b o GitHub Pages)
