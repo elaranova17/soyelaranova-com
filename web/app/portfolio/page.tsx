@@ -8,66 +8,83 @@ import {
   StudioStagger,
   StudioStickyCta,
 } from '@/components/studio-reveal'
+import {
+  StudioCounter,
+  StudioDashGraphic,
+  StudioFunnelGraphic,
+  StudioPipeline,
+} from '@/components/studio-charts'
+import { AutomationScene, WebScene, AdsScene } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
 export const metadata: Metadata = {
   title: 'Portfolio · Evelyn Patiño',
   description:
-    'Portfolio de Evelyn Patiño Laverde: automatizaciones, webs que venden, IA aplicada y Google Ads. Criterio de banca, entregas reales desde Suiza.',
+    'Portfolio comercial de Evelyn Patiño: automatizaciones, webs que venden y Google Ads con medición. Pre-análisis gratis · sesión 25 CHF.',
   openGraph: {
     title: 'Portfolio · Evelyn Patiño',
     images: [{ url: evelynPhotos.portfolioHero }],
   },
 }
 
-const proof = [
-  { value: '6+', label: 'años en fintech' },
-  { value: 'Sophos', label: 'Bancolombia' },
-  { value: 'ES · LATAM', label: 'desde Suiza' },
-  { value: '25 CHF', label: 'sesión estratégica' },
+const pains = [
+  {
+    t: 'Leads que se pierden',
+    d: 'Formularios que van a una bandeja, nadie responde a tiempo, el cliente se enfría.',
+  },
+  {
+    t: 'Web que no vende',
+    d: 'Se ve “bien”, pero no hay mensaje, CTA ni medición. Es un folleto caro.',
+  },
+  {
+    t: 'Ads sin sistema',
+    d: 'Gastás en clics y no sabés qué convirtió. El presupuesto se va sin feedback.',
+  },
 ] as const
 
-const services = [
+const offers = [
   {
     n: '01',
-    title: 'Automatización',
-    script: 'de procesos',
-    text: 'Formularios, CRM, email y WhatsApp conectados. El lead no se pierde y vos recuperás horas.',
+    title: 'Automatizaciones',
+    script: 'que trabajan',
+    price: 'Desde 450 €',
+    result: 'Cero leads perdidos · horas recuperadas cada semana',
+    includes: ['1–4 flujos', 'CRM / email / WhatsApp', 'Documentación + handoff'],
     href: '/lp/automatizaciones',
+    Scene: AutomationScene,
   },
   {
     n: '02',
-    title: 'Webs',
-    script: 'que venden',
-    text: 'Landings y sitios con mensaje claro, mobile-first y medibles — no un folleto que nadie trackea.',
+    title: 'Webs & landings',
+    script: 'que convierten',
+    price: 'Packs claros',
+    result: 'Mensaje + mobile + tracking listos para campaña',
+    includes: ['Estructura de venta', 'CTA medible', 'Página de gracias'],
     href: '/lp/paginas-web',
+    Scene: WebScene,
   },
   {
     n: '03',
     title: 'Google Ads',
-    script: 'con medición',
-    text: 'Campañas con tracking real: sabés qué convierte y dónde se va el presupuesto.',
+    script: 'con consecuencia',
+    price: 'Con medición',
+    result: 'Sabés qué anuncio paga y cuál se come el presupuesto',
+    includes: ['Tracking', 'Landings alineadas', 'Optimización base'],
     href: '/lp/google-ads',
-  },
-  {
-    n: '04',
-    title: 'IA',
-    script: 'aplicada',
-    text: 'Clasificación, respuestas y reportes donde sí aporta. Sin humo ni demos eternas.',
-    href: '/servicios',
+    Scene: AdsScene,
   },
 ] as const
 
-const process = [
-  ['01', 'Descubrimiento', 'Pre-análisis gratis: leemos tu negocio y tu embudo.'],
-  ['02', 'Propuesta', 'Qué construir, en qué orden, con plazos y precio cerrado.'],
-  ['03', 'Construcción', 'Implementación con entregables claros. Yo soy quien responde.'],
-  ['04', 'Lanzamiento', 'Puesta en marcha, medición y siguientes pasos.'],
+const packs = [
+  { name: 'Arranque', price: '450 €', note: 'Tu primera automatización' },
+  { name: 'Pro', price: '1.400 €', note: 'Sistema de varios flujos' },
+  { name: 'Sitio + Ads', price: '3.400 €', note: 'Web + captación' },
+  { name: 'Sesión', price: '25 CHF', note: '20 min estratégicos' },
 ] as const
 
 export default function PortfolioPage() {
   return (
-    <main className="studio-b2b studio-b2b--live">
+    <main className="studio-b2b studio-b2b--live studio-b2b--commercial">
       <section className="studio-b2b__hero studio-b2b__hero--bleed">
         <div className="studio-b2b__hero-bg" aria-hidden>
           <Image
@@ -85,30 +102,33 @@ export default function PortfolioPage() {
           <StudioReveal>
             <p className="home-eyebrow home-eyebrow--light studio-accent">
               <span aria-hidden="true" />
-              Portfolio · trabajo real · 2026
+              Portfolio comercial · Elara Nova · 2026
             </p>
           </StudioReveal>
           <StudioReveal delay={0.08}>
             <h1 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
-              <span className="type-lockup__impact">Construyo</span>
-              <em className="type-lockup__script">lo que vende</em>
+              <span className="type-lockup__impact">Menos a mano</span>
+              <em className="type-lockup__script">más sistema</em>
             </h1>
           </StudioReveal>
           <StudioReveal delay={0.16}>
             <p className="studio-b2b__lead studio-b2b__lead--light">
-              Soy Evelyn — ingeniera con criterio de banca. Automatizo procesos, armo webs que
-              convierten y mido Ads. Sin equipo fantasma: si te respondo, soy yo.
+              Automatizo el trabajo repetitivo y construyo la web que convierte visitas en clientes.
+              Criterio de ingeniera de banca. Si te respondo, soy yo.
             </p>
           </StudioReveal>
           <StudioReveal delay={0.24}>
             <div className="studio-b2b__actions">
               <TrackedLink
                 href="/descubrimiento"
-                tracking={{ event: 'cta_click', category: 'lead', label: 'portfolio_hero_preanalisis' }}
+                tracking={{ event: 'cta_click', category: 'lead', label: 'portfolio_hero' }}
                 className="home-button home-button--gold"
               >
-                Hacer mi pre-análisis
+                Hacer mi pre-análisis gratis
               </TrackedLink>
+              <Link href="/sesion-estrategica" className="home-button home-button--light">
+                Sesión 25 CHF
+              </Link>
               <Link href="/cv" className="home-button home-button--light">
                 Ver CV
               </Link>
@@ -117,55 +137,87 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <StudioStagger className="studio-b2b__proof" as="div">
-        {proof.map((item) => (
-          <StudioRevealItem key={item.label} className="studio-b2b__proof-item">
-            <strong className="font-display">{item.value}</strong>
-            <span>{item.label}</span>
-          </StudioRevealItem>
-        ))}
-      </StudioStagger>
+      <section className="studio-metrics" aria-label="Números">
+        <StudioCounter value={6} suffix="+" label="años en fintech / banca" />
+        <StudioCounter value={24} suffix="/7" label="procesos que no duermen" />
+        <StudioCounter value={25} suffix=" CHF" label="sesión estratégica" />
+        <StudioCounter value={450} suffix=" €" label="arranque automatización" />
+      </section>
 
       <section className="studio-b2b__section">
-        <div className="studio-b2b__split">
+        <div className="studio-commercial-split">
           <StudioReveal>
-            <figure className="studio-b2b__photo asset-photo">
-              <Image
-                src={evelynPhotos.portfolioAbout}
-                alt="Evelyn Patiño — bio editorial"
-                fill
-                sizes="(max-width: 900px) 92vw, 28rem"
-                className="object-cover object-[50%_15%]"
-              />
-            </figure>
+            <p className="home-eyebrow studio-accent">
+              <span aria-hidden="true" />
+              El problema
+            </p>
+            <h2 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
+              <span className="type-lockup__impact">Tu negocio</span>
+              <em className="type-lockup__script">todavía a mano?</em>
+            </h2>
+            <div className="studio-pain-list">
+              {pains.map((p) => (
+                <article key={p.t}>
+                  <h3 className="font-display">{p.t}</h3>
+                  <p>{p.d}</p>
+                </article>
+              ))}
+            </div>
           </StudioReveal>
-          <div>
-            <StudioReveal>
-              <p className="home-eyebrow studio-accent">
-                <span aria-hidden="true" />
-                Por qué yo
-              </p>
-              <h2 className="type-lockup type-lockup--glow-soft page-lockup">
-                <span className="type-lockup__impact">Criterio</span>
-                <em className="type-lockup__script">de banca</em>
-              </h2>
-            </StudioReveal>
-            <StudioReveal delay={0.08}>
-              <p className="studio-b2b__body">
-                Seis años en software financiero (Sophos · Bancolombia): donde un detalle mal hecho
-                cuesta dinero real. Hoy aplico esa misma disciplina a negocios que quieren vender con
-                más orden — menos trabajo a mano, más sistema.
-              </p>
-              <p className="studio-b2b__pitch font-serif">
-                Pienso como diseñadora. Construyo como ingeniera.
-              </p>
-              <ul className="studio-b2b__chips">
-                <li>6 años fintech</li>
-                <li>Medellín · Lausana</li>
-                <li>Automatización + web + Ads</li>
-              </ul>
-            </StudioReveal>
-          </div>
+          <StudioReveal delay={0.1}>
+            <StudioDashGraphic />
+            <p className="studio-graphic-caption">
+              Así se ve un sistema medible: leads que entran, horas que vuelven, Ads con feedback.
+            </p>
+          </StudioReveal>
+        </div>
+      </section>
+
+      <section className="page-band-dark studio-b2b__band">
+        <StudioReveal>
+          <p className="home-eyebrow home-eyebrow--light studio-accent">
+            <span aria-hidden="true" />
+            Cómo entra el dinero
+          </p>
+          <h2 className="type-lockup type-lockup--glow page-lockup page-lockup--wide">
+            <span className="type-lockup__impact">Embudo</span>
+            <em className="type-lockup__script">claro</em>
+          </h2>
+        </StudioReveal>
+        <div className="studio-commercial-split studio-commercial-split--dark">
+          <StudioReveal delay={0.08}>
+            <StudioFunnelGraphic />
+          </StudioReveal>
+          <StudioReveal delay={0.12}>
+            <p className="studio-b2b__lead studio-b2b__lead--light">
+              No vendo “una call gratis larga”. El orden es didáctico y comercial:
+            </p>
+            <ol className="studio-funnel-copy">
+              <li>
+                <strong className="font-display">01 · Pre-análisis</strong>
+                <span>Gratis · wizard · ves si tiene sentido</span>
+              </li>
+              <li>
+                <strong className="font-display">02 · Lectura</strong>
+                <span>Te llega por email con diagnóstico</span>
+              </li>
+              <li>
+                <strong className="font-display">03 · Sesión</strong>
+                <span>20 min · 25 CHF · propuesta concreta</span>
+              </li>
+              <li>
+                <strong className="font-display">04 · Proyecto</strong>
+                <span>Packs Arranque / Pro / Sitio+Ads</span>
+              </li>
+            </ol>
+            <TrackedLink
+              href="/descubrimiento"
+              tracking={{ event: 'cta_click', category: 'lead', label: 'portfolio_funnel' }}
+              className="home-button home-button--gold"
+            >
+              Empezar pre-análisis
+            </TrackedLink>
+          </StudioReveal>
         </div>
       </section>
 
@@ -174,57 +226,90 @@ export default function PortfolioPage() {
           <div>
             <p className="home-eyebrow studio-accent">
               <span aria-hidden="true" />
-              Qué ofrezco
+              Oferta
             </p>
             <h2 className="type-lockup type-lockup--glow-soft page-lockup">
-              <span className="type-lockup__impact">Servicios</span>
-              <em className="type-lockup__script">con resultado</em>
+              <span className="type-lockup__impact">Qué</span>
+              <em className="type-lockup__script">construyo</em>
             </h2>
           </div>
           <p className="studio-b2b__section-note">
-            Packs claros · precios cerrados · entrega con plazos. Empezamos por el pre-análisis
-            gratis.
+            Cada oferta tiene escena viva + resultado + precio ancla. Tocá para ver el pack.
           </p>
         </StudioReveal>
-        <StudioStagger className="studio-b2b__grid">
-          {services.map((item) => (
-            <StudioRevealItem key={item.n} as="div">
-              <Link href={item.href} className="studio-b2b__card studio-b2b__card--lift">
+
+        <div className="studio-offer-rows">
+          {offers.map(({ Scene, ...item }) => (
+            <StudioReveal key={item.n} className="studio-offer-row">
+              <div className="studio-offer-row__visual">
+                <Scene />
+              </div>
+              <div className="studio-offer-row__copy">
                 <p className="studio-b2b__num font-display">{item.n}</p>
                 <h3 className="type-lockup type-lockup--glow-soft">
                   <span className="type-lockup__impact">{item.title}</span>
                   <em className="type-lockup__script">{item.script}</em>
                 </h3>
-                <p>{item.text}</p>
-                <span className="studio-b2b__card-cta">Ver oferta →</span>
-              </Link>
-            </StudioRevealItem>
+                <p className="studio-offer-row__price font-display">{item.price}</p>
+                <p className="studio-offer-row__result">{item.result}</p>
+                <ul className="studio-b2b__chips">
+                  {item.includes.map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+                <Link href={item.href} className="studio-b2b__card-cta">
+                  Ver oferta completa →
+                </Link>
+              </div>
+            </StudioReveal>
           ))}
-        </StudioStagger>
+        </div>
       </section>
 
       <section className="studio-b2b__section">
         <StudioReveal>
           <p className="home-eyebrow studio-accent">
             <span aria-hidden="true" />
-            Método
+            Flujo típico
           </p>
           <h2 className="type-lockup type-lockup--glow-soft page-lockup">
-            <span className="type-lockup__impact">Cómo</span>
-            <em className="type-lockup__script">trabajamos</em>
+            <span className="type-lockup__impact">Lead</span>
+            <em className="type-lockup__script">→ cita</em>
           </h2>
         </StudioReveal>
-        <StudioStagger className="studio-b2b__process studio-b2b__process--light" as="div">
-          {process.map(([n, t, d]) => (
-            <StudioRevealItem key={n} as="div" className="studio-b2b__process-item">
-              <span className="font-display">{n}</span>
-              <div>
-                <strong className="font-display">{t}</strong>
-                <p>{d}</p>
-              </div>
+        <StudioReveal delay={0.08}>
+          <StudioPipeline />
+          <p className="studio-graphic-caption">
+            Formulario → CRM/hoja → WhatsApp/email → aviso a vos. Sin copiar datos a mano.
+          </p>
+        </StudioReveal>
+      </section>
+
+      <section className="page-band-dark studio-b2b__band">
+        <StudioReveal>
+          <p className="home-eyebrow home-eyebrow--light studio-accent">
+            <span aria-hidden="true" />
+            Precios ancla
+          </p>
+          <h2 className="type-lockup type-lockup--glow page-lockup">
+            <span className="type-lockup__impact">Packs</span>
+            <em className="type-lockup__script">cerrados</em>
+          </h2>
+        </StudioReveal>
+        <StudioStagger className="studio-pack-grid">
+          {packs.map((p) => (
+            <StudioRevealItem key={p.name} className="studio-pack">
+              <p className="studio-pack__name font-display">{p.name}</p>
+              <p className="studio-pack__price font-display">{p.price}</p>
+              <p className="studio-pack__note">{p.note}</p>
             </StudioRevealItem>
           ))}
         </StudioStagger>
+        <StudioReveal delay={0.1}>
+          <p className="studio-graphic-caption studio-graphic-caption--light">
+            Precio único cerrado. No tarifa por hora: comprás resultado y tranquilidad.
+          </p>
+        </StudioReveal>
       </section>
 
       <section className="studio-b2b__offer">
@@ -232,17 +317,16 @@ export default function PortfolioPage() {
         <StudioReveal>
           <p className="home-eyebrow home-eyebrow--light studio-accent">
             <span aria-hidden="true" />
-            Empezá hoy
+            Siguiente paso
           </p>
           <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
-            <span className="type-lockup__impact">Tu negocio</span>
-            <em className="type-lockup__script">todavía a mano?</em>
+            <span className="type-lockup__impact">Empezá</span>
+            <em className="type-lockup__script">sin compromiso</em>
           </h2>
         </StudioReveal>
         <StudioReveal delay={0.08}>
           <p className="studio-b2b__offer-copy">
-            Pre-análisis didáctico gratis → lectura por email. Si querés profundizar: sesión 20 min ·
-            25 CHF.
+            Pre-análisis gratis (2–4 min) → lectura por email. Si encaja: sesión 20 min · 25 CHF.
           </p>
           <div className="studio-b2b__actions studio-b2b__actions--center">
             <TrackedLink
@@ -252,9 +336,9 @@ export default function PortfolioPage() {
             >
               Hacer mi pre-análisis
             </TrackedLink>
-            <Link href="/sesion-estrategica" className="home-button home-button--light">
-              Sesión 25 CHF
-            </Link>
+            <a href="https://wa.me/41783480550" className="home-button home-button--light">
+              WhatsApp
+            </a>
           </div>
         </StudioReveal>
       </section>
