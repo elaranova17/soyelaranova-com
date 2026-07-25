@@ -2,51 +2,55 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { DiscoveryForm } from '@/components/discovery-form'
+import { StudioReveal } from '@/components/studio-reveal'
 
 export const metadata: Metadata = {
   title: 'Pre-análisis de proyecto',
   description:
-    'Cuestionario didáctico para que Evelyn Patiño prepare un pre-análisis de tu negocio, web y procesos antes de una sesión estratégica de 25 CHF.',
+    'Cuestionario didáctico gratis: Evelyn prepara una lectura de tu negocio/web. Después, si hay fit, sesión estratégica 20 min · 25 CHF.',
 }
 
 export default function DiscoveryPage() {
   return (
-    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-5xl">
+    <main className="studio-index">
+      <section className="studio-index__hero">
+        <StudioReveal>
           <Link
             href="/"
             className="text-[0.66rem] font-bold tracking-[0.24em] text-[var(--editorial-cacao)] uppercase hover:text-[var(--editorial-plum)]"
           >
             ← Volver al inicio
           </Link>
-          <p className="home-eyebrow mt-10">
+          <p className="home-eyebrow studio-accent mt-10">
             <span aria-hidden="true" />
-            Pre-análisis didáctico · gratis
+            Paso 1 del embudo · gratis
           </p>
           <h1 className="type-lockup type-lockup--glow-soft page-lockup">
             <span className="type-lockup__impact">Contame</span>
             <em className="type-lockup__script">cómo trabajás</em>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-            No es una call larga gratis. Es un cuestionario guiado para que yo prepare una lectura
-            de tu negocio/web. Si después querés profundizar, la sesión estratégica dura 20 min y
-            cuesta 25 CHF.
+        </StudioReveal>
+        <StudioReveal delay={0.08}>
+          <p className="studio-index__hero-lead">
+            No es una call larga gratis. Es un cuestionario guiado (2–4 min) para que yo prepare una
+            lectura de tu negocio/web. Si después querés profundizar: sesión estratégica 20 min · 25
+            CHF.
           </p>
-        </div>
+        </StudioReveal>
       </section>
 
       <section className="page-band-dark px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <aside className="h-fit rounded-[18px] border border-[var(--editorial-gold)]/30 bg-[var(--editorial-ivory)]/[0.05] p-6">
             <p className="text-[0.62rem] font-bold tracking-[0.24em] text-[var(--editorial-gold)] uppercase">
-              Qué pasa después
+              Embudo · qué pasa después
             </p>
             <div className="mt-6 space-y-5">
               {[
-                ['01', '5 pasos guiados (2–4 min)'],
+                ['01', 'Completás 5 pasos (2–4 min)'],
                 ['02', 'Te mando el pre-análisis por email'],
-                ['03', 'Si querés, sesión estratégica 25 CHF'],
+                ['03', 'Si hay fit: sesión estratégica 25 CHF'],
+                ['04', 'Proyecto con pack y precio cerrado'],
               ].map(([number, text]) => (
                 <div key={number} className="flex gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--editorial-gold)]/60 font-display text-sm text-[var(--editorial-gold)]">
@@ -77,7 +81,10 @@ export default function DiscoveryPage() {
       <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl justify-center gap-5">
           <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-            Privacidad y terminos
+            Privacidad y términos
+          </Link>
+          <Link href="/servicios" className="hover:text-[var(--editorial-plum)]">
+            Ver modelos de webs
           </Link>
           <Link href="/sesion-estrategica" className="hover:text-[var(--editorial-plum)]">
             Sesión 25 CHF

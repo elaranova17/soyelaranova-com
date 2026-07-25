@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DiscoveryForm } from '@/components/discovery-form'
 import { TrackedLink } from '@/components/tracked-link'
+import { WebModelsGallery, WebVsLandingExplain } from '@/components/web-models-gallery'
+import { SystemModelsGallery } from '@/components/system-models-gallery'
 import {
   discoveryHref,
   getLpVisual,
@@ -130,6 +132,21 @@ export function LpOfferPage({
           </ol>
         </div>
       </section>
+
+      {offer.service === 'paginas-web' || offer.service === 'landing-pages' ? (
+        <>
+          <WebVsLandingExplain />
+          <WebModelsGallery
+            context={offer.service === 'landing-pages' ? 'landing-pages' : 'paginas-web'}
+            titleImpact="Modelos"
+            titleScript="para elegir bien"
+            note="Tutorial visual: cada modelo muestra las secciones de la página, para quién sirve y el pack. Así pedís con claridad."
+          />
+        </>
+      ) : null}
+
+      {offer.service === 'automatizaciones' ? <SystemModelsGallery kind="auto" /> : null}
+      {offer.service === 'google-ads' ? <SystemModelsGallery kind="ads" /> : null}
 
       <section className="lp-case">
         <div className="lp-section-inner lp-case__grid">

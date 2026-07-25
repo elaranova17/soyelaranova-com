@@ -1,98 +1,91 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
+import { StudioReveal, StudioRevealItem, StudioStagger } from '@/components/studio-reveal'
+import { StudioFunnelStrip } from '@/components/studio-funnel-strip'
+import { WebModelsGallery, WebVsLandingExplain } from '@/components/web-models-gallery'
 import { studioServices } from '@/lib/studio-services'
 
 export const metadata: Metadata = {
   title: 'Servicios',
   description:
-    'Servicios del estudio Elara Nova por Evelyn Patino: automatizaciones, landing pages y sitios web que venden, y Google Ads con medicion.',
+    'Automatizaciones, sitios web, landing pages y Google Ads con medición. Pre-análisis gratis · sesión 25 CHF · packs cerrados.',
 }
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
-      <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="home-eyebrow">
-              <span aria-hidden="true" />
-              Servicios · desde 450 €
-            </p>
-            <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
-              <span className="type-lockup__impact">Sistemas</span>
-              <em className="type-lockup__script">con más orden</em>
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-              Cada servicio puede funcionar solo, pero el valor real aparece cuando la web, la
-              landing, la automatizacion y la medicion se conectan como una misma maquinaria.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 py-16 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
-          {studioServices.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/servicios/${service.slug}`}
-              className="group rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6 transition-colors hover:border-[var(--editorial-gold)]"
-            >
-              <p className="text-[0.62rem] font-bold tracking-[0.22em] text-[var(--editorial-cacao)] uppercase">
-                {service.eyebrow}
-              </p>
-              <h2 className="type-lockup type-lockup--glow-soft mt-4 text-[clamp(2rem,3.4vw,2.85rem)]">
-                <span className="type-lockup__impact">{service.lockupImpact}</span>
-                <em className="type-lockup__script">{service.lockupScript}</em>
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-[var(--editorial-cacao)]">{service.summary}</p>
-              <div className="mt-7 border-t border-[var(--editorial-stone)] pt-5">
-                <p className="text-xs font-bold leading-6 text-[var(--editorial-ink)]/80">
-                  {service.deliverable}
-                </p>
-                <p className="mt-4 text-[0.66rem] font-bold tracking-[0.2em] text-[var(--editorial-gold)] uppercase group-hover:text-[var(--editorial-plum)]">
-                  Ver detalle →
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="page-band-dark px-5 py-20 md:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
-            <p className="home-eyebrow home-eyebrow--light">
-              <span aria-hidden="true" />
-              Como elegir
-            </p>
-            <h2 className="type-lockup type-lockup--glow page-lockup">
-              <span className="type-lockup__impact">Empezá</span>
-              <em className="type-lockup__script">por el pre-análisis</em>
-            </h2>
-          </div>
-          <div>
-            <p className="max-w-xl text-base leading-8 text-[var(--editorial-lavender)]">
-              Revisamos tu oferta, presencia actual, procesos manuales y objetivo comercial. De ahi
-              sale una hoja de ruta concreta: que construir primero, que puede esperar y que no vale
-              la pena pagar todavia.
-            </p>
+    <main className="studio-index">
+      <section className="studio-index__hero">
+        <StudioReveal>
+          <p className="home-eyebrow studio-accent">
+            <span aria-hidden="true" />
+            Servicios · Elara Nova · desde 450 €
+          </p>
+          <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
+            <span className="type-lockup__impact">Sistemas</span>
+            <em className="type-lockup__script">que venden solos</em>
+          </h1>
+        </StudioReveal>
+        <StudioReveal delay={0.1}>
+          <p className="studio-index__hero-lead">
+            No vendo “páginas bonitas” sueltas. Conecto web, automatización y Ads para que un lead
+            entre, se registre y vos sepas qué funcionó. Abajo: qué es cada cosa, en castellano
+            claro, con modelos visuales.
+          </p>
+          <div className="studio-index__actions">
             <TrackedLink
               href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'services_index_preanalisis' }}
-              className="home-button home-button--gold mt-8"
+              tracking={{ event: 'cta_click', category: 'lead', label: 'services_index_hero' }}
+              className="home-button home-button--gold"
             >
               Hacer mi pre-análisis
             </TrackedLink>
+            <Link href="/portfolio" className="home-button home-button--quiet">
+              Ver portfolio
+            </Link>
           </div>
-        </div>
+        </StudioReveal>
       </section>
+
+      <StudioStagger className="studio-service-grid">
+        {studioServices.map((service) => (
+          <StudioRevealItem key={service.slug}>
+            <Link href={`/servicios/${service.slug}`} className="studio-service-tile">
+              <p className="home-eyebrow studio-accent">
+                <span aria-hidden="true" />
+                {service.eyebrow}
+              </p>
+              <h2 className="type-lockup type-lockup--glow-soft">
+                <span className="type-lockup__impact">{service.lockupImpact}</span>
+                <em className="type-lockup__script">{service.lockupScript}</em>
+              </h2>
+              <p className="text-sm leading-7 text-[var(--editorial-cacao)]">{service.whatIs}</p>
+              <p className="studio-service-tile__meta">{service.deliverable}</p>
+              <p className="studio-service-tile__cta">Ver detalle y packs →</p>
+            </Link>
+          </StudioRevealItem>
+        ))}
+      </StudioStagger>
+
+      <WebVsLandingExplain />
+
+      <WebModelsGallery
+        context="all"
+        titleImpact="Modelos"
+        titleScript="de webs reales"
+        note="Tocá un modelo: ves la estructura (como un tutorial) y el pack que le corresponde. Así sabés qué pedís antes de pagar."
+      />
+
+      <StudioFunnelStrip trackingLabel="services_index_funnel" dark />
 
       <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">Privacidad y terminos</Link>
-          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">Pre-análisis</Link>
+          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
+            Privacidad y términos
+          </Link>
+          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">
+            Pre-análisis
+          </Link>
         </div>
       </footer>
     </main>

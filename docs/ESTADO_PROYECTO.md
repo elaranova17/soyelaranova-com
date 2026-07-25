@@ -98,6 +98,10 @@ Fuente: [`PLAN_CIERRE_EMBUDO.md`](PLAN_CIERRE_EMBUDO.md)
 
 **Hecho 25 jul (tarde):** escala tipográfica `--type-*` en home/LPs + recursos home cableados.
 
+**Hecho 25 jul (noche):** auditoría de páginas (`docs/AUDITORIA_PAGINAS.md`) + modelos didácticos de webs
+(`web/lib/web-models.ts`, galería wireframe CapCut) en `/servicios`, detalle, LPs web/landing;
+embudo strip unificado; `/trabaja-conmigo` y `/descubrimiento` alineados al chrome comercial.
+
 ---
 
 ## Regla para agentes

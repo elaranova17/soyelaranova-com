@@ -17,10 +17,26 @@ type HubLink = {
 
 const LINKS: readonly HubLink[] = [
   {
+    href: '/descubrimiento',
+    label: 'Hacer mi pre-análisis',
+    hint: 'Gratis → lectura → sesión 25 CHF',
+    featured: true,
+  },
+  {
     href: '/portfolio',
     label: 'Portfolio',
     hint: 'Sitios · automatizaciones · Ads',
     featured: true,
+  },
+  {
+    href: '/servicios',
+    label: 'Servicios + modelos de webs',
+    hint: 'Tutorial visual · packs claros',
+  },
+  {
+    href: '/lp/paginas-web',
+    label: 'Páginas web que venden',
+    hint: 'Sitio · landing · Sitio+Ads',
   },
   {
     href: '/cv',
@@ -28,10 +44,9 @@ const LINKS: readonly HubLink[] = [
     hint: 'Experiencia · stack · idiomas',
   },
   {
-    href: '/descubrimiento',
-    label: 'Hacer mi pre-análisis',
-    hint: 'Gratis → lectura → sesión 25 CHF',
-    featured: true,
+    href: '/sesion-estrategica',
+    label: 'Sesión estratégica',
+    hint: '20 min · 25 CHF',
   },
   {
     href: 'https://www.linkedin.com/in/evelyn-patino-laverde/',
@@ -54,7 +69,7 @@ const LINKS: readonly HubLink[] = [
   {
     href: '/',
     label: 'Elara Nova',
-    hint: 'Estudio · servicios · recursos',
+    hint: 'Estudio · home · recursos',
   },
 ] as const
 
