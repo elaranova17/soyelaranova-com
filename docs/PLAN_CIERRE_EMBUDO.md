@@ -202,7 +202,7 @@ No es un calendario: es el orden en que el código desbloquea el embudo.
 - Stripe/Calendly: env vars + fallback WhatsApp ✅ (activar links en Vercel)
 
 ### Bloque 6 — Pulido (P2)
-- Fotos LP únicas (sin repetir hero)
+- Fotos LP únicas (sin repetir hero) ✅ hero full-bleed + visual por servicio/paquete
 - Covers libros
 - Stripe/Calendly live
 
@@ -220,6 +220,7 @@ Checklist de done:
 - [x] 2 LPs de libros (aunque sea waitlist)  
 - [x] Kit FL con links UTM + propuestas Upwork/Malt  
 - [x] Build verde + deploy main  
+- [x] Heroes LP full-bleed + imagen única por oferta + OG  
 - [ ] Stripe Payment Link + Calendly en Vercel (acción tuya)  
 - [ ] Hotmart Ciclo Nova (cuando el ebook esté listo)  
 
