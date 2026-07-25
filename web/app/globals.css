@@ -1772,28 +1772,20 @@ h1, h2, h3,
   text-transform: uppercase;
 }
 
-/* ——— Home · método theater (marketing + UX correlacionados) ——— */
+/* ——— Home · scroll storytelling (limpio / profesional) ——— */
 .immersive-story {
-  --imm-x: 42%;
-  --imm-y: 48%;
   position: relative;
+  display: grid;
+  min-height: 260vh;
+  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
   background: var(--editorial-aubergine);
   color: var(--editorial-ivory);
 }
 
-.immersive-story__sticky {
+.immersive-story__stage {
   position: sticky;
   top: 0;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.22fr) minmax(19rem, 0.78fr);
   height: 100svh;
-  overflow: hidden;
-}
-
-.immersive-story__stage {
-  position: relative;
-  height: 100%;
   overflow: hidden;
   container-type: size;
 }
@@ -1812,7 +1804,8 @@ h1, h2, h3,
   z-index: 0;
   width: max(100cqw, calc(100cqh * 16 / 9));
   height: max(100cqh, calc(100cqw * 9 / 16));
-  transform: translate(-46%, -50%) scale(1.02);
+  /* centrado: menos hueco púrpura a la derecha */
+  transform: translate(-50%, -50%);
 }
 
 .immersive-story__bg {
@@ -1821,8 +1814,8 @@ h1, h2, h3,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 38% 45%;
-  filter: saturate(1.1) contrast(1.05);
+  object-position: 42% 42%;
+  filter: saturate(1.05) contrast(1.03);
 }
 
 .immersive-story__veil {
@@ -1830,22 +1823,9 @@ h1, h2, h3,
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(100deg, transparent 0%, transparent 40%, rgb(26 15 61 / .35) 70%, rgb(26 15 61 / .82) 100%),
-    linear-gradient(180deg, rgb(10 0 16 / .25) 0%, transparent 30%, rgb(10 0 16 / .5) 100%);
+    linear-gradient(95deg, transparent 0%, transparent 52%, rgb(26 15 61 / .45) 78%, rgb(26 15 61 / .88) 100%),
+    linear-gradient(180deg, rgb(10 0 16 / .2) 0%, transparent 35%, rgb(10 0 16 / .4) 100%);
   pointer-events: none;
-}
-
-.immersive-story__cursor-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: radial-gradient(
-    26rem 20rem at var(--imm-x) var(--imm-y),
-    rgb(184 154 88 / 0.2),
-    transparent 62%
-  );
-  mix-blend-mode: screen;
 }
 
 .immersive-story__screen {
@@ -1859,19 +1839,19 @@ h1, h2, h3,
   border-radius: 3px;
   background: rgb(8 5 12 / .96);
   box-shadow:
-    0 0 0 1px rgb(212 175 55 / .28),
-    0 0 48px rgb(212 175 55 / .32),
-    inset 0 0 28px rgb(10 0 16 / .45);
+    0 0 0 1px rgb(184 154 88 / .22),
+    0 0 36px rgb(184 154 88 / .2),
+    inset 0 0 24px rgb(10 0 16 / .4);
 }
 
 .immersive-story__screen-state {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.04);
   transition:
-    opacity .5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform .65s cubic-bezier(0.22, 0.61, 0.36, 1);
+    opacity .55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform .7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .immersive-story__screen-state.is-active {
@@ -1885,110 +1865,18 @@ h1, h2, h3,
   height: 100%;
 }
 
-/* pantallas laptop reusan .scene-* globales (build / pop / chart / sweep) */
 .immersive-story .scene-flow {
-  stroke-dasharray: 12 10;
-  stroke-dashoffset: 0;
-  animation-duration: 1.6s;
-}
-
-.immersive-story__word {
-  position: absolute;
-  z-index: 4;
-  right: clamp(0.85rem, 3vw, 2.25rem);
-  bottom: clamp(5.25rem, 12vh, 7.5rem);
-  max-width: min(88vw, 10ch);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  overflow: hidden;
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-  font-weight: 400;
-  letter-spacing: 0.07em;
-  line-height: 0.88;
-  text-transform: uppercase;
-  color: var(--editorial-ivory);
-  text-shadow: var(--text-glow-gold);
-  pointer-events: none;
-}
-
-.immersive-story__word span {
-  display: inline-block;
-  transform: translateY(-110%) rotate(-3deg);
-  opacity: 0;
-  animation: eln-letter 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-}
-
-@keyframes eln-letter {
-  0% { transform: translateY(-110%) rotate(-3deg); opacity: 0; }
-  55% { opacity: 1; }
-  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
-}
-
-.immersive-story__rail {
-  position: absolute;
-  z-index: 5;
-  left: clamp(0.75rem, 2.5vw, 1.5rem);
-  right: clamp(0.75rem, 2.5vw, 1.5rem);
-  bottom: 1.15rem;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.4rem;
-}
-
-.immersive-story__rail button {
-  display: grid;
-  gap: 0.12rem;
-  align-content: center;
-  min-height: 3rem;
-  padding: 0.4rem 0.5rem;
-  border: 1px solid rgb(248 243 234 / 0.16);
-  background: rgb(24 19 26 / 0.5);
-  backdrop-filter: blur(8px);
-  color: var(--editorial-lavender);
-  text-align: left;
-  cursor: pointer;
-  transition: border-color .3s ease, background .3s ease, color .3s ease, transform .3s ease, box-shadow .3s ease;
-}
-
-.immersive-story__rail button:hover {
-  border-color: rgb(184 154 88 / 0.55);
-  color: var(--editorial-ivory);
-  transform: translateY(-2px);
-}
-
-.immersive-story__rail button.is-active {
-  border-color: var(--editorial-gold);
-  background: color-mix(in srgb, var(--editorial-gold) 18%, rgb(24 19 26 / 0.55));
-  color: var(--editorial-ivory);
-  box-shadow: 0 0 22px rgb(184 154 88 / 0.25);
-}
-
-.immersive-story__rail-n {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  color: var(--editorial-gold);
-}
-
-.immersive-story__rail-w {
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  stroke-dasharray: 10 8;
 }
 
 .immersive-story__progress {
   position: absolute;
   z-index: 3;
-  right: clamp(0.75rem, 2.5vw, 1.5rem);
-  bottom: 0.45rem;
-  left: clamp(0.75rem, 2.5vw, 1.5rem);
-  height: 2px;
-  background: rgb(248 243 234 / 0.14);
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.35rem;
+  height: 1px;
+  background: rgb(248 243 234 / 0.16);
 }
 
 .immersive-story__progress span {
@@ -1996,181 +1884,101 @@ h1, h2, h3,
   width: 100%;
   height: 100%;
   transform-origin: left;
-  background: linear-gradient(90deg, var(--editorial-gold), #F2D578);
-  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-  box-shadow: 0 0 14px rgb(184 154 88 / 0.45);
+  background: var(--editorial-gold);
+  transition: transform 0.5s ease;
 }
 
-/* Panel derecho — un solo héroe tipográfico (el paso activo) */
-.immersive-story__panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.85rem;
-  height: 100%;
-  padding: clamp(1.35rem, 3.5vh, 2.25rem) clamp(1.15rem, 2.8vw, 2.25rem);
-  background:
-    radial-gradient(80% 60% at 100% 0%, color-mix(in srgb, var(--editorial-gold) 12%, transparent), transparent 55%),
-    linear-gradient(155deg, #3a2145, var(--editorial-aubergine) 70%);
-  border-left: 1px solid rgb(184 154 88 / 0.22);
+.immersive-story__chapters {
+  position: relative;
+  z-index: 5;
+  padding: clamp(4rem, 10vh, 6.5rem) clamp(1.35rem, 3.5vw, 3rem) clamp(5rem, 12vh, 7rem);
+  background: linear-gradient(110deg, rgb(43 23 53 / 0.92), var(--editorial-aubergine) 60%);
 }
 
-.immersive-story__sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.immersive-story__intro {
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid rgb(184 154 88 / 0.22);
 }
 
-.immersive-story__eyebrow {
-  margin: 0;
+.immersive-story__intro h2.type-lockup {
+  max-width: 12ch;
+  margin-top: 0.75rem;
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
 }
 
-.immersive-story__card {
+.immersive-story__chapters article {
   display: grid;
-  gap: 0.65rem;
-  max-width: 28rem;
-  animation: imm-card-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  gap: 0.75rem;
+  align-content: center;
+  min-height: 52vh;
+  padding: 1rem 0;
+  opacity: 0.28;
+  transition: opacity 0.55s ease;
 }
 
-@keyframes imm-card-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+.immersive-story__chapters article.is-active {
+  opacity: 1;
 }
 
-.immersive-story__card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-/* Misma palabra que el banner de la foto */
-.immersive-story__chapter-word {
+.immersive-story__num {
   color: var(--editorial-gold);
-  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 0 18px rgb(184 154 88 / 0.35);
-}
-
-.immersive-story__outcome {
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--editorial-lavender);
-  padding: 0.28rem 0.5rem;
-  border: 1px solid rgb(184 154 88 / 0.35);
-}
-
-.immersive-story__step-title.type-lockup,
-.immersive-story__card h3.type-lockup {
-  max-width: 13ch;
-  margin: 0.15rem 0 0;
-  font-size: clamp(2.35rem, 3.8vw, 3.35rem);
-}
-
-.immersive-story__card h3 .type-lockup__script {
-  font-size: 0.5em;
-}
-
-.immersive-story__chapter-body {
-  max-width: 24rem;
-  margin: 0.15rem 0 0;
-  color: var(--editorial-lavender);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.immersive-story__card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
-  margin-top: 0.35rem;
-}
-
-.immersive-story__cta {
-  margin-top: 0.35rem;
-  width: fit-content;
-}
-
-.immersive-story__nav-btn {
-  border: 0;
-  background: transparent;
-  color: var(--editorial-lavender);
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-  min-height: 44px;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid transparent;
-  transition: color .25s ease, border-color .25s ease;
+  letter-spacing: 0.2em;
 }
 
-.immersive-story__nav-btn:hover,
-.immersive-story__nav-btn--next {
-  color: var(--editorial-gold);
+.immersive-story__chapters article h3.type-lockup {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
 }
 
-.immersive-story__nav-btn--next {
-  border-bottom-color: rgb(184 154 88 / 0.45);
+.immersive-story__chapters article h3 .type-lockup__script {
+  font-size: 0.5em;
 }
 
-.immersive-story__dots {
-  display: flex;
-  gap: 0.45rem;
-  margin: 0.55rem 0 0;
-  padding: 0;
-  list-style: none;
+.immersive-story__chapters article p {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--editorial-lavender);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
-.immersive-story__dots button {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  border: 1px solid rgb(184 154 88 / 0.55);
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: background .25s ease, transform .25s ease;
+.immersive-story__cta {
+  margin-top: 0.75rem;
+  width: fit-content;
 }
 
-.immersive-story__dots button.is-active {
-  background: var(--editorial-gold);
-  transform: scale(1.25);
-  box-shadow: 0 0 12px rgb(184 154 88 / 0.45);
+.immersive-story__chapters article h3,
+.immersive-story__chapters article p,
+.immersive-story__cta {
+  transform: translateY(10px);
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* Scroll markers — gatillan pasos sin UI duplicada */
-.immersive-story__markers {
-  position: relative;
-  z-index: 1;
-  height: 220vh;
-  pointer-events: none;
+.immersive-story__chapters article h3 { transition-delay: 0.04s; }
+.immersive-story__chapters article p { transition-delay: 0.08s; }
+.immersive-story__cta { transition-delay: 0.12s; }
+
+.immersive-story__chapters article.is-active h3,
+.immersive-story__chapters article.is-active p,
+.immersive-story__chapters article.is-active .immersive-story__cta {
+  transform: translateY(0);
 }
 
-.immersive-story__marker {
-  height: 55vh;
-}
-
-.immersive-story__media,
-.immersive-story__asset,
-.immersive-story__viz,
-.immersive-story__chapters {
-  /* legacy no-ops kept empty to avoid stale refs */
+/* legacy stubs */
+.immersive-story__sticky,
+.immersive-story__rail,
+.immersive-story__word,
+.immersive-story__panel,
+.immersive-story__markers,
+.immersive-story__card,
+.immersive-story__cursor-glow {
+  /* removed UI chrome */
 }
 
 .home-products__header {
@@ -2951,28 +2759,21 @@ h1, h2, h3,
     display: none;
   }
 
-  .immersive-story__sticky {
+  .immersive-story {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 52svh) minmax(0, 48svh);
-    height: 100svh;
+    min-height: auto;
   }
 
-  .immersive-story__panel {
-    border-left: 0;
-    border-top: 1px solid rgb(184 154 88 / 0.22);
-    padding: 1rem 1.15rem 1.25rem;
-    gap: 0.75rem;
-    justify-content: flex-start;
-    overflow: auto;
+  .immersive-story__stage {
+    height: 52svh;
   }
 
-  .immersive-story__step-title.type-lockup,
-  .immersive-story__card h3.type-lockup {
-    font-size: clamp(2rem, 7.5vw, 2.55rem);
+  .immersive-story__chapters {
+    padding: 2.75rem 1.25rem 4rem;
   }
 
-  .immersive-story__chapter-word {
-    font-size: 1.35rem;
+  .immersive-story__chapters article {
+    min-height: 48vh;
   }
 
   .home-products__rail {
@@ -3034,51 +2835,35 @@ h1, h2, h3,
     grid-column: auto;
   }
 
-  .immersive-story__sticky {
+  .immersive-story__stage {
     top: 4.5rem;
-    height: calc(100svh - 4.5rem);
-    grid-template-rows: minmax(0, 46svh) minmax(0, 1fr);
+    height: 46svh;
   }
 
-  .immersive-story__word {
-    right: 0.7rem;
-    bottom: 4.75rem;
-    max-width: min(88vw, 9ch);
-    font-size: clamp(2rem, 10vw, 2.8rem);
+  .immersive-story__intro h2.type-lockup {
+    font-size: clamp(2rem, 8vw, 2.5rem);
   }
 
-  .immersive-story__rail {
-    gap: 0.28rem;
-    bottom: 0.85rem;
-  }
-
-  .immersive-story__rail button {
-    min-height: 2.6rem;
-    padding: 0.3rem 0.35rem;
-  }
-
-  .immersive-story__rail-w {
-    font-size: 0.5rem;
-    letter-spacing: 0.08em;
-  }
-
-  .immersive-story__markers {
-    height: 180vh;
-  }
-
-  .immersive-story__marker {
-    height: 45vh;
+  .immersive-story__chapters article h3.type-lockup {
+    font-size: clamp(2rem, 8vw, 2.55rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .immersive-story__progress span,
+  .immersive-story__screen-state,
+  .immersive-story__chapters article,
+  .immersive-story__chapters article h3,
+  .immersive-story__chapters article p,
+  .immersive-story__cta,
   .home-button {
     transition: none;
   }
 
-  .immersive-story__card {
-    animation: none;
+  .immersive-story__chapters article h3,
+  .immersive-story__chapters article p,
+  .immersive-story__cta {
+    transform: none;
   }
 
   .scene-flow,
@@ -3110,25 +2895,6 @@ h1, h2, h3,
 
   .scene-chart {
     stroke-dashoffset: 0;
-  }
-
-  .immersive-story__word span {
-    animation: none;
-    transform: none;
-    opacity: 1;
-  }
-
-  .immersive-story__screen-state {
-    transition: none;
-    transform: none;
-  }
-
-  .immersive-story__cursor-glow {
-    display: none;
-  }
-
-  .immersive-story__rail button:hover {
-    transform: none;
   }
 }
 
