@@ -90,8 +90,8 @@ h1, h2, h3,
 }
 
 /*
- * Lockup CapCut: línea impact + script que cruza por debajo.
- * No cambia layout de secciones — solo presentación del texto.
+ * Lockup CapCut: impact negro + script con swash cruzando por debajo.
+ * Ajuste fino: solape más marcado, script un poco más grande y pesado.
  */
 .type-lockup {
   display: flex;
@@ -105,8 +105,8 @@ h1, h2, h3,
   z-index: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.88;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
   text-wrap: balance;
 }
 
@@ -114,15 +114,19 @@ h1, h2, h3,
   position: relative;
   z-index: 1;
   display: block;
-  margin-top: -0.28em;
-  margin-left: 0.06em;
-  padding-left: 0.05em;
+  width: max-content;
+  max-width: 100%;
+  margin-top: -0.42em;
+  margin-left: 0.12em;
+  padding: 0 0.02em;
   font-family: var(--font-script);
   font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.012em;
+  line-height: 1;
   font-variation-settings: normal;
+  transform: rotate(-2.5deg);
+  transform-origin: left center;
 }
 
 .type-lockup--center {
@@ -133,6 +137,7 @@ h1, h2, h3,
 .type-lockup--center .type-lockup__script {
   margin-left: 0;
   padding-left: 0;
+  transform-origin: center;
 }
 
 .type-lockup--cream .type-lockup__impact,
@@ -146,8 +151,16 @@ h1, h2, h3,
 
 @media (max-width: 640px) {
   .type-lockup__script {
-    margin-top: -0.18em;
-    font-size: 0.62em;
+    margin-top: -0.3em;
+    margin-left: 0.06em;
+    font-weight: 600;
+    transform: rotate(-1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-lockup__script {
+    transform: none;
   }
 }
 
@@ -204,9 +217,9 @@ h1, h2, h3,
 }
 
 .home-hero h1.type-lockup {
-  max-width: 14ch;
+  max-width: 13ch;
   margin-top: 2rem;
-  font-size: clamp(3.6rem, 6.8vw, 7.6rem);
+  font-size: clamp(3.75rem, 7vw, 7.9rem);
 }
 
 .home-hero h1 .type-lockup__impact {
@@ -215,9 +228,9 @@ h1, h2, h3,
 }
 
 .home-hero h1 .type-lockup__script {
-  max-width: 16ch;
+  max-width: 18ch;
   color: var(--editorial-plum);
-  font-size: 0.58em;
+  font-size: 0.66em;
 }
 
 .home-hero__copy > p {
@@ -1185,8 +1198,9 @@ h1, h2, h3,
 
 .home-impact h2.type-lockup {
   position: relative;
-  max-width: 18ch;
-  font-size: clamp(2.6rem, 5.4vw, 5rem);
+  max-width: 17ch;
+  margin-inline: auto;
+  font-size: clamp(2.7rem, 5.5vw, 5.15rem);
 }
 
 .home-impact h2 .type-lockup__impact {
@@ -1195,7 +1209,8 @@ h1, h2, h3,
 
 .home-impact h2 .type-lockup__script {
   color: var(--color-gold-bright, #F2D578);
-  font-size: 0.62em;
+  font-size: 0.7em;
+  text-shadow: 0 2px 18px rgb(10 0 16 / .35);
 }
 
 .home-impact > p {
@@ -1542,9 +1557,9 @@ h1, h2, h3,
 }
 
 .home-close h2.type-lockup {
-  max-width: 16ch;
-  margin-top: 1.1rem;
-  font-size: clamp(3rem, 6.5vw, 6.8rem);
+  max-width: 15ch;
+  margin: 1.1rem auto 0;
+  font-size: clamp(3.1rem, 6.7vw, 7rem);
 }
 
 .home-close h2 .type-lockup__impact {
@@ -1553,7 +1568,8 @@ h1, h2, h3,
 
 .home-close h2 .type-lockup__script {
   color: color-mix(in srgb, var(--editorial-gold) 70%, var(--editorial-ivory));
-  font-size: 0.55em;
+  font-size: 0.64em;
+  text-shadow: 0 2px 16px rgb(10 0 16 / .3);
 }
 
 .home-close .home-actions {
@@ -3028,9 +3044,9 @@ a.elara-chip:hover .elara-chip__label {
 .site-nav__logo {
   min-width: 0;
   font-family: var(--font-script);
-  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-size: clamp(1.7rem, 3.1vw, 2.25rem);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1;
   color: var(--editorial-ivory);
@@ -3437,17 +3453,18 @@ a.elara-chip:hover .elara-chip__label {
 
 .lp-hero__brand {
   font-family: var(--font-script);
-  font-size: clamp(2.8rem, 6.8vw, 4.6rem);
+  font-size: clamp(2.9rem, 7vw, 4.8rem);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: .95;
   letter-spacing: 0.01em;
-  color: color-mix(in srgb, var(--editorial-gold) 45%, var(--editorial-ivory));
+  color: color-mix(in srgb, var(--editorial-gold) 50%, var(--editorial-ivory));
+  text-shadow: 0 3px 22px rgb(10 0 16 / .4);
   animation: lp-hero-rise .9s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .lp-hero__eyebrow {
-  margin-top: 1.35rem;
+  margin-top: 1.1rem;
   font-size: .68rem;
   font-weight: 800;
   letter-spacing: .28em;
@@ -3457,43 +3474,54 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .lp-hero h1.type-lockup {
-  max-width: 16ch;
-  margin-top: 0.35rem;
-  font-size: clamp(2.4rem, 5.4vw, 4.5rem);
+  max-width: 15ch;
+  margin-top: 0.55rem;
+  font-size: clamp(2.55rem, 5.6vw, 4.7rem);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .lp-hero h1 .type-lockup__impact {
   color: var(--editorial-ivory);
+  text-shadow: 0 2px 24px rgb(10 0 16 / .35);
 }
 
 .lp-hero h1 .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 75%, var(--editorial-ivory));
-  font-size: 0.56em;
+  color: color-mix(in srgb, var(--editorial-gold) 72%, var(--editorial-ivory));
+  font-size: 0.66em;
   max-width: 18ch;
+  text-shadow: 0 2px 18px rgb(10 0 16 / .35);
 }
 
 /* Fallback si un h1 LP aún no usa lockup */
 .lp-hero h1:not(.type-lockup) {
-  max-width: 16ch;
-  margin-top: 0.35rem;
+  max-width: 15ch;
+  margin-top: 0.15rem;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.4vw, 4.5rem);
+  font-size: clamp(2.55rem, 5.6vw, 4.7rem);
   font-weight: 400;
-  line-height: .9;
-  letter-spacing: -0.04em;
+  line-height: .88;
+  letter-spacing: -0.045em;
   color: var(--editorial-ivory);
   animation: lp-hero-rise .95s .14s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .lp-hero h1:not(.type-lockup) em {
   display: block;
-  margin-top: -0.22em;
-  color: color-mix(in srgb, var(--editorial-gold) 75%, var(--editorial-ivory));
+  margin-top: -0.38em;
+  margin-left: 0.1em;
+  color: color-mix(in srgb, var(--editorial-gold) 72%, var(--editorial-ivory));
   font-family: var(--font-script);
   font-style: normal;
-  font-weight: 500;
-  font-size: 0.56em;
+  font-weight: 700;
+  font-size: 0.66em;
+  transform: rotate(-2.5deg);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-hero h1:not(.type-lockup) em {
+    transform: none;
+  }
 }
 
 .lp-hero__sub {
