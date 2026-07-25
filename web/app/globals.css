@@ -102,6 +102,15 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Foco de teclado visible en todo lo interactivo (piso de accesibilidad).
+   Solo aparece al navegar con teclado (:focus-visible), nunca al hacer clic.
+   Dorado de marca con offset para que respire sobre claro y oscuro. */
+:focus-visible {
+  outline: 2px solid var(--editorial-gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 /* Bebas: titulares de impacto (caps naturales de la fuente) */
 h1, h2, h3,
 .font-display {
@@ -3262,7 +3271,11 @@ h1, h2, h3,
   }
 
   .home-hero {
-    padding-top: 7rem;
+    /* En 1 columna, el centrado vertical del hero a 100svh dejaba un hueco
+       muerto arriba. Que el contenido arranque bajo el nav y respire abajo. */
+    align-items: start;
+    min-height: auto;
+    padding-top: 6.5rem;
   }
 
   .home-hero__visual {
