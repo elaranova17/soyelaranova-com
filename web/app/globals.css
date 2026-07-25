@@ -178,15 +178,53 @@ h1, h2, h3,
   color: color-mix(in srgb, var(--editorial-gold) 40%, var(--editorial-ivory));
 }
 
-/* Glow suave sobre fondos claros */
+/* Glow suave sobre fondos claros / beige */
 .type-lockup--glow-soft .type-lockup__impact {
   color: var(--editorial-ink);
-  text-shadow: var(--text-glow-soft);
+  letter-spacing: 0.07em;
+  text-shadow:
+    0 0 32px rgb(184 154 88 / .32),
+    0 0 10px rgb(184 154 88 / .18),
+    0 1px 0 rgb(248 243 234 / .7);
 }
 
 .type-lockup--glow-soft .type-lockup__script {
   color: var(--editorial-plum);
-  text-shadow: 0 0 18px rgb(184 154 88 / .35);
+  text-shadow:
+    0 0 28px rgb(184 154 88 / .5),
+    0 0 8px rgb(74 45 87 / .2);
+}
+
+/* Título CapCut de una línea (cards / h3 en beige) */
+.type-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--editorial-ink);
+  text-shadow:
+    0 0 22px rgb(184 154 88 / .28),
+    0 1px 0 rgb(248 243 234 / .65);
+}
+
+.type-title--plum {
+  color: var(--editorial-plum);
+  text-shadow: 0 0 20px rgb(184 154 88 / .35);
+}
+
+.type-title--cream {
+  color: var(--editorial-ivory);
+  text-shadow: var(--text-glow-gold);
+}
+
+.type-title--lg {
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+}
+
+.type-title--xl {
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
 }
 
 @media (max-width: 640px) {
@@ -1557,9 +1595,15 @@ h1, h2, h3,
 
 .home-product__copy h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.7vw, 2.9rem);
+  font-size: clamp(1.9rem, 2.8vw, 3rem);
   font-weight: 400;
-  line-height: 1;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--editorial-ink);
+  text-shadow:
+    0 0 22px rgb(184 154 88 / .28),
+    0 1px 0 rgb(248 243 234 / .65);
 }
 
 .home-product__copy small {
@@ -1737,9 +1781,13 @@ h1, h2, h3,
 .home-recurso h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 2.4vw, 2.1rem);
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
   font-weight: 400;
-  line-height: 1.05;
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--editorial-ivory);
+  text-shadow: var(--text-glow-gold);
 }
 
 .home-recurso small {

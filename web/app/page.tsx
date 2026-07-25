@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ImmersiveStory } from '@/components/immersive-story'
 import { TrackedLink } from '@/components/tracked-link'
 import { serviceScenes } from '@/components/service-scenes'
+import { evelynPhotos } from '@/lib/evelyn-photos'
 
 type Service = {
   number: string
@@ -107,7 +108,7 @@ export default function HomePage() {
         </div>
 
         <Photo
-          src="/_assets/photos/evelyn_pro_hero.jpg"
+          src={evelynPhotos.homeHero}
           alt="Evelyn Patiño, ingeniera de software, en su estudio"
           className="home-hero__visual"
         >
@@ -284,7 +285,7 @@ export default function HomePage() {
           <span className="home-work__glow" aria-hidden="true" />
           <span className="home-work__frame" aria-hidden="true" />
           <Photo
-            src="/_assets/photos/kit-web-real/00-identidad-sonrisa.webp"
+            src={evelynPhotos.homeAbout}
             alt="Evelyn Patiño sonriendo"
             className="home-work__visual"
           />

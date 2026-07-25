@@ -27,8 +27,9 @@ export default function OraculoPage() {
           <p className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-gold-soft)] uppercase">
             Oráculo · Elara Nova
           </p>
-          <h1 className="mt-4 font-display text-5xl leading-[1.02] text-[var(--color-cream)] md:text-7xl">
-            Una señal para volver a vos.
+          <h1 className="type-lockup type-lockup--glow mt-4 text-[clamp(3rem,7vw,5.5rem)]">
+            <span className="type-lockup__impact">Una señal</span>
+            <em className="type-lockup__script">para volver a vos</em>
           </h1>
           <p className="mt-6 max-w-lg font-serif text-xl italic leading-relaxed text-[var(--color-pale-lav)]/78">
             Este espacio será el ritual central de Elara Nova: mensajes íntimos, guía suave y una

@@ -26,8 +26,9 @@ export default function UniversoPage() {
           <p className="font-sans text-[10px] tracking-[0.35em] text-[var(--color-gold-soft)] uppercase">
             Universo · Elara Nova
           </p>
-          <h1 className="mt-4 font-display text-5xl leading-[1.02] text-[var(--color-cream)] md:text-7xl">
-            Recursos para volver a vos.
+          <h1 className="type-lockup type-lockup--glow mt-4 text-[clamp(3rem,7vw,5.5rem)]">
+            <span className="type-lockup__impact">Recursos</span>
+            <em className="type-lockup__script">para volver a vos</em>
           </h1>
           <p className="mt-6 max-w-lg font-serif text-xl italic leading-relaxed text-[var(--color-pale-lav)]/78">
             Ebooks, rituales y materiales digitales para acompañarte sin ruido. La tienda se está

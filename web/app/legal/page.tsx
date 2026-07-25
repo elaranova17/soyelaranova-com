@@ -61,8 +61,9 @@ export default function LegalPage() {
             <span aria-hidden="true" />
             Legal
           </p>
-          <h1 className="mt-5 font-display text-[3rem] font-normal leading-[0.94] md:text-[5.1rem]">
-            Privacidad y terminos de uso.
+          <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide mt-5">
+            <span className="type-lockup__impact">Privacidad</span>
+            <em className="type-lockup__script">y términos</em>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             Esta pagina resume como se gestiona la informacion compartida a traves de este sitio y las condiciones generales de uso de Elara Nova.
@@ -80,9 +81,7 @@ export default function LegalPage() {
               key={section.title}
               className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6"
             >
-              <h2 className="font-display text-3xl font-normal text-[var(--editorial-plum)]">
-                {section.title}
-              </h2>
+              <h2 className="type-title type-title--plum type-title--lg">{section.title}</h2>
               <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{section.text}</p>
             </article>
           ))}

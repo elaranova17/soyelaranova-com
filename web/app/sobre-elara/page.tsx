@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ElaraButton } from '@/components/elara-button'
+import { evelynPhotos } from '@/lib/evelyn-photos'
 
 export const metadata: Metadata = {
   title: 'Sobre Elara',
@@ -23,9 +24,10 @@ export default function SobreElaraPage() {
           </p>
           <h1
             id="sobre-elara-heading"
-            className="mt-4 max-w-xl font-display text-4xl italic text-[var(--color-gold-bright)] md:text-5xl"
+            className="type-lockup type-lockup--glow type-lockup--center mt-4 text-[clamp(2.6rem,5vw,4.2rem)]"
           >
-            Mira todo lo que siempre fuiste capaz de ser.
+            <span className="type-lockup__impact">Mira todo</span>
+            <em className="type-lockup__script">lo que siempre fuiste</em>
           </h1>
           <p className="mt-6 max-w-lg font-serif text-lg italic leading-relaxed text-[var(--color-cream)]/80">
             Empecé estudiando astrología para entenderme a mí misma. No porque todo estuviera mal —
@@ -46,7 +48,7 @@ export default function SobreElaraPage() {
           <div className="linktree-avatar-ring relative mx-auto mt-6 h-40 w-40 md:h-44 md:w-44">
             <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--color-gold-bright)] shadow-[0_0_32px_rgba(242,213,120,0.4)]">
               <Image
-                src="/_assets/photos/evelyn_pro_perfil.jpg"
+                src={evelynPhotos.sobreElara}
                 alt="Evelyn Patiño Laverde"
                 fill
                 sizes="(max-width: 768px) 160px, 176px"
@@ -55,11 +57,9 @@ export default function SobreElaraPage() {
             </div>
           </div>
 
-          <h2 className="mt-6 font-display text-3xl italic text-[var(--color-cream)] md:text-4xl">
-            Soy{' '}
-            <span className="bg-gradient-to-r from-[var(--color-cream)] via-[var(--color-gold-bright)] to-[var(--color-gold-soft)] bg-clip-text text-transparent">
-              Evelyn Patiño Laverde
-            </span>
+          <h2 className="type-lockup type-lockup--glow type-lockup--center mt-6 text-[clamp(2.2rem,4vw,3.4rem)]">
+            <span className="type-lockup__impact">Evelyn</span>
+            <em className="type-lockup__script">Patiño Laverde</em>
           </h2>
           <p className="mt-1 font-sans text-[10px] tracking-[0.28em] text-[var(--color-gold-soft)]/80 uppercase">
             Pienso como diseñadora, construyo como ingeniera

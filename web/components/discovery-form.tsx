@@ -421,7 +421,10 @@ export function DiscoveryForm({
         <p className="text-[0.68rem] font-black tracking-[0.28em] text-[var(--studio-gold)] uppercase">
           Envío manual
         </p>
-        <h2 className="mt-5 font-display text-4xl leading-tight">Tus respuestas quedaron listas.</h2>
+        <h2 className="type-lockup type-lockup--glow mt-5 text-[clamp(2rem,4vw,3.2rem)]">
+          <span className="type-lockup__impact">Tus respuestas</span>
+          <em className="type-lockup__script">quedaron listas</em>
+        </h2>
         <p className="mt-5 text-sm leading-7 text-[var(--studio-paper)]/68">
           No pude confirmar el envío automático. Mandalo por email o WhatsApp para no perder el
           pre-análisis.
@@ -480,7 +483,7 @@ export function DiscoveryForm({
             style={{ width: `${progress}%` }}
           />
         </div>
-        <h2 className="mt-5 font-display text-[1.85rem] leading-tight md:text-[2.35rem]">{meta.title}</h2>
+        <h2 className="type-title type-title--cream mt-5 text-[clamp(1.7rem,3vw,2.35rem)]">{meta.title}</h2>
         <p className="mt-3 text-sm leading-7 text-[var(--studio-paper)]/62">{meta.tip}</p>
       </div>
 

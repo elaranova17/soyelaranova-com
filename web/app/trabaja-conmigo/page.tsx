@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
+import { evelynPhotos } from '@/lib/evelyn-photos'
 import { studioServices } from '@/lib/studio-services'
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function TrabajaConmigoPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)]">
             <Image
-              src="/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg"
+              src={evelynPhotos.trabajaConmigo}
               alt="Evelyn Patiño"
               fill
               priority
@@ -60,13 +61,20 @@ export default function TrabajaConmigoPage() {
             <span aria-hidden="true" />
             Servicios
           </p>
+          <h2 className="type-lockup type-lockup--glow-soft page-lockup mt-4">
+            <span className="type-lockup__impact">Qué</span>
+            <em className="type-lockup__script">puedo construir</em>
+          </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {studioServices.map((service) => (
               <article key={service.slug} className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-smoke)] p-6">
                 <p className="text-[0.62rem] font-black tracking-[0.22em] text-[var(--editorial-gold)] uppercase">
                   {service.eyebrow}
                 </p>
-                <h2 className="mt-3 font-display text-3xl leading-none text-[var(--editorial-plum)]">{service.title}</h2>
+                <h3 className="type-lockup type-lockup--glow-soft mt-3 text-[clamp(1.75rem,2.8vw,2.4rem)]">
+                  <span className="type-lockup__impact">{service.lockupImpact}</span>
+                  <em className="type-lockup__script">{service.lockupScript}</em>
+                </h3>
                 <p className="mt-4 text-sm leading-7 text-[var(--editorial-cacao)]">{service.whatIs}</p>
                 <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]/80">{service.summary}</p>
                 <Link

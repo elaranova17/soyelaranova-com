@@ -39,14 +39,6 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
   const lpMap = studioToLp[service.slug]
   const motherHref = lpMap?.mother ?? '/lp/automatizaciones'
-  const lockupScript =
-    service.slug === 'sitios-web'
-      ? 'profesionales'
-      : service.slug === 'landing-pages'
-        ? 'para campañas'
-        : service.slug === 'automatizaciones'
-          ? 'de negocio'
-          : 'y medición'
 
   return (
     <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
@@ -64,8 +56,8 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {service.eyebrow}
             </p>
             <h1 className="type-lockup type-lockup--glow-soft page-lockup page-lockup--wide">
-              <span className="type-lockup__impact">{service.shortTitle}</span>
-              <em className="type-lockup__script">{lockupScript}</em>
+              <span className="type-lockup__impact">{service.lockupImpact}</span>
+              <em className="type-lockup__script">{service.lockupScript}</em>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
               {service.promise}
@@ -114,7 +106,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                   href={pack.href}
                   className="rounded-[14px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] px-5 py-4 transition-colors hover:border-[var(--editorial-gold)]"
                 >
-                  <p className="font-display text-xl text-[var(--editorial-plum)]">{pack.label}</p>
+                  <p className="type-title type-title--plum text-[1.25rem]">{pack.label}</p>
                   <p className="mt-1 text-sm text-[var(--editorial-cacao)]">{pack.price}</p>
                 </Link>
               ))}
@@ -149,7 +141,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 key={item.question}
                 className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-smoke)] p-5"
               >
-                <h3 className="font-display text-xl font-normal text-[var(--editorial-plum)]">
+                <h3 className="type-title type-title--plum text-[clamp(1.15rem,1.8vw,1.45rem)]">
                   {item.question}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--editorial-cacao)]">{item.answer}</p>
@@ -211,7 +203,7 @@ function InfoBlock({
 
   return (
     <article className="rounded-[18px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] p-6">
-      <h2 className="font-display text-3xl font-normal text-[var(--editorial-plum)]">{title}</h2>
+      <h2 className="type-title type-title--plum type-title--lg">{title}</h2>
       <List className="mt-6 space-y-4">
         {items.map((item, index) => (
           <li key={item} className="flex gap-3 text-sm leading-7 text-[var(--editorial-cacao)]">

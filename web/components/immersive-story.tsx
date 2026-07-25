@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { evelynPhotos } from '@/lib/evelyn-photos'
 
 function ScreenBase({ children }: { children: React.ReactNode }) {
   return (
@@ -232,7 +233,7 @@ export function ImmersiveStory() {
           <div className="immersive-story__photo">
             <img
               className="immersive-story__bg"
-              src="/_assets/photos/slide-proceso-fondo.webp"
+              src={evelynPhotos.slideProceso}
               alt=""
               loading="lazy"
             />

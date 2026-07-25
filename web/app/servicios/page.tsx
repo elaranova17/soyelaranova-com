@@ -42,8 +42,9 @@ export default function ServicesPage() {
               <p className="text-[0.62rem] font-bold tracking-[0.22em] text-[var(--editorial-cacao)] uppercase">
                 {service.eyebrow}
               </p>
-              <h2 className="mt-4 font-display text-4xl font-normal leading-none text-[var(--editorial-plum)]">
-                {service.title}
+              <h2 className="type-lockup type-lockup--glow-soft mt-4 text-[clamp(2rem,3.4vw,2.85rem)]">
+                <span className="type-lockup__impact">{service.lockupImpact}</span>
+                <em className="type-lockup__script">{service.lockupScript}</em>
               </h2>
               <p className="mt-5 text-sm leading-7 text-[var(--editorial-cacao)]">{service.summary}</p>
               <div className="mt-7 border-t border-[var(--editorial-stone)] pt-5">
