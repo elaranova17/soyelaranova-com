@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DiscoveryForm } from '@/components/discovery-form'
 import { TrackedLink } from '@/components/tracked-link'
-import { discoveryHref, type LpOffer } from '@/lib/lp-offers'
+import { discoveryHref, packsForService, type LpOffer } from '@/lib/lp-offers'
 
 export function LpOfferPage({
   offer,
@@ -78,6 +78,27 @@ export function LpOfferPage({
           </div>
         </div>
       </section>
+
+      {offer.pack === null ? (
+        <section className="border-y border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] px-5 py-10 md:px-10 lg:px-14">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-[0.68rem] font-black tracking-[0.22em] text-[var(--editorial-cacao)] uppercase">
+              Paquetes
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {packsForService(offer.service).map((pack) => (
+                <Link
+                  key={pack.pack}
+                  href={`/lp/${pack.service}/${pack.pack}`}
+                  className="inline-flex min-h-11 items-center rounded-full border border-[var(--editorial-stone)] bg-[var(--editorial-smoke)] px-5 text-[0.68rem] font-bold tracking-[0.14em] text-[var(--editorial-plum)] uppercase transition-colors hover:border-[var(--editorial-gold)]"
+                >
+                  {pack.titlePlain.split('·')[0]?.trim() || pack.pack} · {pack.priceAnchor}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-[var(--editorial-ivory)] px-5 py-16 md:px-10 lg:px-14">
         <div className="mx-auto max-w-7xl">

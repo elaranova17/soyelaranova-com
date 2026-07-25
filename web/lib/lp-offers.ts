@@ -605,3 +605,40 @@ export function discoveryHref(offer: LpOffer) {
   const qs = params.toString()
   return qs ? `/descubrimiento?${qs}` : '/descubrimiento'
 }
+
+/** Mapa SEO `/servicios/[slug]` → landings Ads/FL */
+export const studioToLp: Record<
+  string,
+  { mother: string; packs: readonly { href: string; label: string; price: string }[] }
+> = {
+  automatizaciones: {
+    mother: '/lp/automatizaciones',
+    packs: [
+      { href: '/lp/automatizaciones/arranque', label: 'Arranque', price: '450 €' },
+      { href: '/lp/automatizaciones/pro', label: 'Pro', price: '1.400 €' },
+      { href: '/lp/automatizaciones/a-medida', label: 'A medida', price: 'desde 3.200 €' },
+    ],
+  },
+  'sitios-web': {
+    mother: '/lp/paginas-web',
+    packs: [
+      { href: '/lp/paginas-web/sitio-negocio', label: 'Sitio Negocio', price: '1.900 €' },
+      { href: '/lp/paginas-web/sitio-ads', label: 'Sitio + Ads', price: '3.400 €' },
+    ],
+  },
+  'landing-pages': {
+    mother: '/lp/landing-pages',
+    packs: [{ href: '/lp/paginas-web/landing-unica', label: 'Landing Única', price: '650 €' }],
+  },
+  'google-ads': {
+    mother: '/lp/google-ads',
+    packs: [
+      { href: '/lp/google-ads/setup', label: 'Setup', price: '450 €' },
+      { href: '/lp/google-ads/gestion', label: 'Gestión', price: '350 €/mes' },
+    ],
+  },
+}
+
+export function packsForService(service: string) {
+  return lpPackOffers.filter((o) => o.service === service)
+}

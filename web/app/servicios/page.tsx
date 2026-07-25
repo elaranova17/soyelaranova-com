@@ -66,7 +66,7 @@ export default function ServicesPage() {
               Como elegir
             </p>
             <h2 className="mt-6 font-display text-[2.45rem] font-normal leading-[1.02] md:text-[3.7rem]">
-              Si no sabes por donde empezar, empezamos por diagnostico.
+              Si no sabes por donde empezar, empezamos por el pre-análisis.
             </h2>
           </div>
           <div>
@@ -77,7 +77,7 @@ export default function ServicesPage() {
             </p>
             <TrackedLink
               href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'services_index_diagnostico' }}
+              tracking={{ event: 'cta_click', category: 'lead', label: 'services_index_preanalisis' }}
               className="home-button home-button--gold mt-8"
             >
               Hacer mi pre-análisis

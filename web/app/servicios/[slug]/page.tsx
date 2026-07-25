@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { TrackedLink } from '@/components/tracked-link'
+import { studioToLp } from '@/lib/lp-offers'
 import { getStudioService, studioServices } from '@/lib/studio-services'
 
 type ServiceDetailPageProps = {
@@ -36,6 +37,9 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
   if (!service) notFound()
 
+  const lpMap = studioToLp[service.slug]
+  const motherHref = lpMap?.mother ?? '/lp/automatizaciones'
+
   return (
     <main className="min-h-screen bg-[var(--editorial-smoke)] text-[var(--editorial-ink)]">
       <section className="bg-[var(--editorial-ivory)] px-5 pt-32 pb-16 md:px-8 lg:px-12">
@@ -67,7 +71,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {service.deliverable}
             </p>
             <TrackedLink
-              href="/descubrimiento"
+              href={`/descubrimiento?servicio=${encodeURIComponent(service.shortTitle)}`}
               tracking={{
                 event: 'cta_click',
                 category: 'lead',
@@ -76,11 +80,39 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               }}
               className="home-button home-button--primary mt-6 w-full"
             >
-              Cotizar este servicio
+              Hacer mi pre-análisis
             </TrackedLink>
+            <Link
+              href={motherHref}
+              className="mt-3 block text-center text-[0.66rem] font-bold tracking-[0.16em] text-[var(--editorial-cacao)] uppercase hover:text-[var(--editorial-plum)]"
+            >
+              Ver landing de campaña →
+            </Link>
           </aside>
         </div>
       </section>
+
+      {lpMap ? (
+        <section className="border-b border-[var(--editorial-stone)] bg-[var(--editorial-smoke)] px-5 py-10 md:px-8 lg:px-12">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-[0.62rem] font-bold tracking-[0.22em] text-[var(--editorial-cacao)] uppercase">
+              Paquetes
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {lpMap.packs.map((pack) => (
+                <Link
+                  key={pack.href}
+                  href={pack.href}
+                  className="rounded-[14px] border border-[var(--editorial-stone)] bg-[var(--editorial-ivory)] px-5 py-4 transition-colors hover:border-[var(--editorial-gold)]"
+                >
+                  <p className="font-display text-xl text-[var(--editorial-plum)]">{pack.label}</p>
+                  <p className="mt-1 text-sm text-[var(--editorial-cacao)]">{pack.price}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="px-5 py-16 md:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
@@ -124,14 +156,14 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             Siguiente paso
           </p>
           <h2 className="mt-6 font-display text-[2.45rem] font-normal leading-[1.02] md:text-[3.8rem]">
-            Cuéntame que quieres resolver.
+            Empezá por el pre-análisis.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--editorial-lavender)]">
-            No necesitas llegar con el alcance perfecto. Con una idea, un problema o una meta
-            comercial ya podemos ordenar el camino.
+            Cuestionario didáctico gratis → te mando una lectura. Si querés profundizar: sesión
+            estratégica 20 min · 25 CHF.
           </p>
           <TrackedLink
-            href="/descubrimiento"
+            href={`/descubrimiento?servicio=${encodeURIComponent(service.shortTitle)}`}
             tracking={{
               event: 'cta_click',
               category: 'lead',
@@ -140,7 +172,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             }}
             className="home-button home-button--gold mt-8"
           >
-            Pedir diagnostico
+            Hacer mi pre-análisis
           </TrackedLink>
         </div>
       </section>

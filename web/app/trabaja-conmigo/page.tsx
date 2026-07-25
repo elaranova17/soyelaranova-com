@@ -28,10 +28,10 @@ export default function TrabajaConmigoPage() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <TrackedLink
                 href="/descubrimiento"
-                tracking={{ event: 'cta_click', category: 'lead', label: 'trabaja_hero_diagnostico' }}
+                tracking={{ event: 'cta_click', category: 'lead', label: 'trabaja_hero_preanalisis' }}
                 className="home-button home-button--primary"
               >
-                Solicitar diagnostico
+                Hacer mi pre-análisis
               </TrackedLink>
               <Link href="/#recursos" className="home-button home-button--quiet">
                 Ver recursos
