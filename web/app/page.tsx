@@ -84,9 +84,9 @@ export default function HomePage() {
       <section id="inicio" className="home-hero">
         <div className="home-hero__copy">
           <Eyebrow>Elara Nova · estudio de automatizacion y desarrollo web</Eyebrow>
-          <h1>
-            Automatizo tu negocio
-            <em>y construyo las webs que venden.</em>
+          <h1 className="type-lockup">
+            <span className="type-lockup__impact">Automatizo tu negocio</span>
+            <em className="type-lockup__script">y construyo las webs que venden.</em>
           </h1>
           <p>
             Soy Evelyn, ingeniera de software. Conecto tus procesos, elimino el trabajo manual y
@@ -244,8 +244,9 @@ export default function HomePage() {
       <section id="preanalisis" className="home-impact">
         <div className="home-impact__glow" aria-hidden="true" />
         <Eyebrow light>Pre-análisis didáctico · gratis</Eyebrow>
-        <h2>
-          ¿Tu negocio todavia depende de que <em>vos</em> hagas todo a mano?
+        <h2 className="type-lockup type-lockup--center">
+          <span className="type-lockup__impact">¿Tu negocio todavía depende de que</span>
+          <em className="type-lockup__script">vos hagas todo a mano?</em>
         </h2>
         <p>
           Completá el pre-análisis: yo preparo una lectura de tu negocio/web. Si querés profundizar,
@@ -307,7 +308,10 @@ export default function HomePage() {
 
       <section id="contacto" className="home-close">
         <p>Tu negocio puede funcionar sin que estes en cada detalle.</p>
-        <h2>Construyamos el sistema que lo sostiene.</h2>
+        <h2 className="type-lockup type-lockup--center">
+          <span className="type-lockup__impact">Construyamos el sistema</span>
+          <em className="type-lockup__script">que lo sostiene.</em>
+        </h2>
         <div className="home-actions">
           <TrackedLink
             href="/descubrimiento"

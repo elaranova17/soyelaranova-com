@@ -1,24 +1,23 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Pinyon_Script, Manrope } from 'next/font/google'
+import { Archivo_Black, Sansita_Swashed, Manrope } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import './globals.css'
 
-/** Display imponente — contraste alto, editorial de venta */
-const bodoni = Bodoni_Moda({
-  variable: '--font-bodoni',
+/** Impacto CapCut — sans negra imponente (estilo Inter-Blk / MODERN) */
+const archivoBlack = Archivo_Black({
+  variable: '--font-archivo-black',
+  weight: '400',
   subsets: ['latin'],
-  style: ['normal', 'italic'],
-  axes: ['opsz'],
   display: 'swap',
 })
 
-/** Caligrafía de marca — acentos, logo, em que venden */
-const pinyon = Pinyon_Script({
-  variable: '--font-pinyon',
+/** Caligrafía con swash — solapa el impact y vende personalidad */
+const sansita = Sansita_Swashed({
+  variable: '--font-sansita',
   subsets: ['latin'],
-  weight: '400',
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
 
@@ -92,7 +91,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${bodoni.variable} ${pinyon.variable} ${manrope.variable} h-full antialiased`}
+      className={`${archivoBlack.variable} ${sansita.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <script

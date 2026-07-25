@@ -22,14 +22,15 @@ export function LpOfferPage({
 
   const accentTitle = (() => {
     const parts = offer.title.split(/,\s+|—\s+/)
-    if (parts.length < 2) return offer.title
-    const head = parts.slice(0, -1).join(', ')
+    if (parts.length < 2) {
+      return <span className="type-lockup__impact">{offer.title}</span>
+    }
+    const head = parts.slice(0, -1).join(offer.title.includes('—') ? ' — ' : ', ')
     const tail = parts[parts.length - 1]
     return (
       <>
-        {head}
-        {offer.title.includes('—') ? ' — ' : ', '}
-        <em>{tail}</em>
+        <span className="type-lockup__impact">{head}</span>
+        <em className="type-lockup__script">{tail}</em>
       </>
     )
   })()
@@ -54,7 +55,7 @@ export function LpOfferPage({
         <div className="lp-hero__content">
           <p className="lp-hero__brand">Elara Nova</p>
           <p className="lp-hero__eyebrow">{offer.eyebrow}</p>
-          <h1>{accentTitle}</h1>
+          <h1 className="type-lockup">{accentTitle}</h1>
           <p className="lp-hero__sub">{offer.subtitle}</p>
           <div className="lp-hero__cta">
             <TrackedLink
