@@ -130,6 +130,7 @@ type Step = {
   number: string
   titleImpact: string
   titleScript: string
+  screenLabel: string
   text: string
   Screen: () => React.ReactElement
 }
@@ -139,6 +140,7 @@ const steps: readonly Step[] = [
     number: '01',
     titleImpact: 'Miro tu',
     titleScript: 'negocio real',
+    screenLabel: 'Diagnóstico',
     text: 'Encuentro qué te frena, qué leads se pierden y dónde estás gastando de más. No adivino: llego con un diagnóstico claro de por dónde se te va el tiempo y la plata.',
     Screen: VerScreen,
   },
@@ -146,6 +148,7 @@ const steps: readonly Step[] = [
     number: '02',
     titleImpact: 'Ordeno',
     titleScript: 'el sistema',
+    screenLabel: 'La ruta',
     text: 'Defino qué automatizar, qué construir y en qué orden, priorizando lo que te devuelve horas y ventas primero. Una ruta clara, sin gastar en herramientas que no necesitas.',
     Screen: AnalizarScreen,
   },
@@ -153,6 +156,7 @@ const steps: readonly Step[] = [
     number: '03',
     titleImpact: 'Construyo',
     titleScript: 'lo que vende',
+    screenLabel: 'A construir',
     text: 'Web, automatización o embudo, construido para durar: seguro, que escala y que se mantiene. Sin humo — piezas pensadas para convertir visitas en clientes.',
     Screen: CrearScreen,
   },
@@ -160,6 +164,7 @@ const steps: readonly Step[] = [
     number: '04',
     titleImpact: 'Lo dejo',
     titleScript: 'corriendo',
+    screenLabel: 'Resultados',
     text: 'Dejo todo medido y conectado, para que sepas qué funciona y el negocio siga trabajando sin ti encima. Recuperas tus horas y ningún lead se queda sin respuesta.',
     Screen: LanzarScreen,
   },
@@ -211,8 +216,20 @@ export function ImmersiveStory() {
           <div className="immersive-story__veil" />
         </div>
 
+        <span className="immersive-story__ghost">{steps[active].number}</span>
+
+        <p className="immersive-story__on-screen">
+          <span>En pantalla</span>
+          {steps[active].screenLabel}
+        </p>
+
         <div className="immersive-story__progress">
-          <span style={{ transform: `scaleX(${(active + 1) / steps.length})` }} />
+          <span className="immersive-story__progress-count">
+            {steps[active].number} / 0{steps.length}
+          </span>
+          <span className="immersive-story__progress-bar">
+            <span style={{ transform: `scaleX(${(active + 1) / steps.length})` }} />
+          </span>
         </div>
       </div>
 
