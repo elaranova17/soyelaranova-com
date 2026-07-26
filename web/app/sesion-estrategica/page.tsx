@@ -42,8 +42,10 @@ export default function SesionEstrategicaPage() {
             <em className="type-lockup__script">estratégica</em>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
-            No es una call gratis. Es una sesión corta donde te comparto lo que analicé de tu
-            negocio/web, 2–3 movimientos concretos y el siguiente paso (proyecto o no).
+            No es una call gratis para “ver si encajamos”. Es una sesión corta y concreta: te muestro
+            lo que analicé de tu negocio y tu web, 2–3 movimientos que puedes aplicar ya para recuperar
+            tiempo o dejar de perder clientes, y el siguiente paso honesto (proyecto o no). Sales con
+            claridad, no con una propuesta de venta.
           </p>
         </div>
       </section>
@@ -56,13 +58,13 @@ export default function SesionEstrategicaPage() {
           </h2>
           <ol className="lp-steps__list">
             {[
-              ['01', 'Pre-análisis', 'Cuestionario didáctico gratis. Yo preparo tu lectura.'],
+              ['01', 'Pre-análisis', 'Cuestionario didáctico gratis. Yo lo leo a mano y preparo tu lectura, para llegar a la sesión ya con un diagnóstico.'],
               [
                 '02',
                 `Pago ${booking.priceChf} CHF`,
-                'Stripe seguro. Filtra curiosidad y reserva mi tiempo.',
+                'Pago seguro con Stripe. Filtra la curiosidad y reserva mi tiempo para quien va en serio.',
               ],
-              ['03', 'Agenda 20 min', 'Eliges el hueco en Calendly y vemos la mini-estrategia.'],
+              ['03', 'Agenda 20 min', 'Eliges tu hueco en Calendly y vamos directo a la mini-estrategia: nada de relleno, todo accionable.'],
             ].map(([n, t, d]) => (
               <li key={n}>
                 <span>{n}</span>
@@ -88,13 +90,14 @@ export default function SesionEstrategicaPage() {
               <em className="type-lockup__script">que abren camino</em>
             </h2>
             <p>
-              ~25 € si estás en ES/LATAM. Incluye revisión de tu pre-análisis + mini-ruta. No incluye
-              implementación del proyecto.
+              ~25 € si estás en ES/LATAM: menos de lo que cuesta una hora perdida en tareas manuales.
+              Incluye la revisión de tu pre-análisis y la mini-ruta. No incluye la implementación del
+              proyecto — eso se cotiza aparte con precio cerrado si decides avanzar.
             </p>
             <ul className="mt-6 space-y-2 text-sm leading-7 text-[var(--editorial-lavender)]">
-              <li>✦ Resultados de tu pre-análisis</li>
-              <li>✦ Mini-estrategia (2–3 movimientos)</li>
-              <li>✦ Claridad de paquete si quieres proyecto</li>
+              <li>✦ Los resultados de tu pre-análisis, explicados en simple</li>
+              <li>✦ Una mini-estrategia con 2–3 movimientos que puedes aplicar ya</li>
+              <li>✦ Claridad de qué paquete te conviene si quieres proyecto (o si aún no lo necesitas)</li>
             </ul>
           </div>
 

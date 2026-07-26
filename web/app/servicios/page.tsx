@@ -28,9 +28,10 @@ export default function ServicesPage() {
         </StudioReveal>
         <StudioReveal delay={0.1}>
           <p className="studio-index__hero-lead">
-            No vendo “páginas bonitas” sueltas. Conecto web, automatización y Ads para que un lead
-            entre, se registre y tú sepas qué funcionó. Abajo: qué es cada cosa, en castellano
-            claro, con modelos visuales.
+            No vendo “páginas bonitas” sueltas. Conecto web, automatización y Ads en un solo sistema:
+            el lead entra, se registra solo y tú sabes qué anuncio lo trajo. Recuperas horas, dejas
+            de perder oportunidades por un mensaje sin responder y sabes en qué vale la pena invertir.
+            Abajo tienes qué es cada cosa, explicado claro y con modelos visuales.
           </p>
           <div className="studio-index__actions">
             <TrackedLink
@@ -73,7 +74,7 @@ export default function ServicesPage() {
         context="all"
         titleImpact="Modelos"
         titleScript="de webs reales"
-        note="Toca un modelo: ves la estructura (como un tutorial) y el pack que le corresponde. Así sabes qué pides antes de pagar."
+        note="Toca un modelo: ves la estructura por dentro (como un tutorial) y el pack que le corresponde. Así sabes exactamente qué pides y qué recibes antes de pagar, sin sorpresas."
       />
 
       <StudioFunnelStrip trackingLabel="services_index_funnel" dark />

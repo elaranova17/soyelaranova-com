@@ -96,7 +96,8 @@ export function LpBookPage({ book }: { book: BookOffer }) {
           </h2>
           <p>
             Si además del libro necesitas landing, automatización de entregas o Ads, el mismo
-            pre-análisis sirve para cotizar el estudio.
+            pre-análisis sirve para cotizar el estudio: montamos el sistema que vende y entrega
+            solo, para que recuperes tiempo mientras el negocio trabaja por ti.
           </p>
           <TrackedLink
             href="/sesion-estrategica"

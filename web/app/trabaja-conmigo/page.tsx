@@ -44,8 +44,9 @@ export default function TrabajaConmigoPage() {
           </StudioReveal>
           <StudioReveal delay={0.16}>
             <p className="studio-b2b__lead studio-b2b__lead--light">
-              6 años en software financiero. Hoy diseño sistemas que capturan clientes: web,
-              automatización y Ads medibles. Si te respondo, soy yo.
+              6 años construyendo software financiero, donde un dato mal cuadrado es plata perdida.
+              Hoy aplico esa misma disciplina a sistemas que te recuperan horas y capturan clientes:
+              web, automatización y Ads medibles. Sin intermediarios: si te respondo, soy yo.
             </p>
           </StudioReveal>
           <StudioReveal delay={0.24}>
@@ -80,9 +81,11 @@ export default function TrabajaConmigoPage() {
               <em className="type-lockup__script">de banca</em>
             </h2>
             <p className="studio-b2b__body">
-              En Sophos / Bancolombia el error costaba dinero real. Traigo esa disciplina a tu
-              embudo: datos que cuadran, procesos que no se caen, páginas con un solo trabajo —
-              convertir.
+              En Sophos y Bancolombia un error movía dinero real y no había margen para improvisar.
+              Traigo esa disciplina a tu embudo: datos que cuadran, procesos que no se caen y sistemas
+              que escalan y se mantienen sin sorpresas. Nada de humo ni de soluciones que hay que
+              rehacer en un año — páginas y automatizaciones con un solo trabajo: hacerte ganar tiempo
+              y clientes.
             </p>
             <p className="studio-b2b__pitch font-serif">
               Pienso como diseñadora. Construyo como ingeniera.
@@ -93,19 +96,19 @@ export default function TrabajaConmigoPage() {
               <li>
                 <article>
                   <h3 className="font-display">Llego con tu diagnóstico</h3>
-                  <p>Reviso tu pre-análisis yo misma y llego a la charla con un diagnóstico previo. No pierdes el rato descubriendo tu negocio.</p>
+                  <p>Reviso tu pre-análisis yo misma, con calma, y llego a la charla con un diagnóstico ya hecho. Ese rato no se va descubriendo tu negocio — se va resolviéndolo. Es respeto por tu tiempo.</p>
                 </article>
               </li>
               <li>
                 <article>
                   <h3 className="font-display">Precio cerrado</h3>
-                  <p>Packs Arranque / Pro / Sitio+Ads. Sabes qué compras.</p>
+                  <p>Packs Arranque / Pro / Sitio+Ads con número acordado antes de empezar. Sabes qué compras, cuánto cuesta y cuándo lo tienes — sin horas fantasma ni sorpresas en la factura.</p>
                 </article>
               </li>
               <li>
                 <article>
                   <h3 className="font-display">Explico en simple</h3>
-                  <p>Si no entiendes “landing” o “tracking”, te lo dibujo con modelos.</p>
+                  <p>Si no entiendes “landing” o “tracking”, te lo dibujo con modelos claros. Decides con criterio, no a ciegas — y sabes exactamente por qué cada euro rinde.</p>
                 </article>
               </li>
             </ul>
@@ -126,7 +129,8 @@ export default function TrabajaConmigoPage() {
             </h2>
           </div>
           <p className="studio-b2b__section-note">
-            Cada servicio se explica en castellano claro. Empieza por el que más te duele hoy.
+            Cada servicio se explica en castellano claro, sin jerga que impresione pero no venda.
+            Empieza por el que más te duele hoy — el que te está costando tiempo o clientes.
           </p>
         </StudioReveal>
         <StudioStagger className="studio-service-grid studio-service-grid--flush">
@@ -165,7 +169,8 @@ export default function TrabajaConmigoPage() {
         </StudioReveal>
         <StudioReveal delay={0.08}>
           <p className="studio-b2b__offer-copy">
-            Pre-análisis gratis (2–4 min). Si encaja: sesión 20 min · 25 CHF con mini-ruta.
+            Pre-análisis gratis (2–4 min): me cuentas tu negocio y yo lo reviso a mano. Si encajamos,
+            sesión de 20 min · 25 CHF con una mini-ruta concreta. Sin llamadas eternas ni compromiso.
           </p>
           <div className="studio-b2b__actions studio-b2b__actions--center">
             <TrackedLink

@@ -22,7 +22,7 @@ const services: readonly Service[] = [
     type: 'Producto estrella',
     title: 'Automatizaciones',
     description:
-      'Conecto formularios, emails, WhatsApp, hojas y CRM para que cada lead tenga seguimiento automático. Menos trabajo manual, cero oportunidades perdidas.',
+      'Conecto tus formularios, emails, WhatsApp, hojas y CRM para que cada lead se atienda solo. Recuperas horas cada semana, respondes al instante y dejas de perder ventas por contestar tarde.',
     price: 'Desde 450 €',
     asset: 'servicio-01-automatizaciones.webp',
     format: '1600 × 2000 px',
@@ -33,7 +33,7 @@ const services: readonly Service[] = [
     type: 'Conversión',
     title: 'Landing pages y sitios web',
     description:
-      'Páginas hechas para vender: mensaje claro, mobile-first y pensadas para que la persona correcta dé el siguiente paso. Ideales para Google Ads y lanzamientos.',
+      'Páginas hechas para vender, no para "estar en internet": mensaje claro, rápidas y mobile-first, pensadas para convertir visitas en clientes que te escriben. Ideales para Google Ads y lanzamientos.',
     price: 'Desde 650 €',
     asset: 'servicio-02-webs.webp',
     format: '1600 × 2000 px',

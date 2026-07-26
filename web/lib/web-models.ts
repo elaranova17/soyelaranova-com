@@ -37,9 +37,9 @@ export const webModels: readonly WebModel[] = [
     title: 'Negocio local',
     script: 'que genera citas',
     explain:
-      'Piensa en una clínica, un taller, un estudio o un servicio a domicilio. La web no es un folleto: es un embudo corto. Alguien busca → entiende qué haces → ve prueba → pide cita o presupuesto.',
-    result: 'Menos “escríbeme por Instagram” y más formularios que llegan ordenados.',
-    forWho: 'PYMEs y negocios locales (ES / LATAM / CH) que quieren verse serios y medibles.',
+      'Piensa en una clínica, un taller, un estudio o un servicio a domicilio. La web no es un folleto: es un embudo corto que trabaja por ti. Alguien busca → entiende qué haces → ve prueba → pide cita o presupuesto, sin que tú tengas que perseguir a nadie.',
+    result: 'Menos "escríbeme por Instagram" y más formularios que llegan ordenados y listos para cerrar la cita.',
+    forWho: 'PYMEs y negocios locales (ES / LATAM / CH) que quieren verse serios, que Google los encuentre y medir de dónde salen sus clientes.',
     sections: [
       { label: 'Hero', hint: 'Promesa + ciudad + CTA' },
       { label: 'Servicios', hint: '3–5 ofertas claras' },
@@ -57,9 +57,9 @@ export const webModels: readonly WebModel[] = [
     title: 'Profesional',
     script: 'con autoridad',
     explain:
-      'Para coaches, consultoras, freelancers o estudios pequeños. La web cuenta quién eres, qué problema resuelves y por qué confiar — sin parecer un CV aburrido ni un feed de Instagram.',
-    result: 'Autoridad + un solo camino: pre-análisis, sesión o agenda.',
-    forWho: 'Independientes que venden servicio (no producto físico).',
+      'Para coaches, consultoras, freelancers o estudios pequeños. La web cuenta quién eres, qué problema resuelves y por qué confiar en ti —sin parecer un CV aburrido ni un feed de Instagram. Cuando vendes tu criterio, la confianza es lo que cierra; esta web la construye antes de la primera llamada.',
+    result: 'Autoridad que justifica tu precio + un solo camino claro: pre-análisis, sesión o agenda.',
+    forWho: 'Independientes que venden servicio (no producto físico) y quieren atraer al cliente correcto, no a cualquiera.',
     sections: [
       { label: 'Posicionamiento', hint: 'Quién / para quién' },
       { label: 'Método', hint: 'Cómo trabajas' },
@@ -77,9 +77,9 @@ export const webModels: readonly WebModel[] = [
     title: 'Landing de Ads',
     script: 'una sola acción',
     explain:
-      'Una landing no es “una web pequeña”. Es UNA página con UN objetivo: que dejen el dato o pidan presupuesto. Ideal cuando pagas clics en Google o Meta: el anuncio promete X y la página entrega exactamente X.',
-    result: 'Sabes qué anuncio convirtió porque hay un solo CTA medible.',
-    forWho: 'Campañas de captación, lanzamientos o servicios con ticket claro.',
+      'Una landing no es "una web pequeña". Es UNA página con UN objetivo: que dejen el dato o pidan presupuesto. Ideal cuando pagas clics en Google o Meta: el anuncio promete X y la página entrega exactamente X, así no quemas presupuesto mandando tráfico caro a una home que distrae.',
+    result: 'Sabes qué anuncio convirtió porque hay un solo CTA medible —y pagas menos por cada cliente.',
+    forWho: 'Campañas de captación, lanzamientos o servicios con ticket claro donde cada clic cuesta dinero.',
     sections: [
       { label: 'Headline', hint: 'Misma promesa del anuncio' },
       { label: 'Dolor', hint: 'El problema en su idioma' },
@@ -97,9 +97,9 @@ export const webModels: readonly WebModel[] = [
     title: 'Sitio + Ads',
     script: 'máquina de captar',
     explain:
-      'Cuando ya no alcanza “tener web”: necesitas páginas por intención (ciudad, servicio, campaña) + Google Ads + medición. El tráfico paga; la web convierte; tú ves números.',
-    result: 'Captación con feedback: qué búsqueda trae clientes y cuál quema presupuesto.',
-    forWho: 'Negocios listos a invertir en demanda activa con tracking.',
+      'Cuando ya no alcanza con "tener web": necesitas páginas por intención (ciudad, servicio, campaña) + Google Ads + medición, funcionando como un solo sistema. El tráfico paga, la web convierte y tú ves números reales —no una promesa de agencia.',
+    result: 'Captación con feedback: sabes qué búsqueda trae clientes y cuál quema presupuesto, y ajustas para gastar menos por venta.',
+    forWho: 'Negocios listos para invertir en demanda activa que quieren medir cada euro y escalar con cabeza.',
     sections: [
       { label: 'Sitio base', hint: 'Confianza + SEO' },
       { label: 'Landings', hint: '1 intención = 1 página' },

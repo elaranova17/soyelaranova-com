@@ -140,7 +140,7 @@ export function LpOfferPage({
             context={offer.service === 'landing-pages' ? 'landing-pages' : 'paginas-web'}
             titleImpact="Modelos"
             titleScript="para elegir bien"
-            note="Tutorial visual: cada modelo muestra las secciones de la página, para quién sirve y el pack. Así pides con claridad."
+            note="Tutorial visual: cada modelo muestra las secciones de la página, para quién sirve y el pack. Así eliges con criterio y pides justo lo que tu negocio necesita, sin pagar de más."
           />
         </>
       ) : null}
@@ -216,8 +216,9 @@ export function LpOfferPage({
             <em className="type-lockup__script">cómo trabajas</em>
           </h2>
           <p className="lp-form__lead">
-            Yo te preparo una lectura antes de cualquier reunión. Después, si quieres profundizar,
-            la sesión estratégica dura 20 min y cuesta 25 CHF.
+            Yo leo tu caso y te preparo un diagnóstico antes de cualquier reunión, así no gastamos
+            la primera charla descubriendo tu negocio: llegamos directo a resolver y a ahorrarte
+            tiempo. Después, si quieres profundizar, la sesión estratégica dura 20 min y cuesta 25 CHF.
           </p>
           <div className="lp-form__wrap">
             <Suspense

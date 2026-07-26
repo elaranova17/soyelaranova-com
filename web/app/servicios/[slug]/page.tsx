@@ -134,7 +134,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             context={modelsContext}
             titleImpact={slug === 'landing-pages' ? 'Landings' : 'Sitios'}
             titleScript="modelo a modelo"
-            note="Cada bloque es un tutorial visual: secciones del embudo de la página + para quién sirve + pack."
+            note="Cada bloque es un tutorial visual: te muestra las secciones del embudo, para quién sirve y qué pack le corresponde, para que sepas qué pedir sin adivinar."
           />
         </>
       ) : null}
