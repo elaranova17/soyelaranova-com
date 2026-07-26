@@ -15,7 +15,11 @@ automatizaciones de procesos, webs y landing pages que venden, y Google Ads con 
 - La capa espiritual de Elara (oráculo, ebooks, cursos) queda como rutas secundarias
   (`/oraculo`, `/universo`, `/cursos`, `/sobre-elara`) mientras existan; no definen el chrome del sitio.
 
-**Tagline Evelyn:** *Pienso como diseñadora, construyo como ingeniera.*
+**Slogan principal de marca (lockeado 26 jul 2026):** *Menos a mano.*
+**Descriptor Evelyn:** *Pienso en el detalle, construyo como ingeniera.*
+> ⚠️ Evelyn es **ingeniera, NO diseñadora de profesión.** Nunca llamarla "diseñadora" ni "ojo de diseñadora". Sí es fashionista/girly y le importan la estética y la calidad → usar "ojo estético", "cuido el detalle". Números canónicos: **8 años automatizando, 6 de ellos en banca** (Sophos/Bancolombia).
+**Cita ancla:** *Mirá todo lo que siempre fuiste capaz de ser.* / *Mirá lo que siempre pudiste hacer.*
+(Perfil humano completo y reglas de privacidad: `docs/PERFIL_EVELYN.md`. Voz: `docs/VOZ.md`.)
 
 ---
 

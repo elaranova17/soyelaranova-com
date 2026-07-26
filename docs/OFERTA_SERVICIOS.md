@@ -24,7 +24,7 @@ CTA canónico en sitio y outreach: **“Hacer mi pre-análisis”**.
 
 **Automatizo el trabajo repetitivo de tu negocio y construyo la web que convierte visitas en clientes. Menos horas perdidas, más ventas.**
 
-Soy Evelyn Patiño, ingeniera de sistemas con 6 años en banca (Sophos, Bancolombia), donde el error no es una opción y los procesos mueven dinero real. Hoy aplico esa misma disciplina a negocios pequeños y medianos: diseño como diseñadora, construyo como ingeniera.
+Soy Evelyn Patiño, ingeniera de sistemas con 6 años en banca (Sophos, Bancolombia), donde el error no es una opción y los procesos mueven dinero real. Hoy aplico esa misma disciplina a negocios pequeños y medianos: pienso en el detalle y construyo como ingeniera.
 
 **Para quién es esto:**
 - Negocios locales y PYMEs (España + LATAM) que pierden horas en tareas manuales: pasar leads a mano, responder los mismos mensajes, copiar datos entre herramientas.

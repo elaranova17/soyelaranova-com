@@ -125,14 +125,14 @@ export default function HomePage() {
           <figcaption className="home-hero__caption">
             <span>Ingeniería real</span>
             <i aria-hidden="true" />
-            <span>Ojo de diseñadora</span>
+            <span>Ojo estético</span>
           </figcaption>
         </Photo>
 
         <p className="home-hero__note">
-          6 años construyendo tecnología para banca.
+          8 años automatizando procesos.
           <br />
-          Ahora, para tu negocio.
+          Primero en banca. Ahora, para tu negocio.
         </p>
       </section>
 
@@ -357,8 +357,8 @@ export default function HomePage() {
         <div className="home-work__copy">
           <Eyebrow>Sobre mí</Eyebrow>
           <h2 className="type-lockup type-lockup--glow-soft">
-            <span className="type-lockup__impact">Diseñadora</span>
-            <em className="type-lockup__script">e ingeniera</em>
+            <span className="type-lockup__impact">Ingeniera</span>
+            <em className="type-lockup__script">con ojo estético</em>
           </h2>
           <p>
             Soy Evelyn — no un equipo detrás de una marca. Llevo 8 años automatizando procesos: lo
@@ -367,7 +367,7 @@ export default function HomePage() {
             entender tu negocio y quitarte el trabajo repetitivo de encima.
           </p>
           <div className="home-work__proof">
-            <span>6 años en tecnología y banca</span>
+            <span>8 años automatizando · 6 en banca</span>
             <span>Medellín · Europa</span>
             <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
           </div>

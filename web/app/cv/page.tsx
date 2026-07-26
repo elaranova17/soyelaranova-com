@@ -178,7 +178,7 @@ export default function CvPage() {
                 sino un sistema que captura y mide.
               </p>
               <p className="studio-b2b__pitch font-serif">
-                Pienso como diseñadora. Construyo como ingeniera.
+                Pienso en el detalle. Construyo como ingeniera.
               </p>
               <dl className="studio-b2b__contact studio-b2b__contact--compact">
                 <div>

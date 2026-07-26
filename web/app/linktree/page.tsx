@@ -169,7 +169,7 @@ export default function LinktreePage() {
             Ingeniera de software · automatización, webs que venden y Google Ads.
           </p>
           <p className="linktree-tagline">
-            Pienso como diseñadora, construyo como ingeniera.
+            Pienso en el detalle, construyo como ingeniera.
           </p>
 
           <span className="linktree-status">

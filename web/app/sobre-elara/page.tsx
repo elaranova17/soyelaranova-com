@@ -62,7 +62,7 @@ export default function SobreElaraPage() {
             <em className="type-lockup__script">Patiño Laverde</em>
           </h2>
           <p className="mt-1 font-sans text-[10px] tracking-[0.28em] text-[var(--color-gold-soft)]/80 uppercase">
-            Pienso como diseñadora, construyo como ingeniera
+            Pienso en el detalle, construyo como ingeniera
           </p>
 
           <p className="mx-auto mt-5 max-w-md font-serif text-base leading-relaxed text-[var(--color-cream)]/80">

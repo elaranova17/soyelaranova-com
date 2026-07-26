@@ -88,7 +88,7 @@ export default function TrabajaConmigoPage() {
               y clientes.
             </p>
             <p className="studio-b2b__pitch font-serif">
-              Pienso como diseñadora. Construyo como ingeniera.
+              Pienso en el detalle. Construyo como ingeniera.
             </p>
           </StudioReveal>
           <StudioReveal delay={0.1}>
