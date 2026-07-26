@@ -7,7 +7,7 @@
 3. **No `.jpg` en `public/images/`** — solo las ilustraciones `.png` que usan las rutas espirituales (`/cursos`, `/oraculo`, `/universo`).
 4. **No reintroducir legacy eliminado en julio 2026:** `elara/` (avatar+stickers), `site-nav-ritual.css/js`, `elara-nova-rediseno.css`, `elara-nova-animations.js`, `elara-cursos-productos.css`. El verify falla si reaparecen.
 5. **No CSS/JS suelto que estile el app** — los estilos viven en `web/app/globals.css`. Excepción: `elara-ritual.css` y `evelyn-b2b/b2b-nav.css`, que cargan los HTML estáticos de `evelyn-b2b/`.
-6. **Fotos Evelyn** — solo `evelyn-editorial-mistico.jpg` + `evelyn-de-pie.jpg` hasta nuevos renders (`docs/prompts/evelyn-home-hero-about.json`). Prohibido: selfies privadas + serie desk blusa crema / face-ref / higgs. Producto: `media/servicios/` + `media/recursos/` + slide.
+6. **Fotos Evelyn** (lote editado 26 jul 2026): `evelyn-hero-ciruela.jpg` (hero/trabaja-conmigo), `evelyn-about-escritorio.jpg` (sobre mí), `evelyn-sobre-editorial.jpg` (sobre-elara/perfil), `evelyn-headshot.jpg` (CV/linktree). Cableadas en `web/lib/evelyn-photos.ts`. Prohibido: selfies privadas + serie desk vieja / face-ref / higgs. Producto: `media/servicios/` + `media/recursos/` + slide.
 7. Antes de push: `cd web && npm run verify:assets`
 
 **Qué hay:**
