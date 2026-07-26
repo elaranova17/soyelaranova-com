@@ -22,10 +22,10 @@ export const evelynPhotos = {
   portfolioHero: `${KIT}/evelyn-hero-ciruela.jpg`,
   /** /portfolio about — retrato editorial */
   portfolioAbout: `${KIT}/evelyn-sobre-editorial.jpg`,
-  /** /cv hero — headshot limpio */
-  cvHero: `${KIT}/evelyn-headshot.jpg`,
-  /** /cv perfil — retrato editorial */
-  cvAbout: `${KIT}/evelyn-sobre-editorial.jpg`,
+  /** /cv hero — retrato editorial con aire (mejor para hero a pantalla completa) */
+  cvHero: `${KIT}/evelyn-sobre-editorial.jpg`,
+  /** /cv perfil — headshot limpio */
+  cvAbout: `${KIT}/evelyn-headshot.jpg`,
   /** LPs / packs — retrato estudio ciruela */
   estudio: `${KIT}/evelyn-hero-ciruela.jpg`,
   atmosphere: `${KIT}/bg-editorial-humo.webp`,

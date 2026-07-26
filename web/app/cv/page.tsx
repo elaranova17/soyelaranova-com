@@ -96,7 +96,7 @@ export default function CvPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_18%]"
+            className="object-cover object-[50%_34%]"
           />
           <span className="studio-b2b__hero-veil" />
           <span className="studio-b2b__hero-glow" />
@@ -156,7 +156,7 @@ export default function CvPage() {
                 alt="Evelyn Patiño"
                 fill
                 sizes="(max-width: 900px) 92vw, 28rem"
-                className="object-cover object-[50%_12%]"
+                className="object-cover object-[50%_28%]"
               />
             </figure>
           </StudioReveal>
