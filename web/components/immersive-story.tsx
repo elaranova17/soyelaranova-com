@@ -153,7 +153,7 @@ const steps: readonly Step[] = [
     number: '03',
     titleImpact: 'Construyo',
     titleScript: 'lo que vende',
-    text: 'Web, automatización o embudo, construido con criterio de ingeniera: seguro, que escala y que se mantiene. Sin humo — piezas pensadas para convertir visitas en clientes.',
+    text: 'Web, automatización o embudo, construido para durar: seguro, que escala y que se mantiene. Sin humo — piezas pensadas para convertir visitas en clientes.',
     Screen: CrearScreen,
   },
   {

@@ -34,7 +34,7 @@ export const studioServices: readonly StudioService[] = [
       'Para marcas que ya no quieren verse improvisadas. Diseño, estructura, copy y desarrollo en una sola pieza que carga rápido, se ve impecable en el móvil y convierte la visita en una conversación de venta.',
     deliverable: 'Web comercial, portfolio, página de servicio o sitio institucional.',
     promise:
-      'Una web clara y elegante que explica lo que haces en segundos, construye autoridad y lleva a la persona correcta hasta el botón de contacto. Rápida, segura y fácil de mantener: la construyo con criterio de ingeniera, para que crezca contigo y no se caiga justo cuando más visitas te llegan.',
+      'Una web clara y elegante que explica lo que haces en segundos, construye autoridad y lleva a la persona correcta hasta el botón de contacto. Rápida, segura y fácil de mantener, para que crezca contigo y no se caiga justo cuando más visitas te llegan.',
     idealFor: [
       'Negocios que viven pegados a Instagram o WhatsApp y quedan a ciegas el día que el algoritmo cambia.',
       'Profesionales independientes que necesitan verse tan sólidos como el trabajo que entregan.',
@@ -119,12 +119,12 @@ export const studioServices: readonly StudioService[] = [
     lockupImpact: 'Automatizaciones',
     lockupScript: 'de negocio',
     whatIs:
-      'Una automatización es un flujo que hace solo lo que hoy haces a mano: cuando alguien llena un formulario, el sistema guarda el dato, te avisa, manda el email de bienvenida y agenda el seguimiento — sin que tú copies y pegues entre WhatsApp, el correo y Excel. Es mi fuerte: llevo años haciéndolo, primero con macros en banca y hoy con herramientas modernas e IA.',
+      'Una automatización es un flujo que hace solo lo que hoy haces a mano: cuando alguien llena un formulario, el sistema guarda el dato, te avisa, manda el email de bienvenida y agenda el seguimiento — sin que tú copies y pegues entre WhatsApp, el correo y Excel. El sistema trabaja por ti de día y de noche, y ningún cliente se queda sin respuesta.',
     summary:
       'Conecto formularios, emails, hojas, CRMs y notificaciones para que cada lead tenga seguimiento sin que muevas un dedo. Recuperas las horas que hoy se van en copiar y pegar, y dejas de perder ventas por un mensaje que se quedó sin responder.',
     deliverable: 'Flujos de captura, seguimiento, post-compra y recordatorios.',
     promise:
-      'Un sistema que se encarga de las tareas repetitivas, responde más rápido de lo que tú lo harías a mano y evita que una venta real se pierda entre mensajes sueltos. Hecho con criterio de ingeniera de banca: seguro con tus datos, preparado para escalar y fácil de mantener — no un experimento que se rompe al mes.',
+      'Un sistema que se encarga de las tareas repetitivas, responde más rápido de lo que tú lo harías a mano y evita que una venta real se pierda entre mensajes sueltos. Seguro con tus datos, preparado para escalar y fácil de mantener — no un experimento que se rompe al mes.',
     idealFor: [
       'Negocios que reciben leads y los gestionan a mano, uno por uno, hasta que se les escapa alguno.',
       'Personas que venden servicios, cursos o productos digitales y ya no dan abasto con el seguimiento.',

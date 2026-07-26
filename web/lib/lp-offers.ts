@@ -186,7 +186,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
     priceBullets: [
       'Precio cerrado antes de empezar — sin sorpresas ni horas fantasma',
       'Funciona con las herramientas que ya pagas, sin migrar todo',
-      'Hecho con criterio de banca: seguro, escalable y fácil de mantener',
+      'Seguro, escalable y fácil de mantener — hecho para durar, no para rehacer en un año',
     ],
     caseTitle: 'val-débarras: pedidos que llegan solos, cada día.',
     caseBody:
@@ -200,7 +200,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       {
         dolor: 'Los datos viven dispersos por todos lados',
         solucion:
-          'Formularios, hojas y CRM conectados con la disciplina de un sistema bancario: cada cliente entra una sola vez, sin errores de copiado, y aparece exacto donde lo necesitas.',
+          'Formularios, hojas y CRM conectados de verdad: cada cliente entra una sola vez, sin errores de copiado, y aparece exacto donde lo necesitas.',
       },
       {
         dolor: 'Se te escapan clientes por no hacer seguimiento',
@@ -471,7 +471,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     ],
     caseTitle: 'De tareas sueltas a sistema.',
     caseBody:
-      'Pro conecta todo el embudo: captura, clasificación, seguimiento y avisos en una sola pieza. Menos fricción, menos horas perdidas y más leads atendidos a tiempo —que es lo mismo que decir más ventas cerradas. Y todo construido con criterio de banca: seguro, escalable y fácil de mantener.',
+      'Pro conecta todo el embudo: captura, clasificación, seguimiento y avisos en una sola pieza. Menos fricción, menos horas perdidas y más leads atendidos a tiempo —que es lo mismo que decir más ventas cerradas. Y todo hecho para durar: seguro, escalable y fácil de mantener.',
     dolores: [
       {
         dolor: 'Tienes 3–4 tareas manuales en cadena',
@@ -514,7 +514,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     ],
     caseTitle: 'Cuando el negocio ya no cabe en un zap.',
     caseBody:
-      'A medida es para operación real: reglas propias, integraciones con tus sistemas y una arquitectura pensada para escalar sin contratar más gente. Con seis años de disciplina de banca detrás, se construye para que no se caiga y para que dure —no un experimento que hay que rehacer en un año.',
+      'A medida es para operación real: reglas propias, integraciones con tus sistemas y una arquitectura pensada para escalar sin contratar más gente. Se construye para que no se caiga y para que dure —no un experimento que hay que rehacer en un año.',
     dolores: [
       {
         dolor: 'Tus procesos son únicos',
@@ -522,7 +522,7 @@ export const lpPackOffers: readonly LpOffer[] = [
       },
       {
         dolor: 'Necesitas IA o chatbot serio',
-        solucion: 'Lo integramos donde de verdad aporta, con pruebas reales y traspaso. IA sí, pero con un ingeniero con experiencia respondiendo por ella.',
+        solucion: 'Lo integramos donde de verdad aporta, con pruebas reales y traspaso. IA sí, pero con una persona con experiencia detrás respondiendo por ella, no un robot suelto.',
       },
       {
         dolor: 'Quieres presupuesto cerrado',
