@@ -152,23 +152,54 @@ export default function HomePage() {
       </section>
 
       <section id="servicios" className="home-intro">
-        <div>
+        <div className="home-intro__lead">
           <Eyebrow>Lo que hago por tu negocio</Eyebrow>
           <h2 className="type-lockup type-lockup--glow-soft">
             <span className="type-lockup__impact">Menos manual</span>
             <em className="type-lockup__script">más clientes</em>
           </h2>
+          <p className="home-intro__pitch">
+            La mayoría de los negocios pierden horas cada semana en tareas que una máquina puede
+            hacer sola: pasar leads a mano, responder lo mismo mil veces, copiar datos entre apps.
+            Yo encuentro esas fugas y las cierro con sistemas que trabajan por ti — para que dediques
+            tu tiempo a lo que de verdad hace crecer tu negocio.
+          </p>
+          <ul className="home-intro__proof">
+            <li>Cada lead con seguimiento automático, sin mover un dedo.</li>
+            <li>Webs que convierten visitas en clientes, no folletos bonitos.</li>
+            <li>Todo medible: sabes qué funciona y qué no.</li>
+          </ul>
         </div>
         <div className="home-intro__body">
-          <p>
-            Diseño y programo los sistemas que sostienen un negocio: automatizaciones que responden
-            por ti, páginas que convierten y campañas que puedes medir. Sin humo, con ingeniería.
-          </p>
           <div className="home-intro__services" aria-label="Servicios principales">
-            <span>Automatizaciones</span>
-            <span>Landing pages y sitios web</span>
-            <span>Google Ads y medición</span>
-            <span>Productos digitales</span>
+            <div className="home-intro__service">
+              <span>Automatizaciones</span>
+              <p>
+                Conecto tus herramientas para que el trabajo repetitivo se haga solo. Recuperas
+                horas cada semana y ningún lead se pierde por el camino.
+              </p>
+            </div>
+            <div className="home-intro__service">
+              <span>Landing pages y sitios web</span>
+              <p>
+                Páginas hechas para vender: mensaje claro, mobile-first y pensadas para que la
+                persona correcta dé el siguiente paso.
+              </p>
+            </div>
+            <div className="home-intro__service">
+              <span>Google Ads y medición</span>
+              <p>
+                Campañas conectadas a tu web y a eventos reales. Sabes qué anuncio trae clientes y
+                dónde estabas gastando de más.
+              </p>
+            </div>
+            <div className="home-intro__service">
+              <span>Productos digitales</span>
+              <p>
+                Ebooks y guías para automatizar tu negocio paso a paso, con lo que de verdad
+                funciona — sin teoría de relleno.
+              </p>
+            </div>
           </div>
         </div>
       </section>

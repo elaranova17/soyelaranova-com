@@ -2284,7 +2284,6 @@ h1, h2, h3,
   border-top: 1px solid var(--editorial-stone);
 }
 
-.home-intro__services span,
 .home-work__proof span {
   padding: 1rem 0;
   border-bottom: 1px solid var(--editorial-stone);
@@ -2293,6 +2292,64 @@ h1, h2, h3,
   font-weight: 700;
   letter-spacing: .15em;
   text-transform: uppercase;
+}
+
+/* Home intro · pitch de marketing + puntos de valor (columna izquierda) */
+.home-intro__pitch {
+  margin-top: 1.75rem;
+  max-width: 40ch;
+  color: var(--editorial-cacao);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.home-intro__proof {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.home-intro__proof li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--editorial-ink);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
+.home-intro__proof li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .5em;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: var(--editorial-gold);
+}
+
+/* Home intro · servicios con beneficio (columna derecha) */
+.home-intro__service {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--editorial-stone);
+}
+
+.home-intro__service span {
+  display: block;
+  color: var(--editorial-plum);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.home-intro__service p {
+  margin-top: .55rem;
+  color: var(--editorial-cacao);
+  font-size: .95rem;
+  line-height: 1.6;
 }
 
 /* ——— Home · scroll storytelling (limpio / profesional) ——— */
