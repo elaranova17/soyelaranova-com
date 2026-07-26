@@ -34,9 +34,9 @@ export const bookOffers: readonly BookOffer[] = [
     titleImpact: '7 Días',
     titleScript: 'de Elara',
     description:
-      'Ebook gratuito: 7 días suaves para volver a vos. Opt-in y primer paso del universo Elara.',
+      'Ebook gratuito: 7 días suaves para volver a ti. Opt-in y primer paso del universo Elara.',
     subtitle:
-      'Una semana de gestos pequeños — sin mindset tóxico ni listas infinitas. Ideal si querés probar la voz Elara antes del Ciclo Nova.',
+      'Una semana de gestos pequeños — sin mindset tóxico ni listas infinitas. Ideal si quieres probar la voz Elara antes del Ciclo Nova.',
     priceLabel: 'Gratis',
     bullets: [
       'PDF listo para leer',
@@ -62,7 +62,7 @@ export const bookOffers: readonly BookOffer[] = [
     titleImpact: 'Ciclo Nova',
     titleScript: 'del Regreso',
     description:
-      'Ebook pago (27–37 €): framework de 4 estaciones para un retorno semanal a vos. Waitlist abierta.',
+      'Ebook pago (27–37 €): framework de 4 estaciones para un retorno semanal a ti. Waitlist abierta.',
     subtitle:
       'Para quien ya probó self-help y quiere un ciclo real, con gestos de menos de 5 minutos. Waitlist mientras cerramos Hotmart.',
     priceLabel: '27 € lanzamiento · 37 € evergreen',

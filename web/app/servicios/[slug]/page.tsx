@@ -105,7 +105,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 Packs con precio ancla
               </p>
               <h2 className="type-lockup type-lockup--glow-soft page-lockup mt-3">
-                <span className="type-lockup__impact">Elegí</span>
+                <span className="type-lockup__impact">Elige</span>
                 <em className="type-lockup__script">nivel</em>
               </h2>
             </StudioReveal>

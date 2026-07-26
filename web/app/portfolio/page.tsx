@@ -38,7 +38,7 @@ const pains = [
   },
   {
     t: 'Ads sin sistema',
-    d: 'Gastás en clics y no sabés qué convirtió. El presupuesto se va sin feedback.',
+    d: 'Gastas en clics y no sabes qué convirtió. El presupuesto se va sin feedback.',
   },
 ] as const
 
@@ -68,7 +68,7 @@ const offers = [
     title: 'Google Ads',
     script: 'con consecuencia',
     price: 'Con medición',
-    result: 'Sabés qué anuncio paga y cuál se come el presupuesto',
+    result: 'Sabes qué anuncio paga y cuál se come el presupuesto',
     includes: ['Tracking', 'Landings alineadas', 'Optimización base'],
     href: '/lp/google-ads',
     Scene: AdsScene,
@@ -234,7 +234,7 @@ export default function PortfolioPage() {
             </h2>
           </div>
           <p className="studio-b2b__section-note">
-            Cada oferta tiene escena viva + resultado + precio ancla. Tocá para ver el pack.
+            Cada oferta tiene escena viva + resultado + precio ancla. Toca para ver el pack.
           </p>
         </StudioReveal>
 
@@ -280,7 +280,7 @@ export default function PortfolioPage() {
         <StudioReveal delay={0.08}>
           <StudioPipeline />
           <p className="studio-graphic-caption">
-            Formulario → CRM/hoja → WhatsApp/email → aviso a vos. Sin copiar datos a mano.
+            Formulario → CRM/hoja → WhatsApp/email → aviso a ti. Sin copiar datos a mano.
           </p>
         </StudioReveal>
       </section>
@@ -320,7 +320,7 @@ export default function PortfolioPage() {
             Siguiente paso
           </p>
           <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
-            <span className="type-lockup__impact">Empezá</span>
+            <span className="type-lockup__impact">Empieza</span>
             <em className="type-lockup__script">sin compromiso</em>
           </h2>
         </StudioReveal>

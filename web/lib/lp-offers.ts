@@ -155,7 +155,7 @@ const FUNNEL_STEPS: readonly [string, string, string][] = [
   [
     '01',
     'Pre-análisis didáctico',
-    'Completás un cuestionario guiado. Yo reviso tu contexto, web y fugas — sin call larga gratis.',
+    'Completas un cuestionario guiado. Yo reviso tu contexto, web y fugas — sin call larga gratis.',
   ],
   [
     '02',
@@ -174,18 +174,18 @@ export const lpMotherOffers: readonly LpOffer[] = [
     service: 'automatizaciones',
     pack: null,
     eyebrow: 'Automatización para negocios pequeños',
-    titlePlain: 'Automatizá tu negocio: menos trabajo manual, cero clientes perdidos',
-    title: 'Automatizá tu negocio: menos trabajo manual, cero clientes perdidos.',
+    titlePlain: 'Automatiza tu negocio: menos trabajo manual, cero clientes perdidos',
+    title: 'Automatiza tu negocio: menos trabajo manual, cero clientes perdidos.',
     description:
       'Automatizaciones para negocios pequeños: formularios, emails, WhatsApp y CRM conectados. Pre-análisis didáctico + sesión estratégica.',
     subtitle:
-      'Si todavía respondés cada mensaje, copiás datos a mano y perseguís clientes uno por uno, tu negocio depende de que vos no te enfermes nunca. Eso se arregla.',
+      'Si todavía respondes cada mensaje, copias datos a mano y persigues clientes uno por uno, tu negocio depende de que tú no te enfermes nunca. Eso se arregla.',
     ctaLabel: 'Hacer mi pre-análisis',
-    ctaNote: 'Gratis · después sesión 25 CHF si querés profundizar',
+    ctaNote: 'Gratis · después sesión 25 CHF si quieres profundizar',
     priceAnchor: 'Desde 450 €',
     priceBullets: [
       'Precio cerrado antes de empezar — sin sorpresas',
-      'Funciona con las herramientas que ya usás',
+      'Funciona con las herramientas que ya usas',
       'Te lo dejo andando y te enseño a manejarlo',
     ],
     caseTitle: 'val-débarras: pedidos que llegan solos, cada día.',
@@ -193,14 +193,14 @@ export const lpMotherOffers: readonly LpOffer[] = [
       'Para esta empresa suiza construí el sistema completo: formularios que capturan cada solicitud, seguimiento automático y campañas conectadas. No una página bonita — un sistema que genera pedidos reales sin trabajo manual.',
     dolores: [
       {
-        dolor: 'Respondés lo mismo mil veces',
+        dolor: 'Respondes lo mismo mil veces',
         solucion:
           'Emails y WhatsApp automáticos que contestan al instante con tu voz — cada lead recibe respuesta aunque estés dormida.',
       },
       {
-        dolor: 'Los datos viven regados por todos lados',
+        dolor: 'Los datos viven dispersos por todos lados',
         solucion:
-          'Formularios, hojas y CRM conectados: cada cliente entra una sola vez y aparece donde lo necesitás.',
+          'Formularios, hojas y CRM conectados: cada cliente entra una sola vez y aparece donde lo necesitas.',
       },
       {
         dolor: 'Se te escapan clientes por no hacer seguimiento',
@@ -212,7 +212,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
     faq: [
       [
         '¿Qué se puede automatizar exactamente?',
-        'Formularios que llegan a tu CRM, respuestas de email y WhatsApp, recordatorios de cita, facturas, reportes… si lo hacés a mano cada semana, casi seguro se puede automatizar.',
+        'Formularios que llegan a tu CRM, respuestas de email y WhatsApp, recordatorios de cita, facturas, reportes… si lo haces a mano cada semana, casi seguro se puede automatizar.',
       ],
       [
         '¿Cuánto tarda?',
@@ -220,11 +220,11 @@ export const lpMotherOffers: readonly LpOffer[] = [
       ],
       [
         '¿El pre-análisis es una call gratis?',
-        'No. Completás un cuestionario didáctico. Yo te mando una lectura inicial. Si querés profundizar, agendamos sesión estratégica de 20 min (25 CHF).',
+        'No. Completas un cuestionario didáctico. Yo te mando una lectura inicial. Si quieres profundizar, agendamos sesión estratégica de 20 min (25 CHF).',
       ],
       [
         '¿Necesito tener página web?',
-        'No. Muchas automatizaciones funcionan con lo que ya usás: WhatsApp, Gmail, hojas de cálculo, tu CRM actual.',
+        'No. Muchas automatizaciones funcionan con lo que ya usas: WhatsApp, Gmail, hojas de cálculo, tu CRM actual.',
       ],
     ],
     discoveryDefaults: { service: 'Automatizaciones' },
@@ -238,9 +238,9 @@ export const lpMotherOffers: readonly LpOffer[] = [
     description:
       'Sitios web profesionales para negocios que necesitan presencia sólida, mensaje claro y conversión. Pre-análisis + sesión estratégica.',
     subtitle:
-      'Si tu web es un folleto digital que nadie mide — o ni tenés casa digital y vivís en Instagram — construimos la base que sostiene tus ventas.',
+      'Si tu web es un folleto digital que nadie mide — o ni tienes casa digital y vives en Instagram — construimos la base que sostiene tus ventas.',
     ctaLabel: 'Hacer mi pre-análisis',
-    ctaNote: 'Gratis · después sesión 25 CHF si querés profundizar',
+    ctaNote: 'Gratis · después sesión 25 CHF si quieres profundizar',
     priceAnchor: 'Desde 1.900 €',
     priceBullets: [
       'Arquitectura y copy orientados a conversión',
@@ -254,7 +254,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       {
         dolor: 'Dependés solo de Instagram o WhatsApp',
         solucion:
-          'Una casa digital propia donde la persona entiende qué hacés, confía y te contacta — sin perderse en el feed.',
+          'Una casa digital propia donde la persona entiende qué haces, confía y te contacta — sin perderse en el feed.',
       },
       {
         dolor: 'Tu web actual no explica ni vende',
@@ -262,16 +262,16 @@ export const lpMotherOffers: readonly LpOffer[] = [
           'Mensaje, secciones y CTAs pensados para el siguiente paso: cotizar, reservar o escribirte.',
       },
       {
-        dolor: 'No sabés si la web sirve',
+        dolor: 'No sabes si la web sirve',
         solucion:
-          'Analítica y eventos base: sabés qué páginas miran y dónde se caen antes de invertir en Ads.',
+          'Analítica y eventos base: sabes qué páginas miran y dónde se caen antes de invertir en Ads.',
       },
     ],
     pasos: FUNNEL_STEPS,
     faq: [
       [
         '¿Incluye textos?',
-        'Sí, copy base para explicar oferta, proceso y autoridad. Vos aportás datos y referencias; yo lo ordeno.',
+        'Sí, copy base para explicar oferta, proceso y autoridad. Tú aportas datos y referencias; yo lo ordeno.',
       ],
       [
         '¿Cuánto tarda un sitio?',
@@ -283,7 +283,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       ],
       [
         '¿Cómo empiezo?',
-        'Hacé el pre-análisis. Con eso preparo tu lectura y, si hay fit, la sesión estratégica de 25 CHF.',
+        'Haz el pre-análisis. Con eso preparo tu lectura y, si hay fit, la sesión estratégica de 25 CHF.',
       ],
     ],
     discoveryDefaults: { service: 'Sitio web profesional' },
@@ -297,9 +297,9 @@ export const lpMotherOffers: readonly LpOffer[] = [
     description:
       'Landing pages para Google Ads, Meta y lanzamientos: un solo objetivo, mensaje claro, medición. Pre-análisis + sesión estratégica.',
     subtitle:
-      'Una página, una promesa, una acción. Ideal si vas a pagar por clics o lanzar algo y no querés quemar presupuesto en una home genérica.',
+      'Una página, una promesa, una acción. Ideal si vas a pagar por clics o lanzar algo y no quieres quemar presupuesto en una home genérica.',
     ctaLabel: 'Hacer mi pre-análisis',
-    ctaNote: 'Gratis · después sesión 25 CHF si querés profundizar',
+    ctaNote: 'Gratis · después sesión 25 CHF si quieres profundizar',
     priceAnchor: 'Desde 650 €',
     priceBullets: [
       'Estructura de conversión + FAQ de objeciones',
@@ -342,7 +342,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       ],
       [
         '¿Cómo empiezo?',
-        'Pre-análisis didáctico → lectura tuya → sesión 25 CHF si querés la mini-ruta en vivo.',
+        'Pre-análisis didáctico → lectura tuya → sesión 25 CHF si quieres la mini-ruta en vivo.',
       ],
     ],
     discoveryDefaults: { service: 'Landing page para campaña' },
@@ -358,7 +358,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
     subtitle:
       'Antes de subir presupuesto, ordenamos promesa, landing y eventos. Menos adivinanza, más sistema.',
     ctaLabel: 'Hacer mi pre-análisis',
-    ctaNote: 'Gratis · después sesión 25 CHF si querés profundizar',
+    ctaNote: 'Gratis · después sesión 25 CHF si quieres profundizar',
     priceAnchor: 'Setup 450 € · gestión 350 €/mes',
     priceBullets: [
       'Estructura por intención de búsqueda',
@@ -370,7 +370,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       'En val-débarras las campañas no terminan en un “gracias” vacío: el lead entra al sistema y hay seguimiento. Eso es medición con consecuencias.',
     dolores: [
       {
-        dolor: 'Gastás y no sabés qué funciona',
+        dolor: 'Gastas y no sabes qué funciona',
         solucion:
           'Eventos de conversión y lecturas claras: qué búsquedas traen leads y cuáles queman plata.',
       },
@@ -380,7 +380,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
           'Alineamos mensaje anuncio ↔ landing. Mejor Quality Score, CPC más sano.',
       },
       {
-        dolor: 'Querés Ads sin base',
+        dolor: 'Quieres Ads sin base',
         solucion:
           'Primero validamos oferta y página. Si hace falta, construimos la landing antes de escalar pauta.',
       },
@@ -401,7 +401,7 @@ export const lpMotherOffers: readonly LpOffer[] = [
       ],
       [
         '¿Cómo empiezo?',
-        'Pre-análisis → te digo si estás listo para Ads o qué arreglar antes → sesión 25 CHF si querés la ruta en vivo.',
+        'Pre-análisis → te digo si estás listo para Ads o qué arreglar antes → sesión 25 CHF si quieres la ruta en vivo.',
       ],
     ],
     discoveryDefaults: { service: 'Google Ads y medición' },
@@ -431,24 +431,24 @@ export const lpPackOffers: readonly LpOffer[] = [
       'El Arranque no pretende automatizar todo el negocio: elimina la fuga más cara primero. Después escalamos a Pro si hace falta.',
     dolores: [
       {
-        dolor: 'Copiás leads a mano',
+        dolor: 'Copias leads a mano',
         solucion: 'Cada formulario cae solo donde tiene que caer y te avisa.',
       },
       {
-        dolor: 'Olvidás responder',
+        dolor: 'Olvidas responder',
         solucion: 'Mensaje automático de confirmación + aviso interno.',
       },
       {
-        dolor: 'No sabés por dónde empezar',
+        dolor: 'No sabes por dónde empezar',
         solucion: 'El pre-análisis te dice cuál es el flujo #1 con más impacto.',
       },
     ],
     pasos: FUNNEL_STEPS,
     faq: [
       ['¿Puedo sumar más flujos después?', 'Sí. Arranque es la puerta; Pro o retainer continúan.'],
-      ['¿Qué herramientas usás?', 'n8n / Make / Zapier según tu stack y presupuesto.'],
+      ['¿Qué herramientas usas?', 'n8n / Make / Zapier según tu stack y presupuesto.'],
       ['¿Hay retainer?', 'Sí: Cuidado 250 €/mes o Evolución 450 €/mes.'],
-      ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF si querés la mini-ruta → Arranque.'],
+      ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF si quieres la mini-ruta → Arranque.'],
     ],
     discoveryDefaults: { service: 'Automatizaciones', pack: 'Arranque 450€' },
   },
@@ -474,7 +474,7 @@ export const lpPackOffers: readonly LpOffer[] = [
       'Pro conecta el embudo: captura, clasificación, seguimiento y avisos. Menos fricción, más leads atendidos.',
     dolores: [
       {
-        dolor: 'Tenés 3–4 tareas manuales en cadena',
+        dolor: 'Tienes 3–4 tareas manuales en cadena',
         solucion: 'Un solo sistema las encadena sin que copies datos.',
       },
       {
@@ -521,11 +521,11 @@ export const lpPackOffers: readonly LpOffer[] = [
         solucion: 'Diseñamos arquitectura, no plantillas genéricas.',
       },
       {
-        dolor: 'Necesitás IA o chatbot serio',
+        dolor: 'Necesitas IA o chatbot serio',
         solucion: 'Lo integramos donde aporta, con pruebas y traspaso.',
       },
       {
-        dolor: 'Querés presupuesto cerrado',
+        dolor: 'Quieres presupuesto cerrado',
         solucion: 'El precio se cierra tras el pre-análisis y la sesión de alcance.',
       },
     ],
@@ -560,7 +560,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     dolores: [
       { dolor: 'Home genérica para Ads', solucion: 'Landing alineada al anuncio.' },
       { dolor: 'No hay un CTA claro', solucion: 'Un objetivo, medible.' },
-      { dolor: 'Necesitás rapidez', solucion: 'Paquete cerrado en días, no meses.' },
+      { dolor: 'Necesitas rapidez', solucion: 'Paquete cerrado en días, no meses.' },
     ],
     pasos: FUNNEL_STEPS,
     faq: [
@@ -591,7 +591,7 @@ export const lpPackOffers: readonly LpOffer[] = [
     caseBody:
       'Estructura, copy y formularios listos para que Google y tus clientes te encuentren con claridad.',
     dolores: [
-      { dolor: 'Parecés improvisada online', solucion: 'Diseño y mensaje de estudio serio.' },
+      { dolor: 'Pareces improvisada online', solucion: 'Diseño y mensaje de estudio serio.' },
       { dolor: 'Nadie encuentra tus servicios', solucion: 'SEO base y arquitectura clara.' },
       { dolor: 'No hay siguiente paso', solucion: 'CTAs y formularios en cada página clave.' },
     ],
@@ -626,14 +626,14 @@ export const lpPackOffers: readonly LpOffer[] = [
     caseBody:
       'Pedidos que entran solos, medidos y con seguimiento. La inversión publicitaria la pone el cliente; yo armo la máquina.',
     dolores: [
-      { dolor: 'Querés clientes ya', solucion: 'Ads + landing + captura en un solo sistema.' },
+      { dolor: 'Quieres clientes ya', solucion: 'Ads + landing + captura en un solo sistema.' },
       { dolor: 'Web y Ads desconectados', solucion: 'Todo mide la misma conversión.' },
       { dolor: 'Leads fríos sin seguimiento', solucion: 'Automatización desde el primer envío.' },
     ],
     pasos: FUNNEL_STEPS,
     faq: [
-      ['¿La pauta está incluida?', 'No. La inversión en Google la pagás vos (recomiendo 300–500 €/mes al inicio).'],
-      ['¿Trabajás con clientes de otros países?', 'Sí: misma lógica por ciudad/servicio en Europa o LATAM.'],
+      ['¿La pauta está incluida?', 'No. La inversión en Google la pagas tú (recomiendo 300–500 €/mes al inicio).'],
+      ['¿Trabajas con clientes de otros países?', 'Sí: misma lógica por ciudad/servicio en Europa o LATAM.'],
       ['¿Puedo empezar más chico?', 'Sí: Landing + setup Ads, o Sitio Negocio solo.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → propuesta Sitio + Ads.'],
     ],
@@ -644,9 +644,9 @@ export const lpPackOffers: readonly LpOffer[] = [
     pack: 'setup',
     eyebrow: 'Google Ads · Setup',
     titlePlain: 'Setup Google Ads · 450 €',
-    title: 'Dejá tus campañas bien nacidas — con medición de verdad.',
+    title: 'Deja tus campañas bien nacidas — con medición de verdad.',
     description: 'Setup inicial Google Ads: estructura, anuncios, keywords, conversiones. 450 €.',
-    subtitle: 'Una vez bien hecho: sin tirar plata en campañas sin eventos ni estructura.',
+    subtitle: 'Una vez bien hecho: sin tirar dinero en campañas sin eventos ni estructura.',
     ctaLabel: 'Hacer mi pre-análisis',
     ctaNote: 'Reviso si tu landing está lista antes del setup',
     priceAnchor: '450 €',
@@ -691,12 +691,12 @@ export const lpPackOffers: readonly LpOffer[] = [
     caseBody: 'Las cuentas vivas se revisan: búsquedas negativas, anuncios y landings que acompañan.',
     dolores: [
       { dolor: 'Campañas en piloto automático malo', solucion: 'Revisión y recorte de desperdicio.' },
-      { dolor: 'No entendés los informes', solucion: 'Lectura clara de qué trae leads.' },
-      { dolor: 'Escalás sin control', solucion: 'Reglas y % según inversión.' },
+      { dolor: 'No entiendes los informes', solucion: 'Lectura clara de qué trae leads.' },
+      { dolor: 'Escalas sin control', solucion: 'Reglas y % según inversión.' },
     ],
     pasos: FUNNEL_STEPS,
     faq: [
-      ['¿Necesito setup antes?', 'Sí, o una auditoría si ya tenés cuenta.'],
+      ['¿Necesito setup antes?', 'Sí, o una auditoría si ya tienes cuenta.'],
       ['¿Contrato mínimo?', 'Mes a mes; lo ideal es 2–3 meses para ver curva.'],
       ['¿Incluye creatividades infinitas?', 'Iteraciones de anuncios texto; creatividades grandes se cotizan aparte.'],
       ['¿Cómo empiezo?', 'Pre-análisis → sesión 25 CHF → gestión.'],

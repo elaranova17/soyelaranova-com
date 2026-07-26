@@ -92,20 +92,20 @@ export default function TrabajaConmigoPage() {
             <ul className="studio-pain-list">
               <li>
                 <article>
-                  <h3 className="font-display">Sin call gratis larga</h3>
-                  <p>Pre-análisis didáctico → lectura → sesión 25 CHF si hay fit.</p>
+                  <h3 className="font-display">Llego con tu diagnóstico</h3>
+                  <p>Reviso tu pre-análisis yo misma y llego a la charla con un diagnóstico previo. No pierdes el rato descubriendo tu negocio.</p>
                 </article>
               </li>
               <li>
                 <article>
                   <h3 className="font-display">Precio cerrado</h3>
-                  <p>Packs Arranque / Pro / Sitio+Ads. Sabés qué comprás.</p>
+                  <p>Packs Arranque / Pro / Sitio+Ads. Sabes qué compras.</p>
                 </article>
               </li>
               <li>
                 <article>
                   <h3 className="font-display">Explico en simple</h3>
-                  <p>Si no entendés “landing” o “tracking”, te lo dibujo con modelos.</p>
+                  <p>Si no entiendes “landing” o “tracking”, te lo dibujo con modelos.</p>
                 </article>
               </li>
             </ul>
@@ -126,7 +126,7 @@ export default function TrabajaConmigoPage() {
             </h2>
           </div>
           <p className="studio-b2b__section-note">
-            Cada servicio se explica en castellano claro. Empezá por el que más te duele hoy.
+            Cada servicio se explica en castellano claro. Empieza por el que más te duele hoy.
           </p>
         </StudioReveal>
         <StudioStagger className="studio-service-grid studio-service-grid--flush">
@@ -159,7 +159,7 @@ export default function TrabajaConmigoPage() {
             Siguiente paso
           </p>
           <h2 className="type-lockup type-lockup--center type-lockup--glow page-lockup page-lockup--center">
-            <span className="type-lockup__impact">Empezá</span>
+            <span className="type-lockup__impact">Empieza</span>
             <em className="type-lockup__script">sin compromiso</em>
           </h2>
         </StudioReveal>

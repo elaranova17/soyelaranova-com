@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: 'Responsable',
-    text: 'Este sitio es gestionado por Evelyn Patiño / Elara Nova. Para consultas sobre privacidad, servicios o contenido, podés escribir a elaranova.17@gmail.com.',
+    text: 'Este sitio es gestionado por Evelyn Patiño / Elara Nova. Para consultas sobre privacidad, servicios o contenido, puedes escribir a elaranova.17@gmail.com.',
   },
   {
-    title: 'Datos que podés compartir',
-    text: 'Cuando completás un formulario, escribís por email o contactás por WhatsApp, podés compartir datos como nombre, correo, teléfono, negocio, presupuesto, objetivos del proyecto y cualquier información que decidas incluir.',
+    title: 'Datos que puedes compartir',
+    text: 'Cuando completas un formulario, escribes por email o contactas por WhatsApp, puedes compartir datos como nombre, correo, teléfono, negocio, presupuesto, objetivos del proyecto y cualquier información que decidas incluir.',
   },
   {
     title: 'Para qué se usan',
@@ -34,7 +34,7 @@ const sections = [
   },
   {
     title: 'Tus derechos',
-    text: 'Podés solicitar acceso, corrección o eliminación de tus datos escribiendo a elaranova.17@gmail.com. Si existe una obligación legal de conservar cierta información, se explicará en la respuesta.',
+    text: 'Puedes solicitar acceso, corrección o eliminación de tus datos escribiendo a elaranova.17@gmail.com. Si existe una obligación legal de conservar cierta información, se explicará en la respuesta.',
   },
   {
     title: 'Términos de uso',

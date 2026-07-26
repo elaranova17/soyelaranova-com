@@ -29,7 +29,7 @@ export default function ServicesPage() {
         <StudioReveal delay={0.1}>
           <p className="studio-index__hero-lead">
             No vendo “páginas bonitas” sueltas. Conecto web, automatización y Ads para que un lead
-            entre, se registre y vos sepas qué funcionó. Abajo: qué es cada cosa, en castellano
+            entre, se registre y tú sepas qué funcionó. Abajo: qué es cada cosa, en castellano
             claro, con modelos visuales.
           </p>
           <div className="studio-index__actions">
@@ -73,7 +73,7 @@ export default function ServicesPage() {
         context="all"
         titleImpact="Modelos"
         titleScript="de webs reales"
-        note="Tocá un modelo: ves la estructura (como un tutorial) y el pack que le corresponde. Así sabés qué pedís antes de pagar."
+        note="Toca un modelo: ves la estructura (como un tutorial) y el pack que le corresponde. Así sabes qué pides antes de pagar."
       />
 
       <StudioFunnelStrip trackingLabel="services_index_funnel" dark />

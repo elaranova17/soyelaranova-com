@@ -35,7 +35,7 @@ export default function SobreElaraPage() {
           </p>
           <p className="mt-4 max-w-lg font-serif text-base italic leading-relaxed text-[var(--color-cream)]/60">
             Todo lo que creé nació de esa pregunta: ¿qué hubiera necesitado yo al principio? Eso es
-            lo que encontrás acá. Sin vueltas.
+            lo que encuentras aquí. Sin vueltas.
           </p>
         </header>
 
@@ -71,8 +71,8 @@ export default function SobreElaraPage() {
             en España y LATAM.
           </p>
           <p className="mx-auto mt-3 max-w-md font-serif text-sm leading-relaxed text-[var(--color-cream)]/55">
-            Si buscás una presencia digital que convierta — sitios, apps y experiencias con IA — lo
-            que ves acá es lo que puedo construir para vos.
+            Si buscas una presencia digital que convierta — sitios, apps y experiencias con IA — lo
+            que ves aquí es lo que puedo construir para ti.
           </p>
 
           <ul className="mt-6 flex flex-wrap justify-center gap-2" aria-label="Stack técnico">

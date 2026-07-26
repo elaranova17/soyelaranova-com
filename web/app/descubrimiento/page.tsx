@@ -26,14 +26,14 @@ export default function DiscoveryPage() {
             Paso 1 del embudo · gratis
           </p>
           <h1 className="type-lockup type-lockup--glow-soft page-lockup">
-            <span className="type-lockup__impact">Contame</span>
-            <em className="type-lockup__script">cómo trabajás</em>
+            <span className="type-lockup__impact">Cuéntame</span>
+            <em className="type-lockup__script">cómo trabajas</em>
           </h1>
         </StudioReveal>
         <StudioReveal delay={0.08}>
           <p className="studio-index__hero-lead">
             No es una call larga gratis. Es un cuestionario guiado (2–4 min) para que yo prepare una
-            lectura de tu negocio/web. Si después querés profundizar: sesión estratégica 20 min · 25
+            lectura de tu negocio/web. Si después quieres profundizar: sesión estratégica 20 min · 25
             CHF.
           </p>
         </StudioReveal>
@@ -47,7 +47,7 @@ export default function DiscoveryPage() {
             </p>
             <div className="mt-6 space-y-5">
               {[
-                ['01', 'Completás 5 pasos (2–4 min)'],
+                ['01', 'Completas 5 pasos (2–4 min)'],
                 ['02', 'Te mando el pre-análisis por email'],
                 ['03', 'Si hay fit: sesión estratégica 25 CHF'],
                 ['04', 'Proyecto con pack y precio cerrado'],
@@ -61,7 +61,7 @@ export default function DiscoveryPage() {
               ))}
             </div>
             <p className="mt-7 border-t border-[var(--editorial-ivory)]/12 pt-5 text-xs leading-6 text-[var(--editorial-lavender)]/80">
-              Cuanto más concreto seas (URL, cómo llegan clientes, qué hacés a mano), mejor sale el
+              Cuanto más concreto seas (URL, cómo llegan clientes, qué haces a mano), mejor sale el
               pre-análisis. Si el envío automático falla, te dejo opción email/WhatsApp.
             </p>
             <Link

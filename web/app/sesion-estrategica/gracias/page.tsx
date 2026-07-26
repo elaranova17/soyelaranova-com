@@ -5,8 +5,8 @@ import { TrackedLink } from '@/components/tracked-link'
 import { getSessionBookingConfig, sessionWhatsappHref } from '@/lib/session-booking'
 
 export const metadata: Metadata = {
-  title: 'Pago recibido · Agendá tu sesión',
-  description: 'Gracias por pagar la sesión estratégica. Elegí tu horario en el calendario.',
+  title: 'Pago recibido · Agenda tu sesión',
+  description: 'Gracias por pagar la sesión estratégica. Elige tu horario en el calendario.',
   robots: { index: false, follow: false },
 }
 
@@ -15,7 +15,7 @@ export default function SesionGraciasPage() {
   const agendaHref = booking.configured.calendly
     ? booking.calendlyUrl
     : sessionWhatsappHref(
-        'Hola Evelyn, ya pagué la sesión estratégica de 25 CHF. ¿Me confirmás el horario / me pasás el calendario?',
+        'Hola Evelyn, ya pagué la sesión estratégica de 25 CHF. ¿Me confirmas el horario / me pasas el calendario?',
       )
 
   return (
@@ -34,10 +34,10 @@ export default function SesionGraciasPage() {
           </p>
           <h1 className="type-lockup type-lockup--center type-lockup--glow-soft page-lockup page-lockup--center">
             <span className="type-lockup__impact">Ahora</span>
-            <em className="type-lockup__script">elegí tu horario</em>
+            <em className="type-lockup__script">elige tu horario</em>
           </h1>
           <p className="mx-auto mt-7 max-w-xl text-lg leading-8 text-[var(--editorial-cacao)]">
-            Gracias. El siguiente paso es agendar los {booking.durationMin} minutos. Llegá con tu
+            Gracias. El siguiente paso es agendar los {booking.durationMin} minutos. Llega con tu
             web/redes a mano; yo llego con tu pre-análisis.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

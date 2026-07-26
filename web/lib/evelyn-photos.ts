@@ -1,32 +1,34 @@
 /**
- * Fotos Evelyn permitidas (mientras llegan los nuevos renders).
- * Prohibido para siempre:
- * - selfies privadas buso blanco / sin peluca (00-identidad-*, evelyn_pro_perfil)
- * - serie desk blusa crema + lámpara dorada + monstera
- *   (evelyn_pro_hero, 01-hero-evelyn, 02-bio-evelyn, evelyn-estudio-profesional)
+ * Fotos Evelyn del sitio.
+ * Lote nuevo (26 jul 2026): 4 renders de estudio editados, cableados abajo.
+ * Prohibido para siempre (ver scripts/verify-public-assets.mjs):
+ * - selfies privadas buso blanco / sin peluca (00-identidad-*, evelyn_pro_perfil, face-ref)
+ * - serie desk vieja (evelyn_pro_hero, 01-hero-evelyn, 02-bio-evelyn, evelyn-estudio-profesional)
  */
+const KIT = '/_assets/photos/kit-web-real'
+
 export const evelynPhotos = {
-  /** Home hero — temporal hasta home-hero-evelyn.webp */
-  homeHero: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  /** Home Sobre mí — temporal hasta home-about-evelyn.webp */
-  homeAbout: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-  /** /sobre-elara avatar */
-  sobreElara: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  /** /trabaja-conmigo hero */
-  trabajaConmigo: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  /** /linktree avatar */
-  linktreeAvatar: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-  /** /portfolio hero — temporal hasta portfolio-hero-evelyn.webp */
-  portfolioHero: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  /** /portfolio about — temporal hasta portfolio-about-evelyn.webp */
-  portfolioAbout: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-  /** /cv hero */
-  cvHero: '/_assets/photos/kit-web-real/evelyn-de-pie.jpg',
-  /** /cv perfil */
-  cvAbout: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  /** LPs / packs — temporal hasta estudio-evelyn.webp */
-  estudio: '/_assets/photos/kit-web-real/evelyn-editorial-mistico.jpg',
-  atmosphere: '/_assets/photos/kit-web-real/bg-editorial-humo.webp',
+  /** Home hero — retrato estudio ciruela, media sonrisa */
+  homeHero: `${KIT}/evelyn-hero-ciruela.jpg`,
+  /** Home Sobre mí — trabajando en escritorio */
+  homeAbout: `${KIT}/evelyn-about-escritorio.jpg`,
+  /** /sobre-elara avatar — retrato editorial */
+  sobreElara: `${KIT}/evelyn-sobre-editorial.jpg`,
+  /** /trabaja-conmigo hero — retrato estudio ciruela */
+  trabajaConmigo: `${KIT}/evelyn-hero-ciruela.jpg`,
+  /** /linktree avatar — headshot limpio */
+  linktreeAvatar: `${KIT}/evelyn-headshot.jpg`,
+  /** /portfolio hero — retrato estudio ciruela */
+  portfolioHero: `${KIT}/evelyn-hero-ciruela.jpg`,
+  /** /portfolio about — retrato editorial */
+  portfolioAbout: `${KIT}/evelyn-sobre-editorial.jpg`,
+  /** /cv hero — headshot limpio */
+  cvHero: `${KIT}/evelyn-headshot.jpg`,
+  /** /cv perfil — retrato editorial */
+  cvAbout: `${KIT}/evelyn-sobre-editorial.jpg`,
+  /** LPs / packs — retrato estudio ciruela */
+  estudio: `${KIT}/evelyn-hero-ciruela.jpg`,
+  atmosphere: `${KIT}/bg-editorial-humo.webp`,
   slideProceso: '/_assets/photos/slide-proceso-fondo.webp',
   ogPortfolio: '/_assets/photos/og-portfolio.jpg',
   ogCv: '/_assets/photos/og-cv.jpg',

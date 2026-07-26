@@ -95,7 +95,7 @@ export function LpBookPage({ book }: { book: BookOffer }) {
             <em className="type-lockup__script">sistema alrededor</em>
           </h2>
           <p>
-            Si además del libro necesitás landing, automatización de entregas o Ads, el mismo
+            Si además del libro necesitas landing, automatización de entregas o Ads, el mismo
             pre-análisis sirve para cotizar el estudio.
           </p>
           <TrackedLink

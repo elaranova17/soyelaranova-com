@@ -4363,7 +4363,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .site-nav__link {
   padding: .55rem .7rem;
-  font-family: var(--font-sans, var(--font-manrope), system-ui, sans-serif);
+  font-family: var(--font-sans, system-ui, sans-serif);
   font-size: .62rem;
   font-weight: 600;
   letter-spacing: .2em;
@@ -4404,7 +4404,7 @@ a.elara-chip:hover .elara-chip__label {
   min-height: 2.65rem;
   padding: .65rem 1.15rem;
   border-radius: 999px;
-  font-family: var(--font-sans, var(--font-manrope), system-ui, sans-serif);
+  font-family: var(--font-sans, system-ui, sans-serif);
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .2em;
@@ -4569,7 +4569,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .site-nav__panel-eyebrow {
   margin: 0;
-  font-family: var(--font-sans, var(--font-manrope), system-ui, sans-serif);
+  font-family: var(--font-sans, system-ui, sans-serif);
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .28em;
@@ -4652,7 +4652,7 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .site-nav__panel-num {
-  font-family: var(--font-sans, var(--font-manrope), system-ui, sans-serif);
+  font-family: var(--font-sans, system-ui, sans-serif);
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .14em;

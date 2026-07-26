@@ -78,7 +78,7 @@ export function SystemModelsGallery({
   const titleScript = kind === 'auto' ? 'que se entienden' : 'con lectura'
   const note =
     kind === 'auto'
-      ? 'Tutorial del sistema: qué pasa con un lead paso a paso. Elegí el nivel (Arranque o Pro) según cuántos flujos necesitás.'
+      ? 'Tutorial del sistema: qué pasa con un lead paso a paso. Elige el nivel (Arranque o Pro) según cuántos flujos necesitas.'
       : 'Tutorial del embudo de pauta: el clic solo vale si la landing y el tracking cierran el círculo.'
 
   return (

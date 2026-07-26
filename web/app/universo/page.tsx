@@ -28,7 +28,7 @@ export default function UniversoPage() {
           </p>
           <h1 className="type-lockup type-lockup--glow mt-4 text-[clamp(3rem,7vw,5.5rem)]">
             <span className="type-lockup__impact">Recursos</span>
-            <em className="type-lockup__script">para volver a vos</em>
+            <em className="type-lockup__script">para volver a ti</em>
           </h1>
           <p className="mt-6 max-w-lg font-serif text-xl italic leading-relaxed text-[var(--color-pale-lav)]/78">
             Ebooks, rituales y materiales digitales para acompañarte sin ruido. La tienda se está

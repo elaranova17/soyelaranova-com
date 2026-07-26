@@ -29,12 +29,12 @@ export const studioServices: readonly StudioService[] = [
     lockupImpact: 'Sitios web',
     lockupScript: 'profesionales',
     whatIs:
-      'Un sitio web es la casa digital de tu marca: varias páginas (inicio, servicios, sobre vos, contacto) donde alguien puede entender qué hacés, confiar en vos y contactarte — sin depender solo de Instagram o WhatsApp.',
+      'Un sitio web es la casa digital de tu marca: varias páginas (inicio, servicios, sobre ti, contacto) donde alguien puede entender qué haces, confiar en ti y contactarte — sin depender solo de Instagram o WhatsApp.',
     summary:
       'Para marcas que ya no quieren verse improvisadas. Diseño, estructura, copy y desarrollo en una experiencia lista para vender confianza.',
     deliverable: 'Web comercial, portfolio, página de servicio o sitio institucional.',
     promise:
-      'Una web clara, elegante y fácil de navegar que explique lo que hacés, construya autoridad y lleve a la persona correcta al siguiente paso.',
+      'Una web clara, elegante y fácil de navegar que explique lo que haces, construya autoridad y lleve a la persona correcta al siguiente paso.',
     idealFor: [
       'Negocios que dependen demasiado de Instagram o WhatsApp.',
       'Profesionales independientes que necesitan verse más sólidos.',
@@ -62,7 +62,7 @@ export const studioServices: readonly StudioService[] = [
       {
         question: '¿Sirve si apenas estoy empezando?',
         answer:
-          'Si ya tenés una oferta clara o una idea validada, sí. Si todavía no sabés qué vendés, primero conviene hacer el pre-análisis y la sesión estratégica.',
+          'Si ya tienes una oferta clara o una idea validada, sí. Si todavía no sabes qué vendes, primero conviene hacer el pre-análisis y la sesión estratégica.',
       },
     ],
   },
@@ -119,12 +119,12 @@ export const studioServices: readonly StudioService[] = [
     lockupImpact: 'Automatizaciones',
     lockupScript: 'de negocio',
     whatIs:
-      'Una automatización es un flujo que hace solo lo que hoy hacés a mano: cuando alguien llena un formulario, el sistema guarda el dato, te avisa, manda un email de bienvenida y agenda el seguimiento — sin que copiés y pegués en WhatsApp o Excel.',
+      'Una automatización es un flujo que hace solo lo que hoy haces a mano: cuando alguien llena un formulario, el sistema guarda el dato, te avisa, manda un email de bienvenida y agenda el seguimiento — sin que copies y pegues en WhatsApp o Excel.',
     summary:
       'Conecto formularios, emails, hojas, CRMs y notificaciones para que cada lead tenga seguimiento sin hacerlo todo a mano.',
     deliverable: 'Flujos de captura, seguimiento, post-compra y recordatorios.',
     promise:
-      'Un sistema que reduce tareas repetitivas, responde más rápido y evita que oportunidades reales se pierdan en mensajes sueltos.',
+      'Un sistema que reduce tareas repetitivas, responde más rápido y evita que oportunidades reales se pierdan en mensajes sueltos. Hecho para durar: seguro, que escala y se puede mantener — no un experimento que se rompe en un mes.',
     idealFor: [
       'Negocios que reciben leads y los gestionan manualmente.',
       'Personas que venden servicios, cursos o productos digitales.',
@@ -150,9 +150,14 @@ export const studioServices: readonly StudioService[] = [
           'No necesariamente. Muchas veces una hoja bien conectada, email y formularios resuelven la primera fase sin subir costos.',
       },
       {
-        question: '¿Podés trabajar con herramientas que ya uso?',
+        question: '¿Puedes trabajar con herramientas que ya uso?',
         answer:
-          'Sí. Primero reviso tu stack actual para aprovechar lo que ya pagás antes de proponer algo nuevo.',
+          'Sí. Primero reviso tu stack actual para aprovechar lo que ya pagas antes de proponer algo nuevo.',
+      },
+      {
+        question: '¿No me sale más barato pagar varias apps sueltas?',
+        answer:
+          'A veces sí, si eres muy pequeño. Pero llega un punto en que pagas cinco suscripciones que se solapan y encima copias datos entre ellas a mano — eso es tirar dinero y tiempo. Ahí conviene un sistema propio, hecho a tu medida. Ese punto se puede calcular, y te digo la verdad según tu caso.',
       },
     ],
   },
@@ -164,7 +169,7 @@ export const studioServices: readonly StudioService[] = [
     lockupImpact: 'Google Ads',
     lockupScript: 'y medición',
     whatIs:
-      'Google Ads son anuncios que aparecen cuando alguien busca en Google algo que ofrecés. La medición conecta esos clics con tu página y te dice qué búsquedas traen clientes reales — y dónde estás gastando sin resultado.',
+      'Google Ads son anuncios que aparecen cuando alguien busca en Google algo que ofreces. La medición conecta esos clics con tu página y te dice qué búsquedas traen clientes reales — y dónde estás gastando sin resultado.',
     summary:
       'Antes de subir presupuesto, ordenamos la promesa, la landing y los eventos. Menos adivinanza, más sistema medible.',
     deliverable: 'Estructura de campaña, conversiones y landings por intención.',

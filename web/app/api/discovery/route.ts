@@ -60,13 +60,13 @@ function buildPayload(body: DiscoveryBody): DiscoveryPayload {
 }
 
 function validate(payload: DiscoveryPayload): string | null {
-  if (!payload.name) return 'Decime tu nombre.'
+  if (!payload.name) return 'Dime tu nombre.'
   if (!payload.email || !isValidEmail(payload.email)) return 'Correo inválido.'
-  if (!payload.business) return 'Contame el nombre de tu negocio o marca.'
-  if (!payload.service) return 'Elegí el servicio que creés necesitar.'
-  if (!payload.goal) return 'Contame qué querés lograr.'
-  if (!payload.problem) return 'Contame qué está fallando o consumiendo demasiado tiempo.'
-  if (!payload.timeline) return 'Elegí un tiempo ideal.'
+  if (!payload.business) return 'Cuéntame el nombre de tu negocio o marca.'
+  if (!payload.service) return 'Elige el servicio que crees necesitar.'
+  if (!payload.goal) return 'Cuéntame qué quieres lograr.'
+  if (!payload.problem) return 'Cuéntame qué está fallando o consumiendo demasiado tiempo.'
+  if (!payload.timeline) return 'Elige un tiempo ideal.'
   return null
 }
 
@@ -106,7 +106,7 @@ function leadAutoReplyText(payload: DiscoveryPayload) {
     '',
     'Voy a revisar lo que compartiste (negocio, presencia y fugas) y te escribo con una lectura concreta: lo que veo + 2–3 movimientos.',
     '',
-    'Si querés profundizar en vivo mientras tanto, la sesión estratégica dura 20 min y cuesta 25 CHF:',
+    'Si quieres profundizar en vivo mientras tanto, la sesión estratégica dura 20 min y cuesta 25 CHF:',
     'https://soyelaranova.com/sesion-estrategica',
     '',
     'Un abrazo,',
@@ -141,7 +141,7 @@ export async function POST(request: Request) {
   const limit = rateLimit(`discovery:${getClientIp(request)}`, { limit: 5, windowMs: 10 * 60_000 })
   if (!limit.ok) {
     return NextResponse.json(
-      { ok: false, error: 'Demasiados intentos. Probá de nuevo en un rato.' },
+      { ok: false, error: 'Demasiados intentos. Prueba de nuevo en un rato.' },
       { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } },
     )
   }

@@ -44,7 +44,7 @@ const services: readonly Service[] = [
     type: 'Crecimiento',
     title: 'Google Ads y medición',
     description:
-      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabés qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
+      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabes qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
     price: 'Setup 450 € · gestión 350 €/mes',
     asset: 'servicio-03-google-ads.webp',
     format: '1800 × 1350 px',
@@ -99,8 +99,8 @@ export default function HomePage() {
             <em className="type-lockup__script">tu negocio</em>
           </h1>
           <p>
-            Y construyo las webs que venden. Soy Evelyn, ingeniera de software: conecto tus
-            procesos, elimino el trabajo manual y creo páginas hechas para convertir.
+            Y construyo las webs que venden. Soy Evelyn, ingeniera de software: me siento contigo,
+            entiendo qué te come el día y lo automatizo. Menos a mano, más tiempo para lo que importa.
           </p>
           <div className="home-actions">
             <Link href="#servicios" className="home-button home-button--primary">
@@ -162,7 +162,7 @@ export default function HomePage() {
         <div className="home-intro__body">
           <p>
             Diseño y programo los sistemas que sostienen un negocio: automatizaciones que responden
-            por vos, páginas que convierten y campañas que podés medir. Sin humo, con ingeniería.
+            por ti, páginas que convierten y campañas que puedes medir. Sin humo, con ingeniería.
           </p>
           <div className="home-intro__services" aria-label="Servicios principales">
             <span>Automatizaciones</span>
@@ -180,7 +180,7 @@ export default function HomePage() {
           <div>
             <Eyebrow>Servicios · desde 450 €</Eyebrow>
             <h2 className="type-lockup type-lockup--glow-soft">
-              <span className="type-lockup__impact">Empezá</span>
+              <span className="type-lockup__impact">Empieza</span>
               <em className="type-lockup__script">por aquí</em>
             </h2>
           </div>
@@ -218,7 +218,7 @@ export default function HomePage() {
             <em className="type-lockup__script">para tu negocio</em>
           </h2>
           <p>
-            Sin casos de clientes en vitrina. Acá encontrás material útil: guías descargables,
+            Sin casos de clientes en vitrina. Aquí encuentras material útil: guías descargables,
             capturas de sistemas reales y piezas listas para que veas cómo se ve el trabajo —
             y te lleves algo concreto hoy.
           </p>
@@ -299,8 +299,9 @@ export default function HomePage() {
           <em className="type-lockup__script">todavía a mano?</em>
         </h2>
         <p>
-          Completá el pre-análisis: yo preparo una lectura de tu negocio/web. Si querés profundizar,
-          la sesión estratégica dura 20 min y cuesta 25 CHF.
+          Completa el pre-análisis y lo reviso yo, personalmente. Llego a nuestra charla con un
+          diagnóstico previo de tu negocio — ese rato no se va descubriéndolo, se va resolviendo.
+          Si quieres profundizar, la sesión estratégica dura 20 min y cuesta 25 CHF.
         </p>
         <TrackedLink
           href="/descubrimiento"
@@ -329,9 +330,10 @@ export default function HomePage() {
             <em className="type-lockup__script">e ingeniera</em>
           </h2>
           <p>
-            Soy Evelyn — no un equipo detrás de una marca. Seis años construyendo tecnología para
-            banca, donde un detalle mal hecho cuesta dinero real. Ahora ayudo a negocios pequeños a
-            vender mejor y dejar de sostener cada proceso a mano.
+            Soy Evelyn — no un equipo detrás de una marca. Llevo 8 años automatizando procesos: lo
+            que hoy el mundo hace con IA, yo lo venía haciendo a mano. Seis de esos años en banca,
+            donde un detalle mal hecho cuesta dinero real. Lo que más me gusta es sentarme contigo,
+            entender tu negocio y quitarte el trabajo repetitivo de encima.
           </p>
           <div className="home-work__proof">
             <span>6 años en tecnología y banca</span>
@@ -339,7 +341,7 @@ export default function HomePage() {
             <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
           </div>
           <div className="home-work__me">
-            <p>¿Querés ver cómo trabajo yo?</p>
+            <p>¿Quieres ver cómo trabajo yo?</p>
             <div className="home-work__links">
               <a href="/portfolio" className="home-work__link home-work__link--solid">
                 Portfolio
@@ -360,7 +362,7 @@ export default function HomePage() {
       </section>
 
       <section id="contacto" className="home-close">
-        <p>Tu negocio puede funcionar sin que estes en cada detalle.</p>
+        <p>Tu negocio puede funcionar sin que estés en cada detalle. Mira lo que siempre fuiste capaz de hacer.</p>
         <h2 className="type-lockup type-lockup--center type-lockup--glow">
           <span className="type-lockup__impact">Construyamos</span>
           <em className="type-lockup__script">el sistema</em>

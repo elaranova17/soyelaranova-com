@@ -316,7 +316,7 @@ export default function CvPage() {
         <StudioReveal>
           <p className="home-eyebrow studio-accent">
             <span aria-hidden="true" />
-            Qué podés contratar
+            Qué puedes contratar
           </p>
           <h2 className="type-lockup type-lockup--glow-soft page-lockup">
             <span className="type-lockup__impact">Entregables</span>
@@ -350,8 +350,8 @@ export default function CvPage() {
         </StudioReveal>
         <StudioReveal delay={0.08}>
           <p className="studio-b2b__offer-copy">
-            Si el CV te cierra: empezá por el pre-análisis gratis. Si ya sabés lo que necesitás,
-            agendá la sesión de 25 CHF.
+            Si el CV te cierra: empieza por el pre-análisis gratis. Si ya sabes lo que necesitas,
+            agenda la sesión de 25 CHF.
           </p>
           <div className="studio-b2b__actions studio-b2b__actions--center">
             <TrackedLink

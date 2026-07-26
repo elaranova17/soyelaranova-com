@@ -24,7 +24,7 @@ export default function GraciasPage() {
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-cacao)]">
             Voy a revisar lo que compartiste (negocio, presencia y fugas). Te escribo con un
-            pre-análisis concreto. Si querés profundizar en vivo, el siguiente paso es la sesión
+            pre-análisis concreto. Si quieres profundizar en vivo, el siguiente paso es la sesión
             estratégica de 20 min · 25 CHF.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function GraciasPage() {
               [
                 '02',
                 'Sesión 25 CHF',
-                'Si querés, agendamos 20 min para verlo en vivo y afinar la ruta.',
+                'Si quieres, agendamos 20 min para verlo en vivo y afinar la ruta.',
               ],
               [
                 '03',

@@ -30,13 +30,13 @@ export const automationModels: readonly SystemModel[] = [
     title: 'Lead',
     script: 'que no se pierde',
     explain:
-      'Alguien llena el formulario de tu web. El sistema guarda el dato, te avisa a vos y manda un mensaje al cliente. Cero copiar-pegar a WhatsApp a las 11 de la noche.',
+      'Alguien llena el formulario de tu web. El sistema guarda el dato, te avisa a ti y manda un mensaje al cliente. Cero copiar-pegar a WhatsApp a las 11 de la noche.',
     result: 'Cada lead tiene dueño y seguimiento en segundos.',
     steps: [
       { n: '1', label: 'Formulario', hint: 'Entra el lead' },
       { n: '2', label: 'CRM / hoja', hint: 'Se guarda solo' },
       { n: '3', label: 'WhatsApp / email', hint: 'Respuesta al cliente' },
-      { n: '4', label: 'Aviso a vos', hint: 'Sabés al instante' },
+      { n: '4', label: 'Aviso a ti', hint: 'Sabes al instante' },
     ],
     priceAnchor: 'Arranque · 450 €',
     href: '/lp/automatizaciones/arranque',
@@ -48,7 +48,7 @@ export const automationModels: readonly SystemModel[] = [
     title: 'Embudo',
     script: 'completo',
     explain:
-      'Varios flujos conectados: captación, clasificación (incluso con IA), recordatorios y postventa. El negocio sigue trabajando cuando vos no estás.',
+      'Varios flujos conectados: captación, clasificación (incluso con IA), recordatorios y postventa. El negocio sigue trabajando cuando tú no estás.',
     result: 'Un proceso entero sin tareas manuales repetidas.',
     steps: [
       { n: '1', label: 'Entrada', hint: 'Web / Ads / IG' },
@@ -70,7 +70,7 @@ export const adsModels: readonly SystemModel[] = [
     script: 'con consecuencia',
     explain:
       'Google Ads sin medición es gastar a ciegas. El sistema correcto: búsqueda → anuncio → landing con la misma promesa → conversión → dato que te dice qué palabra clave paga.',
-    result: 'Sabés qué búsqueda trae clientes y cuál quema presupuesto.',
+    result: 'Sabes qué búsqueda trae clientes y cuál quema presupuesto.',
     steps: [
       { n: '1', label: 'Búsqueda', hint: 'Intención real' },
       { n: '2', label: 'Anuncio', hint: 'Misma promesa' },

@@ -19,7 +19,7 @@ export default function SesionEstrategicaPage() {
   const agendaHref = booking.configured.calendly
     ? booking.calendlyUrl
     : sessionWhatsappHref(
-        'Hola Evelyn, ya pagué / quiero agendar la sesión estratégica de 20 min. ¿Me pasás el calendario?',
+        'Hola Evelyn, ya pagué / quiero agendar la sesión estratégica de 20 min. ¿Me pasas el calendario?',
       )
   const live = booking.configured.stripe && booking.configured.calendly
 
@@ -62,7 +62,7 @@ export default function SesionEstrategicaPage() {
                 `Pago ${booking.priceChf} CHF`,
                 'Stripe seguro. Filtra curiosidad y reserva mi tiempo.',
               ],
-              ['03', 'Agenda 20 min', 'Elegís el hueco en Calendly y vemos la mini-estrategia.'],
+              ['03', 'Agenda 20 min', 'Eliges el hueco en Calendly y vemos la mini-estrategia.'],
             ].map(([n, t, d]) => (
               <li key={n}>
                 <span>{n}</span>
@@ -94,7 +94,7 @@ export default function SesionEstrategicaPage() {
             <ul className="mt-6 space-y-2 text-sm leading-7 text-[var(--editorial-lavender)]">
               <li>✦ Resultados de tu pre-análisis</li>
               <li>✦ Mini-estrategia (2–3 movimientos)</li>
-              <li>✦ Claridad de paquete si querés proyecto</li>
+              <li>✦ Claridad de paquete si quieres proyecto</li>
             </ul>
           </div>
 
@@ -102,15 +102,15 @@ export default function SesionEstrategicaPage() {
             <p className="lp-invest__label">Reservar ahora</p>
             <ol className="mt-5 space-y-3 text-sm leading-7 text-[var(--editorial-lavender)]">
               <li>
-                <strong className="text-[var(--editorial-ivory)]">1.</strong> Completá el
+                <strong className="text-[var(--editorial-ivory)]">1.</strong> Completa el
                 pre-análisis (si aún no).
               </li>
               <li>
-                <strong className="text-[var(--editorial-ivory)]">2.</strong> Pagá la sesión (
+                <strong className="text-[var(--editorial-ivory)]">2.</strong> Paga la sesión (
                 {booking.priceChf} CHF).
               </li>
               <li>
-                <strong className="text-[var(--editorial-ivory)]">3.</strong> Elegí horario en el
+                <strong className="text-[var(--editorial-ivory)]">3.</strong> Elige horario en el
                 calendario.
               </li>
             </ol>
@@ -151,7 +151,7 @@ export default function SesionEstrategicaPage() {
 
             <p className="mt-5 text-xs leading-6 text-[var(--editorial-lavender)]/70">
               {live
-                ? 'Pago con Stripe. Después del pago, agendá en Calendly (también en /sesion-estrategica/gracias).'
+                ? 'Pago con Stripe. Después del pago, agenda en Calendly (también en /sesion-estrategica/gracias).'
                 : 'Falta configurar Stripe/Calendly en Vercel (docs/GO_LIVE.md). Mientras, los botones 2 y 3 abren WhatsApp.'}
             </p>
           </div>

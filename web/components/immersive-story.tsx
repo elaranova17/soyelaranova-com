@@ -160,7 +160,7 @@ const steps: readonly Step[] = [
     number: '04',
     titleImpact: 'Lo dejo',
     titleScript: 'corriendo',
-    text: 'Medición y flujos conectados. El negocio sigue sin vos encima.',
+    text: 'Medición y flujos conectados. El negocio sigue sin ti encima.',
     Screen: LanzarScreen,
   },
 ] as const

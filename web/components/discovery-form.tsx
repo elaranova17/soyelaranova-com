@@ -28,15 +28,15 @@ type FormState = {
 const STEPS = [
   {
     id: 0,
-    eyebrow: 'Paso 1 · Vos',
+    eyebrow: 'Paso 1 · Tú',
     title: 'Empecemos por tu negocio.',
-    tip: 'Con esto entiendo a quién ayudo y qué vendés — sin brief perfecto.',
+    tip: 'Con esto entiendo a quién ayudo y qué vendes — sin brief perfecto.',
   },
   {
     id: 1,
     eyebrow: 'Paso 2 · Captación',
     title: '¿Cómo llegan hoy los clientes?',
-    tip: 'Acá detecto si se te escapan leads antes de que los atiendas.',
+    tip: 'Aquí detecto si se te escapan leads antes de que los atiendas.',
   },
   {
     id: 2,
@@ -47,13 +47,13 @@ const STEPS = [
   {
     id: 3,
     eyebrow: 'Paso 4 · Presencia',
-    title: 'Tu web o redes: qué creés que falla.',
-    tip: 'No hace falta que sea perfecta: marcá lo que ya sentís.',
+    title: 'Tu web o redes: qué crees que falla.',
+    tip: 'No hace falta que sea perfecta: marca lo que ya sientes.',
   },
   {
     id: 4,
     eyebrow: 'Paso 5 · Rumbo',
-    title: 'Qué querés lograr en los próximos 90 días.',
+    title: 'Qué quieres lograr en los próximos 90 días.',
     tip: 'Con esto preparo tu pre-análisis y te digo si la sesión de 25 CHF tiene sentido.',
   },
 ] as const
@@ -313,29 +313,29 @@ export function DiscoveryForm({
 
   function validateStep(current: number): string | null {
     if (current === 0) {
-      if (!form.name.trim()) return 'Decime tu nombre.'
+      if (!form.name.trim()) return 'Dime tu nombre.'
       if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return 'Email inválido.'
       if (!form.business.trim()) return '¿Cómo se llama tu negocio o marca?'
-      if (!form.sellsWhat.trim()) return 'Contame en una frase qué vendés.'
+      if (!form.sellsWhat.trim()) return 'Cuéntame en una frase qué vendes.'
       return null
     }
     if (current === 1) {
-      if (!form.channel) return 'Elegí cómo llegan hoy la mayoría de tus clientes.'
-      if (!form.leadVolume) return 'Elegí un volumen aproximado (aunque sea “No lo mido”).'
-      if (!form.leadsLost) return '¿Se te pierden leads? Elegí una opción.'
+      if (!form.channel) return 'Elige cómo llegan hoy la mayoría de tus clientes.'
+      if (!form.leadVolume) return 'Elige un volumen aproximado (aunque sea “No lo mido”).'
+      if (!form.leadsLost) return '¿Se te pierden leads? Elige una opción.'
       return null
     }
     if (current === 2) {
-      if (!form.afterContact) return 'Elegí qué pasa después del primer contacto.'
+      if (!form.afterContact) return 'Elige qué pasa después del primer contacto.'
       return null
     }
     if (current === 3) {
-      if (form.siteIssues.length === 0) return 'Marcá al menos una cosa que sientas que falla (o “No tengo web”).'
+      if (form.siteIssues.length === 0) return 'Marca al menos una cosa que sientas que falla (o “No tengo web”).'
       return null
     }
     if (current === 4) {
-      if (!form.goal.trim()) return 'Contame el objetivo de los próximos 90 días.'
-      if (!form.timeline) return 'Elegí un tiempo ideal.'
+      if (!form.goal.trim()) return 'Cuéntame el objetivo de los próximos 90 días.'
+      if (!form.timeline) return 'Elige un tiempo ideal.'
       return null
     }
     return null
@@ -393,7 +393,7 @@ export function DiscoveryForm({
       }
 
       if (!response.ok || !data.ok) {
-        setSubmitError(data.error ?? 'No pude preparar tu pre-análisis. Revisá e intentá de nuevo.')
+        setSubmitError(data.error ?? 'No pude preparar tu pre-análisis. Revisa e intenta de nuevo.')
         return
       }
 
@@ -405,7 +405,7 @@ export function DiscoveryForm({
 
       setNeedsManualSend(true)
     } catch {
-      setSubmitError('Error de conexión. Podés intentar de nuevo o enviarlo manualmente.')
+      setSubmitError('Error de conexión. Puedes intentar de nuevo o enviarlo manualmente.')
       setNeedsManualSend(true)
     } finally {
       setSubmitting(false)
@@ -426,7 +426,7 @@ export function DiscoveryForm({
           <em className="type-lockup__script">quedaron listas</em>
         </h2>
         <p className="mt-5 text-sm leading-7 text-[var(--studio-paper)]/68">
-          No pude confirmar el envío automático. Mandalo por email o WhatsApp para no perder el
+          No pude confirmar el envío automático. Envíalo por email o WhatsApp para no perder el
           pre-análisis.
         </p>
         {submitError ? (
@@ -516,7 +516,7 @@ export function DiscoveryForm({
               placeholder="Nombre del negocio"
             />
           </Field>
-          <Field label="¿Qué vendés?" required>
+          <Field label="¿Qué vendes?" required>
             <input
               value={form.sellsWhat}
               onChange={(e) => updateField('sellsWhat', e.target.value)}
@@ -532,7 +532,7 @@ export function DiscoveryForm({
               placeholder="https://… o @tuig"
             />
           </Field>
-          <Field label="Servicio que creés necesitar" required>
+          <Field label="Servicio que crees necesitar" required>
             <select
               value={form.service}
               onChange={(e) => updateField('service', e.target.value)}
@@ -586,7 +586,7 @@ export function DiscoveryForm({
               onChange={(v) => updateField('afterContact', v as string)}
             />
           </Field>
-          <Field label="¿Qué herramientas usás hoy?">
+          <Field label="¿Qué herramientas usas hoy?">
             <input
               value={form.tools}
               onChange={(e) => updateField('tools', e.target.value)}
@@ -607,7 +607,7 @@ export function DiscoveryForm({
               placeholder="https://… o @instagram"
             />
           </Field>
-          <Field label="¿Qué creés que falla en tu presencia?" required>
+          <Field label="¿Qué crees que falla en tu presencia?" required>
             <ChoiceGrid
               options={siteIssueOptions}
               value={form.siteIssues}
@@ -699,7 +699,7 @@ export function DiscoveryForm({
       </div>
 
       <p className="mt-5 text-center text-xs leading-6 text-[var(--studio-paper)]/45">
-        Después te mando la lectura. Si querés profundizar: sesión estratégica 20 min · 25 CHF.
+        Después te mando la lectura. Si quieres profundizar: sesión estratégica 20 min · 25 CHF.
       </p>
     </form>
   )

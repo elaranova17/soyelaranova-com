@@ -29,7 +29,7 @@ export default function OraculoPage() {
           </p>
           <h1 className="type-lockup type-lockup--glow mt-4 text-[clamp(3rem,7vw,5.5rem)]">
             <span className="type-lockup__impact">Una señal</span>
-            <em className="type-lockup__script">para volver a vos</em>
+            <em className="type-lockup__script">para volver a ti</em>
           </h1>
           <p className="mt-6 max-w-lg font-serif text-xl italic leading-relaxed text-[var(--color-pale-lav)]/78">
             Este espacio será el ritual central de Elara Nova: mensajes íntimos, guía suave y una

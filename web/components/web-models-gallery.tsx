@@ -72,8 +72,8 @@ function ModelCard({ model }: { model: WebModel }) {
 export function WebModelsGallery({
   context = 'all',
   titleImpact = 'Modelos',
-  titleScript = 'que podés pedir',
-  note = 'No son plantillas genéricas: son estructuras de venta. Tocá un modelo para ver el pack.',
+  titleScript = 'que puedes pedir',
+  note = 'No son plantillas genéricas: son estructuras de venta. Toca un modelo para ver el pack.',
 }: {
   context?: 'sitios-web' | 'landing-pages' | 'paginas-web' | 'all'
   titleImpact?: string
@@ -129,7 +129,7 @@ export function WebVsLandingExplain() {
             <p className="web-vs__label font-display">Sitio web</p>
             <p>
               Varias páginas. Construye confianza, cuenta tu historia, posiciona en Google y da un
-              hogar a tu marca. Ideal si te buscan por nombre o necesitás presencia completa.
+              hogar a tu marca. Ideal si te buscan por nombre o necesitas presencia completa.
             </p>
             <ul>
               <li>Inicio · servicios · sobre · contacto</li>
@@ -142,7 +142,7 @@ export function WebVsLandingExplain() {
           <article className="web-vs__card web-vs__card--accent">
             <p className="web-vs__label font-display">Landing page</p>
             <p>
-              Una sola página. Un solo objetivo. Se usa cuando pagás publicidad o lanzás algo: el
+              Una sola página. Un solo objetivo. Se usa cuando pagas publicidad o lanzas algo: el
               anuncio promete X y la página cierra X. Menos menú, más conversión.
             </p>
             <ul>

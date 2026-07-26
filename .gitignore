@@ -15,3 +15,12 @@ web/node_modules/
 # Heroes fantasy prohibidos en deploy
 web/public/hero/
 web/public/hero*/
+
+# Docs internos con info PERSONAL de Evelyn — NUNCA subir a repo público
+docs/PERFIL_EVELYN.md
+docs/CONTENIDO.md
+docs/LINKEDIN.md
+docs/COPY_DECK.md
+docs/GLOW_UP_2026-07-26.md
+docs/VOZ.md
+docs/products.md

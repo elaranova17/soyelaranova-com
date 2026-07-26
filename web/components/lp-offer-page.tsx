@@ -140,7 +140,7 @@ export function LpOfferPage({
             context={offer.service === 'landing-pages' ? 'landing-pages' : 'paginas-web'}
             titleImpact="Modelos"
             titleScript="para elegir bien"
-            note="Tutorial visual: cada modelo muestra las secciones de la página, para quién sirve y el pack. Así pedís con claridad."
+            note="Tutorial visual: cada modelo muestra las secciones de la página, para quién sirve y el pack. Así pides con claridad."
           />
         </>
       ) : null}
@@ -212,11 +212,11 @@ export function LpOfferPage({
             Pre-análisis didáctico · gratis
           </p>
           <h2 className="type-lockup type-lockup--glow">
-            <span className="type-lockup__impact">Contame</span>
-            <em className="type-lockup__script">cómo trabajás</em>
+            <span className="type-lockup__impact">Cuéntame</span>
+            <em className="type-lockup__script">cómo trabajas</em>
           </h2>
           <p className="lp-form__lead">
-            Yo te preparo una lectura antes de cualquier reunión. Después, si querés profundizar,
+            Yo te preparo una lectura antes de cualquier reunión. Después, si quieres profundizar,
             la sesión estratégica dura 20 min y cuesta 25 CHF.
           </p>
           <div className="lp-form__wrap">
