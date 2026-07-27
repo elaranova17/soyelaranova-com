@@ -24,6 +24,7 @@ export default function TrabajaConmigoPage() {
             fill
             priority
             sizes="100vw"
+            quality={90}
             className="object-cover object-[55%_18%]"
           />
           <span className="studio-b2b__hero-veil" />

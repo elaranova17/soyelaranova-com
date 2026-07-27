@@ -93,6 +93,7 @@ export default function PortfolioPage() {
             fill
             priority
             sizes="100vw"
+            quality={90}
             className="object-cover object-[50%_34%]"
           />
           <span className="studio-b2b__hero-veil" />

@@ -81,6 +81,7 @@ function Photo({
         alt={alt}
         fill
         priority={priority}
+        quality={90}
         sizes="(max-width: 900px) 100vw, 55vw"
       />
       {children}

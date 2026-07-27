@@ -1,6 +1,12 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  images: {
+    // Mejor calidad de imagen: AVIF/WebP modernos + permite quality alto (90)
+    formats: ['image/avif', 'image/webp'],
+    qualities: [75, 90],
+  },
+
   /**
    * Rewrites para URLs limpias (sin .html) de los assets estáticos
    * recuperados del repo viejo. Estos son los que Evelyn linkea desde
