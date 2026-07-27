@@ -2353,6 +2353,113 @@ h1, h2, h3,
 }
 
 /* ——— Home · scroll storytelling (limpio / profesional) ——— */
+/* ——— Mi método · 4 pasos claros (franja crema, sin scroll-hijack) ——— */
+.method {
+  background: var(--editorial-ivory);
+  border-top: 1px solid var(--editorial-stone);
+  border-bottom: 1px solid var(--editorial-stone);
+}
+
+.method__inner {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 9vw, 8rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.method__head {
+  max-width: 42rem;
+  margin: 0 auto clamp(3rem, 6vw, 4.5rem);
+  text-align: center;
+}
+
+.method__head .home-eyebrow {
+  justify-content: center;
+}
+
+.method__head h2.type-lockup {
+  margin-top: 0.75rem;
+  font-size: var(--type-section);
+}
+
+.method__lead {
+  margin-top: 1.25rem;
+  color: var(--editorial-cacao);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.method__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.method__step {
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--editorial-gold);
+}
+
+.method__num {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--editorial-gold);
+}
+
+.method__title {
+  margin: 0;
+  line-height: 0.98;
+}
+
+.method__title-impact {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.1vw, 2.1rem);
+  letter-spacing: 0.02em;
+  color: var(--editorial-ink);
+}
+
+.method__title-script {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-script);
+  font-style: normal;
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  color: var(--editorial-plum);
+}
+
+.method__step p {
+  margin-top: 0.9rem;
+  color: var(--editorial-cacao);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.method__cta {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .method__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem clamp(1.25rem, 3vw, 2.5rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .method__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* ——— (legacy) scroll storytelling — componente reemplazado por .method ——— */
 .immersive-story {
   position: relative;
   display: grid;
