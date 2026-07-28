@@ -5,6 +5,10 @@ import { TrackedLink } from '@/components/tracked-link'
 import { serviceScenes } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
+/** Blur placeholder del hero (12×16 JPEG de evelyn-hero-ciruela) — evita el flash aubergine en primera carga */
+const HERO_BLUR =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
+
 type Service = {
   number: string
   type: string
@@ -66,12 +70,14 @@ function Photo({
   alt,
   className = '',
   priority = false,
+  blurDataURL,
   children,
 }: {
   src: string
   alt: string
   className?: string
   priority?: boolean
+  blurDataURL?: string
   children?: React.ReactNode
 }) {
   return (
@@ -83,6 +89,7 @@ function Photo({
         priority={priority}
         quality={90}
         sizes="(max-width: 900px) 100vw, 55vw"
+        {...(blurDataURL ? { placeholder: 'blur' as const, blurDataURL } : {})}
       />
       {children}
     </figure>
@@ -122,6 +129,7 @@ export default function HomePage() {
           alt="Evelyn Patiño, ingeniera de software, en su estudio"
           className="home-hero__visual"
           priority
+          blurDataURL={HERO_BLUR}
         >
           <figcaption className="home-hero__caption">
             <span>Ingeniería real</span>
@@ -172,33 +180,27 @@ export default function HomePage() {
           </ul>
         </div>
         <div className="home-intro__body">
-          <div className="home-intro__services" aria-label="Servicios principales">
+          <Eyebrow>¿Te suena?</Eyebrow>
+          <div className="home-intro__services" aria-label="Señales de que lo necesitas">
             <div className="home-intro__service">
-              <span>Automatizaciones</span>
+              <span>Lo haces todo a mano</span>
               <p>
-                Conecto tus herramientas para que el trabajo repetitivo se haga solo. Recuperas
-                horas cada semana y ningún lead se pierde por el camino.
+                Copiar leads, repetir el mismo correo, pasar datos entre apps. Cada tarea repetida
+                es una hora que no vuelve — y un lead que se enfría.
               </p>
             </div>
             <div className="home-intro__service">
-              <span>Landing pages y sitios web</span>
+              <span>Tu web no vende</span>
               <p>
-                Páginas hechas para vender: mensaje claro, mobile-first y pensadas para que la
-                persona correcta dé el siguiente paso.
+                Está bonita, pero no guía a la persona correcta al siguiente paso. Así es un folleto
+                caro, no un vendedor que trabaja por ti.
               </p>
             </div>
             <div className="home-intro__service">
-              <span>Google Ads y medición</span>
+              <span>Inviertes en ads a ciegas</span>
               <p>
-                Campañas conectadas a tu web y a eventos reales. Sabes qué anuncio trae clientes y
-                dónde estabas gastando de más.
-              </p>
-            </div>
-            <div className="home-intro__service">
-              <span>Productos digitales</span>
-              <p>
-                Ebooks y guías para automatizar tu negocio paso a paso, con lo que de verdad
-                funciona — sin teoría de relleno.
+                Pagas anuncios sin saber qué búsqueda te trae clientes y cuál te quema el
+                presupuesto. Sin medición, decides a ojo.
               </p>
             </div>
           </div>
@@ -295,7 +297,7 @@ export default function HomePage() {
               Capturas de flujos, dashboards y pantallas: la forma del producto, no el nombre del
               cliente.
             </small>
-            <Link href="/#servicios" className="home-recurso__link">
+            <Link href="/portfolio" className="home-recurso__link">
               Ver pantallas
             </Link>
           </article>
@@ -324,9 +326,8 @@ export default function HomePage() {
       </section>
 
       <section id="preanalisis" className="home-impact">
-        <div className="home-impact__glow" aria-hidden="true" />
-        <Eyebrow light>Pre-análisis didáctico · gratis</Eyebrow>
-        <h2 className="type-lockup type-lockup--center type-lockup--glow">
+        <Eyebrow>Pre-análisis didáctico · gratis</Eyebrow>
+        <h2 className="type-lockup type-lockup--center type-lockup--glow-soft">
           <span className="type-lockup__impact">Tu negocio</span>
           <em className="type-lockup__script">todavía a mano?</em>
         </h2>

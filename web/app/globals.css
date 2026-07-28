@@ -372,18 +372,14 @@ h1, h2, h3,
 }
 
 .home-button--primary {
-  background: var(--editorial-lila-deep);
+  background: var(--editorial-plum);
   color: #fff;
-  box-shadow:
-    0 0 24px rgb(154 102 217 / .42),
-    0 8px 24px rgb(124 70 192 / .26);
+  box-shadow: 0 10px 30px rgb(43 23 53 / .30);
 }
 
 .home-button--primary:hover {
-  background: var(--editorial-lila);
-  box-shadow:
-    0 0 32px rgb(154 102 217 / .6),
-    0 10px 28px rgb(124 70 192 / .32);
+  background: var(--editorial-aubergine);
+  box-shadow: 0 12px 34px rgb(43 23 53 / .38);
 }
 
 .home-button--quiet {
@@ -510,7 +506,7 @@ h1, h2, h3,
 }
 
 .home-hero__visual img {
-  object-position: 58% 22%;
+  object-position: 50% 30%;
 }
 
 .home-work__visual img {
@@ -580,14 +576,13 @@ h1, h2, h3,
 }
 
 .home-thesis__script {
-  margin-top: -0.36em;
-  font-family: var(--font-script);
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-style: normal;
-  line-height: 1;
+  margin-top: 0.1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.05;
   color: var(--editorial-plum);
-  text-shadow: 0 0 16px rgb(184 154 88 / .3);
-  transform: rotate(-1.2deg);
 }
 
 /* Heroes de páginas internas (descubrimiento, servicios, etc.) */
@@ -1195,6 +1190,14 @@ h1, h2, h3,
   margin-top: 0.35rem;
 }
 
+/* Script chico ilegible en Great Vibes → Cormorant itálica (regla "cursiva solo grande") */
+.web-model__copy .type-lockup__script {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.66em;
+}
+
 .web-model__explain {
   margin-top: 1rem;
   color: var(--editorial-cacao);
@@ -1407,10 +1410,130 @@ h1, h2, h3,
 
 .studio-index__hero {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
   padding: clamp(7.5rem, 14vw, 9.5rem) clamp(1.25rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem);
   background:
     radial-gradient(55% 70% at 85% 0%, color-mix(in srgb, var(--editorial-gold) 16%, transparent), transparent 60%),
     var(--editorial-ivory);
+}
+
+.studio-index__hero-copy {
+  max-width: 42rem;
+}
+
+.studio-index__hero-visual {
+  justify-self: end;
+  width: 100%;
+  max-width: 30rem;
+}
+
+/* Diagrama · el sistema que vende solo (columna derecha del hero de servicios) */
+.system-flow {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(95% 60% at 82% 0%, color-mix(in srgb, var(--editorial-gold) 18%, transparent), transparent 62%),
+    linear-gradient(152deg, var(--editorial-plum), var(--editorial-aubergine) 72%);
+  color: var(--editorial-ivory);
+  box-shadow: 0 30px 90px rgb(43 23 53 / 0.28);
+}
+
+.system-flow__eyebrow {
+  margin-bottom: 1.5rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--editorial-gold) 55%, var(--editorial-ivory));
+}
+
+.system-flow__steps {
+  display: grid;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.system-flow__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.system-flow__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 0.95rem;
+  top: 2.1rem;
+  bottom: -1.15rem;
+  width: 1px;
+  background: linear-gradient(
+    var(--editorial-gold),
+    color-mix(in srgb, var(--editorial-gold) 15%, transparent)
+  );
+}
+
+.system-flow__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--editorial-gold) 60%, transparent);
+  background: color-mix(in srgb, var(--editorial-gold) 14%, transparent);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--editorial-gold) 72%, var(--editorial-ivory));
+}
+
+.system-flow__body strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--editorial-ivory);
+}
+
+.system-flow__body small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--editorial-lavender);
+}
+
+.system-flow__loop {
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid color-mix(in srgb, var(--editorial-ivory) 14%, transparent);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--editorial-gold) 55%, var(--editorial-ivory));
+}
+
+.system-flow__loop span {
+  margin-right: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .studio-index__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .studio-index__hero-visual {
+    justify-self: stretch;
+    max-width: 32rem;
+    margin-top: 0.5rem;
+  }
 }
 
 .studio-index__hero-lead {
@@ -1524,6 +1647,14 @@ h1, h2, h3,
 
 .studio-service-tile .type-lockup {
   font-size: var(--type-card);
+}
+
+/* Script chico ilegible en Great Vibes → Cormorant itálica legible (regla "cursiva solo grande") */
+.studio-service-tile .type-lockup__script {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.66em;
 }
 
 .studio-service-tile__meta {
@@ -1734,10 +1865,10 @@ h1, h2, h3,
 }
 
 .studio-sticky-cta__script {
-  margin-top: -0.2em;
-  font-family: var(--font-script);
-  font-size: 1.15rem;
-  font-style: normal;
+  margin-top: 0;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
   color: color-mix(in srgb, var(--editorial-gold) 40%, var(--editorial-ivory));
   text-transform: none;
 }
@@ -2445,9 +2576,10 @@ h1, h2, h3,
 .method__title-script {
   display: block;
   margin-top: 0.15rem;
-  font-family: var(--font-script);
-  font-style: normal;
-  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem);
   color: var(--editorial-plum);
 }
 
@@ -3093,9 +3225,11 @@ h1, h2, h3,
   gap: 1.4rem;
   padding: clamp(5rem, 10vw, 8.5rem) max(1.25rem, calc((100vw - 90rem) / 2));
   background:
-    radial-gradient(80% 90% at 50% 110%, color-mix(in srgb, var(--editorial-gold) 16%, transparent), transparent 65%),
-    linear-gradient(160deg, var(--editorial-aubergine), #1A0F3D 70%);
-  color: var(--editorial-ivory);
+    radial-gradient(90% 75% at 50% 0%, color-mix(in srgb, var(--editorial-champan) 92%, transparent), transparent 62%),
+    var(--editorial-smoke);
+  border-top: 1px solid var(--editorial-stone);
+  border-bottom: 1px solid var(--editorial-stone);
+  color: var(--editorial-ink);
   text-align: center;
 }
 
@@ -3118,7 +3252,7 @@ h1, h2, h3,
 .home-impact > p {
   position: relative;
   max-width: 34rem;
-  color: var(--editorial-lavender);
+  color: var(--editorial-cacao);
   font-size: 1rem;
   line-height: 1.75;
 }

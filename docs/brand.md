@@ -45,12 +45,12 @@ con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 | `--editorial-champan` | `#F2EAD9` | **Subtono claro** (crema+oro) — converge la paleta |
 | `--editorial-lino` | `#E8DEDF` | **Subtono claro** (crema+ciruela) — converge la paleta |
 | `--editorial-lila` | `#9A66D9` | **Acento de impacto tech girly** (glow, brillos, hover) |
-| `--editorial-lila-deep` | `#7C46C0` | Lila accesible para fills de botón / texto sobre claro |
+| `--editorial-lila-deep` | `#7C46C0` | Lila accesible para texto sobre claro / detalles (**ya NO fill de botón primary**) |
 
-> **Dirección (28 jul 2026):** paleta convergente + acento de impacto. Los 2 subtonos claros
-> (champán/lino) amarran crema+oro+ciruela para que no se sienta dispersa. El **lila luminoso**
-> es el acento "tech girly" que da fuerza sin gritar — botones primary (lila-deep + glow lila),
-> brillos y hovers. **Se mantiene el morado** (ciruela/aubergine); el oro queda como lujo/elegancia.
+> **Dirección (28 jul 2026 · v2):** paleta convergente + acento de impacto. Los 2 subtonos claros
+> (champán/lino) amarran crema+oro+ciruela para que no se sienta dispersa. **Botones primary = ciruela/plum**
+> (`--editorial-plum`, sin glow morado): sobrio y de marca. El **lila** queda como acento puntual
+> (brillos, hovers, detalles tech girly), **no** como fill de botón. El oro sigue como lujo/elegancia.
 
 Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
@@ -59,8 +59,8 @@ Usar `--editorial-*` en código nuevo. **No inventar colores.**
 | Rol | Fuente | Variable | Uso |
 |-----|--------|----------|-----|
 | Impact | **Bebas Neue** | `--font-display` | Titulares caps, línea superior del lockup |
-| Script | **Great Vibes** | `--font-script` | Firma solapada, logo nav, nombre Evelyn |
-| Serif | **Cormorant Garamond** | `--font-serif` | Notas, tesis auxiliares, case titles |
+| Script | **Great Vibes** | `--font-script` | **Solo grande**: logo nav, firma, lockups de hero/sección. NO en títulos chicos. |
+| Serif | **Cormorant Garamond** | `--font-serif` | Notas, tesis auxiliares, case titles, **script itálico de títulos chicos** (método) |
 | Sans UI | **Outfit** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
 
 **Lockup obligatorio en heroes y cierres de sección:**
@@ -75,8 +75,11 @@ Usar `--editorial-*` en código nuevo. **No inventar colores.**
 **Reglas de presentación**
 - Impact: caps, tracking ~0.06em, Bebas.
 - Script: ~0.52em del impact, `margin-top: -0.4em`, leve rotación (−1.4°), **nunca** párrafos largos.
+- **Great Vibes solo grande**: en títulos chicos (pasos de método, tarjetas) usar **Cormorant itálica** —
+  Great Vibes se vuelve ilegible a tamaño pequeño (ej. `.method__title-script`).
 - Oscuro: clase `--glow` → cream + `--text-glow-gold`.
 - Claro: clase `--glow-soft` → ink/plum + glow suave.
+- CTA primary: `home-button--primary` = **ciruela** (`--editorial-plum`), sin glow morado.
 - CTA gold: `home-button--gold` con `--btn-glow-gold`.
 - Eyebrow: Outfit uppercase + línea gold (`.home-eyebrow`).
 
