@@ -120,16 +120,6 @@ export default function ServicesPage() {
 
       <StudioFunnelStrip trackingLabel="services_index_funnel" dark />
 
-      <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-            Privacidad y términos
-          </Link>
-          <Link href="/descubrimiento" className="hover:text-[var(--editorial-plum)]">
-            Pre-análisis
-          </Link>
-        </div>
-      </footer>
     </main>
   )
 }

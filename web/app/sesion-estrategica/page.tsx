@@ -161,11 +161,6 @@ export default function SesionEstrategicaPage() {
         </div>
       </section>
 
-      <footer className="lp-footer">
-        <Link href="/legal">Privacidad y términos</Link>
-        <span aria-hidden="true">·</span>
-        <Link href="/descubrimiento">Pre-análisis</Link>
-      </footer>
     </main>
   )
 }

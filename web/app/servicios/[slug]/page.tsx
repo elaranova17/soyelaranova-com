@@ -179,16 +179,6 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
       <StudioFunnelStrip trackingLabel={`service_${service.slug}_funnel`} dark />
 
-      <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-            Privacidad y términos
-          </Link>
-          <Link href="/servicios" className="hover:text-[var(--editorial-plum)]">
-            Todos los servicios
-          </Link>
-        </div>
-      </footer>
     </main>
   )
 }

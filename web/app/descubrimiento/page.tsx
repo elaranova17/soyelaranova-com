@@ -80,19 +80,6 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      <footer className="px-5 py-8 text-sm text-[var(--editorial-cacao)] md:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-7xl justify-center gap-5">
-          <Link href="/legal" className="hover:text-[var(--editorial-plum)]">
-            Privacidad y términos
-          </Link>
-          <Link href="/servicios" className="hover:text-[var(--editorial-plum)]">
-            Ver modelos de webs
-          </Link>
-          <Link href="/sesion-estrategica" className="hover:text-[var(--editorial-plum)]">
-            Sesión 25 CHF
-          </Link>
-        </div>
-      </footer>
     </main>
   )
 }

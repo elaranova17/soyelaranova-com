@@ -3,6 +3,7 @@ import { Bebas_Neue, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/g
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
+import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
 /** Impact CapCut Opción A — sans condensada imponente (estilo AUTOMATIZO) */
@@ -135,6 +136,7 @@ export default function RootLayout({
         <LenisProvider>
           <SiteNav />
           {children}
+          <SiteFooter />
           <Analytics />
         </LenisProvider>
       </body>

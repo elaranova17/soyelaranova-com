@@ -1681,6 +1681,13 @@ h1, h2, h3,
   font-size: 0.66em;
 }
 
+/* Great Vibes SOLO en grande: heroes (h1) y logo. Headers de sección (h2) → Cormorant itálica legible */
+h2.type-lockup .type-lockup__script {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+}
+
 .studio-service-tile__meta {
   margin-top: 0.5rem;
   padding-top: 0.9rem;
@@ -5682,5 +5689,102 @@ a.elara-chip:hover .elara-chip__label {
 @media (max-width: 900px) {
   .lp-book-inside__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ——— Footer único del sitio ——— */
+.site-footer {
+  background: var(--editorial-aubergine);
+  color: var(--editorial-ivory);
+  border-top: 1px solid color-mix(in srgb, var(--editorial-gold) 40%, transparent);
+}
+
+.site-footer__inner {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.site-footer__logo {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  line-height: 1;
+  color: color-mix(in srgb, var(--editorial-gold) 30%, var(--editorial-ivory));
+}
+
+.site-footer__tagline {
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--editorial-ivory);
+}
+
+.site-footer__by {
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--editorial-lavender);
+}
+
+.site-footer__col {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+}
+
+.site-footer__col-title {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--editorial-gold) 55%, var(--editorial-ivory));
+  margin-bottom: 0.35rem;
+}
+
+.site-footer__col a {
+  color: var(--editorial-lavender);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.site-footer__col a:hover {
+  color: var(--editorial-ivory);
+}
+
+.site-footer__bar {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+  border-top: 1px solid color-mix(in srgb, var(--editorial-ivory) 14%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--editorial-lavender) 85%, transparent);
+}
+
+.site-footer__bar a {
+  color: color-mix(in srgb, var(--editorial-lavender) 85%, transparent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer__bar a:hover {
+  color: var(--editorial-gold);
+}
+
+@media (max-width: 720px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
   }
 }
