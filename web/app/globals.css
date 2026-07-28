@@ -42,6 +42,14 @@
   --editorial-stone:      #B8AEA7;
   --editorial-gold:       #B89A58;
 
+  /* Subtonos claros de convergencia (crema + acento) — amarran la paleta */
+  --editorial-champan:    #F2EAD9; /* crema + oro   */
+  --editorial-lino:       #E8DEDF; /* crema + ciruela */
+
+  /* Acento de impacto "tech girly" — lila luminoso (elegido 28 jul 2026) */
+  --editorial-lila:       #9A66D9;
+  --editorial-lila-deep:  #7C46C0; /* variante para hover / texto sobre claro */
+
   /* Legacy studio tokens kept for existing forms/pages */
   --studio-ink:           var(--editorial-ink);
   --studio-night:         var(--editorial-aubergine);
@@ -364,8 +372,18 @@ h1, h2, h3,
 }
 
 .home-button--primary {
-  background: var(--editorial-plum);
-  color: var(--editorial-ivory);
+  background: var(--editorial-lila-deep);
+  color: #fff;
+  box-shadow:
+    0 0 24px rgb(154 102 217 / .42),
+    0 8px 24px rgb(124 70 192 / .26);
+}
+
+.home-button--primary:hover {
+  background: var(--editorial-lila);
+  box-shadow:
+    0 0 32px rgb(154 102 217 / .6),
+    0 10px 28px rgb(124 70 192 / .32);
 }
 
 .home-button--quiet {

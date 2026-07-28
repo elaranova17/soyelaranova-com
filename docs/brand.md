@@ -41,7 +41,16 @@ con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 | `--editorial-lavender` | `#B9A1C8` | Texto secundario sobre oscuro |
 | `--editorial-cacao` | `#6B5147` | Texto secundario sobre claro, eyebrows |
 | `--editorial-stone` | `#B8AEA7` | Bordes hairline |
-| `--editorial-gold` | `#B89A58` | Líneas, CTA gold, glow |
+| `--editorial-gold` | `#B89A58` | Líneas, CTA gold, glow (elegancia/lujo) |
+| `--editorial-champan` | `#F2EAD9` | **Subtono claro** (crema+oro) — converge la paleta |
+| `--editorial-lino` | `#E8DEDF` | **Subtono claro** (crema+ciruela) — converge la paleta |
+| `--editorial-lila` | `#9A66D9` | **Acento de impacto tech girly** (glow, brillos, hover) |
+| `--editorial-lila-deep` | `#7C46C0` | Lila accesible para fills de botón / texto sobre claro |
+
+> **Dirección (28 jul 2026):** paleta convergente + acento de impacto. Los 2 subtonos claros
+> (champán/lino) amarran crema+oro+ciruela para que no se sienta dispersa. El **lila luminoso**
+> es el acento "tech girly" que da fuerza sin gritar — botones primary (lila-deep + glow lila),
+> brillos y hovers. **Se mantiene el morado** (ciruela/aubergine); el oro queda como lujo/elegancia.
 
 Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
