@@ -61,7 +61,7 @@ export default function CursosPage() {
                 />
               </div>
               <div className="p-6">
-                <h2 className="type-lockup type-lockup--glow-soft text-[clamp(1.7rem,2.6vw,2.2rem)]">
+                <h2 className="type-lockup type-lockup--glow-soft type-lockup--sm text-[clamp(1.7rem,2.6vw,2.2rem)]">
                   <span className="type-lockup__impact">{course.impact}</span>
                   <em className="type-lockup__script">{course.script}</em>
                 </h2>

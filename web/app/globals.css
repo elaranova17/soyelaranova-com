@@ -782,6 +782,18 @@ h1, h2, h3,
   direction: ltr;
 }
 
+/* Faltaba el tamaño del lockup (caía a 16px/8px ilegible) — igual que las otras tarjetas */
+.studio-offer-row__copy .type-lockup {
+  font-size: var(--type-card);
+}
+
+.studio-offer-row__copy .type-lockup__script {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.66em;
+}
+
 .studio-offer-row__visual {
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--editorial-gold) 30%, var(--editorial-stone));
@@ -1655,6 +1667,14 @@ h1, h2, h3,
 
 /* Script chico ilegible en Great Vibes → Cormorant itálica legible (regla "cursiva solo grande") */
 .studio-service-tile .type-lockup__script {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.66em;
+}
+
+/* Modificador reutilizable: lockup chico → script en Cormorant itálica (no Great Vibes) */
+.type-lockup--sm .type-lockup__script {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;

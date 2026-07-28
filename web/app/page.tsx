@@ -363,8 +363,9 @@ export default function HomePage() {
             <em className="type-lockup__script">con ojo estético</em>
           </h2>
           <p>
-            Soy Evelyn — no un equipo detrás de una marca. Llevo 8 años automatizando procesos: lo
-            que hoy el mundo hace con IA, yo lo venía haciendo a mano. Seis de esos años en banca,
+            Soy Evelyn, y Elara Nova soy yo — no una agencia con un equipo anónimo detrás. Llevo 8
+            años automatizando procesos: lo que hoy el mundo hace con IA, yo lo venía haciendo a
+            mano. Seis de esos años en banca,
             donde un detalle mal hecho cuesta dinero real. Lo que más me gusta es sentarme contigo,
             entender tu negocio y quitarte el trabajo repetitivo de encima.
           </p>
