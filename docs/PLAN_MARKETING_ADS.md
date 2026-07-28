@@ -28,6 +28,12 @@
 
 ## 2 · Tipografía nueva (decisión)
 
+> ⚠️ **SECCIÓN DESACTUALIZADA (26 jul 2026).** Esta propuesta (Fraunces + Manrope) **NO se aplicó**
+> y **contradice la fuente de verdad** `docs/brand.md`. El sistema tipográfico REAL y vigente es:
+> **Bebas Neue** (impact) · **Great Vibes** (script) · **Cormorant Garamond** (serif) · **Outfit** (sans).
+> Fraunces/Manrope/Playfair están hoy en la lista de anti-patrones de `brand.md`. Se conserva esta
+> sección solo como historia de decisión. Para tipografía, mandá siempre a `docs/brand.md`.
+
 Las actuales (Playfair + Cormorant + Lato) se sienten genéricas y compiten entre sí (2 serifas).
 
 **Par elegido — llamativa + discreta:**

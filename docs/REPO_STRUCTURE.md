@@ -22,6 +22,7 @@
 | `lib/` | Ofertas LP, fotos, navegación |
 | `public/` | Assets servidos (ver `public/README.md`) |
 | `templates/evelyn-b2b/` | Plantillas HTML internas |
+| `public/evelyn-b2b/` | HTML B2B autónomos servidos por URL directa (cv, portfolio, propuestas, linktree) — no importados por la app |
 | `scripts/verify-public-assets.mjs` | Guardrails de assets |
 
 ## Deploy
