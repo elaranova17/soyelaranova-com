@@ -1410,14 +1410,18 @@ h1, h2, h3,
 
 .studio-index__hero {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
   padding: clamp(7.5rem, 14vw, 9.5rem) clamp(1.25rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem);
   background:
     radial-gradient(55% 70% at 85% 0%, color-mix(in srgb, var(--editorial-gold) 16%, transparent), transparent 60%),
     var(--editorial-ivory);
+}
+
+/* Variante 2 columnas: solo el hero de /servicios (copy + diagrama del sistema) */
+.studio-index__hero--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
 }
 
 .studio-index__hero-copy {
@@ -1525,7 +1529,7 @@ h1, h2, h3,
 }
 
 @media (max-width: 900px) {
-  .studio-index__hero {
+  .studio-index__hero--split {
     grid-template-columns: 1fr;
   }
 

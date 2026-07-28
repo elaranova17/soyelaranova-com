@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="studio-index">
-      <section className="studio-index__hero">
+      <section className="studio-index__hero studio-index__hero--split">
         <div className="studio-index__hero-copy">
           <StudioReveal>
             <p className="home-eyebrow studio-accent">
