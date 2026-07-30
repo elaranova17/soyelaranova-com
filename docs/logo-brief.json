@@ -1,0 +1,68 @@
+{
+  "brand": {
+    "name": "Elara Nova",
+    "founder": "Evelyn Patiño (ingeniera de software, fashionista, 'regia y diva')",
+    "what": "Estudio/agencia de automatización y desarrollo web: automatizaciones, landing pages y sitios que venden, Google Ads con medición.",
+    "slogan": "Menos a mano.",
+    "descriptor": "Pienso en el detalle, construyo como ingeniera.",
+    "personality": "Persona real, femenina, elegante, con carácter. Ingeniera con ojo estético + sensibilidad de moda/belleza."
+  },
+  "creative_direction": {
+    "vibe": "girl tech — pero FEMENINO primero, tech como guiño sutil",
+    "balance_rule": "70% femenino/editorial/elegante · 30% tech. El error a EVITAR: que parezca logo de startup/SaaS.",
+    "key_insight": "El lila NO es lo que lo hace girly. Lo girly viene de elegancia, delicadeza, contraste, sensibilidad editorial/moda, calidez y carácter — NO del color.",
+    "reference_feel": "Marca de MODA/BELLEZA premium (editorial, chic, glamour sutil) con un SUSURRO tech — nunca SaaS/startup.",
+    "feminine_cues": ["elegancia", "contraste tipográfico (fino/grueso)", "curvas delicadas con intención", "sensibilidad editorial de moda", "glamour sutil regia/diva", "toque personal/firma", "calidez", "sofisticación atemporal"],
+    "tech_whisper": "Un detalle pequeño y preciso (un nodo, un cursor, un corte geométrico limpio) DENTRO de una marca elegante — NO un símbolo tech como concepto central.",
+    "creative_freedom": "Libertad total en el concepto mientras respete estos parámetros y el balance 70/30.",
+    "must_exclude": [
+      "loop / lazo infinito (cliché)",
+      "nodos conectados / data-flow genérico",
+      "bloques modulares / cubos",
+      "monograma EN genérico",
+      "app-icon estilo SaaS genérico",
+      "cualquier cosa que parezca logo de startup tech",
+      "geometría fría / masculina / chunky sin gracia",
+      "estrellas / luna / celeste / cósmico",
+      "mascotas / muñequitos / personas / fotos en el logo",
+      "degradados neón/arcoíris, 3D glossy, clichés de IA (cerebros, circuitos, robots)"
+    ]
+  },
+  "color": {
+    "hero_lila": "#9A66D9",
+    "lila_deep": "#7C46C0",
+    "aubergine": "#2B1735",
+    "plum": "#4A2D57",
+    "gold": "#B89A58",
+    "cream_ivory": "#F8F3EA",
+    "smoke": "#E7E1DC",
+    "ink": "#18131A",
+    "usage": "Lila protagonista tech-girly + oro como acento de lujo/glamour. Aubergine base, crema para claro. Glow SUTIL, nunca neón. El color acompaña; la elegancia la da la FORMA, no el morado.",
+    "combos": ["lila sobre aubergine", "crema sobre aubergine", "aubergine sobre crema", "lila + oro sutil"]
+  },
+  "typography": {
+    "priority": "Dirección tipográfica/EDITORIAL como camino principal (es lo más femenino y ownable).",
+    "logotype_style": "Wordmark custom con CONTRASTE elegante (no una sans genérica plana). Puede mezclar una minúscula chic + un detalle fino. Evitar script crudo (Great Vibes) crudo como logotipo, pero la elegancia de un script/serif refinado sí suma.",
+    "system_fonts": {"display": "Bebas Neue", "sans": "Outfit", "serif": "Cormorant Garamond", "script_decorativo": "Great Vibes"}
+  },
+  "logo_system": {
+    "deliverables": ["logotipo (nombre, camino principal)", "isotipo/monograma (elegante, opcional)", "lockup horizontal", "lockup apilado", "solo-ícono para favicon/avatar"],
+    "variants": ["lila/aubergine (principal)", "1 tinta lila", "1 tinta aubergine", "crema sobre oscuro", "negro", "blanco"],
+    "must_work": ["a 16px (favicon)", "en 1 tinta / blanco y negro", "avatar 1:1", "fondo claro y oscuro"]
+  },
+  "technical": {
+    "formats": ["SVG vectorial (fuente editable)", "PNG transparente"],
+    "favicon_sizes_px": [16, 32, 180, 512],
+    "og_card_px": "1200x630",
+    "avatar": "1:1"
+  },
+  "style_attributes": ["elegante", "editorial", "femenino con carácter", "contraste", "delicado pero seguro", "premium atemporal", "flat", "espacio negativo generoso", "preciso (ingeniera) pero cálido"],
+  "prompt_templates": [
+    "Elegant FEMININE luxury logo for 'Elara Nova', a stylish female software engineer's automation studio. FASHION/BEAUTY editorial sensibility with only a SUBTLE tech whisper (one tiny precise node or clean geometric cut) — NOT a SaaS startup logo. Refined high-contrast lettering, delicate confident curves, sophisticated glamour. Lila #9A66D9 + subtle gold #B89A58 on aubergine #2B1735 or cream. Flat vector, works at 16px. AVOID: infinity loops, connected nodes, modular blocks, generic EN monogram, cold masculine geometry, startup look.",
+    "Custom editorial WORDMARK 'elara nova' — lowercase, high-contrast elegant type with a couture/beauty feel and ONE tiny lila #9A66D9 tech detail (a dot node). Chic, feminine, premium, ownable, timeless. On cream and on aubergine.",
+    "Feminine luxury monogram for 'Elara Nova' — an elegant 'e' with a delicate high-contrast form and a single small gold #B89A58 or lila #9A66D9 accent that hints at tech precision. Fashion-brand refinement, not a tech icon. Flat, works tiny.",
+    "Chic beauty-brand style logo mark for 'Elara Nova' with a soft, elegant, feminine character and a whisper of engineering precision (a clean geometric detail). Lila + gold on aubergine. NO loops, NO nodes, NO blocks, NO generic tech."
+  ],
+  "negative_prompt": "infinity loop, connected nodes, data flow, modular blocks, cubes, generic EN monogram, SaaS startup logo, cold geometric, masculine, chunky, bold-without-elegance, stars, star, sparkle, moon, crescent, celestial, mascot, character, cartoon, face, person, photo, neon, rainbow gradient, brain, robot, circuit board, 3d bevel, glossy, stock clipart",
+  "notes": "REBALANCE (autocrítica): la primera tanda salió genérica/tech-bro porque el brief pesaba mucho tech y trataba 'girly' = morado. Ahora: FEMENINO/EDITORIAL lidera, tech es un guiño. Colores/exclusiones/must-work fijos; concepto libre. Ref: docs/BRIEF_LOGO.md + docs/brand.md."
+}

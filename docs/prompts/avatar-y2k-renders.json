@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "brand": "Elara Nova by Evelyn Patiño · Y2K girly (paleta C1, jul 2026)",
+    "created": "2026-07-30",
+    "purpose": "Re-renders del avatar 3D de Elara (mascota de la marca) en escenarios Y2K girly. Reemplazan la era mística (fondo estrellado, meditación, caftán) que queda PROHIBIDA para contenido nuevo.",
+    "model_default": "Gemini image (Nano Banana) con imágenes de referencia adjuntas · también sirve Whisk/Flow",
+    "identity_reference_REQUIRED": [
+      "docs/brand-assets/avatar/elara-ref-retrato.png (rasgos de cara — LA MEJOR)",
+      "docs/brand-assets/avatar/elara-ref-cuerpo.png (proporciones cuerpo)",
+      "docs/brand-assets/avatar/elara-avatar.jpg (variante con kimono lila)"
+    ],
+    "workflow": "Adjuntar SIEMPRE al menos elara-ref-retrato.png + el prompt del shot. Generar 2-3 variantes, elegir 1, guardar en docs/brand-assets/avatar/y2k/ con el id del shot."
+  },
+  "palette_lock": {
+    "crema": "#F6EFE3",
+    "rosa_bebe": "#FFD9E8",
+    "rosa_chicle": "#E85D9F",
+    "lila": "#9A66D9",
+    "ciruela": "#4A2D57",
+    "regla": "Fondos y ropa dentro de esta paleta. PROHIBIDO dorado #B89A58 como color dominante."
+  },
+  "identity_lock_ELARA": {
+    "estilo": "3D estilizado tipo Pixar/animación premium — mismo render style de las referencias, NO fotorealismo, NO anime 2D",
+    "must_match": [
+      "mujer joven ~25, piel morena cálida con pecas en nariz y mejillas",
+      "bob negro brillante a los hombros con flequillo recto",
+      "ojos grandes verde-avellana, pestañas definidas",
+      "piercing aro dorado pequeño en fosa nasal izquierda",
+      "cejas negras densas",
+      "labios rosados carnosos, sonrisa suave cerrada",
+      "tatuajes finos línea negra en antebrazos y hombro derecho (florales/botánicos)",
+      "argollas doradas medianas en las orejas",
+      "uñas almendra rosa claro"
+    ],
+    "wardrobe_Y2K": "tops en rosa chicle/lila/crema, cardigans rosa bebé, camiseta con corazón, jeans tiro bajo o falda plisada — Y2K girly cool, NUNCA el caftán tie-dye ni el kimono místico",
+    "PROHIBIDO": "fondo estrellado místico, meditación/yoga, buda, velas rituales, luna, tarot, dorado dominante, look infantil"
+  },
+  "negative_prompt_common": "photorealistic human, anime 2D, extra fingers, warped hands, mystical starry background, meditation pose, buddha statue, tarot cards, crescent moon, golden particles, text, watermark, logo, childish chibi style, different face, no freckles, blue eyes",
+  "shots": [
+    {
+      "id": "y2k-01-vanity",
+      "prioridad": "P0 — la escena firma (igual a las referencias de Evelyn)",
+      "aspect_ratio": "4:5",
+      "prompt": "Elara sentada en un tocador/vanity rosa bebé con espejo en forma de corazón con luces, skincare rosa y un latte en vaso de vidrio sobre la mesa, sosteniendo un celular de tapita rosa con charms colgantes, mirando a cámara con sonrisa suave, top lila, luz cálida suave de las bombillas del espejo, fondo crema #F6EFE3 limpio, estilo 3D Pixar premium"
+    },
+    {
+      "id": "y2k-02-laptop",
+      "prioridad": "P0 — para contenido de automatización",
+      "aspect_ratio": "4:5",
+      "prompt": "Elara en un escritorio it-girl trabajando feliz en una laptop crema cubierta de stickers (corazones, flores, mariposa), teclado rosa, taza rosa chicle, post-its lila en la pared, cardigan rosa bebé sobre camiseta crema, expresión concentrada y contenta, fondo rosa bebé #FFD9E8 limpio, estilo 3D Pixar premium"
+    },
+    {
+      "id": "y2k-03-celebrando",
+      "prioridad": "P1 — sticker de celebración (fondo limpio para cutout)",
+      "aspect_ratio": "1:1",
+      "prompt": "Elara de medio cuerpo celebrando con los puños arriba y sonrisa grande, confeti de corazones rosa y lila cayendo, top rosa chicle, fondo crema sólido #F6EFE3 perfectamente limpio para recorte, estilo 3D Pixar premium"
+    },
+    {
+      "id": "y2k-04-guino-señalando",
+      "prioridad": "P1 — sticker para señalar CTAs en videos",
+      "aspect_ratio": "1:1",
+      "prompt": "Elara de medio cuerpo guiñando un ojo y señalando con el dedo índice hacia arriba a la derecha (como señalando un botón), top lila, argollas doradas, fondo crema sólido #F6EFE3 perfectamente limpio para recorte, estilo 3D Pixar premium"
+    },
+    {
+      "id": "y2k-05-celular-tapita",
+      "prioridad": "P1 — la mascota con el ícono de la era 2000",
+      "aspect_ratio": "1:1",
+      "prompt": "Elara de medio cuerpo sonriendo mientras escribe en un celular de tapita rosa con antenita y charm de corazón, expresión divertida de estar chismeando, camiseta crema con corazón rosa chicle estampado, fondo rosa bebé sólido #FFD9E8 limpio para recorte, estilo 3D Pixar premium"
+    },
+    {
+      "id": "y2k-06-pensando",
+      "prioridad": "P2 — sticker de duda/pregunta",
+      "aspect_ratio": "1:1",
+      "prompt": "Elara de medio cuerpo con expresión pensativa curiosa, dedo índice en la mejilla, signos de interrogación flotantes en lila y rosa dibujados estilo doodle, top rosa bebé, fondo crema sólido #F6EFE3 limpio para recorte, estilo 3D Pixar premium"
+    }
+  ]
+}

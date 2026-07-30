@@ -1,8 +1,60 @@
-# Elara Nova · Marca estudio 2026 (sitio web)
+# Elara Nova · Marca 2026
 
-> **Fuente de verdad visual y de voz para `soyelaranova.com`.**
-> Actualizado: julio 2026 (tipografía Opción A CapCut glow chic lockeada).
+> **Fuente de verdad visual y de voz de la marca.**
+> Actualizado: **30 julio 2026 (PIVOT marca personal creadora)**.
 > Si otro brief o skill antiguo contradice este archivo, **gana este archivo**.
+
+---
+
+## 🚀 DIRECCIÓN VIGENTE (30 jul 2026) — Marca personal creadora · "IT Girly"
+
+**La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
+(TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
+IA y automatización **para mujeres** — que han sido excluidas de este mundo, el mundo en el
+que Evelyn ha estado toda la vida. Lema de convergencia de las dos frases ancla: *las chicas
+siempre pudieron crear con tecnología; "Menos a mano" es cómo, "Mirá todo lo que siempre
+fuiste capaz de ser" es por qué.*
+
+**Jerarquía del negocio:**
+1. Contenido en redes (reels/TikToks) → construye audiencia
+2. **Plantillas/agentes n8n descargables** (gratis → premium → packages) vía embudo DM automatizado
+3. Infoproductos (ebooks, cursos pequeños) — fase 2
+4. Servicios freelance/estudio — **siguen en la web pero SIN promoción activa** mientras dure TPC; si la demanda desborda, tercerizar con amigos
+5. UGC para marcas — línea de ingreso paralela de Evelyn
+
+**Nombre completo de marca:** *Elara Nova by Evelyn Patiño* · Intro de video: *"Bienvenidas a un capítulo más de Menos a Mano…"*
+
+### Identidad visual VIGENTE (cerrada 30 jul — reemplaza al "CapCut glow chic" de abajo)
+
+**Estética: Y2K girly cool** (era 2000: Legally Blonde, popstars, celular de tapita) — girly + good vibes + profesional. **Girly ≠ infantil.** Brand board visual: `docs/brand-board.html`.
+
+**Paleta C1 "Híbrida Y2K ciruela" (5 colores, SIN dorado):**
+
+| Color | HEX | Uso |
+|-------|-----|-----|
+| Crema | `#F6EFE3` | Base (~60%) |
+| Rosa bebé | `#FFD9E8` | Fondos suaves, tarjetas |
+| Rosa chicle | `#E85D9F` | Impacto, CTAs, submark |
+| Lila | `#9A66D9` | Impacto 2, links, acentos |
+| Ciruela | `#4A2D57` | Texto, lo serio, lo profesional |
+
+Proporción **60 crema / 30 rosa+lila / 10 ciruela**. El dorado `#B89A58` queda **RETIRADO**.
+**Regla del brillo:** glitter/chrome/destellos = *textura* en stickers, subtítulos y transiciones de video — nunca color de paleta.
+
+**Tipografías:** Bagel Fat One (display, solo títulos gordos) · Great Vibes (script, guiños, máx 1 por pieza) · Outfit (cuerpo). Todas Google Fonts.
+
+**Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
+
+**Composición: collage y recortes** — cutout sticker con borde blanco, tipografía gigante entrelazada con la persona, script cruzado, doodles encima, scrapbook (clips/cinta/papel cuadriculado). NO planos centrales.
+
+**Fotos de Evelyn: NUNCA 100% IA.** Ella se fotografía (brief de pose con boceto de figura verde previo) → IA solo refina (ver `memory reference_fotos_pipeline` + `docs/prompts/`). Avatar 3D Elara = **mascota-acento**, nunca protagonista (refs en `docs/brand-assets/avatar/`).
+
+**Plan de ejecución vigente:** `docs/PLAN_SPRINTS.md` (tablero por sprints, lanzamiento ~3 sep 2026).
+
+> ⚠️ **Las secciones de abajo ("CapCut glow chic", paleta `--editorial-*`, Bebas Neue) describen
+> la web DESPLEGADA HOY** y siguen mandando para mantenimiento del sitio actual, **hasta el
+> reposicionamiento web** (Sprint 2 del plan). Para contenido de redes, plantillas, brand assets
+> y todo lo NUEVO: manda la identidad Y2K girly de arriba.
 
 ---
 

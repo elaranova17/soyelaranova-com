@@ -1,6 +1,8 @@
 # Estado del proyecto · soyelaranova.com
 
-**Actualizado:** 25 julio 2026
+> ⚠️ **PIVOT 30 jul 2026 — marca personal creadora.** La marca es Evelyn (nicho IT Girly, estética Y2K girly cool), producto = plantillas/agentes n8n + contenido TikTok/IG. Los servicios del estudio siguen en la web pero sin promoción activa mientras dure TPC. **Plan de trabajo vigente: [`PLAN_SPRINTS.md`](PLAN_SPRINTS.md)** (tablero chuleable por sprints). La identidad visual está EN REDEFINICIÓN — no cerrar diseños nuevos con el look actual sin consultar ese plan.
+
+**Actualizado:** 30 julio 2026 (pivot) · base técnica: 25 julio 2026
 **Fuente de verdad de marca:** [`brand.md`](brand.md) (marca estudio 2026)
 **Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main`
 **Deploy:** [`DEPLOY.md`](DEPLOY.md) · Vercel Root Directory = `web`
