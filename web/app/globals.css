@@ -5935,3 +5935,166 @@ a.elara-chip:hover .elara-chip__label {
     max-width: 100%;
   }
 }
+
+/* ═══════════ capas y vida (31 jul) — collage, sombras duras, marquee ═══════════ */
+
+/* cuadrícula de puntitos tipo cuaderno sobre el crema */
+.home-shell {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--editorial-plum) 13%, transparent) 1.3px,
+    transparent 1.3px
+  );
+  background-size: 28px 28px;
+}
+
+/* forma orgánica detrás del copy del hero */
+.home-hero {
+  position: relative;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  width: min(640px, 80vw);
+  height: min(640px, 80vw);
+  left: -190px;
+  top: -130px;
+  background: var(--editorial-champan);
+  border-radius: 58% 42% 63% 37% / 45% 55% 42% 58%;
+  z-index: 0;
+}
+
+.home-hero__copy {
+  position: relative;
+  z-index: 1;
+}
+
+/* tarjetas calcomanía: borde grueso + sombra dura + torciditas */
+.home-intro__service,
+.home-recurso,
+.home-product {
+  background: var(--editorial-ivory);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 22px;
+  box-shadow: 9px 11px 0 var(--editorial-plum);
+  overflow: hidden;
+}
+
+.home-intro__service {
+  padding: 20px;
+  transform: rotate(-1deg);
+}
+
+.home-intro__service:nth-child(2n) {
+  transform: rotate(1.1deg);
+}
+
+.home-recurso {
+  transform: rotate(-1.3deg);
+}
+
+.home-recurso:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.home-recursos .home-recurso {
+  box-shadow: 9px 11px 0 var(--editorial-gold);
+}
+
+.home-product {
+  transform: rotate(-0.8deg);
+}
+
+.home-product:nth-child(2n) {
+  transform: rotate(0.9deg);
+}
+
+/* botones con sombra dura */
+.home-button {
+  border: 2.5px solid var(--editorial-plum);
+  box-shadow: 5px 6px 0 var(--editorial-plum);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 4px 0 var(--editorial-plum);
+}
+
+/* marquee Y2K */
+.y2k-marquee {
+  overflow: hidden;
+  background: var(--editorial-gold);
+  border-block: 3px solid var(--editorial-plum);
+  padding: 13px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.y2k-marquee__track {
+  display: flex;
+  gap: 2.2em;
+  width: max-content;
+  animation: y2kmarquee 26s linear infinite;
+  font-family: var(--font-display);
+  text-transform: lowercase;
+  font-size: clamp(1.15rem, 2.3vw, 1.8rem);
+  line-height: 1;
+  color: var(--editorial-ivory);
+  -webkit-text-stroke: 0.085em var(--editorial-plum);
+  paint-order: stroke fill;
+  text-shadow: 0.045em 0.07em 0 var(--editorial-plum);
+  white-space: nowrap;
+}
+
+.y2k-marquee__track span {
+  flex: none;
+}
+
+@keyframes y2kmarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .y2k-marquee__track {
+    animation: none;
+  }
+}
+
+/* squiggles gigantes + etiquetas flotantes (ref Canva de Evelyn) */
+.y2k-squiggles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.y2k-squiggles svg {
+  position: absolute;
+}
+
+.y2k-label {
+  position: absolute;
+  z-index: 4;
+  background: var(--editorial-ivory);
+  border: 2.5px solid var(--editorial-plum);
+  border-radius: 999px;
+  box-shadow: 4px 5px 0 var(--editorial-plum);
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--editorial-plum);
+  white-space: nowrap;
+}
+
+.home-hero .type-lockup__script {
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  transform: rotate(-4deg);
+  display: inline-block;
+  margin-top: -0.35em;
+}

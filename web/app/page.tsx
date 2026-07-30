@@ -100,6 +100,32 @@ export default function HomePage() {
   return (
     <main className="home-shell">
       <section id="inicio" className="home-hero">
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '560px', left: '-140px', top: '-60px', opacity: 0.9 }}>
+            <path
+              d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210 C372 120 260 110 250 200"
+              fill="none"
+              stroke="#F4A7CB"
+              strokeWidth="34"
+              strokeLinecap="round"
+            />
+          </svg>
+          <svg viewBox="0 0 500 400" style={{ width: '520px', right: '-160px', bottom: '-120px', opacity: 0.85 }}>
+            <path
+              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
+              fill="none"
+              stroke="#E3CBF2"
+              strokeWidth="30"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+        <span className="y2k-label" style={{ top: '15%', right: '44%', transform: 'rotate(-7deg)' }}>
+          automatización
+        </span>
+        <span className="y2k-label" style={{ bottom: '22%', right: '3%', transform: 'rotate(6deg)' }}>
+          plantillas n8n
+        </span>
         <div className="home-hero__copy">
           <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización</Eyebrow>
           <h1 className="type-lockup type-lockup--glow-soft">
@@ -127,10 +153,16 @@ export default function HomePage() {
             <svg viewBox="0 0 400 460" role="img" aria-hidden="true">
               <path
                 fill="#1E1523"
+                stroke="#FFFFFF"
+                strokeWidth="10"
+                strokeLinejoin="round"
                 d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
               />
               <path
                 fill="#1E1523"
+                stroke="#FFFFFF"
+                strokeWidth="10"
+                strokeLinejoin="round"
                 d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
               />
             </svg>
@@ -175,6 +207,16 @@ export default function HomePage() {
         </p>
       </section>
 
+      <div className="y2k-marquee" aria-hidden="true">
+        <div className="y2k-marquee__track">
+          {[0, 1].map((rep) =>
+            ['menos a mano', '✦', 'lo que siempre pudiste hacer', '✦', 'pastoreando', '✦', 'plantillas listas para usar', '✦', 'ia sin humo', '✦'].map(
+              (t, i) => <span key={`${rep}-${i}`}>{t}</span>
+            )
+          )}
+        </div>
+      </div>
+
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
         <p>
           <span className="home-thesis__impact">Enseño</span>
@@ -190,7 +232,18 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section id="servicios" className="home-intro">
+      <section id="servicios" className="home-intro" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '480px', right: '-150px', top: '-70px', opacity: 0.55 }}>
+            <path
+              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
+              fill="none"
+              stroke="#F4A7CB"
+              strokeWidth="30"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
         <div className="home-intro__lead">
           <Eyebrow>El porqué</Eyebrow>
           <h2 className="type-lockup type-lockup--glow-soft">
@@ -208,7 +261,13 @@ export default function HomePage() {
             <li>Pros y contras de verdad: qué sirve y qué es puro humo.</li>
           </ul>
         </div>
-        <div className="home-intro__body">
+        <div className="home-intro__body" style={{ position: 'relative' }}>
+          <img
+            src="/brand/stickers/celular-tapita.png"
+            alt=""
+            className="y2k-sticker"
+            style={{ width: '88px', top: '-52px', right: '2%', transform: 'rotate(12deg)' }}
+          />
           <Eyebrow>¿Te suena?</Eyebrow>
           <div className="home-intro__services" aria-label="Señales de que esto es para ti">
             <div className="home-intro__service">
@@ -238,7 +297,13 @@ export default function HomePage() {
 
       <ImmersiveStory />
 
-      <section id="oferta" className="home-products">
+      <section id="oferta" className="home-products" style={{ position: 'relative' }}>
+        <img
+          src="/brand/stickers/corazon-leopardo.png"
+          alt=""
+          className="y2k-sticker"
+          style={{ width: '104px', top: '-34px', right: '5%', transform: 'rotate(9deg)' }}
+        />
         <header className="home-products__header">
           <div>
             <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
@@ -273,7 +338,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="recursos" className="home-recursos">
+      <section id="recursos" className="home-recursos" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '540px', left: '-170px', top: '-90px', opacity: 0.28 }}>
+            <path
+              d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210"
+              fill="none"
+              stroke="#E85D9F"
+              strokeWidth="34"
+              strokeLinecap="round"
+            />
+          </svg>
+          <svg viewBox="0 0 500 400" style={{ width: '460px', right: '-140px', bottom: '-100px', opacity: 0.22 }}>
+            <path
+              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
+              fill="none"
+              stroke="#9A66D9"
+              strokeWidth="30"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+        <img
+          src="/brand/stickers/labios.png"
+          alt=""
+          className="y2k-sticker"
+          style={{ width: '96px', top: '30px', right: '5%', transform: 'rotate(-9deg)' }}
+        />
         <div className="home-recursos__intro">
           <Eyebrow light>Las series · muy pronto en Instagram y TikTok</Eyebrow>
           <h2 className="type-lockup type-lockup--glow">
@@ -338,7 +429,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="preanalisis" className="home-impact">
+      <section id="preanalisis" className="home-impact" style={{ position: 'relative' }}>
+        <img
+          src="/brand/stickers/mono.png"
+          alt=""
+          className="y2k-sticker"
+          style={{ width: '96px', top: '26px', left: '6%', transform: 'rotate(-10deg)' }}
+        />
         <Eyebrow>Pre-análisis didáctico · gratis</Eyebrow>
         <h2 className="type-lockup type-lockup--center type-lockup--glow-soft">
           <span className="type-lockup__impact">Tu negocio</span>
