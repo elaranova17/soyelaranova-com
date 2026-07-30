@@ -6146,3 +6146,13 @@ a.elara-chip:hover .elara-chip__label {
     animation: none;
   }
 }
+
+/* refinamiento blob: marco más suave y la silueta rompe el marco (cutout) */
+.hero-silueta {
+  border-radius: 38% 62% 46% 54% / 40% 36% 64% 60%;
+  overflow: visible;
+}
+
+.hero-silueta svg {
+  margin-bottom: -3px;
+}

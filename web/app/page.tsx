@@ -234,8 +234,6 @@ export default function HomePage() {
         </p>
       </section>
 
-      <div className="y2k-checker" aria-hidden="true" />
-
       <div className="y2k-marquee" aria-hidden="true">
         <div className="y2k-marquee__track">
           {[0, 1].map((rep) =>
@@ -457,8 +455,6 @@ export default function HomePage() {
           </article>
         </div>
       </section>
-
-      <div className="y2k-checker" aria-hidden="true" />
 
       <section id="preanalisis" className="home-impact" style={{ position: 'relative' }}>
         <img
