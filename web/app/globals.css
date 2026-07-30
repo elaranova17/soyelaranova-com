@@ -6093,8 +6093,19 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .home-hero .type-lockup__script {
-  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
-  transform: rotate(-4deg);
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  transform: rotate(-3deg);
   display: inline-block;
-  margin-top: -0.35em;
+  margin-top: 0.05em;
+  margin-left: 1.2em;
+}
+
+/* puntitos dentro de la tarjeta de la silueta */
+.hero-silueta {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--editorial-gold) 30%, transparent) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 22px 22px;
+  background-color: var(--editorial-rosa-bebe);
 }

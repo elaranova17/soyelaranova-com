@@ -101,7 +101,7 @@ export default function HomePage() {
     <main className="home-shell">
       <section id="inicio" className="home-hero">
         <div className="y2k-squiggles" aria-hidden="true">
-          <svg viewBox="0 0 500 400" style={{ width: '560px', left: '-140px', top: '-60px', opacity: 0.9 }}>
+          <svg viewBox="0 0 500 400" style={{ width: '520px', left: '-150px', top: '120px', opacity: 0.75 }}>
             <path
               d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210 C372 120 260 110 250 200"
               fill="none"
@@ -120,12 +120,6 @@ export default function HomePage() {
             />
           </svg>
         </div>
-        <span className="y2k-label" style={{ top: '15%', right: '44%', transform: 'rotate(-7deg)' }}>
-          automatización
-        </span>
-        <span className="y2k-label" style={{ bottom: '22%', right: '3%', transform: 'rotate(6deg)' }}>
-          plantillas n8n
-        </span>
         <div className="home-hero__copy">
           <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización</Eyebrow>
           <h1 className="type-lockup type-lockup--glow-soft">
@@ -150,33 +144,55 @@ export default function HomePage() {
         <div className="home-hero__visual hero-composicion">
           <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
             <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
+            <span className="y2k-label" style={{ top: '-14px', right: '22px', transform: 'rotate(5deg)' }}>
+              automatización
+            </span>
+            <span className="y2k-label" style={{ bottom: '18px', left: '-14px', transform: 'rotate(-6deg)' }}>
+              plantillas n8n
+            </span>
             <svg viewBox="0 0 400 460" role="img" aria-hidden="true">
               <path
-                fill="#1E1523"
+                fill="#2B1735"
                 stroke="#FFFFFF"
                 strokeWidth="10"
                 strokeLinejoin="round"
                 d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
               />
               <path
-                fill="#1E1523"
+                fill="#2B1735"
                 stroke="#FFFFFF"
                 strokeWidth="10"
                 strokeLinejoin="round"
                 d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
+              />
+              <path
+                d="M96 150 C92 110 118 62 152 48"
+                fill="none"
+                stroke="#E85D9F"
+                strokeWidth="9"
+                strokeLinecap="round"
+                opacity="0.85"
+              />
+              <path
+                d="M304 150 C308 112 288 70 258 52"
+                fill="none"
+                stroke="#9A66D9"
+                strokeWidth="9"
+                strokeLinecap="round"
+                opacity="0.75"
               />
             </svg>
             <img
               src="/brand/stickers/flor-hibisco-rosa.png"
               alt=""
               className="y2k-sticker"
-              style={{ width: '92px', top: '18px', right: '16px', transform: 'rotate(12deg)' }}
+              style={{ width: '86px', top: '20px', right: '18px', transform: 'rotate(12deg)' }}
             />
             <img
               src="/brand/stickers/destello.png"
               alt=""
               className="y2k-sticker"
-              style={{ width: '64px', bottom: '120px', right: '38px', transform: 'rotate(-8deg)' }}
+              style={{ width: '60px', bottom: '124px', right: '36px', transform: 'rotate(-8deg)' }}
             />
           </div>
           <div className="y2k-chat" role="img" aria-label="Chat de ejemplo del embudo">
