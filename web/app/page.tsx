@@ -101,39 +101,72 @@ export default function HomePage() {
     <main className="home-shell">
       <section id="inicio" className="home-hero">
         <div className="home-hero__copy">
-          <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización para mujeres</Eyebrow>
+          <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización</Eyebrow>
           <h1 className="type-lockup type-lockup--glow-soft">
             <span className="type-lockup__impact">Menos a mano</span>
             <em className="type-lockup__script">más para ti</em>
           </h1>
           <p>
-            Somos Elara Nova: te enseñamos a usar la IA y la automatización para quitarte de encima
-            las tareas que te comen el día. Plantillas listas, tutoriales sin humo y pros y contras
-            de verdad — porque la tecnología siempre fue tuya también.
+            Soy Evelyn, ingeniera de software. Te enseño a usar la IA y la automatización para que
+            las tareas repetitivas no te coman el día: plantillas listas para usar, tutoriales
+            cortos que sí se entienden, y pros y contras de verdad.
           </p>
           <div className="home-actions">
             <Link href="#recursos" className="home-button home-button--primary">
               Ver las series
             </Link>
             <Link href="#oferta" className="home-button home-button--quiet">
-              Trabaja con nosotras
+              Trabaja conmigo
             </Link>
           </div>
         </div>
 
-        <Photo
-          src={evelynPhotos.homeHero}
-          alt="Evelyn Patiño, ingeniera de software, en su estudio"
-          className="home-hero__visual"
-          priority
-          blurDataURL={HERO_BLUR}
-        >
-          <figcaption className="home-hero__caption">
-            <span>Ingeniera de verdad</span>
-            <i aria-hidden="true" />
-            <span>Girly de verdad</span>
-          </figcaption>
-        </Photo>
+        <div className="home-hero__visual hero-composicion">
+          <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
+            <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
+            <svg viewBox="0 0 400 460" role="img" aria-hidden="true">
+              <path
+                fill="#1E1523"
+                d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
+              />
+              <path
+                fill="#1E1523"
+                d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
+              />
+            </svg>
+            <img
+              src="/brand/stickers/flor-hibisco-rosa.png"
+              alt=""
+              className="y2k-sticker"
+              style={{ width: '92px', top: '18px', right: '16px', transform: 'rotate(12deg)' }}
+            />
+            <img
+              src="/brand/stickers/destello.png"
+              alt=""
+              className="y2k-sticker"
+              style={{ width: '64px', bottom: '120px', right: '38px', transform: 'rotate(-8deg)' }}
+            />
+          </div>
+          <div className="y2k-chat" role="img" aria-label="Chat de ejemplo del embudo">
+            <div className="y2k-chat__bar">
+              elara nova ✦ en línea
+              <i aria-hidden="true">
+                <b />
+                <b />
+              </i>
+            </div>
+            <div className="y2k-chat__body">
+              <p className="y2k-chat__msg y2k-chat__msg--tu">
+                <span>tú</span>
+                quiero automatizar mi excel 🥲
+              </p>
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara</span>
+                comenta “EXCEL” y te mando la plantilla 💗
+              </p>
+            </div>
+          </div>
+        </div>
 
         <p className="home-hero__note">
           8 años automatizando procesos.
@@ -144,15 +177,15 @@ export default function HomePage() {
 
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
         <p>
-          <span className="home-thesis__impact">Enseñamos</span>
+          <span className="home-thesis__impact">Enseño</span>
           <em className="home-thesis__script">a automatizar con IA</em>
         </p>
         <p>
-          <span className="home-thesis__impact">Creamos</span>
+          <span className="home-thesis__impact">Creo</span>
           <em className="home-thesis__script">plantillas listas para usar</em>
         </p>
         <p>
-          <span className="home-thesis__impact">Construimos</span>
+          <span className="home-thesis__impact">Construyo</span>
           <em className="home-thesis__script">sistemas que venden</em>
         </p>
       </section>
@@ -165,10 +198,9 @@ export default function HomePage() {
             <em className="type-lockup__script">ahora tienes cómo</em>
           </h2>
           <p className="home-intro__pitch">
-            Miles de mujeres pierden horas cada día en tareas que una máquina puede hacer sola — y
-            sienten que la IA les pasa por el lado. Nosotras venimos de ese mundo (8 años
-            automatizando, 6 en banca) y te lo traducimos: sin humo, con pros y contras, y con
-            plantillas que puedes usar hoy mismo.
+            La mayoría pierde horas cada día en tareas que una máquina puede hacer sola. Yo vengo
+            de ese mundo — 8 años automatizando, 6 de ellos en banca — y te lo cuento claro: qué
+            sirve, qué no, y cómo empezar hoy con una plantilla lista.
           </p>
           <ul className="home-intro__proof">
             <li>Tutoriales cortos que sí se entienden.</li>
@@ -189,15 +221,15 @@ export default function HomePage() {
             <div className="home-intro__service">
               <span>La IA te suena a otro idioma</span>
               <p>
-                Todo el mundo habla de ella y nadie te la explica sin humo. No necesitas ser
-                ingeniera: necesitas a alguien que ya pasó por ahí y te lo cuente claro.
+                Todo el mundo habla de ella y pocos la explican claro. No necesitas ser ingeniera:
+                necesitas ejemplos reales, de tu trabajo de todos los días.
               </p>
             </div>
             <div className="home-intro__service">
-              <span>Sientes que el tren te deja</span>
+              <span>Todo cambia muy rápido</span>
               <p>
-                Los trabajos cambian y nadie te preparó para esto. Spoiler: siempre fuiste capaz —
-                solo te faltaban las herramientas.
+                Los trabajos se están moviendo y a la mayoría nadie le enseñó a usar estas
+                herramientas. Se aprende paso a paso, con alguien que las usa todos los días.
               </p>
             </div>
           </div>
@@ -211,7 +243,7 @@ export default function HomePage() {
           <div>
             <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
             <h2 className="type-lockup type-lockup--glow-soft">
-              <span className="type-lockup__impact">Hecho por nosotras</span>
+              <span className="type-lockup__impact">Lo hago por ti</span>
               <em className="type-lockup__script">de la A a la Z</em>
             </h2>
           </div>
@@ -246,7 +278,7 @@ export default function HomePage() {
           <Eyebrow light>Las series · muy pronto en Instagram y TikTok</Eyebrow>
           <h2 className="type-lockup type-lockup--glow">
             <span className="type-lockup__impact">Aprende gratis</span>
-            <em className="type-lockup__script">con nosotras</em>
+            <em className="type-lockup__script">conmigo</em>
           </h2>
           <p>
             Tres series con nombre propio, cada una con su promesa. Videos cortos, plantillas para
@@ -257,15 +289,11 @@ export default function HomePage() {
 
         <div className="home-recursos__rail">
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <Image
-                src="/media/recursos/recurso-ebook.webp"
-                alt="Ebook y material de lectura CapCut glow chic"
-                width={1024}
-                height={1536}
-                sizes="(max-width: 900px) 100vw, 33vw"
-                className="home-recurso__img"
-              />
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-rosa-bebe)' }}
+            >
+              <img src="/brand/stickers/cursor-pixel.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
             <p>01 · Serie de automatización</p>
             <h3>Menos a mano</h3>
@@ -277,15 +305,11 @@ export default function HomePage() {
           </article>
 
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <Image
-                src="/media/recursos/recurso-pantallas.webp"
-                alt="Tablet con pantalla lista para sistema"
-                width={1024}
-                height={1536}
-                sizes="(max-width: 900px) 100vw, 33vw"
-                className="home-recurso__img"
-              />
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-champan)' }}
+            >
+              <img src="/brand/stickers/estrella-kawaii.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
             <p>02 · Serie de conocimiento</p>
             <h3>Lo que siempre pudiste hacer</h3>
@@ -297,21 +321,17 @@ export default function HomePage() {
           </article>
 
           <article className="home-recurso">
-            <div className="home-recurso__media">
-              <Image
-                src="/media/recursos/recurso-valor.webp"
-                alt="Checklists y plantillas sobre escritorio"
-                width={1024}
-                height={1536}
-                sizes="(max-width: 900px) 100vw, 33vw"
-                className="home-recurso__img"
-              />
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-lino)' }}
+            >
+              <img src="/brand/stickers/chihuahua.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
             <p>03 · Serie de historias</p>
             <h3>Pastoreando</h3>
             <small>
               Storytimes, viajes y la vida real detrás de la marca — construyendo todo esto en
-              público, con lo que sale bien y lo que sale pastor.
+              público, con lo que sale bien y lo que no.
             </small>
             <span className="home-recurso__link">Muy pronto ✦</span>
           </article>

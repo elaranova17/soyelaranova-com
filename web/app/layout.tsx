@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     template: '%s | Elara Nova',
   },
   description:
-    'Te enseñamos a usar la IA y la automatización para quitarte de encima las tareas que te comen el día: plantillas listas, tutoriales sin humo y sistemas hechos a medida. Menos a mano, más para ti.',
+    'Soy Evelyn, ingeniera de software. Te enseño a usar la IA y la automatización para quitarte de encima las tareas que te comen el día: plantillas listas, tutoriales claros y sistemas hechos a medida. Menos a mano, más para ti.',
   keywords: [
     'automatización de procesos',
     'automatizaciones para negocios',

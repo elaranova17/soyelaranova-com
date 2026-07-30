@@ -163,10 +163,14 @@ h1, h2, h3,
   z-index: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.02;
+  letter-spacing: 0.005em;
+  line-height: 1.06;
   text-transform: lowercase;
   text-wrap: balance;
+  /* letras sticker como el logo: contorno ciruela + sombra desplazada */
+  -webkit-text-stroke: 0.115em var(--editorial-plum);
+  paint-order: stroke fill;
+  text-shadow: 0.055em 0.085em 0 var(--editorial-plum);
 }
 
 .type-lockup__script {
@@ -205,7 +209,7 @@ h1, h2, h3,
 /* Glow cream sobre oscuro (impact sections / LP heroes) */
 .type-lockup--glow .type-lockup__impact,
 .type-lockup--glow .type-lockup__script {
-  color: var(--editorial-ivory);
+  color: var(--editorial-rosa-bebe);
   text-shadow: var(--text-glow-gold);
 }
 
@@ -215,7 +219,7 @@ h1, h2, h3,
 
 /* Glow suave sobre fondos claros / beige */
 .type-lockup--glow-soft .type-lockup__impact {
-  color: var(--editorial-ink);
+  color: var(--editorial-gold);
   letter-spacing: 0.07em;
   text-shadow:
     0 0 32px rgb(232 93 159 / .32),
@@ -5789,5 +5793,145 @@ a.elara-chip:hover .elara-chip__label {
   .site-footer__inner {
     grid-template-columns: 1fr;
     gap: 2.25rem;
+  }
+}
+
+/* ═══════════ Y2K girly kit (31 jul 2026) — chat 2000s, silueta, stickers ═══════════ */
+
+.y2k-sticker {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgb(43 23 53 / 0.18));
+}
+
+.y2k-chat {
+  background: var(--editorial-ivory);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 14px;
+  box-shadow: 7px 9px 0 var(--editorial-plum);
+  overflow: hidden;
+  font-family: var(--font-sans);
+  max-width: 340px;
+}
+
+.y2k-chat__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--editorial-gold), var(--editorial-lila));
+  color: var(--editorial-ivory);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+}
+
+.y2k-chat__bar i {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 5px;
+}
+
+.y2k-chat__bar i b {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--editorial-ivory);
+  opacity: 0.9;
+}
+
+.y2k-chat__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.y2k-chat__msg {
+  max-width: 88%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  border: 2px solid var(--editorial-plum);
+}
+
+.y2k-chat__msg--elara {
+  align-self: flex-start;
+  background: var(--editorial-rosa-bebe);
+  border-bottom-left-radius: 4px;
+}
+
+.y2k-chat__msg--tu {
+  align-self: flex-end;
+  background: var(--editorial-champan);
+  border-bottom-right-radius: 4px;
+}
+
+.y2k-chat__msg span {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--editorial-cacao);
+  margin-bottom: 2px;
+}
+
+.hero-composicion {
+  position: relative;
+}
+
+.hero-composicion .y2k-chat {
+  position: absolute;
+  left: -26px;
+  bottom: -30px;
+  z-index: 4;
+  transform: rotate(-3deg);
+}
+
+.hero-silueta {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--editorial-rosa-bebe);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 26px;
+  box-shadow: 9px 11px 0 var(--editorial-plum);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.hero-silueta svg {
+  width: 78%;
+  height: auto;
+  display: block;
+}
+
+.hero-silueta__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--editorial-ivory);
+  border: 2px solid var(--editorial-plum);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--editorial-plum);
+}
+
+@media (max-width: 900px) {
+  .hero-composicion .y2k-chat {
+    position: static;
+    transform: none;
+    margin-top: 16px;
+    max-width: 100%;
   }
 }
