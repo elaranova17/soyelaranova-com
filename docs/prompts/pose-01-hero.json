@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "proposito": "POSE 01 · Foto hero de soyelaranova.com (tarjeta rosa del home). Se genera sobre fondo verde chroma para recortar y montar en la web.",
+    "como_usar": "Adjuntar SIEMPRE la foto real de Evelyn como referencia + pegar este JSON completo. Generar 2-3 variantes. La cara debe ser IDÉNTICA a la referencia — si el modelo cambia los rasgos, descartar y regenerar.",
+    "formato": "vertical 4:5, mínimo 1600×2000 px",
+    "creado": "2026-07-31"
+  },
+  "CANDADO_DE_MARCA": {
+    "instruccion": "TODO dentro de la identidad Elara Nova (Y2K girly chic). PALETA ESTRICTA para ropa y accesorios: rosa chicle #E85D9F, lila #9A66D9, rosa bebé #FFD9E8, crema #F6EFE3, ciruela #4A2D57. PROHIBIDO cualquier color fuera de paleta (nada de rojo, azul, verde, amarillo, naranja, negro total ni dorado dominante). Estética: girly, limpia, profesional — como el brand board de la marca. NO infantil, NO disfraz de época, NO cosplay Y2K exagerado: es una ingeniera it girl de 2026 con guiños 2000s."
+  },
+  "REGLA_SUPREMA_identidad": {
+    "instruccion": "NO MODIFICAR NINGÚN RASGO DE LA CARA de la foto de referencia adjunta. Misma cara exacta: forma del rostro, nariz, labios, cejas, ojos verde-avellana, tono de piel cálido (NO aclarar), textura real de piel con poros.",
+    "pecas_y_lunares": "Conservar SOLO los que están en la foto de referencia, en su posición exacta. PROHIBIDO inventar, añadir o mover pecas o lunares.",
+    "edad": "27 años: piel joven, fresca y lisa. PROHIBIDO añadir arrugas, líneas de frente, surcos nasogenianos o patas de gallo.",
+    "aro_nariz": "conservar el aro pequeño de la fosa nasal tal como está en la referencia"
+  },
+  "pose_01": {
+    "encuadre": "medio cuerpo desde la cintura, centrada, cuerpo levemente girado 3/4 hacia la cámara",
+    "postura": "brazos cruzados relajados (no tensos), hombros sueltos, mentón levemente elevado, actitud segura y cálida — jefa amable, no seria",
+    "mirada": "directa a cámara",
+    "sonrisa": "controlada y genuina con labios entreabiertos suaves (tiene diseño de sonrisa: dientes parejos blanco natural). PROHIBIDA la carcajada abierta — envejece el render"
+  },
+  "styling_y2k_girly": {
+    "cabello": "largo, casi negro, liso con ondas suaves hacia las puntas, raya al medio, cayendo sobre un hombro",
+    "maquillaje": "regia y diva pero natural, NO cakey: piel luminosa con glow, bronze + blush cálido, ojos definidos suaves con máscara natural (no pestañas postizas), cejas peinadas, labio nude-rosado glossy",
+    "outfit": "blazer o top estructurado en rosa chicle (#E85D9F) o lila (#9A66D9) — elegir el que mejor contraste con su tono; debajo top crema sencillo. Estilo Y2K chic profesional, NO disfraz",
+    "accesorios": "argollas doradas medianas, anillos delicados dorados, uñas almendra rosa claro",
+    "vibra": "it girl ingeniera: girly, segura, profesional"
+  },
+  "luz_y_fondo": {
+    "fondo": "VERDE CHROMA PLANO (#00B140) uniforme, sin degradados, sin sombras proyectadas en el fondo — es para recorte digital",
+    "luz": "estudio suave y brillante, luz principal frontal difusa + relleno, glow saludable en la piel, sin sombras duras en la cara",
+    "borde": "cuerpo completo dentro del cuadro con aire arriba de la cabeza; brazos y pelo SIN cortar por los bordes"
+  },
+  "PROHIBIDO": [
+    "cambiar cualquier rasgo facial de la referencia",
+    "inventar pecas, lunares o arrugas",
+    "carcajada abierta",
+    "piel pálida, lavada o plástica de IA",
+    "pestañas postizas o maquillaje pesado",
+    "fondo distinto al verde chroma plano",
+    "texto, marca de agua, logos",
+    "manos deformes o dedos extra",
+    "cortar el pelo o los brazos con el borde del encuadre"
+  ]
+}

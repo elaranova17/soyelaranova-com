@@ -6109,3 +6109,40 @@ a.elara-chip:hover .elara-chip__label {
   background-size: 22px 22px;
   background-color: var(--editorial-rosa-bebe);
 }
+
+/* ═══ ola 3 de inspiración (refs candy/spark/redhot) ═══ */
+
+/* marco blob ondulado para la tarjeta de pose */
+.hero-silueta {
+  border-radius: 43% 57% 52% 48% / 47% 44% 56% 53%;
+}
+
+/* tira de tablero de ajedrez */
+.y2k-checker {
+  height: 30px;
+  background: repeating-conic-gradient(var(--editorial-plum) 0% 25%, var(--editorial-ivory) 0% 50%);
+  background-size: 30px 30px;
+  border-block: 3px solid var(--editorial-plum);
+}
+
+/* sello circular giratorio */
+.y2k-sello {
+  position: absolute;
+  z-index: 5;
+  width: 118px;
+  height: 118px;
+  animation: selloGira 14s linear infinite;
+  filter: drop-shadow(3px 4px 0 var(--editorial-plum));
+}
+
+@keyframes selloGira {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .y2k-sello {
+    animation: none;
+  }
+}
