@@ -41,11 +41,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://soyelaranova.com'),
   title: {
-    default: 'Elara Nova — Automatización y desarrollo web que vende',
+    default: 'Elara Nova by Evelyn Patiño — IA y automatización, menos a mano',
     template: '%s | Elara Nova',
   },
   description:
-    'Estudio de Evelyn Patiño, ingeniera de software: automatizo tus procesos, construyo landing pages y sitios que venden, y mido tus campañas de Google Ads. Menos trabajo manual, más clientes.',
+    'Te enseñamos a usar la IA y la automatización para quitarte de encima las tareas que te comen el día: plantillas listas, tutoriales sin humo y sistemas hechos a medida. Menos a mano, más para ti.',
   keywords: [
     'automatización de procesos',
     'automatizaciones para negocios',

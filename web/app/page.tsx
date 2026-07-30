@@ -101,26 +101,23 @@ export default function HomePage() {
     <main className="home-shell">
       <section id="inicio" className="home-hero">
         <div className="home-hero__copy">
-          <Eyebrow>Elara Nova · estudio de automatización y desarrollo web</Eyebrow>
+          <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización para mujeres</Eyebrow>
           <h1 className="type-lockup type-lockup--glow-soft">
-            <span className="type-lockup__impact">Automatizo</span>
-            <em className="type-lockup__script">tu negocio</em>
+            <span className="type-lockup__impact">Menos a mano</span>
+            <em className="type-lockup__script">más para ti</em>
           </h1>
           <p>
-            Y construyo las webs que venden. Soy Evelyn, ingeniera de software: me siento contigo,
-            entiendo qué te come el día y lo automatizo. Menos a mano, más tiempo para lo que importa.
+            Somos Elara Nova: te enseñamos a usar la IA y la automatización para quitarte de encima
+            las tareas que te comen el día. Plantillas listas, tutoriales sin humo y pros y contras
+            de verdad — porque la tecnología siempre fue tuya también.
           </p>
           <div className="home-actions">
-            <Link href="#servicios" className="home-button home-button--primary">
-              Ver servicios
+            <Link href="#recursos" className="home-button home-button--primary">
+              Ver las series
             </Link>
-            <TrackedLink
-              href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'home_hero_preanalisis' }}
-              className="home-button home-button--quiet"
-            >
-              Hacer mi pre-análisis
-            </TrackedLink>
+            <Link href="#oferta" className="home-button home-button--quiet">
+              Trabaja con nosotras
+            </Link>
           </div>
         </div>
 
@@ -132,75 +129,75 @@ export default function HomePage() {
           blurDataURL={HERO_BLUR}
         >
           <figcaption className="home-hero__caption">
-            <span>Ingeniería real</span>
+            <span>Ingeniera de verdad</span>
             <i aria-hidden="true" />
-            <span>Ojo estético</span>
+            <span>Girly de verdad</span>
           </figcaption>
         </Photo>
 
         <p className="home-hero__note">
           8 años automatizando procesos.
           <br />
-          Primero en banca. Ahora, para tu negocio.
+          Primero en banca. Ahora, para enseñártelo.
         </p>
       </section>
 
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
         <p>
-          <span className="home-thesis__impact">Automatizo</span>
-          <em className="home-thesis__script">tus procesos</em>
+          <span className="home-thesis__impact">Enseñamos</span>
+          <em className="home-thesis__script">a automatizar con IA</em>
         </p>
         <p>
-          <span className="home-thesis__impact">Construyo</span>
-          <em className="home-thesis__script">webs que venden</em>
+          <span className="home-thesis__impact">Creamos</span>
+          <em className="home-thesis__script">plantillas listas para usar</em>
         </p>
         <p>
-          <span className="home-thesis__impact">Mido</span>
-          <em className="home-thesis__script">lo que convierte</em>
+          <span className="home-thesis__impact">Construimos</span>
+          <em className="home-thesis__script">sistemas que venden</em>
         </p>
       </section>
 
       <section id="servicios" className="home-intro">
         <div className="home-intro__lead">
-          <Eyebrow>Lo que hago por tu negocio</Eyebrow>
+          <Eyebrow>El porqué</Eyebrow>
           <h2 className="type-lockup type-lockup--glow-soft">
-            <span className="type-lockup__impact">Menos manual</span>
-            <em className="type-lockup__script">más clientes</em>
+            <span className="type-lockup__impact">Siempre pudiste</span>
+            <em className="type-lockup__script">ahora tienes cómo</em>
           </h2>
           <p className="home-intro__pitch">
-            La mayoría de los negocios pierden horas cada semana en tareas que una máquina puede
-            hacer sola: pasar leads a mano, responder lo mismo mil veces, copiar datos entre apps.
-            Yo encuentro esas fugas y las cierro con sistemas que trabajan por ti — para que dediques
-            tu tiempo a lo que de verdad hace crecer tu negocio.
+            Miles de mujeres pierden horas cada día en tareas que una máquina puede hacer sola — y
+            sienten que la IA les pasa por el lado. Nosotras venimos de ese mundo (8 años
+            automatizando, 6 en banca) y te lo traducimos: sin humo, con pros y contras, y con
+            plantillas que puedes usar hoy mismo.
           </p>
           <ul className="home-intro__proof">
-            <li>Cada lead con seguimiento automático, sin mover un dedo.</li>
-            <li>Webs que convierten visitas en clientes, no folletos bonitos.</li>
-            <li>Todo medible: sabes qué funciona y qué no.</li>
+            <li>Tutoriales cortos que sí se entienden.</li>
+            <li>Plantillas listas para copiar, pegar y usar.</li>
+            <li>Pros y contras de verdad: qué sirve y qué es puro humo.</li>
           </ul>
         </div>
         <div className="home-intro__body">
           <Eyebrow>¿Te suena?</Eyebrow>
-          <div className="home-intro__services" aria-label="Señales de que lo necesitas">
+          <div className="home-intro__services" aria-label="Señales de que esto es para ti">
             <div className="home-intro__service">
               <span>Lo haces todo a mano</span>
               <p>
-                Copiar leads, repetir el mismo correo, pasar datos entre apps. Cada tarea repetida
-                es una hora que no vuelve — y un lead que se enfría.
+                Responder lo mismo mil veces, copiar datos entre apps, vivir dentro del correo.
+                Cada tarea repetida es una hora que no vuelve.
               </p>
             </div>
             <div className="home-intro__service">
-              <span>Tu web no vende</span>
+              <span>La IA te suena a otro idioma</span>
               <p>
-                Está bonita, pero no guía a la persona correcta al siguiente paso. Así es un folleto
-                caro, no un vendedor que trabaja por ti.
+                Todo el mundo habla de ella y nadie te la explica sin humo. No necesitas ser
+                ingeniera: necesitas a alguien que ya pasó por ahí y te lo cuente claro.
               </p>
             </div>
             <div className="home-intro__service">
-              <span>Inviertes en ads a ciegas</span>
+              <span>Sientes que el tren te deja</span>
               <p>
-                Pagas anuncios sin saber qué búsqueda te trae clientes y cuál te quema el
-                presupuesto. Sin medición, decides a ojo.
+                Los trabajos cambian y nadie te preparó para esto. Spoiler: siempre fuiste capaz —
+                solo te faltaban las herramientas.
               </p>
             </div>
           </div>
@@ -212,10 +209,10 @@ export default function HomePage() {
       <section id="oferta" className="home-products">
         <header className="home-products__header">
           <div>
-            <Eyebrow>Servicios · desde 450 €</Eyebrow>
+            <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
             <h2 className="type-lockup type-lockup--glow-soft">
-              <span className="type-lockup__impact">Empieza</span>
-              <em className="type-lockup__script">por aquí</em>
+              <span className="type-lockup__impact">Hecho por nosotras</span>
+              <em className="type-lockup__script">de la A a la Z</em>
             </h2>
           </div>
           <Link href="/servicios">Ver todos los servicios</Link>
@@ -246,15 +243,15 @@ export default function HomePage() {
 
       <section id="recursos" className="home-recursos">
         <div className="home-recursos__intro">
-          <Eyebrow light>Material de valor</Eyebrow>
+          <Eyebrow light>Las series · muy pronto en Instagram y TikTok</Eyebrow>
           <h2 className="type-lockup type-lockup--glow">
-            <span className="type-lockup__impact">Recursos</span>
-            <em className="type-lockup__script">para tu negocio</em>
+            <span className="type-lockup__impact">Aprende gratis</span>
+            <em className="type-lockup__script">con nosotras</em>
           </h2>
           <p>
-            Sin casos de clientes en vitrina. Aquí encuentras material útil: guías descargables,
-            capturas de sistemas reales y piezas listas para que veas cómo se ve el trabajo —
-            y te lleves algo concreto hoy.
+            Tres series con nombre propio, cada una con su promesa. Videos cortos, plantillas para
+            descargar y cero drama técnico. Comenta la palabra clave de cada video y te llega el
+            recurso directo.
           </p>
         </div>
 
@@ -270,14 +267,13 @@ export default function HomePage() {
                 className="home-recurso__img"
               />
             </div>
-            <p>01 · Ebook</p>
-            <h3>Guías y lecturas cortas</h3>
+            <p>01 · Serie de automatización</p>
+            <h3>Menos a mano</h3>
             <small>
-              Material descargable para ordenar procesos, mensajes y siguientes pasos — sin humo.
+              Tutoriales y plantillas de automatización con IA: tu correo, tus cuentas, tu Excel —
+              paso a paso y listos para copiar.
             </small>
-            <Link href="/universo" className="home-recurso__link">
-              Ver ebooks
-            </Link>
+            <span className="home-recurso__link">Muy pronto ✦</span>
           </article>
 
           <article className="home-recurso">
@@ -291,15 +287,13 @@ export default function HomePage() {
                 className="home-recurso__img"
               />
             </div>
-            <p>02 · Pantallas</p>
-            <h3>Cómo se ve el sistema</h3>
+            <p>02 · Serie de conocimiento</p>
+            <h3>Lo que siempre pudiste hacer</h3>
             <small>
-              Capturas de flujos, dashboards y pantallas: la forma del producto, no el nombre del
-              cliente.
+              Tips de IA para tu día a día, herramientas que valen la pena y las que no — con pros
+              y contras de verdad.
             </small>
-            <Link href="/portfolio" className="home-recurso__link">
-              Ver pantallas
-            </Link>
+            <span className="home-recurso__link">Muy pronto ✦</span>
           </article>
 
           <article className="home-recurso">
@@ -313,14 +307,13 @@ export default function HomePage() {
                 className="home-recurso__img"
               />
             </div>
-            <p>03 · Valor</p>
-            <h3>Checklists y plantillas</h3>
+            <p>03 · Serie de historias</p>
+            <h3>Pastoreando</h3>
             <small>
-              Piezas prácticas para diagnosticar fugas, priorizar automatizaciones y preparar tu web.
+              Storytimes, viajes y la vida real detrás de la marca — construyendo todo esto en
+              público, con lo que sale bien y lo que sale pastor.
             </small>
-            <Link href="/descubrimiento" className="home-recurso__link">
-              Pedir material
-            </Link>
+            <span className="home-recurso__link">Muy pronto ✦</span>
           </article>
         </div>
       </section>

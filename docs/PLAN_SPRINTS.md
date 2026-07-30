@@ -93,7 +93,11 @@ El proceso mismo de crear esta marca = materia prima de contenido
 - [ ] **Fix Resend**: verificar dominio soyelaranova.com → auto-reply y entrega de plantillas funcionando (P0)
 - [ ] Plataforma de pago premium: decidir y activar (Stripe payment links vs Gumroad) — precio de entrada + package/bundle definidos (skill `elara-ebooks` para pricing)
 - [ ] Contratar editora elegida (por paquete de videos del mes)
-- [ ] Reposicionamiento web fase 1: home girly-cool centrado en Evelyn creadora (aprende / descarga / trabajá conmigo), servicios bajan de jerarquía SIN borrarse — comercial y fácil de usar (spec en `docs/PLAN_REPOSICIONAMIENTO.md`, skills `elara-designer` + `elara-ui-master`)
+- [~] **Reposicionamiento web EN CURSO (30 jul noche, rama `web-y2k` — prod intacta):**
+  - [x] **Fase 1 · Trasplante de identidad (commit d20c5277):** paleta C1 en tokens `--editorial-*` (gold→rosa chicle #E85D9F, crema base, bordes rosados), Bagel Fat One display en MINÚSCULAS (antes Bebas caps), 51 glows dorados→rosa, favicon corazón-click (`app/icon.svg`), logos en `public/brand/`. Build verde. TODO el sitio se re-vistió vía tokens (verificado: home, /servicios, /descubrimiento con headless Chrome — el preview pane congela Lenis/rAF, usar headless para verificar).
+  - [ ] Fase 2 · Home de creadora: hero Evelyn creadora (aprende/descarga/trabajá conmigo), navbar con nuevo logo/wordmark, series visibles, servicios bajan de jerarquía, copy con VOZ nueva ("nosotras"), metadata/SEO nuevo
+  - [ ] Fase 3 · `/plantillas` con email-gate (próximamente hasta que existan las n8n) + retiro rutas espirituales legacy
+  - [ ] Al aprobar Evelyn: merge a main → deploy prod (antes: fix Resend P0 si el email-gate va a estar activo)
 
 ## Sprint 3 · "Semana de grabación" (≈ 20 → 26 ago)
 

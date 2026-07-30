@@ -264,6 +264,12 @@ export function SiteNav() {
           </a>
         ) : (
           <Link href={logoHref} className="site-nav__logo">
+            <img
+              src="/brand/isotipo.svg"
+              alt=""
+              aria-hidden="true"
+              style={{ height: '1.35em', width: 'auto', marginRight: '0.4em', verticalAlign: '-0.28em', display: 'inline-block' }}
+            />
             Elara Nova
           </Link>
         )}
