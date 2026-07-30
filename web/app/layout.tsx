@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
+import { Bagel_Fat_One, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
-/** Impact CapCut Opción A — sans condensada imponente (estilo AUTOMATIZO) */
-const bebas = Bebas_Neue({
-  variable: '--font-bebas',
+/** Display Y2K girly — bubble gordita (logo y titulares) */
+const bagel = Bagel_Fat_One({
+  variable: '--font-bagel',
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -91,9 +91,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
 }
 
 export default function RootLayout({
@@ -102,7 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${bebas.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${bagel.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <script
