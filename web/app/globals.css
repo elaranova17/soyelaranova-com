@@ -6244,3 +6244,108 @@ a.elara-chip:hover .elara-chip__label {
 .site-nav {
   padding-block: 0.85rem;
 }
+
+/* ═══ tarjetas con color e identidad (31 jul) ═══ */
+
+/* "¿te suena?" — cada tarjeta con su color y su número gigante */
+.home-intro__service {
+  position: relative;
+  padding-left: 76px !important;
+}
+
+.home-intro__service:nth-child(1) { background: var(--editorial-rosa-bebe); }
+.home-intro__service:nth-child(2) { background: var(--editorial-champan); }
+.home-intro__service:nth-child(3) { background: #EDE0F7; }
+
+.home-intro__service::before {
+  content: counter(sueneCount, decimal-leading-zero);
+  counter-increment: sueneCount;
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--editorial-gold);
+  -webkit-text-stroke: 0.07em var(--editorial-plum);
+  paint-order: stroke fill;
+  text-shadow: 0.05em 0.07em 0 var(--editorial-plum);
+}
+
+.home-intro__services {
+  counter-reset: sueneCount;
+}
+
+/* tarjetas de series: cada una con su fondo de color */
+.home-recurso:nth-child(1) { background: var(--editorial-rosa-bebe); }
+.home-recurso:nth-child(2) { background: var(--editorial-champan); }
+.home-recurso:nth-child(3) { background: #EDE0F7; }
+
+/* tarjetas de servicios: acento de color por posición */
+.home-product--1 { background: var(--editorial-rosa-bebe); }
+.home-product--2 { background: var(--editorial-champan); }
+.home-product--3 { background: #EDE0F7; }
+
+/* la tesis: cada línea como pastilla con sombra dura */
+.home-thesis p {
+  background: var(--editorial-ivory);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 999px;
+  box-shadow: 7px 8px 0 var(--editorial-plum);
+  padding: 0.5em 1.4em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-thesis p:nth-child(1) { background: var(--editorial-rosa-bebe); transform: rotate(-1.2deg); }
+.home-thesis p:nth-child(2) { background: var(--editorial-champan); transform: rotate(0.8deg); }
+.home-thesis p:nth-child(3) { background: #EDE0F7; transform: rotate(-0.6deg); }
+
+@media (max-width: 900px) {
+  .home-thesis p {
+    transform: none !important;
+    box-shadow: 5px 6px 0 var(--editorial-plum);
+  }
+}
+
+/* la tesis: pastillas que respiran dentro del grid */
+.home-thesis {
+  gap: clamp(14px, 2vw, 26px);
+  padding: clamp(26px, 4vw, 44px) clamp(18px, 4vw, 48px);
+  border-bottom: none;
+  background: var(--editorial-smoke);
+  align-items: stretch;
+}
+
+.home-thesis p {
+  flex-direction: column;
+  border-right: none;
+  padding: 1.15em 1.1em;
+  border-radius: 26px;
+  gap: 0.15em;
+  justify-content: center;
+}
+
+.home-thesis__impact {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.home-thesis__script {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+}
+
+/* squiggles: siempre DETRÁS del contenido */
+.y2k-squiggles {
+  z-index: 0 !important;
+}
+
+.home-intro__lead,
+.home-intro__body,
+.home-recursos__intro,
+.home-recursos__rail {
+  position: relative;
+  z-index: 1;
+}
