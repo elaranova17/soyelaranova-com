@@ -6349,3 +6349,216 @@ a.elara-chip:hover .elara-chip__label {
   position: relative;
   z-index: 1;
 }
+
+/* ═══ FASE A · hero compacto + piezas nuevas (31 jul) ═══ */
+
+.home-hero {
+  min-height: auto;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+
+.home-hero__claim {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.35;
+  color: var(--editorial-plum);
+  max-width: 26ch;
+  margin-top: 0.9rem;
+}
+
+.home-hero__cita {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+  color: var(--editorial-gold);
+  margin-top: 0.35rem;
+}
+
+.hero-silueta {
+  min-height: 340px;
+}
+
+/* sello it girly dentro de la tarjeta de pose */
+.y2k-sello--itgirly {
+  position: absolute;
+  width: 104px !important;
+  height: 104px !important;
+  right: -20px;
+  bottom: -16px;
+  top: auto;
+  left: auto;
+  z-index: 6;
+  flex: none;
+}
+
+/* tarjetas que se despegan al pasar el mouse */
+.home-recurso,
+.home-product,
+.home-intro__service {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.home-recurso:hover,
+.home-product:hover,
+.home-intro__service:hover {
+  transform: translate(-3px, -5px) rotate(0deg);
+  box-shadow: 13px 16px 0 var(--editorial-plum);
+}
+
+.home-recursos .home-recurso:hover {
+  box-shadow: 13px 16px 0 var(--editorial-gold);
+}
+
+/* número gigante de serie + contador de episodios */
+.serie-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: var(--editorial-gold);
+  -webkit-text-stroke: 0.07em var(--editorial-plum);
+  paint-order: stroke fill;
+  text-shadow: 0.05em 0.07em 0 var(--editorial-plum);
+  display: block;
+  margin: 0 20px;
+}
+
+.serie-episodios {
+  display: inline-block;
+  background: var(--editorial-plum);
+  color: var(--editorial-ivory);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin: 0 20px 4px;
+}
+
+/* lista de espera */
+.waitlist {
+  background: var(--editorial-rosa-bebe);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 22px;
+  box-shadow: 9px 11px 0 var(--editorial-plum);
+  padding: clamp(20px, 3vw, 30px);
+  max-width: 460px;
+  margin: clamp(26px, 4vw, 40px) auto 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.waitlist h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--editorial-gold);
+  -webkit-text-stroke: 0.075em var(--editorial-plum);
+  paint-order: stroke fill;
+  text-shadow: 0.05em 0.075em 0 var(--editorial-plum);
+  text-transform: lowercase;
+  margin-bottom: 0.35rem;
+}
+
+.waitlist p {
+  font-size: 14.5px;
+  color: var(--editorial-plum);
+  margin-bottom: 14px;
+}
+
+.waitlist__form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.waitlist__form input {
+  flex: 1 1 200px;
+  min-width: 0;
+  border: 2.5px solid var(--editorial-plum);
+  border-radius: 999px;
+  padding: 11px 18px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  background: var(--editorial-ivory);
+  color: var(--editorial-plum);
+}
+
+.waitlist__form input::placeholder { color: #A98BB5; }
+
+.waitlist__form button {
+  border: 2.5px solid var(--editorial-plum);
+  border-radius: 999px;
+  background: var(--editorial-gold);
+  color: var(--editorial-ivory);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  box-shadow: 4px 5px 0 var(--editorial-plum);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.waitlist__form button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0 var(--editorial-plum);
+}
+
+/* herramientas de las plantillas */
+.tools-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 14px;
+  margin-top: clamp(20px, 3vw, 30px);
+  position: relative;
+  z-index: 2;
+}
+
+.tool-chip {
+  background: var(--editorial-ivory);
+  border: 3px solid var(--editorial-plum);
+  border-radius: 18px;
+  box-shadow: 6px 7px 0 var(--editorial-plum);
+  padding: 16px 12px;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tool-chip:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 9px 12px 0 var(--editorial-plum);
+}
+
+.tool-chip span {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tool-chip strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--editorial-plum);
+  line-height: 1.25;
+}
+
+.tool-chip small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--editorial-cacao);
+  margin-top: 3px;
+}
+
+@media (max-width: 900px) {
+  .y2k-sello--itgirly { width: 78px; height: 78px; right: -8px; bottom: -10px; }
+  .home-hero { padding-top: 5.5rem; }
+}

@@ -126,11 +126,10 @@ export default function HomePage() {
             <span className="type-lockup__impact">Menos a mano</span>
             <em className="type-lockup__script">más para ti</em>
           </h1>
-          <p>
-            Soy Evelyn, ingeniera de software. Te enseño a usar la IA y la automatización para que
-            las tareas repetitivas no te coman el día: plantillas listas para usar, tutoriales
-            cortos que sí se entienden, y pros y contras de verdad.
+          <p className="home-hero__claim">
+            Automatiza, aprende y haz que la IA trabaje por ti.
           </p>
+          <p className="home-hero__cita">Mirá todo lo que siempre fuiste capaz de ser.</p>
           <div className="home-actions">
             <Link href="#recursos" className="home-button home-button--primary">
               Ver las series
@@ -144,6 +143,17 @@ export default function HomePage() {
         <div className="home-hero__visual hero-composicion">
           <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
             <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
+            <svg className="y2k-sello y2k-sello--itgirly" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="57" fill="#FFD9E8" stroke="#4A2D57" strokeWidth="4" />
+              <circle cx="60" cy="60" r="41" fill="none" stroke="#E85D9F" strokeWidth="2" strokeDasharray="2 6" />
+              <defs>
+                <path id="selloItGirly" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
+              </defs>
+              <text fill="#4A2D57" fontSize="13" fontWeight="700" letterSpacing="3">
+                <textPath href="#selloItGirly">it girly ✦ certificado ✦ it girly ✦ certificado ✦</textPath>
+              </text>
+              <path d="M 60 47 C 53 40 44 43 44 51 C 44 58 51 64 60 71 C 69 64 76 58 76 51 C 76 43 67 40 60 47 Z" fill="#E85D9F" />
+            </svg>
             <span className="y2k-label" style={{ top: '-14px', right: '22px', transform: 'rotate(5deg)' }}>
               automatización
             </span>
@@ -204,13 +214,17 @@ export default function HomePage() {
               </i>
             </div>
             <div className="y2k-chat__body">
-              <p className="y2k-chat__msg y2k-chat__msg--tu">
-                <span>tú</span>
-                quiero automatizar mi excel 🥲
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara nova</span>
+                ¡Hola! Soy Evelyn 👋 ingeniera de software.
               </p>
               <p className="y2k-chat__msg y2k-chat__msg--elara">
-                <span>elara</span>
-                comenta “EXCEL” y te mando la plantilla 💗
+                <span>elara nova</span>
+                8 años automatizando procesos, 6 de ellos en banca.
+              </p>
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara nova</span>
+                Ahora te enseño a usar la IA sin humo 💗
               </p>
             </div>
           </div>
@@ -407,8 +421,10 @@ export default function HomePage() {
             >
               <img src="/brand/stickers/cursor-pixel.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
-            <p>01 · Serie de automatización</p>
+            <span className="serie-num">01</span>
+            <p>Serie de automatización</p>
             <h3>Menos a mano</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
             <small>
               Tutoriales y plantillas de automatización con IA: tu correo, tus cuentas, tu Excel —
               paso a paso y listos para copiar.
@@ -423,8 +439,10 @@ export default function HomePage() {
             >
               <img src="/brand/stickers/estrella-kawaii.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
-            <p>02 · Serie de conocimiento</p>
+            <span className="serie-num">02</span>
+            <p>Serie de conocimiento</p>
             <h3>Lo que siempre pudiste hacer</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
             <small>
               Tips de IA para tu día a día, herramientas que valen la pena y las que no — con pros
               y contras de verdad.
@@ -439,14 +457,25 @@ export default function HomePage() {
             >
               <img src="/brand/stickers/chihuahua.png" alt="" style={{ width: '58%', height: 'auto' }} />
             </div>
-            <p>03 · Serie de historias</p>
+            <span className="serie-num">03</span>
+            <p>Serie de historias</p>
             <h3>Pastoreando</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
             <small>
               Storytimes, viajes y la vida real detrás de la marca — construyendo todo esto en
               público, con lo que sale bien y lo que no.
             </small>
             <span className="home-recurso__link">Muy pronto ✦</span>
           </article>
+        </div>
+
+        <div className="waitlist">
+          <h3>entra a la lista</h3>
+          <p>Te aviso antes que a nadie cuando publique cada nuevo episodio y cuando salgan las plantillas.</p>
+          <form className="waitlist__form" action="/descubrimiento">
+            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
+            <button type="submit">quiero entrar</button>
+          </form>
         </div>
       </section>
 
@@ -457,23 +486,52 @@ export default function HomePage() {
           className="y2k-sticker"
           style={{ width: '96px', top: '26px', left: '6%', transform: 'rotate(-10deg)' }}
         />
-        <Eyebrow>Pre-análisis didáctico · gratis</Eyebrow>
+        <Eyebrow>Plantillas gratis · descarga directa</Eyebrow>
         <h2 className="type-lockup type-lockup--center type-lockup--glow-soft">
-          <span className="type-lockup__impact">Tu negocio</span>
-          <em className="type-lockup__script">todavía a mano?</em>
+          <span className="type-lockup__impact">Plantillas listas</span>
+          <em className="type-lockup__script">para copiar y usar</em>
         </h2>
         <p>
-          Completa el pre-análisis y lo reviso yo, personalmente. Llego a nuestra charla con un
-          diagnóstico previo de tu negocio — ese rato no se va descubriéndolo, se va resolviendo.
-          Si quieres profundizar, la sesión estratégica dura 20 min y cuesta 25 CHF.
+          Recursos que puedes usar hoy mismo: flujos armados, agentes configurados y prompts
+          probados. Descarga gratis a cambio de tu correo — y te aviso cuando salga cada nuevo.
         </p>
-        <TrackedLink
-          href="/descubrimiento"
-          tracking={{ event: 'cta_click', category: 'lead', label: 'home_impact_preanalisis' }}
-          className="home-button home-button--gold"
-        >
-          Hacer mi pre-análisis
-        </TrackedLink>
+
+        <div className="tools-rail">
+          <div className="tool-chip">
+            <span aria-hidden="true">⚙️</span>
+            <strong>Automatizaciones</strong>
+            <small>n8n · Make · Zapier</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">🤖</span>
+            <strong>Agentes con IA</strong>
+            <small>GPTs listos para usar</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">📋</span>
+            <strong>Notion</strong>
+            <small>Sistemas y tableros</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">💬</span>
+            <strong>Prompts</strong>
+            <small>Listos para copiar</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">📄</span>
+            <strong>Scripts</strong>
+            <small>Apps Script · Python</small>
+          </div>
+        </div>
+
+        <div className="waitlist">
+          <h3>descarga gratis</h3>
+          <p>Deja tu correo y te llegan las plantillas apenas estén listas.</p>
+          <form className="waitlist__form" action="/descubrimiento">
+            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
+            <button type="submit">¡descargar!</button>
+          </form>
+        </div>
       </section>
 
       <section id="trabaja" className="home-work">
