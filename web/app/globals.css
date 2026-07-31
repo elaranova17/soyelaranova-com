@@ -6156,3 +6156,67 @@ a.elara-chip:hover .elara-chip__label {
 .hero-silueta svg {
   margin-bottom: -3px;
 }
+
+/* ═══ SOS (31 jul 2am): matar la niebla, despegar scripts, arreglar cajones y mobile ═══ */
+
+/* 1 · FUERA el glow borroso — las letras sticker solo llevan sombra dura */
+.type-lockup--glow .type-lockup__impact,
+.type-lockup--glow-soft .type-lockup__impact,
+.home-thesis__impact,
+.type-title {
+  text-shadow: 0.055em 0.085em 0 var(--editorial-plum);
+  filter: none;
+}
+
+/* 2 · scripts: sin glow, sin montarse sobre las letras */
+.type-lockup__script,
+.type-lockup--glow .type-lockup__script,
+.type-lockup--glow-soft .type-lockup__script,
+.home-thesis__script {
+  text-shadow: none;
+  filter: none;
+  display: block;
+  margin-top: 0.22em;
+  transform: none;
+}
+
+/* el hero conserva su script coqueto */
+.home-hero .type-lockup__script {
+  transform: rotate(-3deg);
+  margin-top: 0.1em;
+  margin-left: 1.2em;
+}
+
+/* 3 · cajones de las series con aire interno */
+.home-recurso > p,
+.home-recurso > h3,
+.home-recurso > small {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.home-recurso > .home-recurso__link {
+  display: inline-block;
+  margin: 10px 20px 18px;
+}
+
+/* 4 · mobile: sin rotaciones que corten, sin amontonamiento */
+@media (max-width: 900px) {
+  .home-intro__service,
+  .home-recurso,
+  .home-product {
+    transform: none;
+  }
+
+  .y2k-sello {
+    display: none;
+  }
+
+  .y2k-sticker {
+    width: 60px !important;
+  }
+
+  .home-hero::before {
+    display: none;
+  }
+}
