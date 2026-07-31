@@ -263,19 +263,8 @@ export function SiteNav() {
             Evelyn Patiño
           </a>
         ) : (
-          <Link
-            href={logoHref}
-            className="site-nav__logo"
-            style={{ fontFamily: 'var(--font-display)', textTransform: 'lowercase', letterSpacing: '0.01em', textShadow: 'none' }}
-          >
-            <img
-              src="/brand/isotipo.svg"
-              alt=""
-              aria-hidden="true"
-              style={{ height: '1.5em', width: 'auto', marginRight: '0.42em', verticalAlign: '-0.34em', display: 'inline-block' }}
-            />
-            <span style={{ color: 'var(--editorial-gold)' }}>elara</span>
-            <span style={{ color: 'var(--editorial-lila)', marginLeft: '0.28em' }}>nova</span>
+          <Link href={logoHref} className="site-nav__logo site-nav__logo--brand" aria-label="Elara Nova by Evelyn Patiño">
+            <img src="/brand/logo-nocturna.svg" alt="Elara Nova by Evelyn Patiño" />
           </Link>
         )}
 

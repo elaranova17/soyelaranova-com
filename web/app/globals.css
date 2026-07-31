@@ -6220,3 +6220,27 @@ a.elara-chip:hover .elara-chip__label {
     display: none;
   }
 }
+
+/* logo real de marca en la navbar */
+.site-nav__logo--brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  text-shadow: none;
+}
+
+.site-nav__logo--brand img {
+  height: clamp(62px, 8vw, 86px);
+  width: auto;
+  display: block;
+  transition: height 0.25s ease;
+}
+
+.site-nav.is-scrolled .site-nav__logo--brand img {
+  height: clamp(52px, 6.5vw, 68px);
+}
+
+/* la navbar respira para que el logo no quede apretado */
+.site-nav {
+  padding-block: 0.85rem;
+}

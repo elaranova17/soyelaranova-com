@@ -21,7 +21,7 @@ Reglas técnicas:
 que la IA les queda grande (o que les va a quitar el empleo). Promesa: *la IA no te quita el
 trabajo — te devuelve el tiempo. Yo te enseño a usarla, con pros y contras, sin humo.*
 
-Voz: hermana mayor paisa ("vos"), natural no dramática, pros y contras siempre (`docs/VOZ.md`).
+Voz: empoderadora femenina girly paisa ("vos"), natural no dramática, pros y contras siempre (`docs/VOZ.md`).
 
 ## 3. Pilares de contenido (reciclados de CONTENIDO.md al nicho)
 

@@ -1,46 +1,75 @@
 {
   "meta": {
-    "proposito": "POSE 01 · Foto hero de soyelaranova.com (tarjeta rosa del home). Se genera sobre fondo verde chroma para recortar y montar en la web.",
-    "como_usar": "Adjuntar SIEMPRE la foto real de Evelyn como referencia + pegar este JSON completo. Generar 2-3 variantes. La cara debe ser IDÉNTICA a la referencia — si el modelo cambia los rasgos, descartar y regenerar.",
+    "proposito": "POSE 01 v4 · Foto hero de soyelaranova.com — EMPODERADORA FEMENINA GIRLY, producción editorial fancy, proporciones reales, brazos y piernas cubiertos. Fondo verde chroma.",
+    "como_usar": "Adjuntar la foto real de Evelyn (cara) + pegar este JSON + al final: 'genera la POSE A' (o B, C, D, E). Generar 2-3 variantes por pose.",
     "formato": "vertical 4:5, mínimo 1600×2000 px",
-    "creado": "2026-07-31"
-  },
-  "CANDADO_DE_MARCA": {
-    "instruccion": "TODO dentro de la identidad Elara Nova (Y2K girly chic). PALETA ESTRICTA para ropa y accesorios: rosa chicle #E85D9F, lila #9A66D9, rosa bebé #FFD9E8, crema #F6EFE3, ciruela #4A2D57. PROHIBIDO cualquier color fuera de paleta (nada de rojo, azul, verde, amarillo, naranja, negro total ni dorado dominante). Estética: girly, limpia, profesional — como el brand board de la marca. NO infantil, NO disfraz de época, NO cosplay Y2K exagerado: es una ingeniera it girl de 2026 con guiños 2000s."
+    "creado": "2026-07-31 v4"
   },
   "REGLA_SUPREMA_identidad": {
-    "instruccion": "NO MODIFICAR NINGÚN RASGO DE LA CARA de la foto de referencia adjunta. Misma cara exacta: forma del rostro, nariz, labios, cejas, ojos verde-avellana, tono de piel cálido (NO aclarar), textura real de piel con poros.",
-    "pecas_y_lunares": "Conservar SOLO los que están en la foto de referencia, en su posición exacta. PROHIBIDO inventar, añadir o mover pecas o lunares.",
-    "edad": "27 años: piel joven, fresca y lisa. PROHIBIDO añadir arrugas, líneas de frente, surcos nasogenianos o patas de gallo.",
-    "aro_nariz": "conservar el aro pequeño de la fosa nasal tal como está en la referencia"
+    "cara": "NO MODIFICAR NINGÚN RASGO de la cara de la foto adjunta: forma del rostro, nariz, labios, cejas, ojos, tono de piel cálido (NO aclarar), textura real con poros.",
+    "pecas_y_lunares": "Solo los de la referencia, en su posición exacta. PROHIBIDO inventar, añadir o mover.",
+    "edad": "27 años: piel joven y lisa, sin arrugas.",
+    "sonrisa": "grande y genuina con dientes está bien (blanco natural), NUNCA carcajada de mandíbula totalmente abierta"
   },
-  "pose_01": {
-    "encuadre": "medio cuerpo desde la cintura, centrada, cuerpo levemente girado 3/4 hacia la cámara",
-    "postura": "brazos cruzados relajados (no tensos), hombros sueltos, mentón levemente elevado, actitud segura y cálida — jefa amable, no seria",
-    "mirada": "directa a cámara",
-    "sonrisa": "controlada y genuina con labios entreabiertos suaves (tiene diseño de sonrisa: dientes parejos blanco natural). PROHIBIDA la carcajada abierta — envejece el render"
+  "CUERPO_proporciones_REALES": {
+    "instruccion": "El cuerpo debe ser REALISTA y fiel a estas medidas — PROHIBIDO adelgazar, alargar, estilizar o exagerar:",
+    "medidas": "mujer de 1.63 m de estatura y 64 kg, contextura media (ni delgada de pasarela ni gruesa)",
+    "silueta": "tipo reloj de arena: busto lleno y firme (copa 36B), cintura definida, caderas curvas marcadas",
+    "regla": "que se vea como una mujer real de 1.63/64kg con curvas — NO cuerpo de modelo editorial 1.80"
   },
-  "styling_y2k_girly": {
-    "cabello": "largo, casi negro, liso con ondas suaves hacia las puntas, raya al medio, cayendo sobre un hombro",
-    "maquillaje": "regia y diva pero natural, NO cakey: piel luminosa con glow, bronze + blush cálido, ojos definidos suaves con máscara natural (no pestañas postizas), cejas peinadas, labio nude-rosado glossy",
-    "outfit": "blazer o top estructurado en rosa chicle (#E85D9F) o lila (#9A66D9) — elegir el que mejor contraste con su tono; debajo top crema sencillo. Estilo Y2K chic profesional, NO disfraz",
-    "accesorios": "argollas doradas medianas, anillos delicados dorados, uñas almendra rosa claro",
-    "vibra": "it girl ingeniera: girly, segura, profesional"
+  "COBERTURA_obligatoria": {
+    "instruccion": "BRAZOS Y PIERNAS SIEMPRE COMPLETAMENTE CUBIERTOS por la ropa (mangas largas hasta las muñecas + pantalón largo hasta los tobillos). Solo pueden verse: cara, cuello, escote discreto y MANOS.",
+    "prohibido_mostrar": "antebrazos, brazos, piernas, muslos, tobillos con piel expuesta",
+    "nota": "las manos SÍ se ven (con sus anillos y uñas)"
+  },
+  "ARQUETIPO": {
+    "quien_es": "EMPODERADORA FEMENINA GIRLY — la it girl ingeniera que te muestra que sí puedes. Segura, magnética, fashionista, divertida. NO maternal, NO corporativa, NO tímida.",
+    "actitud": "dueña del lugar: mirada con intención, gesto decidido, disfrutándose la foto"
+  },
+  "PRODUCCION_FANCY_editorial": {
+    "nivel": "editorial de revista de moda, cálida — NUNCA plástica",
+    "luz": "estudio profesional envolvente: luz principal difusa grande + contorno que enciende el pelo (brillo glossy de anuncio de shampoo) + relleno suave, glow saludable",
+    "acabado": "nítido, colores ricos dentro de la paleta, piel REAL con textura y poros",
+    "pelo": "largo casi negro, ondas pulidas de salón con movimiento y brillo, raya al medio"
+  },
+  "CANDADO_DE_MARCA": {
+    "paleta_estricta": "rosa chicle #E85D9F, lila #9A66D9, rosa bebé #FFD9E8, crema #F6EFE3, ciruela #4A2D57 — PROHIBIDO cualquier otro color en ropa, props o uñas",
+    "vibra": "Y2K chic 2026 de lujo: girly, cara, impecable — NO disfraz, NO infantil"
+  },
+  "REGLA_DE_COMPOSICION": {
+    "clave": "Pose con ENERGÍA y aire: brazos despegados del cuerpo, gestos amplios — la foto se recorta y se entrelaza con las capas del diseño web. NADA de brazos pegados al torso.",
+    "encuadre": "medio cuerpo o 3/4 con aire alrededor de manos y pelo — nada cortado por los bordes"
+  },
+  "POSES": {
+    "A_el_click": "Guiño con sonrisa pícara de ganadora, un brazo (con manga larga) extendido hacia cámara con el dedo índice 'haciendo click' al espectador, la otra mano en la cadera. El gesto firma de la marca.",
+    "B_la_chismosa_y2k": "Celular de tapita ROSA vintage abierto en la oreja, expresión de chisme delicioso: cejas arriba, sonrisa cómplice, cuerpo en diagonal, mano libre con palma arriba de '¿puedes creerlo?'",
+    "C_el_beso": "Beso volado a cámara con ojo guiñado, cadera a un lado, la otra mano bajando unas gafas de corazón rosa desde la cabeza — diva total",
+    "D_la_jefa": "De 3/4, mirando a cámara por encima del hombro con sonrisa segura, blazer colgado de un dedo al hombro, la otra mano suelta con anillos visibles — power move editorial",
+    "E_la_revista": "Sosteniendo con ambas manos una revista rosa cerrada frente a ella que tapa SOLO de la nariz para abajo — los ojos asoman por encima del borde con mirada pícara y cejas expresivas. La portada de la revista es rosa chicle lisa con detalles crema (sin texto legible). Inspirada en editorial de café, no copiada."
+  },
+  "styling_fancy": {
+    "outfit": "traje sastre rosa chicle de corte impecable estilo diseñador: blazer estructurado de MANGA LARGA (sin recoger las mangas) + pantalón largo de pinzas + top crema — o versión en lila. Tela con caída cara.",
+    "accesorios": "argollas doradas GRANDES statement, anillos dorados apilados, uñas almendra rosa glossy, mini bolso rosa acolchado con cadena dorada (sin logos)",
+    "maquillaje": "glam natural elevado: piel glow, bronze+blush, ojos definidos suaves con rímel premium, cejas esculpidas, labio rosado GLOSSY jugoso protagonista",
+    "props_segun_pose": "celular de tapita rosa (B) · gafas de corazón rosa (C) · revista rosa (E)"
   },
   "luz_y_fondo": {
-    "fondo": "VERDE CHROMA PLANO (#00B140) uniforme, sin degradados, sin sombras proyectadas en el fondo — es para recorte digital",
-    "luz": "estudio suave y brillante, luz principal frontal difusa + relleno, glow saludable en la piel, sin sombras duras en la cara",
-    "borde": "cuerpo completo dentro del cuadro con aire arriba de la cabeza; brazos y pelo SIN cortar por los bordes"
+    "fondo": "VERDE CHROMA PLANO (#00B140) uniforme, sin degradados ni sombras proyectadas — para recorte digital"
   },
   "PROHIBIDO": [
     "cambiar cualquier rasgo facial de la referencia",
+    "mostrar piel de brazos o piernas (mangas y pantalón SIEMPRE largos)",
+    "tatuajes visibles",
+    "adelgazar/alargar/exagerar el cuerpo — proporciones reales 1.63 m / 64 kg reloj de arena",
     "inventar pecas, lunares o arrugas",
-    "carcajada abierta",
-    "piel pálida, lavada o plástica de IA",
-    "pestañas postizas o maquillaje pesado",
-    "fondo distinto al verde chroma plano",
-    "texto, marca de agua, logos",
+    "piel plástica de IA",
+    "pose corporativa o brazos cruzados",
+    "carcajada de mandíbula abierta",
+    "colores fuera de la paleta",
+    "logos de marcas reales",
     "manos deformes o dedos extra",
-    "cortar el pelo o los brazos con el borde del encuadre"
+    "fondo distinto al verde plano",
+    "texto o marcas de agua",
+    "cortar manos o pelo con el borde"
   ]
 }

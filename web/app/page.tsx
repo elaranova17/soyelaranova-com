@@ -195,17 +195,6 @@ export default function HomePage() {
               style={{ width: '60px', bottom: '124px', right: '36px', transform: 'rotate(-8deg)' }}
             />
           </div>
-          <svg className="y2k-sello" viewBox="0 0 120 120" style={{ top: '-34px', left: '-30px' }} aria-hidden="true">
-            <circle cx="60" cy="60" r="57" fill="#E85D9F" stroke="#4A2D57" strokeWidth="4" />
-            <circle cx="60" cy="60" r="40" fill="none" stroke="#F6EFE3" strokeWidth="2" strokeDasharray="2 6" />
-            <defs>
-              <path id="selloCirc" d="M 60,60 m -47,0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" />
-            </defs>
-            <text fill="#F6EFE3" fontSize="12.5" fontWeight="700" letterSpacing="2.5" style={{ textTransform: 'uppercase' }}>
-              <textPath href="#selloCirc">elara nova ✦ menos a mano ✦ ia sin humo ✦</textPath>
-            </text>
-            <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#F6EFE3" />
-          </svg>
           <div className="y2k-chat" role="img" aria-label="Chat de ejemplo del embudo">
             <div className="y2k-chat__bar">
               elara nova ✦ en línea
@@ -325,12 +314,17 @@ export default function HomePage() {
       <ImmersiveStory />
 
       <section id="oferta" className="home-products" style={{ position: 'relative' }}>
-        <img
-          src="/brand/stickers/corazon-leopardo.png"
-          alt=""
-          className="y2k-sticker"
-          style={{ width: '104px', top: '-34px', right: '5%', transform: 'rotate(9deg)' }}
-        />
+        <svg className="y2k-sello" viewBox="0 0 120 120" style={{ top: '-46px', right: '7%' }} aria-hidden="true">
+          <circle cx="60" cy="60" r="57" fill="#E85D9F" stroke="#4A2D57" strokeWidth="4" />
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#F6EFE3" strokeWidth="2" strokeDasharray="2 6" />
+          <defs>
+            <path id="selloCirc" d="M 60,60 m -47,0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" />
+          </defs>
+          <text fill="#F6EFE3" fontSize="12.5" fontWeight="700" letterSpacing="2.5">
+            <textPath href="#selloCirc">elara nova ✦ menos a mano ✦ ia sin humo ✦</textPath>
+          </text>
+          <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#F6EFE3" />
+        </svg>
         <header className="home-products__header">
           <div>
             <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
