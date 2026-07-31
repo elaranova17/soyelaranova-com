@@ -1,6 +1,27 @@
 {
-  "instruccion": "Diseña un mockup del HOME de esta marca. Preséntalo como diseño visual completo (secciones de arriba a abajo). Sé audaz y creativo con la composición, pero respeta ESTRICTAMENTE la paleta, tipografías y reglas de marca.",
-
+  "instruccion": "Revisa PRIMERO la web que ya existe en la URL de abajo. Está construida y funcionando, pero necesita un rediseño que la lleve a nivel profesional. Tu tarea: proponer un mockup MEJORADO del home — conservando lo que ya funciona (identidad, paleta, logo, secciones) y arreglando lo que está flojo (composición, capas, jerarquía, uso del espacio). No empieces de cero: mejora lo que hay.",
+  "web_actual_A_MEJORAR": {
+    "url": "https://soyelaranova-com-git-web-y2k-elaranova17-2950s-projects.vercel.app",
+    "nota": "Es un preview público. Míralo en desktop y en móvil.",
+    "que_ya_funciona_CONSERVAR": [
+      "la identidad Y2K girly y la paleta",
+      "el logo bubble con el corazón-click",
+      "los titulares en letras sticker (contorno + sombra dura)",
+      "la ventana de chat estilo messenger 2000s del hero",
+      "el marquee de las series",
+      "las tarjetas con colores rotados y números gigantes",
+      "las tres series con nombre propio"
+    ],
+    "que_esta_FLOJO_arreglar": [
+      "se siente plana y sin capas reales: falta composición de collage, superposición y profundidad",
+      "el hero ocupa muchísimo espacio y la tarjeta de la foto es enorme y vacía (la foto real de Evelyn aún no está montada — hay un placeholder de silueta)",
+      "las secciones de abajo (series en banda oscura, pre-análisis, cierre) siguen viéndose como el diseño viejo pintado de rosa: sin formas, sin stickers, sin intención",
+      "los bloques de texto son largos y sin jerarquía visual",
+      "falta que la tipografía y la foto se entrelacen (texto por detrás del brazo, stickers entre las capas)",
+      "en móvil todo se apila y pierde la gracia del collage",
+      "falta el embudo: captura de email para plantillas y lista de espera de las series"
+    ]
+  },
   "marca": {
     "nombre": "Elara Nova by Evelyn Patiño",
     "quien": "Evelyn Patiño, ingeniera de software (8 años automatizando, 6 en banca). Marca personal.",
@@ -14,13 +35,11 @@
     "nicho": "IT Girly — tecnología, IA y automatización con estética femenina. Mujeres que hacen tareas repetitivas y sienten que la IA les queda grande. (La web NO excluye a nadie por género: el nicho se transmite por la estética, no por el lenguaje.)",
     "promesa": "Te enseño a usar la IA para que las tareas repetitivas no te coman el día: plantillas listas, tutoriales cortos, y pros y contras de verdad."
   },
-
   "estetica": {
     "direccion": "Y2K girly cool año 2000 — vibra Legalmente Rubia / it girl / popstar 2000s, PERO profesional y que venda. Girly ≠ infantil. NO es estética skater (nada de tableros de ajedrez), es glam rosa.",
     "referencias_de_espiritu": "sitios de creadoras UGC con collage, marcas de dulces rosa pastel, portafolios creativos bold con formas orgánicas",
     "sensacion_al_entrar": "'ay, es súper it girl' — pero fácil de usar y comercial. Debe verse PROFESIONAL, con capas y composición cuidada, nunca plano ni de plantilla genérica."
   },
-
   "paleta_ESTRICTA": {
     "crema": "#F6EFE3 (base, ~60% de la página)",
     "rosa_bebe": "#FFD9E8 (fondos suaves, tarjetas)",
@@ -30,13 +49,11 @@
     "proporcion": "60% crema / 30% rosa+lila / 10% ciruela",
     "prohibido": "cualquier otro color: nada de dorado, azul, verde, naranja, amarillo, negro puro"
   },
-
   "tipografias": {
     "display": "Bagel Fat One — titulares bubble redondos EN MINÚSCULAS",
     "script": "Great Vibes — firma y guiños, máximo uno por sección",
     "cuerpo": "Outfit — párrafos, botones, etiquetas"
   },
-
   "lenguaje_visual_OBLIGATORIO": {
     "letras_sticker": "los titulares llevan tratamiento de calcomanía: relleno rosa chicle + contorno grueso ciruela + sombra dura desplazada (no difuminada)",
     "tarjetas_calcomania": "borde grueso ciruela 3px + sombra dura desplazada + ligeramente rotadas unos grados, como pegadas a mano",
@@ -48,14 +65,12 @@
     "logo": "wordmark 'elara nova' en bubble donde la letra o de nova ES un corazón rosa con un cursor haciendo click, con florecita y firma manuscrita 'by Evelyn Patiño'",
     "prohibido": "tableros de ajedrez, glow difuminado/neón, degradados, minimalismo frío, plantilla corporativa genérica"
   },
-
   "voz_del_copy": {
     "quien_habla": "Evelyn en primera persona 'yo' (nunca 'nosotros' ni corporativo)",
     "arquetipo": "empoderadora femenina girly: it girl segura que te muestra que sí puedes, de igual a igual. NO maternal, NO gurú, NO corporativa",
     "tono": "natural y directo, español neutro con 'tú'. Sin frases dramáticas ni cierres épicos ('no es X — es Y' está prohibido). Como hablando en un café.",
     "siempre": "pros y contras reales, sin humo"
   },
-
   "secciones_del_home": [
     "1. HERO: titular gigante 'menos a mano / más para ti' en letras sticker + foto recortada de Evelyn (traje rosa chicle) entrelazada con la tipografía y stickers + 2 botones (ver las series / trabaja conmigo)",
     "2. Marquee scrolleando con los nombres de las series",
@@ -67,8 +82,6 @@
     "8. SOBRE MÍ: foto + historia corta (de la banca a enseñarte)",
     "9. CIERRE + footer con la cita ancla"
   ],
-
   "objetivo_del_home": "Que una persona que llega desde un video de TikTok/Instagram entienda en 5 segundos qué encuentra aquí, deje su correo por una plantilla gratis, y de paso vea que también hay servicios profesionales.",
-
-  "entregable": "Mockup visual del home completo, responsive (mostrar también cómo se ve en móvil). Prioriza composición con capas, jerarquía clara y personalidad — que NO se vea como plantilla genérica."
+  "entregable": "Mockup visual del home REDISEÑADO (desktop + móvil), mostrando claramente qué cambia respecto a la web actual y por qué. Prioriza: capas y composición de collage, jerarquía clara, personalidad — y que se sienta profesional, no plantilla genérica."
 }
