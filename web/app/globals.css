@@ -6334,7 +6334,7 @@ a.elara-chip:hover .elara-chip__label {
   }
 }
 
-/* Links = botones pequeños barra internet 2000s */
+/* Links = botones pequeños barra internet 2000s (chip siempre visible) */
 .site-nav--studio .site-nav__link {
   padding: 6px 11px;
   font-family: var(--font-sans);
@@ -6343,14 +6343,15 @@ a.elara-chip:hover .elara-chip__label {
   letter-spacing: 0.02em;
   text-transform: lowercase;
   color: var(--editorial-plum);
-  border: 2px solid transparent;
+  border: 2px solid color-mix(in srgb, var(--editorial-plum) 28%, transparent);
   border-radius: 8px;
-  border-bottom: 2px solid transparent;
-  background: transparent;
+  background: var(--editorial-ivory);
+  box-shadow: 1px 1px 0 color-mix(in srgb, var(--editorial-plum) 18%, transparent);
   transition:
     color 0.18s ease,
     background 0.18s ease,
     border-color 0.18s ease,
+    box-shadow 0.18s ease,
     transform 0.18s ease;
 }
 
@@ -6359,7 +6360,8 @@ a.elara-chip:hover .elara-chip__label {
   color: var(--editorial-plum);
   border-color: var(--editorial-plum);
   background: var(--editorial-rosa-bebe);
-  transform: translateY(-1px);
+  box-shadow: 2px 2px 0 var(--editorial-plum);
+  transform: translate(-1px, -1px);
 }
 
 .site-nav--studio .site-nav__link:focus-visible {
