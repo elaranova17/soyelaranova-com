@@ -31,7 +31,6 @@ function NavLink({
   const shared = 'site-nav__link'
   const state = active ? 'is-active' : ''
 
-  // Anchors y rewrites HTML estáticos (/portfolio, /cv): full load, no client nav.
   if (item.href.includes('#') || item.hard) {
     return (
       <a
@@ -97,7 +96,6 @@ function NavCta({
   if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
     return (
       <a href={href} onClick={handleClick} className={cls}>
-        <span aria-hidden>+</span>
         {label}
       </a>
     )
@@ -105,7 +103,6 @@ function NavCta({
 
   return (
     <Link href={href} prefetch onClick={handleClick} className={cls}>
-      <span aria-hidden>+</span>
       {label}
     </Link>
   )
@@ -205,13 +202,14 @@ export function SiteNav() {
   const b2b = isB2bPath(pathname)
   const onHome = pathname === '/'
 
-  // Menú canónico único en todo el sitio Elara; B2B conserva el suyo.
   const links: readonly NavItem[] = b2b ? B2B_NAV : STUDIO_NAV
 
-  // En B2B el logo vuelve al hub Evelyn; “← Inicio” del menú regresa al sitio.
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const logoHard = b2b
-  const cta = { href: '/descubrimiento', label: 'Pre-análisis' }
+  // Studio CTA: trabaja conmigo · B2B conserva pre-análisis
+  const cta = b2b
+    ? { href: '/descubrimiento', label: 'Pre-análisis' }
+    : { href: '/trabaja-conmigo', label: 'trabaja conmigo' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -231,6 +229,8 @@ export function SiteNav() {
   useEffect(() => {
     if (!open) return
     window.dispatchEvent(new Event('lenis:stop'))
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpenForPath(null)
     }
@@ -238,60 +238,90 @@ export function SiteNav() {
     return () => {
       window.removeEventListener('keydown', onKey)
       window.dispatchEvent(new Event('lenis:start'))
+      document.body.style.overflow = prev
     }
   }, [open])
 
   const close = () => setOpenForPath(null)
   const toggle = () => setOpenForPath(open ? null : pathname)
 
-  // Landings de Ads (/lp/*): sin navegación para evitar fugas (Quality Score).
   if (pathname.startsWith('/lp/')) return null
 
   return (
     <>
-      {/* 1 · BARRA */}
       <motion.header
-        initial={{ opacity: 0, y: -10 }}
+        initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
-        className={['site-nav', scrolled ? 'is-scrolled' : '', open ? 'is-menu-open' : '']
+        transition={{ duration: 0.45, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
+        className={[
+          'site-nav',
+          b2b ? 'site-nav--b2b' : 'site-nav--studio',
+          scrolled ? 'is-scrolled' : '',
+          open ? 'is-menu-open' : '',
+        ]
           .filter(Boolean)
           .join(' ')}
       >
-        {logoHard ? (
-          <a href={logoHref} className="site-nav__logo">
-            Evelyn Patiño
-          </a>
-        ) : (
-          <Link href={logoHref} className="site-nav__logo site-nav__logo--brand" aria-label="Elara Nova by Evelyn Patiño">
-            <img src="/brand/logo-nocturna.svg" alt="Elara Nova by Evelyn Patiño" />
-          </Link>
-        )}
+        <div className="site-nav__inner">
+          <div className="site-nav__brand">
+            {logoHard ? (
+              <a href={logoHref} className="site-nav__logo">
+                Evelyn Patiño
+              </a>
+            ) : (
+              <Link
+                href={logoHref}
+                className="site-nav__logo site-nav__logo--brand"
+                aria-label="Elara Nova by Evelyn Patiño"
+              >
+                {/* logo-primario: variante clara del logo existente (misma familia que nocturna) */}
+                <img
+                  src="/brand/logo-primario.svg"
+                  alt="Elara Nova by Evelyn Patiño"
+                  width={470}
+                  height={276}
+                />
+              </Link>
+            )}
 
-        <div className="site-nav__actions">
-          {b2b && (
-            <nav className="site-nav__desktop" aria-label="Navegación Evelyn B2B">
-              <NavLink
-                key={B2B_NAV[0].href}
-                item={B2B_NAV[0]}
-                pathname={pathname}
-                className="site-nav__link--muted"
-              />
-              <span className="site-nav__divider" aria-hidden />
-              {B2B_NAV.slice(1).map((item) => (
-                <NavLink key={item.href + item.label} item={item} pathname={pathname} />
-              ))}
-            </nav>
-          )}
+            {/*
+              TODO asset faltante: firma independiente “by Evelyn Patiño”
+              (SVG/PNG recortada, fondo transparente).
+              No usar firma-elara.png (es un logo dorado legacy, no la firma).
+              El logo-primario.svg ya incluye la firma embebida — no recrear con tipografía.
+              Entregar: /brand/firma-by-evelyn.svg (o .png) ~ alto 28–36 px.
+            */}
+          </div>
 
-          <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
+          <div className="site-nav__actions">
+            {b2b ? (
+              <nav className="site-nav__desktop" aria-label="Navegación Evelyn B2B">
+                <NavLink
+                  key={B2B_NAV[0].href}
+                  item={B2B_NAV[0]}
+                  pathname={pathname}
+                  className="site-nav__link--muted"
+                />
+                <span className="site-nav__divider" aria-hidden />
+                {B2B_NAV.slice(1).map((item) => (
+                  <NavLink key={item.href + item.label} item={item} pathname={pathname} />
+                ))}
+              </nav>
+            ) : (
+              <nav className="site-nav__desktop site-nav__desktop--studio" aria-label="Navegación Elara Nova">
+                {STUDIO_NAV.map((item) => (
+                  <NavLink key={item.href + item.label} item={item} pathname={pathname} />
+                ))}
+              </nav>
+            )}
 
-          {/* 2 · HAMBURGUESA */}
-          <MenuButton open={open} onClick={toggle} alwaysVisible={!b2b} />
+            <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
+
+            <MenuButton open={open} onClick={toggle} alwaysVisible={!b2b} />
+          </div>
         </div>
       </motion.header>
 
-      {/* 3 · PANEL */}
       <AnimatePresence>
         {open && (
           <>
@@ -319,7 +349,11 @@ export function SiteNav() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
-              className={['site-nav__panel', b2b ? 'site-nav__panel--mobile-only' : '']
+              className={[
+                'site-nav__panel',
+                b2b ? 'site-nav__panel--mobile-only' : '',
+                b2b ? '' : 'site-nav__panel--studio',
+              ]
                 .filter(Boolean)
                 .join(' ')}
             >
@@ -373,7 +407,7 @@ export function SiteNav() {
               <p className="site-nav__panel-tagline" aria-hidden>
                 {b2b
                   ? 'Ingeniera de software · Europa'
-                  : 'Mira todo lo que siempre fuiste capaz de ser.'}
+                  : 'Mirá todo lo que siempre fuiste capaz de ser.'}
               </p>
             </motion.aside>
           </>
