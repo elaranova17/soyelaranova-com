@@ -171,39 +171,69 @@ export default function HomePage() {
           </div>
 
           <div className="yc-hero__visual">
-            <div className="yc-cutout" aria-label="Foto de Evelyn — pose en camino">
-              <span className="yc-cutout__blob" aria-hidden="true" />
-              {/* placeholder silueta hasta foto cutout rosa chicle */}
-              <svg className="yc-cutout__figure" viewBox="0 0 400 460" role="img" aria-hidden="true">
+            {/* Hueco figura: solo reserva el espacio de la foto cutout (pose 01). */}
+            <div className="yc-cutout" aria-label="Espacio reservado para la foto de Evelyn">
+              <svg
+                className="yc-cutout__figure"
+                viewBox="0 0 400 520"
+                role="img"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern
+                    id="ycFigureDots"
+                    width="14"
+                    height="14"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle cx="2" cy="2" r="1.2" fill="#DCC8D4" />
+                  </pattern>
+                </defs>
+                {/* Contorno exterior blanco (sticker) + hueco interior */}
                 <path
-                  fill="var(--editorial-plum)"
+                  className="yc-cutout__slot"
+                  fill="url(#ycFigureDots)"
                   stroke="#FFFFFF"
-                  strokeWidth="12"
+                  strokeWidth="18"
                   strokeLinejoin="round"
-                  d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
+                  d="M200 28
+                    C132 28 96 88 100 156
+                    C103 206 90 258 74 304
+                    C62 338 48 364 32 384
+                    C88 384 130 362 154 326
+                    L154 360
+                    C112 378 88 420 84 520
+                    L316 520
+                    C312 420 288 378 246 360
+                    L246 326
+                    C270 362 312 384 368 384
+                    C352 364 338 338 326 304
+                    C310 258 297 206 300 156
+                    C304 88 268 28 200 28 Z"
                 />
                 <path
-                  fill="var(--editorial-plum)"
-                  stroke="#FFFFFF"
-                  strokeWidth="12"
+                  fill="none"
+                  stroke="var(--editorial-plum)"
+                  strokeWidth="4"
                   strokeLinejoin="round"
-                  d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
-                />
-                <path
-                  d="M96 150 C92 110 118 62 152 48"
-                  fill="none"
-                  stroke="var(--editorial-gold)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M304 150 C308 112 288 70 258 52"
-                  fill="none"
-                  stroke="var(--editorial-lila)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
+                  strokeDasharray="10 8"
+                  d="M200 40
+                    C140 40 110 92 113 154
+                    C116 200 104 250 90 292
+                    C80 322 68 346 54 364
+                    C98 364 132 346 152 318
+                    L152 348
+                    C118 364 98 400 94 500
+                    L306 500
+                    C302 400 282 364 248 348
+                    L248 318
+                    C268 346 302 364 346 364
+                    C332 346 320 322 310 292
+                    C296 250 284 200 287 154
+                    C290 92 260 40 200 40 Z"
                 />
               </svg>
+              <span className="yc-cutout__tag">pose 01 · aquí va tu foto</span>
               <span className="yc-badge">IT GIRL ONLINE</span>
             </div>
 

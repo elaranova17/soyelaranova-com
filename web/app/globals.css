@@ -7077,19 +7077,10 @@ a.elara-chip:hover .elara-chip__label {
 
 .yc-cutout {
   position: relative;
-  width: min(100%, 360px);
+  width: min(100%, 340px);
   margin-left: auto;
   z-index: 1;
-}
-
-.yc-cutout__blob {
-  position: absolute;
-  inset: 8% 4% 0;
-  background: var(--editorial-rosa-bebe);
-  border-radius: 58% 42% 48% 52% / 42% 48% 52% 58%;
-  border: 4px solid var(--editorial-plum);
-  box-shadow: 10px 12px 0 var(--editorial-plum);
-  z-index: 0;
+  /* Solo reserva el hueco de la figura — sin foto falsa ni silueta llena */
 }
 
 .yc-cutout__figure {
@@ -7097,13 +7088,39 @@ a.elara-chip:hover .elara-chip__label {
   z-index: 1;
   width: 100%;
   height: auto;
+  display: block;
   filter: drop-shadow(8px 10px 0 var(--editorial-plum));
+}
+
+.yc-cutout__slot {
+  fill: color-mix(in srgb, var(--editorial-rosa-bebe) 55%, var(--editorial-smoke));
+}
+
+.yc-cutout__tag {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  z-index: 3;
+  background: var(--editorial-ivory);
+  color: var(--editorial-plum);
+  border: 2.5px solid var(--editorial-plum);
+  border-radius: 999px;
+  box-shadow: 4px 5px 0 var(--editorial-plum);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  padding: 8px 14px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .yc-cutout .yc-badge {
   position: absolute;
   left: -8px;
-  bottom: 18%;
+  bottom: 14%;
   z-index: 4;
 }
 
