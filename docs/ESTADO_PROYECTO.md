@@ -1,9 +1,9 @@
 # Estado del proyecto · soyelaranova.com
 
-> ⚠️ **PIVOT 30 jul 2026 — marca personal creadora.** La marca es Evelyn (nicho IT Girly, estética Y2K girly cool), producto = plantillas/agentes n8n + contenido TikTok/IG. Los servicios del estudio siguen en la web pero sin promoción activa mientras dure TPC. **Plan de trabajo vigente: [`PLAN_SPRINTS.md`](PLAN_SPRINTS.md)** (tablero chuleable por sprints). La identidad visual está EN REDEFINICIÓN — no cerrar diseños nuevos con el look actual sin consultar ese plan.
+> ✅ **PIVOT en producción (1 ago 2026).** La marca es Evelyn (nicho IT Girly, estética Y2K girly cool), producto = plantillas/agentes n8n + contenido TikTok/IG. Los servicios del estudio siguen en la web pero sin promoción activa mientras dure TPC. **Plan vigente: [`PLAN_SPRINTS.md`](PLAN_SPRINTS.md)**.
 
-**Actualizado:** 30 julio 2026 (pivot) · base técnica: 25 julio 2026
-**Fuente de verdad de marca:** [`brand.md`](brand.md) (marca estudio 2026)
+**Actualizado:** 1 agosto 2026 (deploy Y2K a prod) · pivot: 30 julio 2026
+**Fuente de verdad de marca:** [`brand.md`](brand.md)
 **Repo:** `github.com/elaranova17/soyelaranova-com` · rama `main`
 **Deploy:** [`DEPLOY.md`](DEPLOY.md) · Vercel Root Directory = `web`
 
@@ -11,9 +11,9 @@
 
 ## Resumen en una línea
 
-El sitio es el **estudio de Evelyn Patiño / Elara Nova** (automatizaciones, webs/landings,
-Google Ads). Look canónico: **CapCut glow chic** (cream/aubergine/gold + Bebas + Great Vibes
-con glow dorado). Embudo: pre-análisis → sesión 25 CHF → proyecto.
+**Elara Nova by Evelyn Patiño** — IA y automatización, menos a mano. Look canónico:
+**Y2K girly cool** (crema/rosa/lila/ciruela + Bagel Fat One + stickers). Embudo contenido:
+video → plantilla gratis → premium. Estudio (secundario): pre-análisis → sesión 25 CHF.
 
 > Repo limpio julio 2026: solo `web/` + `docs/` + `ops/b2b/` (sin carpetas 01–06 ni kit CapCut legacy).
 
