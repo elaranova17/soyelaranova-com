@@ -1,146 +1,116 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { ImmersiveStory } from '@/components/immersive-story'
 import { TrackedLink } from '@/components/tracked-link'
+import { serviceScenes } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
-const STICKERS = {
-  flip: '/brand/stickers/celular-tapita.png',
-  butterfly: '/brand/stickers/mariposa.png',
-  heart: '/brand/stickers/corazon-leopardo.png',
-  cursor: '/brand/stickers/cursor-pixel.png',
-  flower: '/brand/stickers/flor-hibisco-rosa.png',
-  star: '/brand/stickers/estrella-kawaii.png',
-  spark: '/brand/stickers/destello.png',
-  chihuahua: '/brand/stickers/chihuahua.png',
-  lips: '/brand/stickers/labios.png',
-} as const
+/** Blur placeholder del hero (12×16 JPEG de evelyn-hero-ciruela) — evita el flash aubergine en primera carga */
+const HERO_BLUR =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
 
-function Sticker({
-  src,
-  className = '',
-  alt = '',
-}: {
-  src: string
-  className?: string
-  alt?: string
-}) {
-  return (
-    // eslint-disable-next-line @next/next/no-img-element -- stickers PNG con posicionamiento libre
-    <img src={src} alt={alt} className={`yc-sticker ${className}`} aria-hidden={alt ? undefined : true} />
-  )
-}
-
-function ChatWindow({
-  title,
-  children,
-  className = '',
-  status,
-}: {
+type Service = {
+  number: string
+  type: string
   title: string
-  children: React.ReactNode
-  className?: string
-  status?: string
-}) {
-  return (
-    <div className={`yc-chat ${className}`}>
-      <div className="yc-chat__bar">
-        <span className="yc-chat__dots" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span className="yc-chat__title">{title}</span>
-      </div>
-      <div className="yc-chat__body">{children}</div>
-      {status ? <p className="yc-chat__status">{status}</p> : null}
-    </div>
-  )
+  description: string
+  price: string
+  asset: string
+  format: string
+  href: string
 }
 
-function Msg({
-  from,
-  children,
-  self = false,
-}: {
-  from: string
-  children: React.ReactNode
-  self?: boolean
-}) {
+const services: readonly Service[] = [
+  {
+    number: '01',
+    type: 'Producto estrella',
+    title: 'Automatizaciones',
+    description:
+      'Conecto tus formularios, emails, WhatsApp, hojas y CRM para que cada lead se atienda solo. Recuperas horas cada semana, respondes al instante y dejas de perder ventas por contestar tarde.',
+    price: 'Desde 450 €',
+    asset: 'servicio-01-automatizaciones.webp',
+    format: '1600 × 2000 px',
+    href: '/servicios/automatizaciones',
+  },
+  {
+    number: '02',
+    type: 'Conversión',
+    title: 'Landing pages y sitios web',
+    description:
+      'Páginas hechas para vender, no para "estar en internet": mensaje claro, rápidas y mobile-first, pensadas para convertir visitas en clientes que te escriben. Ideales para Google Ads y lanzamientos.',
+    price: 'Desde 650 €',
+    asset: 'servicio-02-webs.webp',
+    format: '1600 × 2000 px',
+    href: '/servicios/landing-pages',
+  },
+  {
+    number: '03',
+    type: 'Crecimiento',
+    title: 'Google Ads y medición',
+    description:
+      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabes qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
+    price: 'Setup 450 € · gestión 350 €/mes',
+    asset: 'servicio-03-google-ads.webp',
+    format: '1800 × 1350 px',
+    href: '/servicios/google-ads',
+  },
+]
+
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={`yc-msg ${self ? 'yc-msg--self' : ''}`}>
-      <span>{from}</span>
+    <p className={`home-eyebrow ${light ? 'home-eyebrow--light' : ''}`}>
+      <span aria-hidden="true" />
       {children}
     </p>
   )
 }
 
-function Note({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return <aside className={`yc-note ${className}`}>{children}</aside>
-}
-
-function WaitlistForm({
-  id,
-  title,
-  copy,
-  button,
-  checkbox,
+function Photo({
+  src,
+  alt,
+  className = '',
+  priority = false,
+  blurDataURL,
+  children,
 }: {
-  id: string
-  title: string
-  copy: string
-  button: string
-  checkbox?: string
+  src: string
+  alt: string
+  className?: string
+  priority?: boolean
+  blurDataURL?: string
+  children?: React.ReactNode
 }) {
   return (
-    <form className="yc-waitlist" action="/descubrimiento" method="get" id={id}>
-      <h3>{title}</h3>
-      <p>{copy}</p>
-      <label className="sr-only" htmlFor={`${id}-email`}>
-        Tu correo
-      </label>
-      <div className="yc-waitlist__row">
-        <input
-          id={`${id}-email`}
-          type="email"
-          name="email"
-          placeholder="tu correo aquí"
-          required
-          autoComplete="email"
-        />
-        <button type="submit">{button}</button>
-      </div>
-      {checkbox ? (
-        <label className="yc-waitlist__check">
-          <input type="checkbox" name="tips" value="1" />
-          <span>{checkbox}</span>
-        </label>
-      ) : null}
-    </form>
+    <figure className={`asset-photo ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        quality={90}
+        sizes="(max-width: 900px) 100vw, 55vw"
+        {...(blurDataURL ? { placeholder: 'blur' as const, blurDataURL } : {})}
+      />
+      {children}
+    </figure>
   )
 }
 
 export default function HomePage() {
   return (
-    <main className="yc-home">
-      {/* toast carga */}
-      <p className="yc-toast" role="status">
-        elara_nova inició sesión
-      </p>
-
-      {/* ═══ 2 · HERO ═══ */}
-      <section id="inicio" className="yc-hero">
-        <div className="yc-hero__bg" aria-hidden="true">
-          <span className="yc-dots" />
-          <svg className="yc-squiggle yc-squiggle--pink" viewBox="0 0 500 400">
+    <main className="home-shell">
+      <section id="inicio" className="home-hero">
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '520px', left: '-150px', top: '120px', opacity: 0.75 }}>
             <path
               d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210 C372 120 260 110 250 200"
               fill="none"
-              stroke="var(--editorial-rosa-bebe)"
+              stroke="#F4A7CB"
               strokeWidth="34"
               strokeLinecap="round"
             />
           </svg>
-          <svg className="yc-squiggle yc-squiggle--lila" viewBox="0 0 500 400">
+          <svg viewBox="0 0 500 400" style={{ width: '520px', right: '-160px', bottom: '-120px', opacity: 0.85 }}>
             <path
               d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
               fill="none"
@@ -149,523 +119,489 @@ export default function HomePage() {
               strokeLinecap="round"
             />
           </svg>
-          <span className="yc-corner-fold" />
+        </div>
+        <div className="home-hero__copy">
+          <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización</Eyebrow>
+          <h1 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Menos a mano</span>
+            <em className="type-lockup__script">más para ti</em>
+          </h1>
+          <p className="home-hero__claim">
+            Automatiza, aprende y haz que la IA trabaje por ti.
+          </p>
+          <p className="home-hero__cita">Mirá todo lo que siempre fuiste capaz de ser.</p>
+          <div className="home-actions">
+            <Link href="#recursos" className="home-button home-button--primary">
+              Ver las series
+            </Link>
+            <Link href="#oferta" className="home-button home-button--quiet">
+              Trabaja conmigo
+            </Link>
+          </div>
         </div>
 
-        <div className="yc-hero__grid">
-          <div className="yc-hero__copy">
-            <h1 className="yc-title">
-              <span className="yc-title__line yc-title__line--tilt">menos a mano</span>
-              <span className="yc-title__line yc-title__line--wide">más para ti</span>
-            </h1>
-            <p className="yc-hero__claim">Automatiza, aprende y haz que la IA trabaje por ti.</p>
-            <Note className="yc-hero__note">Mirá todo lo que siempre fuiste capaz de ser.</Note>
-            <div className="yc-hero__actions">
-              <Link href="#series" className="yc-btn yc-btn--primary">
-                ver las series <span aria-hidden>→</span>
-              </Link>
-              <Link href="#servicios" className="yc-btn yc-btn--secondary">
-                trabaja conmigo <span aria-hidden>→</span>
-              </Link>
-            </div>
+        <div className="home-hero__visual hero-composicion">
+          <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
+            <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
+            <svg className="y2k-sello y2k-sello--itgirly" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="57" fill="#FFD9E8" stroke="#4A2D57" strokeWidth="4" />
+              <circle cx="60" cy="60" r="41" fill="none" stroke="#E85D9F" strokeWidth="2" strokeDasharray="2 6" />
+              <defs>
+                <path id="selloItGirly" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
+              </defs>
+              <text fill="#4A2D57" fontSize="13" fontWeight="700" letterSpacing="3">
+                <textPath href="#selloItGirly">it girly ✦ certificado ✦ it girly ✦ certificado ✦</textPath>
+              </text>
+              <path d="M 60 47 C 53 40 44 43 44 51 C 44 58 51 64 60 71 C 69 64 76 58 76 51 C 76 43 67 40 60 47 Z" fill="#E85D9F" />
+            </svg>
+            <span className="y2k-label" style={{ top: '-14px', right: '22px', transform: 'rotate(5deg)' }}>
+              automatización
+            </span>
+            <span className="y2k-label" style={{ bottom: '18px', left: '-14px', transform: 'rotate(-6deg)' }}>
+              plantillas n8n
+            </span>
+            <svg viewBox="0 0 400 460" role="img" aria-hidden="true">
+              <path
+                fill="#2B1735"
+                stroke="#FFFFFF"
+                strokeWidth="10"
+                strokeLinejoin="round"
+                d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
+              />
+              <path
+                fill="#2B1735"
+                stroke="#FFFFFF"
+                strokeWidth="10"
+                strokeLinejoin="round"
+                d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
+              />
+              <path
+                d="M96 150 C92 110 118 62 152 48"
+                fill="none"
+                stroke="#E85D9F"
+                strokeWidth="9"
+                strokeLinecap="round"
+                opacity="0.85"
+              />
+              <path
+                d="M304 150 C308 112 288 70 258 52"
+                fill="none"
+                stroke="#9A66D9"
+                strokeWidth="9"
+                strokeLinecap="round"
+                opacity="0.75"
+              />
+            </svg>
+            <img
+              src="/brand/stickers/flor-hibisco-rosa.png"
+              alt=""
+              className="y2k-sticker"
+              style={{ width: '86px', top: '20px', right: '18px', transform: 'rotate(12deg)' }}
+            />
+            <img
+              src="/brand/stickers/destello.png"
+              alt=""
+              className="y2k-sticker"
+              style={{ width: '60px', bottom: '124px', right: '36px', transform: 'rotate(-8deg)' }}
+            />
           </div>
-
-          <div className="yc-hero__visual">
-            {/* Hueco figura: solo reserva el espacio de la foto cutout (pose 01). */}
-            <div className="yc-cutout" aria-label="Espacio reservado para la foto de Evelyn">
-              <svg
-                className="yc-cutout__figure"
-                viewBox="0 0 400 520"
-                role="img"
-                aria-hidden="true"
-              >
-                <defs>
-                  <pattern
-                    id="ycFigureDots"
-                    width="14"
-                    height="14"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <circle cx="2" cy="2" r="1.2" fill="#DCC8D4" />
-                  </pattern>
-                </defs>
-                {/* Contorno exterior blanco (sticker) + hueco interior */}
-                <path
-                  className="yc-cutout__slot"
-                  fill="url(#ycFigureDots)"
-                  stroke="#FFFFFF"
-                  strokeWidth="18"
-                  strokeLinejoin="round"
-                  d="M200 28
-                    C132 28 96 88 100 156
-                    C103 206 90 258 74 304
-                    C62 338 48 364 32 384
-                    C88 384 130 362 154 326
-                    L154 360
-                    C112 378 88 420 84 520
-                    L316 520
-                    C312 420 288 378 246 360
-                    L246 326
-                    C270 362 312 384 368 384
-                    C352 364 338 338 326 304
-                    C310 258 297 206 300 156
-                    C304 88 268 28 200 28 Z"
-                />
-                <path
-                  fill="none"
-                  stroke="var(--editorial-plum)"
-                  strokeWidth="4"
-                  strokeLinejoin="round"
-                  strokeDasharray="10 8"
-                  d="M200 40
-                    C140 40 110 92 113 154
-                    C116 200 104 250 90 292
-                    C80 322 68 346 54 364
-                    C98 364 132 346 152 318
-                    L152 348
-                    C118 364 98 400 94 500
-                    L306 500
-                    C302 400 282 364 248 348
-                    L248 318
-                    C268 346 302 364 346 364
-                    C332 346 320 322 310 292
-                    C296 250 284 200 287 154
-                    C290 92 260 40 200 40 Z"
-                />
-              </svg>
-              <span className="yc-cutout__tag">pose 01 · aquí va tu foto</span>
-              <span className="yc-badge">IT GIRL ONLINE</span>
+          <div className="y2k-chat" role="img" aria-label="Chat de ejemplo del embudo">
+            <div className="y2k-chat__bar">
+              elara nova ✦ en línea
+              <i aria-hidden="true">
+                <b />
+                <b />
+              </i>
             </div>
-
-
-            <ChatWindow
-              className="yc-hero__chat"
-              title="mensaje nuevo ♡"
-              status="Evelyn está escribiendo…"
-            >
-              <Msg from="Evelyn">
-                ¡Hola! Soy Evelyn 👋
-                <br />
-                Ingeniera de software.
-                <br />
-                8 años automatizando,
-                <br />
-                6 de ellos en banca.
-              </Msg>
-              <Msg from="Evelyn">
-                Ahora te enseño a usar IA
-                <br />
-                sin humo y sin hacerlo complicado.
-              </Msg>
-              <div className="yc-chat__toolbar" aria-hidden="true">
-                <span>☺</span>
-                <span>♥</span>
-                <span className="yc-chat__send">Enviar</span>
-              </div>
-            </ChatWindow>
-
-            <div className="yc-popup" role="status">
-              <p>
-                <strong>elara_nova</strong> quiere agregarte
+            <div className="y2k-chat__body">
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara nova</span>
+                ¡Hola! Soy Evelyn 👋 ingeniera de software.
               </p>
-              <div>
-                <span>aceptar ♡</span>
-                <span>más tarde</span>
-              </div>
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara nova</span>
+                8 años automatizando procesos, 6 de ellos en banca.
+              </p>
+              <p className="y2k-chat__msg y2k-chat__msg--elara">
+                <span>elara nova</span>
+                Ahora te enseño a usar la IA sin humo 💗
+              </p>
             </div>
-
-            <Sticker src={STICKERS.flip} className="yc-hero__sticker yc-hero__sticker--flip" />
-            <Sticker src={STICKERS.butterfly} className="yc-hero__sticker yc-hero__sticker--butterfly" />
-            <Sticker src={STICKERS.heart} className="yc-hero__sticker yc-hero__sticker--heart" />
-            <Sticker src={STICKERS.cursor} className="yc-hero__sticker yc-hero__sticker--cursor" />
-            <Sticker src={STICKERS.flower} className="yc-hero__sticker yc-hero__sticker--flower" />
-            <Sticker src={STICKERS.star} className="yc-hero__sticker yc-hero__sticker--star" />
           </div>
         </div>
+
+        <p className="home-hero__note">
+          8 años automatizando procesos.
+          <br />
+          Primero en banca. Ahora, para enseñártelo.
+        </p>
       </section>
 
-      {/* ═══ 3 · MARQUEE ═══ */}
-      <div className="yc-marquee" aria-hidden="true">
-        <div className="yc-marquee__track">
-          {[0, 1].flatMap((rep) =>
-            [
-              'MENOS A MANO',
-              '★',
-              'LO QUE SIEMPRE PUDISTE HACER',
-              '♡',
-              'PASTOREANDO',
-              '✿',
-              '+',
-            ].map((t, i) => (
-              <span key={`${rep}-${i}`}>{t}</span>
-            )),
+      <div className="y2k-marquee" aria-hidden="true">
+        <div className="y2k-marquee__track">
+          {[0, 1].map((rep) =>
+            ['menos a mano', '✦', 'lo que siempre pudiste hacer', '✦', 'pastoreando', '✦', 'plantillas listas para usar', '✦', 'ia sin humo', '✦'].map(
+              (t, i) => <span key={`${rep}-${i}`}>{t}</span>
+            )
           )}
         </div>
       </div>
 
-      {/* ═══ 4 · TESIS ═══ */}
-      <section className="yc-thesis" aria-label="Qué hace Elara Nova">
-        <article className="yc-pill yc-pill--1">
-          <span className="yc-pill__num">01</span>
-          <span className="yc-pill__tag">enseño</span>
-          <p>enseño a automatizar con IA</p>
-          <Sticker src={STICKERS.cursor} className="yc-pill__icon" />
-        </article>
-        <article className="yc-pill yc-pill--2">
-          <span className="yc-pill__num">02</span>
-          <span className="yc-pill__tag">creo</span>
-          <p>creo plantillas listas para usar</p>
-          <Sticker src={STICKERS.star} className="yc-pill__icon" />
-        </article>
-        <article className="yc-pill yc-pill--3">
-          <span className="yc-pill__num">03</span>
-          <span className="yc-pill__tag">construyo</span>
-          <p>construyo sistemas que venden</p>
-          <Sticker src={STICKERS.spark} className="yc-pill__icon" />
-        </article>
+      <section className="home-thesis" aria-label="Propuesta de Elara Nova">
+        <p>
+          <span className="home-thesis__impact">Enseño</span>
+          <em className="home-thesis__script">a automatizar con IA</em>
+        </p>
+        <p>
+          <span className="home-thesis__impact">Creo</span>
+          <em className="home-thesis__script">plantillas listas para usar</em>
+        </p>
+        <p>
+          <span className="home-thesis__impact">Construyo</span>
+          <em className="home-thesis__script">sistemas que venden</em>
+        </p>
       </section>
 
-      {/* ═══ 5 · EL PORQUÉ ═══ */}
-      <section id="porque" className="yc-why">
-        <div className="yc-why__lead">
-          <p className="yc-label">04 — el porqué</p>
-          <h2 className="yc-title yc-title--section">
-            <span className="yc-title__line">
-              siempre <em className="yc-title__script">pudiste</em>,
-            </span>
-            <span className="yc-title__line">ahora tienes cómo</span>
-          </h2>
-          <Note>
-            No necesitas convertirte en experta. Necesitas saber qué usar, cuándo usarlo y qué no
-            vale la pena.
-          </Note>
+      <section id="servicios" className="home-intro" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '480px', right: '-150px', top: '-70px', opacity: 0.55 }}>
+            <path
+              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
+              fill="none"
+              stroke="#F4A7CB"
+              strokeWidth="30"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
-
-        <div className="yc-why__cards">
-          <article className="yc-card yc-card--torn yc-card--1">
-            <span className="yc-card__num">01</span>
-            <h3>lo haces todo a mano</h3>
-            <p>Repites tareas que podrían resolverse solas y terminas ocupada en lo que menos importa.</p>
-            <div className="yc-miniwin" aria-hidden="true">
-              copiando… pegando… copiando…
-            </div>
-            <Sticker src={STICKERS.cursor} className="yc-card__sticker" />
-          </article>
-
-          <article className="yc-card yc-card--wave yc-card--2">
-            <span className="yc-card__num">02</span>
-            <h3>la IA te suena a otro idioma</h3>
-            <p>Cada tutorial parece hecho para alguien que ya sabe demasiado.</p>
-            <div className="yc-miniwin yc-miniwin--error" aria-hidden="true">
-              ¿Qué significa API?
-            </div>
-            <span className="yc-chip">explícamelo normal</span>
-          </article>
-
-          <article className="yc-card yc-card--rect yc-card--3">
-            <span className="yc-card__num">03</span>
-            <h3>todo cambia muy rápido</h3>
-            <p>Nuevas herramientas, nuevos modelos y otra cosa que supuestamente debes aprender hoy.</p>
-            <div className="yc-miniwin" aria-hidden="true">
-              nueva actualización disponible
-            </div>
-            <Sticker src={STICKERS.chihuahua} className="yc-card__sticker yc-card__sticker--dog" />
-          </article>
-        </div>
-      </section>
-
-      {/* ═══ 6 · LAS SERIES ═══ */}
-      <section id="series" className="yc-series">
-        <div className="yc-series__bg" aria-hidden="true" />
-        <header className="yc-series__head">
-          <p className="yc-label">05 — las series</p>
-          <h2 className="yc-title yc-title--section">
-            <span className="yc-title__line">tres formas de entrar</span>
-            <span className="yc-title__line">al mundo de Elara Nova</span>
+        <div className="home-intro__lead">
+          <Eyebrow>El porqué</Eyebrow>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Siempre pudiste</span>
+            <em className="type-lockup__script">ahora tienes cómo</em>
           </h2>
-          <p className="yc-series__lead">
-            Puedes venir por una plantilla, quedarte por una historia o terminar automatizando medio
-            negocio.
+          <p className="home-intro__pitch">
+            La mayoría pierde horas cada día en tareas que una máquina puede hacer sola. Yo vengo
+            de ese mundo — 8 años automatizando, 6 de ellos en banca — y te lo cuento claro: qué
+            sirve, qué no, y cómo empezar hoy con una plantilla lista.
           </p>
-        </header>
-
-        <div className="yc-series__layout">
-          <article className="yc-serie yc-serie--main">
-            <span className="yc-serie__num">01</span>
-            <span className="yc-chip">automatización</span>
-            <h3 className="yc-serie__title">menos a mano</h3>
-            <ChatWindow className="yc-serie__chat" title="chat · menos a mano">
-              <Msg from="Tú" self>
-                ¿esto se puede automatizar?
-              </Msg>
-              <Msg from="Evelyn">probablemente sí 👀</Msg>
-              <Msg from="Tú" self>
-                ¿y sin volverme loca?
-              </Msg>
-              <Msg from="Evelyn">esa es la idea.</Msg>
-            </ChatWindow>
-            <p className="yc-serie__count">126 episodios</p>
-            <Link href="#plantillas" className="yc-btn yc-btn--primary yc-btn--sm">
-              ver la serie
-            </Link>
-            <Sticker src={STICKERS.heart} className="yc-serie__sticker" />
-          </article>
-
-          <div className="yc-series__side">
-            <article className="yc-serie yc-serie--lila">
-              <span className="yc-serie__num">02</span>
-              <span className="yc-chip">cursos y tips de IA</span>
-              <h3 className="yc-serie__title">lo que siempre pudiste hacer</h3>
-              <div className="yc-file" aria-hidden="true">
-                <span>archivo recibido:</span>
-                <strong>plantilla_que_te_ahorra_3_horas.zip</strong>
-              </div>
-              <p className="yc-serie__count">episodio 01 muy pronto</p>
-              <Link href="#plantillas" className="yc-btn yc-btn--lila yc-btn--sm">
-                quiero aprender
-              </Link>
-            </article>
-
-            <article className="yc-serie yc-serie--soft">
-              <span className="yc-serie__num">03</span>
-              <span className="yc-chip">storytimes y viajes</span>
-              <h3 className="yc-serie__title">pastoreando</h3>
-              <ChatWindow className="yc-serie__chat yc-serie__chat--mini" title="amiga chat">
-                <Msg from="amiga" self>
-                  ¿dónde estás ahora?
-                </Msg>
-                <Msg from="Evelyn">larga historia…</Msg>
-                <Msg from="amiga" self>
-                  cuenta.
-                </Msg>
-                <Msg from="Evelyn">episodio nuevo el domingo.</Msg>
-              </ChatWindow>
-              <Link href="#sobre-mi" className="yc-btn yc-btn--quiet yc-btn--sm">
-                ver storytimes
-              </Link>
-            </article>
-          </div>
+          <ul className="home-intro__proof">
+            <li>Tutoriales cortos que sí se entienden.</li>
+            <li>Plantillas listas para copiar, pegar y usar.</li>
+            <li>Pros y contras de verdad: qué sirve y qué es puro humo.</li>
+          </ul>
         </div>
-
-        <ChatWindow className="yc-series__wait" title="lista de espera ♡">
-          <WaitlistForm
-            id="wait-series"
-            title="¿quieres entrar a la lista de espera?"
-            copy="Te aviso antes que a nadie cuando publique una serie, una plantilla o un pack nuevo."
-            button="quiero entrar ♡"
-            checkbox="también quiero recibir pros, contras y recomendaciones reales."
+        <div className="home-intro__body" style={{ position: 'relative' }}>
+          <img
+            src="/brand/stickers/celular-tapita.png"
+            alt=""
+            className="y2k-sticker"
+            style={{ width: '88px', top: '-52px', right: '2%', transform: 'rotate(12deg)' }}
           />
-        </ChatWindow>
-      </section>
-
-      {/* ═══ 7 · PLANTILLAS ═══ */}
-      <section id="plantillas" className="yc-templates">
-        <div className="yc-browser" aria-hidden="true">
-          <div className="yc-browser__bar">
-            <span />
-            <span />
-            <span />
-            <em>mis documentos &gt; descargas &gt; elara nova</em>
+          <Eyebrow>¿Te suena?</Eyebrow>
+          <div className="home-intro__services" aria-label="Señales de que esto es para ti">
+            <div className="home-intro__service">
+              <span>Lo haces todo a mano</span>
+              <p>
+                Responder lo mismo mil veces, copiar datos entre apps, vivir dentro del correo.
+                Cada tarea repetida es una hora que no vuelve.
+              </p>
+            </div>
+            <div className="home-intro__service">
+              <span>La IA te suena a otro idioma</span>
+              <p>
+                Todo el mundo habla de ella y pocos la explican claro. No necesitas ser ingeniera:
+                necesitas ejemplos reales, de tu trabajo de todos los días.
+              </p>
+            </div>
+            <div className="home-intro__service">
+              <span>Todo cambia muy rápido</span>
+              <p>
+                Los trabajos se están moviendo y a la mayoría nadie le enseñó a usar estas
+                herramientas. Se aprende paso a paso, con alguien que las usa todos los días.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <header className="yc-templates__head">
-          <h2 className="yc-title yc-title--section">
-            <span className="yc-title__line">llévate algo útil</span>
-            <span className="yc-title__line">antes de irte</span>
-          </h2>
-          <p>Plantillas, agentes y recursos para empezar a automatizar hoy.</p>
+      <ImmersiveStory />
+
+      <section id="oferta" className="home-products" style={{ position: 'relative' }}>
+        <svg className="y2k-sello" viewBox="0 0 120 120" style={{ top: '-46px', right: '7%' }} aria-hidden="true">
+          <circle cx="60" cy="60" r="57" fill="#E85D9F" stroke="#4A2D57" strokeWidth="4" />
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#F6EFE3" strokeWidth="2" strokeDasharray="2 6" />
+          <defs>
+            <path id="selloCirc" d="M 60,60 m -47,0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" />
+          </defs>
+          <text fill="#F6EFE3" fontSize="12.5" fontWeight="700" letterSpacing="2.5">
+            <textPath href="#selloCirc">elara nova ✦ menos a mano ✦ ia sin humo ✦</textPath>
+          </text>
+          <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#F6EFE3" />
+        </svg>
+        <header className="home-products__header">
+          <div>
+            <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
+            <h2 className="type-lockup type-lockup--glow-soft">
+              <span className="type-lockup__impact">Lo hago por ti</span>
+              <em className="type-lockup__script">de la A a la Z</em>
+            </h2>
+          </div>
+          <Link href="/servicios">Ver todos los servicios</Link>
         </header>
 
-        <div className="yc-templates__grid">
-          <div className="yc-files">
-            {[
-              ['⚙️', 'automatizaciones Make', '124 KB', 'gratis'],
-              ['🤖', 'agentes de IA', '86 KB', 'gratis'],
-              ['📋', 'plantillas Notion', '210 KB', 'gratis'],
-              ['💬', 'prompts listos', '42 KB', 'gratis'],
-              ['📄', 'scripts', '67 KB', 'gratis'],
-              ['📊', 'dashboards', '155 KB', 'premium'],
-              ['✅', 'checklist automatización', '31 KB', 'gratis'],
-              ['📁', 'mini CRM', '98 KB', 'premium'],
-              ['📅', 'calendario de contenido', '54 KB', 'gratis'],
-              ['✉️', 'generador de propuestas', '73 KB', 'premium'],
-            ].map(([icon, name, size, tag]) => (
-              <article key={name as string} className="yc-filecard">
-                <span aria-hidden="true">{icon}</span>
-                <div>
-                  <strong>{name}</strong>
-                  <small>
-                    {size} · {tag}
-                  </small>
+        <div className="home-products__rail">
+          {services.map((service, index) => {
+            const Scene = serviceScenes[index]
+            return (
+              <article key={service.title} className={`home-product home-product--${index + 1}`}>
+                <div className="home-product__media">
+                  <Scene />
                 </div>
-                <span className={`yc-chip ${tag === 'premium' ? 'yc-chip--lila' : ''}`}>{tag}</span>
+                <div className="home-product__copy">
+                  <span>{service.number}</span>
+                  <p>{service.type}</p>
+                  <h3>{service.title}</h3>
+                  <small>{service.description}</small>
+                  <Link href={service.href} className="home-product__price">
+                    {service.price}
+                  </Link>
+                </div>
               </article>
-            ))}
-          </div>
-
-          <ChatWindow className="yc-templates__form" title="tu plantilla está casi lista">
-            <ol className="yc-steps">
-              <li>Escribe tu correo.</li>
-              <li>Elige una plantilla.</li>
-              <li>Revisa tu bandeja.</li>
-            </ol>
-            <WaitlistForm
-              id="wait-templates"
-              title="enviar a mi correo"
-              copy="Cero spam raro. Solo herramientas, tutoriales y opiniones honestas."
-              button="enviar a mi correo"
-            />
-            <p className="yc-progress" aria-hidden="true">
-              preparando descarga…
-              <i />
-            </p>
-          </ChatWindow>
+            )
+          })}
         </div>
       </section>
 
-      {/* ═══ 8 · EMPIEZA AQUÍ ═══ */}
-      <section id="empieza" className="yc-start">
-        <ChatWindow className="yc-start__chat" title="grupo: chicas que ya no hacen todo a mano">
-          <p className="yc-start__members" aria-hidden="true">
-            Evelyn · Tú · La IA · Tu tiempo libre
-          </p>
-          <Msg from="Evelyn">descarga una plantilla.</Msg>
-          <Msg from="Tú" self>
-            pruébala con una tarea real.
-          </Msg>
-          <Msg from="La IA">tarea completada.</Msg>
-          <Msg from="Tu tiempo libre">por fin aparezco.</Msg>
-          <Link href="#plantillas" className="yc-btn yc-btn--primary yc-btn--sm">
-            quiero empezar
-          </Link>
-        </ChatWindow>
-      </section>
-
-      {/* ═══ 9 · SERVICIOS ═══ */}
-      <section id="servicios" className="yc-services">
-        <ChatWindow className="yc-services__chat" title="chat privado con Evelyn">
-          <Msg from="Evelyn">¿Prefieres delegarlo? Cuéntame qué quieres dejar de hacer a mano.</Msg>
-
-          <div className="yc-attach">
-            <article>
-              <strong>Automatizaciones a medida</strong>
-              <p>Conecto tus herramientas y diseño procesos que trabajan sin perseguirlos todos los días.</p>
-            </article>
-            <article>
-              <strong>Webs que venden</strong>
-              <p>Sitios claros, rápidos y pensados para convertir visitas en acciones.</p>
-            </article>
-            <article>
-              <strong>Google Ads</strong>
-              <p>Campañas con medición real para entender qué funciona y qué está gastando por gastar.</p>
-            </article>
-          </div>
-
-          <div className="yc-hero__actions">
-            <TrackedLink
-              href="/descubrimiento"
-              tracking={{ event: 'cta_click', category: 'lead', label: 'home_chat_servicios' }}
-              className="yc-btn yc-btn--primary yc-btn--sm"
-            >
-              abrir conversación
-            </TrackedLink>
-            <Link href="/servicios" className="yc-btn yc-btn--quiet yc-btn--sm">
-              ver servicios
-            </Link>
-          </div>
-        </ChatWindow>
-      </section>
-
-      {/* ═══ 10 · SOBRE MÍ ═══ */}
-      <section id="sobre-mi" className="yc-about">
-        <div className="yc-about__media">
-          <figure className="yc-camera">
-            <Image
-              src={evelynPhotos.homeAbout}
-              alt="Evelyn Patiño"
-              fill
-              quality={90}
-              sizes="(max-width: 900px) 90vw, 380px"
+      <section id="recursos" className="home-recursos" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="y2k-squiggles" aria-hidden="true">
+          <svg viewBox="0 0 500 400" style={{ width: '540px', left: '-170px', top: '-90px', opacity: 0.28 }}>
+            <path
+              d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210"
+              fill="none"
+              stroke="#E85D9F"
+              strokeWidth="34"
+              strokeLinecap="round"
             />
-            <span className="yc-camera__date">2026.08</span>
-          </figure>
-          <span className="yc-badge yc-badge--float">8 años haciendo esto</span>
-          <p className="yc-sign">Evelyn Patiño</p>
-          <div className="yc-status">
-            <strong>Evelyn está online</strong>
-            <span>Probando una nueva herramienta para contarte si realmente vale la pena.</span>
-          </div>
+          </svg>
+          <svg viewBox="0 0 500 400" style={{ width: '460px', right: '-140px', bottom: '-100px', opacity: 0.22 }}>
+            <path
+              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
+              fill="none"
+              stroke="#9A66D9"
+              strokeWidth="30"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
-
-        <div className="yc-about__copy">
-          <h2 className="yc-title yc-title--section">
-            <span className="yc-title__line">de automatizar en banca</span>
-            <span className="yc-title__line">a enseñarte cómo hacerlo</span>
+        <img
+          src="/brand/stickers/labios.png"
+          alt=""
+          className="y2k-sticker"
+          style={{ width: '96px', top: '30px', right: '5%', transform: 'rotate(-9deg)' }}
+        />
+        <div className="home-recursos__intro">
+          <Eyebrow light>Las series · muy pronto en Instagram y TikTok</Eyebrow>
+          <h2 className="type-lockup type-lockup--glow">
+            <span className="type-lockup__impact">Aprende gratis</span>
+            <em className="type-lockup__script">conmigo</em>
           </h2>
           <p>
-            He trabajado durante años construyendo sistemas que ahorran tiempo, conectan procesos y
-            evitan tareas repetitivas. Ahora convierto ese conocimiento en plantillas, tutoriales y
-            herramientas que puedes usar sin tener que hablar como ingeniera.
+            Tres series con nombre propio, cada una con su promesa. Videos cortos, plantillas para
+            descargar y cero drama técnico. Comenta la palabra clave de cada video y te llega el
+            recurso directo.
           </p>
+        </div>
 
-          <ol className="yc-timeline">
-            <li>
-              <strong>2018 — Evelyn inició sesión</strong>
-              <span>Empiezo a trabajar como ingeniera.</span>
-            </li>
-            <li>
-              <strong>2020 — archivo guardado</strong>
-              <span>Automatizaciones, sistemas y procesos.</span>
-            </li>
-            <li>
-              <strong>2022 — conexión segura</strong>
-              <span>Seis años trabajando en banca.</span>
-            </li>
-            <li>
-              <strong>2026 — nuevo estado</strong>
-              <span>Ahora enseño lo que aprendí sin convertirlo en una clase imposible.</span>
-            </li>
-          </ol>
+        <div className="home-recursos__rail">
+          <article className="home-recurso">
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-rosa-bebe)' }}
+            >
+              <img src="/brand/stickers/cursor-pixel.png" alt="" style={{ width: '58%', height: 'auto' }} />
+            </div>
+            <span className="serie-num">01</span>
+            <p>Serie de automatización</p>
+            <h3>Menos a mano</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
+            <small>
+              Tutoriales y plantillas de automatización con IA: tu correo, tus cuentas, tu Excel —
+              paso a paso y listos para copiar.
+            </small>
+            <span className="home-recurso__link">Muy pronto ✦</span>
+          </article>
 
-          <div className="yc-hero__actions">
-            <a href="/portfolio" className="yc-btn yc-btn--secondary yc-btn--sm">
-              Portfolio
-            </a>
-            <a href="/cv" className="yc-btn yc-btn--quiet yc-btn--sm">
-              CV
-            </a>
-          </div>
+          <article className="home-recurso">
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-champan)' }}
+            >
+              <img src="/brand/stickers/estrella-kawaii.png" alt="" style={{ width: '58%', height: 'auto' }} />
+            </div>
+            <span className="serie-num">02</span>
+            <p>Serie de conocimiento</p>
+            <h3>Lo que siempre pudiste hacer</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
+            <small>
+              Tips de IA para tu día a día, herramientas que valen la pena y las que no — con pros
+              y contras de verdad.
+            </small>
+            <span className="home-recurso__link">Muy pronto ✦</span>
+          </article>
+
+          <article className="home-recurso">
+            <div
+              className="home-recurso__media"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-lino)' }}
+            >
+              <img src="/brand/stickers/chihuahua.png" alt="" style={{ width: '58%', height: 'auto' }} />
+            </div>
+            <span className="serie-num">03</span>
+            <p>Serie de historias</p>
+            <h3>Pastoreando</h3>
+            <span className="serie-episodios">episodio 01 muy pronto</span>
+            <small>
+              Storytimes, viajes y la vida real detrás de la marca — construyendo todo esto en
+              público, con lo que sale bien y lo que no.
+            </small>
+            <span className="home-recurso__link">Muy pronto ✦</span>
+          </article>
+        </div>
+
+        <div className="waitlist">
+          <h3>entra a la lista</h3>
+          <p>Te aviso antes que a nadie cuando publique cada nuevo episodio y cuando salgan las plantillas.</p>
+          <form className="waitlist__form" action="/descubrimiento">
+            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
+            <button type="submit">quiero entrar</button>
+          </form>
         </div>
       </section>
 
-      {/* ═══ 11 · CIERRE ═══ */}
-      <section id="cierre" className="yc-close">
-        <div className="yc-close__shapes" aria-hidden="true" />
-        <h2 className="yc-title yc-title--close">
-          <em className="yc-title__script">Mirá todo</em>
-          <span className="yc-title__line">lo que siempre</span>
-          <span className="yc-title__line">fuiste capaz de ser.</span>
+      <section id="preanalisis" className="home-impact" style={{ position: 'relative' }}>
+        <img
+          src="/brand/stickers/mono.png"
+          alt=""
+          className="y2k-sticker"
+          style={{ width: '96px', top: '26px', left: '6%', transform: 'rotate(-10deg)' }}
+        />
+        <Eyebrow>Plantillas gratis · descarga directa</Eyebrow>
+        <h2 className="type-lockup type-lockup--center type-lockup--glow-soft">
+          <span className="type-lockup__impact">Plantillas listas</span>
+          <em className="type-lockup__script">para copiar y usar</em>
         </h2>
+        <p>
+          Recursos que puedes usar hoy mismo: flujos armados, agentes configurados y prompts
+          probados. Descarga gratis a cambio de tu correo — y te aviso cuando salga cada nuevo.
+        </p>
 
-        <ChatWindow className="yc-close__chat" title="antes de irte…">
-          <Msg from="Elara Nova">antes de irte…</Msg>
-          <Msg from="Elara Nova">¿quieres una plantilla gratis?</Msg>
-          <Msg from="Tú" self>
-            obvio.
-          </Msg>
-          <Msg from="Elara Nova">deja tu correo aquí ♡</Msg>
-          <WaitlistForm
-            id="wait-close"
-            title="enviármela"
-            copy="Una plantilla útil. Sin drama."
-            button="enviármela"
+        <div className="tools-rail">
+          <div className="tool-chip">
+            <span aria-hidden="true">⚙️</span>
+            <strong>Automatizaciones</strong>
+            <small>n8n · Make · Zapier</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">🤖</span>
+            <strong>Agentes con IA</strong>
+            <small>GPTs listos para usar</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">📋</span>
+            <strong>Notion</strong>
+            <small>Sistemas y tableros</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">💬</span>
+            <strong>Prompts</strong>
+            <small>Listos para copiar</small>
+          </div>
+          <div className="tool-chip">
+            <span aria-hidden="true">📄</span>
+            <strong>Scripts</strong>
+            <small>Apps Script · Python</small>
+          </div>
+        </div>
+
+        <div className="waitlist">
+          <h3>descarga gratis</h3>
+          <p>Deja tu correo y te llegan las plantillas apenas estén listas.</p>
+          <form className="waitlist__form" action="/descubrimiento">
+            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
+            <button type="submit">¡descargar!</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="trabaja" className="home-work">
+        <div className="home-work__stage">
+          <span className="home-work__glow" aria-hidden="true" />
+          <span className="home-work__frame" aria-hidden="true" />
+          <Photo
+            src={evelynPhotos.homeAbout}
+            alt="Evelyn Patiño sonriendo"
+            className="home-work__visual"
           />
-        </ChatWindow>
+          <p className="home-work__name">Evelyn Patiño</p>
+        </div>
+        <div className="home-work__copy">
+          <Eyebrow>Sobre mí</Eyebrow>
+          <h2 className="type-lockup type-lockup--glow-soft">
+            <span className="type-lockup__impact">Ingeniera</span>
+            <em className="type-lockup__script">con ojo estético</em>
+          </h2>
+          <p>
+            Soy Evelyn, y Elara Nova soy yo — no una agencia con un equipo anónimo detrás. Llevo 8
+            años automatizando procesos: lo que hoy el mundo hace con IA, yo lo venía haciendo a
+            mano. Seis de esos años en banca,
+            donde un detalle mal hecho cuesta dinero real. Lo que más me gusta es sentarme contigo,
+            entender tu negocio y quitarte el trabajo repetitivo de encima.
+          </p>
+          <div className="home-work__proof">
+            <span>8 años automatizando · 6 en banca</span>
+            <span>Medellín · Europa</span>
+            <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
+          </div>
+          <div className="home-work__me">
+            <p>¿Quieres ver cómo trabajo yo?</p>
+            <div className="home-work__links">
+              <a href="/portfolio" className="home-work__link home-work__link--solid">
+                Portfolio
+              </a>
+              <a href="/cv" className="home-work__link home-work__link--ghost">
+                CV
+              </a>
+            </div>
+          </div>
+          <TrackedLink
+            href="/descubrimiento"
+            tracking={{ event: 'cta_click', category: 'lead', label: 'home_work_preanalisis' }}
+            className="home-button home-button--primary"
+          >
+            Hacer mi pre-análisis
+          </TrackedLink>
+        </div>
+      </section>
 
-        <Sticker src={STICKERS.flip} className="yc-close__sticker yc-close__sticker--flip" />
-        <Sticker src={STICKERS.heart} className="yc-close__sticker yc-close__sticker--heart" />
-        <Sticker src={STICKERS.cursor} className="yc-close__sticker yc-close__sticker--cursor" />
+      <section id="contacto" className="home-close">
+        <p>Tu negocio puede funcionar sin que estés en cada detalle. Mira lo que siempre fuiste capaz de hacer.</p>
+        <h2 className="type-lockup type-lockup--center type-lockup--glow">
+          <span className="type-lockup__impact">Construyamos</span>
+          <em className="type-lockup__script">el sistema</em>
+        </h2>
+        <div className="home-actions">
+          <TrackedLink
+            href="/descubrimiento"
+            tracking={{ event: 'cta_click', category: 'lead', label: 'home_footer_preanalisis' }}
+            className="home-button home-button--gold"
+          >
+            Hacer mi pre-análisis
+          </TrackedLink>
+          <a href="mailto:elaranova.17@gmail.com" className="home-button home-button--light">
+            Escribir por email
+          </a>
+        </div>
       </section>
     </main>
   )

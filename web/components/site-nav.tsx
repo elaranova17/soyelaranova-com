@@ -96,14 +96,16 @@ function NavCta({
 
   if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
     return (
-      <a href={href} onClick={handleClick} className={cls} title="haz clic, no muerde ♡">
+      <a href={href} onClick={handleClick} className={cls}>
+        <span aria-hidden>+</span>
         {label}
       </a>
     )
   }
 
   return (
-    <Link href={href} prefetch onClick={handleClick} className={cls} title="haz clic, no muerde ♡">
+    <Link href={href} prefetch onClick={handleClick} className={cls}>
+      <span aria-hidden>+</span>
       {label}
     </Link>
   )
@@ -209,9 +211,7 @@ export function SiteNav() {
   // En B2B el logo vuelve al hub Evelyn; “← Inicio” del menú regresa al sitio.
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const logoHard = b2b
-  const cta = b2b
-    ? { href: '/descubrimiento', label: 'Pre-análisis' }
-    : { href: '/trabaja-conmigo', label: 'trabaja conmigo' }
+  const cta = { href: '/descubrimiento', label: 'Pre-análisis' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
@@ -269,7 +269,7 @@ export function SiteNav() {
         )}
 
         <div className="site-nav__actions">
-          {b2b ? (
+          {b2b && (
             <nav className="site-nav__desktop" aria-label="Navegación Evelyn B2B">
               <NavLink
                 key={B2B_NAV[0].href}
@@ -282,19 +282,6 @@ export function SiteNav() {
                 <NavLink key={item.href + item.label} item={item} pathname={pathname} />
               ))}
             </nav>
-          ) : (
-            <nav className="site-nav__desktop site-nav__desktop--studio" aria-label="Navegación Elara Nova">
-              {STUDIO_NAV.map((item) => (
-                <NavLink key={item.href + item.label} item={item} pathname={pathname} />
-              ))}
-            </nav>
-          )}
-
-          {!b2b && (
-            <span className="site-nav__online" aria-label="Evelyn online">
-              <i aria-hidden="true" />
-              online
-            </span>
           )}
 
           <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
@@ -386,7 +373,7 @@ export function SiteNav() {
               <p className="site-nav__panel-tagline" aria-hidden>
                 {b2b
                   ? 'Ingeniera de software · Europa'
-                  : 'haz clic, no muerde ♡'}
+                  : 'Mira todo lo que siempre fuiste capaz de ser.'}
               </p>
             </motion.aside>
           </>

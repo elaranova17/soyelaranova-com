@@ -1,5 +1,7 @@
 /**
- * Navegación compartida · menú canónico del sitio (Y2K IT Girly).
+ * Navegación compartida · menú canónico del estudio vs Evelyn B2B.
+ * El panel hamburguesa del sitio Elara usa SIEMPRE la misma lista (STUDIO_NAV),
+ * con URLs estables desde cualquier página. B2B conserva su propio menú.
  */
 
 import { studioServices } from '@/lib/studio-services'
@@ -14,12 +16,10 @@ export type NavItem = {
 }
 
 /**
- * Menú único — idéntico en todas las páginas (excepto /lp/* sin nav).
- * Brief home: Series · Plantillas gratis · Servicios · Sobre mí
+ * Menú único del estudio — idéntico en todas las páginas (excepto /lp/* sin nav).
+ * Cada label apunta siempre a la misma URL exacta (sin concatenar listas).
  */
 export const STUDIO_NAV: readonly NavItem[] = [
-  { href: '/#series', label: 'Series', match: ['/'] },
-  { href: '/#plantillas', label: 'Plantillas gratis' },
   {
     href: '/servicios',
     label: 'Servicios',
@@ -30,19 +30,25 @@ export const STUDIO_NAV: readonly NavItem[] = [
       match: [`/servicios/${service.slug}`],
     })),
   },
+  { href: '/#recursos', label: 'Recursos' },
   {
-    href: '/#sobre-mi',
-    label: 'Sobre mí',
-    match: ['/trabaja-conmigo', '/sobre-elara'],
+    href: '/trabaja-conmigo',
+    label: 'Sobre nosotras',
+    match: ['/trabaja-conmigo', '/sobre-elara', '/manifiesto'],
+  },
+  {
+    href: '/descubrimiento',
+    label: 'Contacto',
+    match: ['/descubrimiento'],
   },
 ]
 
-/** @deprecated Prefer STUDIO_NAV */
+/** @deprecated Prefer STUDIO_NAV — se mantiene por compatibilidad de imports legacy */
 export const ELARA_SECTIONS = [
-  { id: 'series', label: 'Series' },
-  { id: 'plantillas', label: 'Plantillas' },
+  { id: 'recursos', label: 'Recursos' },
   { id: 'servicios', label: 'Servicios' },
-  { id: 'sobre-mi', label: 'Sobre mí' },
+  { id: 'trabaja', label: 'Sobre nosotras' },
+  { id: 'contacto', label: 'Contacto' },
 ] as const
 
 export type ElaraSectionId = (typeof ELARA_SECTIONS)[number]['id']
@@ -70,6 +76,7 @@ export function elaraLandingNav(): readonly NavItem[] {
 
 /**
  * Solo HTML estático restante (factura / propuestas).
+ * /linktree, /portfolio y /cv usan el chrome del estudio (STUDIO_NAV + CapCut).
  */
 export const B2B_ROUTES = [
   '/portfolio-print',
@@ -77,13 +84,13 @@ export const B2B_ROUTES = [
   '/propuesta-val-debarras',
 ] as const
 
-/** Cotizaciones por cliente: /propuesta-{slug} */
+/** Cotizaciones por cliente: /propuesta-{slug} — nunca la plantilla genérica. */
 export function isB2bPath(pathname: string): boolean {
   if (pathname.startsWith('/propuesta-')) return true
   return B2B_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`))
 }
 
-/** @deprecated Hub Evelyn ya usa STUDIO_NAV */
+/** @deprecated Hub Evelyn ya usa STUDIO_NAV; se mantiene por imports legacy */
 export const B2B_NAV: readonly NavItem[] = [
   { href: '/', label: '← Inicio' },
   { href: '/linktree', label: 'Enlaces', match: ['/linktree'] },
