@@ -315,9 +315,16 @@ export function SiteNav() {
               </nav>
             )}
 
+            {!b2b && (
+              <span className="site-nav__online" aria-label="Evelyn online">
+                <i aria-hidden />
+                online
+              </span>
+            )}
+
             <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
 
-            <MenuButton open={open} onClick={toggle} alwaysVisible={!b2b} />
+            <MenuButton open={open} onClick={toggle} />
           </div>
         </div>
       </motion.header>

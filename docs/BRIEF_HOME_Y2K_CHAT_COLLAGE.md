@@ -7,7 +7,7 @@
 
 ## Checklist (una sección a la vez)
 
-- [ ] 1. Header crema + logo bubble + nav 2000 + CTA trabaja conmigo + online
+- [x] 1. Header crema + logo bubble + nav 2000 + CTA trabaja conmigo + online
 - [ ] 2. Hero collage (titular sticker, foto cutout, chat MSN, post-it, stickers ≤7)
 - [ ] 3. Marquee series
 - [ ] 4. Tesis 3 pastillas
