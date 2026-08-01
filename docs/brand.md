@@ -51,10 +51,10 @@ Proporción **60 crema / 30 rosa+lila / 10 ciruela**. El dorado `#B89A58` queda 
 
 **Plan de ejecución vigente:** `docs/PLAN_SPRINTS.md` (tablero por sprints, lanzamiento ~3 sep 2026).
 
-> ⚠️ **Las secciones de abajo ("CapCut glow chic", paleta `--editorial-*`, Bebas Neue) describen
-> la web DESPLEGADA HOY** y siguen mandando para mantenimiento del sitio actual, **hasta el
-> reposicionamiento web** (Sprint 2 del plan). Para contenido de redes, plantillas, brand assets
-> y todo lo NUEVO: manda la identidad Y2K girly de arriba.
+> ✅ **Reposicionamiento web en producción (1 ago 2026):** `soyelaranova.com` ya sirve el home
+> Y2K / IT Girly (rama `web-y2k` mergeada a `main`). La identidad Y2K girly de arriba manda
+> para la web desplegada y para todo lo nuevo. Las secciones CapCut de abajo quedan como
+> archivo histórico de la etapa estudio (julio 2026).
 
 ---
 

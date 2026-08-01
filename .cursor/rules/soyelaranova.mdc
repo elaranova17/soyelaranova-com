@@ -1,48 +1,48 @@
 ---
-description: Fuente de verdad soyelaranova.com — marca CapCut, embudo, stack real
+description: Fuente de verdad soyelaranova.com — marca Y2K IT Girly, embudo, stack real
 alwaysApply: true
 ---
 
-# soyelaranova.com · Elara Nova (estudio 2026)
+# soyelaranova.com · Elara Nova by Evelyn Patiño (2026)
 
-**Lee primero:** `docs/brand.md` + `docs/ESTADO_PROYECTO.md` + `docs/REPO_STRUCTURE.md`.
+**Lee primero:** `docs/brand.md` + `docs/ESTADO_PROYECTO.md` + `docs/PLAN_SPRINTS.md`.
 Si chocan con skills o memoria antigua, gana `docs/brand.md`.
 
 ## Proyecto
 
-**Producto principal del sitio público:** estudio **Evelyn Patiño / Elara Nova** —
-automatizaciones de procesos, webs/landings que venden, Google Ads con medición.
-La capa espiritual de Elara vive solo en rutas secundarias (`/oraculo`, `/universo`,
-`/cursos`, `/sobre-elara`).
+**La marca es Evelyn.** Negocio principal: enseñar automatización con IA en redes
+(TikTok + Instagram) al nicho **IT Girly** → plantillas/agentes n8n (gratis → premium).
+Servicios freelance/estudio siguen en la web pero **sin promoción activa** mientras TPC.
 
-**Embudo:** pre-análisis gratis (`/descubrimiento`) → sesión 25 CHF (`/sesion-estrategica`)
-→ proyecto (`docs/OFERTA_SERVICIOS.md`).
+**Embudo contenido:** video → DM/plantilla gratis (email) → premium.
+**Embudo estudio (secundario):** pre-análisis (`/descubrimiento`) → sesión 25 CHF
+(`/sesion-estrategica`) → proyecto.
 
-## Look canónico (ley)
+## Look canónico (ley) — Y2K girly cool
 
-- Home CapCut glow chic `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css`.
-- Tipografías: **Bebas Neue** (impact) · **Great Vibes** (script) · Cormorant (serif) · **Outfit** (sans).
-- Lockups: `.type-lockup` + `__impact` / `__script` + `--glow` / `--glow-soft`.
-- Navbar única `.site-nav` aubergine (`components/site-nav.tsx` + `lib/navigation.ts`).
-- Reutilizar `.home-eyebrow`, `.home-button--{primary,gold,quiet,light}`, bandas aubergine.
+- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C1).
+- Tipografías: **Bagel Fat One** (display, minúsculas) · **Great Vibes** (script, máx 1/sección) · **Outfit** (sans).
+- Paleta: crema `#F6EFE3` · rosa bebé `#FFD9E8` · rosa chicle `#E85D9F` · lila `#9A66D9` · ciruela `#4A2D57`. **Sin dorado.**
+- Letras sticker, tarjetas calcomanía, collage/capas, doodles/stickers propios del pack.
+- Navbar única `.site-nav` + logo bubble (`public/brand/`).
 - No inventar colores ni estilos por página.
-- Hex prohibidos en UI: `#7B4FB5`, `#C49AD4` → tokens `--color-purple-amethyst` / `--color-pale-lav`.
 
 ## Prohibido
 
 - Menús distintos por página.
-- Muñequitos / avatar Elara / stickers como UI del estudio.
-- Heroes Midjourney fantasy como chrome de página.
-- Purple-night ritual (`--color-purple-*`, `btn-ritual`, `elara-card`) como chrome principal —
+- Avatar Elara 3D como protagonista (solo mascota-acento).
+- Heroes Midjourney fantasy / CapCut glow dorado como chrome principal (archivo histórico).
+- Purple-night ritual (`btn-ritual`, `elara-card`) como chrome principal —
   solo en rutas espirituales legacy.
-- Sans negra brutal (Inter Black / Archivo Black) o Playfair/Fraunces/Manrope como sistema actual.
+- Inter / Roboto / Arial / Playfair / Fraunces / Manrope / Bebas como sistema actual.
 - CSS/JS suelto en `public/` que estile el app.
-- Call gratis larga como promesa (usar pre-análisis + sesión 25 CHF).
+- Tableros de ajedrez, glow neón difuminado, plantilla corporativa genérica.
 
 ## Voces (nunca mezclar en la misma página)
 
-- **Evelyn** (directa, ingeniera): `/`, `/servicios`, `/trabaja-conmigo`, `/descubrimiento`,
-  `/sesion-estrategica`, `/gracias`, `/legal`, `/lp/*`, `/linktree`, B2B.
+- **Evelyn** (primera persona "yo", ingeniera, género neutro en web): `/`, `/servicios`,
+  `/trabaja-conmigo`, `/descubrimiento`, `/sesion-estrategica`, `/gracias`, `/legal`,
+  `/lp/*`, `/linktree`, B2B.
 - **Elara** (mística, hermana mayor paisa): solo `/oraculo`, `/universo`, `/cursos`,
   `/sobre-elara`. **Oráculo, nunca "tarot".**
 

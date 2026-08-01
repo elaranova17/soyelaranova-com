@@ -93,7 +93,7 @@ El proceso mismo de crear esta marca = materia prima de contenido
 - [ ] **Fix Resend**: verificar dominio soyelaranova.com → auto-reply y entrega de plantillas funcionando (P0)
 - [ ] Plataforma de pago premium: decidir y activar (Stripe payment links vs Gumroad) — precio de entrada + package/bundle definidos (skill `elara-ebooks` para pricing)
 - [ ] Contratar editora elegida (por paquete de videos del mes)
-- [~] **Reposicionamiento web EN CURSO (30 jul noche, rama `web-y2k` — prod intacta):**
+- [x] **Reposicionamiento web → producción (1 ago 2026):** merge `web-y2k` → `main` para desplegar en `soyelaranova.com` (ya no solo preview).
   - [x] **Fase 1 · Trasplante de identidad (commit d20c5277):** paleta C1 en tokens `--editorial-*` (gold→rosa chicle #E85D9F, crema base, bordes rosados), Bagel Fat One display en MINÚSCULAS (antes Bebas caps), 51 glows dorados→rosa, favicon corazón-click (`app/icon.svg`), logos en `public/brand/`. Build verde. TODO el sitio se re-vistió vía tokens (verificado: home, /servicios, /descubrimiento con headless Chrome — el preview pane congela Lenis/rAF, usar headless para verificar).
   - [x] **Fase 2 · Home de creadora (commit d5298240, push → Vercel preview READY):** hero "menos a mano / más para ti" con voz nosotras y CTAs series/delegar · tesis enseñamos-creamos-construimos · sección porqué IT girly ("siempre pudiste / ahora tienes cómo" + 3 dolores de audiencia) · **LAS SERIES en el home** (Menos a Mano / Lo Que Siempre Pudiste Hacer / Pastoreando, "muy pronto") · servicios demoted ("para cuando prefieres delegar / hecho por nosotras") · isotipo en navbar · title/description SEO nuevos. **Preview: soyelaranova-com-git-web-y2k-elaranova17-2950s-projects.vercel.app** — esperando revisión de Evelyn. Nota verificación: copy verificado por innerText (Lenis+IntersectionObserver congelan visuales en pane oculto; usar headless o preview real).
   - [x] **Fase 2.5/2.6 · Y2K con capas (commits 0377a1c7 + bb22df82):** letras sticker en titulares (-webkit-text-stroke + sombra dura = lenguaje del logo) · silueta negra de pose 01 con borde blanco (placeholder fotos) · chat messenger 2000s en hero · marquee de series · squiggles gigantes (hero/porqué/series) · cuadrícula de puntitos de fondo · tarjetas calcomanía (borde 3px + sombra dura + rotaditas) · etiquetas flotantes pill · wordmark bubble navbar · stickers del pack por secciones. **VOZ corregida por Evelyn: "yo" (no nosotras públicas), género neutro en web, sin cierres épicos — reglas en VOZ.md.** Referencias de ella: plantillas Canva UGC (squiggles, pills, cutouts). Rechazó Lovable innecesario — se construye en el repo.
@@ -102,7 +102,7 @@ El proceso mismo de crear esta marca = materia prima de contenido
     - Lista de espera por email bajo LAS SERIES ("sé la primera cuando lancen 💌") — reusar base suscriptoras Supabase + fix Resend P0. Resuelve el "Muy pronto no redirige a nada".
     - **Página /ugc (portafolio UGC para marcas)**: presentación de Evelyn como creadora, grilla de videos (slots para los que graba esta semana), stats y contacto. Audiencia = marcas, separada del home de comunidad.
     - `/plantillas` con email-gate + retiro rutas espirituales legacy
-  - [ ] Al aprobar Evelyn: merge a main → deploy prod (antes: fix Resend P0 si el email-gate va a estar activo)
+  - [x] Merge a main → deploy prod (1 ago 2026). Resend P0 sigue pendiente para email-gate activo.
 
 ## Sprint 3 · "Semana de grabación" (≈ 20 → 26 ago)
 
