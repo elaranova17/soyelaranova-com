@@ -9,10 +9,10 @@
 
 | Paso | Sección | ID | Estado |
 |------|---------|-----|--------|
-| 1 | Hero copy (izquierda) | `#inicio .scrap-hero__copy` | en curso |
-| 2 | Collage capas (derecha) | `.scrap-collage--dense` | pendiente |
-| 3 | Franja tools | `.scrap-tools-strip` | pendiente |
-| 4 | Banda proof lavender | `.scrap-proof-band` | pendiente |
+| 1 | Hero copy (izquierda) | `#inicio .scrap-hero__copy` | ✅ |
+| 2 | Collage capas (derecha) | `.scrap-collage--dense` | ✅ |
+| 3 | Franja tools | `.scrap-tools-strip` | ✅ |
+| 4 | Banda proof lavender | `.scrap-proof-band` | ✅ |
 | 5 | Resto home (tesis → embudo) | below fold | después |
 
 ---
