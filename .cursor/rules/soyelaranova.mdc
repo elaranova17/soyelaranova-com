@@ -18,16 +18,15 @@ Servicios freelance/estudio siguen en la web pero **sin promoción activa** mien
 **Embudo estudio (secundario):** pre-análisis (`/descubrimiento`) → sesión 25 CHF
 (`/sesion-estrategica`) → proyecto.
 
-## Look canónico (ley) — Brand board C3 scrapbook
+## Look canónico (ley) — Warm paper scrapboard
 
-- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C3).
-- Tipografías: **Satoshi** ExtraBold (display) · **Great Vibes** (script grande hero) ·
-  **Instrument Serif** italic (acentos chicos/h2) · **IBM Plex Mono** (UI/code) · **Inter** (cuerpo).
-  Fórmula moodboard: bold sans + script delicada. Great Vibes solo grande.
-- **Assets scrapboard siempre en Figma primero** (`Hero Scrap Assets · C3`) → export PNG →
-  `web/public/brand/scrap/figma/`. Ver `docs/FIGMA_ASSETS_FIRST.md`. Sin placeholders CSS.
-- Paleta board: cream `#FFF6F8` · lilac `#CDB4F2` · lavender `#9A66D9` · soft pink `#F5A7C4` · deep `#1C1B1F` · warm grey `#E7E3DF` · gold `#C9A86A`.
-- CTA principal = deep purple/charcoal. Collage: Polaroid + tape + sticky + ventanas UI.
+- Home `web/app/page.tsx` + tokens `--ds-*` / `--editorial-*` en `web/app/globals.css`.
+- Tipografías: **Cormorant Garamond** 500 (display + italic) · **Caveat** 500 (hand) ·
+  **IBM Plex Mono** 500 (nav/UI) · **Inter** (cuerpo).
+- Paleta: bg `#F5F0EA` · lavender `#B89AD6` · lavender dark `#9873BB` · pink `#F0C4CF` ·
+  ink `#111117` · paper `#F8F5F0` · strip `#D7C6E1`.
+- Radios: button/window `2px` · paper `0`. Container desktop `1536px` / gutter `48px`.
+- Grain papel opacity `0.035` en body. CTA = ink. Collage: Polaroid + tape + sticky + UI.
 - Navbar única `.site-nav` + logo (`public/brand/`).
 - No inventar colores ni estilos por página.
 

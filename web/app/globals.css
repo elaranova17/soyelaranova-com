@@ -31,26 +31,53 @@
   --color-cream:          #FAF4E2;
   --color-white-rose:     #F5EEF8;
 
-  /* Brand board C3 · scrapbook tech-lifestyle (6 ago 2026) */
-  --editorial-smoke:      #FFF6F8; /* CREAM — base papel (~60%) */
-  --editorial-ivory:      #FFFBFC; /* paneles / Polaroid */
-  --editorial-ink:        #1C1B1F; /* DEEP PURPLE — titulares + CTA */
-  --editorial-plum:       #2A2830; /* deep soft — texto serio */
-  --editorial-aubergine:  #1C1B1F; /* bandas oscuras / terminal */
-  --editorial-lavender:   #CDB4F2; /* LILAC — bandas, tags, UI chrome */
-  --editorial-cacao:      #6E6A66; /* secondary sobre crema */
-  --editorial-stone:      #E7E3DF; /* WARM GREY — hairlines */
-  --editorial-gold:       #C9A86A; /* GOLD muted — lujo puntual */
+  /* Brand board · warm paper scrapboard (design system hero/header) */
+  --editorial-smoke:      #F5F0EA; /* background_main — base papel (~60%) */
+  --editorial-ivory:      #F8F5F0; /* background_paper — paneles / Polaroid */
+  --editorial-ink:        #111117; /* ink — titulares + CTA */
+  --editorial-plum:       #2D2930; /* ink_soft — texto serio */
+  --editorial-aubergine:  #121218; /* black_panel / terminal */
+  --editorial-lavender:   #B89AD6; /* lavender — bandas, tags, UI chrome */
+  --editorial-cacao:      #6E6870; /* muted */
+  --editorial-stone:      #EFE9E2; /* background_grid / hairlines */
+  --editorial-gold:       #C9A86A; /* gold muted — lujo puntual */
 
   /* Washes */
-  --editorial-champan:    #F8EEF4; /* crema + soft pink */
-  --editorial-lino:       #F0E8F8; /* crema + lilac */
+  --editorial-champan:    #F2ECE5; /* background_warm */
+  --editorial-lino:       #D9C9E8; /* lavender_light wash */
 
-  /* Acentos violet / pink del board */
-  --editorial-lila:       #9A66D9; /* LAVENDER — acento principal UI */
-  --editorial-lila-deep:  #7A4FB8; /* lavanda accesible */
-  --editorial-rosa-bebe:  #F5A7C4; /* SOFT PINK — sticky / girl culture */
-  --editorial-rose:       #F5A7C4;
+  /* Acentos violet / pink */
+  --editorial-lila:       #9873BB; /* lavender_dark — acento UI / script */
+  --editorial-lila-deep:  #7A5A9E;
+  --editorial-rosa-bebe:  #F0C4CF; /* pink_soft */
+  --editorial-rose:       #F0C4CF;
+  --editorial-strip:      #D7C6E1; /* lavender_strip — metrics */
+
+  /* Design-system aliases (hero + header) */
+  --ds-bg:                #F5F0EA;
+  --ds-bg-warm:           #F2ECE5;
+  --ds-bg-paper:          #F8F5F0;
+  --ds-bg-grid:           #EFE9E2;
+  --ds-ink:               #111117;
+  --ds-ink-soft:          #2D2930;
+  --ds-muted:             #6E6870;
+  --ds-lavender:          #B89AD6;
+  --ds-lavender-dark:     #9873BB;
+  --ds-lavender-light:    #D9C9E8;
+  --ds-lavender-strip:    #D7C6E1;
+  --ds-pink:              #F0C4CF;
+  --ds-black:             #121218;
+  --ds-terminal-text:     #EEE6B5;
+  --ds-border:            rgba(17, 17, 23, 0.16);
+  --ds-paper-shadow:      rgba(42, 31, 49, 0.14);
+  --ds-radius-button:     2px;
+  --ds-radius-paper:      0;
+  --ds-radius-window:     2px;
+  --ds-shadow-paper:      0 12px 28px rgba(42, 31, 49, 0.12);
+  --ds-shadow-window:     0 8px 18px rgba(42, 31, 49, 0.15);
+  --ds-shadow-photo:      0 16px 32px rgba(42, 31, 49, 0.14);
+  --ds-container:         1536px;
+  --ds-gutter:            48px;
 
   /* Legacy studio tokens kept for existing forms/pages */
   --studio-ink:           var(--editorial-ink);
@@ -63,13 +90,14 @@
   --studio-indigo:        var(--editorial-plum);
   --studio-green:         #516B5B;
 
-  /* Tipografía · pairing C3 (bold sans + script · moodboard 6 ago) */
-  --font-display: var(--font-satoshi), 'Satoshi', var(--font-inter), system-ui, sans-serif;
-  --font-script:  var(--font-great-vibes), 'Great Vibes', cursive;
-  --font-serif:   var(--font-instrument), 'Instrument Serif', Georgia, serif;
+  /* Tipografía · Cormorant display + Caveat hand + Plex mono */
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
+  --font-script:  var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-serif:   var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-sans:    var(--font-inter), 'Inter', system-ui, sans-serif;
-  --font-mono:    var(--font-plex), 'IBM Plex Mono', ui-monospace, monospace;
-  --font-hand:    var(--font-great-vibes), 'Great Vibes', cursive;
+  --font-mono:    var(--font-plex), 'IBM Plex Mono', 'Space Mono', ui-monospace, monospace;
+  --font-hand:    var(--font-caveat), 'Caveat', 'Patrick Hand', cursive;
+  --font-nav:     var(--font-plex), 'IBM Plex Mono', 'Space Mono', ui-monospace, monospace;
 
   /* Glow scrapboard (lilac + soft pink + cream) */
   --text-glow-gold:
@@ -106,14 +134,38 @@
 }
 
 html, body {
-  background:
-    radial-gradient(120% 80% at 10% -10%, color-mix(in srgb, var(--editorial-lavender) 18%, transparent), transparent 55%),
-    radial-gradient(90% 60% at 100% 0%, color-mix(in srgb, var(--editorial-rosa-bebe) 35%, transparent), transparent 50%),
-    var(--editorial-smoke);
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--ds-bg, #F5F0EA);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
   color: var(--editorial-ink);
   font-family: var(--font-sans);
   font-weight: 400;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+}
+
+.ds-container {
+  width: 100%;
+  max-width: var(--ds-container, 1536px);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, var(--ds-gutter, 48px));
+  position: relative;
 }
 
 /* Foco de teclado visible en todo lo interactivo (piso de accesibilidad).
@@ -125,21 +177,21 @@ html, body {
   border-radius: 3px;
 }
 
-/* Satoshi: titulares board (La Voz) */
+/* Display · Cormorant Garamond (weight 500) */
 h1, h2, h3,
 .font-display {
   font-family: var(--font-display);
   font-variation-settings: normal;
-  letter-spacing: -0.03em;
-  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-weight: 500;
   text-transform: none;
 }
 
 .font-script {
   font-family: var(--font-script);
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   text-transform: none;
   font-variation-settings: normal;
 }
@@ -147,8 +199,8 @@ h1, h2, h3,
 .font-hand {
   font-family: var(--font-hand);
   font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   text-transform: none;
 }
 
@@ -180,8 +232,8 @@ h1, h2, h3,
   position: relative;
   z-index: 0;
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 0.98;
   text-transform: uppercase;
   text-wrap: balance;
@@ -191,7 +243,7 @@ h1, h2, h3,
   text-shadow: none;
 }
 
-/* Moodboard: display negro + script cursiva (Great Vibes solo en grande) */
+/* Display italic · Cormorant (lockups) */
 .type-lockup__script {
   position: relative;
   z-index: 1;
@@ -204,8 +256,8 @@ h1, h2, h3,
   overflow-wrap: anywhere;
   font-family: var(--font-script);
   font-size: calc(var(--type-script-ratio) * 1.12);
-  font-style: normal;
-  font-weight: 400;
+  font-style: italic;
+  font-weight: 500;
   letter-spacing: 0.01em;
   line-height: 1.05;
   text-transform: none;
@@ -6265,28 +6317,28 @@ a.elara-chip:hover .elara-chip__label {
   transition: height 0.25s ease;
 }
 
-/* ═══ Navbar studio · C3 profesional (crema + links limpios) ═══ */
+/* ═══ Navbar studio · warm paper design system ═══ */
 .site-nav--studio {
   --nav-h: 4.5rem;
   height: var(--nav-h);
   padding: 0;
   justify-content: center;
-  background: color-mix(in srgb, var(--editorial-smoke) 92%, transparent);
-  border-bottom: 1px solid var(--editorial-stone);
+  background: color-mix(in srgb, var(--ds-bg) 94%, transparent);
+  border-bottom: 1px solid var(--ds-border);
   box-shadow: none;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: height 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .site-nav--studio.is-scrolled,
 .site-nav--studio.is-menu-open {
-  background: color-mix(in srgb, var(--editorial-smoke) 96%, transparent);
-  border-bottom-color: var(--editorial-stone);
+  background: color-mix(in srgb, var(--ds-bg-paper) 96%, transparent);
+  border-bottom-color: var(--ds-border);
 }
 
 .site-nav--studio .site-nav__inner {
-  width: min(1180px, calc(100% - 2rem));
+  width: min(var(--ds-container), calc(100% - 2 * clamp(1.25rem, 4vw, var(--ds-gutter))));
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -6329,12 +6381,12 @@ a.elara-chip:hover .elara-chip__label {
 
 .site-nav--studio .site-nav__link {
   padding: 0.55rem 0.7rem;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-nav);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--editorial-ink) 62%, transparent);
+  color: color-mix(in srgb, var(--ds-ink) 62%, transparent);
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -6344,7 +6396,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .site-nav--studio .site-nav__link:hover,
 .site-nav--studio .site-nav__link.is-active {
-  color: var(--editorial-ink);
+  color: var(--ds-ink);
   background: transparent;
   box-shadow: none;
   transform: none;
@@ -6352,7 +6404,7 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .site-nav--studio .site-nav__link:focus-visible {
-  outline: 2px solid var(--editorial-lila);
+  outline: 2px solid var(--ds-lavender-dark);
   outline-offset: 2px;
 }
 
@@ -6363,42 +6415,42 @@ a.elara-chip:hover .elara-chip__label {
 .site-nav--studio .site-nav__cta {
   min-height: 2.5rem;
   padding: 0.65rem 1.15rem;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-button);
   border: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-nav);
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--editorial-ivory);
-  background: var(--editorial-ink);
+  color: #fff;
+  background: var(--ds-ink);
   background-image: none;
-  box-shadow: 0 8px 20px rgb(28 27 31 / 0.16);
+  box-shadow: var(--ds-shadow-paper);
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-nav--studio .site-nav__cta:hover {
   transform: translateY(-1px);
-  background: var(--editorial-aubergine);
-  box-shadow: 0 10px 24px rgb(28 27 31 / 0.22);
+  background: var(--ds-black);
+  box-shadow: var(--ds-shadow-window);
 }
 
 .site-nav--studio .site-nav__cta:focus-visible {
-  outline: 2px solid var(--editorial-lila);
+  outline: 2px solid var(--ds-lavender-dark);
   outline-offset: 3px;
 }
 
 .site-nav--studio .site-nav__burger {
   width: 2.6rem;
   height: 2.6rem;
-  border: 1px solid var(--editorial-stone);
-  border-radius: 999px;
-  background: var(--editorial-ivory);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-button);
+  background: var(--ds-bg-paper);
   box-shadow: none;
 }
 
 .site-nav--studio .site-nav__burger span {
-  background: var(--editorial-ink);
+  background: var(--ds-ink);
 }
 
 .site-nav--studio .site-nav__burger:hover,
