@@ -87,7 +87,7 @@ export function HomeHero() {
 
           {/* Sticky quote */}
           <aside className="scrap-sticky scrap-sticky--quote">
-            <p className="font-hand scrap-sticky__note">
+            <p className="scrap-sticky__note">
               No necesitas trabajar más.
               <br />
               Necesitas diseñar mejor.

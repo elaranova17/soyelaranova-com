@@ -1,10 +1,34 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import { Great_Vibes, Instrument_Serif, IBM_Plex_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
+
+/** Display · Satoshi self-hosted (Fontshare CDN bloquea CORS en prod) */
+const satoshi = localFont({
+  src: [
+    {
+      path: '../public/fonts/satoshi/Satoshi-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/satoshi/Satoshi-Black.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/satoshi/Satoshi-Black.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+})
 
 /** Accents italic · brand board "El Pensamiento" */
 const instrument = Instrument_Serif({
@@ -99,15 +123,8 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${instrument.variable} ${plex.variable} ${inter.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${satoshi.variable} ${instrument.variable} ${plex.variable} ${inter.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <head>
-        {/* Satoshi · brand board "La Voz" (Fontshare) */}
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800&display=swap"
-        />
-      </head>
       <body className="min-h-full" style={{ fontFamily: 'var(--font-sans)' }}>
         <script
           type="application/ld+json"
