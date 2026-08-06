@@ -5,7 +5,6 @@ import { TrackedLink } from '@/components/tracked-link'
 import { serviceScenes } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
-/** Blur placeholder del hero (12×16 JPEG de evelyn-hero-ciruela) — evita el flash aubergine en primera carga */
 const HERO_BLUR =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
 
@@ -15,8 +14,6 @@ type Service = {
   title: string
   description: string
   price: string
-  asset: string
-  format: string
   href: string
 }
 
@@ -26,10 +23,8 @@ const services: readonly Service[] = [
     type: 'Producto estrella',
     title: 'Automatizaciones',
     description:
-      'Conecto tus formularios, emails, WhatsApp, hojas y CRM para que cada lead se atienda solo. Recuperas horas cada semana, respondes al instante y dejas de perder ventas por contestar tarde.',
+      'Conecto formularios, emails, WhatsApp, hojas y CRM para que cada lead se atienda solo.',
     price: 'Desde 450 €',
-    asset: 'servicio-01-automatizaciones.webp',
-    format: '1600 × 2000 px',
     href: '/servicios/automatizaciones',
   },
   {
@@ -37,10 +32,8 @@ const services: readonly Service[] = [
     type: 'Conversión',
     title: 'Landing pages y sitios web',
     description:
-      'Páginas hechas para vender, no para "estar en internet": mensaje claro, rápidas y mobile-first, pensadas para convertir visitas en clientes que te escriben. Ideales para Google Ads y lanzamientos.',
+      'Páginas hechas para vender: mensaje claro, rápidas y mobile-first, listas para Ads.',
     price: 'Desde 650 €',
-    asset: 'servicio-02-webs.webp',
-    format: '1600 × 2000 px',
     href: '/servicios/landing-pages',
   },
   {
@@ -48,10 +41,8 @@ const services: readonly Service[] = [
     type: 'Crecimiento',
     title: 'Google Ads y medición',
     description:
-      'Campañas conectadas a landing y eventos que sí se pueden medir. Sabes qué búsquedas traen clientes y dónde estabas quemando presupuesto.',
+      'Campañas conectadas a landing y eventos medibles. Sabes qué trae clientes de verdad.',
     price: 'Setup 450 € · gestión 350 €/mes',
-    asset: 'servicio-03-google-ads.webp',
-    format: '1800 × 1350 px',
     href: '/servicios/google-ads',
   },
 ]
@@ -65,187 +56,71 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   )
 }
 
-function Photo({
-  src,
-  alt,
-  className = '',
-  priority = false,
-  blurDataURL,
-  children,
-}: {
-  src: string
-  alt: string
-  className?: string
-  priority?: boolean
-  blurDataURL?: string
-  children?: React.ReactNode
-}) {
-  return (
-    <figure className={`asset-photo ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        quality={90}
-        sizes="(max-width: 900px) 100vw, 55vw"
-        {...(blurDataURL ? { placeholder: 'blur' as const, blurDataURL } : {})}
-      />
-      {children}
-    </figure>
-  )
-}
-
 export default function HomePage() {
   return (
     <main className="home-shell">
-      <section id="inicio" className="home-hero">
-        <div className="y2k-squiggles" aria-hidden="true">
-          <svg viewBox="0 0 500 400" style={{ width: '520px', left: '-150px', top: '120px', opacity: 0.75 }}>
-            <path
-              d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210 C372 120 260 110 250 200"
-              fill="none"
-              stroke="#F4A7CB"
-              strokeWidth="34"
-              strokeLinecap="round"
-            />
-          </svg>
-          <svg viewBox="0 0 500 400" style={{ width: '520px', right: '-160px', bottom: '-120px', opacity: 0.85 }}>
-            <path
-              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
-              fill="none"
-              stroke="#E3CBF2"
-              strokeWidth="30"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <div className="home-hero__copy">
-          <Eyebrow>Elara Nova by Evelyn Patiño · IA y automatización</Eyebrow>
-          <h1 className="type-lockup type-lockup--glow-soft">
-            <span className="type-lockup__impact">Menos a mano</span>
-            <em className="type-lockup__script">más para ti</em>
+      <section id="inicio" className="scrap-hero home-hero--c3">
+        <div className="scrap-hero__copy">
+          <p className="scrap-tag">Automatización + IA + sistemas</p>
+          <h1 className="scrap-hero__title">
+            <span className="scrap-hero__impact">Automatiza</span>
+            <em className="scrap-hero__script">como quieras.</em>
           </h1>
-          <p className="home-hero__claim">
-            Automatiza, aprende y haz que la IA trabaje por ti.
+          <p className="scrap-hero__lead">
+            Sistemas, webs y Ads que trabajan por ti. Menos a mano, más libertad — con la claridad
+            de una ingeniera.
           </p>
-          <p className="home-hero__cita">Mirá todo lo que siempre fuiste capaz de ser.</p>
-          <div className="home-actions">
-            <Link href="#recursos" className="home-button home-button--primary">
-              Ver las series
+          <div className="scrap-hero__actions">
+            <Link href="#oferta" className="home-button home-button--primary">
+              Ver cómo funciona →
             </Link>
-            <Link href="#oferta" className="home-button home-button--quiet">
-              Trabaja conmigo
+            <Link href="/servicios" className="scrap-link-quiet">
+              Explorar servicios
             </Link>
           </div>
+          <p className="home-hero__note home-hero__note--inline">
+            8 años automatizando · 6 en banca
+          </p>
         </div>
 
-        <div className="home-hero__visual hero-composicion">
-          <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
-            <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
-            <svg className="y2k-sello y2k-sello--itgirly" viewBox="0 0 120 120" aria-hidden="true">
-              <circle cx="60" cy="60" r="57" fill="#F5A7C4" stroke="#1C1B1F" strokeWidth="4" />
-              <circle cx="60" cy="60" r="41" fill="none" stroke="#9A66D9" strokeWidth="2" strokeDasharray="2 6" />
-              <defs>
-                <path id="selloItGirly" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
-              </defs>
-              <text fill="#1C1B1F" fontSize="13" fontWeight="700" letterSpacing="3">
-                <textPath href="#selloItGirly">it girly ✦ certificado ✦ it girly ✦ certificado ✦</textPath>
-              </text>
-              <path d="M 60 47 C 53 40 44 43 44 51 C 44 58 51 64 60 71 C 69 64 76 58 76 51 C 76 43 67 40 60 47 Z" fill="#9A66D9" />
-            </svg>
-            <span className="y2k-label" style={{ top: '-14px', right: '22px', transform: 'rotate(5deg)' }}>
-              automatización
-            </span>
-            <span className="y2k-label" style={{ bottom: '18px', left: '-14px', transform: 'rotate(-6deg)' }}>
-              plantillas n8n
-            </span>
-            <svg viewBox="0 0 400 460" role="img" aria-hidden="true">
-              <path
-                fill="#2B1735"
-                stroke="#FFFFFF"
-                strokeWidth="10"
-                strokeLinejoin="round"
-                d="M200 30 C130 30 92 90 96 158 C99 208 88 258 74 300 C64 330 52 352 38 368 C86 368 126 350 150 318 L250 318 C274 350 314 368 362 368 C348 352 336 330 326 300 C312 258 301 208 304 158 C308 90 270 30 200 30 Z"
+        <div className="scrap-hero__stage" aria-hidden="true">
+          <div className="scrap-collage">
+            <figure className="scrap-polaroid scrap-polaroid--hero">
+              <span className="scrap-tape scrap-tape--tl" />
+              <span className="scrap-tape scrap-tape--br" />
+              <Image
+                src={evelynPhotos.homeHero}
+                alt=""
+                fill
+                priority
+                quality={90}
+                placeholder="blur"
+                blurDataURL={HERO_BLUR}
+                sizes="(max-width: 900px) 90vw, 420px"
+                className="scrap-polaroid__img"
               />
-              <path
-                fill="#2B1735"
-                stroke="#FFFFFF"
-                strokeWidth="10"
-                strokeLinejoin="round"
-                d="M164 296 L164 336 C120 352 96 392 92 460 L308 460 C304 392 280 352 236 336 L236 296 Z"
-              />
-              <path
-                d="M96 150 C92 110 118 62 152 48"
-                fill="none"
-                stroke="#9A66D9"
-                strokeWidth="9"
-                strokeLinecap="round"
-                opacity="0.85"
-              />
-              <path
-                d="M304 150 C308 112 288 70 258 52"
-                fill="none"
-                stroke="#9A66D9"
-                strokeWidth="9"
-                strokeLinecap="round"
-                opacity="0.75"
-              />
-            </svg>
-            <img
-              src="/brand/stickers/flor-hibisco-rosa.png"
-              alt=""
-              className="y2k-sticker"
-              style={{ width: '86px', top: '20px', right: '18px', transform: 'rotate(12deg)' }}
-            />
-            <img
-              src="/brand/stickers/destello.png"
-              alt=""
-              className="y2k-sticker"
-              style={{ width: '60px', bottom: '124px', right: '36px', transform: 'rotate(-8deg)' }}
-            />
-          </div>
-          <div className="y2k-chat" role="img" aria-label="Chat de ejemplo del embudo">
-            <div className="y2k-chat__bar">
-              elara nova ✦ en línea
-              <i aria-hidden="true">
-                <b />
-                <b />
-              </i>
-            </div>
-            <div className="y2k-chat__body">
-              <p className="y2k-chat__msg y2k-chat__msg--elara">
-                <span>elara nova</span>
-                ¡Hola! Soy Evelyn 👋 ingeniera de software.
-              </p>
-              <p className="y2k-chat__msg y2k-chat__msg--elara">
-                <span>elara nova</span>
-                8 años automatizando procesos, 6 de ellos en banca.
-              </p>
-              <p className="y2k-chat__msg y2k-chat__msg--elara">
-                <span>elara nova</span>
-                Ahora te enseño a usar la IA sin humo 💗
-              </p>
-            </div>
+            </figure>
+
+            <aside className="scrap-window scrap-window--workflow">
+              <header className="scrap-window__bar">
+                <span className="scrap-window__dots" />
+                <span className="scrap-window__title">workflow.exe</span>
+              </header>
+              <ol className="scrap-window__list">
+                <li>Mapear proceso</li>
+                <li>Conectar tools</li>
+                <li>Probar flujo</li>
+                <li className="is-done">Deploy · 100%</li>
+              </ol>
+              <div className="scrap-window__bar-fill" />
+            </aside>
+
+            <aside className="scrap-sticky">
+              <p className="font-hand scrap-sticky__note">menos a mano = más para ti</p>
+            </aside>
           </div>
         </div>
-
-        <p className="home-hero__note">
-          8 años automatizando procesos.
-          <br />
-          Primero en banca. Ahora, para enseñártelo.
-        </p>
       </section>
-
-      <div className="y2k-marquee" aria-hidden="true">
-        <div className="y2k-marquee__track">
-          {[0, 1].map((rep) =>
-            ['menos a mano', '✦', 'lo que siempre pudiste hacer', '✦', 'pastoreando', '✦', 'plantillas listas para usar', '✦', 'ia sin humo', '✦'].map(
-              (t, i) => <span key={`${rep}-${i}`}>{t}</span>
-            )
-          )}
-        </div>
-      </div>
 
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
         <p>
@@ -262,18 +137,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section id="servicios" className="home-intro" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="y2k-squiggles" aria-hidden="true">
-          <svg viewBox="0 0 500 400" style={{ width: '480px', right: '-150px', top: '-70px', opacity: 0.55 }}>
-            <path
-              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
-              fill="none"
-              stroke="#F4A7CB"
-              strokeWidth="30"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+      <section id="servicios" className="home-intro">
         <div className="home-intro__lead">
           <Eyebrow>El porqué</Eyebrow>
           <h2 className="type-lockup type-lockup--glow-soft">
@@ -281,44 +145,36 @@ export default function HomePage() {
             <em className="type-lockup__script">ahora tienes cómo</em>
           </h2>
           <p className="home-intro__pitch">
-            La mayoría pierde horas cada día en tareas que una máquina puede hacer sola. Yo vengo
-            de ese mundo — 8 años automatizando, 6 de ellos en banca — y te lo cuento claro: qué
-            sirve, qué no, y cómo empezar hoy con una plantilla lista.
+            La mayoría pierde horas en tareas que una máquina puede hacer sola. Yo vengo de ese
+            mundo — 8 años automatizando, 6 en banca — y te lo cuento claro: qué sirve, qué no, y
+            cómo empezar hoy.
           </p>
           <ul className="home-intro__proof">
             <li>Tutoriales cortos que sí se entienden.</li>
-            <li>Plantillas listas para copiar, pegar y usar.</li>
-            <li>Pros y contras de verdad: qué sirve y qué es puro humo.</li>
+            <li>Plantillas listas para copiar y usar.</li>
+            <li>Pros y contras de verdad: sin humo.</li>
           </ul>
         </div>
-        <div className="home-intro__body" style={{ position: 'relative' }}>
-          <img
-            src="/brand/stickers/celular-tapita.png"
-            alt=""
-            className="y2k-sticker"
-            style={{ width: '88px', top: '-52px', right: '2%', transform: 'rotate(12deg)' }}
-          />
+        <div className="home-intro__body">
           <Eyebrow>¿Te suena?</Eyebrow>
           <div className="home-intro__services" aria-label="Señales de que esto es para ti">
             <div className="home-intro__service">
               <span>Lo haces todo a mano</span>
               <p>
                 Responder lo mismo mil veces, copiar datos entre apps, vivir dentro del correo.
-                Cada tarea repetida es una hora que no vuelve.
               </p>
             </div>
             <div className="home-intro__service">
               <span>La IA te suena a otro idioma</span>
               <p>
-                Todo el mundo habla de ella y pocos la explican claro. No necesitas ser ingeniera:
-                necesitas ejemplos reales, de tu trabajo de todos los días.
+                No necesitas ser ingeniera: necesitas ejemplos reales de tu trabajo de todos los
+                días.
               </p>
             </div>
             <div className="home-intro__service">
               <span>Todo cambia muy rápido</span>
               <p>
-                Los trabajos se están moviendo y a la mayoría nadie le enseñó a usar estas
-                herramientas. Se aprende paso a paso, con alguien que las usa todos los días.
+                Se aprende paso a paso, con alguien que usa estas herramientas todos los días.
               </p>
             </div>
           </div>
@@ -327,21 +183,10 @@ export default function HomePage() {
 
       <ImmersiveStory />
 
-      <section id="oferta" className="home-products" style={{ position: 'relative' }}>
-        <svg className="y2k-sello" viewBox="0 0 120 120" style={{ top: '-46px', right: '7%' }} aria-hidden="true">
-          <circle cx="60" cy="60" r="57" fill="#9A66D9" stroke="#1C1B1F" strokeWidth="4" />
-          <circle cx="60" cy="60" r="40" fill="none" stroke="#FFF6F8" strokeWidth="2" strokeDasharray="2 6" />
-          <defs>
-            <path id="selloCirc" d="M 60,60 m -47,0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" />
-          </defs>
-          <text fill="#FFF6F8" fontSize="12.5" fontWeight="700" letterSpacing="2.5">
-            <textPath href="#selloCirc">elara nova ✦ menos a mano ✦ ia sin humo ✦</textPath>
-          </text>
-          <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#FFF6F8" />
-        </svg>
+      <section id="oferta" className="home-products">
         <header className="home-products__header">
           <div>
-            <Eyebrow>Servicios · para cuando prefieres delegar</Eyebrow>
+            <Eyebrow>Servicios · cuando prefieres delegar</Eyebrow>
             <h2 className="type-lockup type-lockup--glow-soft">
               <span className="type-lockup__impact">Lo hago por ti</span>
               <em className="type-lockup__script">de la A a la Z</em>
@@ -373,163 +218,90 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="recursos" className="home-recursos" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="y2k-squiggles" aria-hidden="true">
-          <svg viewBox="0 0 500 400" style={{ width: '540px', left: '-170px', top: '-90px', opacity: 0.28 }}>
-            <path
-              d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210"
-              fill="none"
-              stroke="#9A66D9"
-              strokeWidth="34"
-              strokeLinecap="round"
-            />
-          </svg>
-          <svg viewBox="0 0 500 400" style={{ width: '460px', right: '-140px', bottom: '-100px', opacity: 0.22 }}>
-            <path
-              d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
-              fill="none"
-              stroke="#9A66D9"
-              strokeWidth="30"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <img
-          src="/brand/stickers/labios.png"
-          alt=""
-          className="y2k-sticker"
-          style={{ width: '96px', top: '30px', right: '5%', transform: 'rotate(-9deg)' }}
-        />
+      <section id="recursos" className="home-recursos">
         <div className="home-recursos__intro">
-          <Eyebrow light>Las series · muy pronto en Instagram y TikTok</Eyebrow>
+          <Eyebrow light>Las series · muy pronto</Eyebrow>
           <h2 className="type-lockup type-lockup--glow">
             <span className="type-lockup__impact">Aprende gratis</span>
             <em className="type-lockup__script">conmigo</em>
           </h2>
           <p>
-            Tres series con nombre propio, cada una con su promesa. Videos cortos, plantillas para
-            descargar y cero drama técnico. Comenta la palabra clave de cada video y te llega el
-            recurso directo.
+            Tres series con nombre propio. Videos cortos, plantillas para descargar y cero drama
+            técnico.
           </p>
         </div>
 
         <div className="home-recursos__rail">
           <article className="home-recurso">
-            <div
-              className="home-recurso__media"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-rosa-bebe)' }}
-            >
-              <img src="/brand/stickers/cursor-pixel.png" alt="" style={{ width: '58%', height: 'auto' }} />
-            </div>
             <span className="serie-num">01</span>
             <p>Serie de automatización</p>
             <h3>Menos a mano</h3>
             <span className="serie-episodios">episodio 01 muy pronto</span>
-            <small>
-              Tutoriales y plantillas de automatización con IA: tu correo, tus cuentas, tu Excel —
-              paso a paso y listos para copiar.
-            </small>
-            <span className="home-recurso__link">Muy pronto ✦</span>
+            <small>Tutoriales y plantillas de automatización con IA, paso a paso.</small>
+            <span className="home-recurso__link">Muy pronto</span>
           </article>
-
           <article className="home-recurso">
-            <div
-              className="home-recurso__media"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-champan)' }}
-            >
-              <img src="/brand/stickers/estrella-kawaii.png" alt="" style={{ width: '58%', height: 'auto' }} />
-            </div>
             <span className="serie-num">02</span>
             <p>Serie de conocimiento</p>
             <h3>Lo que siempre pudiste hacer</h3>
             <span className="serie-episodios">episodio 01 muy pronto</span>
-            <small>
-              Tips de IA para tu día a día, herramientas que valen la pena y las que no — con pros
-              y contras de verdad.
-            </small>
-            <span className="home-recurso__link">Muy pronto ✦</span>
+            <small>Tips de IA, herramientas que valen y las que no.</small>
+            <span className="home-recurso__link">Muy pronto</span>
           </article>
-
           <article className="home-recurso">
-            <div
-              className="home-recurso__media"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--editorial-lino)' }}
-            >
-              <img src="/brand/stickers/chihuahua.png" alt="" style={{ width: '58%', height: 'auto' }} />
-            </div>
             <span className="serie-num">03</span>
             <p>Serie de historias</p>
             <h3>Pastoreando</h3>
             <span className="serie-episodios">episodio 01 muy pronto</span>
-            <small>
-              Storytimes, viajes y la vida real detrás de la marca — construyendo todo esto en
-              público, con lo que sale bien y lo que no.
-            </small>
-            <span className="home-recurso__link">Muy pronto ✦</span>
+            <small>La vida real detrás de la marca, construyendo en público.</small>
+            <span className="home-recurso__link">Muy pronto</span>
           </article>
         </div>
 
         <div className="waitlist">
-          <h3>entra a la lista</h3>
-          <p>Te aviso antes que a nadie cuando publique cada nuevo episodio y cuando salgan las plantillas.</p>
+          <h3>Entra a la lista</h3>
+          <p>Te aviso cuando publique cada episodio y cuando salgan las plantillas.</p>
           <form className="waitlist__form" action="/descubrimiento">
-            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
-            <button type="submit">quiero entrar</button>
+            <input type="email" name="email" placeholder="tu correo" aria-label="Tu correo" required />
+            <button type="submit">Quiero entrar</button>
           </form>
         </div>
       </section>
 
-      <section id="preanalisis" className="home-impact" style={{ position: 'relative' }}>
-        <img
-          src="/brand/stickers/mono.png"
-          alt=""
-          className="y2k-sticker"
-          style={{ width: '96px', top: '26px', left: '6%', transform: 'rotate(-10deg)' }}
-        />
-        <Eyebrow>Plantillas gratis · descarga directa</Eyebrow>
+      <section id="preanalisis" className="home-impact">
+        <Eyebrow>Plantillas gratis</Eyebrow>
         <h2 className="type-lockup type-lockup--center type-lockup--glow-soft">
           <span className="type-lockup__impact">Plantillas listas</span>
           <em className="type-lockup__script">para copiar y usar</em>
         </h2>
         <p>
-          Recursos que puedes usar hoy mismo: flujos armados, agentes configurados y prompts
-          probados. Descarga gratis a cambio de tu correo — y te aviso cuando salga cada nuevo.
+          Flujos armados, agentes configurados y prompts probados. Deja tu correo y te llegan
+          cuando estén listas.
         </p>
-
         <div className="tools-rail">
           <div className="tool-chip">
-            <span aria-hidden="true">⚙️</span>
             <strong>Automatizaciones</strong>
             <small>n8n · Make · Zapier</small>
           </div>
           <div className="tool-chip">
-            <span aria-hidden="true">🤖</span>
             <strong>Agentes con IA</strong>
-            <small>GPTs listos para usar</small>
+            <small>GPTs listos</small>
           </div>
           <div className="tool-chip">
-            <span aria-hidden="true">📋</span>
             <strong>Notion</strong>
             <small>Sistemas y tableros</small>
           </div>
           <div className="tool-chip">
-            <span aria-hidden="true">💬</span>
             <strong>Prompts</strong>
             <small>Listos para copiar</small>
           </div>
-          <div className="tool-chip">
-            <span aria-hidden="true">📄</span>
-            <strong>Scripts</strong>
-            <small>Apps Script · Python</small>
-          </div>
         </div>
-
         <div className="waitlist">
-          <h3>descarga gratis</h3>
-          <p>Deja tu correo y te llegan las plantillas apenas estén listas.</p>
+          <h3>Descarga gratis</h3>
+          <p>Te aviso apenas estén listas.</p>
           <form className="waitlist__form" action="/descubrimiento">
-            <input type="email" name="email" placeholder="tu correo aquí" aria-label="Tu correo" required />
-            <button type="submit">¡descargar!</button>
+            <input type="email" name="email" placeholder="tu correo" aria-label="Tu correo" required />
+            <button type="submit">Descargar</button>
           </form>
         </div>
       </section>
@@ -538,11 +310,15 @@ export default function HomePage() {
         <div className="home-work__stage">
           <span className="home-work__glow" aria-hidden="true" />
           <span className="home-work__frame" aria-hidden="true" />
-          <Photo
-            src={evelynPhotos.homeAbout}
-            alt="Evelyn Patiño sonriendo"
-            className="home-work__visual"
-          />
+          <figure className="asset-photo home-work__visual">
+            <Image
+              src={evelynPhotos.homeAbout}
+              alt="Evelyn Patiño sonriendo"
+              fill
+              quality={90}
+              sizes="(max-width: 900px) 100vw, 45vw"
+            />
+          </figure>
           <p className="home-work__name">Evelyn Patiño</p>
         </div>
         <div className="home-work__copy">
@@ -552,11 +328,9 @@ export default function HomePage() {
             <em className="type-lockup__script">con ojo estético</em>
           </h2>
           <p>
-            Soy Evelyn, y Elara Nova soy yo — no una agencia con un equipo anónimo detrás. Llevo 8
-            años automatizando procesos: lo que hoy el mundo hace con IA, yo lo venía haciendo a
-            mano. Seis de esos años en banca,
-            donde un detalle mal hecho cuesta dinero real. Lo que más me gusta es sentarme contigo,
-            entender tu negocio y quitarte el trabajo repetitivo de encima.
+            Soy Evelyn, y Elara Nova soy yo. Llevo 8 años automatizando procesos — seis de ellos en
+            banca, donde un detalle mal hecho cuesta dinero real. Me siento contigo, entiendo tu
+            negocio y te quito el trabajo repetitivo de encima.
           </p>
           <div className="home-work__proof">
             <span>8 años automatizando · 6 en banca</span>
@@ -564,7 +338,7 @@ export default function HomePage() {
             <span className="home-work__proof-pulse">Automatización + desarrollo + Ads</span>
           </div>
           <div className="home-work__me">
-            <p>¿Quieres ver cómo trabajo yo?</p>
+            <p>¿Quieres ver cómo trabajo?</p>
             <div className="home-work__links">
               <a href="/portfolio" className="home-work__link home-work__link--solid">
                 Portfolio
@@ -585,7 +359,7 @@ export default function HomePage() {
       </section>
 
       <section id="contacto" className="home-close">
-        <p>Tu negocio puede funcionar sin que estés en cada detalle. Mira lo que siempre fuiste capaz de hacer.</p>
+        <p>Tu negocio puede funcionar sin que estés en cada detalle.</p>
         <h2 className="type-lockup type-lockup--center type-lockup--glow">
           <span className="type-lockup__impact">Construyamos</span>
           <em className="type-lockup__script">el sistema</em>

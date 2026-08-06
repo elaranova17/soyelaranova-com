@@ -19,11 +19,11 @@ export type NavItem = {
  * Anclas del home: #recursos (series), #preanalisis (plantillas), #trabaja (sobre mí)
  */
 export const STUDIO_NAV: readonly NavItem[] = [
-  { href: '/#recursos', label: 'series' },
-  { href: '/#preanalisis', label: 'plantillas gratis' },
+  { href: '/#recursos', label: 'Series' },
+  { href: '/#preanalisis', label: 'Plantillas' },
   {
     href: '/servicios',
-    label: 'servicios',
+    label: 'Servicios',
     match: ['/servicios', ...studioServices.map((s) => `/servicios/${s.slug}`)],
     children: studioServices.map((service) => ({
       href: `/servicios/${service.slug}`,
@@ -33,7 +33,7 @@ export const STUDIO_NAV: readonly NavItem[] = [
   },
   {
     href: '/#trabaja',
-    label: 'sobre mí',
+    label: 'Sobre mí',
     match: ['/trabaja-conmigo', '/sobre-elara'],
   },
 ]
