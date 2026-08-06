@@ -18,12 +18,13 @@ Servicios freelance/estudio siguen en la web pero **sin promoción activa** mien
 **Embudo estudio (secundario):** pre-análisis (`/descubrimiento`) → sesión 25 CHF
 (`/sesion-estrategica`) → proyecto.
 
-## Look canónico (ley) — Y2K girly cool
+## Look canónico (ley) — Scrapbook cream / lavender
 
-- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C1).
+- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C2).
 - Tipografías: **Bagel Fat One** (display, minúsculas) · **Great Vibes** (script, máx 1/sección) · **Outfit** (sans).
-- Paleta: crema `#F6EFE3` · rosa bebé `#FFD9E8` · rosa chicle `#E85D9F` · lila `#9A66D9` · ciruela `#4A2D57`. **Sin dorado.**
-- Letras sticker, tarjetas calcomanía, collage/capas, doodles/stickers propios del pack.
+- Paleta: crema `#F4EFE6` · lavanda muted `#B8A0C8` · lilac `#C9B5D8` · rosa soft `#F0D8E0` · charcoal `#2A2428`. **Sin dorado. Sin rosa chicle.**
+- CTA principal = charcoal. Acento = lavanda muted. Bandas claras crema / lilac soft.
+- Letras sticker, collage/capas, doodles/stickers propios del pack.
 - Navbar única `.site-nav` + logo bubble (`public/brand/`).
 - No inventar colores ni estilos por página.
 

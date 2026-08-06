@@ -1,12 +1,12 @@
 # Elara Nova · Marca 2026
 
 > **Fuente de verdad visual y de voz de la marca.**
-> Actualizado: **30 julio 2026 (PIVOT marca personal creadora)**.
+> Actualizado: **6 ago 2026 (paleta scrapbook cream/lavender)**.
 > Si otro brief o skill antiguo contradice este archivo, **gana este archivo**.
 
 ---
 
-## 🚀 DIRECCIÓN VIGENTE (30 jul 2026) — Marca personal creadora · "IT Girly"
+## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Scrapbook cream + lavender · "IT Girly"
 
 **La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
 (TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
@@ -24,22 +24,27 @@ fuiste capaz de ser" es por qué.*
 
 **Nombre completo de marca:** *Elara Nova by Evelyn Patiño* · Intro de video: *"Bienvenidas a un capítulo más de Menos a Mano…"*
 
-### Identidad visual VIGENTE (cerrada 30 jul — reemplaza al "CapCut glow chic" de abajo)
+### Identidad visual VIGENTE (6 ago 2026 — scrapbook; reemplaza rosa chicle + CapCut)
 
-**Estética: Y2K girly cool** (era 2000: Legally Blonde, popstars, celular de tapita) — girly + good vibes + profesional. **Girly ≠ infantil.** Brand board visual: `docs/brand-board.html`.
+**Estética: digital scrapbook / collage chic** — crema papel, lavanda muted, charcoal,
+rosa soft. Girly + profesional, **sin hot pink neón**. Brand board: `docs/brand-board.html`
+(actualizar swatches a esta paleta).
 
-**Paleta C1 "Híbrida Y2K ciruela" (5 colores, SIN dorado):**
+**Paleta C2 "Scrapbook cream · lavender" (tokens `--editorial-*`):**
 
-| Color | HEX | Uso |
-|-------|-----|-----|
-| Crema | `#F6EFE3` | Base (~60%) |
-| Rosa bebé | `#FFD9E8` | Fondos suaves, tarjetas |
-| Rosa chicle | `#E85D9F` | Impacto, CTAs, submark |
-| Lila | `#9A66D9` | Impacto 2, links, acentos |
-| Ciruela | `#4A2D57` | Texto, lo serio, lo profesional |
+| Color | HEX | Token | Uso |
+|-------|-----|-------|-----|
+| Crema papel | `#F4EFE6` | `--editorial-smoke` | Base (~60%) |
+| Ivory | `#FAF7F2` | `--editorial-ivory` | Paneles / Polaroid |
+| Lavanda muted | `#B8A0C8` | `--editorial-gold` | Acento principal, líneas, highlights |
+| Lilac band | `#C9B5D8` | `--editorial-lavender` | Bandas, stats, UI windows |
+| Rosa soft | `#F0D8E0` / `#D4A0B0` | `--editorial-rosa-bebe` / `--editorial-rose` | Clips, sticky, mangas |
+| Charcoal | `#2A2428` | `--editorial-ink` | Titulares + CTA principal |
+| Mauve | `#4F3F55` | `--editorial-plum` | Texto serio |
 
-Proporción **60 crema / 30 rosa+lila / 10 ciruela**. El dorado `#B89A58` queda **RETIRADO**.
-**Regla del brillo:** glitter/chrome/destellos = *textura* en stickers, subtítulos y transiciones de video — nunca color de paleta.
+Proporción **60 crema / 25 lavanda+rosa soft / 15 charcoal**.  
+**Retirados:** dorado `#B89A58`, rosa chicle `#E85D9F`, lila neón `#9A66D9`.
+**Regla del brillo:** glow suave lilac/cream — nunca hot pink ni oro metálico.
 
 **Tipografías:** Bagel Fat One (display, solo títulos gordos) · Great Vibes (script, guiños, máx 1 por pieza) · Outfit (cuerpo). Todas Google Fonts.
 
@@ -81,28 +86,29 @@ Referencia visual aprobada: lockup **sans condensada cream + script solapado + g
 sobre aubergine (sección pre-análisis / banda impact). Ese look se replica en **toda** la web
 con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 
-### Paleta (tokens `--editorial-*` en `web/app/globals.css`)
+### Paleta (tokens `--editorial-*` en `web/app/globals.css`) — C2 scrapbook 6 ago
 
 | Token | HEX | Uso |
 |-------|-----|-----|
-| `--editorial-smoke` | `#E7E1DC` | Fondo base claro (body) |
-| `--editorial-ivory` | `#F8F3EA` | Fondos claros / texto cream en oscuro |
-| `--editorial-ink` | `#18131A` | Texto principal en claro |
-| `--editorial-plum` | `#4A2D57` | Acentos, botones primary, script en claro |
-| `--editorial-aubergine` | `#2B1735` | Secciones oscuras, navbar, LP heroes |
-| `--editorial-lavender` | `#B9A1C8` | Texto secundario sobre oscuro |
-| `--editorial-cacao` | `#6B5147` | Texto secundario sobre claro, eyebrows |
-| `--editorial-stone` | `#B8AEA7` | Bordes hairline |
-| `--editorial-gold` | `#B89A58` | Líneas, CTA gold, glow (elegancia/lujo) |
-| `--editorial-champan` | `#F2EAD9` | **Subtono claro** (crema+oro) — converge la paleta |
-| `--editorial-lino` | `#E8DEDF` | **Subtono claro** (crema+ciruela) — converge la paleta |
-| `--editorial-lila` | `#9A66D9` | **Acento de impacto tech girly** (glow, brillos, hover) |
-| `--editorial-lila-deep` | `#7C46C0` | Lila accesible para texto sobre claro / detalles (**ya NO fill de botón primary**) |
+| `--editorial-smoke` | `#F4EFE6` | Fondo base crema papel |
+| `--editorial-ivory` | `#FAF7F2` | Paneles claros |
+| `--editorial-ink` | `#2A2428` | Texto + CTA charcoal |
+| `--editorial-plum` | `#4F3F55` | Mauve serio |
+| `--editorial-aubergine` | `#2C2830` | Bandas oscuras soft |
+| `--editorial-lavender` | `#C9B5D8` | Lilac bands / secundario oscuro |
+| `--editorial-cacao` | `#7A6E78` | Texto secundario claro |
+| `--editorial-stone` | `#D8D0C8` | Hairlines |
+| `--editorial-gold` | `#B8A0C8` | Acento lavanda muted (ex-oro / ex-rosa chicle) |
+| `--editorial-champan` | `#F1EAF0` | Wash crema+lilac |
+| `--editorial-lino` | `#EDE6EA` | Wash crema+rose |
+| `--editorial-lila` | `#A890BC` | Links / UI |
+| `--editorial-lila-deep` | `#7E6A94` | Texto lavanda accesible |
+| `--editorial-rosa-bebe` | `#F0D8E0` | Fondos soft |
+| `--editorial-rose` | `#D4A0B0` | Rosa soft detalle |
 
-> **Dirección (28 jul 2026 · v2):** paleta convergente + acento de impacto. Los 2 subtonos claros
-> (champán/lino) amarran crema+oro+ciruela para que no se sienta dispersa. **Botones primary = ciruela/plum**
-> (`--editorial-plum`, sin glow morado): sobrio y de marca. El **lila** queda como acento puntual
-> (brillos, hovers, detalles tech girly), **no** como fill de botón. El oro sigue como lujo/elegancia.
+> **Dirección (6 ago 2026 · C2):** scrapbook cream + lavender. CTA primary = charcoal
+> (`--editorial-ink`). Acento = lavanda muted (`--editorial-gold`). Rosa soft solo en
+> detalles collage. Sin hot pink ni oro.
 
 Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
