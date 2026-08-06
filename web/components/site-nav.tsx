@@ -206,10 +206,10 @@ export function SiteNav() {
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
   const logoHard = b2b
-  // Studio CTA: trabaja conmigo · B2B conserva pre-análisis
+  // Studio CTA: Hablemos · B2B conserva pre-análisis
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Pre-análisis' }
-    : { href: '/trabaja-conmigo', label: 'trabaja conmigo' }
+    : { href: '/descubrimiento', label: 'Hablemos' }
 
   const [scrolled, setScrolled] = useState(false)
   const [openForPath, setOpenForPath] = useState<string | null>(null)
