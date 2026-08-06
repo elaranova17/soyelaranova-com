@@ -1,0 +1,192 @@
+{
+  "project": {
+    "name": "Elara Nova",
+    "subtitle": "By Evelyn Patiño",
+    "type": "editorial-tech-portfolio",
+    "language": "es",
+    "objective": "Web editorial, femenina y estratégica que posiciona a Evelyn como ingeniera de sistemas y especialista en automatización, IA y crecimiento.",
+    "brand_concept": "Un sistema operativo editorial creado por una ingeniera creativa.",
+    "primary_message": "Menos caos. Más claridad.",
+    "secondary_message": "No se trata de hacer más. Se trata de construir lo que importa.",
+    "conversion_goal": "Descubrimiento → conversación comercial, descarga o servicios."
+  },
+  "design_system": {
+    "colors": {
+      "cream": "#FFF6F0",
+      "paper": "#F7EFE8",
+      "lilac": "#CDB4F2",
+      "lavender": "#9A66D9",
+      "softPink": "#F5A7C4",
+      "deepPlum": "#2B1735",
+      "warmGrey": "#E7E3DF",
+      "black": "#161616",
+      "white": "#FFFFFF",
+      "gold": "#C9A86A"
+    },
+    "typography": {
+      "display": "Instrument Serif",
+      "headline": "Satoshi",
+      "body": "Inter",
+      "mono": "IBM Plex Mono",
+      "handwritten": "Caveat"
+    },
+    "spacing": {
+      "pageMaxWidth": "1440px",
+      "contentMaxWidth": "1280px",
+      "desktopPadding": "64px",
+      "sectionDesktop": "120px"
+    },
+    "borders": {
+      "default": "1px solid rgba(43, 23, 53, 0.18)",
+      "radiusSmall": "4px",
+      "radiusMedium": "10px"
+    },
+    "shadows": {
+      "paper": "0 12px 30px rgba(43, 23, 53, 0.10)",
+      "window": "0 18px 50px rgba(43, 23, 53, 0.16)"
+    }
+  },
+  "global_components": {
+    "navigation": {
+      "logo": {
+        "text": "elara nova.",
+        "subtitle": "by Evelyn Patiño"
+      },
+      "items": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "Servicios",
+          "href": "/servicios"
+        },
+        {
+          "label": "Labs",
+          "href": "/labs"
+        },
+        {
+          "label": "Recursos",
+          "href": "/recursos"
+        },
+        {
+          "label": "Sobre mí",
+          "href": "/sobre-mi"
+        },
+        {
+          "label": "Journal",
+          "href": "/journal"
+        },
+        {
+          "label": "Contacto",
+          "href": "/contacto"
+        }
+      ],
+      "cta": {
+        "label": "Hablemos",
+        "href": "/descubrimiento"
+      }
+    },
+    "buttons": {
+      "primary": {
+        "background": "#2B1735",
+        "text": "#FFFFFF",
+        "hoverBackground": "#9A66D9",
+        "radius": "4px",
+        "font": "IBM Plex Mono",
+        "uppercase": true
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "route": "/",
+      "seo": {
+        "title": "Elara Nova | Automatización, IA y estrategia digital",
+        "description": "Sistemas, automatizaciones, agentes de IA y experiencias digitales diseñadas por Evelyn Patiño."
+      },
+      "sections": [
+        {
+          "id": "home-hero",
+          "component": "EditorialHero",
+          "note": "LOCKED: scrapboard AUTOMATIZA already on main — do not replace until dedicated hero pass",
+          "status": "shipped-scrapboard"
+        },
+        {
+          "id": "home-services",
+          "component": "ServicePreviewGrid",
+          "theme": "cream",
+          "heading": {
+            "eyebrow": "Servicios",
+            "title": "Soluciones que trabajan por ti.",
+            "accentWords": [
+              "trabajan por ti"
+            ]
+          },
+          "cards": [
+            {
+              "number": "01",
+              "title": "Sistemas & automatizaciones",
+              "description": "Flujos y procesos que eliminan tareas repetitivas, conectan herramientas y reducen errores.",
+              "icon": "workflow",
+              "href": "/servicios/automatizaciones"
+            },
+            {
+              "number": "02",
+              "title": "Agentes de IA",
+              "description": "Agentes que investigan, responden, organizan información y ejecutan acciones.",
+              "icon": "agent",
+              "href": "/servicios"
+            },
+            {
+              "number": "03",
+              "title": "Sitios & landing pages",
+              "description": "Experiencias digitales con estrategia, narrativa y enfoque en conversión.",
+              "icon": "browser",
+              "href": "/servicios/landing-pages"
+            },
+            {
+              "number": "04",
+              "title": "Google Ads con medición",
+              "description": "Campañas diseñadas para atraer, medir, optimizar y convertir.",
+              "icon": "chart",
+              "href": "/servicios/google-ads"
+            }
+          ],
+          "cta": {
+            "label": "Ver todos los servicios",
+            "href": "/servicios"
+          }
+        },
+        {
+          "id": "home-labs",
+          "component": "DarkLabsPreview",
+          "theme": "deepPlum",
+          "status": "pending"
+        },
+        {
+          "id": "home-resource",
+          "component": "LeadMagnetSplit",
+          "theme": "paper",
+          "status": "pending"
+        },
+        {
+          "id": "home-values",
+          "component": "ValuesAndTestimonial",
+          "theme": "cream",
+          "status": "pending"
+        }
+      ]
+    }
+  },
+  "implementation_notes": {
+    "hero": "Home hero scrapboard (AUTOMATIZA) remains until a dedicated replace pass.",
+    "sectionOrder": [
+      "home-services",
+      "home-labs",
+      "home-resource",
+      "home-values"
+    ],
+    "source": "User site blueprint JSON 6 ago 2026"
+  }
+}

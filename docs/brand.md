@@ -1,12 +1,27 @@
 # Elara Nova · Marca 2026
 
 > **Fuente de verdad visual y de voz de la marca.**
-> Actualizado: **6 ago 2026 (brand board C3 scrapbook)**.
+> Actualizado: **6 ago 2026 (site blueprint editorial + hero scrapboard)**.
 > Si otro brief o skill antiguo contradice este archivo, **gana este archivo**.
+> Blueprint de páginas/secciones: `web/content/site-config.json`.
 
 ---
 
-## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Warm paper scrapboard
+## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Editorial OS + hero scrapboard
+
+**Home hero (lockeado en prod):** warm-paper scrapboard `AUTOMATIZA / como quieras.` —
+Cormorant + Caveat + Plex · tokens `--ds-*`. No reemplazar hasta pase dedicado.
+
+**Resto del sitio (sección a sección desde site-config):** sistema editorial
+Instrument Serif + Satoshi + Inter + Plex · tokens `--en-*`
+(cream `#FFF6F0`, paper `#F7EFE8`, lilac `#CDB4F2`, lavender `#9A66D9`, deep plum `#2B1735`).
+
+Mensajes ancla del blueprint: *Menos caos. Más claridad.* · *No se trata de hacer más.
+Se trata de construir lo que importa.* · Lema de producto: *Menos a mano.*
+
+---
+
+## 🚀 DIRECCIÓN HERO (6 ago 2026) — Warm paper scrapboard
 
 **La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
 (TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
