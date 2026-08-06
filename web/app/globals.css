@@ -8403,7 +8403,7 @@ a.elara-chip:hover .elara-chip__label {
   margin-inline: auto;
   min-height: 785px;
   padding: 60px clamp(1.25rem, 4vw, 48px) 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* —— HeroEditorialCopy (left) —— */
@@ -8979,65 +8979,93 @@ a.elara-chip:hover .elara-chip__label {
 .scrap-spark--e { left: 48%; top: 12%; width: 16px; height: auto; }
 .scrap-spark--f { right: 28%; top: 42%; width: 20px; height: auto; }
 
-/* —— certification strip —— */
-.hx-cert {
-  position: relative;
+/* —— CertificationTape —— */
+.cert-tape {
+  position: absolute;
+  left: 230px;
+  bottom: 8px;
+  z-index: 35;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.1rem;
-  max-width: var(--ds-container);
-  margin: 0.5rem auto 0;
-  width: calc(100% - 2 * clamp(1.25rem, 4vw, 48px));
-  padding: 0.85rem 1.15rem;
-  background: var(--ds-bg-paper, #F8F5F0);
-  border: 1px solid var(--ds-border);
-  box-shadow: 1px 2px 0 rgb(28 27 31 / .05);
-  transform: rotate(-0.4deg);
-  clip-path: polygon(0.5% 2%, 99% 0%, 100% 97%, 1% 100%);
-}
-
-.hx-cert__label {
+  gap: 26px;
+  width: 480px;
+  height: 48px;
   margin: 0;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--ds-muted);
+  padding: 0 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 42%),
+    #F3EEE7;
+  border: 1px solid rgba(17, 17, 23, 0.10);
+  box-shadow: 0 4px 9px rgba(42, 31, 49, 0.08);
+  transform: rotate(1.2deg);
+  transform-origin: left center;
 }
 
-.hx-cert__list {
+.cert-tape__intro {
+  margin: 0;
+  max-width: 62px;
+  font-family: var(--font-hand);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #242128;
+}
+
+.cert-tape__brands {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.65rem;
+  align-items: center;
+  gap: 26px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.hx-cert__list li {
-  padding: 0.25rem 0.55rem;
-  background: color-mix(in srgb, var(--hx-lilac) 55%, #fff);
-  border-radius: 2px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--hx-ink);
+.cert-tape__brands li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
 }
 
-.hx-cert__list li:nth-child(2) {
-  position: relative;
+.cert-tape__brands img {
+  display: block;
+  height: 16px;
+  width: auto;
+  filter: none;
+  opacity: 0.92;
 }
 
-.hx-cert__list li:nth-child(2)::before {
-  content: '';
-  position: absolute;
-  top: -0.35rem;
-  left: 18%;
-  width: 2.4rem;
-  height: 0.55rem;
-  background: color-mix(in srgb, var(--editorial-gold) 60%, #f3e6c8);
-  transform: rotate(-4deg);
-  box-shadow: 0 1px 0 rgb(28 27 31 / .08);
+/* legacy hx-cert removed — CertificationTape lives inside .hx-main */
+
+@media (max-width: 1100px) {
+  .cert-tape {
+    left: 1.25rem;
+    width: min(480px, calc(100% - 2.5rem));
+    gap: 1rem;
+  }
+
+  .cert-tape__brands {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 760px) {
+  .cert-tape {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 32rem;
+    height: auto;
+    min-height: 48px;
+    margin: 0.75rem auto 0;
+    padding: 0.65rem 1rem;
+    transform: rotate(0.6deg);
+  }
 }
 
 /* —— metrics strip —— */

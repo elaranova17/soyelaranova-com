@@ -257,19 +257,30 @@ crecen y viajan."`}
         </div>
 
         <HeroScrapbookCollage />
-      </section>
 
-      {/* ── certification-strip ── */}
-      <aside className="hx-cert" aria-label="Herramientas">
-        <span className="hx-tape hx-tape--cert" />
-        <p className="hx-cert__label">Certificada en</p>
-        <ul className="hx-cert__list">
-          <li>Make</li>
-          <li>Zapier</li>
-          <li>n8n</li>
-          <li>OpenAI</li>
-        </ul>
-      </aside>
+        {/* ── CertificationTape ── */}
+        <aside className="cert-tape" aria-label="Certificaciones">
+          <p className="cert-tape__intro">Certificada en</p>
+          <ul className="cert-tape__brands">
+            <li>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${A}/logo-make.svg`} alt="Make" width={56} height={16} />
+            </li>
+            <li>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${A}/logo-zapier.svg`} alt="Zapier" width={68} height={16} />
+            </li>
+            <li>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${A}/logo-n8n.svg`} alt="n8n" width={42} height={16} />
+            </li>
+            <li>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${A}/logo-openai.svg`} alt="OpenAI" width={78} height={16} />
+            </li>
+          </ul>
+        </aside>
+      </section>
 
       {/* ── metrics-strip ── */}
       <section className="hx-metrics" aria-label="Resultados">
@@ -318,3 +329,4 @@ crecen y viajan."`}
 export { HomeHero as EditorialAutomationHero }
 export { HomeHero as HeroEditorialCopy }
 export { HeroScrapbookCollage }
+export { HomeHero as CertificationTape }
