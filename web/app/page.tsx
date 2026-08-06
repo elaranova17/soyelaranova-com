@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ImmersiveStory } from '@/components/immersive-story'
+import { HomeHero } from '@/components/home-hero'
 import { TrackedLink } from '@/components/tracked-link'
 import { serviceScenes } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
-
-const HERO_BLUR =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
 
 type Service = {
   number: string
@@ -59,69 +57,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function HomePage() {
   return (
     <main className="home-shell">
-      <section id="inicio" className="scrap-hero home-hero--c3" aria-label="Inicio">
-        <div className="scrap-hero__copy">
-          <p className="scrap-brand">Elara Nova</p>
-          <p className="scrap-tag">Automatización + IA + sistemas</p>
-          <h1 className="scrap-hero__title">
-            <span className="scrap-hero__impact">Automatiza</span>
-            <em className="scrap-hero__script">como quieras.</em>
-          </h1>
-          <p className="scrap-hero__lead">
-            Sistemas, webs y Ads que trabajan por ti. Menos a mano, más libertad.
-          </p>
-          <div className="scrap-hero__actions">
-            <Link href="/descubrimiento" className="home-button home-button--primary">
-              Hablemos →
-            </Link>
-            <Link href="/servicios" className="scrap-link-quiet">
-              Ver servicios
-            </Link>
-          </div>
-          <p className="scrap-hero__proof">8 años automatizando · 6 en banca</p>
-        </div>
-
-        <div className="scrap-hero__stage" aria-hidden="true">
-          <div className="scrap-collage scrap-collage--home">
-            <figure className="scrap-polaroid scrap-polaroid--hero">
-              <span className="scrap-tape scrap-tape--tl" />
-              <span className="scrap-tape scrap-tape--tr" />
-              <div className="scrap-polaroid__frame">
-                <Image
-                  src={evelynPhotos.homeHero}
-                  alt=""
-                  fill
-                  priority
-                  quality={90}
-                  placeholder="blur"
-                  blurDataURL={HERO_BLUR}
-                  sizes="(max-width: 900px) 88vw, 440px"
-                  className="scrap-polaroid__img"
-                />
-              </div>
-              <figcaption className="scrap-polaroid__cap">Evelyn · ingeniera</figcaption>
-            </figure>
-
-            <aside className="scrap-window scrap-window--workflow">
-              <header className="scrap-window__bar">
-                <span className="scrap-window__dots" aria-hidden="true" />
-                <span className="scrap-window__title">workflow.exe</span>
-              </header>
-              <ol className="scrap-window__list">
-                <li>Mapear proceso</li>
-                <li>Conectar tools</li>
-                <li>Probar flujo</li>
-                <li className="is-done">Deploy · 100%</li>
-              </ol>
-              <div className="scrap-window__bar-fill" />
-            </aside>
-
-            <aside className="scrap-sticky">
-              <p className="font-hand scrap-sticky__note">menos a mano = más para ti</p>
-            </aside>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="home-thesis" aria-label="Propuesta de Elara Nova">
         <p>

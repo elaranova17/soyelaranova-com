@@ -50,7 +50,10 @@ warm grey, gold muted. Collage: Polaroids + tape + sticky + ventanas UI. Brand b
 
 **Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
 
-**Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe`), sticky notes, bandas lilac, tipografía Satoshi + Great Vibes (grande) / Instrument (chico). **Sin** stickers kawaii ni chrome Y2K.
+**Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe` /
+`agent_03.py` / terminal), sticky notes, props lifestyle propios (taza, vaso, clip, destellos
+en `/brand/scrap/`), bandas lilac. Tipografía Satoshi + Great Vibes (grande) / Instrument (chico).
+**Sin** stickers kawaii Y2K ni packs de terceros.
 
 **Fotos de Evelyn: NUNCA 100% IA.** Ella se fotografía (brief de pose con boceto de figura verde previo) → IA solo refina (ver `memory reference_fotos_pipeline` + `docs/prompts/`). Avatar 3D Elara = **mascota-acento**, nunca protagonista (refs en `docs/brand-assets/avatar/`).
 

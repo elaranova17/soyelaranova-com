@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Taza de café">
+  <ellipse cx="54" cy="98" rx="34" ry="8" fill="#E7E3DF"/>
+  <path d="M28 42h52c2 28 1 46-26 52S26 70 28 42Z" fill="#FFFBFB" stroke="#1C1B1F" stroke-width="3.5"/>
+  <path d="M34 48h40c.8 18 0 32-20 36s-20.8-18-20-36Z" fill="#1C1B1F"/>
+  <path d="M80 52c14 2 18 18 6 26" stroke="#1C1B1F" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M44 28c0-8 4-14 4-14M54 26c0-10 5-16 5-16M64 28c0-8 4-12 4-12" stroke="#9A66D9" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="40" cy="62" r="4" fill="#FFF6F8" opacity=".55"/>
+</svg>

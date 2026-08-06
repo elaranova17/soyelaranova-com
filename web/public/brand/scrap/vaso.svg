@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 130" fill="none" role="img" aria-label="Vaso frío">
+  <path d="M22 18h46l-8 96H30L22 18Z" fill="#F5A7C4" stroke="#1C1B1F" stroke-width="3.2"/>
+  <path d="M26 18h38v14H26V18Z" fill="#CDB4F2" stroke="#1C1B1F" stroke-width="3.2"/>
+  <path d="M34 46h22M32 62h26M36 78h18" stroke="#FFF6F8" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <circle cx="40" cy="54" r="3" fill="#FFF6F8" opacity=".55"/>
+  <path d="M40 18V8M50 18v-6" stroke="#1C1B1F" stroke-width="3" stroke-linecap="round"/>
+</svg>
