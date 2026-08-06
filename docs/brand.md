@@ -117,60 +117,44 @@ con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 | `--editorial-rosa-bebe` / `--ds-pink` | `#F0C4CF` | Sticky |
 | `--ds-lavender-strip` | `#D7C6E1` | Metrics band |
 | `--editorial-gold` | `#C9A86A` | Gold muted |
-| `--editorial-lavender` | `#CDB4F2` | Lilac bands |
-| `--editorial-cacao` | `#6E6A66` | Secundario |
-| `--editorial-stone` | `#E7E3DF` | Warm grey |
-| `--editorial-gold` | `#C9A86A` | Gold muted |
-| `--editorial-lila` | `#9A66D9` | Lavender acento |
-| `--editorial-lila-deep` | `#7A4FB8` | Lavender deep |
-| `--editorial-rosa-bebe` | `#F5A7C4` | Soft pink |
-| `--editorial-rose` | `#F5A7C4` | Soft pink alias |
 
-> **Dirección C3:** scrapbook tech-lifestyle. CTA = deep purple. Acento UI = lavender/lilac.
-> Gold solo lujo puntual. Tipografía Satoshi + Great Vibes (hero) + Instrument + Plex + Inter.
+> **Dirección:** warm paper scrapboard. CTA = ink `#111117`. Acento = lavender.
+> Tipografía Cormorant + Caveat + Plex + Inter. Usar `--ds-*` / `--editorial-*`. **No inventar colores.**
 
-
-Usar `--editorial-*` en código nuevo. **No inventar colores.**
-
-### Tipografía (lockeada · C3 pairing moodboard)
-
-Fórmula de referencia: **sans negra bold + script delicada** (tipo Inter-Blk×script / MODERN×serif, adaptada a nuestra stack).
+### Tipografía (lockeada · warm paper)
 
 | Rol | Fuente | Variable | Uso |
 |-----|--------|----------|-----|
-| Impact | **Satoshi** ExtraBold | `--font-display` | Titulares display, línea superior del lockup |
-| Script grande | **Great Vibes** | `--font-script` | **Solo grande**: logo nav, firma, lockups de hero (h1). NO en títulos chicos. |
-| Serif acento | **Instrument Serif** italic | `--font-serif` | Acentos chicos, h2 lockups, notas, sticky legible |
-| Sans UI | **Inter** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
-| Mono | **IBM Plex Mono** | `--font-mono` | Code / ventanas UI |
+| Display | **Cormorant Garamond** 500 | `--font-display` | Titulares / AUTOMATIZA |
+| Display italic | **Cormorant Garamond** italic | `--font-script` | Lockups italic |
+| Handwritten | **Caveat** 500 | `--font-hand` | Notas / “como quieras.” / asides |
+| Mono / nav | **IBM Plex Mono** 500 | `--font-mono` / `--font-nav` | Nav, CTAs UI, code windows |
+| Sans UI | **Inter** | `--font-sans` | Cuerpo |
 
 **Lockup obligatorio en heroes y cierres de sección:**
 
 ```html
-<h2 class="type-lockup type-lockup--glow"> <!-- o --glow-soft en claro -->
+<h2 class="type-lockup type-lockup--glow-soft">
   <span class="type-lockup__impact">Tu negocio</span>
   <em class="type-lockup__script">todavía a mano?</em>
 </h2>
 ```
 
 **Reglas de presentación**
-- Impact: Satoshi ExtraBold, tracking negativo, Title Case o caps según sección.
-- Script grande: Great Vibes ~0.52em del impact, `font-style: normal`, **nunca** párrafos largos.
-- **Great Vibes solo grande**: en títulos chicos (pasos de método, tarjetas, h2) usar **Instrument Serif italic**.
-- Oscuro: clase `--glow` → cream + glow suave lavender.
-- Claro: clase `--glow-soft` → ink + script lilac.
-- CTA primary: `home-button--primary` = deep (`--editorial-ink`).
-- CTA gold: `home-button--gold` con `--btn-glow-gold`.
-- Eyebrow: Inter uppercase + línea gold (`.home-eyebrow`).
+- Impact: Cormorant 500, tracking leve, caps o Title Case según sección.
+- Hero scrap: Caveat en `.hx-script` (handwritten); Cormorant en `.hx-impact`.
+- Mono en nav y botones UI (`.site-nav__link`, `.hx-btn`).
+- CTA primary: `home-button--primary` = ink (`--editorial-ink` / `--ds-ink`).
+- Eyebrow: Inter/Plex uppercase (`.home-eyebrow`).
 
 ### Componentes canónicos
 
 - `.type-lockup` / `__impact` / `__script` / `--glow` / `--glow-soft` / `--center`
+- `.hx` hero scrapboard + `.ds-container`
 - `.home-eyebrow` (+ `--light`)
 - `.home-button` (`--primary` · `--gold` · `--quiet` · `--light`)
-- Secciones claras smoke/ivory ↔ bandas aubergine con radial gold
-- Navbar única `.site-nav` aubergine en **todas** las páginas
-- Fotos reales Evelyn + velo aubergine (`.asset-photo`)
+- Navbar única `.site-nav` en **todas** las páginas
+- Fotos reales Evelyn (`.asset-photo`)
 
 ---
 
