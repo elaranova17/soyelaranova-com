@@ -18,14 +18,13 @@ Servicios freelance/estudio siguen en la web pero **sin promoción activa** mien
 **Embudo estudio (secundario):** pre-análisis (`/descubrimiento`) → sesión 25 CHF
 (`/sesion-estrategica`) → proyecto.
 
-## Look canónico (ley) — Scrapbook cream / lavender
+## Look canónico (ley) — Brand board C3 scrapbook
 
-- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C2).
-- Tipografías: **Bagel Fat One** (display, minúsculas) · **Great Vibes** (script, máx 1/sección) · **Outfit** (sans).
-- Paleta: crema `#F4EFE6` · lavanda muted `#B8A0C8` · lilac `#C9B5D8` · rosa soft `#F0D8E0` · charcoal `#2A2428`. **Sin dorado. Sin rosa chicle.**
-- CTA principal = charcoal. Acento = lavanda muted. Bandas claras crema / lilac soft.
-- Letras sticker, collage/capas, doodles/stickers propios del pack.
-- Navbar única `.site-nav` + logo bubble (`public/brand/`).
+- Home `web/app/page.tsx` + tokens `--editorial-*` en `web/app/globals.css` (paleta C3).
+- Tipografías: **Satoshi** (display) · **Instrument Serif** (acentos italic) · **IBM Plex Mono** (UI/code) · **Inter** (cuerpo) · Great Vibes solo sticky handwritten.
+- Paleta board: cream `#FFF6F8` · lilac `#CDB4F2` · lavender `#9A66D9` · soft pink `#F5A7C4` · deep `#1C1B1F` · warm grey `#E7E3DF` · gold `#C9A86A`.
+- CTA principal = deep purple/charcoal. Collage: Polaroid + tape + sticky + ventanas UI.
+- Navbar única `.site-nav` + logo (`public/brand/`).
 - No inventar colores ni estilos por página.
 
 ## Prohibido

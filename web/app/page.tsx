@@ -144,15 +144,15 @@ export default function HomePage() {
           <div className="hero-silueta" aria-label="Foto de Evelyn — próximamente">
             <span className="hero-silueta__tag">pose 01 · foto en camino ✦</span>
             <svg className="y2k-sello y2k-sello--itgirly" viewBox="0 0 120 120" aria-hidden="true">
-              <circle cx="60" cy="60" r="57" fill="#F0D8E0" stroke="#4F3F55" strokeWidth="4" />
-              <circle cx="60" cy="60" r="41" fill="none" stroke="#B8A0C8" strokeWidth="2" strokeDasharray="2 6" />
+              <circle cx="60" cy="60" r="57" fill="#F5A7C4" stroke="#1C1B1F" strokeWidth="4" />
+              <circle cx="60" cy="60" r="41" fill="none" stroke="#9A66D9" strokeWidth="2" strokeDasharray="2 6" />
               <defs>
                 <path id="selloItGirly" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
               </defs>
-              <text fill="#4F3F55" fontSize="13" fontWeight="700" letterSpacing="3">
+              <text fill="#1C1B1F" fontSize="13" fontWeight="700" letterSpacing="3">
                 <textPath href="#selloItGirly">it girly ✦ certificado ✦ it girly ✦ certificado ✦</textPath>
               </text>
-              <path d="M 60 47 C 53 40 44 43 44 51 C 44 58 51 64 60 71 C 69 64 76 58 76 51 C 76 43 67 40 60 47 Z" fill="#B8A0C8" />
+              <path d="M 60 47 C 53 40 44 43 44 51 C 44 58 51 64 60 71 C 69 64 76 58 76 51 C 76 43 67 40 60 47 Z" fill="#9A66D9" />
             </svg>
             <span className="y2k-label" style={{ top: '-14px', right: '22px', transform: 'rotate(5deg)' }}>
               automatización
@@ -178,7 +178,7 @@ export default function HomePage() {
               <path
                 d="M96 150 C92 110 118 62 152 48"
                 fill="none"
-                stroke="#B8A0C8"
+                stroke="#9A66D9"
                 strokeWidth="9"
                 strokeLinecap="round"
                 opacity="0.85"
@@ -186,7 +186,7 @@ export default function HomePage() {
               <path
                 d="M304 150 C308 112 288 70 258 52"
                 fill="none"
-                stroke="#A890BC"
+                stroke="#9A66D9"
                 strokeWidth="9"
                 strokeLinecap="round"
                 opacity="0.75"
@@ -329,15 +329,15 @@ export default function HomePage() {
 
       <section id="oferta" className="home-products" style={{ position: 'relative' }}>
         <svg className="y2k-sello" viewBox="0 0 120 120" style={{ top: '-46px', right: '7%' }} aria-hidden="true">
-          <circle cx="60" cy="60" r="57" fill="#B8A0C8" stroke="#4F3F55" strokeWidth="4" />
-          <circle cx="60" cy="60" r="40" fill="none" stroke="#F4EFE6" strokeWidth="2" strokeDasharray="2 6" />
+          <circle cx="60" cy="60" r="57" fill="#9A66D9" stroke="#1C1B1F" strokeWidth="4" />
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#FFF6F8" strokeWidth="2" strokeDasharray="2 6" />
           <defs>
             <path id="selloCirc" d="M 60,60 m -47,0 a 47,47 0 1,1 94,0 a 47,47 0 1,1 -94,0" />
           </defs>
-          <text fill="#F4EFE6" fontSize="12.5" fontWeight="700" letterSpacing="2.5">
+          <text fill="#FFF6F8" fontSize="12.5" fontWeight="700" letterSpacing="2.5">
             <textPath href="#selloCirc">elara nova ✦ menos a mano ✦ ia sin humo ✦</textPath>
           </text>
-          <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#F4EFE6" />
+          <path d="M 60 48 C 54 42 46 44 46 51 C 46 57 52 62 60 68 C 68 62 74 57 74 51 C 74 44 66 42 60 48 Z" fill="#FFF6F8" />
         </svg>
         <header className="home-products__header">
           <div>
@@ -379,7 +379,7 @@ export default function HomePage() {
             <path
               d="M20 300 C20 180 120 180 120 300 C120 380 40 380 40 300 C40 200 160 160 220 240 C270 305 350 290 360 210"
               fill="none"
-              stroke="#B8A0C8"
+              stroke="#9A66D9"
               strokeWidth="34"
               strokeLinecap="round"
             />
@@ -388,7 +388,7 @@ export default function HomePage() {
             <path
               d="M60 100 C60 220 170 220 170 100 C170 20 90 20 90 100 C90 210 230 250 300 170 C355 108 450 130 440 220"
               fill="none"
-              stroke="#A890BC"
+              stroke="#9A66D9"
               strokeWidth="30"
               strokeLinecap="round"
             />

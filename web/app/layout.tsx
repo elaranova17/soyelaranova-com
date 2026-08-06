@@ -1,39 +1,39 @@
 import type { Metadata } from 'next'
-import { Bagel_Fat_One, Great_Vibes, Cormorant_Garamond, Outfit } from 'next/font/google'
+import { Great_Vibes, Instrument_Serif, IBM_Plex_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
-/** Display Y2K girly — bubble gordita (logo y titulares) */
-const bagel = Bagel_Fat_One({
-  variable: '--font-bagel',
+/** Accents italic · brand board "El Pensamiento" */
+const instrument = Instrument_Serif({
+  variable: '--font-instrument',
   weight: '400',
+  style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
 })
 
-/** Caligrafía que solapa el impact + glow chic */
+/** Code / UI windows · brand board "El Sistema" */
+const plex = IBM_Plex_Mono({
+  variable: '--font-plex',
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+/** Body / UI · brand board "El Contenido" */
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+/** Handwritten sticky / collage notes */
 const greatVibes = Great_Vibes({
   variable: '--font-great-vibes',
   weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-/** Serif suave — notas / tesis editoriales */
-const cormorant = Cormorant_Garamond({
-  variable: '--font-cormorant',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-})
-
-/** Sans cuerpo / UI / labels de marca */
-const outfit = Outfit({
-  variable: '--font-outfit',
   subsets: ['latin'],
   display: 'swap',
 })
@@ -99,9 +99,16 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${bagel.variable} ${greatVibes.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${instrument.variable} ${plex.variable} ${inter.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full">
+      <head>
+        {/* Satoshi · brand board "La Voz" (Fontshare) */}
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800&display=swap"
+        />
+      </head>
+      <body className="min-h-full" style={{ fontFamily: 'var(--font-sans)' }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

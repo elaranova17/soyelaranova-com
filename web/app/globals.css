@@ -31,28 +31,26 @@
   --color-cream:          #FAF4E2;
   --color-white-rose:     #F5EEF8;
 
-  /* Scrapbook editorial · crema papel + lavanda muted + charcoal (ago 2026) */
-  --editorial-smoke:      #F4EFE6; /* crema papel (base ~60%) */
-  --editorial-ivory:      #FAF7F2; /* paneles claros / Polaroid */
-  --editorial-ink:        #2A2428; /* charcoal — titulares + CTA principal */
-  --editorial-plum:       #4F3F55; /* mauve soft — texto serio */
-  --editorial-aubergine:  #2C2830; /* charcoal soft — bandas oscuras */
-  --editorial-lavender:   #C9B5D8; /* lilac muted — bandas / highlights */
-  --editorial-cacao:      #7A6E78; /* texto secundario sobre crema */
-  --editorial-stone:      #D8D0C8; /* hairlines warm paper */
-  --editorial-gold:       #B8A0C8; /* ⭐ lilac muted — acento principal (ex rosa chicle) */
+  /* Brand board C3 · scrapbook tech-lifestyle (6 ago 2026) */
+  --editorial-smoke:      #FFF6F8; /* CREAM — base papel (~60%) */
+  --editorial-ivory:      #FFFBFC; /* paneles / Polaroid */
+  --editorial-ink:        #1C1B1F; /* DEEP PURPLE — titulares + CTA */
+  --editorial-plum:       #2A2830; /* deep soft — texto serio */
+  --editorial-aubergine:  #1C1B1F; /* bandas oscuras / terminal */
+  --editorial-lavender:   #CDB4F2; /* LILAC — bandas, tags, UI chrome */
+  --editorial-cacao:      #6E6A66; /* secondary sobre crema */
+  --editorial-stone:      #E7E3DF; /* WARM GREY — hairlines */
+  --editorial-gold:       #C9A86A; /* GOLD muted — lujo puntual */
 
-  /* Subtonos claros de convergencia (crema + acento) */
-  --editorial-champan:    #F1EAF0; /* crema + lilac wash */
-  --editorial-lino:       #EDE6EA; /* crema + rose soft */
+  /* Washes */
+  --editorial-champan:    #F8EEF4; /* crema + soft pink */
+  --editorial-lino:       #F0E8F8; /* crema + lilac */
 
-  /* Acento 2 — lavanda mid (ventanas UI, links) */
-  --editorial-lila:       #A890BC;
-  --editorial-lila-deep:  #7E6A94; /* accesible sobre claro */
-
-  /* Rosa soft (clips, sticky, mangas — nunca hot pink) */
-  --editorial-rosa-bebe:  #F0D8E0;
-  --editorial-rose:       #D4A0B0;
+  /* Acentos violet / pink del board */
+  --editorial-lila:       #9A66D9; /* LAVENDER — acento principal UI */
+  --editorial-lila-deep:  #7A4FB8; /* lavanda accesible */
+  --editorial-rosa-bebe:  #F5A7C4; /* SOFT PINK — sticky / girl culture */
+  --editorial-rose:       #F5A7C4;
 
   /* Legacy studio tokens kept for existing forms/pages */
   --studio-ink:           var(--editorial-ink);
@@ -65,27 +63,28 @@
   --studio-indigo:        var(--editorial-plum);
   --studio-green:         #516B5B;
 
-  /* Tipografía · Y2K girly (Bagel Fat One display, 30 jul 2026) */
-  --font-display: var(--font-bagel);
-  --font-script:  var(--font-great-vibes);
-  --font-serif:   var(--font-cormorant);
-  --font-sans:    var(--font-outfit);
+  /* Tipografía · brand board C3 (Satoshi / Instrument / Plex / Inter) */
+  --font-display: 'Satoshi', var(--font-inter), system-ui, sans-serif;
+  --font-script:  var(--font-instrument), 'Instrument Serif', Georgia, serif;
+  --font-serif:   var(--font-instrument), 'Instrument Serif', Georgia, serif;
+  --font-sans:    var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-mono:    var(--font-plex), 'IBM Plex Mono', ui-monospace, monospace;
+  --font-hand:    var(--font-great-vibes), 'Great Vibes', cursive;
 
-  /* Glow scrapbook (cream + lilac muted) */
+  /* Glow scrapboard (lilac + soft pink + cream) */
   --text-glow-gold:
-    0 0 8px rgb(250 247 242 / .5),
-    0 0 22px rgb(184 160 200 / .42),
-    0 0 42px rgb(201 181 216 / .28),
-    0 0 64px rgb(212 160 176 / .16),
-    0 2px 12px rgb(42 36 40 / .22);
+    0 0 8px rgb(255 246 248 / .55),
+    0 0 22px rgb(205 180 242 / .4),
+    0 0 42px rgb(154 102 217 / .22),
+    0 2px 12px rgb(28 27 31 / .18);
   --text-glow-soft:
-    0 0 12px rgb(184 160 200 / .28),
-    0 0 28px rgb(201 181 216 / .14),
-    0 1px 2px rgb(42 36 40 / .06);
+    0 0 12px rgb(205 180 242 / .28),
+    0 0 24px rgb(245 167 196 / .14),
+    0 1px 2px rgb(28 27 31 / .06);
   --btn-glow-gold:
-    0 0 16px rgb(184 160 200 / .35),
-    0 0 32px rgb(201 181 216 / .2),
-    0 8px 22px rgb(44 40 48 / .16);
+    0 0 14px rgb(205 180 242 / .35),
+    0 0 28px rgb(201 168 106 / .18),
+    0 8px 22px rgb(28 27 31 / .14);
 
   /*
    * Escala tipográfica única (julio 2026).
@@ -126,23 +125,38 @@ html, body {
   border-radius: 3px;
 }
 
-/* Bagel Fat One: titulares bubble Y2K (minúsculas como el logo) */
+/* Satoshi: titulares board (La Voz) */
 h1, h2, h3,
 .font-display {
   font-family: var(--font-display);
   font-variation-settings: normal;
-  letter-spacing: -0.01em;
-  font-weight: 400;
-  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-transform: none;
 }
 
 .font-script {
   font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  font-variation-settings: normal;
+}
+
+.font-hand {
+  font-family: var(--font-hand);
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: none;
-  font-variation-settings: normal;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .font-serif {
@@ -166,15 +180,15 @@ h1, h2, h3,
   position: relative;
   z-index: 0;
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: 0.005em;
-  line-height: 1.06;
-  text-transform: lowercase;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-transform: uppercase;
   text-wrap: balance;
-  /* letras sticker como el logo: contorno ciruela + sombra desplazada */
-  -webkit-text-stroke: 0.115em var(--editorial-plum);
-  paint-order: stroke fill;
-  text-shadow: 0.055em 0.085em 0 var(--editorial-plum);
+  color: var(--editorial-ink);
+  -webkit-text-stroke: 0;
+  paint-order: normal;
+  text-shadow: none;
 }
 
 .type-lockup__script {
@@ -183,19 +197,20 @@ h1, h2, h3,
   display: block;
   width: auto;
   max-width: 100%;
-  margin-top: -0.36em;
-  margin-left: 0.06em;
-  padding: 0 0.06em;
+  margin-top: -0.12em;
+  margin-left: 0.02em;
+  padding: 0;
   overflow-wrap: anywhere;
   font-family: var(--font-script);
-  font-size: var(--type-script-ratio);
-  font-style: normal;
+  font-size: calc(var(--type-script-ratio) * 1.05);
+  font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   text-transform: none;
+  color: var(--editorial-lila);
   font-variation-settings: normal;
-  transform: rotate(-1.2deg);
+  transform: none;
   transform-origin: left center;
 }
 
@@ -213,30 +228,27 @@ h1, h2, h3,
 /* Glow cream sobre oscuro (impact sections / LP heroes) */
 .type-lockup--glow .type-lockup__impact,
 .type-lockup--glow .type-lockup__script {
-  color: var(--editorial-rosa-bebe);
+  color: var(--editorial-ivory);
   text-shadow: var(--text-glow-gold);
 }
 
 .type-lockup--glow .type-lockup__script {
-  color: color-mix(in srgb, var(--editorial-gold) 40%, var(--editorial-ivory));
+  color: var(--editorial-lavender);
 }
+
 
 /* Glow suave sobre fondos claros / beige */
 .type-lockup--glow-soft .type-lockup__impact {
   color: var(--editorial-ink);
-  letter-spacing: 0.07em;
-  text-shadow:
-    0 0 28px rgb(184 160 200 / .28),
-    0 0 10px rgb(201 181 216 / .16),
-    0 1px 0 rgb(250 247 242 / .7);
+  letter-spacing: -0.035em;
+  text-shadow: none;
 }
 
 .type-lockup--glow-soft .type-lockup__script {
-  color: var(--editorial-lila-deep);
-  text-shadow:
-    0 0 24px rgb(184 160 200 / .4),
-    0 0 8px rgb(79 63 85 / .15);
+  color: var(--editorial-lila);
+  text-shadow: none;
 }
+
 
 /* Título CapCut de una línea (cards / h3 en beige) */
 .type-title {
@@ -306,11 +318,11 @@ h1, h2, h3,
 .home-eyebrow > span {
   width: 2.5rem;
   height: 1px;
-  background: var(--editorial-gold);
+  background: var(--editorial-lila);
 }
 
 .home-eyebrow--light {
-  color: var(--editorial-gold);
+  color: var(--editorial-lavender);
 }
 
 .home-hero {
@@ -399,8 +411,8 @@ h1, h2, h3,
 }
 
 .home-button--gold {
-  background: var(--editorial-gold);
-  color: var(--editorial-ink);
+  background: var(--editorial-lila);
+  color: #fff;
   box-shadow: var(--btn-glow-gold);
 }
 
@@ -6890,5 +6902,506 @@ body:has(.site-nav--studio.is-menu-open) .site-nav__overlay:not(.site-nav__overl
 @media (max-width: 1023px) {
   .home-hero {
     padding-top: calc(76px + 1rem);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   Scrapbook · servicios / collage (brand board C3)
+   ═══════════════════════════════════════════════ */
+
+.scrap-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  padding: clamp(7.5rem, 14vw, 9.5rem) clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+  background:
+    radial-gradient(70% 60% at 90% 10%, color-mix(in srgb, var(--editorial-lavender) 35%, transparent), transparent 65%),
+    radial-gradient(50% 40% at 0% 100%, color-mix(in srgb, var(--editorial-rosa-bebe) 28%, transparent), transparent 55%),
+    var(--editorial-smoke);
+}
+
+.scrap-tag {
+  display: inline-flex;
+  margin: 0 0 1.25rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  background: var(--editorial-lavender);
+  color: var(--editorial-ink);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.scrap-hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+}
+
+.scrap-hero__impact {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 8vw, 5.6rem);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--editorial-ink);
+}
+
+.scrap-hero__script {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.55rem, 3.2vw, 2.35rem);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--editorial-lila);
+}
+
+.scrap-hero__lead {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  color: var(--editorial-cacao);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.scrap-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.scrap-link-quiet {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--editorial-cacao);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--editorial-cacao) 35%, transparent);
+  padding-bottom: 0.15rem;
+}
+
+.scrap-link-quiet:hover {
+  color: var(--editorial-ink);
+}
+
+.scrap-hero__stage {
+  position: relative;
+  min-height: clamp(22rem, 48vw, 32rem);
+}
+
+.scrap-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.scrap-polaroid {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--editorial-stone) 80%, transparent);
+  box-shadow:
+    0 18px 50px rgb(28 27 31 / .12),
+    0 2px 0 rgb(255 255 255 / .8);
+}
+
+.scrap-polaroid--hero {
+  inset: 8% 12% 18% 8%;
+  padding: 0.7rem 0.7rem 2.2rem;
+  transform: rotate(-2.2deg);
+}
+
+.scrap-polaroid__img {
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 1px;
+}
+
+.scrap-tape {
+  position: absolute;
+  z-index: 3;
+  width: 4.2rem;
+  height: 1.15rem;
+  background: color-mix(in srgb, var(--editorial-gold) 55%, #f3e6c8);
+  opacity: 0.88;
+  box-shadow: 0 1px 2px rgb(28 27 31 / .12);
+}
+
+.scrap-tape--tl {
+  top: -0.35rem;
+  left: 18%;
+  transform: rotate(-8deg);
+}
+
+.scrap-tape--br {
+  right: 14%;
+  bottom: 1.35rem;
+  transform: rotate(12deg);
+  width: 3.4rem;
+}
+
+.scrap-window {
+  position: absolute;
+  z-index: 4;
+  width: min(13.5rem, 46%);
+  border: 1px solid color-mix(in srgb, var(--editorial-ink) 18%, transparent);
+  background: color-mix(in srgb, var(--editorial-lavender) 55%, #fff);
+  box-shadow: 0 14px 36px rgb(28 27 31 / .14);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.scrap-window--workflow {
+  right: 0;
+  bottom: 6%;
+  transform: rotate(3deg);
+}
+
+.scrap-window__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.55rem;
+  background: var(--editorial-lila);
+  color: #fff;
+}
+
+.scrap-window__dots {
+  width: 1.6rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 15% 50%, #fff 0 18%, transparent 19%),
+    radial-gradient(circle at 50% 50%, #fff 0 18%, transparent 19%),
+    radial-gradient(circle at 85% 50%, #fff 0 18%, transparent 19%);
+  opacity: 0.75;
+}
+
+.scrap-window__title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.scrap-window__list {
+  margin: 0;
+  padding: 0.7rem 0.85rem 0.55rem;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.55;
+  color: var(--editorial-ink);
+  counter-reset: wf;
+}
+
+.scrap-window__list li {
+  counter-increment: wf;
+}
+
+.scrap-window__list li::before {
+  content: counter(wf) ". ";
+  color: var(--editorial-lila);
+}
+
+.scrap-window__list li.is-done {
+  color: var(--editorial-lila-deep);
+  font-weight: 600;
+}
+
+.scrap-window__bar-fill {
+  height: 0.35rem;
+  margin: 0 0.75rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--editorial-lila), var(--editorial-rosa-bebe));
+}
+
+.scrap-sticky {
+  position: absolute;
+  z-index: 5;
+  top: 4%;
+  right: 4%;
+  width: 7.5rem;
+  min-height: 7rem;
+  padding: 0.85rem 0.75rem;
+  background: var(--editorial-rosa-bebe);
+  box-shadow: 0 10px 24px rgb(28 27 31 / .12);
+  transform: rotate(6deg);
+}
+
+.scrap-sticky__note {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: var(--editorial-ink);
+}
+
+.scrap-notepad {
+  position: absolute;
+  z-index: 4;
+  left: -2%;
+  bottom: 2%;
+  width: min(11rem, 42%);
+  padding: 0.85rem 0.9rem 1rem;
+  background: #fff;
+  border: 1px solid var(--editorial-stone);
+  box-shadow: 0 12px 28px rgb(28 27 31 / .1);
+  transform: rotate(-4deg);
+}
+
+.scrap-notepad__label {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--editorial-lila);
+}
+
+.scrap-notepad ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--editorial-ink);
+}
+
+.scrap-notepad li::before {
+  content: "☐ ";
+  color: var(--editorial-lila);
+}
+
+.scrap-service-grid {
+  display: grid;
+  gap: 0;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 3.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--editorial-stone);
+}
+
+.scrap-service {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100%;
+  padding: clamp(1.4rem, 2.5vw, 1.85rem) clamp(1rem, 1.8vw, 1.35rem);
+  text-decoration: none;
+  color: inherit;
+  border-right: 1px solid var(--editorial-stone);
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.scrap-service:last-child {
+  border-right: 0;
+}
+
+.scrap-service:hover {
+  background: color-mix(in srgb, var(--editorial-lavender) 22%, transparent);
+}
+
+.scrap-service__num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--editorial-lila);
+}
+
+.scrap-service__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--editorial-ink);
+}
+
+.scrap-service__copy {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--editorial-cacao);
+}
+
+.scrap-service__bullets {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.scrap-service__bullets li {
+  position: relative;
+  padding-left: 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--editorial-ink);
+}
+
+.scrap-service__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 1px;
+  background: var(--editorial-lila);
+}
+
+.scrap-service__cta {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--editorial-ink);
+}
+
+.scrap-process {
+  padding: clamp(2.75rem, 6vw, 4.25rem) clamp(1.25rem, 4vw, 3rem);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--editorial-lavender) 72%, #fff), var(--editorial-lavender));
+  color: var(--editorial-ink);
+}
+
+.scrap-process__intro {
+  max-width: 40rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.scrap-process__title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.scrap-process__lead {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--editorial-plum);
+}
+
+.scrap-process__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scrap-process__step {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem 0.85rem;
+  background: color-mix(in srgb, #fff 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--editorial-ink) 8%, transparent);
+}
+
+.scrap-process__n {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--editorial-lila-deep);
+}
+
+.scrap-process__step strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.scrap-process__step p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--editorial-plum);
+}
+
+@media (max-width: 1024px) {
+  .scrap-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scrap-service:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .scrap-process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .scrap-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .scrap-hero__stage {
+    min-height: 22rem;
+    max-width: 28rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .scrap-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scrap-service {
+    border-right: 0;
+    border-bottom: 1px solid var(--editorial-stone);
+  }
+
+  .scrap-process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .scrap-window--workflow {
+    right: 2%;
+    bottom: 2%;
+  }
+
+  .scrap-sticky {
+    top: 0;
+    right: 0;
+    width: 6.2rem;
+    min-height: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrap-polaroid--hero,
+  .scrap-window--workflow,
+  .scrap-sticky,
+  .scrap-notepad {
+    transform: none;
   }
 }

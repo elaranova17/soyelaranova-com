@@ -1,12 +1,12 @@
 # Elara Nova · Marca 2026
 
 > **Fuente de verdad visual y de voz de la marca.**
-> Actualizado: **6 ago 2026 (paleta scrapbook cream/lavender)**.
+> Actualizado: **6 ago 2026 (brand board C3 scrapbook)**.
 > Si otro brief o skill antiguo contradice este archivo, **gana este archivo**.
 
 ---
 
-## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Scrapbook cream + lavender · "IT Girly"
+## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Brand board C3 scrapbook · "IT Girly"
 
 **La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
 (TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
@@ -24,29 +24,30 @@ fuiste capaz de ser" es por qué.*
 
 **Nombre completo de marca:** *Elara Nova by Evelyn Patiño* · Intro de video: *"Bienvenidas a un capítulo más de Menos a Mano…"*
 
-### Identidad visual VIGENTE (6 ago 2026 — scrapbook; reemplaza rosa chicle + CapCut)
+### Identidad visual VIGENTE (6 ago 2026 — brand board C3)
 
-**Estética: digital scrapbook / collage chic** — crema papel, lavanda muted, charcoal,
-rosa soft. Girly + profesional, **sin hot pink neón**. Brand board: `docs/brand-board.html`
-(actualizar swatches a esta paleta).
+**Estética: tech-lifestyle scrapbook** — crema rosada, lilac, lavender, soft pink, deep purple,
+warm grey, gold muted. Collage: Polaroids + tape + sticky + ventanas UI. Brand board:
+`docs/brand-board.html`.
 
-**Paleta C2 "Scrapbook cream · lavender" (tokens `--editorial-*`):**
+**Paleta C3 (hex del board · tokens `--editorial-*`):**
 
 | Color | HEX | Token | Uso |
 |-------|-----|-------|-----|
-| Crema papel | `#F4EFE6` | `--editorial-smoke` | Base (~60%) |
-| Ivory | `#FAF7F2` | `--editorial-ivory` | Paneles / Polaroid |
-| Lavanda muted | `#B8A0C8` | `--editorial-gold` | Acento principal, líneas, highlights |
-| Lilac band | `#C9B5D8` | `--editorial-lavender` | Bandas, stats, UI windows |
-| Rosa soft | `#F0D8E0` / `#D4A0B0` | `--editorial-rosa-bebe` / `--editorial-rose` | Clips, sticky, mangas |
-| Charcoal | `#2A2428` | `--editorial-ink` | Titulares + CTA principal |
-| Mauve | `#4F3F55` | `--editorial-plum` | Texto serio |
+| Cream | `#FFF6F8` | `--editorial-smoke` | Base papel (~60%) |
+| Lilac | `#CDB4F2` | `--editorial-lavender` | Bandas, tags, UI chrome |
+| Lavender | `#9A66D9` | `--editorial-lila` | Acento UI / script |
+| Soft pink | `#F5A7C4` | `--editorial-rosa-bebe` | Sticky / girl culture |
+| Deep purple | `#1C1B1F` | `--editorial-ink` | Titulares + CTA |
+| Warm grey | `#E7E3DF` | `--editorial-stone` | Hairlines |
+| Gold | `#C9A86A` | `--editorial-gold` | Lujo puntual |
 
-Proporción **60 crema / 25 lavanda+rosa soft / 15 charcoal**.  
-**Retirados:** dorado `#B89A58`, rosa chicle `#E85D9F`, lila neón `#9A66D9`.
-**Regla del brillo:** glow suave lilac/cream — nunca hot pink ni oro metálico.
+**Tipografías (board):** Satoshi Extrabold (títulos) · Instrument Serif italic (acentos) ·
+IBM Plex Mono (code/UI) · Inter (cuerpo) · Great Vibes solo en notas handwritten collage.
 
-**Tipografías:** Bagel Fat One (display, solo títulos gordos) · Great Vibes (script, guiños, máx 1 por pieza) · Outfit (cuerpo). Todas Google Fonts.
+**CTA:** charcoal/deep purple. **No** rosa chicle neón como fill principal.
+
+**Tipografías:** Satoshi Extrabold · Instrument Serif italic · IBM Plex Mono · Inter · Great Vibes (solo sticky handwritten).
 
 **Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
 
@@ -86,29 +87,27 @@ Referencia visual aprobada: lockup **sans condensada cream + script solapado + g
 sobre aubergine (sección pre-análisis / banda impact). Ese look se replica en **toda** la web
 con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 
-### Paleta (tokens `--editorial-*` en `web/app/globals.css`) — C2 scrapbook 6 ago
+### Paleta (tokens `--editorial-*` en `web/app/globals.css`) — C3 board 6 ago
 
 | Token | HEX | Uso |
 |-------|-----|-----|
-| `--editorial-smoke` | `#F4EFE6` | Fondo base crema papel |
-| `--editorial-ivory` | `#FAF7F2` | Paneles claros |
-| `--editorial-ink` | `#2A2428` | Texto + CTA charcoal |
-| `--editorial-plum` | `#4F3F55` | Mauve serio |
-| `--editorial-aubergine` | `#2C2830` | Bandas oscuras soft |
-| `--editorial-lavender` | `#C9B5D8` | Lilac bands / secundario oscuro |
-| `--editorial-cacao` | `#7A6E78` | Texto secundario claro |
-| `--editorial-stone` | `#D8D0C8` | Hairlines |
-| `--editorial-gold` | `#B8A0C8` | Acento lavanda muted (ex-oro / ex-rosa chicle) |
-| `--editorial-champan` | `#F1EAF0` | Wash crema+lilac |
-| `--editorial-lino` | `#EDE6EA` | Wash crema+rose |
-| `--editorial-lila` | `#A890BC` | Links / UI |
-| `--editorial-lila-deep` | `#7E6A94` | Texto lavanda accesible |
-| `--editorial-rosa-bebe` | `#F0D8E0` | Fondos soft |
-| `--editorial-rose` | `#D4A0B0` | Rosa soft detalle |
+| `--editorial-smoke` | `#FFF6F8` | Cream base |
+| `--editorial-ivory` | `#FFFBFC` | Paneles |
+| `--editorial-ink` | `#1C1B1F` | Deep purple / CTA |
+| `--editorial-plum` | `#2A2830` | Texto serio |
+| `--editorial-aubergine` | `#1C1B1F` | Oscuro |
+| `--editorial-lavender` | `#CDB4F2` | Lilac bands |
+| `--editorial-cacao` | `#6E6A66` | Secundario |
+| `--editorial-stone` | `#E7E3DF` | Warm grey |
+| `--editorial-gold` | `#C9A86A` | Gold muted |
+| `--editorial-lila` | `#9A66D9` | Lavender acento |
+| `--editorial-lila-deep` | `#7A4FB8` | Lavender deep |
+| `--editorial-rosa-bebe` | `#F5A7C4` | Soft pink |
+| `--editorial-rose` | `#F5A7C4` | Soft pink alias |
 
-> **Dirección (6 ago 2026 · C2):** scrapbook cream + lavender. CTA primary = charcoal
-> (`--editorial-ink`). Acento = lavanda muted (`--editorial-gold`). Rosa soft solo en
-> detalles collage. Sin hot pink ni oro.
+> **Dirección C3:** scrapbook tech-lifestyle. CTA = deep purple. Acento UI = lavender/lilac.
+> Gold solo lujo puntual. Tipografía Satoshi + Instrument + Plex + Inter.
+
 
 Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
