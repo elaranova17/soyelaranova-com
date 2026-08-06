@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Brand board C3 scrapbook · "IT Girly"
+## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Scrapboard profesional C3
 
 **La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
 (TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
@@ -51,16 +51,16 @@ IBM Plex Mono (code/UI) · Inter (cuerpo) · Great Vibes solo en notas handwritt
 
 **Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
 
-**Composición: collage y recortes** — cutout sticker con borde blanco, tipografía gigante entrelazada con la persona, script cruzado, doodles encima, scrapbook (clips/cinta/papel cuadriculado). NO planos centrales.
+**Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe`), sticky notes, bandas lilac, tipografía limpia Satoshi/Instrument. **Sin** stickers kawaii ni chrome Y2K.
 
 **Fotos de Evelyn: NUNCA 100% IA.** Ella se fotografía (brief de pose con boceto de figura verde previo) → IA solo refina (ver `memory reference_fotos_pipeline` + `docs/prompts/`). Avatar 3D Elara = **mascota-acento**, nunca protagonista (refs en `docs/brand-assets/avatar/`).
 
 **Plan de ejecución vigente:** `docs/PLAN_SPRINTS.md` (tablero por sprints, lanzamiento ~3 sep 2026).
 
-> ✅ **Reposicionamiento web en producción (1 ago 2026):** `soyelaranova.com` ya sirve el home
-> Y2K / IT Girly (rama `web-y2k` mergeada a `main`). La identidad Y2K girly de arriba manda
-> para la web desplegada y para todo lo nuevo. Las secciones CapCut de abajo quedan como
-> archivo histórico de la etapa estudio (julio 2026).
+> ✅ **Dirección vigente (6 ago 2026):** scrapboard profesional C3 (cream/lilac/lavender/deep).
+> **Y2K girly queda RETIRADO** del chrome web (chips 2000s, Bagel bubble, stickers kawaii, chat MSN).
+> Figma canónico: https://www.figma.com/design/im5h3TanW9XR2MMwwF2FAx
+> CapCut glow (julio) = archivo histórico.
 
 ---
 

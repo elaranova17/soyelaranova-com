@@ -1,3 +1,5 @@
+> ⚠️ **OBSOLETO (6 ago 2026).** Y2K chat collage retirado. Dirección vigente = scrapboard C3 profesional. Ver `docs/brand.md` + Figma `im5h3TanW9XR2MMwwF2FAx`.
+
 # Brief visual · Home Elara Nova — Y2K Chat Collage
 
 > Fuente: brief entregado 1 ago 2026. Concepto: *“El escritorio digital de una IT girl en 2003.”*

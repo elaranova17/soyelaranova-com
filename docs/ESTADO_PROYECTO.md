@@ -1,6 +1,6 @@
 # Estado del proyecto · soyelaranova.com
 
-> ✅ **PIVOT en producción (1 ago 2026).** La marca es Evelyn (nicho IT Girly, estética Y2K girly cool), producto = plantillas/agentes n8n + contenido TikTok/IG. Los servicios del estudio siguen en la web pero sin promoción activa mientras dure TPC. **Plan vigente: [`PLAN_SPRINTS.md`](PLAN_SPRINTS.md)**.
+> ✅ **Dirección C3 scrapboard profesional (6 ago 2026).** Y2K retirado del chrome. Figma: `im5h3TanW9XR2MMwwF2FAx`. Producto = plantillas/agentes n8n + contenido; estudio secundario. **Plan:** [`PLAN_SPRINTS.md`](PLAN_SPRINTS.md).
 
 **Actualizado:** 1 agosto 2026 (deploy Y2K a prod) · pivot: 30 julio 2026
 **Fuente de verdad de marca:** [`brand.md`](brand.md)
@@ -12,7 +12,7 @@
 ## Resumen en una línea
 
 **Elara Nova by Evelyn Patiño** — IA y automatización, menos a mano. Look canónico:
-**Y2K girly cool** (crema/rosa/lila/ciruela + Bagel Fat One + stickers). Embudo contenido:
+**Scrapboard C3** (cream/lilac/lavender/deep + Satoshi/Instrument/Inter). Embudo contenido:
 video → plantilla gratis → premium. Estudio (secundario): pre-análisis → sesión 25 CHF.
 
 > Repo limpio julio 2026: solo `web/` + `docs/` + `ops/b2b/` (sin carpetas 01–06 ni kit CapCut legacy).
@@ -22,7 +22,7 @@ video → plantilla gratis → premium. Estudio (secundario): pre-análisis → 
 ## Stack real
 
 - Next.js 16 App Router · React 19 · TS strict · Tailwind v4
-- Fonts: **Bebas Neue** (impact) · **Great Vibes** (script) · Cormorant Garamond (serif) · **Outfit** (sans)
+- Fonts: **Satoshi** (display) · **Instrument Serif** (acentos) · **IBM Plex Mono** (UI) · **Inter** (cuerpo)
 - Lockups: `.type-lockup` + `--glow` / `--glow-soft` en `web/app/globals.css`
 - framer-motion · lenis (`lenis-provider.tsx`)
 - Analytics: GA4 opcional (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) + `@vercel/analytics`

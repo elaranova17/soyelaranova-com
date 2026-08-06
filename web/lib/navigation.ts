@@ -1,5 +1,5 @@
 /**
- * Navegación compartida · menú canónico del sitio (Y2K IT Girly).
+ * Navegación compartida · menú canónico del sitio (Scrapboard C3 profesional).
  * El panel hamburguesa usa SIEMPRE la misma lista (STUDIO_NAV).
  */
 
