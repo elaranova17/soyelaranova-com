@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, Plus } from 'lucide-react'
 import { evelynPhotos } from '@/lib/evelyn-photos'
 
 const HERO_BLUR =
@@ -19,34 +20,53 @@ export function HomeHero() {
   return (
     <div className="hx editorial-hero">
       <section id="inicio" className="hx-main" aria-label="Inicio">
-        {/* ── left copy (~43%) ── */}
-        <div className="hx-copy">
-          <p className="hx-tag">Automatización + IA + sistemas</p>
+        {/* ── HeroEditorialCopy (~43%) ── */}
+        <div className="hx-copy hero-editorial-copy">
+          <p className="hx-tag">Automatización &nbsp;+&nbsp; IA &nbsp;+&nbsp; sistemas</p>
           <h1 className="hx-title">
             <span className="hx-impact">Automatiza</span>
             <span className="hx-script-wrap">
               <em className="hx-script">como quieras.</em>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="hx-underline" src="/brand/scrap/underline.svg" alt="" width={280} height={28} />
+              <img
+                className="hx-underline"
+                src={`${A}/underline-hand.svg`}
+                alt=""
+                width={438}
+                height={22}
+              />
             </span>
           </h1>
-          <p className="hx-lead">
-            Diseño sistemas, automatizo procesos y construyo agentes para que recuperes lo más
-            valioso que tienes: tiempo.
-          </p>
+          <p className="hx-lead">{`Diseño sistemas, automatizo procesos
+y construyo agentes para que recuperes
+lo más valioso que tienes: tiempo.`}</p>
           <div className="hx-actions">
             <Link href="#oferta" className="hx-btn">
-              Ver cómo funciona →
+              <span>Ver cómo funciona</span>
+              <ArrowRight size={16} strokeWidth={1.75} aria-hidden />
             </Link>
-            <Link href="/servicios" className="hx-link">
-              Explorar servicios <span aria-hidden="true">+</span>
+            <Link href="/#oferta" className="hx-link">
+              <span className="hx-link__label">Explorar labs</span>
+              <span className="hx-link__plus" aria-hidden="true">
+                <Plus size={14} strokeWidth={1.75} />
+              </span>
             </Link>
           </div>
           <p className="hx-aside">
-            Sistemas pensados para mujeres que lideran, creen y viajan.
+            {`"Sistemas pensados
+para mujeres que lideran,
+crecen y viajan."`}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="hx-aside__star" src={`${A}/star-quote.svg`} alt="" width={18} height={18} />
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-cup" src="/brand/scrap/taza.svg" alt="" width={88} height={88} />
+          <img
+            className="hx-cup"
+            src={`${A}/coffee-cup-top-view.svg`}
+            alt=""
+            width={220}
+            height={220}
+          />
         </div>
 
         {/* ── right collage (~57%) — capas independientes, sin rectángulo contenedor ── */}
