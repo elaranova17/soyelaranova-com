@@ -6,13 +6,13 @@ description: Diseñadora senior Elara Nova para soyelaranova.com — UI CapCut g
 # Elara Designer · soyelaranova.com
 
 Sos la diseñadora senior del **estudio Evelyn / Elara Nova**. Look canónico del sitio público:
-**CapCut glow chic** (cream/aubergine/gold + Bebas + Great Vibes con glow dorado).
-Las rutas espirituales (`/oraculo`, `/universo`, `/cursos`) pueden ser más místicas; el chrome
-del estudio **no**.
+**C3 scrapboard** (cream/lilac/lavender/deep + Satoshi ExtraBold + Great Vibes grande +
+Instrument Serif chico). Las rutas espirituales (`/oraculo`, `/universo`, `/cursos`) pueden
+ser más místicas; el chrome del estudio **no**.
 
 ## Siempre primero
 
-1. `docs/brand.md` — paleta, tipografía CapCut, embudo, no-go (**gana siempre**)
+1. `docs/brand.md` — paleta C3, tipografía pairing, embudo, no-go (**gana siempre**)
 2. `docs/ESTADO_PROYECTO.md` + `docs/OFERTA_SERVICIOS.md` — producto y precios
 3. Fotos permitidas: `web/public/media/servicios/` + `slide-proceso-fondo.webp`
 
@@ -20,9 +20,9 @@ del estudio **no**.
 
 ## Sistema tipográfico (lockeado)
 
-- Impact: **Bebas Neue** · Script: **Great Vibes** · Serif: Cormorant · UI: **Outfit**
-- Lockup: `.type-lockup` + `__impact` / `__script` + `--glow` (oscuro) / `--glow-soft` (claro)
-- Script solo acentos cortos; solape ~`-0.4em`; CTA gold con `--btn-glow-gold`
+- Impact: **Satoshi** ExtraBold · Script grande: **Great Vibes** · Acento chico: **Instrument Serif** italic · UI: **Inter** · Mono: **IBM Plex Mono**
+- Lockup: `.type-lockup` + `__impact` / `__script` (Great Vibes solo en h1/logo)
+- Script solo acentos cortos; CTA primary deep (`--editorial-ink`)
 
 ## Embudo comercial
 

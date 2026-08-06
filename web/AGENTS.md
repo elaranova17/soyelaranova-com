@@ -1,6 +1,6 @@
 # soyelaranova.com · Agent instructions
 
-**Fuente de verdad de marca:** [`../docs/brand.md`](../docs/brand.md) (CapCut glow chic · julio 2026)
+**Fuente de verdad de marca:** [`../docs/brand.md`](../docs/brand.md) (C3 scrapboard · ago 2026)
 **Estado vivo:** [`../docs/ESTADO_PROYECTO.md`](../docs/ESTADO_PROYECTO.md)
 **Oferta / embudo:** [`../docs/OFERTA_SERVICIOS.md`](../docs/OFERTA_SERVICIOS.md) · [`../docs/PLAN_CIERRE_EMBUDO.md`](../docs/PLAN_CIERRE_EMBUDO.md)
 
@@ -9,9 +9,10 @@
 ## Qué es el sitio (2026)
 
 Estudio **Evelyn Patiño / Elara Nova**: automatizaciones, webs/landings que venden y
-Google Ads con medición. Look canónico = **CapCut glow chic** (`app/page.tsx` + tokens
-`--editorial-*` en `app/globals.css`): cream/aubergine/gold, **Bebas Neue + Great Vibes +
-Cormorant + Outfit**, lockups `.type-lockup`, navbar `.site-nav` aubergine única.
+Google Ads con medición. Look canónico = **C3 scrapboard** (`app/page.tsx` + tokens
+`--editorial-*` en `app/globals.css`): cream/lilac/lavender/deep,
+**Satoshi ExtraBold + Great Vibes (grande) + Instrument Serif (chico) + Inter + Plex**,
+lockups `.type-lockup`, navbar `.site-nav` única.
 
 **Embudo:** pre-análisis gratis (`/descubrimiento`) → lectura email → sesión 25 CHF
 (`/sesion-estrategica`) → proyecto (Arranque / Pro / A medida).

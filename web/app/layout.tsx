@@ -30,7 +30,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-/** Handwritten sticky / collage notes */
+/** Script grande · moodboard bold+script (heroes / lockups h1) */
 const greatVibes = Great_Vibes({
   variable: '--font-great-vibes',
   weight: '400',

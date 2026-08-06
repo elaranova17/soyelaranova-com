@@ -42,16 +42,15 @@ warm grey, gold muted. Collage: Polaroids + tape + sticky + ventanas UI. Brand b
 | Warm grey | `#E7E3DF` | `--editorial-stone` | Hairlines |
 | Gold | `#C9A86A` | `--editorial-gold` | Lujo puntual |
 
-**Tipografías (board):** Satoshi Extrabold (títulos) · Instrument Serif italic (acentos) ·
-IBM Plex Mono (code/UI) · Inter (cuerpo) · Great Vibes solo en notas handwritten collage.
+**Tipografías (board · pairing moodboard bold+script):**
+**Satoshi** ExtraBold (impact) · **Great Vibes** (script grande en heroes/lockups) ·
+**Instrument Serif** italic (acentos chicos / h2) · **IBM Plex Mono** (code/UI) · **Inter** (cuerpo).
 
 **CTA:** charcoal/deep purple. **No** rosa chicle neón como fill principal.
 
-**Tipografías:** Satoshi Extrabold · Instrument Serif italic · IBM Plex Mono · Inter · Great Vibes (solo sticky handwritten).
-
 **Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
 
-**Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe`), sticky notes, bandas lilac, tipografía limpia Satoshi/Instrument. **Sin** stickers kawaii ni chrome Y2K.
+**Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe`), sticky notes, bandas lilac, tipografía Satoshi + Great Vibes (grande) / Instrument (chico). **Sin** stickers kawaii ni chrome Y2K.
 
 **Fotos de Evelyn: NUNCA 100% IA.** Ella se fotografía (brief de pose con boceto de figura verde previo) → IA solo refina (ver `memory reference_fotos_pipeline` + `docs/prompts/`). Avatar 3D Elara = **mascota-acento**, nunca protagonista (refs en `docs/brand-assets/avatar/`).
 
@@ -106,19 +105,22 @@ con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 | `--editorial-rose` | `#F5A7C4` | Soft pink alias |
 
 > **Dirección C3:** scrapbook tech-lifestyle. CTA = deep purple. Acento UI = lavender/lilac.
-> Gold solo lujo puntual. Tipografía Satoshi + Instrument + Plex + Inter.
+> Gold solo lujo puntual. Tipografía Satoshi + Great Vibes (hero) + Instrument + Plex + Inter.
 
 
 Usar `--editorial-*` en código nuevo. **No inventar colores.**
 
-### Tipografía (lockeada · Opción A)
+### Tipografía (lockeada · C3 pairing moodboard)
+
+Fórmula de referencia: **sans negra bold + script delicada** (tipo Inter-Blk×script / MODERN×serif, adaptada a nuestra stack).
 
 | Rol | Fuente | Variable | Uso |
 |-----|--------|----------|-----|
-| Impact | **Bebas Neue** | `--font-display` | Titulares caps, línea superior del lockup |
-| Script | **Great Vibes** | `--font-script` | **Solo grande**: logo nav, firma, lockups de hero/sección. NO en títulos chicos. |
-| Serif | **Cormorant Garamond** | `--font-serif` | Notas, tesis auxiliares, case titles, **script itálico de títulos chicos** (método) |
-| Sans UI | **Outfit** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
+| Impact | **Satoshi** ExtraBold | `--font-display` | Titulares display, línea superior del lockup |
+| Script grande | **Great Vibes** | `--font-script` | **Solo grande**: logo nav, firma, lockups de hero (h1). NO en títulos chicos. |
+| Serif acento | **Instrument Serif** italic | `--font-serif` | Acentos chicos, h2 lockups, notas, sticky legible |
+| Sans UI | **Inter** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
+| Mono | **IBM Plex Mono** | `--font-mono` | Code / ventanas UI |
 
 **Lockup obligatorio en heroes y cierres de sección:**
 
@@ -130,15 +132,14 @@ Usar `--editorial-*` en código nuevo. **No inventar colores.**
 ```
 
 **Reglas de presentación**
-- Impact: caps, tracking ~0.06em, Bebas.
-- Script: ~0.52em del impact, `margin-top: -0.4em`, leve rotación (−1.4°), **nunca** párrafos largos.
-- **Great Vibes solo grande**: en títulos chicos (pasos de método, tarjetas) usar **Cormorant itálica** —
-  Great Vibes se vuelve ilegible a tamaño pequeño (ej. `.method__title-script`).
-- Oscuro: clase `--glow` → cream + `--text-glow-gold`.
-- Claro: clase `--glow-soft` → ink/plum + glow suave.
-- CTA primary: `home-button--primary` = **ciruela** (`--editorial-plum`), sin glow morado.
+- Impact: Satoshi ExtraBold, tracking negativo, Title Case o caps según sección.
+- Script grande: Great Vibes ~0.52em del impact, `font-style: normal`, **nunca** párrafos largos.
+- **Great Vibes solo grande**: en títulos chicos (pasos de método, tarjetas, h2) usar **Instrument Serif italic**.
+- Oscuro: clase `--glow` → cream + glow suave lavender.
+- Claro: clase `--glow-soft` → ink + script lilac.
+- CTA primary: `home-button--primary` = deep (`--editorial-ink`).
 - CTA gold: `home-button--gold` con `--btn-glow-gold`.
-- Eyebrow: Outfit uppercase + línea gold (`.home-eyebrow`).
+- Eyebrow: Inter uppercase + línea gold (`.home-eyebrow`).
 
 ### Componentes canónicos
 
@@ -181,8 +182,8 @@ Outreach: `docs/KIT_OUTREACH.md`.
 - Muñequitos / avatar Elara como UI del estudio.
 - Heroes Midjourney fantasy como chrome.
 - Purple-night ritual (`--color-purple-*`, `btn-ritual`) fuera de rutas espirituales.
-- Sans negra brutal tipo Inter Black / Archivo Black como display (reemplazada por Bebas + glow).
-- Playfair/Fraunces/Manrope como sistema tipográfico actual.
+- Sans negra brutal tipo Inter Black / Archivo Black como display del sistema (Satoshi ExtraBold es el display canónico; Great Vibes solo en acentos grandes).
+- Playfair/Fraunces/Manrope/Bebas/Outfit como sistema tipográfico actual.
 - Hex prohibidos `#7B4FB5` / `#C49AD4` — usar `--color-purple-amethyst` / `--color-pale-lav` (SVG: `#5A2E8C` / `#E5DBF0`).
 - `#000`/`#FFF` puros, neón, arcoíris, shadcn/MUI/Chakra.
 - Stock corporativo genérico.

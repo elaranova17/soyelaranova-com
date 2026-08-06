@@ -63,9 +63,9 @@
   --studio-indigo:        var(--editorial-plum);
   --studio-green:         #516B5B;
 
-  /* Tipografía · brand board C3 (Satoshi / Instrument / Plex / Inter) */
+  /* Tipografía · pairing C3 (bold sans + script · moodboard 6 ago) */
   --font-display: 'Satoshi', var(--font-inter), system-ui, sans-serif;
-  --font-script:  var(--font-instrument), 'Instrument Serif', Georgia, serif;
+  --font-script:  var(--font-great-vibes), 'Great Vibes', cursive;
   --font-serif:   var(--font-instrument), 'Instrument Serif', Georgia, serif;
   --font-sans:    var(--font-inter), 'Inter', system-ui, sans-serif;
   --font-mono:    var(--font-plex), 'IBM Plex Mono', ui-monospace, monospace;
@@ -137,9 +137,9 @@ h1, h2, h3,
 
 .font-script {
   font-family: var(--font-script);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   text-transform: none;
   font-variation-settings: normal;
 }
@@ -191,22 +191,23 @@ h1, h2, h3,
   text-shadow: none;
 }
 
+/* Moodboard: display negro + script cursiva (Great Vibes solo en grande) */
 .type-lockup__script {
   position: relative;
   z-index: 1;
   display: block;
   width: auto;
   max-width: 100%;
-  margin-top: -0.12em;
+  margin-top: -0.08em;
   margin-left: 0.02em;
   padding: 0;
   overflow-wrap: anywhere;
   font-family: var(--font-script);
-  font-size: calc(var(--type-script-ratio) * 1.05);
-  font-style: italic;
+  font-size: calc(var(--type-script-ratio) * 1.12);
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
   text-transform: none;
   color: var(--editorial-lila);
   font-variation-settings: normal;
@@ -1225,11 +1226,11 @@ h1, h2, h3,
   margin-top: 0.35rem;
 }
 
-/* Script chico ilegible en Great Vibes → Cormorant itálica (regla "cursiva solo grande") */
+/* Script chico ilegible en Great Vibes → Instrument Serif italic (regla "cursiva solo grande") */
 .web-model__copy .type-lockup__script {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.66em;
 }
 
@@ -1688,27 +1689,27 @@ h1, h2, h3,
   font-size: var(--type-card);
 }
 
-/* Script chico ilegible en Great Vibes → Cormorant itálica legible (regla "cursiva solo grande") */
+/* Script chico ilegible en Great Vibes → Instrument Serif italic (regla "cursiva solo grande") */
 .studio-service-tile .type-lockup__script {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.66em;
 }
 
-/* Modificador reutilizable: lockup chico → script en Cormorant itálica (no Great Vibes) */
+/* Modificador reutilizable: lockup chico → script en Instrument Serif italic (no Great Vibes) */
 .type-lockup--sm .type-lockup__script {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.66em;
 }
 
-/* Great Vibes SOLO en grande: heroes (h1) y logo. Headers de sección (h2) → Cormorant itálica legible */
+/* Great Vibes SOLO en grande: heroes (h1) y logo. Headers de sección (h2) → Instrument Serif italic */
 h2.type-lockup .type-lockup__script {
   font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .studio-service-tile__meta {
@@ -6866,11 +6867,11 @@ a.elara-chip:hover .elara-chip__label {
 
 .scrap-hero__script {
   font-family: var(--font-script);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
-  font-size: clamp(1.55rem, 3.2vw, 2.35rem);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
   color: var(--editorial-lila);
 }
 
