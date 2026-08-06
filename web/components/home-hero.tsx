@@ -3,11 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Plus } from 'lucide-react'
-import { evelynPhotos } from '@/lib/evelyn-photos'
-
-const HERO_BLUR =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
-
 const A = '/brand/scrap/pixel'
 
 function Spark({ className, size }: { className: string; size: number }) {
@@ -282,44 +277,63 @@ crecen y viajan."`}
         </aside>
       </section>
 
-      {/* ── metrics-strip ── */}
-      <section className="hx-metrics" aria-label="Resultados">
-        <div className="hx-metrics__grid">
-          <div>
-            <strong>+120</strong>
-            <span>sistemas diseñados</span>
-          </div>
-          <div>
-            <strong>+8K</strong>
-            <span>horas ahorradas</span>
-          </div>
-          <div>
-            <strong>+27</strong>
-            <span>industrias impactadas</span>
-          </div>
-          <div>
-            <strong>97%</strong>
-            <span>clientas satisfechas y repiten</span>
-          </div>
+      {/* ── EditorialMetricsStrip ── */}
+      <section className="metrics-strip" aria-label="Resultados">
+        <div className="metrics-strip__cell">
+          <strong>+120</strong>
+          <span>{`SISTEMAS
+DISEÑADOS`}</span>
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="hx-metrics__seal" src={`${A}/seal.svg`} alt="" width={120} height={120} />
-        <blockquote className="hx-metrics__quote">
-          <p>
-            “Elara entendió mi negocio y creó un sistema que me ahorra 15 horas a la semana.”
-          </p>
+        <div className="metrics-strip__cell">
+          <strong>+8K</strong>
+          <span>{`HORAS
+AHORRADAS`}</span>
+        </div>
+        <div className="metrics-strip__cell">
+          <strong>+27</strong>
+          <span>{`INDUSTRIAS
+IMPACTADAS`}</span>
+        </div>
+        <div className="metrics-strip__cell metrics-strip__cell--wide">
+          <strong>97%</strong>
+          <span>{`CLIENTAS SATISFECHAS
+Y REPITEN`}</span>
+        </div>
+        <div className="metrics-strip__seal-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="metrics-strip__seal"
+            src={`${A}/seal-metrics.svg`}
+            alt=""
+            width={102}
+            height={102}
+          />
+        </div>
+        <blockquote className="metrics-strip__quote">
+          <p>{`"Elara entendió mi negocio y creó
+un sistema que me ahorra 15 horas
+a la semana."`}</p>
           <footer>Cliente, Suiza</footer>
         </blockquote>
-        <figure className="hx-metrics__mini">
-          <Image
-            src={evelynPhotos.atmosphere}
-            alt=""
-            fill
-            sizes="96px"
-            className="hx-metrics__mini-img"
-          />
+        <figure className="metrics-strip__polaroid">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-metrics__clip" src="/brand/scrap/clip.svg" alt="" width={22} height={30} />
+          <img
+            className="metrics-strip__clip"
+            src="/images/pink-binder-clip.svg"
+            alt=""
+            width={28}
+            height={30}
+          />
+          <div className="metrics-strip__polaroid-frame">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/coastal-europe-polaroid.png"
+              alt=""
+              width={190}
+              height={124}
+              className="metrics-strip__polaroid-img"
+            />
+          </div>
         </figure>
       </section>
     </div>
@@ -330,3 +344,4 @@ export { HomeHero as EditorialAutomationHero }
 export { HomeHero as HeroEditorialCopy }
 export { HeroScrapbookCollage }
 export { HomeHero as CertificationTape }
+export { HomeHero as EditorialMetricsStrip }
