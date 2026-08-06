@@ -42,7 +42,7 @@ export function HomeHero() {
               Explorar servicios <span aria-hidden="true">+</span>
             </Link>
           </div>
-          <p className="hx-aside font-script">
+          <p className="hx-aside">
             Sistemas pensados para mujeres que lideran, creen y viajan.
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -54,33 +54,33 @@ export function HomeHero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--graph" src={`${A}/graph.svg`} alt="" width={200} height={160} />
 
-          {/* Persona Evelyn — sin marco; cruza el centro */}
+          {/* Persona Evelyn — retrato sin marco; cruza el centro */}
           <figure className="hx-person">
             <Image
-              src={evelynPhotos.homeAbout}
+              src={evelynPhotos.homeHero}
               alt=""
               fill
               priority
               quality={90}
               placeholder="blur"
-              blurDataURL={ABOUT_BLUR}
+              blurDataURL={HERO_BLUR}
               sizes="(max-width: 900px) 95vw, 62vw"
               className="hx-person__img"
             />
           </figure>
 
-          {/* Polaroid (foto real Evelyn + washi tape) */}
+          {/* Polaroid (foto escritorio + washi tape) */}
           <figure className="hx-polaroid">
             <span className="hx-tape hx-tape--a" />
             <span className="hx-tape hx-tape--b" />
             <div className="hx-polaroid__frame">
               <Image
-                src={evelynPhotos.homeHero}
+                src={evelynPhotos.homeAbout}
                 alt=""
                 fill
                 quality={85}
                 placeholder="blur"
-                blurDataURL={HERO_BLUR}
+                blurDataURL={ABOUT_BLUR}
                 sizes="180px"
                 className="hx-polaroid__img"
               />

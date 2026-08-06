@@ -352,7 +352,7 @@ h1, h2, h3,
 
 .home-hero h1.type-lockup {
   max-width: min(11ch, 100%);
-  margin-top: 1.5rem;
+  margin-top: 1.15rem;
   font-size: var(--type-hero);
 }
 
@@ -8332,8 +8332,8 @@ a.elara-chip:hover .elara-chip__label {
   gap: 0;
   align-items: stretch;
   width: 100%;
-  min-height: min(86svh, 50rem);
-  padding: clamp(6.25rem, 10vw, 7.5rem) clamp(1.25rem, 3.5vw, 3rem) 0.75rem;
+  min-height: min(62svh, 36rem);
+  padding: clamp(5.75rem, 8vw, 6.75rem) clamp(1.25rem, 3.5vw, 3rem) 0.35rem;
   overflow: visible;
 }
 
@@ -8344,8 +8344,8 @@ a.elara-chip:hover .elara-chip__label {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.5rem clamp(0.75rem, 2vw, 1.75rem) 3.5rem 0;
-  max-width: 32rem;
+  padding: 0.25rem clamp(0.75rem, 2vw, 1.75rem) 2.75rem 0;
+  max-width: 30rem;
 }
 
 .hx-tag {
@@ -8372,7 +8372,7 @@ a.elara-chip:hover .elara-chip__label {
 .hx-impact {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.85rem, 6.2vw, 4.85rem);
+  font-size: clamp(2.6rem, 5.6vw, 4.35rem);
   letter-spacing: -0.045em;
   line-height: 0.86;
   text-transform: uppercase;
@@ -8391,7 +8391,7 @@ a.elara-chip:hover .elara-chip__label {
   font-family: var(--font-script);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(2.05rem, 4.3vw, 3.25rem);
+  font-size: clamp(1.9rem, 3.8vw, 2.85rem);
   line-height: 1;
   color: var(--hx-lav);
   transform: rotate(-1.8deg);
@@ -8408,9 +8408,9 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .hx-lead {
-  margin: 1.35rem 0 0;
-  max-width: 28rem;
-  font-size: 1.02rem;
+  margin: 1rem 0 0;
+  max-width: 26rem;
+  font-size: 0.95rem;
   line-height: 1.62;
   color: var(--hx-ink);
 }
@@ -8474,9 +8474,11 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .hx-aside {
-  margin: 1.6rem 0 0;
-  max-width: 17rem;
-  font-size: 1.12rem;
+  margin: 1.1rem 0 0;
+  max-width: 16rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02rem;
   line-height: 1.35;
   color: var(--hx-lav);
 }
@@ -8497,31 +8499,26 @@ a.elara-chip:hover .elara-chip__label {
 .hx-collage {
   position: relative;
   z-index: 2;
-  min-height: clamp(30rem, 58vw, 40rem);
-  margin-left: -12%;
+  min-height: clamp(24rem, 48vw, 32rem);
+  margin-left: -14%;
 }
 
 .hx-person {
   position: absolute;
-  inset: 4% -4% 6% -18%;
+  inset: 2% -2% 4% -22%;
   margin: 0;
   overflow: hidden;
   border-radius: 0;
   box-shadow: none;
   z-index: 1;
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 4%, #000 94%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 4%, #000 94%, transparent 100%);
-  mask-composite: intersect;
+  background: var(--hx-paper);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 100%);
 }
 
 .hx-person__img {
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 12%;
 }
 
 .hx-polaroid {
@@ -8742,8 +8739,8 @@ a.elara-chip:hover .elara-chip__label {
   grid-template-columns: minmax(0, 1.4fr) auto minmax(0, 1fr) auto;
   gap: clamp(0.85rem, 2.2vw, 1.75rem);
   align-items: center;
-  margin-top: 1rem;
-  padding: clamp(1.35rem, 3vw, 2.1rem) clamp(1.25rem, 3.5vw, 3rem);
+  margin-top: 0.65rem;
+  padding: clamp(1rem, 2.2vw, 1.5rem) clamp(1.25rem, 3.5vw, 3rem);
   background: var(--hx-lilac);
   color: var(--hx-ink);
 }
