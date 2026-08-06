@@ -6827,16 +6827,73 @@ a.elara-chip:hover .elara-chip__label {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
-  padding: clamp(7.5rem, 14vw, 9.5rem) clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+  min-height: min(100svh, 56rem);
+  padding: clamp(7.25rem, 12vw, 8.75rem) clamp(1.25rem, 4vw, 3rem) clamp(2.75rem, 5vw, 4.25rem);
+  overflow: clip;
   background:
-    radial-gradient(70% 60% at 90% 10%, color-mix(in srgb, var(--editorial-lavender) 35%, transparent), transparent 65%),
-    radial-gradient(50% 40% at 0% 100%, color-mix(in srgb, var(--editorial-rosa-bebe) 28%, transparent), transparent 55%),
+    radial-gradient(70% 60% at 92% 8%, color-mix(in srgb, var(--editorial-lavender) 42%, transparent), transparent 62%),
+    radial-gradient(48% 42% at 0% 100%, color-mix(in srgb, var(--editorial-rosa-bebe) 32%, transparent), transparent 55%),
     var(--editorial-smoke);
+}
+
+/* Moodboard bold+script · entrada suave del hero */
+@keyframes scrap-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scrap-settle {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-2.2deg);
+  }
+}
+
+@keyframes scrap-pop {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem) rotate(8deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(6deg) scale(1);
+  }
+}
+
+@keyframes scrap-window-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) rotate(6deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(3deg);
+  }
+}
+
+.scrap-brand {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--editorial-lila);
 }
 
 .scrap-tag {
   display: inline-flex;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.15rem;
   padding: 0.45rem 0.85rem;
   border-radius: 4px;
   background: var(--editorial-lavender);
@@ -6851,36 +6908,43 @@ a.elara-chip:hover .elara-chip__label {
 .scrap-hero__title {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  align-items: flex-start;
+  gap: 0;
   margin: 0;
 }
 
 .scrap-hero__impact {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.2rem, 8vw, 5.6rem);
-  letter-spacing: -0.04em;
-  line-height: 0.92;
+  font-size: clamp(3.6rem, 10vw, 6.75rem);
+  letter-spacing: -0.05em;
+  line-height: 0.86;
   text-transform: uppercase;
   color: var(--editorial-ink);
 }
 
+/* Fórmula moodboard: script delicada bajo el impact negro */
 .scrap-hero__script {
+  display: block;
+  margin-top: -0.02em;
+  margin-left: 0.08em;
   font-family: var(--font-script);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  font-size: clamp(2.15rem, 5.8vw, 3.55rem);
   letter-spacing: 0.01em;
-  line-height: 1.05;
+  line-height: 1;
   color: var(--editorial-lila);
+  transform: rotate(-2.4deg);
+  transform-origin: left center;
 }
 
 .scrap-hero__lead {
-  max-width: 34rem;
-  margin-top: 1.5rem;
+  max-width: 28rem;
+  margin-top: 1.35rem;
   color: var(--editorial-cacao);
   font-size: 1.05rem;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .scrap-hero__actions {
@@ -6888,8 +6952,26 @@ a.elara-chip:hover .elara-chip__label {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.75rem;
+  margin-top: 1.65rem;
 }
+
+.scrap-hero__proof {
+  margin: 1.25rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--editorial-cacao);
+}
+
+.home-hero--c3 .scrap-hero__copy > * {
+  animation: scrap-rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-hero--c3 .scrap-hero__copy > *:nth-child(1) { animation-delay: 0.02s; }
+.home-hero--c3 .scrap-hero__copy > *:nth-child(2) { animation-delay: 0.08s; }
+.home-hero--c3 .scrap-hero__copy > *:nth-child(3) { animation-delay: 0.14s; }
+.home-hero--c3 .scrap-hero__copy > *:nth-child(4) { animation-delay: 0.22s; }
+.home-hero--c3 .scrap-hero__copy > *:nth-child(5) { animation-delay: 0.3s; }
+.home-hero--c3 .scrap-hero__copy > *:nth-child(6) { animation-delay: 0.36s; }
 
 .scrap-link-quiet {
   font-size: 0.78rem;
@@ -6908,7 +6990,7 @@ a.elara-chip:hover .elara-chip__label {
 
 .scrap-hero__stage {
   position: relative;
-  min-height: clamp(22rem, 48vw, 32rem);
+  min-height: clamp(24rem, 52vw, 34rem);
 }
 
 .scrap-collage {
@@ -6920,7 +7002,6 @@ a.elara-chip:hover .elara-chip__label {
 
 .scrap-polaroid {
   position: absolute;
-  overflow: hidden;
   margin: 0;
   background: #fff;
   border: 1px solid color-mix(in srgb, var(--editorial-stone) 80%, transparent);
@@ -6930,31 +7011,63 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .scrap-polaroid--hero {
-  inset: 8% 12% 18% 8%;
-  padding: 0.7rem 0.7rem 2.2rem;
+  inset: 6% 10% 14% 6%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.75rem 0.55rem;
   transform: rotate(-2.2deg);
+}
+
+.home-hero--c3 .scrap-polaroid--hero {
+  animation: scrap-settle 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+.scrap-polaroid__frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 12rem;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--editorial-stone);
 }
 
 .scrap-polaroid__img {
   object-fit: cover;
-  object-position: center 20%;
-  border-radius: 1px;
+  object-position: center 18%;
+}
+
+.scrap-polaroid__cap {
+  margin: 0.55rem 0.15rem 0.2rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--editorial-cacao);
+  text-align: center;
 }
 
 .scrap-tape {
   position: absolute;
   z-index: 3;
-  width: 4.2rem;
-  height: 1.15rem;
-  background: color-mix(in srgb, var(--editorial-gold) 55%, #f3e6c8);
-  opacity: 0.88;
+  width: 4.4rem;
+  height: 1.2rem;
+  background: color-mix(in srgb, var(--editorial-gold) 58%, #f3e6c8);
+  opacity: 0.9;
   box-shadow: 0 1px 2px rgb(28 27 31 / .12);
 }
 
 .scrap-tape--tl {
-  top: -0.35rem;
-  left: 18%;
+  top: -0.4rem;
+  left: 16%;
   transform: rotate(-8deg);
+}
+
+.scrap-tape--tr {
+  top: -0.25rem;
+  right: 14%;
+  width: 3.5rem;
+  transform: rotate(11deg);
+  background: color-mix(in srgb, var(--editorial-lavender) 45%, #f3e6c8);
 }
 
 .scrap-tape--br {
@@ -6979,6 +7092,10 @@ a.elara-chip:hover .elara-chip__label {
   right: 0;
   bottom: 6%;
   transform: rotate(3deg);
+}
+
+.home-hero--c3 .scrap-window--workflow {
+  animation: scrap-window-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
 }
 
 .scrap-window__bar {
@@ -7050,6 +7167,10 @@ a.elara-chip:hover .elara-chip__label {
   background: var(--editorial-rosa-bebe);
   box-shadow: 0 10px 24px rgb(28 27 31 / .12);
   transform: rotate(6deg);
+}
+
+.home-hero--c3 .scrap-sticky {
+  animation: scrap-pop 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
 }
 
 .scrap-sticky__note {
@@ -7312,14 +7433,24 @@ a.elara-chip:hover .elara-chip__label {
   .scrap-polaroid--hero,
   .scrap-window--workflow,
   .scrap-sticky,
-  .scrap-notepad {
+  .scrap-notepad,
+  .home-hero--c3 .scrap-hero__copy > *,
+  .home-hero--c3 .scrap-polaroid--hero,
+  .home-hero--c3 .scrap-window--workflow,
+  .home-hero--c3 .scrap-sticky {
+    animation: none !important;
+    transform: none;
+  }
+
+  .scrap-hero__script {
     transform: none;
   }
 }
 
 .home-hero--c3.scrap-hero {
-  min-height: auto;
+  min-height: min(100svh, 56rem);
 }
+
 .home-hero__note--inline {
   margin-top: 1.5rem;
   font-size: 0.82rem;

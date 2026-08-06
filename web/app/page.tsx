@@ -59,51 +59,52 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function HomePage() {
   return (
     <main className="home-shell">
-      <section id="inicio" className="scrap-hero home-hero--c3">
+      <section id="inicio" className="scrap-hero home-hero--c3" aria-label="Inicio">
         <div className="scrap-hero__copy">
+          <p className="scrap-brand">Elara Nova</p>
           <p className="scrap-tag">Automatización + IA + sistemas</p>
           <h1 className="scrap-hero__title">
             <span className="scrap-hero__impact">Automatiza</span>
             <em className="scrap-hero__script">como quieras.</em>
           </h1>
           <p className="scrap-hero__lead">
-            Sistemas, webs y Ads que trabajan por ti. Menos a mano, más libertad — con la claridad
-            de una ingeniera.
+            Sistemas, webs y Ads que trabajan por ti. Menos a mano, más libertad.
           </p>
           <div className="scrap-hero__actions">
-            <Link href="#oferta" className="home-button home-button--primary">
-              Ver cómo funciona →
+            <Link href="/descubrimiento" className="home-button home-button--primary">
+              Hablemos →
             </Link>
             <Link href="/servicios" className="scrap-link-quiet">
-              Explorar servicios
+              Ver servicios
             </Link>
           </div>
-          <p className="home-hero__note home-hero__note--inline">
-            8 años automatizando · 6 en banca
-          </p>
+          <p className="scrap-hero__proof">8 años automatizando · 6 en banca</p>
         </div>
 
         <div className="scrap-hero__stage" aria-hidden="true">
-          <div className="scrap-collage">
+          <div className="scrap-collage scrap-collage--home">
             <figure className="scrap-polaroid scrap-polaroid--hero">
               <span className="scrap-tape scrap-tape--tl" />
-              <span className="scrap-tape scrap-tape--br" />
-              <Image
-                src={evelynPhotos.homeHero}
-                alt=""
-                fill
-                priority
-                quality={90}
-                placeholder="blur"
-                blurDataURL={HERO_BLUR}
-                sizes="(max-width: 900px) 90vw, 420px"
-                className="scrap-polaroid__img"
-              />
+              <span className="scrap-tape scrap-tape--tr" />
+              <div className="scrap-polaroid__frame">
+                <Image
+                  src={evelynPhotos.homeHero}
+                  alt=""
+                  fill
+                  priority
+                  quality={90}
+                  placeholder="blur"
+                  blurDataURL={HERO_BLUR}
+                  sizes="(max-width: 900px) 88vw, 440px"
+                  className="scrap-polaroid__img"
+                />
+              </div>
+              <figcaption className="scrap-polaroid__cap">Evelyn · ingeniera</figcaption>
             </figure>
 
             <aside className="scrap-window scrap-window--workflow">
               <header className="scrap-window__bar">
-                <span className="scrap-window__dots" />
+                <span className="scrap-window__dots" aria-hidden="true" />
                 <span className="scrap-window__title">workflow.exe</span>
               </header>
               <ol className="scrap-window__list">
