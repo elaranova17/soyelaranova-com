@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <!-- base / shadow -->
+  <ellipse cx="450" cy="520" rx="340" ry="28" fill="#2A1F31" opacity=".18"/>
+  <!-- lid -->
+  <rect x="120" y="40" width="660" height="420" rx="18" fill="#2A2A2E"/>
+  <rect x="138" y="58" width="624" height="384" rx="8" fill="#1A1A1E"/>
+  <!-- screen glow -->
+  <rect x="150" y="70" width="600" height="360" rx="4" fill="#F8F5F0"/>
+  <rect x="150" y="70" width="600" height="360" rx="4" fill="#CDB4F2" opacity=".12"/>
+  <!-- fake UI lines -->
+  <rect x="180" y="110" width="180" height="10" rx="2" fill="#B89AD6" opacity=".55"/>
+  <rect x="180" y="140" width="420" height="8" rx="2" fill="#111117" opacity=".12"/>
+  <rect x="180" y="160" width="380" height="8" rx="2" fill="#111117" opacity=".1"/>
+  <rect x="180" y="180" width="400" height="8" rx="2" fill="#111117" opacity=".1"/>
+  <rect x="180" y="220" width="240" height="120" rx="6" fill="#E5D8EE"/>
+  <rect x="440" y="220" width="240" height="120" rx="6" fill="#F0C4CF" opacity=".55"/>
+  <!-- camera -->
+  <circle cx="450" cy="50" r="4" fill="#111117" opacity=".45"/>
+  <!-- hinge -->
+  <rect x="110" y="458" width="680" height="14" rx="3" fill="#3A3A40"/>
+  <!-- deck -->
+  <path d="M70 472h760l30 48H40l30-48Z" fill="#D8D5D0"/>
+  <path d="M70 472h760l30 48H40l30-48Z" fill="#111117" opacity=".06"/>
+  <rect x="300" y="488" width="300" height="18" rx="4" fill="#B8B4AE"/>
+  <!-- notch logo -->
+  <circle cx="450" cy="498" r="5" fill="#9A9A9A"/>
+</svg>

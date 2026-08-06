@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="0 0 220 220" fill="none">
+  <defs>
+    <radialGradient id="coffee" cx="50%" cy="48%" r="48%">
+      <stop offset="0%" stop-color="#3A2418"/>
+      <stop offset="55%" stop-color="#2A1810"/>
+      <stop offset="100%" stop-color="#1A100C"/>
+    </radialGradient>
+    <radialGradient id="foam" cx="42%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#F5EDE4" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#F5EDE4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- saucer -->
+  <ellipse cx="110" cy="118" rx="98" ry="92" fill="#F8F5F0" stroke="#111117" stroke-opacity=".12" stroke-width="2"/>
+  <ellipse cx="110" cy="118" rx="86" ry="80" fill="none" stroke="#EFE9E2" stroke-width="3"/>
+  <!-- cup rim -->
+  <circle cx="110" cy="112" r="68" fill="#FFFBFA" stroke="#111117" stroke-width="3.5"/>
+  <circle cx="110" cy="112" r="58" fill="url(#coffee)"/>
+  <circle cx="110" cy="112" r="58" fill="url(#foam)"/>
+  <!-- highlight -->
+  <path d="M78 88c10-14 28-22 46-18" stroke="#FFF6F0" stroke-opacity=".35" stroke-width="4" stroke-linecap="round"/>
+  <!-- handle -->
+  <path d="M176 100c22 2 28 28 8 42" stroke="#FFFBFA" stroke-width="10" stroke-linecap="round"/>
+  <path d="M176 100c22 2 28 28 8 42" stroke="#111117" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- torn paper under -->
+  <path d="M28 175c18-8 40-6 58-2 14 3 28-4 42-2l8 28c-20 4-42 2-62 6-16 3-34 2-48-4l2-26Z" fill="#F8F5F0" stroke="#111117" stroke-opacity=".1"/>
+</svg>

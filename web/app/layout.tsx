@@ -1,13 +1,19 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Great_Vibes, Instrument_Serif, IBM_Plex_Mono, Inter } from 'next/font/google'
+import {
+  Caveat,
+  Cormorant_Garamond,
+  IBM_Plex_Mono,
+  Inter,
+  Instrument_Serif,
+} from 'next/font/google'
 import { Analytics } from '@/components/analytics'
 import { LenisProvider } from '@/components/lenis-provider'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import './globals.css'
 
-/** Display · Satoshi self-hosted (Fontshare CDN bloquea CORS en prod) */
+/** Legacy display · Satoshi self-hosted (páginas que aún lo referencian) */
 const satoshi = localFont({
   src: [
     {
@@ -30,7 +36,24 @@ const satoshi = localFont({
   display: 'swap',
 })
 
-/** Accents italic · brand board "El Pensamiento" */
+/** Display primario · scrapboard editorial (hero / lockups) */
+const cormorant = Cormorant_Garamond({
+  variable: '--font-cormorant',
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+/** Handwritten · notas / asides scrap */
+const caveat = Caveat({
+  variable: '--font-caveat',
+  weight: ['500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+/** Accents italic · Instrument (acentos chicos legacy) */
 const instrument = Instrument_Serif({
   variable: '--font-instrument',
   weight: '400',
@@ -39,7 +62,7 @@ const instrument = Instrument_Serif({
   display: 'swap',
 })
 
-/** Code / UI windows · brand board "El Sistema" */
+/** Code / nav / UI windows */
 const plex = IBM_Plex_Mono({
   variable: '--font-plex',
   weight: ['400', '500', '600'],
@@ -47,17 +70,9 @@ const plex = IBM_Plex_Mono({
   display: 'swap',
 })
 
-/** Body / UI · brand board "El Contenido" */
+/** Body / UI */
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-/** Script grande · moodboard bold+script (heroes / lockups h1) */
-const greatVibes = Great_Vibes({
-  variable: '--font-great-vibes',
-  weight: '400',
   subsets: ['latin'],
   display: 'swap',
 })
@@ -123,9 +138,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${satoshi.variable} ${instrument.variable} ${plex.variable} ${inter.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${satoshi.variable} ${cormorant.variable} ${caveat.variable} ${instrument.variable} ${plex.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full" style={{ fontFamily: 'var(--font-sans)' }}>
+      <body className="min-h-full site-body" style={{ fontFamily: 'var(--font-sans)' }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

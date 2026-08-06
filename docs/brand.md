@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Scrapboard profesional C3
+## 🚀 DIRECCIÓN VIGENTE (6 ago 2026) — Warm paper scrapboard
 
 **La marca es Evelyn.** El negocio principal es **enseñar automatización con IA en redes**
 (TikTok + Instagram; se agregan plataformas al crecer) al nicho **IT Girly**: tecnología,
@@ -24,45 +24,57 @@ fuiste capaz de ser" es por qué.*
 
 **Nombre completo de marca:** *Elara Nova by Evelyn Patiño* · Intro de video: *"Bienvenidas a un capítulo más de Menos a Mano…"*
 
-### Identidad visual VIGENTE (6 ago 2026 — brand board C3)
+### Identidad visual VIGENTE (design system hero + header)
 
-**Estética: tech-lifestyle scrapbook** — crema rosada, lilac, lavender, soft pink, deep purple,
-warm grey, gold muted. Collage: Polaroids + tape + sticky + ventanas UI. Brand board:
-`docs/brand-board.html`.
+**Estética: warm paper scrapboard editorial** — beige papel, lavender, pink soft, ink profundo.
+Collage: Polaroids + tape + sticky + ventanas UI. Tokens `--ds-*` + `--editorial-*` en
+`web/app/globals.css`.
 
-**Paleta C3 (hex del board · tokens `--editorial-*`):**
+**Paleta (hex · tokens):**
 
 | Color | HEX | Token | Uso |
 |-------|-----|-------|-----|
-| Cream | `#FFF6F8` | `--editorial-smoke` | Base papel (~60%) |
-| Lilac | `#CDB4F2` | `--editorial-lavender` | Bandas, tags, UI chrome |
-| Lavender | `#9A66D9` | `--editorial-lila` | Acento UI / script |
-| Soft pink | `#F5A7C4` | `--editorial-rosa-bebe` | Sticky / girl culture |
-| Deep purple | `#1C1B1F` | `--editorial-ink` | Titulares + CTA |
-| Warm grey | `#E7E3DF` | `--editorial-stone` | Hairlines |
-| Gold | `#C9A86A` | `--editorial-gold` | Lujo puntual |
+| Background main | `#F5F0EA` | `--ds-bg` / `--editorial-smoke` | Base papel (~60%) |
+| Background warm | `#F2ECE5` | `--ds-bg-warm` | Washes |
+| Paper | `#F8F5F0` | `--ds-bg-paper` / `--editorial-ivory` | Paneles |
+| Grid | `#EFE9E2` | `--ds-bg-grid` / `--editorial-stone` | Hairlines |
+| Ink | `#111117` | `--ds-ink` / `--editorial-ink` | Titulares + CTA |
+| Ink soft | `#2D2930` | `--ds-ink-soft` / `--editorial-plum` | Texto serio |
+| Muted | `#6E6870` | `--ds-muted` / `--editorial-cacao` | Secundario |
+| Lavender | `#B89AD6` | `--ds-lavender` / `--editorial-lavender` | Tags / chrome |
+| Lavender dark | `#9873BB` | `--ds-lavender-dark` / `--editorial-lila` | Script / acento |
+| Lavender light | `#D9C9E8` | `--ds-lavender-light` | Washes |
+| Lavender strip | `#D7C6E1` | `--ds-lavender-strip` | Metrics band |
+| Pink soft | `#F0C4CF` | `--ds-pink` / `--editorial-rosa-bebe` | Sticky |
+| Black panel | `#121218` | `--ds-black` / `--editorial-aubergine` | Terminal |
+| Terminal text | `#EEE6B5` | `--ds-terminal-text` | Code UI |
 
-**Tipografías (board · pairing moodboard bold+script):**
-**Satoshi** ExtraBold (impact) · **Great Vibes** (script grande en heroes/lockups) ·
-**Instrument Serif** italic (acentos chicos / h2) · **IBM Plex Mono** (code/UI) · **Inter** (cuerpo).
+**Tipografías:**
+**Cormorant Garamond** 500 (display + italic) · **Caveat** 500 (handwritten) ·
+**IBM Plex Mono** 500 (nav + UI/code) · **Inter** (cuerpo).
 
-**CTA:** charcoal/deep purple. **No** rosa chicle neón como fill principal.
+**Radios:** button/window `2px` · paper `0` · circle `999px`.
+**Sombras:** `--ds-shadow-paper` / `--ds-shadow-window` / `--ds-shadow-photo`.
+**Container desktop:** max `1536px`, gutter `48px` (`.ds-container`).
+**Textura:** grain de papel opacity `0.035` en `body` (no ensucia el texto).
+
+**CTA:** ink `#111117`. **No** rosa chicle neón como fill principal.
 
 **Logo (aprobado 30 jul): isotipo "corazón-click"** — corazón rosa chicle + cursor haciendo click (*"menos a mano = un click"*). Familia completa en `docs/brand-assets/logo/` (logo-v2-*, isotipo.svg, perfil.svg). Doodles propios (17 SVGs) en `docs/brand-assets/doodles/` — **nunca usar packs de terceros ni assets de Pinterest** (solo inspiración).
 
 **Composición: scrapboard profesional** — Polaroid + tape, ventanas UI (`workflow.exe` /
 `agent_03.py` / terminal), sticky notes, props lifestyle propios (taza, vaso, clip, destellos
-en `/brand/scrap/`), bandas lilac. Tipografía Satoshi + Great Vibes (grande) / Instrument (chico).
+en `/brand/scrap/`), bandas lavender.
 **Sin** stickers kawaii Y2K ni packs de terceros.
 
 **Fotos de Evelyn: NUNCA 100% IA.** Ella se fotografía (brief de pose con boceto de figura verde previo) → IA solo refina (ver `memory reference_fotos_pipeline` + `docs/prompts/`). Avatar 3D Elara = **mascota-acento**, nunca protagonista (refs en `docs/brand-assets/avatar/`).
 
 **Plan de ejecución vigente:** `docs/PLAN_SPRINTS.md` (tablero por sprints, lanzamiento ~3 sep 2026).
 
-> ✅ **Dirección vigente (6 ago 2026):** scrapboard profesional C3 (cream/lilac/lavender/deep).
-> **Y2K girly queda RETIRADO** del chrome web (chips 2000s, Bagel bubble, stickers kawaii, chat MSN).
+> ✅ **Dirección vigente:** warm paper scrapboard (Cormorant + Caveat + Plex).
+> **Y2K girly queda RETIRADO** del chrome web.
 > Figma canónico: https://www.figma.com/design/im5h3TanW9XR2MMwwF2FAx
-> CapCut glow (julio) = archivo histórico.
+> CapCut glow / C3 cream rosada = archivo histórico.
 
 ---
 
@@ -89,69 +101,60 @@ Referencia visual aprobada: lockup **sans condensada cream + script solapado + g
 sobre aubergine (sección pre-análisis / banda impact). Ese look se replica en **toda** la web
 con variantes claras (`--glow-soft`) y oscuras (`--glow`).
 
-### Paleta (tokens `--editorial-*` en `web/app/globals.css`) — C3 board 6 ago
+### Paleta (tokens `--editorial-*` / `--ds-*` en `web/app/globals.css`) — warm paper
 
 | Token | HEX | Uso |
 |-------|-----|-----|
-| `--editorial-smoke` | `#FFF6F8` | Cream base |
-| `--editorial-ivory` | `#FFFBFC` | Paneles |
-| `--editorial-ink` | `#1C1B1F` | Deep purple / CTA |
-| `--editorial-plum` | `#2A2830` | Texto serio |
-| `--editorial-aubergine` | `#1C1B1F` | Oscuro |
-| `--editorial-lavender` | `#CDB4F2` | Lilac bands |
-| `--editorial-cacao` | `#6E6A66` | Secundario |
-| `--editorial-stone` | `#E7E3DF` | Warm grey |
+| `--editorial-smoke` / `--ds-bg` | `#F5F0EA` | Base papel |
+| `--editorial-ivory` / `--ds-bg-paper` | `#F8F5F0` | Paneles |
+| `--editorial-ink` / `--ds-ink` | `#111117` | Ink / CTA |
+| `--editorial-plum` / `--ds-ink-soft` | `#2D2930` | Texto serio |
+| `--editorial-aubergine` / `--ds-black` | `#121218` | Oscuro / terminal |
+| `--editorial-lavender` / `--ds-lavender` | `#B89AD6` | Tags / chrome |
+| `--editorial-cacao` / `--ds-muted` | `#6E6870` | Secundario |
+| `--editorial-stone` / `--ds-bg-grid` | `#EFE9E2` | Hairlines |
+| `--editorial-lila` / `--ds-lavender-dark` | `#9873BB` | Acento |
+| `--editorial-rosa-bebe` / `--ds-pink` | `#F0C4CF` | Sticky |
+| `--ds-lavender-strip` | `#D7C6E1` | Metrics band |
 | `--editorial-gold` | `#C9A86A` | Gold muted |
-| `--editorial-lila` | `#9A66D9` | Lavender acento |
-| `--editorial-lila-deep` | `#7A4FB8` | Lavender deep |
-| `--editorial-rosa-bebe` | `#F5A7C4` | Soft pink |
-| `--editorial-rose` | `#F5A7C4` | Soft pink alias |
 
-> **Dirección C3:** scrapbook tech-lifestyle. CTA = deep purple. Acento UI = lavender/lilac.
-> Gold solo lujo puntual. Tipografía Satoshi + Great Vibes (hero) + Instrument + Plex + Inter.
+> **Dirección:** warm paper scrapboard. CTA = ink `#111117`. Acento = lavender.
+> Tipografía Cormorant + Caveat + Plex + Inter. Usar `--ds-*` / `--editorial-*`. **No inventar colores.**
 
-
-Usar `--editorial-*` en código nuevo. **No inventar colores.**
-
-### Tipografía (lockeada · C3 pairing moodboard)
-
-Fórmula de referencia: **sans negra bold + script delicada** (tipo Inter-Blk×script / MODERN×serif, adaptada a nuestra stack).
+### Tipografía (lockeada · warm paper)
 
 | Rol | Fuente | Variable | Uso |
 |-----|--------|----------|-----|
-| Impact | **Satoshi** ExtraBold | `--font-display` | Titulares display, línea superior del lockup |
-| Script grande | **Great Vibes** | `--font-script` | **Solo grande**: logo nav, firma, lockups de hero (h1). NO en títulos chicos. |
-| Serif acento | **Instrument Serif** italic | `--font-serif` | Acentos chicos, h2 lockups, notas, sticky legible |
-| Sans UI | **Inter** | `--font-sans` | Cuerpo, labels, CTAs, FAQ |
-| Mono | **IBM Plex Mono** | `--font-mono` | Code / ventanas UI |
+| Display | **Cormorant Garamond** 500 | `--font-display` | Titulares / AUTOMATIZA |
+| Display italic | **Cormorant Garamond** italic | `--font-script` | Lockups italic |
+| Handwritten | **Caveat** 500 | `--font-hand` | Notas / “como quieras.” / asides |
+| Mono / nav | **IBM Plex Mono** 500 | `--font-mono` / `--font-nav` | Nav, CTAs UI, code windows |
+| Sans UI | **Inter** | `--font-sans` | Cuerpo |
 
 **Lockup obligatorio en heroes y cierres de sección:**
 
 ```html
-<h2 class="type-lockup type-lockup--glow"> <!-- o --glow-soft en claro -->
+<h2 class="type-lockup type-lockup--glow-soft">
   <span class="type-lockup__impact">Tu negocio</span>
   <em class="type-lockup__script">todavía a mano?</em>
 </h2>
 ```
 
 **Reglas de presentación**
-- Impact: Satoshi ExtraBold, tracking negativo, Title Case o caps según sección.
-- Script grande: Great Vibes ~0.52em del impact, `font-style: normal`, **nunca** párrafos largos.
-- **Great Vibes solo grande**: en títulos chicos (pasos de método, tarjetas, h2) usar **Instrument Serif italic**.
-- Oscuro: clase `--glow` → cream + glow suave lavender.
-- Claro: clase `--glow-soft` → ink + script lilac.
-- CTA primary: `home-button--primary` = deep (`--editorial-ink`).
-- CTA gold: `home-button--gold` con `--btn-glow-gold`.
-- Eyebrow: Inter uppercase + línea gold (`.home-eyebrow`).
+- Impact: Cormorant 500, tracking leve, caps o Title Case según sección.
+- Hero scrap: Caveat en `.hx-script` (handwritten); Cormorant en `.hx-impact`.
+- Mono en nav y botones UI (`.site-nav__link`, `.hx-btn`).
+- CTA primary: `home-button--primary` = ink (`--editorial-ink` / `--ds-ink`).
+- Eyebrow: Inter/Plex uppercase (`.home-eyebrow`).
 
 ### Componentes canónicos
 
 - `.type-lockup` / `__impact` / `__script` / `--glow` / `--glow-soft` / `--center`
+- `.hx` hero scrapboard + `.ds-container`
 - `.home-eyebrow` (+ `--light`)
 - `.home-button` (`--primary` · `--gold` · `--quiet` · `--light`)
-- Secciones claras smoke/ivory ↔ bandas aubergine con radial gold
-- Navbar única `.site-nav` aubergine en **todas** las páginas
-- Fotos reales Evelyn + velo aubergine (`.asset-photo`)
+- Navbar única `.site-nav` en **todas** las páginas
+- Fotos reales Evelyn (`.asset-photo`)
 
 ---
 

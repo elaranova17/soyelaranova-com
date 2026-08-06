@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { B2B_NAV, STUDIO_NAV, isB2bPath, type NavItem } from '@/lib/navigation'
 
 function isActive(pathname: string, item: NavItem): boolean {
@@ -62,11 +63,13 @@ function NavCta({
   label,
   onClick,
   className = '',
+  withArrow = false,
 }: {
   href: string
   label: string
   onClick?: () => void
   className?: string
+  withArrow?: boolean
 }) {
   const trackClick = () => {
     const win = window as Window & {
@@ -92,18 +95,24 @@ function NavCta({
   }
 
   const cls = ['site-nav__cta', className].filter(Boolean).join(' ')
+  const content = (
+    <>
+      <span>{label}</span>
+      {withArrow ? <ArrowRight size={16} strokeWidth={1.75} aria-hidden /> : null}
+    </>
+  )
 
   if (href.startsWith('http') || href.startsWith('mailto:') || href.includes('#')) {
     return (
       <a href={href} onClick={handleClick} className={cls}>
-        {label}
+        {content}
       </a>
     )
   }
 
   return (
     <Link href={href} prefetch onClick={handleClick} className={cls}>
-      {label}
+      {content}
     </Link>
   )
 }
@@ -111,11 +120,9 @@ function NavCta({
 function MenuButton({
   open,
   onClick,
-  alwaysVisible = false,
 }: {
   open: boolean
   onClick: () => void
-  alwaysVisible?: boolean
 }) {
   return (
     <button
@@ -125,11 +132,8 @@ function MenuButton({
       aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
       aria-expanded={open}
       aria-controls="site-nav-panel"
-      className={['site-nav__burger', alwaysVisible ? '' : 'site-nav__burger--mobile-only', open ? 'is-open' : '']
-        .filter(Boolean)
-        .join(' ')}
+      className={['site-nav__burger', open ? 'is-open' : ''].filter(Boolean).join(' ')}
     >
-      <span />
       <span />
       <span />
     </button>
@@ -197,6 +201,19 @@ function PanelLink({
   )
 }
 
+function EditorialWordmark({ href }: { href: string }) {
+  return (
+    <Link href={href} className="editorial-header__wordmark" aria-label="Elara Nova">
+      <span>elara</span>
+      <span>nova.</span>
+    </Link>
+  )
+}
+
+/**
+ * EditorialHeader — header canónico studio (warm paper scrapboard).
+ * Exportado como SiteNav para el layout.
+ */
 export function SiteNav() {
   const pathname = usePathname() ?? '/'
   const b2b = isB2bPath(pathname)
@@ -205,8 +222,6 @@ export function SiteNav() {
   const links: readonly NavItem[] = b2b ? B2B_NAV : STUDIO_NAV
 
   const logoHref = b2b ? '/linktree' : onHome ? '#inicio' : '/'
-  const logoHard = b2b
-  // Studio CTA: Hablemos · B2B conserva pre-análisis
   const cta = b2b
     ? { href: '/descubrimiento', label: 'Pre-análisis' }
     : { href: '/descubrimiento', label: 'Hablemos' }
@@ -247,54 +262,22 @@ export function SiteNav() {
 
   if (pathname.startsWith('/lp/')) return null
 
-  return (
-    <>
-      <motion.header
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
-        className={[
-          'site-nav',
-          b2b ? 'site-nav--b2b' : 'site-nav--studio',
-          scrolled ? 'is-scrolled' : '',
-          open ? 'is-menu-open' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <div className="site-nav__inner">
-          <div className="site-nav__brand">
-            {logoHard ? (
+  /* ── B2B: layout compacto legacy ── */
+  if (b2b) {
+    return (
+      <>
+        <header
+          className={['site-nav', 'site-nav--b2b', scrolled ? 'is-scrolled' : '', open ? 'is-menu-open' : '']
+            .filter(Boolean)
+            .join(' ')}
+        >
+          <div className="site-nav__inner">
+            <div className="site-nav__brand">
               <a href={logoHref} className="site-nav__logo">
                 Evelyn Patiño
               </a>
-            ) : (
-              <Link
-                href={logoHref}
-                className="site-nav__logo site-nav__logo--brand"
-                aria-label="Elara Nova by Evelyn Patiño"
-              >
-                {/* logo-primario: variante clara del logo existente (misma familia que nocturna) */}
-                <img
-                  src="/brand/logo-primario.svg"
-                  alt="Elara Nova by Evelyn Patiño"
-                  width={470}
-                  height={276}
-                />
-              </Link>
-            )}
-
-            {/*
-              TODO asset faltante: firma independiente “by Evelyn Patiño”
-              (SVG/PNG recortada, fondo transparente).
-              No usar firma-elara.png (es un logo dorado legacy, no la firma).
-              El logo-primario.svg ya incluye la firma embebida — no recrear con tipografía.
-              Entregar: /brand/firma-by-evelyn.svg (o .png) ~ alto 28–36 px.
-            */}
-          </div>
-
-          <div className="site-nav__actions">
-            {b2b ? (
+            </div>
+            <div className="site-nav__actions">
               <nav className="site-nav__desktop" aria-label="Navegación Evelyn B2B">
                 <NavLink
                   key={B2B_NAV[0].href}
@@ -307,27 +290,107 @@ export function SiteNav() {
                   <NavLink key={item.href + item.label} item={item} pathname={pathname} />
                 ))}
               </nav>
-            ) : (
-              <nav className="site-nav__desktop site-nav__desktop--studio" aria-label="Navegación Elara Nova">
-                {STUDIO_NAV.map((item) => (
-                  <NavLink key={item.href + item.label} item={item} pathname={pathname} />
-                ))}
-              </nav>
-            )}
+              <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
+              <MenuButton open={open} onClick={toggle} />
+            </div>
+          </div>
+        </header>
+        <AnimatePresence>
+          {open && (
+            <>
+              <motion.button
+                key="nav-overlay"
+                type="button"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                aria-label="Cerrar menú"
+                className="site-nav__overlay site-nav__overlay--mobile-only"
+                onClick={close}
+              />
+              <motion.aside
+                id="site-nav-panel"
+                key="nav-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Menú de navegación"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
+                className="site-nav__panel site-nav__panel--mobile-only"
+              >
+                <div className="site-nav__panel-top">
+                  <p className="site-nav__panel-eyebrow">Menú</p>
+                  <button
+                    type="button"
+                    className="site-nav__panel-close"
+                    onClick={close}
+                    aria-label="Cerrar menú"
+                  >
+                    <span aria-hidden>×</span>
+                  </button>
+                </div>
+                <nav className="site-nav__panel-nav" aria-label="Menú">
+                  {links.map((item, i) => (
+                    <PanelLink
+                      key={item.href + item.label}
+                      item={item}
+                      pathname={pathname}
+                      index={i}
+                      onClose={close}
+                    />
+                  ))}
+                </nav>
+                <NavCta href={cta.href} label={cta.label} onClick={close} className="site-nav__cta--panel" />
+              </motion.aside>
+            </>
+          )}
+        </AnimatePresence>
+      </>
+    )
+  }
 
-            {!b2b && (
-              <span className="site-nav__online" aria-label="Evelyn online">
-                <i aria-hidden />
-                online
-              </span>
-            )}
+  /* ── EditorialHeader (studio) ── */
+  return (
+    <>
+      <header
+        className={[
+          'site-nav',
+          'site-nav--studio',
+          'editorial-header',
+          scrolled ? 'is-scrolled' : '',
+          open ? 'is-menu-open' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <div className="editorial-header__grid">
+          <div className="editorial-header__brand">
+            <EditorialWordmark href={logoHref} />
+          </div>
 
-            <NavCta href={cta.href} label={cta.label} className="site-nav__cta--bar" />
+          <nav className="editorial-header__nav" aria-label="Navegación Elara Nova">
+            {STUDIO_NAV.map((item) => (
+              <NavLink key={item.href + item.label} item={item} pathname={pathname} />
+            ))}
+          </nav>
 
+          <div className="editorial-header__cta">
+            <NavCta
+              href={cta.href}
+              label={cta.label}
+              className="site-nav__cta--bar"
+              withArrow
+            />
+          </div>
+
+          <div className="editorial-header__menu">
             <MenuButton open={open} onClick={toggle} />
           </div>
         </div>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open && (
@@ -340,9 +403,7 @@ export function SiteNav() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               aria-label="Cerrar menú"
-              className={['site-nav__overlay', b2b ? 'site-nav__overlay--mobile-only' : '']
-                .filter(Boolean)
-                .join(' ')}
+              className="site-nav__overlay"
               onClick={close}
             />
 
@@ -356,13 +417,7 @@ export function SiteNav() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}
-              className={[
-                'site-nav__panel',
-                b2b ? 'site-nav__panel--mobile-only' : '',
-                b2b ? '' : 'site-nav__panel--studio',
-              ]
-                .filter(Boolean)
-                .join(' ')}
+              className="site-nav__panel site-nav__panel--studio"
             >
               <div className="site-nav__panel-top">
                 <p className="site-nav__panel-eyebrow">Menú</p>
@@ -409,12 +464,11 @@ export function SiteNav() {
                 label={cta.label}
                 onClick={close}
                 className="site-nav__cta--panel"
+                withArrow
               />
 
               <p className="site-nav__panel-tagline" aria-hidden>
-                {b2b
-                  ? 'Ingeniera de software · Europa'
-                  : 'Mirá todo lo que siempre fuiste capaz de ser.'}
+                Menos a mano · más libertad.
               </p>
             </motion.aside>
           </>
@@ -423,3 +477,5 @@ export function SiteNav() {
     </>
   )
 }
+
+export { SiteNav as EditorialHeader }

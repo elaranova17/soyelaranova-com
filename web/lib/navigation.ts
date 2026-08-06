@@ -1,5 +1,5 @@
 /**
- * Navegación compartida · menú canónico del sitio (Scrapboard C3 profesional).
+ * Navegación compartida · EditorialHeader (warm paper scrapboard).
  * El panel hamburguesa usa SIEMPRE la misma lista (STUDIO_NAV).
  */
 
@@ -15,12 +15,10 @@ export type NavItem = {
 }
 
 /**
- * Menú único — Series · Plantillas gratis · Servicios · Sobre mí
- * Anclas del home: #recursos (series), #preanalisis (plantillas), #trabaja (sobre mí)
+ * Menú editorial — Servicios · Labs · Recursos · Sobre mí · Journal · Contacto
+ * Anclas home: #oferta (labs), #recursos, #trabaja, #contacto
  */
 export const STUDIO_NAV: readonly NavItem[] = [
-  { href: '/#recursos', label: 'Series' },
-  { href: '/#preanalisis', label: 'Plantillas' },
   {
     href: '/servicios',
     label: 'Servicios',
@@ -31,19 +29,24 @@ export const STUDIO_NAV: readonly NavItem[] = [
       match: [`/servicios/${service.slug}`],
     })),
   },
+  { href: '/#oferta', label: 'Labs' },
+  { href: '/#recursos', label: 'Recursos' },
   {
     href: '/#trabaja',
     label: 'Sobre mí',
     match: ['/trabaja-conmigo', '/sobre-elara'],
   },
+  { href: '/portfolio', label: 'Journal', match: ['/portfolio', '/work'] },
+  { href: '/#contacto', label: 'Contacto' },
 ]
 
 /** @deprecated Prefer STUDIO_NAV */
 export const ELARA_SECTIONS = [
-  { id: 'recursos', label: 'Series' },
-  { id: 'preanalisis', label: 'Plantillas' },
+  { id: 'recursos', label: 'Recursos' },
+  { id: 'oferta', label: 'Labs' },
   { id: 'servicios', label: 'Servicios' },
   { id: 'trabaja', label: 'Sobre mí' },
+  { id: 'contacto', label: 'Contacto' },
 ] as const
 
 export type ElaraSectionId = (typeof ELARA_SECTIONS)[number]['id']

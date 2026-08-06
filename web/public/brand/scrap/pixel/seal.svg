@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" fill="#1C1B1F"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#CDB4F2" stroke-width="1.2"/>
+  <circle cx="60" cy="60" r="42" fill="none" stroke="#CDB4F2" stroke-width="0.8" stroke-dasharray="1.5 2.5"/>
+  <path d="M60 34l3.2 9.6h10.1l-8.2 5.9 3.1 9.6L60 53.2l-8.2 5.9 3.1-9.6-8.2-5.9h10.1z" fill="#CDB4F2"/>
+  <text x="60" y="86" text-anchor="middle" fill="#FFF6F8" font-family="system-ui,sans-serif" font-size="5.5" font-weight="700" letter-spacing="1.6">MENOS A MANO</text>
+  <text x="60" y="96" text-anchor="middle" fill="#CDB4F2" font-family="Georgia,serif" font-style="italic" font-size="8">más libertad</text>
+</svg>
