@@ -11,15 +11,15 @@ const ABOUT_BLUR =
 const A = '/brand/scrap/pixel'
 
 /**
- * Hero pixel-match · target scrapboard editorial
- * Capas independientes · 43% copy / 57% collage · cert + metrics
+ * EditorialAutomationHero — collage scrapboard 43/57
+ * Capas: texturas → viaje → notebook → retrato → desk → terminales → stickers → foreground
  * Foto: Evelyn real (nunca el modelo del mock)
  */
 export function HomeHero() {
   return (
-    <div className="hx">
+    <div className="hx editorial-hero">
       <section id="inicio" className="hx-main" aria-label="Inicio">
-        {/* ── hero-left-copy (~43%) ── */}
+        {/* ── left copy (~43%) ── */}
         <div className="hx-copy">
           <p className="hx-tag">Automatización + IA + sistemas</p>
           <h1 className="hx-title">
@@ -49,64 +49,78 @@ export function HomeHero() {
           <img className="hx-cup" src="/brand/scrap/taza.svg" alt="" width={88} height={88} />
         </div>
 
-        {/* ── hero-right-collage (~57%) ── */}
+        {/* ── right collage (~57%) — capas independientes, sin rectángulo contenedor ── */}
         <div className="hx-collage" aria-hidden="true">
+          {/* 1 · background paper textures */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--graph" src={`${A}/graph.svg`} alt="" width={200} height={160} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--torn" src={`${A}/torn.svg`} alt="" width={320} height={120} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--brush" src={`${A}/brush.svg`} alt="" width={280} height={80} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--spark-a" src={`${A}/spark.svg`} alt="" width={28} height={28} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--spark-b" src={`${A}/spark.svg`} alt="" width={20} height={20} />
 
-          {/* Persona Evelyn — retrato sin marco; cruza el centro */}
-          <figure className="hx-person">
-            <Image
-              src={evelynPhotos.homeHero}
-              alt=""
-              fill
-              priority
-              quality={90}
-              placeholder="blur"
-              blurDataURL={HERO_BLUR}
-              sizes="(max-width: 900px) 95vw, 62vw"
-              className="hx-person__img"
-            />
-          </figure>
-
-          {/* Polaroid (foto escritorio + washi tape) */}
+          {/* 2 · travel photograph */}
           <figure className="hx-polaroid">
             <span className="hx-tape hx-tape--a" />
             <span className="hx-tape hx-tape--b" />
             <div className="hx-polaroid__frame">
               <Image
-                src={evelynPhotos.homeAbout}
+                src={evelynPhotos.homeHero}
                 alt=""
                 fill
                 quality={85}
                 placeholder="blur"
-                blurDataURL={ABOUT_BLUR}
+                blurDataURL={HERO_BLUR}
                 sizes="180px"
                 className="hx-polaroid__img"
               />
             </div>
           </figure>
-
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--note" src={`${A}/note.svg`} alt="" width={210} height={80} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--boarding" src={`${A}/boarding.svg`} alt="" width={160} height={70} />
+
+          {/* 3 · notebook paper */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--sticky" src={`${A}/sticky.svg`} alt="" width={168} height={158} />
+          <img className="hx-layer hx-layer--note" src={`${A}/note.svg`} alt="" width={210} height={80} />
+
+          {/* 4 · portrait (centro visual; invade el eje; laptop al borde inferior) */}
+          <figure className="hx-person">
+            <Image
+              src={evelynPhotos.homeAbout}
+              alt=""
+              fill
+              priority
+              quality={90}
+              placeholder="blur"
+              blurDataURL={ABOUT_BLUR}
+              sizes="(max-width: 900px) 95vw, 62vw"
+              className="hx-person__img"
+            />
+          </figure>
+
+          {/* 5 · desk objects */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--drink" src={`${A}/drink.svg`} alt="" width={70} height={100} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hx-layer hx-layer--clip" src="/brand/scrap/clip.svg" alt="" width={28} height={38} />
+
+          {/* 6 · terminal windows */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--term" src={`${A}/terminal.svg`} alt="" width={220} height={132} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--agent" src={`${A}/agent.svg`} alt="" width={200} height={148} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--workflow" src={`${A}/workflow.svg`} alt="" width={220} height={168} />
+
+          {/* 7 · stickers and tape */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--drink" src={`${A}/drink.svg`} alt="" width={70} height={100} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--clip" src="/brand/scrap/clip.svg" alt="" width={28} height={38} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--spark-a" src={`${A}/spark.svg`} alt="" width={28} height={28} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--spark-b" src={`${A}/spark.svg`} alt="" width={20} height={20} />
+          <img className="hx-layer hx-layer--sticky" src={`${A}/sticky.svg`} alt="" width={168} height={158} />
+
+          {/* 8 · foreground details */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="hx-layer hx-layer--spark-c" src={`${A}/spark.svg`} alt="" width={16} height={16} />
         </div>
@@ -167,3 +181,5 @@ export function HomeHero() {
     </div>
   )
 }
+
+export { HomeHero as EditorialAutomationHero }

@@ -8377,40 +8377,43 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO PIXEL-MATCH · target scrapboard (43/57 + strips)
+   EditorialAutomationHero · warm paper scrapboard (43/57)
    ═══════════════════════════════════════════════════════════ */
 
+.hx.editorial-hero,
 .hx {
-  --hx-paper: #f2eee9;
-  --hx-ink: var(--editorial-ink);
-  --hx-lilac: var(--editorial-lavender); /* #CDB4F2 bandas */
-  --hx-lav: var(--editorial-lila); /* #9A66D9 acento */
+  --hx-paper: var(--ds-bg, #F5F0EA);
+  --hx-ink: var(--ds-ink, #111117);
+  --hx-lilac: var(--ds-lavender, #B89AD6);
+  --hx-lav: var(--ds-lavender-dark, #9873BB);
+  position: relative;
   width: 100%;
-  background:
-    radial-gradient(ellipse 55% 45% at 92% 8%, color-mix(in srgb, var(--hx-lilac) 55%, transparent), transparent 70%),
-    radial-gradient(ellipse 40% 35% at 8% 78%, color-mix(in srgb, var(--editorial-rosa-bebe) 18%, transparent), transparent 65%),
-    var(--hx-paper);
+  background: var(--hx-paper);
+  overflow: hidden;
 }
 
 .hx-main {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.43fr) minmax(0, 0.57fr);
+  grid-template-columns: 43% 57%;
   gap: 0;
   align-items: stretch;
   width: 100%;
-  min-height: min(62svh, 36rem);
-  padding: clamp(7.25rem, 10vw, 8.25rem) clamp(1.25rem, 4vw, var(--ds-gutter)) 0.35rem;
-  overflow: visible;
+  max-width: var(--ds-container, 1536px);
+  margin-inline: auto;
+  min-height: 785px;
+  padding: 60px clamp(1.25rem, 4vw, 48px) 0;
+  overflow: hidden;
 }
 
 /* —— left copy —— */
 .hx-copy {
   position: relative;
-  z-index: 4;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0.25rem clamp(0.75rem, 2vw, 1.75rem) 2.75rem 0;
+  justify-content: flex-start;
+  padding: 12px 12px 3rem 0;
   max-width: 30rem;
 }
 
@@ -8421,11 +8424,12 @@ a.elara-chip:hover .elara-chip__label {
   padding: 0.38rem 0.7rem;
   background: var(--hx-lilac);
   color: #fff;
+  font-family: var(--font-mono);
   font-size: 0.64rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: var(--ds-radius-button, 2px);
 }
 
 .hx-title {
@@ -8437,10 +8441,10 @@ a.elara-chip:hover .elara-chip__label {
 
 .hx-impact {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.6rem, 5.6vw, 4.35rem);
-  letter-spacing: -0.045em;
-  line-height: 0.86;
+  font-weight: 500;
+  font-size: clamp(2.75rem, 5.8vw, 4.5rem);
+  letter-spacing: -0.02em;
+  line-height: 0.9;
   text-transform: uppercase;
   color: var(--hx-ink);
 }
@@ -8454,10 +8458,10 @@ a.elara-chip:hover .elara-chip__label {
 
 .hx-script {
   display: block;
-  font-family: var(--font-script);
+  font-family: var(--font-hand);
   font-style: normal;
-  font-weight: 400;
-  font-size: clamp(1.9rem, 3.8vw, 2.85rem);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1;
   color: var(--hx-lav);
   transform: rotate(-1.8deg);
@@ -8471,12 +8475,13 @@ a.elara-chip:hover .elara-chip__label {
   width: min(100%, 16.5rem);
   height: auto;
   pointer-events: none;
+  opacity: 0.85;
 }
 
 .hx-lead {
-  margin: 1rem 0 0;
+  margin: 1.1rem 0 0;
   max-width: 26rem;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   line-height: 1.62;
   color: var(--hx-ink);
 }
@@ -8486,7 +8491,7 @@ a.elara-chip:hover .elara-chip__label {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.85rem 1.1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.35rem;
 }
 
 .hx-btn {
@@ -8497,18 +8502,19 @@ a.elara-chip:hover .elara-chip__label {
   padding: 0.65rem 1.15rem;
   background: var(--hx-ink);
   color: #fff;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 2px 3px 0 color-mix(in srgb, var(--hx-lav) 40%, transparent);
+  border-radius: var(--ds-radius-button, 2px);
+  box-shadow: var(--ds-shadow-paper);
 }
 
 .hx-btn:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 2px 0 color-mix(in srgb, var(--hx-lav) 40%, transparent);
+  transform: translateY(1px);
+  box-shadow: 0 8px 18px var(--ds-paper-shadow);
 }
 
 .hx-link {
@@ -8517,14 +8523,15 @@ a.elara-chip:hover .elara-chip__label {
   gap: 0.35rem;
   min-height: 2.75rem;
   padding: 0.55rem 0.95rem;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--hx-ink);
   text-decoration: none;
-  border: 1px solid color-mix(in srgb, var(--hx-ink) 28%, transparent);
-  border-radius: 5px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-button, 2px);
   background: transparent;
 }
 
@@ -8540,11 +8547,12 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 .hx-aside {
-  margin: 1.1rem 0 0;
+  margin: 1.25rem 0 0;
   max-width: 16rem;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.02rem;
+  font-family: var(--font-hand);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.15rem;
   line-height: 1.35;
   color: var(--hx-lav);
 }
@@ -8552,51 +8560,55 @@ a.elara-chip:hover .elara-chip__label {
 .hx-cup {
   position: absolute;
   left: 0;
-  bottom: 0.35rem;
+  bottom: 0.5rem;
   width: 4.25rem;
   height: auto;
   transform: rotate(-8deg);
-  filter: drop-shadow(1px 3px 0 rgb(28 27 31 / .08));
+  filter: drop-shadow(0 8px 18px var(--ds-paper-shadow));
   pointer-events: none;
-  z-index: 2;
+  z-index: 12;
 }
 
-/* —— right collage —— */
+/* —— right collage (sin rectángulo contenedor) —— */
 .hx-collage {
   position: relative;
-  z-index: 2;
-  min-height: clamp(24rem, 48vw, 32rem);
-  margin-left: -14%;
+  z-index: 5;
+  height: 100%;
+  min-height: 720px;
+  margin-left: -8%;
+  overflow: visible;
 }
 
+/* 4 · portrait — centro visual, invade el eje, laptop al borde inferior */
 .hx-person {
   position: absolute;
-  inset: 2% -2% 4% -22%;
+  inset: 4% -6% -2% -22%;
   margin: 0;
   overflow: hidden;
   border-radius: 0;
   box-shadow: none;
-  z-index: 1;
-  background: var(--hx-paper);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 100%);
+  z-index: 4;
+  background: transparent;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
 }
 
 .hx-person__img {
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center 18%;
 }
 
+/* 2 · travel polaroid */
 .hx-polaroid {
   position: absolute;
-  top: 1%;
-  left: 4%;
+  top: 2%;
+  left: 6%;
   z-index: 5;
-  width: min(9.25rem, 30%);
+  width: min(9.25rem, 28%);
   margin: 0;
   padding: 0.4rem 0.4rem 1.35rem;
-  background: #fffcfa;
-  box-shadow: 1px 2px 0 rgb(28 27 31 / .08), 0 10px 0 -6px rgb(28 27 31 / .04);
+  background: var(--ds-bg-paper, #F8F5F0);
+  box-shadow: var(--ds-shadow-photo);
   transform: rotate(-8deg);
 }
 
@@ -8604,7 +8616,7 @@ a.elara-chip:hover .elara-chip__label {
   position: relative;
   aspect-ratio: 1 / 0.82;
   overflow: hidden;
-  background: var(--editorial-stone);
+  background: var(--ds-bg-grid);
 }
 
 .hx-polaroid__img {
@@ -8617,7 +8629,7 @@ a.elara-chip:hover .elara-chip__label {
   z-index: 6;
   height: 0.8rem;
   background: color-mix(in srgb, var(--editorial-gold) 58%, #f3e6c8);
-  opacity: 0.92;
+  opacity: 0.9;
   box-shadow: 0 1px 0 rgb(28 27 31 / .08);
 }
 
@@ -8649,31 +8661,45 @@ a.elara-chip:hover .elara-chip__label {
   z-index: 5;
   pointer-events: none;
   user-select: none;
-  filter: drop-shadow(1px 2px 0 rgb(28 27 31 / .1));
+  filter: drop-shadow(0 8px 18px var(--ds-paper-shadow));
 }
 
+/* 1 · textures */
 .hx-layer--graph {
-  bottom: 18%;
-  left: 22%;
-  width: min(9rem, 32%);
+  bottom: 16%;
+  left: 18%;
+  width: min(10rem, 34%);
   height: auto;
-  transform: rotate(-6deg);
-  z-index: 0;
-  opacity: 0.92;
-  filter: drop-shadow(1px 1px 0 rgb(28 27 31 / .06));
+  transform: rotate(-7deg);
+  z-index: 1;
+  opacity: 0.55;
+  filter: none;
 }
 
-.hx-layer--note {
-  top: 3%;
-  right: 16%;
-  width: min(10.75rem, 36%);
+.hx-layer--torn {
+  top: 38%;
+  left: -8%;
+  width: min(14rem, 48%);
   height: auto;
-  transform: rotate(2.5deg);
-  z-index: 6;
+  transform: rotate(-4deg);
+  z-index: 2;
+  opacity: 0.65;
+  filter: drop-shadow(0 6px 12px var(--ds-paper-shadow));
+}
+
+.hx-layer--brush {
+  top: 8%;
+  right: 18%;
+  width: min(12rem, 42%);
+  height: auto;
+  transform: rotate(6deg);
+  z-index: 2;
+  opacity: 0.7;
+  filter: none;
 }
 
 .hx-layer--boarding {
-  top: 0.5%;
+  top: 1%;
   right: -2%;
   width: min(8.25rem, 28%);
   height: auto;
@@ -8681,64 +8707,98 @@ a.elara-chip:hover .elara-chip__label {
   z-index: 6;
 }
 
-.hx-layer--sticky {
-  top: 20%;
-  right: -3%;
-  width: min(8.25rem, 28%);
-  height: auto;
-  transform: rotate(7deg);
-  z-index: 7;
-}
-
-.hx-layer--term {
-  top: 36%;
-  right: 2%;
-  width: min(11rem, 38%);
+.hx-layer--note {
+  top: 5%;
+  right: 14%;
+  width: min(10.75rem, 36%);
   height: auto;
   transform: rotate(2.5deg);
   z-index: 6;
 }
 
-.hx-layer--agent {
-  bottom: 12%;
-  left: -4%;
-  width: min(10.25rem, 34%);
-  height: auto;
-  transform: rotate(-5deg);
-  z-index: 6;
-}
-
-.hx-layer--workflow {
-  bottom: 1%;
-  right: 0;
-  width: min(11rem, 38%);
-  height: auto;
-  transform: rotate(2deg);
-  z-index: 7;
-}
-
-.hx-layer--drink {
-  bottom: 5%;
-  left: 30%;
-  width: 3.4rem;
+.hx-layer--sticky {
+  top: 22%;
+  right: -4%;
+  width: min(8.25rem, 28%);
   height: auto;
   transform: rotate(7deg);
   z-index: 8;
 }
 
+.hx-layer--term {
+  top: 36%;
+  right: 1%;
+  width: min(11rem, 38%);
+  height: auto;
+  transform: rotate(2.5deg);
+  z-index: 7;
+}
+
+.hx-layer--agent {
+  bottom: 10%;
+  left: -6%;
+  width: min(10.25rem, 34%);
+  height: auto;
+  transform: rotate(-5deg);
+  z-index: 7;
+}
+
+.hx-layer--workflow {
+  bottom: -1%;
+  right: -1%;
+  width: min(11.5rem, 40%);
+  height: auto;
+  transform: rotate(2deg);
+  z-index: 8;
+}
+
+.hx-layer--drink {
+  bottom: 3%;
+  left: 32%;
+  width: 3.5rem;
+  height: auto;
+  transform: rotate(7deg);
+  z-index: 9;
+}
+
 .hx-layer--clip {
-  bottom: 8%;
-  left: 18%;
+  bottom: 6%;
+  left: 16%;
   width: 1.35rem;
   height: auto;
   transform: rotate(-18deg);
-  z-index: 8;
-  filter: drop-shadow(1px 1px 0 rgb(28 27 31 / .12));
+  z-index: 9;
 }
 
-.hx-layer--spark-a { top: 14%; left: 42%; width: 1.4rem; height: auto; z-index: 8; filter: none; }
-.hx-layer--spark-b { top: 46%; right: 40%; width: 1rem; height: auto; z-index: 8; filter: none; }
-.hx-layer--spark-c { bottom: 30%; left: 12%; width: 0.85rem; height: auto; z-index: 8; filter: none; }
+.hx-layer--spark-a {
+  top: 16%;
+  left: 40%;
+  width: 1.4rem;
+  height: auto;
+  z-index: 9;
+  opacity: 0.7;
+  filter: none;
+}
+
+.hx-layer--spark-b {
+  top: 48%;
+  right: 38%;
+  width: 1rem;
+  height: auto;
+  z-index: 9;
+  opacity: 0.65;
+  filter: none;
+}
+
+.hx-layer--spark-c {
+  bottom: 22%;
+  left: 10%;
+  width: 0.9rem;
+  height: auto;
+  z-index: 10;
+  opacity: 0.7;
+  filter: none;
+}
 
 /* —— certification strip —— */
 .hx-cert {
@@ -8747,10 +8807,12 @@ a.elara-chip:hover .elara-chip__label {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.1rem;
-  margin: 0.35rem clamp(1.25rem, 3.5vw, 3rem) 0;
+  max-width: var(--ds-container);
+  margin: 0.5rem auto 0;
+  width: calc(100% - 2 * clamp(1.25rem, 4vw, 48px));
   padding: 0.85rem 1.15rem;
-  background: #fffcfa;
-  border: 1px solid color-mix(in srgb, var(--hx-lilac) 35%, var(--editorial-stone));
+  background: var(--ds-bg-paper, #F8F5F0);
+  border: 1px solid var(--ds-border);
   box-shadow: 1px 2px 0 rgb(28 27 31 / .05);
   transform: rotate(-0.4deg);
   clip-path: polygon(0.5% 2%, 99% 0%, 100% 97%, 1% 100%);
@@ -8761,7 +8823,7 @@ a.elara-chip:hover .elara-chip__label {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.95rem;
-  color: var(--editorial-cacao);
+  color: var(--ds-muted);
 }
 
 .hx-cert__list {
@@ -8779,7 +8841,7 @@ a.elara-chip:hover .elara-chip__label {
   border-radius: 2px;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--hx-ink);
 }
 
@@ -8806,8 +8868,8 @@ a.elara-chip:hover .elara-chip__label {
   gap: clamp(0.85rem, 2.2vw, 1.75rem);
   align-items: center;
   margin-top: 0.65rem;
-  padding: clamp(1rem, 2.2vw, 1.5rem) clamp(1.25rem, 3.5vw, 3rem);
-  background: var(--hx-lilac);
+  padding: clamp(1rem, 2.2vw, 1.5rem) clamp(1.25rem, 4vw, 48px);
+  background: var(--ds-lavender-strip, #D7C6E1);
   color: var(--hx-ink);
 }
 
@@ -8829,15 +8891,16 @@ a.elara-chip:hover .elara-chip__label {
 
 .hx-metrics__grid strong {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(1.3rem, 2.2vw, 1.75rem);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .hx-metrics__grid span {
+  font-family: var(--font-mono);
   font-size: 0.58rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--hx-ink) 70%, transparent);
@@ -8865,8 +8928,9 @@ a.elara-chip:hover .elara-chip__label {
 
 .hx-metrics__quote footer {
   margin-top: 0.45rem;
+  font-family: var(--font-mono);
   font-size: 0.64rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: color-mix(in srgb, var(--hx-ink) 62%, transparent);
@@ -8878,8 +8942,8 @@ a.elara-chip:hover .elara-chip__label {
   height: 6.15rem;
   margin: 0;
   padding: 0.28rem 0.28rem 1rem;
-  background: #fffcfa;
-  box-shadow: 1px 2px 0 rgb(28 27 31 / .1);
+  background: var(--ds-bg-paper);
+  box-shadow: var(--ds-shadow-photo);
   transform: rotate(5deg);
 }
 
@@ -8911,7 +8975,8 @@ a.elara-chip:hover .elara-chip__label {
     grid-template-columns: 1fr;
     min-height: auto;
     gap: 1.25rem;
-    overflow: clip;
+    padding-top: 2rem;
+    overflow: hidden;
   }
 
   .hx-collage {
@@ -8923,7 +8988,7 @@ a.elara-chip:hover .elara-chip__label {
   }
 
   .hx-person {
-    inset: 6% 6% 8% 6%;
+    inset: 4% 4% 0 4%;
     mask-image: none;
     -webkit-mask-image: none;
   }
@@ -8956,7 +9021,9 @@ a.elara-chip:hover .elara-chip__label {
   .hx-layer--spark-b,
   .hx-layer--spark-c,
   .hx-layer--term,
-  .hx-layer--graph {
+  .hx-layer--graph,
+  .hx-layer--torn,
+  .hx-layer--brush {
     display: none;
   }
 
