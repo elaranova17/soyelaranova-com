@@ -13,7 +13,8 @@
 | 2 | Collage capas (derecha) | `.scrap-collage--dense` | ✅ |
 | 3 | Franja tools | `.scrap-tools-strip` | ✅ |
 | 4 | Banda proof lavender | `.scrap-proof-band` | ✅ |
-| 5 | Resto home (tesis → embudo) | below fold | después |
+| 5 | ServicePreviewGrid | `#servicios-preview` | ✅ (site-config) |
+| 6 | Labs / Resource / Values | below fold | pending |
 
 ---
 

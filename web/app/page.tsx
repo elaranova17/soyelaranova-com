@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ImmersiveStory } from '@/components/immersive-story'
 import { HomeHero } from '@/components/home-hero'
+import { ServicePreviewGrid } from '@/components/sections/service-preview-grid'
 import { TrackedLink } from '@/components/tracked-link'
 import { serviceScenes } from '@/components/service-scenes'
 import { evelynPhotos } from '@/lib/evelyn-photos'
@@ -59,20 +60,7 @@ export default function HomePage() {
     <main className="home-shell">
       <HomeHero />
 
-      <section className="home-thesis" aria-label="Propuesta de Elara Nova">
-        <p>
-          <span className="home-thesis__impact">Enseño</span>
-          <em className="home-thesis__script">a automatizar con IA</em>
-        </p>
-        <p>
-          <span className="home-thesis__impact">Creo</span>
-          <em className="home-thesis__script">plantillas listas para usar</em>
-        </p>
-        <p>
-          <span className="home-thesis__impact">Construyo</span>
-          <em className="home-thesis__script">sistemas que venden</em>
-        </p>
-      </section>
+      <ServicePreviewGrid />
 
       <section id="servicios" className="home-intro">
         <div className="home-intro__lead">
