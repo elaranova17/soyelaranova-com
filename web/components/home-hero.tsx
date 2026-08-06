@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Plus } from 'lucide-react'
@@ -6,15 +8,200 @@ import { evelynPhotos } from '@/lib/evelyn-photos'
 const HERO_BLUR =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAhEAACAgICAQUAAAAAAAAAAAABAgQRAAMFEhMhMVFx8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREA/9oADAMBAAIRAxEAPwALi4cWRAktt6nYtKLeul+x/fGFKQyg5R7OJCc7MhRhWl9Fp2JFXQH36nDIEKKdLrL843I5RgoFCsAxdVkN/9k='
 
-const ABOUT_BLUR =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k='
-
 const A = '/brand/scrap/pixel'
+
+function Spark({ className, size }: { className: string; size: number }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={`scrap-spark ${className}`}
+      src={`${A}/star-quote.svg`}
+      alt=""
+      width={size}
+      height={size}
+    />
+  )
+}
+
+/** HeroScrapbookCollage — capas % independientes */
+function HeroScrapbookCollage() {
+  return (
+    <div className="hx-collage scrap-collage" aria-hidden="true">
+      {/* lavender brush */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="scrap-brush"
+        src="/textures/lavender-brush.png"
+        alt=""
+        width={400}
+        height={180}
+      />
+
+      {/* travel polaroid */}
+      <figure className="scrap-travel">
+        <span className="scrap-travel__tape" />
+        <div className="scrap-travel__photo">
+          <Image
+            src="/images/airplane-wing-sunset.png"
+            alt=""
+            fill
+            sizes="220px"
+            className="scrap-travel__img"
+          />
+        </div>
+      </figure>
+
+      {/* ideas notebook */}
+      <aside className="scrap-ideas">
+        {`ideas
+→ plan
+→ automate
+→ freedom  ♡`}
+      </aside>
+
+      {/* boarding pass */}
+      <aside className="scrap-boarding">
+        <p className="scrap-boarding__route">ZRH &nbsp;→&nbsp; MAD</p>
+        <p>14 MAY 25</p>
+        <p>SEAT 06A</p>
+        <p>BUSINESS</p>
+        <span className="scrap-boarding__barcode" />
+      </aside>
+
+      {/* main portrait (transparent) */}
+      <figure className="scrap-portrait">
+        <Image
+          src="/images/evelyn-transparent-hero.png"
+          alt=""
+          width={900}
+          height={1235}
+          priority
+          quality={90}
+          className="scrap-portrait__img"
+          sizes="(max-width: 900px) 90vw, 40vw"
+        />
+      </figure>
+
+      {/* lavender post-it */}
+      <aside className="scrap-postit">
+        <span className="scrap-postit__tape" />
+        {`No necesitas
+trabajar más.
+Necesitas
+diseñar mejor.  ♡`}
+      </aside>
+
+      {/* laptop */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="scrap-laptop"
+        src="/images/macbook-front.svg"
+        alt=""
+        width={900}
+        height={560}
+      />
+
+      {/* terminal */}
+      <div className="scrap-win scrap-win--term">
+        <header className="scrap-win__head">
+          <span className="scrap-win__dots" aria-hidden>
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>terminal</span>
+        </header>
+        <pre className="scrap-win__body">{`$ automate --life
+$ conectando ideas...
+$ creando sistema...
+$ más tiempo desbloqueado.
+$ listo.
+$ _`}</pre>
+      </div>
+
+      {/* agent_03.py */}
+      <div className="scrap-win scrap-win--agent">
+        <header className="scrap-win__head">
+          <span className="scrap-win__dots" aria-hidden>
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>agent_03.py</span>
+        </header>
+        <div className="scrap-win__body">
+          <p>status: running</p>
+          <p>objetivo:</p>
+          <p>+ libertad</p>
+          <p>+ enfoque</p>
+          <p>+ vida propia</p>
+          <div className="scrap-progress">
+            <span className="scrap-progress__track">
+              <span className="scrap-progress__fill" style={{ width: '70%' }} />
+            </span>
+            <em>70%</em>
+          </div>
+        </div>
+      </div>
+
+      {/* workflow.exe */}
+      <div className="scrap-win scrap-win--workflow">
+        <header className="scrap-win__head">
+          <span className="scrap-win__dots" aria-hidden>
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>workflow.exe</span>
+        </header>
+        <div className="scrap-win__body">
+          <p>01. idea</p>
+          <p>02. plan</p>
+          <p>03. automatizar</p>
+          <p>04. delegar</p>
+          <p>05. escalar</p>
+          <div className="scrap-progress">
+            <span className="scrap-progress__track scrap-progress__track--wf">
+              <span className="scrap-progress__fill scrap-progress__fill--wf" style={{ width: '100%' }} />
+            </span>
+            <em>100%</em>
+          </div>
+        </div>
+      </div>
+
+      {/* pink drink — delante del portátil, detrás de workflow */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="scrap-drink"
+        src="/images/pink-iced-drink-transparent.svg"
+        alt=""
+        width={200}
+        height={320}
+      />
+
+      {/* binder clip */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="scrap-clip"
+        src="/images/pink-binder-clip.svg"
+        alt=""
+        width={74}
+        height={80}
+      />
+
+      <Spark className="scrap-spark--a" size={20} />
+      <Spark className="scrap-spark--b" size={16} />
+      <Spark className="scrap-spark--c" size={25} />
+      <Spark className="scrap-spark--d" size={16} />
+      <Spark className="scrap-spark--e" size={20} />
+      <Spark className="scrap-spark--f" size={16} />
+    </div>
+  )
+}
 
 /**
  * EditorialAutomationHero — collage scrapboard 43/57
- * Capas: texturas → viaje → notebook → retrato → desk → terminales → stickers → foreground
- * Foto: Evelyn real (nunca el modelo del mock)
+ * Foto: Evelyn real cutout (nunca el modelo del mock)
  */
 export function HomeHero() {
   return (
@@ -69,81 +256,7 @@ crecen y viajan."`}
           />
         </div>
 
-        {/* ── right collage (~57%) — capas independientes, sin rectángulo contenedor ── */}
-        <div className="hx-collage" aria-hidden="true">
-          {/* 1 · background paper textures */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--graph" src={`${A}/graph.svg`} alt="" width={200} height={160} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--torn" src={`${A}/torn.svg`} alt="" width={320} height={120} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--brush" src={`${A}/brush.svg`} alt="" width={280} height={80} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--spark-a" src={`${A}/spark.svg`} alt="" width={28} height={28} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--spark-b" src={`${A}/spark.svg`} alt="" width={20} height={20} />
-
-          {/* 2 · travel photograph */}
-          <figure className="hx-polaroid">
-            <span className="hx-tape hx-tape--a" />
-            <span className="hx-tape hx-tape--b" />
-            <div className="hx-polaroid__frame">
-              <Image
-                src={evelynPhotos.homeHero}
-                alt=""
-                fill
-                quality={85}
-                placeholder="blur"
-                blurDataURL={HERO_BLUR}
-                sizes="180px"
-                className="hx-polaroid__img"
-              />
-            </div>
-          </figure>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--boarding" src={`${A}/boarding.svg`} alt="" width={160} height={70} />
-
-          {/* 3 · notebook paper */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--note" src={`${A}/note.svg`} alt="" width={210} height={80} />
-
-          {/* 4 · portrait (centro visual; invade el eje; laptop al borde inferior) */}
-          <figure className="hx-person">
-            <Image
-              src={evelynPhotos.homeAbout}
-              alt=""
-              fill
-              priority
-              quality={90}
-              placeholder="blur"
-              blurDataURL={ABOUT_BLUR}
-              sizes="(max-width: 900px) 95vw, 62vw"
-              className="hx-person__img"
-            />
-          </figure>
-
-          {/* 5 · desk objects */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--drink" src={`${A}/drink.svg`} alt="" width={70} height={100} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--clip" src="/brand/scrap/clip.svg" alt="" width={28} height={38} />
-
-          {/* 6 · terminal windows */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--term" src={`${A}/terminal.svg`} alt="" width={220} height={132} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--agent" src={`${A}/agent.svg`} alt="" width={200} height={148} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--workflow" src={`${A}/workflow.svg`} alt="" width={220} height={168} />
-
-          {/* 7 · stickers and tape */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--sticky" src={`${A}/sticky.svg`} alt="" width={168} height={158} />
-
-          {/* 8 · foreground details */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hx-layer hx-layer--spark-c" src={`${A}/spark.svg`} alt="" width={16} height={16} />
-        </div>
+        <HeroScrapbookCollage />
       </section>
 
       {/* ── certification-strip ── */}
@@ -203,3 +316,5 @@ crecen y viajan."`}
 }
 
 export { HomeHero as EditorialAutomationHero }
+export { HomeHero as HeroEditorialCopy }
+export { HeroScrapbookCollage }

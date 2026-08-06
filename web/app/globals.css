@@ -8592,7 +8592,6 @@ a.elara-chip:hover .elara-chip__label {
   height: 18px;
   margin-left: 0.35rem;
   vertical-align: bottom;
-  filter: brightness(0) saturate(100%) invert(68%) sepia(18%) saturate(700%) hue-rotate(220deg);
 }
 
 .hx-cup {
@@ -8607,236 +8606,378 @@ a.elara-chip:hover .elara-chip__label {
   z-index: 14;
 }
 
-/* —— right collage (sin rectángulo contenedor) —— */
+/* —— HeroScrapbookCollage (right · % coords) —— */
+.hx-collage.scrap-collage,
 .hx-collage {
   position: relative;
   z-index: 5;
-  height: 100%;
+  width: 100%;
+  height: 720px;
   min-height: 720px;
-  margin-left: -8%;
+  margin-left: -6%;
   overflow: visible;
 }
 
-/* 4 · portrait — centro visual, invade el eje, laptop al borde inferior */
-.hx-person {
+.scrap-brush {
   position: absolute;
-  inset: 4% -6% -2% -22%;
-  margin: 0;
-  overflow: hidden;
-  border-radius: 0;
-  box-shadow: none;
-  z-index: 4;
-  background: transparent;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 100%);
-}
-
-.hx-person__img {
-  object-fit: cover;
-  object-position: center 18%;
-}
-
-/* 2 · travel polaroid */
-.hx-polaroid {
-  position: absolute;
-  top: 2%;
-  left: 6%;
+  right: -10%;
+  top: 38%;
+  width: 34%;
+  height: auto;
   z-index: 5;
-  width: min(9.25rem, 28%);
-  margin: 0;
-  padding: 0.4rem 0.4rem 1.35rem;
-  background: var(--ds-bg-paper, #F8F5F0);
-  box-shadow: var(--ds-shadow-photo);
-  transform: rotate(-8deg);
+  opacity: 0.82;
+  pointer-events: none;
 }
 
-.hx-polaroid__frame {
+.scrap-travel {
+  position: absolute;
+  left: 4%;
+  top: 3%;
+  width: 31%;
+  margin: 0;
+  padding: 13px 13px 54px;
+  background: #F8F5F0;
+  box-shadow: 0 14px 28px rgba(42, 31, 49, 0.13);
+  transform: rotate(-7deg);
+  z-index: 7;
+}
+
+.scrap-travel__tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 90px;
+  height: 29px;
+  margin-left: -45px;
+  background: color-mix(in srgb, var(--editorial-gold) 55%, #f3e6c8);
+  opacity: 0.68;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.scrap-travel__photo {
   position: relative;
-  aspect-ratio: 1 / 0.82;
+  aspect-ratio: 1.15 / 1;
   overflow: hidden;
   background: var(--ds-bg-grid);
 }
 
-.hx-polaroid__img {
+.scrap-travel__img {
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center 40%;
 }
 
-.hx-tape {
+.scrap-ideas {
   position: absolute;
-  z-index: 6;
-  height: 0.8rem;
-  background: color-mix(in srgb, var(--editorial-gold) 58%, #f3e6c8);
-  opacity: 0.9;
-  box-shadow: 0 1px 0 rgb(28 27 31 / .08);
+  right: 12%;
+  top: 0%;
+  width: 29%;
+  min-height: 194px;
+  margin: 0;
+  padding: 35px 25px;
+  background: #F7F3EC;
+  color: #242128;
+  font-family: var(--font-hand);
+  font-size: clamp(1.05rem, 1.6vw, 24px);
+  font-weight: 500;
+  line-height: 1.18;
+  white-space: pre-line;
+  transform: rotate(4deg);
+  z-index: 8;
+  box-shadow: 0 10px 22px rgba(42, 31, 49, 0.1);
+  clip-path: polygon(0% 2%, 100% 0%, 98% 100%, 1% 97%);
 }
 
-.hx-tape--a {
-  top: -0.28rem;
-  left: 10%;
-  width: 3.2rem;
-  transform: rotate(-10deg);
-}
-
-.hx-tape--b {
-  top: -0.18rem;
-  right: 8%;
-  width: 2.6rem;
-  background: color-mix(in srgb, var(--hx-lilac) 55%, #f3e6c8);
-  transform: rotate(12deg);
-}
-
-.hx-tape--cert {
-  top: -0.35rem;
-  left: 22%;
-  width: 3.4rem;
-  transform: rotate(-6deg);
-  z-index: 2;
-}
-
-.hx-layer {
+.scrap-boarding {
   position: absolute;
-  z-index: 5;
-  pointer-events: none;
-  user-select: none;
-  filter: drop-shadow(0 8px 18px var(--ds-paper-shadow));
-}
-
-/* 1 · textures */
-.hx-layer--graph {
-  bottom: 16%;
-  left: 18%;
-  width: min(10rem, 34%);
-  height: auto;
-  transform: rotate(-7deg);
-  z-index: 1;
-  opacity: 0.55;
-  filter: none;
-}
-
-.hx-layer--torn {
-  top: 38%;
-  left: -8%;
-  width: min(14rem, 48%);
-  height: auto;
-  transform: rotate(-4deg);
-  z-index: 2;
-  opacity: 0.65;
-  filter: drop-shadow(0 6px 12px var(--ds-paper-shadow));
-}
-
-.hx-layer--brush {
-  top: 8%;
-  right: 18%;
-  width: min(12rem, 42%);
-  height: auto;
-  transform: rotate(6deg);
-  z-index: 2;
-  opacity: 0.7;
-  filter: none;
-}
-
-.hx-layer--boarding {
+  right: -3%;
   top: 1%;
-  right: -2%;
-  width: min(8.25rem, 28%);
-  height: auto;
-  transform: rotate(9deg);
-  z-index: 6;
-}
-
-.hx-layer--note {
-  top: 5%;
-  right: 14%;
-  width: min(10.75rem, 36%);
-  height: auto;
-  transform: rotate(2.5deg);
-  z-index: 6;
-}
-
-.hx-layer--sticky {
-  top: 22%;
-  right: -4%;
-  width: min(8.25rem, 28%);
-  height: auto;
-  transform: rotate(7deg);
-  z-index: 8;
-}
-
-.hx-layer--term {
-  top: 36%;
-  right: 1%;
-  width: min(11rem, 38%);
-  height: auto;
-  transform: rotate(2.5deg);
-  z-index: 7;
-}
-
-.hx-layer--agent {
-  bottom: 10%;
-  left: -6%;
-  width: min(10.25rem, 34%);
-  height: auto;
-  transform: rotate(-5deg);
-  z-index: 7;
-}
-
-.hx-layer--workflow {
-  bottom: -1%;
-  right: -1%;
-  width: min(11.5rem, 40%);
-  height: auto;
+  width: 25%;
+  height: 190px;
+  margin: 0;
+  padding: 1rem 1rem 1.1rem;
+  background: #F8F5EF;
+  border: 1px solid rgba(17, 17, 23, 0.06);
+  box-shadow: 0 8px 18px rgba(42, 31, 49, 0.10);
   transform: rotate(2deg);
-  z-index: 8;
-}
-
-.hx-layer--drink {
-  bottom: 3%;
-  left: 32%;
-  width: 3.5rem;
-  height: auto;
-  transform: rotate(7deg);
-  z-index: 9;
-}
-
-.hx-layer--clip {
-  bottom: 6%;
-  left: 16%;
-  width: 1.35rem;
-  height: auto;
-  transform: rotate(-18deg);
-  z-index: 9;
-}
-
-.hx-layer--spark-a {
-  top: 16%;
-  left: 40%;
-  width: 1.4rem;
-  height: auto;
-  z-index: 9;
-  opacity: 0.7;
-  filter: none;
-}
-
-.hx-layer--spark-b {
-  top: 48%;
-  right: 38%;
-  width: 1rem;
-  height: auto;
-  z-index: 9;
-  opacity: 0.65;
-  filter: none;
-}
-
-.hx-layer--spark-c {
-  bottom: 22%;
-  left: 10%;
-  width: 0.9rem;
-  height: auto;
   z-index: 10;
-  opacity: 0.7;
-  filter: none;
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.1vw, 18px);
+  line-height: 1.75;
+  color: #111117;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.scrap-boarding p {
+  margin: 0;
+}
+
+.scrap-boarding__route {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.scrap-boarding__barcode {
+  display: block;
+  margin-top: 0.55rem;
+  height: 28px;
+  width: 72%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #111117 0 2px,
+      transparent 2px 4px,
+      #111117 4px 5px,
+      transparent 5px 8px,
+      #111117 8px 9px,
+      transparent 9px 11px
+    );
+}
+
+.scrap-portrait {
+  position: absolute;
+  left: 24%;
+  top: 4%;
+  width: 55%;
+  margin: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.scrap-portrait__img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 18px 28px rgba(42, 31, 49, 0.14));
+}
+
+.scrap-postit {
+  position: absolute;
+  right: 4%;
+  top: 29%;
+  width: 20%;
+  height: 163px;
+  margin: 0;
+  padding: 26px 20px;
+  background: #D8BCEB;
+  color: #242128;
+  font-family: var(--font-hand);
+  font-size: clamp(0.9rem, 1.15vw, 17px);
+  font-weight: 500;
+  line-height: 1.28;
+  white-space: pre-line;
+  transform: rotate(7deg);
+  z-index: 18;
+  box-shadow: 0 10px 20px rgba(42, 31, 49, 0.12);
+}
+
+.scrap-postit__tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 62px;
+  height: 18px;
+  margin-left: -31px;
+  background: color-mix(in srgb, #F3E6C8 70%, var(--ds-lavender));
+  opacity: 0.75;
+  transform: rotate(-4deg);
+}
+
+.scrap-laptop {
+  position: absolute;
+  left: 16%;
+  bottom: 17px;
+  width: 49%;
+  height: auto;
+  z-index: 24;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 24px rgba(42, 31, 49, 0.16));
+}
+
+.scrap-win {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.scrap-win__head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 25px;
+  padding: 0 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.scrap-win__dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.scrap-win__dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  display: block;
+}
+
+.scrap-win__body {
+  margin: 0;
+  padding: 12px 15px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.scrap-win__body p {
+  margin: 0;
+}
+
+.scrap-win--term {
+  right: -1%;
+  top: 48%;
+  width: 31%;
+  height: 166px;
+  z-index: 28;
+  background: #121218;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 3px;
+  box-shadow: 0 12px 24px rgba(20, 15, 25, 0.20);
+}
+
+.scrap-win--term .scrap-win__head {
+  height: 23px;
+  background: #1c1c22;
+  color: #D1FAE5;
+}
+
+.scrap-win--term .scrap-win__dots i:nth-child(1) { background: #F0C4CF; }
+.scrap-win--term .scrap-win__dots i:nth-child(2) { background: #B89AD6; }
+.scrap-win--term .scrap-win__dots i:nth-child(3) { background: #C9A86A; }
+
+.scrap-win--term .scrap-win__body {
+  color: #EEE6B5;
+  font-size: 12px;
+  line-height: 1.72;
+}
+
+.scrap-win--agent {
+  left: -2%;
+  bottom: 58px;
+  width: 24%;
+  height: 174px;
+  z-index: 29;
+  background: #E5D8EE;
+  border: 1px solid #A787BE;
+  box-shadow: 0 8px 18px rgba(42, 31, 49, 0.14);
+}
+
+.scrap-win--agent .scrap-win__head {
+  background: #B99ACD;
+}
+
+.scrap-win--agent .scrap-win__body {
+  color: #111117;
+}
+
+.scrap-win--workflow {
+  right: 3%;
+  bottom: 28px;
+  width: 28%;
+  height: 174px;
+  z-index: 30;
+  background: #E3D6EB;
+  border: 1px solid #9D7CB6;
+  box-shadow: 0 8px 18px rgba(42, 31, 49, 0.14);
+}
+
+.scrap-win--workflow .scrap-win__head {
+  background: #B39AC8;
+}
+
+.scrap-win--workflow .scrap-win__body {
+  color: #111117;
+}
+
+.scrap-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+}
+
+.scrap-progress__track {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #C6B1D4;
+  overflow: hidden;
+}
+
+.scrap-progress__fill {
+  display: block;
+  height: 100%;
+  background: #7953B0;
+  border-radius: inherit;
+}
+
+.scrap-progress__track--wf {
+  background: #C9B8D4;
+}
+
+.scrap-progress__fill--wf {
+  background: #7750AC;
+}
+
+.scrap-progress em {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.scrap-drink {
+  position: absolute;
+  left: 58%;
+  bottom: 13px;
+  width: 17%;
+  height: auto;
+  z-index: 27;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 14px rgba(42, 31, 49, 0.14));
+}
+
+.scrap-clip {
+  position: absolute;
+  left: 43%;
+  bottom: 0%;
+  width: 74px;
+  height: auto;
+  transform: rotate(-9deg);
+  z-index: 31;
+  pointer-events: none;
+}
+
+.scrap-spark {
+  position: absolute;
+  z-index: 32;
+  pointer-events: none;
+}
+
+.scrap-spark--a { left: 2%; top: 38%; width: 20px; height: auto; }
+.scrap-spark--b { left: 8%; bottom: 22%; width: 16px; height: auto; }
+.scrap-spark--c { left: 51%; bottom: 3%; width: 25px; height: auto; }
+.scrap-spark--d { right: 1%; bottom: 16%; width: 16px; height: auto; }
+.scrap-spark--e { left: 48%; top: 12%; width: 16px; height: auto; }
+.scrap-spark--f { right: 28%; top: 42%; width: 20px; height: auto; }
 
 /* —— certification strip —— */
 .hx-cert {
@@ -9017,18 +9158,23 @@ a.elara-chip:hover .elara-chip__label {
     overflow: hidden;
   }
 
+  .hx-collage.scrap-collage,
   .hx-collage {
     margin-left: 0;
-    min-height: 26rem;
-    max-width: 32rem;
+    height: auto;
+    min-height: 28rem;
+    max-width: 34rem;
     margin-inline: auto;
     width: 100%;
   }
 
-  .hx-person {
-    inset: 4% 4% 0 4%;
-    mask-image: none;
-    -webkit-mask-image: none;
+  .scrap-boarding,
+  .scrap-brush,
+  .scrap-clip,
+  .scrap-spark--d,
+  .scrap-spark--e,
+  .scrap-spark--f {
+    display: none;
   }
 
   .hx-cup { display: none; }
@@ -9067,20 +9213,27 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 @media (max-width: 640px) {
-  .hx-layer--boarding,
-  .hx-layer--drink,
-  .hx-layer--clip,
-  .hx-layer--spark-b,
-  .hx-layer--spark-c,
-  .hx-layer--term,
-  .hx-layer--graph,
-  .hx-layer--torn,
-  .hx-layer--brush {
+  .scrap-travel,
+  .scrap-ideas,
+  .scrap-win--term,
+  .scrap-drink,
+  .scrap-spark--a,
+  .scrap-spark--b {
     display: none;
   }
 
   .hx-aside {
     max-width: 100%;
+  }
+
+  .scrap-portrait {
+    left: 18%;
+    width: 64%;
+  }
+
+  .scrap-laptop {
+    left: 10%;
+    width: 70%;
   }
 }
 

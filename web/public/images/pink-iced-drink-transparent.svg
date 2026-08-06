@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="320" viewBox="0 0 100 160" fill="none">
+  <defs>
+    <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F0C4CF" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#D8BCEB" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 36h44l-6 104H34L28 36Z" fill="url(#liq)" stroke="#111117" stroke-width="2"/>
+  <path d="M30 38h40l-.5 12H30.5L30 38Z" fill="#FFFBFC" fill-opacity=".4"/>
+  <rect x="26" y="24" width="48" height="14" rx="3" fill="#F0C4CF" stroke="#111117" stroke-width="2"/>
+  <rect x="48" y="4" width="4" height="24" rx="1" fill="#F0C4CF" stroke="#111117" stroke-width="1.5"/>
+  <rect x="34" y="78" width="32" height="18" rx="2" fill="#FFFBFC" stroke="#111117" stroke-width="1.2"/>
+  <text x="50" y="90" text-anchor="middle" fill="#111117" font-family="Georgia,serif" font-style="italic" font-size="7">Elara Nova.</text>
+</svg>
