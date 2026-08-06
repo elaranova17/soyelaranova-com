@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 210 80" fill="none">
+  <defs><filter id="d" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#1C1B1F" flood-opacity=".12"/></filter></defs>
+  <g filter="url(#d)">
+    <rect width="210" height="80" fill="#FFFBFC" stroke="#E7E3DF"/>
+    <line x1="14" y1="28" x2="196" y2="28" stroke="#E7E3DF"/><line x1="14" y1="48" x2="196" y2="48" stroke="#E7E3DF"/><line x1="14" y1="68" x2="196" y2="68" stroke="#E7E3DF"/>
+    <circle cx="105" cy="2" r="7" fill="#9A66D9" stroke="#1C1B1F" stroke-width="1.5"/>
+    <text x="16" y="44" fill="#1C1B1F" font-family="Georgia, serif" font-style="italic" font-size="12">ideas → plan → automate → freedom ♡</text>
+  </g>
+</svg>

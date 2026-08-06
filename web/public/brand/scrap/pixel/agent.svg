@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="296" viewBox="0 0 200 148" fill="none">
+  <defs><filter id="d" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#1C1B1F" flood-opacity=".14"/></filter></defs>
+  <g filter="url(#d)">
+    <rect width="200" height="148" rx="6" fill="#E8DDF6" stroke="#1C1B1F" stroke-opacity=".12"/>
+    <rect width="200" height="28" rx="6" fill="#9A66D9"/><rect y="16" width="200" height="12" fill="#9A66D9"/>
+    <circle cx="16" cy="14" r="3.5" fill="#fff" opacity=".85"/><circle cx="28" cy="14" r="3.5" fill="#fff" opacity=".85"/><circle cx="40" cy="14" r="3.5" fill="#fff" opacity=".85"/>
+    <text x="54" y="18" fill="#fff" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="11" font-weight="600">agent_03.py</text>
+    <text x="16" y="48" fill="#6E6A66" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="9">status: running · 70%</text>
+    <rect x="16" y="56" width="168" height="6" rx="3" fill="#1C1B1F" fill-opacity=".1"/>
+    <rect x="16" y="56" width="118" height="6" rx="3" fill="#9A66D9"/>
+    <text x="16" y="84" fill="#1C1B1F" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">• libertad</text>
+    <text x="16" y="106" fill="#1C1B1F" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">• enfoque</text>
+    <text x="16" y="128" fill="#1C1B1F" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">• vida propia</text>
+  </g>
+</svg>

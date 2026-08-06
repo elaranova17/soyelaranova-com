@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="264" viewBox="0 0 220 132" fill="none">
+  <defs><filter id="d" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#1C1B1F" flood-opacity=".22"/></filter></defs>
+  <g filter="url(#d)">
+    <rect width="220" height="132" rx="6" fill="#1C1B1F"/>
+    <rect width="220" height="28" rx="6" fill="#2A2830"/><rect y="16" width="220" height="12" fill="#2A2830"/>
+    <circle cx="16" cy="14" r="3.5" fill="#F5A7C4"/><circle cx="28" cy="14" r="3.5" fill="#CDB4F2"/><circle cx="40" cy="14" r="3.5" fill="#C9A86A"/>
+    <text x="54" y="18" fill="#D1FAE5" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="11" font-weight="600">terminal</text>
+    <text x="16" y="52" fill="#A7F3D0" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">$ automate --life</text>
+    <text x="16" y="74" fill="#FDE68A" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">$ conectando ideas…</text>
+    <text x="16" y="96" fill="#A7F3D0" font-family="ui-monospace,IBM Plex Mono,monospace" font-size="12">$ menos a mano ✓</text>
+  </g>
+</svg>
