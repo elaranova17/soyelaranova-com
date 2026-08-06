@@ -8174,3 +8174,138 @@ a.elara-chip:hover .elara-chip__label {
     margin-inline: auto;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   Hero CLEAN · assets Figma (sin placeholders)
+   ═══════════════════════════════════════════════ */
+
+.scrap-hero--clean {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  min-height: min(100svh, 52rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.scrap-hero--clean .scrap-hero__copy {
+  position: relative;
+  z-index: 3;
+  isolation: isolate;
+  max-width: 34rem;
+}
+
+.scrap-hero--clean .scrap-brand {
+  display: block;
+}
+
+.scrap-hero--clean .scrap-hero__impact {
+  font-weight: 900;
+  font-size: clamp(2.85rem, 6.5vw, 4.75rem);
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-shadow:
+    0.05em 0.08em 0 color-mix(in srgb, var(--editorial-lavender) 72%, transparent),
+    0 14px 32px rgb(28 27 31 / .12);
+}
+
+.scrap-hero--clean .scrap-hero__script {
+  font-size: clamp(1.9rem, 4vw, 2.85rem);
+  margin-top: 0.04em;
+}
+
+.scrap-hero--clean .scrap-hero__lead {
+  max-width: 28rem;
+  margin-top: 1.35rem;
+  font-size: 1.05rem;
+  color: var(--editorial-cacao);
+}
+
+.scrap-hero--clean .scrap-hero__proof {
+  display: block;
+  margin-top: 1.35rem;
+}
+
+.scrap-hero--clean .scrap-hero__stage {
+  position: relative;
+  z-index: 1;
+  min-height: clamp(26rem, 52vw, 34rem);
+  overflow: visible;
+}
+
+.scrap-collage--clean {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.scrap-collage--clean .scrap-polaroid--hero {
+  inset: 6% 14% 12% 10%;
+  z-index: 1;
+  transform: rotate(-2deg);
+  animation: scrap-settle 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.scrap-asset {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 24px rgb(28 27 31 / .14));
+}
+
+.scrap-asset--sticky {
+  top: 2%;
+  right: 0;
+  width: min(9.5rem, 34%);
+  height: auto;
+  transform: rotate(5deg);
+  z-index: 5;
+  animation: scrap-pop 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+.scrap-asset--note {
+  top: 8%;
+  left: 0;
+  width: min(11.5rem, 42%);
+  height: auto;
+  transform: rotate(-5deg);
+  z-index: 5;
+  animation: scrap-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.scrap-asset--workflow {
+  right: -2%;
+  bottom: 2%;
+  width: min(13rem, 48%);
+  height: auto;
+  transform: rotate(3deg);
+  z-index: 5;
+  animation: scrap-window-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+}
+
+@media (max-width: 900px) {
+  .scrap-hero--clean {
+    grid-template-columns: 1fr;
+  }
+
+  .scrap-hero--clean .scrap-hero__stage {
+    min-height: 24rem;
+    max-width: 26rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .scrap-asset--note {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrap-collage--clean .scrap-polaroid--hero,
+  .scrap-asset--sticky,
+  .scrap-asset--note,
+  .scrap-asset--workflow {
+    animation: none !important;
+  }
+}

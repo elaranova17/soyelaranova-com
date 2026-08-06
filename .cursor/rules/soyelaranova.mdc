@@ -24,6 +24,8 @@ Servicios freelance/estudio siguen en la web pero **sin promoción activa** mien
 - Tipografías: **Satoshi** ExtraBold (display) · **Great Vibes** (script grande hero) ·
   **Instrument Serif** italic (acentos chicos/h2) · **IBM Plex Mono** (UI/code) · **Inter** (cuerpo).
   Fórmula moodboard: bold sans + script delicada. Great Vibes solo grande.
+- **Assets scrapboard siempre en Figma primero** (`Hero Scrap Assets · C3`) → export PNG →
+  `web/public/brand/scrap/figma/`. Ver `docs/FIGMA_ASSETS_FIRST.md`. Sin placeholders CSS.
 - Paleta board: cream `#FFF6F8` · lilac `#CDB4F2` · lavender `#9A66D9` · soft pink `#F5A7C4` · deep `#1C1B1F` · warm grey `#E7E3DF` · gold `#C9A86A`.
 - CTA principal = deep purple/charcoal. Collage: Polaroid + tape + sticky + ventanas UI.
 - Navbar única `.site-nav` + logo (`public/brand/`).
