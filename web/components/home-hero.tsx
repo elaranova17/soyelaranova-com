@@ -303,7 +303,7 @@ Y REPITEN`}</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="metrics-strip__seal"
-            src={`${A}/seal-metrics.svg`}
+            src={`${A}/seal.svg`}
             alt=""
             width={102}
             height={102}

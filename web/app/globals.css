@@ -8424,7 +8424,7 @@ a.elara-chip:hover .elara-chip__label {
   position: relative;
   width: 100%;
   background: var(--hx-paper);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .hx-main {
@@ -9076,6 +9076,132 @@ a.elara-chip:hover .elara-chip__label {
 }
 
 /* legacy hx-cert removed — CertificationTape lives inside .hx-main */
+
+/* —— EditorialMetricsStrip —— */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.05fr 0.9fr 2.35fr 0.8fr;
+  align-items: stretch;
+  width: 100%;
+  height: 145px;
+  margin: 0;
+  padding: 0;
+  background: #D9C9E4;
+  border-top: 1px solid rgba(17, 17, 23, 0.10);
+  overflow: hidden;
+  color: #111117;
+}
+
+.metrics-strip__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-right: 1px solid rgba(17, 17, 23, 0.18);
+}
+
+.metrics-strip__cell strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #111117;
+}
+
+.metrics-strip__cell span {
+  margin-top: 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: pre-line;
+  color: #111117;
+}
+
+.metrics-strip__seal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(17, 17, 23, 0.18);
+}
+
+.metrics-strip__seal {
+  width: 102px;
+  height: 102px;
+  transform: rotate(-7deg);
+}
+
+.metrics-strip__quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 20px 30px;
+  border-right: 1px solid rgba(17, 17, 23, 0.18);
+}
+
+.metrics-strip__quote p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: pre-line;
+  color: #111117;
+}
+
+.metrics-strip__quote footer {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111117;
+}
+
+.metrics-strip__polaroid {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transform: translateY(18px) rotate(7deg);
+}
+
+.metrics-strip__polaroid-frame {
+  position: relative;
+  width: 190px;
+  height: 160px;
+  padding: 8px 8px 28px;
+  background: #F8F5F0;
+  box-shadow: 0 10px 22px rgba(42, 31, 49, 0.14);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.metrics-strip__polaroid-img {
+  display: block;
+  width: 100%;
+  height: calc(100% - 20px);
+  object-fit: cover;
+}
+
+.metrics-strip__clip {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 28px;
+  height: auto;
+  margin-left: -14px;
+  z-index: 2;
+  transform: rotate(-8deg);
+}
 
 /* ═══════════════════════════════════════════════════════════
    Responsive · hero / collage / cert / metrics
