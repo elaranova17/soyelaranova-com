@@ -40,7 +40,6 @@ export function HomeHero() {
             Explorar servicios +
           </Link>
         </div>
-        <p className="scrap-hero__proof">8 años automatizando · 6 en banca</p>
       </div>
 
       <div className="scrap-hero__stage" aria-hidden="true">
